@@ -173,7 +173,6 @@ The following dosing scenarios were simulated and compared to respective data fo
 |                                                              | [Zimmermann 1996](#5-References)      |
 | po 15 mg (tablet) - with 1h after high-fat breakfast        | [Bornemann 1986](#5-References)       |
 | po 2 mg (solution)                                           | [Templeton 2010](#5-References)       |
-| po 2.5 mg (solution)                                         | [Okudaira 2007](#5-References)        |
 | po 20 mg (tablet)                                            | [Heizmann 1983](#5-References)        |
 | po 3 mg (solution)                                           | [Katzenmaier 2010](#5-References)     |
 |                                                              | [Kharasch 2004](#5-References)        |
@@ -449,8 +448,6 @@ Simulated versus observed concentration-time profiles of all data listed in [Sec
 ![030_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/030_plotTimeProfile.png)
 
 ![031_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/031_plotTimeProfile.png)
-
-![032_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/032_plotTimeProfile.png)
 
 # 4 Conclusion
 The herein presented PBPK model adequately describes the pharmacokinetics of midazolam in adults.
