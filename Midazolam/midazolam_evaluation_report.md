@@ -8,7 +8,7 @@
 | ----------------------------------------------- | ------------------------------------------------------------ |
 | based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Midazolam-Model/releases/tag/v1.0 |
 | OSP Version                                     | 9.0                                                          |
-| Qualification Framework Version                 | 2.1                                                          |
+| Qualification Framework Version                 | 2.2                                                          |
 
 
 
