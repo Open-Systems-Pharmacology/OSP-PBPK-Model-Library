@@ -30,7 +30,7 @@ https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/
   * [4 Conclusion](#4-conclusion)
   * [5 References](#5-references)
 # 1 Introduction
-Mefenamic acid is a nonsteroidal anti-inflammatory drug (NSAIDs). The mechanism of action of mefenamic acid, like that of other NSAIDs, is not completely understood but involves inhibition of cyclooxygenase (COX-1 and COX-2).
+Mefenamic acid is a nonsteroidal anti-inflammatory drug (NSAID). The mechanism of action of mefenamic acid, like that of other NSAIDs, is not completely understood but involves inhibition of cyclooxygenase (COX-1 and COX-2).
 
 Mefenamic acid has been described to undergo metabolism by CYP2C9; it is also glucuronidated directly ([DrugBank DB00784](#5-References)).
 
@@ -58,8 +58,7 @@ A base mean model was built using clinical Phase I data including data from publ
 
 Unknown parameters (see below) were identified using the Parameter Identification module provided in PK-Sim®. Structural model selection was mainly guided by visual inspection of the resulting description of data and biological plausibility.
 
-Finally, an *in vitro* in-house determined K<sub>i</sub> value of mefenamic acid on glucuronidation of propofol via
-UGT1A9 was applied to incorporate reversible UGT1A9 inhibition.
+Finally, an *in vitro* in-house determined K<sub>i</sub> value of mefenamic acid on glucuronidation of propofol via UGT1A9 was applied to incorporate reversible UGT1A9 inhibition.
 
 Details about input data (physicochemical, *in vitro* and clinical) can be found in [Section 2.2](#22-Data).
 
@@ -69,7 +68,7 @@ Details about the structural model and its parameters can be found in [Section 2
 ## 2.2 Data
 ### 2.2.1 In vitro / physicochemical Data
 
-A literature search was performed to collect available information on physiochemical properties of dapagliflozin. The obtained information from literature is summarized in the table below. 
+A literature search was performed to collect available information on physiochemical properties of mefenamic acid. The obtained information from literature is summarized in the table below. 
 
 | **Parameter**   | **Unit** | **Value** | Source                                                       | **Description**                                 |
 | :-------------- | -------- | --------- | ------------------------------------------------------------ | ----------------------------------------------- |
@@ -80,27 +79,27 @@ A literature search was performed to collect available information on physiochem
 |                 |          | 5.33      | [Vitas-M Lab ID: STK666691](#5-References)<br />(experimental) | Partition coefficient between octanol and water |
 | fu              | %        | 1.9       | [Goosen 2016](#5-References)                                 | Fraction unbound in plasma                      |
 
-With regard to UGT1A9 inhibition, mefenamic acid inhibited propofol glucuronidation in recombinant UGT1A9 by a mixed-type mechanism, however close to a competitive type (in-house [Jungmann 2019](#5-References)):
+With regard to UGT1A9 inhibition, mefenamic acid inhibited propofol glucuronidation in recombinant UGT1A9 by a mixed-type mechanism, however close to a competitive type (*BAYER in-house*: [Jungmann 2019](#5-References)):
 
 | **Parameter**    | **Unit** | **Value** | Source                          | **Description**                      |
 | :--------------- | -------- | --------- | ------------------------------- | ------------------------------------ |
 | K<sub>i</sub>    | µmol/L   | 0.30      | [Jungmann 2019](#5-References) | Inhibition constant                  |
 | Alpha            |          | 71        | [Jungmann 2019](#5-References) | Alpha value in mixed-type inhibition |
-| fu<sub>mic</sub> | %        | 1         | [Fricke 2020](#5-References)   | determined *in vitro* at 0.30 µmol/L |
+| fu<sub>inc</sub> | %        | 1         | [Fricke 2020](#5-References)   | determined *in vitro* at 0.30 µmol/L of mefenamic acid |
 
 ### 2.2.2 Clinical Data
 
 A literature search was performed to collect available clinical data on mefenamic acid in adults. 
 
-The following publications were found in adults and, unless noted otherwise, used for model building and evaluation:
+The following publications were found for adults and, unless noted otherwise, used for model building and evaluation:
 
-| Publication                                   | Study description                                            |
-| :-------------------------------------------- | :----------------------------------------------------------- |
-| [Hamaguchi 1987](#5-References)               | Treatment 2 - fasted with 200 mL of water - with an oral single dose of 250 mg, fasted |
-| [Mahadik 2012](#5-References)                 | Reference (Ponstan capsule)  with an oral single dose of 250 mg, fasted |
-| [Rouini 2005](#5-References)                  | Reference (Ponstan capsule) with an oral single dose of 250 mg, fasted |
-| [Becker 2015](#5-References) <br />(in-house) | 500 mg oral dose, fed condition,<br />then 250 mg oral dose every 6 h (8 doses), fed conditions<br />***confidential data*** |
-| [Goosen 2017](#5-References)                  | ***not used for model building (unclear study design)***<br />500 mg oral dose |
+| Publication                                           | Study description                                            |
+| :---------------------------------------------------- | :----------------------------------------------------------- |
+| [Hamaguchi 1987](#5-References)                       | Treatment 2 - fasted with 200 mL of water - with an oral single dose of 250 mg, fasted |
+| [Mahadik 2012](#5-References)                         | Reference (Ponstan capsule)  with an oral single dose of 250 mg, fasted |
+| [Rouini 2005](#5-References)                          | Reference (Ponstan capsule) with an oral single dose of 250 mg, fasted |
+| [Becker 2015](#5-References) <br />(*BAYER in-house*) | 500 mg oral dose, fed condition,<br />then 250 mg oral dose every 6 h (8 doses), fed conditions<br />***confidential data*** |
+| [Goosen 2017](#5-References)                          | ***not used for model building (unclear study design)***<br />500 mg oral dose |
 
 
 ## 2.3 Model Parameters and Assumptions
@@ -108,15 +107,13 @@ The following publications were found in adults and, unless noted otherwise, use
 
 Studies including only oral applications of mefenamic acid could be used for model building. During model building  the *in vivo* intestinal permeability and an effective *in vivo* solubility in this PBPK model were optimized (see also [Section 2.3.5](#235-Automated-Parameter-Identification)).
 
-Dissolution kinetics of the Ponstan capsule  were implemented via an empirical Weibull dissolution tablet. It was tried to identify the respective parameters. Model building, however, showed that these parameters do not appear to be rate-limiting. Thus, the values were fixed to an instantaneous release with a `Dissolution time (50% dissolved)` of 1 minute and a `Dissolution shape` of 10. 
+Dissolution kinetics of the Ponstan capsule  were implemented via an empirical Weibull dissolution function. It was tried to identify the respective parameters. Model building, however, showed that these parameters do not appear to be rate-limiting. Thus, the values were fixed to an instantaneous release with a `Dissolution time (50% dissolved)` of 1 minute and a `Dissolution shape` of 10. 
 
-Mefenamic acid is typically administered in fed conditions. Mefenamic acid was administered in the in-house study ([Becker 2015](#5-References)) with meals or snacks.
-
-For the 5th administration at 24 h in this study (simultaneous administration with vericiguat) a standard meal in PK-Sim `Meal: High-fat breakfast (Human)` was considered. All other administration considered a snack. The parameter (`Meal energy content`) for this snack was optimized to best match clinical data  (see also [Section 2.3.5](#235-Automated-Parameter-Identification)).
+Mefenamic acid is typically administered in fed conditions. Mefenamic acid was administered in the in-house study ([Becker 2015](#5-References)) with meals or snacks. For the 5th administration at 24 h in this study (simultaneous administration with vericiguat) a standard meal in PK-Sim `Meal: High-fat breakfast (Human)` was considered. All other administration considered a snack. The parameter `Meal energy content` for this snack was optimized to best match clinical data  (see also [Section 2.3.5](#235-Automated-Parameter-Identification)).
 
 ### 2.3.2 Distribution
 
-Mefenamic acid was reported as being greater than 90% bound to albumin in plasma ([Champion 1978](#5-References)). However, exact values are unknown. Goosen *et al.* ([Champion 1978](#5-References)) reported a fraction unbound in 2% bovine serum albumin solution of 3.8%. Assuming human serum albumin (HSA) as major binding partner and a HSA concentration in plasma *in vivo* of 40 g/dL = 4%, a calculated fraction unbound in plasma of 1.9% can be obtained. This value was used in this PBPK model. 
+Mefenamic acid was reported as being greater than 90% bound to albumin in plasma ([Champion 1978](#5-References)). However, exact values are unknown. Goosen *et al.* ([Goosen 2017](#5-References)) reported a fraction unbound in 2% bovine serum albumin solution of 3.8%. Assuming human serum albumin (HSA) as major binding partner and a HSA concentration in plasma *in vivo* of 40 g/dL = 4%, a calculated fraction unbound in plasma of 1.9% can be obtained. This value was used in this PBPK model. 
 
 An important parameter influencing the resulting volume of distribution is lipophilicty. The reported experimental logP values were in the range of 5. This value served as a starting value. Finally, the model parameter `Lipophilicity` was optimized to best match clinical data (see also [Section 2.3.5](#235-Automated-Parameter-Identification)).
 
@@ -124,16 +121,16 @@ After testing the available organ-plasma partition coefficient and cell permeabi
 
 ### 2.3.3 Metabolism and Elimination
 
-Since this PBPK model was built for the purpose of acting as a perpetrator drug for UGT-mediated drug-drug interactions, no detailed representation of the metabolism and excretion was implemented. A simple unspecific hepatic clearance was optimized to best match clinical data (see also [Section 2.3.5](#235-Automated-Parameter-Identification)).
+Since this PBPK model was built for the purpose of acting as a perpetrator drug for UGT1A9-mediated drug-drug interactions, no detailed representation of the metabolism and excretion was implemented. A simple unspecific hepatic clearance was optimized to best match clinical data (see also [Section 2.3.5](#235-Automated-Parameter-Identification)).
 
 ### 2.3.4 UGT1A9 Inhibition
 
-An in-house *in vitro* study ([Jungmann 2019](#5-References)) evaluated the inhibitory constant (K<sub>i</sub>) of mefenamic acid on the glucuronidation of the selective substrate propofol in recombinant UGT1A9. A mixed-type mechanism, however close to a competitive type, was found. After correcting for fraction unbound, the obtained *in vitro* values were directly implemented:
+An in-house *in vitro* study ([Jungmann 2019](#5-References)) evaluated the inhibitory constant (K<sub>i</sub>) of mefenamic acid on the glucuronidation of the selective substrate propofol in recombinant UGT1A9. A mixed-type mechanism, however close to a competitive type, was found. After correcting for fraction unbound (but here this was 1 ([Fricke 2020](#5-References)), the obtained *in vitro* values were directly implemented:
 
-| **Model Parameter** | Value  | Unit   | **Description**       |
-| :------------------ | ------ | ------ | --------------------- |
-| `Ki_c`              | 0.291  | µmol/L | K<sub>i</sub>         |
-| `Ki_u`              | 20.661 | µmol/L | Alpha * K<sub>i</sub> |
+| **Model Parameter** | Value | Unit   | **Description**                           |
+| :------------------ | ----- | ------ | ----------------------------------------- |
+| `Ki_c`              | 0.3   | µmol/L | K<sub>i</sub> * f<sub>u,inc</sub>         |
+| `Ki_u`              | 21.3  | µmol/L | Alpha * K<sub>i</sub> * f<sub>u,inc</sub> |
 
 
 ### 2.3.5 Automated Parameter Identification
@@ -244,6 +241,8 @@ GMFE = 1.605453
 
 ## 3.3 Concentration-Time Profiles
 Simulated versus observed concentration-time profiles of all data listed in [Section 2.2.2](#222-Clinical-Data) are presented below.
+
+*Note that data from [Becker 2015](#5-References) are not shown for data confidentiality reasons. Some plots may be duplicated.*
 ![001_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_plotTimeProfile.png)
 
 ![002_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_plotTimeProfile.png)
@@ -272,8 +271,7 @@ In particular, it applies inhibition of UGT1A9. The model is fit for purpose to 
 **Becker 2015** Becker C, Boettcher M.-F. Study 17116: Interaction study to investigate the influence of a starting dose of 500 mg followed by multiple doses of 250 mg mefenamic acid every 6 hours on pharmacokinetics as well as safety and tolerability of a single dose of 2.5 mg vericiguat in comparison to a single dose of 2.5 mg vericiguat alone in healthy male subjects in a randomized, non-blinded, non-placebo-controlled, two-fold cross-over design. Bayer AG Clinical study report. 2015 Oct. Report-No. PH-38616.
 ***confidential data***
 
-**Champion 1978** Champion GD, Graham GG: Pharmacokinetics of non-steroidal anti-inflammatory
-agents. Aust NZ J Med. 8 (Supp 1): 94-100, Jun 1978.
+**Champion 1978** Champion GD, Graham GG: Pharmacokinetics of non-steroidal anti-inflammatory agents. Aust NZ J Med. 8 (Supp 1): 94-100, Jun 1978.
 
 **DrugBank DB00784** (https://www.drugbank.ca/drugs/DB00784)
 
