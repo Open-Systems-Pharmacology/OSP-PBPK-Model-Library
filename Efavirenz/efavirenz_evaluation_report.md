@@ -59,7 +59,7 @@ Details about the structural model and its parameters can be found in  [Section 
 
 
 ## 2.2 Data
-### 2.2.1	In vitro / physico-chemical Data
+### 2.2.1 In vitro / physico-chemical Data
 
 A literature search was performed to collect available information on physiochemical properties of efavirenz. The obtained information from literature is summarized in the table below. 
 
@@ -77,11 +77,11 @@ A literature search was performed to collect available information on physiochem
 | EC50 (CYP2B6) | µmol/l | 5.1       | [Ke 2016](#5-References) | Concentration at half maximum induction |
 
 
-### 2.2.2	Clinical Data
+### 2.2.2 Clinical Data
 
 A literature search was performed to collect available clinical data on efavirenz in healthy adults.
 
-#### 2.2.2.1	Model Building
+#### 2.2.2.1 Model Building
 
 The following studies were used for model building:
 
@@ -96,7 +96,7 @@ The following studies were used for model building:
 
 
 
-#### 2.2.2.2	Midazolam interaction studies used to parameterize CYP3A4 interaction
+#### 2.2.2.2 Midazolam interaction studies used to parameterize CYP3A4 interaction
 
 The following studies were used for parameterization of CYP3A4 interaction:
 
@@ -106,21 +106,21 @@ The following studies were used for parameterization of CYP3A4 interaction:
 | [Katzenmaier 2010](#5-References) | Healthy subjects receiving multiple oral doses of 400 mg efavirenz QD. On day 14, subjects receive a single oral midazolam dose of 3 mg. |
 
 ## 2.3 Model Parameters and Assumptions
-### 2.3.1	Absorption
+### 2.3.1 Absorption
 
 Absorption observed in clinical studies can be fully explained by passive absorption.
 
-### 2.3.2	Distribution
+### 2.3.2 Distribution
 
 After testing the available organ-plasma partition coefficient and cell permeability calculation methods built in PK-Sim, observed clinical data was best described by choosing the partition coefficient calculation by `Schmitt` and cellular permeability calculation by `PK-Sim Standard`. 
 
-### 2.3.3	Metabolism, Elimination and Induction
+### 2.3.3 Metabolism, Elimination and Induction
 
 Efavirenz is metabolized by CYP2B6, CYP3A4, CYP3A5, CYP1A2 and CYP2A6. 
 
 Induction of CYP3A4  ([Shou 2008](#5-References)) and CYP2B6 ([Ke 2016](#5-References)) was taken into account.
 
-### 2.3.4	Automated Parameter Identification
+### 2.3.4 Automated Parameter Identification
 
 The parameter identification tool in PK-Sim has been used to estimate selected model parameters by adjusting to PK data of the clinical studies that were used in the model building process. For some of the parameters, factors were optimized to maintain their ratio, e.g. a factor for the kcat clearances values for CYP2B6, CYP3A4, CYP3A5, CYP1A2 and CYP2A6 was optimized to keep the ratio constant.
 
