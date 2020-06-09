@@ -36,9 +36,7 @@ The presented model building and evaluation report evaluates the performance of 
 
 Atazanavir, sold under the trade name Reyataz among others, is an azapeptide protease inhibitor and used as antiretroviral medication to treat and prevent HIV/AIDS. It is taken orally once a day at a dose of 300 mg, if co-administered with ritonavir 100 mg orally once a day, and 400 mg, if administered without ritonavir. 
 
-After oral administration, atazanavir is rapidly absorbed. A positive food effect has been observed, atazanavir is recommended to be taken with food. Protein binding is relatively high (86%) and independent of the concentration of serum proteins ([US Food and Drug Administration 2002](#5-References)). Atazanavir undergoes extensive metabolism by CYP3A isoenzymes with a dose fraction excreted unchanged in urine of approximately 7% ([US Food and Drug Administration 2002](#5-References), [Le Tiec 2005](#5-References)). Previous in vitro studies suggest that atazanavir is a mechanism-based inhibitor of CYP3A ([US Food and Drug Administration 2002](#5-References), [Perloff 2005](#5-References)).
-
-
+After oral administration, atazanavir is rapidly absorbed. A positive food effect has been observed, atazanavir is recommended to be taken with food. Protein binding is relatively high (86%) and independent of the concentration of serum proteins ([US Food and Drug Administration 2002](#5-References)). Atazanavir undergoes extensive metabolism by CYP3A isoenzymes with a dose fraction excreted unchanged in urine of approximately 7% ([US Food and Drug Administration 2002](#5-References), [Le Tiec 2005](#5-References)). Previous in vitro studies suggest that atazanavir is a mechanism-based inhibitor of CYP3A ([US Food and Drug Administration 2002](#5-References), [Perloff 2005](#5-References)) as well as a competitive inhibitor of CYP1A2, CYP2C9 and UGT1A1 ([US Food and Drug Administration 2002](#5-References), [Zhang 2005](#5-References)).
 
 
 # 2 Methods
@@ -78,7 +76,7 @@ Details about the structural model and its parameters can be found in [Section 2
 
 A literature search was carried out to collect available information on physicochemical properties of atazanavir. The obtained information from the literature is summarized in the table below and is used for model building.
 
-| **Parameter**          | **Unit** | **Raltegravir literature**                                   | **Description**                                       |
+| **Parameter**          | **Unit** | **Value**                                                    | **Description**                                       |
 | :--------------------- | -------- | ------------------------------------------------------------ | ----------------------------------------------------- |
 | Molecular weight       | g/mol    | 704.9 ([drugbank.ca](#5-References))                         | Molecular weight                                      |
 | pK<sub>a</sub> (basic) |          | 4.7 ([Berlin 2015](#5-References))                           | Acid dissociation constant                            |
@@ -116,7 +114,7 @@ The following publications were found and used for model building and evaluation
 ## 2.3 Model Parameters and Assumptions
 ### 2.3.1 Dissolution and absorption
 
-No PK data were available following intravenous administration of atazanavir allowing informing distribution and systemic clearance independently of dissolution and absorption. Consequently, only PK data following oral administration of atazanavir as capsule were used for model building. It was assumed that solubility is not a critical parameter for dissolution of atazanvir capsules in the GI tract; in the models, solubility was therefore fixed to a very high value (50 mg/mL) to prevent solubility being a limiting factor of dissolution. Although the equilibrium solubility of atazanavir in the biorelevant media FaSSIF and FeSSIF has been observed to be rather low (2.74 µg/mL and 4.13 µg/mL in FaSSIF and FeSSIF, respectively), dissolution of atazanavir capsules in these media yields concentrations that are considerably higher than this threshold during the complete measurement period of at least 3 h ([Berlin 2015](#5-References)). In the model, dissolution was described by a Weibull function and the two Weibull parameters, `dissolution shape` and `dissolution time (50% dissolved)`, were fitted together with the `specific intestinal permeability (transcellular)` to observed PK data as described in [Section 2.1](#21-Modeling-Strategy).  
+No PK data were available following intravenous administration of atazanavir allowing informing distribution and systemic clearance independently of dissolution and absorption. Consequently, only PK data following oral administration of atazanavir as capsule were used for model building. It was assumed that solubility is not a critical parameter for dissolution of atazanavir capsules in the GI tract; in the models, solubility was therefore fixed to a very high value (50 mg/mL) to prevent solubility being a limiting factor of dissolution. Although the equilibrium solubility of atazanavir in the biorelevant media FaSSIF and FeSSIF has been observed to be rather low (2.74 µg/mL and 4.13 µg/mL in FaSSIF and FeSSIF, respectively), dissolution of atazanavir capsules in these media yields concentrations that are considerably higher than this threshold during the complete measurement period of at least 3 h ([Berlin 2015](#5-References)). In the model, dissolution was described by a Weibull function and the two Weibull parameters, `dissolution shape` and `dissolution time (50% dissolved)`, were fitted together with the `specific intestinal permeability (transcellular)` to observed PK data as described in [Section 2.1](#21-Modeling-Strategy).  
 
 Since no PK data following IV administration was available, a moderate correlation was observed between the fitted `dissolution time (50% dissolved)` and `GFR fraction`. Although the final model parameterization was found to slightly overestimate C<sub>max</sub> in fasted state, this was considered inconsequential since atazanavir must be taken with food and all further model applications encompassed fed state PK.
 
@@ -223,7 +221,7 @@ Dissolution shape                | 1.5566465018      | Parameter Identification
 Use as suspension                | Yes               | Other                   
 
 ## 3.2 Diagnostics Plots
-Below you find the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data used presented in [Section 2.2.2](#222-Clinical-Data).
+Below you find the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data used presented in [Section 2.2.2](#222-Clinical-data).
 
 The first plot shows observed versus simulated plasma concentration, the second weighted residuals versus time. 
 
@@ -235,7 +233,7 @@ The first plot shows observed versus simulated plasma concentration, the second 
 GMFE = 1.500685 
 
 ## 3.3 Concentration-Time Profiles
-Simulated versus observed concentration-time profiles of all data listed in [Section 2.2.2](#222-Clinical-Data) are presented below.
+Simulated versus observed concentration-time profiles of all data listed in [Section 2.2.2](#222-Clinical-data) are presented below.
 
 
 ![001_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_plotTimeProfile.png)
@@ -317,7 +315,7 @@ Simulated versus observed concentration-time profiles of all data listed in [Sec
 ![039_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/039_plotTimeProfile.png)
 
 # 4 Conclusion
-The  final atazanavir PBPK model applies metabolism by CYP3A4, glomerular filtration and mechanism-based inhibition of CYP3A4. While the latter process has not been evaluated using another victim compound, it should only be regarded preliminary and further work is needed before this model can be applied to predict CYP3A4 DDIs. Overall, the model adequately describes the oral pharmacokinetics of  atazanavir in healthy adults receiving approved atazanavir doses of 300 mg and 400 mg.
+The  final atazanavir PBPK model applies metabolism by CYP3A4, glomerular filtration and mechanism-based inhibition of CYP3A4. While the latter process has not been evaluated using another victim compound, it should only be regarded preliminary and further work is needed before this model can be applied to predict CYP3A4 DDIs. Overall, the model adequately describes the oral pharmacokinetics of  atazanavir in healthy adults receiving approved atazanavir doses of 300 mg and 400 mg. It is therefore deemed fit for purpose to be applied for the investigation of DDIs involving UGT1A1 inhibition.
 
 
 # 5 References
@@ -361,6 +359,8 @@ efficacy and tolerability of atazanavir. *Clin Pharmacokinet.* 2005, 44(10): 103
 **US Food and Drug Administration**. Reyataz (atazanavir) capsules: Clinical Pharmacology and Biopharmaceutics Review, Application number: 21-567, 2002. Available at: https://www.accessdata.fda.gov/drugsatfda_docs/nda/2003/021567_reyataz_toc.cfm, accessed on 07-30-2019.
 
 **Willmann 2007** Willmann S, Höhn K, Edginton A, Sevestre M, Solodenko J, Weiss W, Lippert J, Schmitt W. Development of a physiology-based whole-body population model for assessing the influence of individual variability on the pharmacokinetics of drugs. *J Pharmacokinet Pharmacodyn* 2007, 34(3): 401-431.
+
+**Zhang 2005** Zhang D, Chando TJ, Everett DW, Patten CJ, Dehal SS, Humphreys WG. In vitro inhibition of UDP glucuronosyltransferases by atazanavir and other HIV protease inhibitors and the relationship of this property to in vivo bilirubin glucuronidation. *Drug Metab Dispos* 2005, 33(11): 1729-1739.
 
 **Zhu 2010** Zhu L, Butterton J, Persson A, Stonier M, Comisar W, Panebianco D, et al. Pharmacokinetics and safety of twice-daily atazanavir 300 mg and raltegravir 400 mg in healthy individuals. *Antivir Ther* 2010, 15(8): 1107-1114.
 
