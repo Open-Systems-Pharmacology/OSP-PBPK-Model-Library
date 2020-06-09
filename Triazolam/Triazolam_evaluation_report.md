@@ -63,7 +63,7 @@ Details about the structural model and its parameters can be found in [Section 2
 
 
 ## 2.2 Data
-### 2.2.1	In vitro / physicochemical data
+### 2.2.1 In vitro / physicochemical data
 
 A literature search was carried out to collect available information on physicochemical properties of triazolam. The obtained information from the literature is summarized in the table below and is used for model building.
 
@@ -82,7 +82,7 @@ A literature search was carried out to collect available information on physicoc
 
 <sup>c</sup> mean [range] in young females
 
-### 2.2.2	Clinical data
+### 2.2.2 Clinical data
 
 A literature search was carried out to collect triazolam PK data in healthy adults. 
 
@@ -197,7 +197,7 @@ Km                                 | 305 µmol/l                     | Publicati
 kcat                               | 17.5448180963 1/min            | Parameter Identification-Parameter Identification-Value updated from 'IV + Oral' on 2018-11-13 16:52
 
 ## 3.2 Diagnostics Plots
-Below you find the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data used presented in [Section 2.2.2](#222-Clinical-Data).
+Below you find the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data used presented in [Section 2.2.2](#222-Clinical-data).
 
 The first plot shows observed versus simulated plasma concentration, the second weighted residuals versus time. 
 
@@ -209,7 +209,7 @@ The first plot shows observed versus simulated plasma concentration, the second 
 GMFE = 1.272636 
 
 ## 3.3 Concentration-Time Profiles
-Simulated versus observed concentration-time profiles of all data listed in [Section 2.2.2](#222-Clinical-Data) are presented below.
+Simulated versus observed concentration-time profiles of all data listed in [Section 2.2.2](#222-Clinical-data) are presented below.
 
 
 ![001_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_plotTimeProfile.png)
@@ -237,8 +237,7 @@ Simulated versus observed concentration-time profiles of all data listed in [Sec
 ![012_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/012_plotTimeProfile.png)
 
 # 4 Conclusion
-The final triazolam PBPK model applies metabolism by CYP3A4, modelled as two separate pathways yielding α-hydroxy-triazolam and 4-hydroxy-triazolam as metabolites. Overall, the model adequately describes the observed PK of triazolam in healthy, non-obese adults receiving different single IV or PO doses of triazolam.
-
+The final triazolam PBPK model applies metabolism by CYP3A4, modelled as two separate pathways yielding α-hydroxy-triazolam and 4-hydroxy-triazolam as metabolites. Overall, the model adequately describes the observed PK of triazolam in healthy, non-obese adults receiving different single IV or PO doses of triazolam. The model is deemed fit for purpose to be applied as victim drug for the investigation of CYP3A4 drug-drug interactions.
 
 # 5 References
 **drugbank.ca**. (https://www.drugbank.ca/drugs/DB00897), accessed on 11-19-2019.
