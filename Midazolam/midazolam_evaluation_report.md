@@ -78,8 +78,8 @@ A literature search was performed to collect available information on physicoche
 | **Parameter**                         | **Unit**                   | **Value**        | Source                            | **Description**                                              |
 | :------------------------------------ | -------------------------- | ---------------- | --------------------------------- | ------------------------------------------------------------ |
 | MW                                    | g/mol                      | 325.78           | [DrugBank DB00683](#5-References) | Molecular weight                                             |
-| pK<sub>a,base</sub>                   |                            | 6.2              | [Wang 2019](#5-References)        | Basic dissociation constant                                  |
-| pK<sub>a,acid</sub>                   |                            | 10.95            | [Wang 2019](#5-References)        | Acid dissociation constant                                   |
+| pK<sub>a1</sub>                       |                            | 10.95            | [Wang 2019](#5-References)        | acid dissociation constant of conjugate acid; compound type: ampholyte |
+| pK<sub>a2</sub>                       |                            | 6.2              | [Wang 2019](#5-References)        | acid dissociation constant of conjugate acid; compound type: ampholyte |
 | Solubility (pH)                       | mg/mL                      | 0.13<br />(5)    | [Heikkinen 2012](#5-References)   | Aqueous Solubility                                           |
 |                                       |                            | 0.049<br />(6.5) | [Heikkinen 2012](#5-References)   | FaSSIF (fasted state simulated intestinal fluid) solubility  |
 |                                       |                            | 0.09<br />(5)    | [Heikkinen 2012](#5-References)   | FeSSIF (fed state simulated intestinal fluid) solubility     |

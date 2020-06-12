@@ -51,7 +51,7 @@ A specific set of parameters (see below) was optimized using the Parameter Ident
 
 Once the appropriate structural model was identified, additional parameters for different administration states (*solution fed*, *capsule fasted* and *capsule fed* versus the reference state *solution fasted*) were empirically optimized. Clinical data suggest that the bioavailability of itraconazole is enhanced when an oral solution is given in the fasted state compared to fed state ([Van de Welde 1996](#5-References), [Barone 1998a](#5-References)). In contrast, a meal significantly enhances the amount of itraconazole absorbed after administrations of capsules (in comparison to fasted state administrations of capsules) ([Barone 1993a](#5-References)). To reflect these observations, relevant parameters, in particular solubility and those describing dissolution kinetics (of capsules), were assumed to be variable between these four scenarios and were independently identified using the Parameter Identification module provided in PK-Sim®.
 
-Details about input data (physicochemical, *in vitro* and clinical) can be found in [Section 2.2](#22-Data).
+Details about compound properties (physicochemical, *in vitro* and clinical) can be found in [Section 2.2](#22-Data).
 
 Details about the structural model and its parameters can be found in [Section 2.3](#23-Model-Parameters-and-Assumptions).
 
@@ -61,14 +61,14 @@ Details about the structural model and its parameters can be found in [Section 2
 ## 2.2 Data
 ### 2.2.1 In vitro and physicochemical data
 
-A literature search was performed to collect available information on physicochemical properties of itraconazole and metabolites. The obtained information from literature is summarized in the table below and is used for model building.
+A literature search was performed to collect available information on physicochemical properties of itraconazole and metabolites. The obtained information from literature is summarized in the table below and was used for model building. Note that not all parameters were used in the final model. A list of final model parameters is provided below in later sections. 
 
 #### Itraconazole
 
 | **Parameter**                         | **Unit**                   | **Value**      | Source                            | **Description**                                              |
 | :------------------------------------ | -------------------------- | -------------- | --------------------------------- | ------------------------------------------------------------ |
 | MW                                    | g/mol                      | 705.633        | [DrugBank DB01167](#5-References) | Molecular weight                                             |
-| pK<sub>a,base</sub>                   |                            | 3.7            | [Heykants 1989](#5-References)    | Basic dissociation constant                                  |
+| pK<sub>a,base</sub>                   |                            | 3.7            | [Heykants 1989](#5-References)    | acid dissociation constant of conjugate acid; compound type: base |
 | Solubility (pH)                       | mg/L                       | 8.0<br />(6.5) | [Taupitz 2013](#5-References)     | Solubility in FaSSIF (fasted state simulated intestinal fluid) |
 | logP                                  |                            | 5.66           | [Heykants 1989](#5-References)    | Partition coefficient between octanol and water              |
 | fu                                    | %                          | 0.2            | [Heykants 1989](#5-References)    | Fraction unbound in plasma                                   |
@@ -126,7 +126,7 @@ A literature search was performed to collect available information on physicoche
 
 ### 2.2.2 Clinical data
 
-A literature search was performed to collect available clinical data on itraconazole and its metabolite in adults. The itraconazole model was built and verified using various clinical studies, covering a dosing range of 100 to 200 mg with different formulations (solution *vs.* capsule), administered under fasting conditions or together with food.
+A literature search was performed to collect available clinical data on itraconazole and its metabolites in adults. The itraconazole model was built and verified using various clinical studies, covering a dosing range of 100 to 200 mg with different formulations (solution *vs.* capsule), administered under fasting conditions or together with food.
 
 The following dosing senarios were simulated and compared to respective data:
 
@@ -173,7 +173,7 @@ Herein, the model parameter `Specific intestinal permeability` was optimized to 
 
 In a next step, the solubility was optimized for the *solution fed* scenario (in comparison to *solution fasted*).
 
-Then, for the scenarios *capsule fasted* and *capsule fed*, solubility and the dissolution of the capsules (implemented via an empirical Weibull dissolution) were optimized. 
+Then, for the scenarios *capsule fasted* and *capsule fed*, solubility and the dissolution rate of the capsules (implemented via an empirical Weibull dissolution) were optimized. 
 
 The results of the optimization can be found in [Section 2.3.5](#235-Automated-Parameter-Identification).
 
@@ -317,11 +317,11 @@ Molecule: CYP3A4
 Metabolite: Keto-Itraconazole
 ###### Parameters
 
-Name                             | Value                                  | Value Origin                
--------------------------------- | -------------------------------------- | ----------------------------
-In vitro Vmax/recombinant enzyme | 4.1716224833 nmol/min/pmol rec. enzyme | Publication-Isoherranen 2004
-Km                               | 4.1716224833 nmol/l                    | Publication-Isoherranen 2004
-kcat                             | 0.0203370845 1/min                     | Unknown                     
+Name                             | Value                           | Value Origin                
+-------------------------------- | ------------------------------- | ----------------------------
+In vitro Vmax/recombinant enzyme | 0.543 nmol/min/pmol rec. enzyme | Publication-Isoherranen 2004
+Km                               | 4.1716224833 nmol/l             | Publication-Isoherranen 2004
+kcat                             | 0.0203370845 1/min              | Unknown                     
 ##### Systemic Process: Glomerular Filtration-GFR
 
 Species: Human
