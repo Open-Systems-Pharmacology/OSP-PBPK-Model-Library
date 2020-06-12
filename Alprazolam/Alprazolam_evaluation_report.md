@@ -83,7 +83,7 @@ Details about the structural model and its parameters can be found in [Section 2
 
 
 ## 2.2 Data
-### 2.2.1	In vitro / physicochemical data
+### 2.2.1 In vitro / physicochemical data
 
 A literature search was carried out to collect available information on physicochemical properties of alprazolam. The obtained information from the literature is summarized in the table below and is used for model building.
 
@@ -104,7 +104,7 @@ A literature search was carried out to collect available information on physicoc
 
 <sup>c</sup> mean
 
-### 2.2.2	Clinical data
+### 2.2.2 Clinical data
 
 A literature search was carried out to collect alprazolam PK data in healthy adults. 
 
@@ -139,15 +139,15 @@ The following publications were found and used for model building and evaluation
 
 
 ## 2.3 Model Parameters and Assumptions
-### 2.3.1	Dissolution and absorption
+### 2.3.1 Dissolution and absorption
 
 Dissolution of the immediate release tablet of alprazolam was described by a Weibull function with the two parameters `Dissolution shape` and `Dissolution time (50% dissolved)` being fitted to observed PK data. As described in [Section 2.1](#21-Modeling-Strategy), different dissolution kinetics were developed for Xanax<sup>®</sup> and Solanax<sup>®</sup> formulations to allow a slower dissolution of the latter yielding a larger t<sub>max</sub>. Although alprazolam is sparingly soluble in water, no solubility limitation was observed in the model using a solubility value of 40 mg/L (pH 7.0). `Specific intestinal permeability (transcellular)` was also optimized to better match the observed PK data.
 
-### 2.3.2	Distribution
+### 2.3.2 Distribution
 
 In the model, the `fraction unbound (plasma, reference value)` was set to 0.233 which is the average value measured in young male subjects ([Schmith 1991](#5-References)). Slightly higher values around 0.30 have been reported for mid-aged subjects ([Juhl 1984](#5-References), [Ochs 1986](#5-References)) which have not been applied in the current model. `Lipophilicity` was optimized within the range of reported values for logP or logD, namely 1.26 ([Greenblatt 1983](#5-References)) - 2.19 ([Machatha 2004](#5-References)), to better match the observed PK data. The observed PK data were found to be best described using the model for estimating intracellular-to-plasma partition coefficients according to the method by `Rodgers and Rowland` ([Rodgers 2005](#5-References), [Rodgers 2006](#5-References)). Cellular permeabilities were automatically calculated using the method `PK-Sim Standard` ([Open Systems Pharmacology Documentation](#5-References)).  
 
-### 2.3.3	Elimination
+### 2.3.3 Elimination
 
 Alprazolam is extensively metabolized via CYP3A to give two major metabolites, α-hydroxy-alprazolam and 4-hydroxy-alprazolam. In the model, these two biotransformation pathways were described by Michaelis-Menten kinetics. The `Km` values for each pathway were fixed to reported literature values, namely 269 µmol/L for the α-OH pathway and 704 µmol/L for the 4-OH pathway ([Hirota 2001](#5-References)), and the `kcat` values were optimized to better match the observed PK data while keeping the ratio between both values constant (by selecting the option `Use as Factor`). The gene expression profile of CYP3A4 was loaded from the internal PK-Sim<sup>®</sup> database using the expression data quantified by RT-PCR ([Open Systems Pharmacology Documentation](#5-References)). As described in [Section 2.1](#21-Modeling-Strategy), the European Standard Individual used per default in the simulations was scaled to a Japanese individual with the `Reference concentration CYP3A4` being fitted to observed data reported by Yasui et al. ([Yasui 1996](#5-References), [Yasui 1998](#5-References), [Yasui 2000](#5-References)) to account for ethnicity-related differences in anatomical and physiological model parameters. 
 
@@ -255,7 +255,7 @@ The first plot shows observed versus simulated plasma concentration, the second 
 GMFE = 1.181425 
 
 ## 3.3 Concentration-Time Profiles
-Simulated versus observed concentration-time profiles of all data listed in [Section 2.2.2](#222-Clinical-Data) are presented below.
+Simulated versus observed concentration-time profiles of all data listed in [Section 2.2.2](#222-Clinical-data) are presented below.
 
 
 ![001_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_plotTimeProfile.png)
@@ -299,8 +299,6 @@ Simulated versus observed concentration-time profiles of all data listed in [Sec
 ![020_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/020_plotTimeProfile.png)
 
 ![021_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/021_plotTimeProfile.png)
-
-![022_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/022_plotTimeProfile.png)
 
 # 4 Conclusion
 The final alprazolam PBPK model applies metabolism by CYP3A4, modelled as two separate pathways catalyzed by the same enzyme yielding α-hydroxy-alprazolam and 4-hydroxy-alprazolam as metabolites, and glomerular filtration. Overall, the model adequately describes the pharmacokinetics of alprazolam in healthy, non-obese adults receiving different single doses of alprazolam via the IV route or oral route as immediate release tablet in the fasted state.
