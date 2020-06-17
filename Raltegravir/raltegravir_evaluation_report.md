@@ -4,9 +4,9 @@
 
 
 
-| Version                                         | 1.2-OSP9.0                                                   |
+| Version                                         | 1.1-OSP9.0                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
-| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Raltegravir-Model/releases/tag/v1.2 |
+| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Raltegravir-Model/releases/tag/v1.1 |
 | OSP Version                                     | 9.0                                                          |
 | Qualification Framework Version                 | 2.2                                                          |
 
