@@ -4,10 +4,10 @@
 
 
 
-| Version                                         | 1.0-OSP9.0                                                   |
+| Version                                         | 1.0-OSP9.1                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
 | based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Erythromycin-Model/releases/tag/v1.0 |
-| OSP Version                                     | 9.0                                                          |
+| OSP Version                                     | 9.1                                                          |
 | Qualification Framework Version                 | 2.2                                                          |
 
 
@@ -236,11 +236,11 @@ With an average fraction unbound in human plasma of approximately 0.30, erythrom
 
 Erythromycin is extensively metabolized via N-demethylation catalyzed by CYP3A. Kinetics of this biotransformation was described by a Michaelis-Menten process. The following kinetic parameters erythromycin N-demethylation have been measured in human liver microsomes (HLM) and reported in the literature (mean ± standard error):
 
-| Vmax [nmol/min/mg mic protein] | Km [µM] | Microsomal preparation  | Reference                   |
-| ------------------------------ | ------- | ----------------------- | --------------------------- |
-| 2 ± 0.09                       | 78 ± 9  | HLM from donor HL 3926  | [Wang 1997](#5-References)  |
+| Vmax [nmol/min/mg mic protein] | Km [µM] | Microsomal preparation | Reference                    |
+| ------------------------------ | ------- | ---------------------------- | ---------------------------- |
+| 2 ± 0.09                       | 78 ± 9  | HLM from donor HL 3926 | [Wang 1997](#5-References)  |
 | 0.41 ± 0.02                    | 44 ± 7  | HLM from donor HL 24493 | [Wang 1997](#5-References)  |
-| 0.345 ± 0.013                  | 88 ± 10 | mixed HLM pool          | [Riley 1997](#5-References) |
+| 0.345 ± 0.013     | 88 ± 10 | mixed HLM pool | [Riley 1997](#5-References) |
 
 In the PBPK model, `Vmax` and `Km` were fixed to the mean of the values tabulated above (70 µM and 0.918 nmol/min/mg mic protein). The gene expression profile of CYP3A4 was loaded from the internal PK-Sim® database using the expression data quantified by RT-PCR ([Open Systems Pharmacology Documentation](#5-References)).
 
@@ -255,7 +255,6 @@ The reported dose fractions of erythromycin undergoing unchanged renal excretion
 In the scientific literature, large ranges have been reported for K<sub>I</sub> and k<sub>inact</sub> ([Section 2.2.2](#222-In-vitro-data-on-mechanism-based-inhibition-of-CYP3A)). Since the exact values are unknown,  `K_kinact_half` and `kinact` were both optimized within the observed range (see [Section 2.2.2](#222-In-vitro-data-on-mechanism-based-inhibition-of-CYP3A)) during model building to best match the observed clinical data. 
 
 To better inform optimization of these two parameters, clinical data of a midazolam-erythromycin interaction study conducted by Olkkola et al. ([Olkkola 1993](#5-References)) were included in the parameter optimization during model building. Therefore, the midazolam PBPK model v0.9 available on OSP GitHub (https://github.com/Open-Systems-Pharmacology/Midazolam-Model/releases/tag/0.9) was loaded in the PK-Sim® erythromycin file and the study by Olkkola et al. ([Olkkola 1993](#5-References)) was simulated. However, instead of using the reported midazolam plasma concentrations as observed data in the parameter identification, the AUC of midazolam was used. More specifically, a midazolam target AUC after IV and PO administration was calculated by multiplying the simulated midazolam AUC (24.3 and 54.0 µmol min/L and after IV and PO administration, respectively) with the observed geometric mean AUC ratio (1.96 and 4.07 after IV and PO administration, respectively) ([Olkkola 1993](#5-References)) resulting in target AUCs of 47.4 and 220 µmol min/L after IV and oral administration of midazolam, respectively. These values were included as observed data values in the parameter identification during model building. Since the AUC is not a default output that can directly be used in the parameter identification, the PBPK model structure was modified prior to running the parameter identification as described in the following. After exporting the model to MoBi®, an artificial reaction of a dummy molecule was created. The reaction rate was defined as the simulated peripheral venous blood plasma concentration of midazolam, hence yielding the AUC at any specific time point. Thereafter, the model was imported in PK-Sim® and included in the parameter identification. After being used in the parameter identification during model building, the model was not used any further. 
-
 # 3 Results and Discussion
 The PBPK model for erythromycin was developed and verified with clinical pharmacokinetic data.
 
