@@ -4,9 +4,9 @@
 
 
 
-| Version                                         | 1.0-OSP9.1                                                   |
+| Version                                         | 1.1-OSP9.1                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
-| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Erythromycin-Model/releases/tag/v1.0 |
+| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Erythromycin-Model/releases/tag/v1.1 |
 | OSP Version                                     | 9.1                                                          |
 | Qualification Framework Version                 | 2.2                                                          |
 
@@ -168,7 +168,7 @@ The data listed in the Table above can be statistically summarized as follows:
 | K<sub>I</sub> [µM]                   | 0.420  | 4.89   | 8.71           | 10.9   | 18.4            | 19.3   | 109   |
 | k<sub>inact</sub> [min<sup>-1</sup>] | 0.0115 | 0.0314 | 0.0504         | 0.0535 | 0.0664          | 0.0772 | 0.340 |
 
-### 2.2.3	Clinical data
+### 2.2.3 Clinical data
 
 A literature search was carried out to collect available PK data on erythromycin in healthy adults. The following data from the publications listed below were used for model building and evaluation:
 
@@ -250,11 +250,12 @@ Additional elimination pathways suggested for erythromycin are acid-catalyzed de
 
 The reported dose fractions of erythromycin undergoing unchanged renal excretion after IV administration range from 0.018 ± 0.005 to 0.171 ± 0.11 (mean ± SD) ([Pasic 1987](#5-References), [Austin 1980](#5-References)). This information was accounted for in the model by implementing a glomerular filtration process and optimizing the `GFR fraction` to match the observed dose fractions excreted unchanged in urine.
 
-### 2.3.2	Autoinhibition
+### 2.3.4 Autoinhibition
 
 In the scientific literature, large ranges have been reported for K<sub>I</sub> and k<sub>inact</sub> ([Section 2.2.2](#222-In-vitro-data-on-mechanism-based-inhibition-of-CYP3A)). Since the exact values are unknown,  `K_kinact_half` and `kinact` were both optimized within the observed range (see [Section 2.2.2](#222-In-vitro-data-on-mechanism-based-inhibition-of-CYP3A)) during model building to best match the observed clinical data. 
 
 To better inform optimization of these two parameters, clinical data of a midazolam-erythromycin interaction study conducted by Olkkola et al. ([Olkkola 1993](#5-References)) were included in the parameter optimization during model building. Therefore, the midazolam PBPK model v0.9 available on OSP GitHub (https://github.com/Open-Systems-Pharmacology/Midazolam-Model/releases/tag/0.9) was loaded in the PK-Sim® erythromycin file and the study by Olkkola et al. ([Olkkola 1993](#5-References)) was simulated. However, instead of using the reported midazolam plasma concentrations as observed data in the parameter identification, the AUC of midazolam was used. More specifically, a midazolam target AUC after IV and PO administration was calculated by multiplying the simulated midazolam AUC (24.3 and 54.0 µmol min/L and after IV and PO administration, respectively) with the observed geometric mean AUC ratio (1.96 and 4.07 after IV and PO administration, respectively) ([Olkkola 1993](#5-References)) resulting in target AUCs of 47.4 and 220 µmol min/L after IV and oral administration of midazolam, respectively. These values were included as observed data values in the parameter identification during model building. Since the AUC is not a default output that can directly be used in the parameter identification, the PBPK model structure was modified prior to running the parameter identification as described in the following. After exporting the model to MoBi®, an artificial reaction of a dummy molecule was created. The reaction rate was defined as the simulated peripheral venous blood plasma concentration of midazolam, hence yielding the AUC at any specific time point. Thereafter, the model was imported in PK-Sim® and included in the parameter identification. After being used in the parameter identification during model building, the model was not used any further. 
+
 # 3 Results and Discussion
 The PBPK model for erythromycin was developed and verified with clinical pharmacokinetic data.
 
