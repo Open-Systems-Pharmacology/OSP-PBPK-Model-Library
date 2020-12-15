@@ -2,9 +2,9 @@
 
 
 
-| Version                                         | 1.0-OSP9.1                                                   |
+| Version                                         | 1.1-OSP9.1                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
-| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Verapamil-Model/releases/tag/v1.0 |
+| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Verapamil-Model/releases/tag/v1.1 |
 | OSP Version                                     | 9.1                                                          |
 | Qualification Framework Version                 | 2.2                                                          |
 
@@ -95,7 +95,7 @@ The following studies were used for model verification:
 
 | Publication                      | Arm / Treatment / Information used for model building        |
 | :------------------------------- | :----------------------------------------------------------- |
-| [Maeda 2011](#5References)      | Healthy subjects receiving single oral doses of 80 mg |
+| [Maeda 2011](#5-References)      | Healthy subjects receiving single oral doses of 80 mg |
 | [Streit 2005](#5-References)    | Healthy subjects receiving single intravenous doses of 5 mg |
 | [Hla 1987](#5-References)       | Healthy subjects receiving multiple oral doses of 120 mg BID |
 | [Joergenson 1988](#5-References) | Healthy subjects receiving multiple oral doses of 120 mg BID |

@@ -4,9 +4,9 @@
 
 
 
-| Version                                         | 1.1-OSP9.1                                                   |
+| Version                                         | 1.2-OSP9.1                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
-| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Itraconazole-Model/releases/tag/v1.1 |
+| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Itraconazole-Model/releases/tag/v1.2 |
 | OSP Version                                     | 9.1                                                          |
 | Qualification Framework Version                 | 2.2                                                          |
 
@@ -355,7 +355,6 @@ Solubility at reference pH                       | 0.7 mg/l                |    
 Reference pH                                     | 6.5                     |                                                                                                           | Capsule fed                           | False  
 Lipophilicity                                    | 4.624 Log Units         | Parameter Identification-Fit                                                                              | Fit                                   | True   
 Fraction unbound (plasma, reference value)       | 0.6016197247 %          |                                                                                                           | Templeton, 2008                       | True   
-Permeability                                     | 0.1111202419 cm/min     | Parameter Identification-Fit                                                                              | Fit                                   | False  
 Specific intestinal permeability (transcellular) | 5.3261558344E-05 dm/min | Parameter Identification-Fit                                                                              | Fit                                   | True   
 Cl                                               | 2                       |                                                                                                           |                                       |        
 Is small molecule                                | Yes                     |                                                                                                           |                                       |        
