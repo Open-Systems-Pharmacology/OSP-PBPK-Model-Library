@@ -4,9 +4,9 @@
 
 
 
-| Version                                         | 1.0-OSP9.1                                                   |
+| Version                                         | 1.1-OSP9.1                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
-| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Fluvoxamine-Model/releases/tag/v1.0 |
+| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Fluvoxamine-Model/releases/tag/v1.1 |
 | OSP Version                                     | 9.1                                                          |
 | Qualification Framework Version                 | 2.2                                                          |
 
@@ -90,7 +90,7 @@ A literature search was performed to collect available information on physiochem
 
 <sup>a</sup> denotes mean ± standard deviation
 
-### 2.2.2	Clinical Data
+### 2.2.2 Clinical Data
 
 A literature search was performed to collect available clinical data on fluvoxamine in healthy adults.
 

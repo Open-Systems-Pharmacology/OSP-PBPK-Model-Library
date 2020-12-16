@@ -4,9 +4,9 @@
 
 
 
-| Version                                         | 1.0-OSP9.1                                                   |
+| Version                                         | 1.1-OSP9.1                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
-| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Clarithromycin-Model/releases/tag/v1.0 |
+| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Clarithromycin-Model/releases/tag/v1.1 |
 | OSP Version                                     | 9.1                                                          |
 | Qualification Framework Version                 | 2.2                                                          |
 
@@ -93,11 +93,11 @@ A literature search was performed to collect available information on physiochem
 
 
 
-### 2.2.2	Clinical Data
+### 2.2.2 Clinical Data
 
 A literature search was performed to collect available clinical data on clarithromycin in healthy adults. The clarithromycin model was developed using 17 clinical studies covering a dosing range from 100 to 1200 mg.
 
-#### 2.2.2.1	Model Building
+#### 2.2.2.1 Model Building
 
 The following studies were used for model building (training data):
 
@@ -106,7 +106,7 @@ The following studies were used for model building (training data):
 | [Chu 1992b](#5-References) | Healthy subjects with intravenous infusion of 250 mg over 45 min |
 | [Chu 1993a](#5-References) | Healthy subjects with oral administration of 250 or 500 mg as single dose or twice daily for 5 days |
 
-#### 2.2.2.2	Model Verification
+#### 2.2.2.2 Model Verification
 
 The following studies were used for model verification (test data):
 
@@ -139,7 +139,7 @@ K<sub>I</sub> and k<sub>inact</sub> to describe the mechanism-based inhibition o
 
 A kidney plasma clearance was implemented to describe the renal elimination of clarithromycin. The specific renal clearance was optimized during parameter identification.
 
-### 2.3.4	Automated Parameter Identification
+### 2.3.4 Automated Parameter Identification
 
 This is the result of the final parameter identification.
 
