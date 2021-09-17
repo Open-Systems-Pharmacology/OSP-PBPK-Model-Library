@@ -34,7 +34,7 @@ https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/
 # 1 Introduction
 Fluconazole is an antifungal medication for the treatment of a number of different fungal infections. It is metaboliszed by UGT2B7 and renally excreted by glomerular filtration. About 70% of fluconazole is excreted unchanged in urine during 120 hours.  Fluconazole is a moderate inhibitor of CYP3A4 and can therefore serve as a perpetrator for CYP3A4 in DDI studies. 
 
-The herein presented PBPK model of fluconazole has been developed using published pharmacokinetic clinical data by Palkama et al. ([Palkama 1998](#5-References)), Ripa et al. ([Ripa 1993](#5-References)), Shiba et al. ([Shiba 1990](#5-References)), Ahonen et al. ([Ahonen 1997](#5-References)), Brammer et al. ([Brammer 1990](#5-References)), Brammer et al. ([Brammer 1991](#5-References)), Thorpe et al. ([Thorpe 1990](#5-References) and Varhe et al. ([Varhe 1996](#5-References)). 
+The herein presented PBPK model of fluconazole has been developed using published pharmacokinetic clinical data by Palkama et al. ([Palkama 1998](#5-references)), Ripa et al. ([Ripa 1993](#5-references)), Shiba et al. ([Shiba 1990](#5-references)), Ahonen et al. ([Ahonen 1997](#5-references)), Brammer et al. ([Brammer 1990](#5-references)), Brammer et al. ([Brammer 1991](#5-references)), Thorpe et al. ([Thorpe 1990](#5-references) and Varhe et al. ([Varhe 1996](#5-references)). 
 The model has then been evaluated by comparing observed data to simulations of both intravenously and orally administered fluconazole covering a dose range of 25 mg to 400 mg. Both single dose and multiple dose administration are represented in the development and evaluation data sets. 
 
 The presented model includes the following features:
@@ -51,11 +51,11 @@ The presented model includes the following features:
 
 
 ## 2.1 Modeling strategy
-The general concept of building a PBPK model has previously been described by Kuepfer et al. ([Kuepfer 2016](#5-References)). Relevant information on anthropometric (height, weight) and physiological parameters (e.g. blood flows, organ volumes, binding protein concentrations, hematocrit, cardiac output) in adults was gathered from the literature and has been previously published ([Willmann 2007](#5-References)). The information was incorporated into PK-Sim® and was used as default values for the simulations in adults.
+The general concept of building a PBPK model has previously been described by Kuepfer et al. ([Kuepfer 2016](#5-references)). Relevant information on anthropometric (height, weight) and physiological parameters (e.g. blood flows, organ volumes, binding protein concentrations, hematocrit, cardiac output) in adults was gathered from the literature and has been previously published ([Willmann 2007](#5-references)). The information was incorporated into PK-Sim® and was used as default values for the simulations in adults.
 
-The applied activity and variability of plasma proteins and active processes that are integrated into PK-Sim® are described in the publicly available PK-Sim® Ontogeny Database Version 7.3 ([PK-Sim Ontogeny Database Version 7.3](#5-References)) or otherwise referenced for the specific process.
+The applied activity and variability of plasma proteins and active processes that are integrated into PK-Sim® are described in the publicly available PK-Sim® Ontogeny Database Version 7.3 ([PK-Sim Ontogeny Database Version 7.3](#5-references)) or otherwise referenced for the specific process.
 
-A mean model was built based on clinical data from studies with intravenous administration of fluconazole by Palkama et al. 1998 ([Palkama 1998](#5-References)), Ripa et al. 1993 ([Ripa 1993](#5-References)) and Shiba et al. 1990 ([Shiba 1990](#5-References)). The studies conducted by Palkama et al. and Ripa et al. reported plasma concentrations of fluconazole and the study by Shiba reported fraction of unchanged fluconazole excreted to urine in addition to plasma concentrations.  The mean PBPK model was developed using a typical male European individual. The relative tissue-specific expressions of enzymes predominantly being involved in the metabolism of fluconazole (UGT2B7) were considered ([Meyer 2012](#5-References)).
+A mean model was built based on clinical data from studies with intravenous administration of fluconazole by Palkama et al. 1998 ([Palkama 1998](#5-references)), Ripa et al. 1993 ([Ripa 1993](#5-references)) and Shiba et al. 1990 ([Shiba 1990](#5-references)). The studies conducted by Palkama et al. and Ripa et al. reported plasma concentrations of fluconazole and the study by Shiba reported fraction of unchanged fluconazole excreted to urine in addition to plasma concentrations.  The mean PBPK model was developed using a typical male European individual. The relative tissue-specific expressions of enzymes predominantly being involved in the metabolism of fluconazole (UGT2B7) were considered ([Meyer 2012](#5-references)).
 
 A specific set of parameters (see below) was optimized to describe the distribution of fluconazole after intravenous administration using the Parameter Identification module provided in PK-Sim®. Structural model selection was mainly guided by visual inspection and total error of the resulting description of data, 95% confidence interval of the identified parameter values and biological plausibility.
 
@@ -65,9 +65,9 @@ Thereafter additional parameters for oral administration of non-dissolved formul
 
 The model was then verified by simulating further clinical studies reporting pharmacokinetic concentration-time profiles after oral administration of fluconazole.
 
-Details about input data (physicochemical, *in vitro* and clinical) can be found in [Section 2.2](#22-Data).
+Details about input data (physicochemical, *in vitro* and clinical) can be found in [Section 2.2](#22-data-used).
 
-Details about the structural model and its parameters can be found in [Section 2.3](#23-Model-Parameters-and-Assumptions).
+Details about the structural model and its parameters can be found in [Section 2.3](#23-model-parameters-and-assumptions).
 
 
 
@@ -79,17 +79,17 @@ A literature search was performed to collect available information on physicoche
 
 | **Parameter**           | **Unit** | **Value** | Source                               | **Description**                                              |
 | :---------------------- | -------- | --------- | ------------------------------------ | ------------------------------------------------------------ |
-| MW                      | g/mol    | 306.28    | [Debruyne 1993](#5-References)       | Molecular weight                                             |
-| pK<sub>a</sub>          |          | 2.03      | [Charoo 2014](#5-References)         | acid dissociation constant of conjugate acid; compound type: weak base |
-| Solubility (pH)         | mg/mL    | 6.9 (7.4) | [Charoo 2014](#5-References)         | Aqueous Solubility                                           |
-| logP                    |          | 0.5       | [Christofoletti 2016](#5-References) | Partition coefficient between octanol and water              |
-|                         |          | 0.5       | [Charoo 2014](#5-References)         | Partition coefficient between octanol and water              |
+| MW                      | g/mol    | 306.28    | [Debruyne 1993](#5-references)       | Molecular weight                                             |
+| pK<sub>a</sub>          |          | 2.03      | [Charoo 2014](#5-references)         | acid dissociation constant of conjugate acid; compound type: weak base |
+| Solubility (pH)         | mg/mL    | 6.9 (7.4) | [Charoo 2014](#5-references)         | Aqueous Solubility                                           |
+| logP                    |          | 0.5       | [Christofoletti 2016](#5-references) | Partition coefficient between octanol and water              |
+|                         |          | 0.5       | [Charoo 2014](#5-references)         | Partition coefficient between octanol and water              |
 | fu                      | %        | 89        | Pfizer                               | Fraction unbound in plasma                                   |
-|                         | %        | 88        | [Christofoletti 2016](#5-References) | Fraction unbound in plasma                                   |
-| CL<sub>int</sub> UGT2B7 | 1/min    | 0.005     | [Watt 2018](#5-References)           | First order intrinsic clearance UGT2B7                       |
+|                         | %        | 88        | [Christofoletti 2016](#5-references) | Fraction unbound in plasma                                   |
+| CL<sub>int</sub> UGT2B7 | 1/min    | 0.005     | [Watt 2018](#5-references)           | First order intrinsic clearance UGT2B7                       |
 | P<sub>eff</sub>         | cm/s     | 0.000213  | GastroPlus                           | Specific intestinal permeability                             |
-| Ki CYP3A4               | µmol/L   | 10.70     | [Watt 2018](#5-References)           | Non-competitive inhibition of CYP3A4                         |
-| GFR fraction            |          | 0.17      | [Watt 2018](#5-References)           | glomerular filtration fraction                               |
+| Ki CYP3A4               | µmol/L   | 10.70     | [Watt 2018](#5-references)           | Non-competitive inhibition of CYP3A4                         |
+| GFR fraction            |          | 0.17      | [Watt 2018](#5-references)           | glomerular filtration fraction                               |
 
 ### 2.2.2 Clinical data
 
@@ -99,18 +99,18 @@ The following publications were found in adults for model building:
 
 | Publication                   | Arm / Treatment / Information used for model building        |
 | :---------------------------- | :----------------------------------------------------------- |
-| [Ahonen 1997](#5-References)  | Plasma PK profiles in healthy subjects after single dose oral administration of 400 mg fluconazole |
-| [Brammer 1990](#5-References) | Plasma PK profiles in healthy subjects after multiple oral administration of 200, 300 and 400 mg fluconazole |
-| [Brammer 1991](#5-References) | Plasma PK profiles in healthy subjects after single dose oral administration of 50 mg fluconazole |
-| [Shiba 1990](#5-References)   | Plasma PK profiles and urine data in healthy subjects after single iv and oral administration of 25 and 50 mg fluconazole and single oral dose of 100 mg fluconazole |
-| [Palkama 1998](#5-References) | Plasma PK profiles in healthy subjects after single dose iv and oral administration of 400 mg fluconazole |
-| [Ripa 1993](#5-References)    | Plasma PK profiles in healthy subjects after single dose iv administration of 100 mg fluconazole |
-| [Thorpe 1990](#5-References)  | Plasma PK profiles in healthy subjects after single dose oral administration of 100 mg fluconazole |
-| [Varhe 1996](#5-References)   | Plasma PK profiles in healthy subjects after multiple oral administration of 100 and 200 mg fluconazole |
+| [Ahonen 1997](#5-references)  | Plasma PK profiles in healthy subjects after single dose oral administration of 400 mg fluconazole |
+| [Brammer 1990](#5-references) | Plasma PK profiles in healthy subjects after multiple oral administration of 200, 300 and 400 mg fluconazole |
+| [Brammer 1991](#5-references) | Plasma PK profiles in healthy subjects after single dose oral administration of 50 mg fluconazole |
+| [Shiba 1990](#5-references)   | Plasma PK profiles and urine data in healthy subjects after single iv and oral administration of 25 and 50 mg fluconazole and single oral dose of 100 mg fluconazole |
+| [Palkama 1998](#5-references) | Plasma PK profiles in healthy subjects after single dose iv and oral administration of 400 mg fluconazole |
+| [Ripa 1993](#5-references)    | Plasma PK profiles in healthy subjects after single dose iv administration of 100 mg fluconazole |
+| [Thorpe 1990](#5-references)  | Plasma PK profiles in healthy subjects after single dose oral administration of 100 mg fluconazole |
+| [Varhe 1996](#5-references)   | Plasma PK profiles in healthy subjects after multiple oral administration of 100 and 200 mg fluconazole |
 
 
 
-The following table shows the data from the excretion studies ([Shiba 1990](#5-References)) used for model building:
+The following table shows the data from the excretion studies ([Shiba 1990](#5-references)) used for model building:
 
 | Observer                                                     | Value |
 | ------------------------------------------------------------ | ----- |
@@ -126,28 +126,28 @@ The following dosing scenarios were simulated and compared to respective data fo
 
 | Scenario                                                     | Data reference                       |
 | ------------------------------------------------------------ | ------------------------------------ |
-| iv 400 mg (60 min)                          | [Ahonen 1997](#5-References) |
-| iv 50 mg (2 min)                                 | [Brammer 1990](#5-References) |
-| iv 25 mg (1 min) | [Shiba 1990](#5-References) |
-| iv 800 mg (240 min) once daily for 14 days | [Sobue 2004](#5-References) |
-| iv 100 mg (20 min)                             | [Yeates 1994](#5-References) |
-| po 400 mg                              | [Palkama 1998](#5-References) |
-| po 100 mg | [Shiba 1990](#5-References) |
-| po 50 mg once daily for 4 days          | [Varhe 1996](#5-References) |
+| iv 400 mg (60 min)                          | [Ahonen 1997](#5-references) |
+| iv 50 mg (2 min)                                 | [Brammer 1990](#5-references) |
+| iv 25 mg (1 min) | [Shiba 1990](#5-references) |
+| iv 800 mg (240 min) once daily for 14 days | [Sobue 2004](#5-references) |
+| iv 100 mg (20 min)                             | [Yeates 1994](#5-references) |
+| po 400 mg                              | [Palkama 1998](#5-references) |
+| po 100 mg | [Shiba 1990](#5-references) |
+| po 50 mg once daily for 4 days          | [Varhe 1996](#5-references) |
 
 
 ## 2.3 Model parameters and assumptions
 ### 2.3.1 Absorption
 
-The parameter value for  `Specific intestinal permeability`  was used as in GastroPlus. Although, the permeability didn't seem to be the rate-limiting step  in oral absorption as this parameter could not be identified when attempting to estimate a value using Parameter Identification. The default solubility was assumed to be the measured value in phosphate buffer (see [Section 2.2.1](#221-In-vitro-and-physicochemical-data))
+The parameter value for  `Specific intestinal permeability`  was used as in GastroPlus. Although, the permeability didn't seem to be the rate-limiting step  in oral absorption as this parameter could not be identified when attempting to estimate a value using Parameter Identification. The default solubility was assumed to be the measured value in phosphate buffer (see [Section 2.2.1](#221-in-vitro-and-physicochemical-data))
 
-The dissolution of capsules/tablets (not always specified in the literature which formulation for oral administration was used) were implemented via empirical Weibull dissolution. A different Weibull function was used for different dose categories, low, medium high and high dose to distinguish the dissolution time across the dose range; see results of optimization in [Section 2.3.4](#234-Automated-Parameter-Identification).
+The dissolution of capsules/tablets (not always specified in the literature which formulation for oral administration was used) were implemented via empirical Weibull dissolution. A different Weibull function was used for different dose categories, low, medium high and high dose to distinguish the dissolution time across the dose range; see results of optimization in [Section 2.3.4](#234-automated-parameter-identification).
 
 ### 2.3.2 Distribution
 
-Fluconazole has a low protein bound (approx. 11 %) fraction in plasma (see [Section 2.2.1](#221-In-vitro-and-physicochemical-data)). A value of 89% was used in this PBPK model for `Fraction unbound (plasma, reference value)`. The major binding partner was set to alpha1- acid glycoprotein(see [Section 2.2.1](#221-In-vitro-and-physicochemical-data)).
+Fluconazole has a low protein bound (approx. 11 %) fraction in plasma (see [Section 2.2.1](#221-in-vitro-and-physicochemical-data)). A value of 89% was used in this PBPK model for `Fraction unbound (plasma, reference value)`. The major binding partner was set to alpha1- acid glycoprotein(see [Section 2.2.1](#221-in-vitro-and-physicochemical-data)).
 
-An important parameter influencing the resulting volume of distribution is lipophilicity. The reported experimental logP values are in the range of 0.5-1.0 (see [Section 2.2.1](#221-In-vitro-and-physicochemical-data)) which served as a starting value. Finally, the model parameters `Lipophilicity` was optimized to match best clinical data (see also [Section 2.3.4](#234-Automated-Parameter-Identification)).
+An important parameter influencing the resulting volume of distribution is lipophilicity. The reported experimental logP values are in the range of 0.5-1.0 (see [Section 2.2.1](#221-in-vitro-and-physicochemical-data)) which served as a starting value. Finally, the model parameters `Lipophilicity` was optimized to match best clinical data (see also [Section 2.3.4](#234-automated-parameter-identification)).
 
 After testing the available organ-plasma partition coefficient and cell permeability calculation methods built in PK-Sim, observed clinical data was best described by choosing the partition coefficient calculation by `Rodgers and Rowland` and cellular permeability calculation by `PK-Sim Standard`.
 
@@ -157,9 +157,9 @@ One metabolic pathway was implement into the model via first order kinetics
 
 * UGT2B7
 
-The UGT2B7 expression profiles is based on high-sensitive real-time RT-PCR ([Nishimura 2003](#5-References)). Absolute tissue-specific expressions were obtained by considering the respective absolute concentration in the liver. The `Specific clearance ` of fluconazole accounted by UGT2B7 was identified to best describe observed clinical data after intravenous administration (see [Section 2.3.4](#234-Automated-Parameter-Identification)).
+The UGT2B7 expression profiles is based on high-sensitive real-time RT-PCR ([Nishimura 2003](#5-references)). Absolute tissue-specific expressions were obtained by considering the respective absolute concentration in the liver. The `Specific clearance ` of fluconazole accounted by UGT2B7 was identified to best describe observed clinical data after intravenous administration (see [Section 2.3.4](#234-automated-parameter-identification)).
 
-Additionally, renal clearance (which is the main elimination process for fluconazole) assumed to be mainly driven by glomerular filtration was implemented. The `GFR fraction` was identified to best describe the observed fraction of unchanged fluconazole that was renally excreted (see [Section 2.3.4](#234-Automated-Parameter-Identification)).
+Additionally, renal clearance (which is the main elimination process for fluconazole) assumed to be mainly driven by glomerular filtration was implemented. The `GFR fraction` was identified to best describe the observed fraction of unchanged fluconazole that was renally excreted (see [Section 2.3.4](#234-automated-parameter-identification)).
 
 ### 2.3.4 Automated Parameter Identification
 
@@ -195,9 +195,9 @@ The model quantifies excretion via urine (glomerular filtration) and metabolism 
 
 The next sections show:
 
-1. the final model input parameters for the building blocks: [Section 3.1](#31-Final-Input-Parameters).
-2. the overall goodness of fit: [Section 3.2](#32-Diagnostics-Plots).
-3. simulated vs. observed concentration-time profiles for the clinical studies used for model building and for model verification: [Section 3.3](#33-Concentration-Time-Profiles).
+1. the final model input parameters for the building blocks: [Section 3.1](#31-fluconazole-final-input-parameters).
+2. the overall goodness of fit: [Section 3.2](#32-fluconazole-diagnostics-plots).
+3. simulated vs. observed concentration-time profiles for the clinical studies used for model building and for model verification: [Section 3.3](#33-concentration-time-profiles).
 ## 3.1 Fluconazole final input parameters
 The compound parameter values of the final PBPK model are illustrated below.
 
@@ -291,7 +291,7 @@ Dissolution shape                | 2.1410681544      | Parameter Identification-
 Use as suspension                | Yes               |                                                                                                                      
 
 ## 3.2 Fluconazole Diagnostics Plots
-Below you find the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data used presented in [Section 2.2.2](#222-Clinical-data).
+Below you find the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data used presented in [Section 2.2.2](#222-clinical-data).
 
 The first plot shows observed versus simulated plasma concentration, the second weighted residuals versus time. 
 
@@ -303,7 +303,7 @@ The first plot shows observed versus simulated plasma concentration, the second 
 GMFE = 1.179872 
 
 ## 3.3 Concentration-Time Profiles
-Simulated versus observed concentration-time profiles of all data listed in [Section 2.2.2](#222-Clinical-data) are presented below.
+Simulated versus observed concentration-time profiles of all data listed in [Section 2.2.2](#222-clinical-data) are presented below.
 
 
 ### 3.3.1 Model Building
