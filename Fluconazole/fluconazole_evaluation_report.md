@@ -4,11 +4,11 @@
 
 
 
-| Version                                         | 1.0-OSP9.1                                                   |
+| Version                                         | 1.0-OSP10.0                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
 | based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Fluconazole-Model/releases/tag/v1.0 |
-| OSP Version                                     | 9.1                                                          |
-| Qualification Framework Version                 | 2.2                                                          |
+| OSP Version                                     | 10.0                                                          |
+| Qualification Framework Version                 | 2.3                                                          |
 
 
 
@@ -68,6 +68,7 @@ The model was then verified by simulating further clinical studies reporting pha
 Details about input data (physicochemical, *in vitro* and clinical) can be found in [Section 2.2](#22-data-used).
 
 Details about the structural model and its parameters can be found in [Section 2.3](#23-model-parameters-and-assumptions).
+
 
 
 
@@ -161,6 +162,7 @@ The UGT2B7 expression profiles is based on high-sensitive real-time RT-PCR ([Nis
 
 Additionally, renal clearance (which is the main elimination process for fluconazole) assumed to be mainly driven by glomerular filtration was implemented. The `GFR fraction` was identified to best describe the observed fraction of unchanged fluconazole that was renally excreted (see [Section 2.3.4](#234-automated-parameter-identification)).
 
+
 ### 2.3.4 Automated Parameter Identification
 
 This is the result of the final parameter identification for the intravenous model:
@@ -198,6 +200,8 @@ The next sections show:
 1. the final model input parameters for the building blocks: [Section 3.1](#31-fluconazole-final-input-parameters).
 2. the overall goodness of fit: [Section 3.2](#32-fluconazole-diagnostics-plots).
 3. simulated vs. observed concentration-time profiles for the clinical studies used for model building and for model verification: [Section 3.3](#33-concentration-time-profiles).
+
+
 ## 3.1 Fluconazole final input parameters
 The compound parameter values of the final PBPK model are illustrated below.
 

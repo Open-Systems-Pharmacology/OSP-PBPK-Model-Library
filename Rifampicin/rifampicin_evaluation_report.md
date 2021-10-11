@@ -4,11 +4,11 @@
 
 
 
-| Version                                         | 1.1-OSP9.1                                                   |
+| Version                                         | 1.2-OSP10.0                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
-| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Rifampicin-Model/releases/tag/v1.1 |
-| OSP Version                                     | 9.1                                                          |
-| Qualification Framework Version                 | 2.2                                                          |
+| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Rifampicin-Model/releases/tag/v1.2 |
+| OSP Version                                     | 10.0                                                          |
+| Qualification Framework Version                 | 2.3                                                          |
 
 
 
@@ -32,7 +32,7 @@ https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/
 # 1 Introduction
 Rifampicin is an antibiotic used for the treatment of mycobacterium infections, including tuberculosis and leprosy. For the investigation of DDIs, rifampicin is an established potent inducer of multiple drug metabolizing enzymes (CYP3A4, CYP2B6, CYP2C8, CYP2C9, CYP2C19) and transporters (P-gp, MRP2, MRP3, MRP4, OATP1A2). In addition to its inducing capabilities, rifampicin also competitively inhibits enzymes and transporters like CYP3A4, P-gp, OATP1B1 and OATP1B3.
 
-The herein presented model represents the rifampicin model originally published by Hanke *et al.* ([Hanke 2018](#5-References)), and extended in later publications ([Britz 2019](#5-References), [Türk 2019](#5-References)). The model was originally established using various clinical studies, covering a dosing range of 300 to 600 mg after intravenous and oral administration of rifampicin. The original model focused specifically on the integration of effects on **CYP3A4** and **P-gp** by rifampicin. Britz *et al.* ([Britz 2019](#5-References)) integrated rifampicin-mediated induction of **CYP1A2** (and CYP2E1) and Türk *et al.* ([Türk 2019](#5-References)) extended the model with regard to effects on **CYP2C8** and **OATP1B1**.
+The herein presented model represents the rifampicin model originally published by Hanke *et al.* ([Hanke 2018](#5-references)), and extended in later publications ([Britz 2019](#5-references), [Türk 2019](#5-references)). The model was originally established using various clinical studies, covering a dosing range of 300 to 600 mg after intravenous and oral administration of rifampicin. The original model focused specifically on the integration of effects on **CYP3A4** and **P-gp** by rifampicin. Britz *et al.* ([Britz 2019](#5-references)) integrated rifampicin-mediated induction of **CYP1A2** (and CYP2E1) and Türk *et al.* ([Türk 2019](#5-references)) extended the model with regard to effects on **CYP2C8** and **OATP1B1**.
 
 It is known that for both CYP3A4 and P-gp, rifampicin shows inductive and inhibitory effects. While induction by rifampicin involves gene expression and therefore takes several days to fully develop, competitive inhibition has an instantaneous effect and is strongest at the time of highest exposure to the inhibitor. As a consequence, the effects of rifampicin caused via competitive inhibition are most prominent 1-2 h after its oral administration and of relatively short duration. These opposing effects of rifampicin can be reasonably considered in PBPK models. 
 
@@ -43,17 +43,17 @@ Integrating and testing processes that were described as vital to the pharmacoki
 
 
 ## 2.1 Modeling Strategy
-The general concept of building a PBPK model has previously been described by Kuepfer et al. ([Kuepfer 2016](#5-References)). Relevant information on anthropometric (height, weight) and physiological parameters (e.g. blood flows, organ volumes, binding protein concentrations, hematocrit, cardiac output) in adults was gathered from the literature and has been previously published ([Willmann 2007](#5-References)). The information was incorporated into PK-Sim® and was used as default values for the simulations in adults.
+The general concept of building a PBPK model has previously been described by Kuepfer et al. ([Kuepfer 2016](#5-references)). Relevant information on anthropometric (height, weight) and physiological parameters (e.g. blood flows, organ volumes, binding protein concentrations, hematocrit, cardiac output) in adults was gathered from the literature and has been previously published ([Willmann 2007](#5-references)). The information was incorporated into PK-Sim® and was used as default values for the simulations in adults.
 
-The applied activity and variability of plasma proteins and active processes that are integrated into PK-Sim® are described in the publicly available PK-Sim® Ontogeny Database Version 7.3 ([PK-Sim Ontogeny Database Version 7.3](#5-References)) or otherwise referenced for the specific process.
+The applied activity and variability of plasma proteins and active processes that are integrated into PK-Sim® are described in the publicly available PK-Sim® Ontogeny Database Version 7.3 ([PK-Sim Ontogeny Database Version 7.3](#5-references)) or otherwise referenced for the specific process.
 
 The model was built combining bottom-up and top-down techniques. An extensive literature search yielded (1) physicochemical parameter values (2) information on active ADME and DDI-related (i.e. induction and inhibition) processes and (3) clinical studies of intravenous and oral administration in single and multiple dosing regimens, covering a broad dosing range with observed concentrations. 
 
-A mean PBPK model was developed using a typical European individual. Enterohepatic recycling for transport processes into the bile was enabled in a continuous fashion (continuous flow from the liver to the lumen of duodenum). One study was performed in female patients after cholecystectomy ([Acocella 1972a](#5-References)). The bile of these patients was collected via a T tube. In the simulations of these patients, enterohepatic recycling was switched off and a virtual gallbladder collected the excreted rifampicin over time. Relevant ADME processes reported to influence the PK of rifampicin were implemented into the model and tested. For parameters that could not be (reliably) informed from literature, parameter identification was performed using a representative set of available clinical studies (see below). Model evaluation was based on the ability of the model to describe observed plasma concentration-time profiles and fraction excreted of unchanged drug to urine and bile.
+A mean PBPK model was developed using a typical European individual. Enterohepatic recycling for transport processes into the bile was enabled in a continuous fashion (continuous flow from the liver to the lumen of duodenum). One study was performed in female patients after cholecystectomy ([Acocella 1972a](#5-references)). The bile of these patients was collected via a T tube. In the simulations of these patients, enterohepatic recycling was switched off and a virtual gallbladder collected the excreted rifampicin over time. Relevant ADME processes reported to influence the PK of rifampicin were implemented into the model and tested. For parameters that could not be (reliably) informed from literature, parameter identification was performed using a representative set of available clinical studies (see below). Model evaluation was based on the ability of the model to describe observed plasma concentration-time profiles and fraction excreted of unchanged drug to urine and bile.
 
-Details about input data (physicochemical, *in vitro* and clinical) can be found in [Section 2.2](#22-Data).
+Details about input data (physicochemical, *in vitro* and clinical) can be found in [Section 2.2](#22-data).
 
-Details about the structural model and its parameters can be found in [Section 2.3](#23-Model-Parameters-and-Assumptions).
+Details about the structural model and its parameters can be found in [Section 2.3](#23-model-parameters-and-assumptions).
 
 
 
@@ -67,36 +67,36 @@ A literature search was performed to collect available information on physicoche
 
 | **Parameter**                           | **Unit**                           | **Value**        | Source                            | **Description**                                              |
 | :-------------------------------------- | ---------------------------------- | ---------------- | --------------------------------- | ------------------------------------------------------------ |
-| MW                                      | g/mol                              | 822.940          | [DrugBank DB01045](#5-References) | Molecular weight                                             |
-| pK<sub>a,base</sub>                     |                                    | 7.9              | [The Merck Index](#5-References)  | Basic dissociation constant                                  |
-| pK<sub>a,acid</sub>                     |                                    | 1.7              | [The Merck Index](#5-References)  | Acid dissociation constant                                   |
-| Solubility (pH)                         | mg/L                               | 1100<br />(6.5)  | [Baneyx 2014](#5-References)      | Solubility                                                   |
-|                                         |                                    | 1400<br />(6.8)  | [Panchagnula 2006](#5-References) | Solubility                                                   |
-|                                         |                                    | 990<br />(4)     | [Agrawal 2005](#5-References)     | Solubility                                                   |
-|                                         |                                    | 1650<br />(6)    | [Agrawal 2005](#5-References)     | Solubility                                                   |
-|                                         |                                    | 2540<br />(6.8)  | [Agrawal 2005](#5-References)     | Solubility                                                   |
-|                                         |                                    | 3350<br />(7.4)  | [Agrawal 2005](#5-References)     | Solubility                                                   |
-|                                         |                                    | 2800<br />(7.5)  | [Boman 1974](#5-References)       | Aqueous solubility                                           |
-| logP                                    |                                    | 1.3              | [Baneyx 2014](#5-References)      | Partition coefficient between octanol and water @ pH 7.4     |
-|                                         |                                    | 2.7              | [DrugBank DB01045](#5-References) | Partition coefficient between octanol and water              |
-| fu                                      | %                                  | 11.1             | [Boman 1974](#5-References)       | Fraction unbound in plasma                                   |
-|                                         | %                                  | 16.0             | [Baneyx 2014](#5-References)      | Fraction unbound in plasma in tuberculosis patients          |
-|                                         | %                                  | 17               | [Templeton 2011](#5-References)   | Fraction unbound in plasma                                   |
-|                                         | %                                  | 17.5             | [Shou 2008](#5-References)        | Fraction unbound in plasma                                   |
-| B/P ratio                               |                                    | 0.9              | [Loos 1985](#5-References)        | Blood to plasma concentration ratio                          |
-| V<sub>max</sub>, K<sub>m</sub> OATP1B1  | pmol/min/mg,<br />µmol/L           | 9.3<br />1.5     | [Tirona 2003](#5-References)      | OATP1B1 uptake in transfected HeLa cells                     |
-| V<sub>max</sub>, K<sub>m</sub> <br /> P-gp | nmol/h/cm<sup>2</sup>,<br />µmol/L | 4.3<br />55      | [Collett 2004](#5-References)     | P-gp net secretion across Caco-2 monolayers                 |
-| V<sub>max</sub>, K<sub>m</sub> AADAC    | pmol/min/mg,<br />µmol/L           | 162.6<br />195.1 | [Nakajima 2011](#5-References)    | Kinetic parameters of the deacetylase activity in HLM        |
-| E<sub>max</sub>, EC<sub>50</sub> CYP3A4 | *dimensionless*<br />µmol/L        | 9<br />0.34      | [Templeton 2011](#5-References)   | CYP3A4 induction parameters in primary human hepatocytes,<br />EC<sub>50</sub> corrected for fraction unbound in human hepatocytes of 0.419 as reported by [Shou 2008](#5-References) |
-| K<sub>i</sub> CYP3A4                    | µmol/L                             | 18.5             | [Kajosaari 2005](#5-References)    | CYP3A4 inhibition constant                                   |
-| E<sub>max</sub> P-gp                    | *dimensionless*                    | 2.5              | [Greiner 1999](#5-References)     | P-gp induction parameter based on an increased intestinal P-gp content in duodenal biopsies of 3.5 after rifampicin treatment |
-| K<sub>i</sub> P-gp                      | µmol/L                             | 169.0            | [Reitman 2011](#5-References)     | P-gp inhibition constant                                     |
-| K<sub>i</sub> OATP1B1                   | µmol/L                             | 0.477            | [Hirano 2006](#5-References)      | OATP1B1 inhibition constant (based on OATP1B1-mediated pitavastatin uptake) |
-| K<sub>i</sub> OATP1B3                   | µmol/L                             | 0.9              | [Annaert 2010](#5-References)      | OATP1B3 inhibition constant                                  |
-| E<sub>max</sub> CYP2C8                  | *dimensionless*                    | 3.2              | [Buckley 2014](#5-References)      | CYP2C8 E<sub>max</sub> in primary human hepatocytes (based on activity) |
-| K<sub>i</sub> CYP2C8                    | µmol/L                             | 30.2             | [Kajosaari 2005](#5-References)    | CYP2C8 inhibition constant                                   |
-| E<sub>max</sub> CYP1A2                  | *dimensionless*                    | 0.65             | [Chen 2010](#5-References)         | CYP1A2 E<sub>max</sub> in cultured human hepatocytes (based on activity) |
-| E<sub>max</sub> CYP2E1                  | *dimensionless*                    | 0.8              | [Rae 2001](#5-References)          | CYP2E1 fold induction of 1.8 calculated as the normalized ratio of expression in rifampin-treated versus vehicle control-treated cells |
+| MW                                      | g/mol                              | 822.940          | [DrugBank DB01045](#5-references) | Molecular weight                                             |
+| pK<sub>a,base</sub>                     |                                    | 7.9              | [The Merck Index](#5-references)  | Basic dissociation constant                                  |
+| pK<sub>a,acid</sub>                     |                                    | 1.7              | [The Merck Index](#5-references)  | Acid dissociation constant                                   |
+| Solubility (pH)                         | mg/L                               | 1100<br />(6.5)  | [Baneyx 2014](#5-references)      | Solubility                                                   |
+|                                         |                                    | 1400<br />(6.8)  | [Panchagnula 2006](#5-references) | Solubility                                                   |
+|                                         |                                    | 990<br />(4)     | [Agrawal 2005](#5-references)     | Solubility                                                   |
+|                                         |                                    | 1650<br />(6)    | [Agrawal 2005](#5-references)     | Solubility                                                   |
+|                                         |                                    | 2540<br />(6.8)  | [Agrawal 2005](#5-references)     | Solubility                                                   |
+|                                         |                                    | 3350<br />(7.4)  | [Agrawal 2005](#5-references)     | Solubility                                                   |
+|                                         |                                    | 2800<br />(7.5)  | [Boman 1974](#5-references)       | Aqueous solubility                                           |
+| logP                                    |                                    | 1.3              | [Baneyx 2014](#5-references)      | Partition coefficient between octanol and water @ pH 7.4     |
+|                                         |                                    | 2.7              | [DrugBank DB01045](#5-references) | Partition coefficient between octanol and water              |
+| fu                                      | %                                  | 11.1             | [Boman 1974](#5-references)       | Fraction unbound in plasma                                   |
+|                                         | %                                  | 16.0             | [Baneyx 2014](#5-references)      | Fraction unbound in plasma in tuberculosis patients          |
+|                                         | %                                  | 17               | [Templeton 2011](#5-references)   | Fraction unbound in plasma                                   |
+|                                         | %                                  | 17.5             | [Shou 2008](#5-references)        | Fraction unbound in plasma                                   |
+| B/P ratio                               |                                    | 0.9              | [Loos 1985](#5-references)        | Blood to plasma concentration ratio                          |
+| V<sub>max</sub>, K<sub>m</sub> OATP1B1  | pmol/min/mg,<br />µmol/L           | 9.3<br />1.5     | [Tirona 2003](#5-references)      | OATP1B1 uptake in transfected HeLa cells                     |
+| V<sub>max</sub>, K<sub>m</sub> <br /> P-gp | nmol/h/cm<sup>2</sup>,<br />µmol/L | 4.3<br />55      | [Collett 2004](#5-references)     | P-gp net secretion across Caco-2 monolayers                 |
+| V<sub>max</sub>, K<sub>m</sub> AADAC    | pmol/min/mg,<br />µmol/L           | 162.6<br />195.1 | [Nakajima 2011](#5-references)    | Kinetic parameters of the deacetylase activity in HLM        |
+| E<sub>max</sub>, EC<sub>50</sub> CYP3A4 | *dimensionless*<br />µmol/L        | 9<br />0.34      | [Templeton 2011](#5-references)   | CYP3A4 induction parameters in primary human hepatocytes,<br />EC<sub>50</sub> corrected for fraction unbound in human hepatocytes of 0.419 as reported by [Shou 2008](#5-references) |
+| K<sub>i</sub> CYP3A4                    | µmol/L                             | 18.5             | [Kajosaari 2005](#5-references)    | CYP3A4 inhibition constant                                   |
+| E<sub>max</sub> P-gp                    | *dimensionless*                    | 2.5              | [Greiner 1999](#5-references)     | P-gp induction parameter based on an increased intestinal P-gp content in duodenal biopsies of 3.5 after rifampicin treatment |
+| K<sub>i</sub> P-gp                      | µmol/L                             | 169.0            | [Reitman 2011](#5-references)     | P-gp inhibition constant                                     |
+| K<sub>i</sub> OATP1B1                   | µmol/L                             | 0.477            | [Hirano 2006](#5-references)      | OATP1B1 inhibition constant (based on OATP1B1-mediated pitavastatin uptake) |
+| K<sub>i</sub> OATP1B3                   | µmol/L                             | 0.9              | [Annaert 2010](#5-references)      | OATP1B3 inhibition constant                                  |
+| E<sub>max</sub> CYP2C8                  | *dimensionless*                    | 3.2              | [Buckley 2014](#5-references)      | CYP2C8 E<sub>max</sub> in primary human hepatocytes (based on activity) |
+| K<sub>i</sub> CYP2C8                    | µmol/L                             | 30.2             | [Kajosaari 2005](#5-references)    | CYP2C8 inhibition constant                                   |
+| E<sub>max</sub> CYP1A2                  | *dimensionless*                    | 0.65             | [Chen 2010](#5-references)         | CYP1A2 E<sub>max</sub> in cultured human hepatocytes (based on activity) |
+| E<sub>max</sub> CYP2E1                  | *dimensionless*                    | 0.8              | [Rae 2001](#5-references)          | CYP2E1 fold induction of 1.8 calculated as the normalized ratio of expression in rifampin-treated versus vehicle control-treated cells |
 
 *AADAC* arylacetamide deacetylase
 
@@ -108,26 +108,26 @@ A literature search was performed to collect available clinical data (plasma con
 
 The following dosing scenarios were simulated and compared to respective data:
 
-| Route | Dose<br />[mg] | Dosing                    | PK Data                               | Used for [Optimization](#235-Automated-Parameter-Identification) | Reference                                          |
+| Route | Dose<br />[mg] | Dosing                    | PK Data                               | Used for [Optimization](#235-automated-parameter-identification) | Reference                                          |
 | ----- | -------------- | ------------------------- | ------------------------------------- | ------------------------------------------------------------ | -------------------------------------------------- |
-| iv    | 300            | SD, 30 min infusion       | Plasma                                | x                                                            | [sanofi-aventis U.S. LLC. 2013](#5-References)     |
-|       |                | SD, 3 h infusion          | Plasma, excretion into urine          | x                                                            | [Nitti 1977](#5-References)                        |
-|       | 450            | SD, 3 h infusion          | Plasma, excretion into urine          | x                                                            | [Nitti 1977](#5-References)                        |
-|       | 600            | SD, 30 min infusion       | Plasma                                | x                                                            | [sanofi-aventis U.S. LLC. 2013](#5-References)     |
-|       |                | SD, 3 h infusion          | Plasma, excretion into urine          | x                                                            | [Nitti 1977](#5-References)                        |
-|       |                | SD, 3 h infusion          | Plasma, excretion into urine          | x                                                            | [Acocella 1977](#5-References)                     |
-|       |                | OD (7 days), 3 h infusion | Plasma                                | x                                                            | [Acocella 1977](#5-References)                     |
-| po    | 300            | SD                        | Plasma                                | x                                                            | [Chouchane 1995](#5-References)                    |
-|       |                | SD                        | Plasma                                |                                                              | [Furesz 1970](#5-References)                       |
-|       | 450            | SD                        | Plasma                                | x                                                            | [Blume 1989](#5-References)                        |
-|       |                |                           | Plasma                                |                                                              | [Furesz 1970](#5-References)                       |
-|       |                | MD                        | Plasma, excretion into urine and bile | x                                                            | [Acocella 1972a](#5-References)                    |
-|       | 600            | SD                        | Plasma                                | x                                                            | [Peloquin 1997](#5-References)                     |
-|       |                |                           | Plasma                                |                                                              | [Blume 1989](#5-References)                        |
-|       |                |                           | Plasma                                |                                                              | [Acocella 1972b](#5-References)                    |
-|       |                |                           | Plasma                                |                                                              | [Furesz 1970](#5-References)                       |
-|       |                |                           | Plasma, excretion into urine          | x                                                            | [Eon Labs Manufacturing, Inc. 1997](#5-References) |
-|       |                | OD (7 days)               | Plasma                                | x                                                            | [Baneyx 2014](#5-References)                       |
+| iv    | 300            | SD, 30 min infusion       | Plasma                                | x                                                            | [sanofi-aventis U.S. LLC. 2013](#5-references)     |
+|       |                | SD, 3 h infusion          | Plasma, excretion into urine          | x                                                            | [Nitti 1977](#5-references)                        |
+|       | 450            | SD, 3 h infusion          | Plasma, excretion into urine          | x                                                            | [Nitti 1977](#5-references)                        |
+|       | 600            | SD, 30 min infusion       | Plasma                                | x                                                            | [sanofi-aventis U.S. LLC. 2013](#5-references)     |
+|       |                | SD, 3 h infusion          | Plasma, excretion into urine          | x                                                            | [Nitti 1977](#5-references)                        |
+|       |                | SD, 3 h infusion          | Plasma, excretion into urine          | x                                                            | [Acocella 1977](#5-references)                     |
+|       |                | OD (7 days), 3 h infusion | Plasma                                | x                                                            | [Acocella 1977](#5-references)                     |
+| po    | 300            | SD                        | Plasma                                | x                                                            | [Chouchane 1995](#5-references)                    |
+|       |                | SD                        | Plasma                                |                                                              | [Furesz 1970](#5-references)                       |
+|       | 450            | SD                        | Plasma                                | x                                                            | [Blume 1989](#5-references)                        |
+|       |                |                           | Plasma                                |                                                              | [Furesz 1970](#5-references)                       |
+|       |                | MD                        | Plasma, excretion into urine and bile | x                                                            | [Acocella 1972a](#5-references)                    |
+|       | 600            | SD                        | Plasma                                | x                                                            | [Peloquin 1997](#5-references)                     |
+|       |                |                           | Plasma                                |                                                              | [Blume 1989](#5-references)                        |
+|       |                |                           | Plasma                                |                                                              | [Acocella 1972b](#5-references)                    |
+|       |                |                           | Plasma                                |                                                              | [Furesz 1970](#5-references)                       |
+|       |                |                           | Plasma, excretion into urine          | x                                                            | [Eon Labs Manufacturing, Inc. 1997](#5-references) |
+|       |                | OD (7 days)               | Plasma                                | x                                                            | [Baneyx 2014](#5-references)                       |
 
 
 
@@ -137,107 +137,107 @@ The following dosing scenarios were simulated and compared to respective data:
 ## 2.3 Model Parameters and Assumptions
 ### 2.3.1 Absorption
 
-Herein, the model parameter `Specific intestinal permeability` was optimized to best match clinical data (see  [Section 2.3.5](#235-Automated-Parameter-Identification)). The results of the optimization can be found in [Section 2.3.5](#235-Automated-Parameter-Identification).
+Herein, the model parameter `Specific intestinal permeability` was optimized to best match clinical data (see  [Section 2.3.5](#235-automated-parameter-identification)). The results of the optimization can be found in [Section 2.3.5](#235-automated-parameter-identification).
 
-Measured aqueous solubility ([Boman 1974](#5-References), see [Section 2.2.1](#221-In-vitro-and-physicochemical-data)) was set as default solubility.
+Measured aqueous solubility ([Boman 1974](#5-references), see [Section 2.2.1](#221-in-vitro-and-physicochemical-data)) was set as default solubility.
 
 As observed data do not show substantial differences between different formulations for oral rifampicin administration, all oral administrations were modelled as an oral solution.
 
 ### 2.3.2 Distribution
 
-Recent measurements of fraction unbound in plasma yielded values of approximately 17% ([Templeton 2011](#5-References), [Shou 2008](#5-References), see [Section 2.2.1](#221-In-vitro-and-physicochemical-data)). This value was implemented in this model.
+Recent measurements of fraction unbound in plasma yielded values of approximately 17% ([Templeton 2011](#5-references), [Shou 2008](#5-references), see [Section 2.2.1](#221-in-vitro-and-physicochemical-data)). This value was implemented in this model.
 
 `Lipophilicity` was optimized within the range of measured values to find a best match of simulated to observed rifampicin PK profile data.
 
-After testing the available organ-plasma partition coefficient and cell permeability calculation methods built in PK-Sim®, observed clinical data was best described by choosing the partition coefficient calculation by `Rodgers and Rowland` and cellular permeability calculation by `PK-Sim Standard ` for rifampicin. The PK-Sim® calculated `Blood/plasma concentration ratio` is well in line with the observed value of 0.9 ([Loos 1985](#5-References)).
+After testing the available organ-plasma partition coefficient and cell permeability calculation methods built in PK-Sim®, observed clinical data was best described by choosing the partition coefficient calculation by `Rodgers and Rowland` and cellular permeability calculation by `PK-Sim Standard ` for rifampicin. The PK-Sim® calculated `Blood/plasma concentration ratio` is well in line with the observed value of 0.9 ([Loos 1985](#5-references)).
 
 ### 2.3.3 Metabolism and Elimination
 
-Integrating and testing active processes that were considered vital to the PK of rifampicin after literature review resulted in a final model that applies transport by OATP1B1 ([Tirona 2003](#5-References)), metabolism by arylacetamide deacetylase (AADAC) ([Nakajima 2011](#5-References)), transport by P-gp ([Collett 2004](#5-References)) and glomerular filtration. No study clearly demonstrated that rifampicin is substrate of CYP3A4; hence, in this PBPK model rifampicin only acts as a perpetrator on CYP3A4 without being metabolized by it.
+Integrating and testing active processes that were considered vital to the PK of rifampicin after literature review resulted in a final model that applies transport by OATP1B1 ([Tirona 2003](#5-references)), metabolism by arylacetamide deacetylase (AADAC) ([Nakajima 2011](#5-references)), transport by P-gp ([Collett 2004](#5-references)) and glomerular filtration. No study clearly demonstrated that rifampicin is substrate of CYP3A4; hence, in this PBPK model rifampicin only acts as a perpetrator on CYP3A4 without being metabolized by it.
 
-The implemented expression profile of AADAC, P-gp and OATP1B1 were based on high-sensitive real-time RT-PCR ([Nishimura 2003](#5-References)) of the PK-Sim® expression database. The relative expression in the mucosa of the gut wall was modified based on an optimized value as reported by Hanke *et al.* ([Hanke 2018](#5-References)). Herein, this value was increased by a factor of 3.57 based on digoxin PK data in combination with PBPK modeling.
+The implemented expression profile of AADAC, P-gp and OATP1B1 were based on high-sensitive real-time RT-PCR ([Nishimura 2003](#5-references)) of the PK-Sim® expression database. The relative expression in the mucosa of the gut wall was modified based on an optimized value as reported by Hanke *et al.* ([Hanke 2018](#5-references)). Herein, this value was increased by a factor of 3.57 based on digoxin PK data in combination with PBPK modeling.
 
-It was assumed that the mRNA concentration is proportional to the respective protein concentration. Thus, the expression of a protein in a specific organ relates to the expression in the organ with the highest expression which is termed reference concentration of the protein ([Meyer 2012](#5-References)). OATP1B1 was configured as influx transporter and P-gp as efflux transporter. Reference concentrations of the implemented active processes (enzymes and transporters) are summarized below:
+It was assumed that the mRNA concentration is proportional to the respective protein concentration. Thus, the expression of a protein in a specific organ relates to the expression in the organ with the highest expression which is termed reference concentration of the protein ([Meyer 2012](#5-references)). OATP1B1 was configured as influx transporter and P-gp as efflux transporter. Reference concentrations of the implemented active processes (enzymes and transporters) are summarized below:
 
 | Protein | Reference concentration<br />[µmol/L] | Reference Organ        |
 | ------- | ------------------------------------- | ---------------------- |
 | AADAC   | 1.0 (assumed)                         | Liver                  |
-| P-gp    | 1.41 ([Hanke 2018](#5-References))    | Mucosa Small Intestine |
+| P-gp    | 1.41 ([Hanke 2018](#5-references))    | Mucosa Small Intestine |
 | OATP1B1 | 1.0 (assumed)                         | Liver                  |
 
-The kinetic parameters describing the rifampicin metabolism by AADAC and transport by P-gp and OATP1B1 were imputed in the model as follows: while Michaelis-Menten constants (K<sub>m</sub> values) of AADAC-catalyzed metabolism and the two transport processes were taken from reported in vitro experiments, enzymatic and transport turnover values (k<sub>cat</sub>) were optimized based on *in vivo* PK data (see [Section 2.3.5](#235-Automated-Parameter-Identification)).
+The kinetic parameters describing the rifampicin metabolism by AADAC and transport by P-gp and OATP1B1 were imputed in the model as follows: while Michaelis-Menten constants (K<sub>m</sub> values) of AADAC-catalyzed metabolism and the two transport processes were taken from reported in vitro experiments, enzymatic and transport turnover values (k<sub>cat</sub>) were optimized based on *in vivo* PK data (see [Section 2.3.5](#235-automated-parameter-identification)).
 
-Multiple dose studies that measured PK profiles of rifampicin at different days of a 600 mg po once daily regimen indicate that rifampicin exposure decreases over time due to auto-induction processes ([Baneyx 2014](#5-References)), ([Smythe 2012](#5-References)). *In-vitro* studies in human hepatocytes suggest that rifampicin induces P-gp ([Collett 2004](#5-References), [Dixit 2007](#5-References), [Williamson 2013](#5-References)) and OATP1B1 ([Dixit 2007](#5-References), [Williamson 2013](#5-References)). It has further been shown in DDI studies with prototypical substrates of these transporters (pravastatin and digoxin, respectively) that the induction of these transporters can also be observed *in vivo* ([Kyrklund 2000](#5-References), [Greiner 1999](#5-References)). As in the case of CYP3A4 induction, both induction processes are mediated via pregnane X receptor (PXR) ([Geick 2001](#5-References)). Furthermore, it has been demonstrated that B-esterases are inducible by rifampicin via PXR ([Smythe 2012](#5-References), [Staudinger 2010](#5-References)) and that AADAC, the enzyme catalyzing the main metabolic pathway of rifampicin, is regulated by PXR ([Zhang 2012](#5-References)). Therefore, (auto-)induction of P-gp, OATP1B1 and AADAC expression was assumed and implemented in the rifampicin model. Modelling induction of an endogenously expressed protein requires three parameters, in particular **EC<sub>50</sub>** (concentration at which induction is half maximum), **E<sub>max</sub>** (maximum induction effect on endogenous synthesis rate) and the endogenous **protein turnover (half-life)**. Little is known about these values *in vivo* for AADAC, P-gp and OATP1B1 induction. 
+Multiple dose studies that measured PK profiles of rifampicin at different days of a 600 mg po once daily regimen indicate that rifampicin exposure decreases over time due to auto-induction processes ([Baneyx 2014](#5-references)), ([Smythe 2012](#5-references)). *In-vitro* studies in human hepatocytes suggest that rifampicin induces P-gp ([Collett 2004](#5-references), [Dixit 2007](#5-references), [Williamson 2013](#5-references)) and OATP1B1 ([Dixit 2007](#5-references), [Williamson 2013](#5-references)). It has further been shown in DDI studies with prototypical substrates of these transporters (pravastatin and digoxin, respectively) that the induction of these transporters can also be observed *in vivo* ([Kyrklund 2000](#5-references), [Greiner 1999](#5-references)). As in the case of CYP3A4 induction, both induction processes are mediated via pregnane X receptor (PXR) ([Geick 2001](#5-references)). Furthermore, it has been demonstrated that B-esterases are inducible by rifampicin via PXR ([Smythe 2012](#5-references), [Staudinger 2010](#5-references)) and that AADAC, the enzyme catalyzing the main metabolic pathway of rifampicin, is regulated by PXR ([Zhang 2012](#5-references)). Therefore, (auto-)induction of P-gp, OATP1B1 and AADAC expression was assumed and implemented in the rifampicin model. Modelling induction of an endogenously expressed protein requires three parameters, in particular **EC<sub>50</sub>** (concentration at which induction is half maximum), **E<sub>max</sub>** (maximum induction effect on endogenous synthesis rate) and the endogenous **protein turnover (half-life)**. Little is known about these values *in vivo* for AADAC, P-gp and OATP1B1 induction. 
 
 #### (Auto-) Induction Processes: AADAC, P-gp and OATP1B1
 
 ##### EC<sub>50</sub>
 
-As all induction processes are mediated by PXR, the same unbound EC<sub>50</sub> of 0.34 µmol/L (originally measured in primary human hepatocytes for CYP3A4 induction after correcting for the fraction unbound ([Baneyx 2014](#5-References), [Shou 2008](#5-References), [Templeton 2011](#5-References))) was applied for all induction processes. This assumption is supported by the fact that Moore *et al.* [Moore 2000](#5-References) found a general EC<sub>50</sub> value for PXR-mediated rifampicin induction of 0.71 µmol/L (resulting in an unbound EC<sub>50</sub> of 0.30 µmol/L after correcting for the fraction unbound reported by [Shou 2008](#5-References)). 
+As all induction processes are mediated by PXR, the same unbound EC<sub>50</sub> of 0.34 µmol/L (originally measured in primary human hepatocytes for CYP3A4 induction after correcting for the fraction unbound ([Baneyx 2014](#5-references), [Shou 2008](#5-references), [Templeton 2011](#5-references))) was applied for all induction processes. This assumption is supported by the fact that Moore *et al.* [Moore 2000](#5-references) found a general EC<sub>50</sub> value for PXR-mediated rifampicin induction of 0.71 µmol/L (resulting in an unbound EC<sub>50</sub> of 0.30 µmol/L after correcting for the fraction unbound reported by [Shou 2008](#5-references)). 
 
 ##### E<sub>max</sub>
 
-E<sub>max</sub> values for AADAC and OATP1B1 are unknown and fitted based on observed clinical PK data of rifampicin (see [Section 2.3.5](#235-Automated-Parameter-Identification)).
+E<sub>max</sub> values for AADAC and OATP1B1 are unknown and fitted based on observed clinical PK data of rifampicin (see [Section 2.3.5](#235-automated-parameter-identification)).
 
-A study by Greiner et al. ([Greiner 1999](#5-References)) found 3.5-fold elevated P-gp levels in human duodenal biopsies after multiple doses of rifampicin. This value was assumed to represent an *in vivo* maximum effect corresponding to an E<sub>max</sub> value of 2.5. This E<sub>max</sub> was included in the model for P-gp induction (see also [Section 2.2.1](#221-In-vitro-and-physicochemical-data)).
+A study by Greiner et al. ([Greiner 1999](#5-references)) found 3.5-fold elevated P-gp levels in human duodenal biopsies after multiple doses of rifampicin. This value was assumed to represent an *in vivo* maximum effect corresponding to an E<sub>max</sub> value of 2.5. This E<sub>max</sub> was included in the model for P-gp induction (see also [Section 2.2.1](#221-in-vitro-and-physicochemical-data)).
 
 ##### Protein turnover (half-lives)
 
-Endogenous half-lives of these proteins are not known. Therefore, the same values applicable for CYP3A4 turnover (as implemented in PK-Sim ([PK-Sim Ontogeny Database Version 7.3](#5-References)) were assumed, i.e. 36 hours in the liver ([Obach 2007](#5-References)) and 23 hours in the intestine ([Greenblatt 2003](#5-References)).
+Endogenous half-lives of these proteins are not known. Therefore, the same values applicable for CYP3A4 turnover (as implemented in PK-Sim ([PK-Sim Ontogeny Database Version 7.3](#5-references)) were assumed, i.e. 36 hours in the liver ([Obach 2007](#5-references)) and 23 hours in the intestine ([Greenblatt 2003](#5-references)).
 
 ### 2.3.4 DDI Parameters
 
 The following sub-section describe the model input for DDI-related parameters, i.e. induction and inhibition of certain enzymes and transporters, for which rifampicin may act as a perpetrator. Verification of these model parameters and linked processes is not evaluated in this report. Applications are assessed in specific use cases and reported elsewhere. 
 
 #### CYP3A4 induction and inhibition
-Induction of CYP3A4 was incorporated using the weighted mean **EC<sub>50</sub>** of 0.8 µmol/L and **E<sub>max </sub>** estimate of 9 based on CYP3A4 activity induction in primary human hepatocytes ([Templeton 2011](#5-References), see also [Section 2.2.1](#221-In-vitro-and-physicochemical-data)). Similar values for EC<sub>50</sub> (0.77, 0.80 µmol/L) and E<sub>max </sub> (7, 9, 10) have been reported by other groups ([Kolars 1992](#5-References), [Mills 2004](#5-References), [Sahi 2000](#5-References)). The *in vitro* value of EC<sub>50</sub> of 0.8 µmol/L was corrected by the unbound fraction of rifampicin in hepatocytes of 0.419 to obtain an **unbound EC<sub>50</sub>** value of 0.34 µmol/L ([Baneyx 2014](#5-References), [Shou 2008](#5-References), [Templeton 2011](#5-References)) which was used in the PBPK model. 
+Induction of CYP3A4 was incorporated using the weighted mean **EC<sub>50</sub>** of 0.8 µmol/L and **E<sub>max </sub>** estimate of 9 based on CYP3A4 activity induction in primary human hepatocytes ([Templeton 2011](#5-references), see also [Section 2.2.1](#221-in-vitro-and-physicochemical-data)). Similar values for EC<sub>50</sub> (0.77, 0.80 µmol/L) and E<sub>max </sub> (7, 9, 10) have been reported by other groups ([Kolars 1992](#5-references), [Mills 2004](#5-references), [Sahi 2000](#5-references)). The *in vitro* value of EC<sub>50</sub> of 0.8 µmol/L was corrected by the unbound fraction of rifampicin in hepatocytes of 0.419 to obtain an **unbound EC<sub>50</sub>** value of 0.34 µmol/L ([Baneyx 2014](#5-references), [Shou 2008](#5-references), [Templeton 2011](#5-references)) which was used in the PBPK model. 
 
-Competitive inhibition of CYP3A4 by rifampicin was included using a dissociation (inhibition) constant (**K<sub>i</sub>**) of 18.5 µmol/L determined in human liver microsomes via inhibition of midazolam 1-hydroxylation ([Kajosaari 2005](#5-References)). No correction of this *in vitro* value was applied to account for potential binding in the assay, as only 0.1 mg/mL human liver microsomal protein was used and a negligible unbound fraction of 0.90 – 0.98 was predicted ([Austin 2002](#5-References)).
+Competitive inhibition of CYP3A4 by rifampicin was included using a dissociation (inhibition) constant (**K<sub>i</sub>**) of 18.5 µmol/L determined in human liver microsomes via inhibition of midazolam 1-hydroxylation ([Kajosaari 2005](#5-references)). No correction of this *in vitro* value was applied to account for potential binding in the assay, as only 0.1 mg/mL human liver microsomal protein was used and a negligible unbound fraction of 0.90 – 0.98 was predicted ([Austin 2002](#5-references)).
 
-Time to reach newly induced CYP3A4 levels and time for de-induction depends on the half-lives of the perpetrator drug but also of the endogenous natural turnover of the induced protein. CYP3A4 turnover featured zero-order synthesis rate and first-order degradation rate. A distinct degradation rate constant (k<sub>deg</sub>) was considered for the intestinal mucosa which rather reflects enterocytic turnover than protein turnover, while in all other CYP3A4 expressing organs CYP3A4 turnover was assumed to follow that of the liver. **CYP3A4 half-life** (= ln(2)/k<sub>deg</sub>) of 23 and 36 h in intestine and liver, respectively, were incorporated ([Obach 2007](#5-References), [Greenblatt 2003](#5-References), [PK-Sim Ontogeny Database Version 7.3](#5-References)).
+Time to reach newly induced CYP3A4 levels and time for de-induction depends on the half-lives of the perpetrator drug but also of the endogenous natural turnover of the induced protein. CYP3A4 turnover featured zero-order synthesis rate and first-order degradation rate. A distinct degradation rate constant (k<sub>deg</sub>) was considered for the intestinal mucosa which rather reflects enterocytic turnover than protein turnover, while in all other CYP3A4 expressing organs CYP3A4 turnover was assumed to follow that of the liver. **CYP3A4 half-life** (= ln(2)/k<sub>deg</sub>) of 23 and 36 h in intestine and liver, respectively, were incorporated ([Obach 2007](#5-references), [Greenblatt 2003](#5-references), [PK-Sim Ontogeny Database Version 7.3](#5-references)).
 
 #### P-gp induction and inhibition
 P-gp induction is described above.
 
-An *in vitro* determined K<sub>i</sub> value for rifampicin ([Reitman 2011](#5-References)) served directly as model input (see [Section 2.2.1](#221-In-vitro-and-physicochemical-data)).
+An *in vitro* determined K<sub>i</sub> value for rifampicin ([Reitman 2011](#5-references)) served directly as model input (see [Section 2.2.1](#221-in-vitro-and-physicochemical-data)).
 
 #### OATP1B1 induction and inhibition
 
 OATP1B1 induction is described above. 
 
-An *in vitro* determined K<sub>i</sub> value for rifampicin ([Hirano 2006](#5-References)) served directly as model input (see [Section 2.2.1](#221-In-vitro-and-physicochemical-data)).
+An *in vitro* determined K<sub>i</sub> value for rifampicin ([Hirano 2006](#5-references)) served directly as model input (see [Section 2.2.1](#221-in-vitro-and-physicochemical-data)).
 
 #### OATP1B3 induction and inhibition
 
 The same parameters as for OATP1B1 induction were assumed.
 
-An *in vitro* determined K<sub>i</sub> value for rifampicin ([Annaert 2010](#5-References)) served directly as model input (see [Section 2.2.1](#221-In-vitro-and-physicochemical-data)).
+An *in vitro* determined K<sub>i</sub> value for rifampicin ([Annaert 2010](#5-references)) served directly as model input (see [Section 2.2.1](#221-in-vitro-and-physicochemical-data)).
 
 #### CYP2C8 induction and inhibition
 
-For PXR-mediated induction, the same unbound EC<sub>50</sub> of 0.34 µmol/L (originally measured in primary human hepatocytes for CYP3A4 induction after correcting for the fraction unbound ([Baneyx 2014](#5-References), [Shou 2008](#5-References), [Templeton 2011](#5-References))) was applied (see above).
+For PXR-mediated induction, the same unbound EC<sub>50</sub> of 0.34 µmol/L (originally measured in primary human hepatocytes for CYP3A4 induction after correcting for the fraction unbound ([Baneyx 2014](#5-references), [Shou 2008](#5-references), [Templeton 2011](#5-references))) was applied (see above).
 
-An E<sub>max</sub> value reported by Buckley *et al.* ([Buckley 2014](#5-References)) served as model input (see [Section 2.2.1](#221-In-vitro-and-physicochemical-data)).
+An E<sub>max</sub> value reported by Buckley *et al.* ([Buckley 2014](#5-references)) served as model input (see [Section 2.2.1](#221-in-vitro-and-physicochemical-data)).
 
-CYP2C8 half-life of 23 h in the liver ([Renwick 2000](#5-References), [PK-Sim Ontogeny Database Version 7.3](#5-References)) and of 23 h in the intestine (assuming that the turnover here rather reflects enterocytic turnover than protein turnover) ([Greenblatt 2003](#5-References), [PK-Sim Ontogeny Database Version 7.3](#5-References)) were incorporated.
+CYP2C8 half-life of 23 h in the liver ([Renwick 2000](#5-references), [PK-Sim Ontogeny Database Version 7.3](#5-references)) and of 23 h in the intestine (assuming that the turnover here rather reflects enterocytic turnover than protein turnover) ([Greenblatt 2003](#5-references), [PK-Sim Ontogeny Database Version 7.3](#5-references)) were incorporated.
 
-An *in vitro* determined K<sub>i</sub> value for rifampicin ([Kajosaari 2005](#5-References)) served directly as model input.
+An *in vitro* determined K<sub>i</sub> value for rifampicin ([Kajosaari 2005](#5-references)) served directly as model input.
 
 #### CYP1A2 induction
 
-For PXR-mediated induction, the same unbound EC<sub>50</sub> of 0.34 µmol/L (originally measured in primary human hepatocytes for CYP3A4 induction after correcting for the fraction unbound ([Baneyx 2014](#5-References), [Shou 2008](#5-References), [Templeton 2011](#5-References))) was applied (see above).
+For PXR-mediated induction, the same unbound EC<sub>50</sub> of 0.34 µmol/L (originally measured in primary human hepatocytes for CYP3A4 induction after correcting for the fraction unbound ([Baneyx 2014](#5-references), [Shou 2008](#5-references), [Templeton 2011](#5-references))) was applied (see above).
 
-An E<sub>max</sub> value reported by Chen *et al.* ([Chen 2010](#5-References)) served as model input (see [Section 2.2.1](#221-In-vitro-and-physicochemical-data)).
+An E<sub>max</sub> value reported by Chen *et al.* ([Chen 2010](#5-references)) served as model input (see [Section 2.2.1](#221-in-vitro-and-physicochemical-data)).
 
-CYP1A2 half-life of 39 h in the liver ([Obach 2007](#5-References), [PK-Sim Ontogeny Database Version 7.3](#5-References)) and of 23 h in the intestine (assuming that the turnover here rather reflects enterocytic turnover than protein turnover) ([Greenblatt 2003](#5-References), [PK-Sim Ontogeny Database Version 7.3](#5-References)) were incorporated.
+CYP1A2 half-life of 39 h in the liver ([Obach 2007](#5-references), [PK-Sim Ontogeny Database Version 7.3](#5-references)) and of 23 h in the intestine (assuming that the turnover here rather reflects enterocytic turnover than protein turnover) ([Greenblatt 2003](#5-references), [PK-Sim Ontogeny Database Version 7.3](#5-references)) were incorporated.
 
 #### CYP2E1 induction
 
-For PXR-mediated induction, the same unbound EC<sub>50</sub> of 0.34 µmol/L (originally measured in primary human hepatocytes for CYP3A4 induction after correcting for the fraction unbound ([Baneyx 2014](#5-References), [Shou 2008](#5-References), [Templeton 2011](#5-References))) was applied (see above).
+For PXR-mediated induction, the same unbound EC<sub>50</sub> of 0.34 µmol/L (originally measured in primary human hepatocytes for CYP3A4 induction after correcting for the fraction unbound ([Baneyx 2014](#5-references), [Shou 2008](#5-references), [Templeton 2011](#5-references))) was applied (see above).
 
-An E<sub>max</sub> value reported by Rae *et al.* ([Rae 2001](#5-References)) served as model input (see [Section 2.2.1](#221-In-vitro-and-physicochemical-data)).
+An E<sub>max</sub> value reported by Rae *et al.* ([Rae 2001](#5-references)) served as model input (see [Section 2.2.1](#221-in-vitro-and-physicochemical-data)).
 
-CYP2E1 half-life of 50 h in the liver ([Emery 1999](#5-References), [PK-Sim Ontogeny Database Version 7.3](#5-References)) and of 23 h in the intestine (assuming that the turnover here rather reflects enterocytic turnover than protein turnover) ([Greenblatt 2003](#5-References), [PK-Sim Ontogeny Database Version 7.3](#5-References)) were incorporated.
+CYP2E1 half-life of 50 h in the liver ([Emery 1999](#5-references), [PK-Sim Ontogeny Database Version 7.3](#5-references)) and of 23 h in the intestine (assuming that the turnover here rather reflects enterocytic turnover than protein turnover) ([Greenblatt 2003](#5-references), [PK-Sim Ontogeny Database Version 7.3](#5-references)) were incorporated.
 
 #### Summary DDI Parameters
 
@@ -247,9 +247,9 @@ CYP2E1 half-life of 50 h in the liver ([Emery 1999](#5-References), [PK-Sim Onto
 | CYP2C8  | 30.2                        | 3.2                                                  | 0.34                            | 23                       | 23 (assumed)                 |
 | CYP2E1  | -                           | 0.8                                                  | 0.34                            | 50                       | 23 (assumed)                 |
 | CYP3A4  | 18.5                        | 9                                                    | 0.34                            | 36                       | 23                           |
-| AADAC   | -                           | [optimized](#235-Automated-Parameter-Identification) | 0.34                            | 36 (assumed)             | 23 (assumed)                 |
-| P-gp    | 169                         | [optimized](#235-Automated-Parameter-Identification) | 0.34                            | 36 (assumed)             | 23 (assumed)                 |
-| OATP1B1 | 0.477                       | [optimized](#235-Automated-Parameter-Identification) | 0.34                            | 36 (assumed)             | 23 (assumed)                 |
+| AADAC   | -                           | [optimized](#235-automated-parameter-identification) | 0.34                            | 36 (assumed)             | 23 (assumed)                 |
+| P-gp    | 169                         | [optimized](#235-automated-parameter-identification) | 0.34                            | 36 (assumed)             | 23 (assumed)                 |
+| OATP1B1 | 0.477                       | [optimized](#235-automated-parameter-identification) | 0.34                            | 36 (assumed)             | 23 (assumed)                 |
 | OATP1B3 | 0.9                         | assumed to be equal to OATP1B1                       | 0.34                            | 36 (assumed)             | 23 (assumed)                 |
 
 
@@ -262,17 +262,16 @@ This is the result of the final parameter identification:
 | ----------------------------------------------------------- | ------------------------------------------------------------ | --------- |
 | `Lipophilicity`                                             | 2.5                                                          | Log Units |
 | `Specific intestinal permeability`                          | 1.24E-05                                                     | cm/min    |
-| `Fraction unbound (plasma, reference value)`                | 17 FIXED (see [Section 2.2.1](#221-In-vitro-and-physicochemical-data)) | %         |
-| `Solubility at reference pH`                                | 2800 FIXED (see [Section 2.2.1](#221-In-vitro-and-physicochemical-data)) | mg/L      |
+| `Fraction unbound (plasma, reference value)`                | 17 FIXED (see [Section 2.2.1](#221-in-vitro-and-physicochemical-data)) | %         |
+| `Solubility at reference pH`                                | 2800 FIXED (see [Section 2.2.1](#221-in-vitro-and-physicochemical-data)) | mg/L      |
 | `kcat` AADAC (with a reference concentration of 1 µmol/L)   | 9.865                                                        | 1/min     |
 | `kcat` P-gp (with a reference concentration of 1.41 µmol/L) | 0.6088                                                       | 1/min     |
-| `kcat` OATP1B1 (with a reference concentration of 1 µmol/L) | 7.796                                                        | 1/min     |
+| `kcat` OATP1B1 (with a reference concentration of 1 µmol/L) | 7.796<sup>*</sup>                                            | 1/min     |
 | `Emax` AADAC                                                | 0.985                                                        |           |
-| `Emax` P-gp                                                 | 2.5 FIXED (see [Section 2.2.1](#221-In-vitro-and-physicochemical-data)) |           |
+| `Emax` P-gp                                                 | 2.5 FIXED (see [Section 2.2.1](#221-in-vitro-and-physicochemical-data)) |           |
 | `Emax` OATP1B1                                              | 0.383                                                        |           |
 
-
-
+<sup>*</sup> The value in the model was updated to 5.210 with the release of PK-Sim 10 to account for the updated calculation method of interstitial concentrations (please refer to the respective [release notes of version 10](https://github.com/Open-Systems-Pharmacology/Suite/releases/tag/v10.0)).
 
 
 # 3 Results and Discussion
@@ -280,9 +279,9 @@ The rifampicin model was built and verified using various clinical studies. Over
 
 The next sections show:
 
-1. the final model input parameters for the building blocks: [Section 3.1](#31-Final-Input-Parameters).
-2. the overall goodness of fit: [Section 3.2](#32-Diagnostics-Plots).
-3. simulated vs. observed concentration-time profiles for the clinical studies used for model building and for model verification: [Section 3.3](#33-Concentration-Time-Profiles).
+1. the final model input parameters for the building blocks: [Section 3.1](#31-final-input-parameters).
+2. the overall goodness of fit: [Section 3.2](#32-diagnostics-plots).
+3. simulated vs. observed concentration-time profiles for the clinical studies used for model building and for model verification: [Section 3.3](#33-concentration-time-profiles).
 ## 3.1 Final input parameters
 The parameter values of the final PBPK model are illustrated below.
 
@@ -343,7 +342,7 @@ Name                      | Value            | Value Origin
 Transporter concentration | 109.6 µmol/l     |                                                       
 Vmax                      | 0.372 µmol/l/min |                                                       
 Km                        | 1.5 µmol/l       |                                                       
-kcat                      | 7.796 1/min      | Publication-Parameter Identification-Hanke et al. 2018
+kcat                      | 5.21004653 1/min | Publication-Parameter Identification-Hanke et al. 2018
 ##### Systemic Process: Glomerular Filtration-GFR
 
 Species: Human
@@ -457,7 +456,7 @@ Name | Value      | Value Origin
 Ki   | 0.9 µmol/l |             
 
 ## 3.2 Diagnostics Plots
-Below you find the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data used presented in [Section 2.2.2](#222-Clinical-data).
+Below you find the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data used presented in [Section 2.2.2](#222-clinical-data).
 
 The first plot shows observed versus simulated plasma concentration and the second weighted residuals versus time for itraconazole, hydroxy-itraconazole, keto-itraconazole and N-desalkyl-itraconazole.
 
@@ -466,10 +465,10 @@ The first plot shows observed versus simulated plasma concentration and the seco
 
 ![002_plotGOFMergedResidualsOverTime.png](images/003_3_Results_and_Discussion/002_3_2_Diagnostics_Plots/002_plotGOFMergedResidualsOverTime.png)
 
-GMFE = 1.372542 
+GMFE = 1.372794 
 
 ## 3.3 Concentration-Time Profiles
-Simulated versus observed concentration-time profiles of all data listed in [Section 2.2.2](#222-Clinical-data) are presented below.
+Simulated versus observed concentration-time profiles of all data listed in [Section 2.2.2](#222-cClinical-data) are presented below.
 
 
 ![001_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_plotTimeProfile.png)
@@ -504,14 +503,16 @@ Simulated versus observed concentration-time profiles of all data listed in [Sec
 
 ![016_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/016_plotTimeProfile.png)
 
+![017_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/017_plotTimeProfile.png)
+
 # 4 Conclusion
 The herein presented PBPK model adequately describes the pharmacokinetics of rifampicin in adults. Little is known on the exact mass balance and the full metabolic profile of rifampicin. In this PBPK model, the implemented processes are those that were considered most vital to describe rifampicin's PK and that could be informed either via *in vitro* data or via parameter optimization based on clinical PK data.
 
-The herein presented quantification of induction processes of OATP1B1 and AADAC are purely based on parameter optimization to describe auto-induction phenomena of rifampicin. The herein presented induction process of P-gp is based on *in vivo* observed P-gp induction measured in duodenal biopsies ([Greiner 1999](#5-References)). The derived E<sub>max</sub> value was assumed to be applicable for P-gp induction in all tissues expressing P-gp. This needs to be considered when coupling the herein presented rifampicin model to PBPK models of potential victim drugs that are also subject to P-gp-mediated transport.
+The herein presented quantification of induction processes of OATP1B1 and AADAC are purely based on parameter optimization to describe auto-induction phenomena of rifampicin. The herein presented induction process of P-gp is based on *in vivo* observed P-gp induction measured in duodenal biopsies ([Greiner 1999](#5-references)). The derived E<sub>max</sub> value was assumed to be applicable for P-gp induction in all tissues expressing P-gp. This needs to be considered when coupling the herein presented rifampicin model to PBPK models of potential victim drugs that are also subject to P-gp-mediated transport.
 
 Endogenous protein half-lives of OATP1B1, AADAC, and P-gp are not known. Thus, values reported for CYP3A4 were assumed in this PBPK model. These values were needed to implement induction of the three proteins. However, sensitivity of these parameters on simulated rifampicin plasma concentration is very low.
 
-The model features in particular induction of CYP3A4 based on aggregated *in vitro* CYP3A4 activity data in primary human hepatocytes ([Templeton 2011](#5-References)). The model also accounts for competitive inhibition of CYP3A4.
+The model features in particular induction of CYP3A4 based on aggregated *in vitro* CYP3A4 activity data in primary human hepatocytes ([Templeton 2011](#5-references)). The model also accounts for competitive inhibition of CYP3A4.
 
 
 

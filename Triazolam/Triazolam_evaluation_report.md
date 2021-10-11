@@ -1,11 +1,11 @@
 # Building and evaluation of a PBPK model for triazolam in healthy adults
 
 
-| Version                                         | 1.0-OSP9.1                                                   |
+| Version                                         | 1.1-OSP10.0                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
-| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Triazolam-Model/releases/tag/v1.0 |
-| OSP Version                                     | 9.1                                                          |
-| Qualification Framework Version                 | 2.2                                                          |
+| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Triazolam-Model/releases/tag/v1.1 |
+| OSP Version                                     | 10.0                                                          |
+| Qualification Framework Version                 | 2.3                                                          |
 
 
 This evaluation report and the corresponding PK-Sim project file are filed at:
@@ -29,7 +29,7 @@ The presented model building and evaluation report evaluates the performance of 
 
 Triazolam, sold under the trade name Halcion, among others, belongs to the group of benzodiazepines and is used for short-term treatment of insomnia and circadian rhythm sleep disorders. It is generally administered orally as immediate release tablet, but other forms of administrations, e.g. intravenously or as sublingual tablet, exist as well.
 
-Following oral administration, triazolam is rapidly absorbed with an absolute bioavailability of 44 ± 24% (mean ± standard deviation, [Kroboth 1995](#5-References)). Triazolam is widely distributed throughout the body. Its fraction unbound in human plasma averages around 17% and is, within the range of 20 to 1000 ng/mL, not influenced by total triazolam concentrations ([Eberts 1981](#5-References)). Triazolam is extensively metabolized via CYP3A4 to α-hydroxy-alprazolam and 4-hydroxy-alprazolam ([Eberts 1981](#5-References), [Kronbach 1989](#5-References)) and is therefore often used as victim compound in drug-drug interaction (DDI) studies.
+Following oral administration, triazolam is rapidly absorbed with an absolute bioavailability of 44 ± 24% (mean ± standard deviation, [Kroboth 1995](#5-references)). Triazolam is widely distributed throughout the body. Its fraction unbound in human plasma averages around 17% and is, within the range of 20 to 1000 ng/mL, not influenced by total triazolam concentrations ([Eberts 1981](#5-references)). Triazolam is extensively metabolized via CYP3A4 to α-hydroxy-alprazolam and 4-hydroxy-alprazolam ([Eberts 1981](#5-references), [Kronbach 1989](#5-references)) and is therefore often used as victim compound in drug-drug interaction (DDI) studies.
 
 The presented triazolam PBPK model was developed for intravenous (IV) administration and oral (PO) administration of the immediate release tablet given in fasted state in healthy, non-obese adults. 
 
@@ -38,7 +38,7 @@ The presented triazolam PBPK model was developed for intravenous (IV) administra
 # 2 Methods
  
 ## 2.1 Modeling Strategy
-The general workflow for building an adult PBPK model has been described by Kuepfer et al. ([Kuepfer 2016](#5-References)). Relevant information on the anthropometry (height, weight) was gathered from the respective clinical study, if reported. Information on physiological parameters (e.g. blood flows, organ volumes, hematocrit) in adults was gathered from the literature and has been incorporated in PK-Sim<sup>®</sup>) as described previously ([Willmann 2007](#5-References)). The  applied activity and variability of plasma proteins and active processes that are integrated into PK-Sim® are described in the publicly available 'PK-Sim<sup>®</sup> Ontogeny Database Version 7.3' ([PK-Sim Ontogeny Database Version 7.3](#5-References)).
+The general workflow for building an adult PBPK model has been described by Kuepfer et al. ([Kuepfer 2016](#5-references)). Relevant information on the anthropometry (height, weight) was gathered from the respective clinical study, if reported. Information on physiological parameters (e.g. blood flows, organ volumes, hematocrit) in adults was gathered from the literature and has been incorporated in PK-Sim<sup>®</sup>) as described previously ([Willmann 2007](#5-references)). The  applied activity and variability of plasma proteins and active processes that are integrated into PK-Sim® are described in the publicly available 'PK-Sim<sup>®</sup> Ontogeny Database Version 7.3' ([PK-Sim Ontogeny Database Version 7.3](#5-references)).
 
 The PBPK model was developed based on clinical data of healthy, non-obese, adult subjects obtained from the literature, covering different single doses of triazolam administered intravenously or orally as immediate release tablet in the fasted state. 
 
@@ -47,7 +47,7 @@ Unknown parameters were simultaneously optimized using all available PK data, in
 -  6 data sets following single IV administration of 5 different doses of triazolam (0.125 mg, 0.25 mg, 0.5 mg, 0.75 mg, 1 mg)
 - 22 data sets following single PO administration of 3 different doses of triazolam as immediate release tablet (0.125 mg, 0.25 mg, 0.5 mg)
 
-Structural model selection was mainly guided by visual inspection of the resulting description of data and biological plausibility. The following parameters were identified using the Parameter Identification module provided in PK-Sim<sup>®</sup> and MoBi<sup>®</sup> ([Open Systems Pharmacology Documentation](#5-References)):
+Structural model selection was mainly guided by visual inspection of the resulting description of data and biological plausibility. The following parameters were identified using the Parameter Identification module provided in PK-Sim<sup>®</sup> and MoBi<sup>®</sup> ([Open Systems Pharmacology Documentation](#5-references)):
 
 - `Dissolution time (50% dissolved)`
 - `Dissolution shape`
@@ -56,9 +56,9 @@ Structural model selection was mainly guided by visual inspection of the resulti
 - `Lipophilicity`
 - `Metabolizing Enzyme - CYP3A4 - kcat`
 
-Details about input data (physicochemical, *in vitro* and clinical) can be found in [Section 2.2](#22-Data).
+Details about input data (physicochemical, *in vitro* and clinical) can be found in [Section 2.2](#22-data).
 
-Details about the structural model and its parameters can be found in [Section 2.3](#23-Model-Parameters-and-Assumptions).
+Details about the structural model and its parameters can be found in [Section 2.3](#23-model-parameters-and-assumptions).
 
 
 
@@ -69,12 +69,12 @@ A literature search was carried out to collect available information on physicoc
 
 | **Parameter**          | **Unit** | **Literature**                                               | **Description**                                              |
 | :--------------------- | -------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Molecular weight       | g/mol    | 343.21 ([drugbank.ca](#5-References))                       | Molecular weight                                             |
-| pK<sub>a</sub> (basic) |          | 1.52 ([Konishi 1982](#5-References))                        | Acid dissociation constant                                   |
-| logP                   |          | 2.42 ([drugbank.ca](#5-References))                         | Partition coefficient between octanol and water              |
-| logD                   |          | 1.63 ([Greenblatt 1983a](#5-References))                    | Partition coefficient between octanol and water at physiological pH |
-| f<sub>u</sub>          |          | 0.099 ± 0.015<sup>a</sup> ([Jochemsen 1983](#5-References)); 0.11 ([Eberts 1981](#5-References)); 0.174 ± 0.020<sup>a</sup> ([Friedman 1988](#5-References)); 0.188 ± 0.139<sup>a</sup> ([Ochs 1987](#5-References)); 0.213 [0.193 - 0.264]<sup>b</sup> ([Greenblatt 1983b](#5-References)); 0.229 [0.204 - 0.259]<sup>c</sup> ([Greenblatt 1983b](#5-References)) | Fraction unbound in human plasma of healthy adults           |
-| Water solubility       | mg/L     | 4.53 ([drugbank.ca](#5-References))                         | Estimated solubility in water                                |
+| Molecular weight       | g/mol    | 343.21 ([drugbank.ca](#5-references))                       | Molecular weight                                             |
+| pK<sub>a</sub> (basic) |          | 1.52 ([Konishi 1982](#5-references))                        | Acid dissociation constant                                   |
+| logP                   |          | 2.42 ([drugbank.ca](#5-references))                         | Partition coefficient between octanol and water              |
+| logD                   |          | 1.63 ([Greenblatt 1983a](#5-references))                    | Partition coefficient between octanol and water at physiological pH |
+| f<sub>u</sub>          |          | 0.099 ± 0.015<sup>a</sup> ([Jochemsen 1983](#5-references)); 0.11 ([Eberts 1981](#5-references)); 0.174 ± 0.020<sup>a</sup> ([Friedman 1988](#5-references)); 0.188 ± 0.139<sup>a</sup> ([Ochs 1987](#5-references)); 0.213 [0.193 - 0.264]<sup>b</sup> ([Greenblatt 1983b](#5-references)); 0.229 [0.204 - 0.259]<sup>c</sup> ([Greenblatt 1983b](#5-references)) | Fraction unbound in human plasma of healthy adults           |
+| Water solubility       | mg/L     | 4.53 ([drugbank.ca](#5-references))                         | Estimated solubility in water                                |
 
 <sup>a</sup> mean ± standard deviation
 
@@ -90,39 +90,39 @@ The following publications were found and used for model building and evaluation
 
 | Publication                            | Study description                                            |
 | :------------------------------------- | :----------------------------------------------------------- |
-| [Friedman 1986](#5-References)        | PO single dose administration of 0.5 mg                      |
-| [Friedman 1988](#5-References)        | PO single dose administration of 0.5 mg                      |
-| [Greenblatt 1989](#5-References)      | PO single dose administration of 0.25 mg                     |
-| [Greenblatt 1991](#5-References)      | PO single dose administration of 0.125 mg                    |
-| [Greenblatt 2000](#5-References)      | PO single dose administration of 0.25 mg                     |
-| [Greenblatt 2004](#5-References)      | PO single dose administration of 0.25 mg                     |
-| [Hukkinen 1995](#5-References)        | PO single dose administration of 0.25 mg                     |
-| [Lilja 2000](#5-References)           | PO single dose administration of 0.25 mg                     |
-| [Kroboth 1985](#5-References)         | IV single dose administration of 0.25 mg and PO single dose administration of 0.25 mg |
-| [O'Connor-Semmes 2001](#5-References) | PO single dose administration of 0.25 mg                     |
-| [Ochs 1984](#5-References)            | PO single dose administration of 0.5 mg                      |
-| [Phillips 1986](#5-References)        | PO single dose administration of 0.5 mg                      |
-| [Smith 1987](#5-References)           | IV single dose administration of 0.125 mg, 0.25 mg, 0.5 mg, 0.75 mg, and 1 mg |
-| [Varhe 1994](#5-References)           | PO single dose administration of 0.25 mg                     |
-| [Varhe 1996a](#5-References)          | PO single dose administration of 0.25 mg                     |
-| [Varhe 1996b](#5-References)          | PO single dose administration of 0.25 mg                     |
-| [Varhe 1996c](#5-References)          | PO single dose administration of 0.25 mg                     |
-| [Villikka 1997](#5-References)        | PO single dose administration of 0.5 mg                      |
-| [Villikka 1998](#5-References)        | PO single dose administration of 0.5 mg                      |
-| [von Moltke 1996](#5-References)      | PO single dose administration of 0.125 mg                    |
+| [Friedman 1986](#5-references)        | PO single dose administration of 0.5 mg                      |
+| [Friedman 1988](#5-references)        | PO single dose administration of 0.5 mg                      |
+| [Greenblatt 1989](#5-references)      | PO single dose administration of 0.25 mg                     |
+| [Greenblatt 1991](#5-references)      | PO single dose administration of 0.125 mg                    |
+| [Greenblatt 2000](#5-references)      | PO single dose administration of 0.25 mg                     |
+| [Greenblatt 2004](#5-references)      | PO single dose administration of 0.25 mg                     |
+| [Hukkinen 1995](#5-references)        | PO single dose administration of 0.25 mg                     |
+| [Lilja 2000](#5-references)           | PO single dose administration of 0.25 mg                     |
+| [Kroboth 1985](#5-references)         | IV single dose administration of 0.25 mg and PO single dose administration of 0.25 mg |
+| [O'Connor-Semmes 2001](#5-references) | PO single dose administration of 0.25 mg                     |
+| [Ochs 1984](#5-references)            | PO single dose administration of 0.5 mg                      |
+| [Phillips 1986](#5-references)        | PO single dose administration of 0.5 mg                      |
+| [Smith 1987](#5-references)           | IV single dose administration of 0.125 mg, 0.25 mg, 0.5 mg, 0.75 mg, and 1 mg |
+| [Varhe 1994](#5-references)           | PO single dose administration of 0.25 mg                     |
+| [Varhe 1996a](#5-references)          | PO single dose administration of 0.25 mg                     |
+| [Varhe 1996b](#5-references)          | PO single dose administration of 0.25 mg                     |
+| [Varhe 1996c](#5-references)          | PO single dose administration of 0.25 mg                     |
+| [Villikka 1997](#5-references)        | PO single dose administration of 0.5 mg                      |
+| [Villikka 1998](#5-references)        | PO single dose administration of 0.5 mg                      |
+| [von Moltke 1996](#5-references)      | PO single dose administration of 0.125 mg                    |
 
 
 ## 2.3 Model Parameters and Assumptions
 ### 2.3.1	Dissolution and absorption
 
-Dissolution of the immediate release tablet of triazolam was described by a Weibull function with the two parameters `Dissolution shape` and `Dissolution time (50% dissolved)` being fitted, together with the other parameters listed in [Section 2.1](#21-Modeling-Strategy), to observed PK data to better match the observations. `Specific intestinal permeability (transcellular)` was also optimized together with the parameters listed in [Section 2.1](#2.1 Modeling Strategy).
+Dissolution of the immediate release tablet of triazolam was described by a Weibull function with the two parameters `Dissolution shape` and `Dissolution time (50% dissolved)` being fitted, together with the other parameters listed in [Section 2.1](#21-modeling-strategy), to observed PK data to better match the observations. `Specific intestinal permeability (transcellular)` was also optimized together with the parameters listed in [Section 2.1](#21-modeling-strategy).
 ### 2.3.2	Distribution
 
-In the model, the `fraction unbound (plasma, reference value)` was set to 0.174 which is the reported mean value measured in 19 healthy male and female volunteers aged 20 to 45 years ([Friedman 1988](#5-References)). This value is also the approximate average of all pooled values reported in several studies ([Jochemsen 1983](#5-References), [Eberts 1981](#5-References), [Greenblatt 1983](#5-References),  [Friedman 1988](#5-References), [Ochs 1987](#5-References)). `Lipophilicity` was optimized together with the other parameters listed in [Section 2.1](#2.1 Modeling Strategy) to better match observed PK data. The observed PK data were found to be best described using the model for estimating intracellular-to-plasma partition coefficients according to the method by `Rodgers and Rowland` ([Rodgers 2005](#5-References), [Rodgers 2006](#5-References)). Cellular permeabilities were automatically calculated using the method `PK-Sim Standard` ([Open Systems Pharmacology Documentation](#5-References)).  
+In the model, the `fraction unbound (plasma, reference value)` was set to 0.174 which is the reported mean value measured in 19 healthy male and female volunteers aged 20 to 45 years ([Friedman 1988](#5-references)). This value is also the approximate average of all pooled values reported in several studies ([Jochemsen 1983](#5-references), [Eberts 1981](#5-references), [Greenblatt 1983](#5-references),  [Friedman 1988](#5-references), [Ochs 1987](#5-references)). `Lipophilicity` was optimized together with the other parameters listed in [Section 2.1](#21-modeling-strategy) to better match observed PK data. The observed PK data were found to be best described using the model for estimating intracellular-to-plasma partition coefficients according to the method by `Rodgers and Rowland` ([Rodgers 2005](#5-references), [Rodgers 2006](#5-references)). Cellular permeabilities were automatically calculated using the method `PK-Sim Standard` ([Open Systems Pharmacology Documentation](#5-references)).  
 
 ### 2.3.3	Elimination
 
-Triazolam is extensively metabolized via CYP3A to the two metabolites α-hydroxy-triazolam and 4-hydroxy-triazolam. In the model, these two biotransformation pathways were separately described via Michaelis-Menten kinetics. The `Km` values for each pathway were fixed to reported literature values, namely 74.2 µmol/L for the α-OH pathway and 305 µmol/L for the 4-OH pathway ([von Moltke 1996](#5-References)). Together with the other parameters listed in [Section 2.1](#21-Modeling-Strategy), the `kcat` values were optimized while keeping the ratio between both values constant (by selecting the option `Use as Factor`). The gene expression profile of CYP3A4 was loaded from the internal PK-Sim<sup>®</sup> database using the expression data quantified by RT-PCR ([Open Systems Pharmacology Documentation](#5-References)).
+Triazolam is extensively metabolized via CYP3A to the two metabolites α-hydroxy-triazolam and 4-hydroxy-triazolam. In the model, these two biotransformation pathways were separately described via Michaelis-Menten kinetics. The `Km` values for each pathway were fixed to reported literature values, namely 74.2 µmol/L for the α-OH pathway and 305 µmol/L for the 4-OH pathway ([von Moltke 1996](#5-references)). Together with the other parameters listed in [Section 2.1](#21-modeling-strategy), the `kcat` values were optimized while keeping the ratio between both values constant (by selecting the option `Use as Factor`). The gene expression profile of CYP3A4 was loaded from the internal PK-Sim<sup>®</sup> database using the expression data quantified by RT-PCR ([Open Systems Pharmacology Documentation](#5-references)).
 
 
 
@@ -131,9 +131,9 @@ The PBPK model for triazolam was developed and verified with clinical PK data.
 
 The next sections show:
 
-1. the final model parameters for the building blocks: [Section 3.1](#31-Final-Input-Parameters).
-2. the overall goodness of fit: [Section 3.2](#32-Diagnostics-Plots).
-3. simulated vs. observed concentration-time profiles for the clinical studies used for model building: [Section 3.3](#33-Concentration-Time-Profiles).
+1. the final model parameters for the building blocks: [Section 3.1](#31-final-input-parameters).
+2. the overall goodness of fit: [Section 3.2](#32-diagnostics-plots).
+3. simulated vs. observed concentration-time profiles for the clinical studies used for model building: [Section 3.3](#33-concentration-time-profiles).
 
 
 ## 3.1 Final input parameters
@@ -197,7 +197,7 @@ Km                                 | 305 µmol/l                     | Publicati
 kcat                               | 17.5448180963 1/min            | Parameter Identification-Parameter Identification-Value updated from 'IV + Oral' on 2018-11-13 16:52
 
 ## 3.2 Diagnostics Plots
-Below you find the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data used presented in [Section 2.2.2](#222-Clinical-data).
+Below you find the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data used presented in [Section 2.2.2](#222-clinical-data).
 
 The first plot shows observed versus simulated plasma concentration, the second weighted residuals versus time. 
 
@@ -209,7 +209,7 @@ The first plot shows observed versus simulated plasma concentration, the second 
 GMFE = 1.272636 
 
 ## 3.3 Concentration-Time Profiles
-Simulated versus observed concentration-time profiles of all data listed in [Section 2.2.2](#222-Clinical-data) are presented below.
+Simulated versus observed concentration-time profiles of all data listed in [Section 2.2.2](#222-clinical-data) are presented below.
 
 
 ![001_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_plotTimeProfile.png)

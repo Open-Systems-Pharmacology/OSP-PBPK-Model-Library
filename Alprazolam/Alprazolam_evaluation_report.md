@@ -4,11 +4,11 @@
 
 
 
-| Version                                         | 1.0-OSP9.1                                                   |
+| Version                                         | 1.1-OSP10.0                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
-| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Alprazolam-Model/releases/tag/v1.0 |
-| OSP Version                                     | 9.1                                                          |
-| Qualification Framework Version                 | 2.2                                                          |
+| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Alprazolam-Model/releases/tag/v1.1 |
+| OSP Version                                     | 10.0                                                          |
+| Qualification Framework Version                 | 2.3                                                          |
 
 
 
@@ -34,7 +34,7 @@ The presented model building and evaluation report evaluates the performance of 
 
 Alprazolam, sold under the trade names Xanax and Solanax, among others, belongs to the group of benzodiazepines and is commonly used in short term management of anxiety disorders. It is generally administered orally as immediate release or extended release tablet, but other forms are also available, e.g. solution or sublingual tablet.
 
-Following oral administration, alprazolam is rapidly absorbed with an absolute bioavailability ranging from 80% to 100% ([Greenblatt 1993](#5-References)). Absorption is independent of the dose and the relative bioavailability of solid and liquid dosage forms has been observed to be similar ([Dawson 1984](#5-References)). Alprazolam is widely distributed throughout the body and its free fraction in plasma, averaging around 30%, is not influenced by total alprazolam concentrations within the tested range of 0.01 to 10 mg/L ([Moschitto 1983](#5-References)). Alprazolam is extensively metabolized to various metabolites ([von Moltke 1993](#5-References)). The two major metabolites, α-hydroxy-alprazolam and 4-hydroxy-alprazolam, are formed through oxidation catalyzed by CYP3A ([Eberts 1980](#5-References), [von Moltke 1993](#5-References)). Within 72 h of a 2 mg oral dose of <sup>14</sup>C-alprazolam, 20% of the dose have been observed to be excreted unchanged in urine ([Eberts 1980](#5-References)). Alprazolam displays dose linear pharmacokinetics and does not accumulate during multiple dose treatment ([Dawson 1984](#5-References), [Greenblatt 1993](#5-References)). Because of the predominant role of CYP3A4 in alprazolam elimination, alprazolam is often used as victim compound in drug-drug interaction (DDI) studies.
+Following oral administration, alprazolam is rapidly absorbed with an absolute bioavailability ranging from 80% to 100% ([Greenblatt 1993](#5-references)). Absorption is independent of the dose and the relative bioavailability of solid and liquid dosage forms has been observed to be similar ([Dawson 1984](#5-references)). Alprazolam is widely distributed throughout the body and its free fraction in plasma, averaging around 30%, is not influenced by total alprazolam concentrations within the tested range of 0.01 to 10 mg/L ([Moschitto 1983](#5-references)). Alprazolam is extensively metabolized to various metabolites ([von Moltke 1993](#5-references)). The two major metabolites, α-hydroxy-alprazolam and 4-hydroxy-alprazolam, are formed through oxidation catalyzed by CYP3A ([Eberts 1980](#5-references), [von Moltke 1993](#5-references)). Within 72 h of a 2 mg oral dose of <sup>14</sup>C-alprazolam, 20% of the dose have been observed to be excreted unchanged in urine ([Eberts 1980](#5-references)). Alprazolam displays dose linear pharmacokinetics and does not accumulate during multiple dose treatment ([Dawson 1984](#5-references), [Greenblatt 1993](#5-references)). Because of the predominant role of CYP3A4 in alprazolam elimination, alprazolam is often used as victim compound in drug-drug interaction (DDI) studies.
 
 The presented alprazolam PBPK model was developed for intravenous (IV) administration and oral (PO) administration of the immediate release tablet (Xanax) or extended-release formulation (Solanax) given in fasted state in healthy, non-obese adults; administration in fed state was not addressed here.
 
@@ -44,9 +44,9 @@ The presented alprazolam PBPK model was developed for intravenous (IV) administr
 # 2 Methods
 
 ## 2.1 Modeling Strategy
-The general workflow for building an adult PBPK model has been described by Kuepfer et al. ([Kuepfer 2016](#5-References)). Relevant information on the anthropometry (height, weight) was gathered from the respective clinical study, if reported. Information on physiological parameters (e.g. blood flows, organ volumes, hematocrit) in adults was gathered from the literature and has been incorporated in PK-Sim<sup>®</sup>) as described previously ([Willmann 2007](#5-References)). The  applied activity and variability of plasma proteins and active processes that are integrated into PK-Sim® are described in the publicly available 'PK-Sim<sup>®</sup> Ontogeny Database Version 7.3' ([PK-Sim Ontogeny Database Version 7.3](#5-References)).
+The general workflow for building an adult PBPK model has been described by Kuepfer et al. ([Kuepfer 2016](#5-references)). Relevant information on the anthropometry (height, weight) was gathered from the respective clinical study, if reported. Information on physiological parameters (e.g. blood flows, organ volumes, hematocrit) in adults was gathered from the literature and has been incorporated in PK-Sim<sup>®</sup>) as described previously ([Willmann 2007](#5-references)). The  applied activity and variability of plasma proteins and active processes that are integrated into PK-Sim® are described in the publicly available 'PK-Sim<sup>®</sup> Ontogeny Database Version 7.3' ([PK-Sim Ontogeny Database Version 7.3](#5-references)).
 
-The PBPK model was developed based on clinical data of healthy, non-obese, adult subjects obtained from the literature, covering different single doses of alprazolam administered via the intravenous (IV) or oral (PO) route in the fasted state. Several oral dosage forms were included in the model building process, such as Xanax<sup>®</sup> and Solanax<sup>®</sup> tablets. Comparison of the reported alprazolam plasma concentration-time profiles following administration of Xanax<sup>®</sup> and Solanax<sup>®</sup> tablets indicated that the latter oral dosage form yields a larger t<sub>max</sub> than the Xanax<sup>®</sup> immediate release formulation. Therefore, different dissolution kinetics were developed for these two oral dosage forms. The reported PK profiles following administration of Solanax<sup>®</sup> tablets were measured in Japanese subjects ([Yasui 1996](#5-References), [Yasui 1998](#5-References), [Yasui 2000](#5-References)). To account for ethnicity-related differences in anatomical and physiological model parameters, the European Standard Individual used per default in the simulations was scaled to a Japanese individual and the reference concentration of CYP3A4 in this individual was optimized to better match the clinical data. Finally, mass balance information on urinary excretion of unchanged <sup>14</sup>C-alprazolam after PO administration reported by  Eberts et al. ([Eberts 1980](#5-References)) was also accounted for during the model building process. 
+The PBPK model was developed based on clinical data of healthy, non-obese, adult subjects obtained from the literature, covering different single doses of alprazolam administered via the intravenous (IV) or oral (PO) route in the fasted state. Several oral dosage forms were included in the model building process, such as Xanax<sup>®</sup> and Solanax<sup>®</sup> tablets. Comparison of the reported alprazolam plasma concentration-time profiles following administration of Xanax<sup>®</sup> and Solanax<sup>®</sup> tablets indicated that the latter oral dosage form yields a larger t<sub>max</sub> than the Xanax<sup>®</sup> immediate release formulation. Therefore, different dissolution kinetics were developed for these two oral dosage forms. The reported PK profiles following administration of Solanax<sup>®</sup> tablets were measured in Japanese subjects ([Yasui 1996](#5-references), [Yasui 1998](#5-references), [Yasui 2000](#5-references)). To account for ethnicity-related differences in anatomical and physiological model parameters, the European Standard Individual used per default in the simulations was scaled to a Japanese individual and the reference concentration of CYP3A4 in this individual was optimized to better match the clinical data. Finally, mass balance information on urinary excretion of unchanged <sup>14</sup>C-alprazolam after PO administration reported by  Eberts et al. ([Eberts 1980](#5-references)) was also accounted for during the model building process. 
 
 Unknown parameters were simultaneously optimized using all available PK data, in particular:
 
@@ -62,7 +62,7 @@ Unknown parameters were simultaneously optimized using all available PK data, in
 - 1 plasma concentration-time profile following single PO administration of 2 mg
 - 1 dose fraction excreted unchanged in urine following single PO administration of 2 mg
 
-Structural model selection was mainly guided by visual inspection of the resulting description of data and biological plausibility. The following parameters were identified using the Parameter Identification module provided in PK-Sim<sup>®</sup> and MoBi<sup>®</sup> ([Open Systems Pharmacology Documentation](#5-References)):
+Structural model selection was mainly guided by visual inspection of the resulting description of data and biological plausibility. The following parameters were identified using the Parameter Identification module provided in PK-Sim<sup>®</sup> and MoBi<sup>®</sup> ([Open Systems Pharmacology Documentation](#5-references)):
 
 - `Dissolution time (50% dissolved)`
 - `Dissolution shape`
@@ -73,9 +73,9 @@ Structural model selection was mainly guided by visual inspection of the resulti
 - `Reference concentration CYP3A4` (only for Japanese subjects)
 - `GFR fraction`
 
-Details about input data (physicochemical, *in vitro* and clinical) can be found in [Section 2.2](#22-Data).
+Details about input data (physicochemical, *in vitro* and clinical) can be found in [Section 2.2](#22-data).
 
-Details about the structural model and its parameters can be found in [Section 2.3](#23-Model-Parameters-and-Assumptions).
+Details about the structural model and its parameters can be found in [Section 2.3](#23-model-parameters-and-assumptions).
 
 
 
@@ -89,14 +89,14 @@ A literature search was carried out to collect available information on physicoc
 
 | **Parameter**             | **Unit** | **Literature**                                               | **Description**                                              |
 | :------------------------ | -------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Molecular weight          | g/mol    | 308.765 ([drugbank.ca](#5-References))                       | Molecular weight                                             |
-| pK<sub>a</sub> (basic)    |          | 2.40 ([Cho 1983](#5-References), [Raymond 1986](#5-References)); 2.48 ± 0.01 ([Manchester 2018](#5-References)) | Acid dissociation constant                                   |
-| logP                      |          | 2.19 ([Machatha 2004](#5-References))                        | Partition coefficient between octanol and water              |
-| logD                      |          | 1.26 ([Greenblatt 1983](#5-References))                      | Partition coefficient between octanol and water at physiological pH |
-| f<sub>u</sub>             |          | 0.20 ([Eberts 1980](#5-References)); 0.233 ± 0.028<sup>a</sup> ([Schmith 1991](#5-References)); 0.270 ± 0.017<sup>a</sup> ([Scavone 1988](#5-References)); 0.284 ± 0.017<sup>a</sup> ([Scavone 1988](#5-References)); 0.290 ± 0.025<sup>a</sup> ([Juhl 1984](#5-References)); 0.298 [0.259 - 0.316]<sup>b</sup> ([Abernethy 1983](#5-References)); 0.311 ± 0.026<sup>a</sup> ([Ochs 1986](#5-References)); 0.316<sup>c</sup> ([Moschitto 1983](#5-References)) | Fraction unbound in human plasma of healthy adults           |
-| Water solubility (pH 1.2) | mg/L     | 12 ([drugbank.ca](#5-References))                            | Estimated solubility in water at pH 1.2                      |
-| Water solubility (pH 7.0) | mg/L     | 40 ([drugbank.ca](#5-References))                            | Estimated solubility in water at pH 7.0                      |
-| Water solubility          | mg/L     | 73 ([Loftsson 2006](#5-References))                          | Experimentally measured solubility in water at 22°C - 24°C   |
+| Molecular weight          | g/mol    | 308.765 ([drugbank.ca](#5-references))                       | Molecular weight                                             |
+| pK<sub>a</sub> (basic)    |          | 2.40 ([Cho 1983](#5-references), [Raymond 1986](#5-references)); 2.48 ± 0.01 ([Manchester 2018](#5-references)) | Acid dissociation constant                                   |
+| logP                      |          | 2.19 ([Machatha 2004](#5-references))                        | Partition coefficient between octanol and water              |
+| logD                      |          | 1.26 ([Greenblatt 1983](#5-references))                      | Partition coefficient between octanol and water at physiological pH |
+| f<sub>u</sub>             |          | 0.20 ([Eberts 1980](#5-references)); 0.233 ± 0.028<sup>a</sup> ([Schmith 1991](#5-references)); 0.270 ± 0.017<sup>a</sup> ([Scavone 1988](#5-references)); 0.284 ± 0.017<sup>a</sup> ([Scavone 1988](#5-references)); 0.290 ± 0.025<sup>a</sup> ([Juhl 1984](#5-references)); 0.298 [0.259 - 0.316]<sup>b</sup> ([Abernethy 1983](#5-references)); 0.311 ± 0.026<sup>a</sup> ([Ochs 1986](#5-references)); 0.316<sup>c</sup> ([Moschitto 1983](#5-references)) | Fraction unbound in human plasma of healthy adults           |
+| Water solubility (pH 1.2) | mg/L     | 12 ([drugbank.ca](#5-references))                            | Estimated solubility in water at pH 1.2                      |
+| Water solubility (pH 7.0) | mg/L     | 40 ([drugbank.ca](#5-references))                            | Estimated solubility in water at pH 7.0                      |
+| Water solubility          | mg/L     | 73 ([Loftsson 2006](#5-references))                          | Experimentally measured solubility in water at 22°C - 24°C   |
 
 <sup>a</sup> mean ± SD
 
@@ -112,54 +112,54 @@ The following publications were found and used for model building and evaluation
 
 | Publication                            | Study description                                            |
 | :------------------------------------- | :----------------------------------------------------------- |
-| [Adams 1984](#5-References)            | IV single dose administration of 0.25 mg and 4 mg            |
-| [Bertz 1997](#5-References)           | IV single dose administration of 2 mg (young subjects group) |
-| [Eberts 1980](#5-References)          | PO single dose administration of 2 mg <sup>14</sup>C-alprazolam (no plasma concentration-time profile was reported, but the dose fraction excreted unchanged in urine was quantified) |
-| [Eller 1990](#5-References)           | PO single dose administration of 1 mg (Treatment C: IR tablet in fasted state) |
-| [Fleishaker 1989](#5-References)      | IV single dose administration of 1 mg (Treatment A)          |
-| [Fleishaker 1994](#5-References)      | PO multiple dose administration of 1 mg four times daily at irregular time intervals for 4 days (Control phase) |
-| [Friedman 1991](#5-References)        | PO single dose administration of 1 mg                        |
-| [Greenblatt 1988](#5-References)      | PO single dose administration of 1 mg                        |
-| [Greenblatt 1992](#5-References)      | PO single dose administration of 1 mg (Control phase)        |
-| [Greenblatt 1998](#5-References)      | PO single dose administration of 1 mg (Trial A)              |
-| [Greenblatt 2000](#5-References)      | PO single dose administration of 1 mg (Control group)        |
-| [Juhl 1984](#5-References)            | PO single dose administration of 1 mg (Healthy control group) |
-| [Kaplan 1998](#5-References)          | PO single dose administration of 1 mg (young subjects group) |
-| [Kirkwood 1991](#5-References)        | PO single dose administration of 1 mg                        |
-| [Kroboth 1988](#5-References)         | IV single dose administration of 0.5 mg, 1 mg followed by 72 µg over 8 h, and 2 mg |
-| [Lin 1988](#5-References)             | IV single dose administration of 0.5 mg and PO single dose administration of 0.5 mg |
-| [Schmider 1999](#5-References)        | PO single dose administration of 1 mg (Control phase)        |
-| [Schmith 1991](#5-References)         | PO single dose administration of 0.5 mg and 2 mg (normal subjects group) |
-| [Smith 1984](#5-References)           | IV single dose administration of 1 mg and PO single dose administration of 1 mg |
-| [Venkatakrishnan 2005](#5-References) | IV single dose administration of 1 mg                        |
-| [Wennerholm 2005](#5-References)      | PO single dose administration of 1 mg                        |
-| [Yasui 1996](#5-References)           | PO single dose administration of 0.8 mg (Control phase)      |
-| [Yasui 1998](#5-References)           | PO single dose administration of 0.8 mg (Control phase)      |
-| [Yasui 2000](#5-References)           | PO single dose administration of 0.8 mg (Control phase)      |
+| [Adams 1984](#5-references)            | IV single dose administration of 0.25 mg and 4 mg            |
+| [Bertz 1997](#5-references)           | IV single dose administration of 2 mg (young subjects group) |
+| [Eberts 1980](#5-references)          | PO single dose administration of 2 mg <sup>14</sup>C-alprazolam (no plasma concentration-time profile was reported, but the dose fraction excreted unchanged in urine was quantified) |
+| [Eller 1990](#5-references)           | PO single dose administration of 1 mg (Treatment C: IR tablet in fasted state) |
+| [Fleishaker 1989](#5-references)      | IV single dose administration of 1 mg (Treatment A)          |
+| [Fleishaker 1994](#5-references)      | PO multiple dose administration of 1 mg four times daily at irregular time intervals for 4 days (Control phase) |
+| [Friedman 1991](#5-references)        | PO single dose administration of 1 mg                        |
+| [Greenblatt 1988](#5-references)      | PO single dose administration of 1 mg                        |
+| [Greenblatt 1992](#5-references)      | PO single dose administration of 1 mg (Control phase)        |
+| [Greenblatt 1998](#5-references)      | PO single dose administration of 1 mg (Trial A)              |
+| [Greenblatt 2000](#5-references)      | PO single dose administration of 1 mg (Control group)        |
+| [Juhl 1984](#5-references)            | PO single dose administration of 1 mg (Healthy control group) |
+| [Kaplan 1998](#5-references)          | PO single dose administration of 1 mg (young subjects group) |
+| [Kirkwood 1991](#5-references)        | PO single dose administration of 1 mg                        |
+| [Kroboth 1988](#5-references)         | IV single dose administration of 0.5 mg, 1 mg followed by 72 µg over 8 h, and 2 mg |
+| [Lin 1988](#5-references)             | IV single dose administration of 0.5 mg and PO single dose administration of 0.5 mg |
+| [Schmider 1999](#5-references)        | PO single dose administration of 1 mg (Control phase)        |
+| [Schmith 1991](#5-references)         | PO single dose administration of 0.5 mg and 2 mg (normal subjects group) |
+| [Smith 1984](#5-references)           | IV single dose administration of 1 mg and PO single dose administration of 1 mg |
+| [Venkatakrishnan 2005](#5-references) | IV single dose administration of 1 mg                        |
+| [Wennerholm 2005](#5-references)      | PO single dose administration of 1 mg                        |
+| [Yasui 1996](#5-references)           | PO single dose administration of 0.8 mg (Control phase)      |
+| [Yasui 1998](#5-references)           | PO single dose administration of 0.8 mg (Control phase)      |
+| [Yasui 2000](#5-references)           | PO single dose administration of 0.8 mg (Control phase)      |
 
 
 ## 2.3 Model Parameters and Assumptions
 ### 2.3.1 Dissolution and absorption
 
-Dissolution of the immediate release tablet of alprazolam was described by a Weibull function with the two parameters `Dissolution shape` and `Dissolution time (50% dissolved)` being fitted to observed PK data. As described in [Section 2.1](#21-Modeling-Strategy), different dissolution kinetics were developed for Xanax<sup>®</sup> and Solanax<sup>®</sup> formulations to allow a slower dissolution of the latter yielding a larger t<sub>max</sub>. Although alprazolam is sparingly soluble in water, no solubility limitation was observed in the model using a solubility value of 40 mg/L (pH 7.0). `Specific intestinal permeability (transcellular)` was also optimized to better match the observed PK data.
+Dissolution of the immediate release tablet of alprazolam was described by a Weibull function with the two parameters `Dissolution shape` and `Dissolution time (50% dissolved)` being fitted to observed PK data. As described in [Section 2.1](#21-modeling-strategy), different dissolution kinetics were developed for Xanax<sup>®</sup> and Solanax<sup>®</sup> formulations to allow a slower dissolution of the latter yielding a larger t<sub>max</sub>. Although alprazolam is sparingly soluble in water, no solubility limitation was observed in the model using a solubility value of 40 mg/L (pH 7.0). `Specific intestinal permeability (transcellular)` was also optimized to better match the observed PK data.
 
 ### 2.3.2 Distribution
 
-In the model, the `fraction unbound (plasma, reference value)` was set to 0.233 which is the average value measured in young male subjects ([Schmith 1991](#5-References)). Slightly higher values around 0.30 have been reported for mid-aged subjects ([Juhl 1984](#5-References), [Ochs 1986](#5-References)) which have not been applied in the current model. `Lipophilicity` was optimized within the range of reported values for logP or logD, namely 1.26 ([Greenblatt 1983](#5-References)) - 2.19 ([Machatha 2004](#5-References)), to better match the observed PK data. The observed PK data were found to be best described using the model for estimating intracellular-to-plasma partition coefficients according to the method by `Rodgers and Rowland` ([Rodgers 2005](#5-References), [Rodgers 2006](#5-References)). Cellular permeabilities were automatically calculated using the method `PK-Sim Standard` ([Open Systems Pharmacology Documentation](#5-References)).  
+In the model, the `fraction unbound (plasma, reference value)` was set to 0.233 which is the average value measured in young male subjects ([Schmith 1991](#5-references)). Slightly higher values around 0.30 have been reported for mid-aged subjects ([Juhl 1984](#5-references), [Ochs 1986](#5-references)) which have not been applied in the current model. `Lipophilicity` was optimized within the range of reported values for logP or logD, namely 1.26 ([Greenblatt 1983](#5-references)) - 2.19 ([Machatha 2004](#5-references)), to better match the observed PK data. The observed PK data were found to be best described using the model for estimating intracellular-to-plasma partition coefficients according to the method by `Rodgers and Rowland` ([Rodgers 2005](#5-references), [Rodgers 2006](#5-references)). Cellular permeabilities were automatically calculated using the method `PK-Sim Standard` ([Open Systems Pharmacology Documentation](#5-references)).  
 
 ### 2.3.3 Elimination
 
-Alprazolam is extensively metabolized via CYP3A to give two major metabolites, α-hydroxy-alprazolam and 4-hydroxy-alprazolam. In the model, these two biotransformation pathways were described by Michaelis-Menten kinetics. The `Km` values for each pathway were fixed to reported literature values, namely 269 µmol/L for the α-OH pathway and 704 µmol/L for the 4-OH pathway ([Hirota 2001](#5-References)), and the `kcat` values were optimized to better match the observed PK data while keeping the ratio between both values constant (by selecting the option `Use as Factor`). The gene expression profile of CYP3A4 was loaded from the internal PK-Sim<sup>®</sup> database using the expression data quantified by RT-PCR ([Open Systems Pharmacology Documentation](#5-References)). As described in [Section 2.1](#21-Modeling-Strategy), the European Standard Individual used per default in the simulations was scaled to a Japanese individual with the `Reference concentration CYP3A4` being fitted to observed data reported by Yasui et al. ([Yasui 1996](#5-References), [Yasui 1998](#5-References), [Yasui 2000](#5-References)) to account for ethnicity-related differences in anatomical and physiological model parameters. 
+Alprazolam is extensively metabolized via CYP3A to give two major metabolites, α-hydroxy-alprazolam and 4-hydroxy-alprazolam. In the model, these two biotransformation pathways were described by Michaelis-Menten kinetics. The `Km` values for each pathway were fixed to reported literature values, namely 269 µmol/L for the α-OH pathway and 704 µmol/L for the 4-OH pathway ([Hirota 2001](#5-references)), and the `kcat` values were optimized to better match the observed PK data while keeping the ratio between both values constant (by selecting the option `Use as Factor`). The gene expression profile of CYP3A4 was loaded from the internal PK-Sim<sup>®</sup> database using the expression data quantified by RT-PCR ([Open Systems Pharmacology Documentation](#5-references)). As described in [Section 2.1](#21-modeling-strategy), the European Standard Individual used per default in the simulations was scaled to a Japanese individual with the `Reference concentration CYP3A4` being fitted to observed data reported by Yasui et al. ([Yasui 1996](#5-references), [Yasui 1998](#5-references), [Yasui 2000](#5-references)) to account for ethnicity-related differences in anatomical and physiological model parameters. 
 
-Following oral administration of <sup>14</sup>C-alprazolam, 20% of the dose have been recovered unchanged in urine ([Eberts 1980](#5-References)). This information was accounted for in the model by implementing a glomerular filtration process and optimizing the `GFR fraction` to match the observed dose fraction excreted unchanged in urine. 
+Following oral administration of <sup>14</sup>C-alprazolam, 20% of the dose have been recovered unchanged in urine ([Eberts 1980](#5-references)). This information was accounted for in the model by implementing a glomerular filtration process and optimizing the `GFR fraction` to match the observed dose fraction excreted unchanged in urine. 
 # 3 Results and Discussion
 The PBPK model for alprazolam was developed and verified with clinical pharmacokinetic data.
 
 The next sections show:
 
-1. the final model parameters for the building blocks: [Section 3.1](#31-Final-Input-Parameters).
-2. the overall goodness of fit: [Section 3.2](#32-Diagnostics-Plots).
-3. simulated vs. observed concentration-time profiles for the clinical studies used for model building: [Section 3.3](#33-Concentration-Time-Profiles).
+1. the final model parameters for the building blocks: [Section 3.1](#31-final-input-parameters).
+2. the overall goodness of fit: [Section 3.2](#32-diagnostics-plots).
+3. simulated vs. observed concentration-time profiles for the clinical studies used for model building: [Section 3.3](#33-concentration-time-profiles).
 
 
 ## 3.1 Final input parameters
@@ -243,7 +243,7 @@ Dissolution shape                | 0.92              | Parameter Identification-
 Use as suspension                | Yes               |                                                                                                                        
 
 ## 3.2 Diagnostics Plots
-Below you find the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data used presented in [Section 2.2.2](#222-Clinical-Data).
+Below you find the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data used presented in [Section 2.2.2](#222-clinical-data).
 
 The first plot shows observed versus simulated plasma concentration, the second weighted residuals versus time. 
 
@@ -255,7 +255,7 @@ The first plot shows observed versus simulated plasma concentration, the second 
 GMFE = 1.181425 
 
 ## 3.3 Concentration-Time Profiles
-Simulated versus observed concentration-time profiles of all data listed in [Section 2.2.2](#222-Clinical-data) are presented below.
+Simulated versus observed concentration-time profiles of all data listed in [Section 2.2.2](#222-clinical-data) are presented below.
 
 
 ![001_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_plotTimeProfile.png)

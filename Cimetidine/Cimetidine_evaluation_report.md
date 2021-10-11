@@ -1,21 +1,6 @@
-# Building and evaluation of a PBPK model for cimetidine in healthy adults
-
-
-
-
-
-| Version                                         | 1.0-OSP9.1                                                   |
-| ----------------------------------------------- | ------------------------------------------------------------ |
-| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Cimetidine-Model/releases/tag/v1.0 |
-| OSP Version                                     | 9.1                                                          |
-| Qualification Framework Version                 | 2.2                                                          |
-
-
-
-This evaluation report and the corresponding PK-Sim project file are stored at:
-
+# Building and evaluation of a PBPK model for cimetidine in healthy adults| Version                                         | 1.2-OSP10.0                                                   || ----------------------------------------------- | ------------------------------------------------------------ || based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Cimetidine-Model/releases/tag/v1.1 || OSP Version                                     | 10.0                                                          || Qualification Framework Version                 | 2.3                                                          |This evaluation report and the corresponding PK-Sim project file are stored at:
 https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/
-# Table of Contents
+# Table of Contents
   * [1 Introduction](#1-introduction)
   * [2 Methods](#2-methods)
     * [2.1 Modeling Strategy](#21-modeling-strategy)
@@ -32,7 +17,7 @@ https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/
 # 1 Introduction
 Cimetidine is a histamine H2 receptor antagonist that inhibits stomach acid production. It is mainly used as an antacid for the treatment of gastric and duodenal ulcers, Zollinger-Ellison syndrome and esophageal reflux.
 
-The herein presented model was developed and published by Hanke et al. ([Hanke 2020](#5-References)).
+The herein presented model was developed and published by Hanke et al. ([Hanke 2020](#5-references)).
 
 Cimetidine is mainly excreted unchanged via the kidneys (40–80% of the dose) with a high renal clearance of 400 ml/min. Metabolism is reported to account for 25– 40% of of the total elimination of cimetidine, with less than 2% of the dose excreted unchanged with the bile. Cimetidine inhibits several transporters and CYP enzymes and it is recommended by the FDA as strong inhibitor of OCT2/MATE and as weak inhibitor of CYP3A4 and CYP2D6 for the use in clinical DDI studies and drug labeling.
 
@@ -48,20 +33,20 @@ The herein presented model building and evaluation report evaluates the performa
 
 
 ## 2.1 Modeling Strategy
-The general concept of building a PBPK model has previously been described by e.g. Kuepfer et al. ([Kuepfer 2016](#5-References)). The relevant anthropometric (height, weight) and physiological information (e.g. blood flows, organ volumes, binding protein concentrations, hematocrit, cardiac output) in adults was gathered from the literature and has been previously published ([Willmann 2007](#5-References)). This information was incorporated into PK-Sim® and was used as default values for the simulations in adults.
+The general concept of building a PBPK model has previously been described by e.g. Kuepfer et al. ([Kuepfer 2016](#5-references)). The relevant anthropometric (height, weight) and physiological information (e.g. blood flows, organ volumes, binding protein concentrations, hematocrit, cardiac output) in adults was gathered from the literature and has been previously published ([Willmann 2007](#5-references)). This information was incorporated into PK-Sim® and was used as default values for the simulations in adults.
 
-Variability of plasma proteins and CYP enzymes are integrated into PK-Sim® and described in the publicly available PK-Sim® Ontogeny Database Version 7.3 ([PK-Sim Ontogeny Database Version 7.3](#5-References)) or otherwise referenced for the specific process. The final model applies active uptake of cimetidine into the liver by OCT1, uptake into the kidney by OAT3 and secretion from the kidney into the urine by MATE1, as well
-as an unspecific hepatic clearance and passive renal glomerular filtration. The transporters were integrated into the PBPK model using the ([PK-Sim Ontogeny Database Version 7.3](#5-References)) and is described in detail in [Hanke 2020](#5-References).
+Variability of plasma proteins and CYP enzymes are integrated into PK-Sim® and described in the publicly available PK-Sim® Ontogeny Database Version 7.3 ([PK-Sim Ontogeny Database Version 7.3](#5-references)) or otherwise referenced for the specific process. The final model applies active uptake of cimetidine into the liver by OCT1, uptake into the kidney by OAT3 and secretion from the kidney into the urine by MATE1, as well
+as an unspecific hepatic clearance and passive renal glomerular filtration. The transporters were integrated into the PBPK model using the ([PK-Sim Ontogeny Database Version 7.3](#5-references)) and is described in detail in [Hanke 2020](#5-references).
 
 First, a base PBPK model was built using clinical data including single and multiple dose studies with intravenous and oral applications of cimetidine to find an appropriate structure to describe the pharmacokinetics in plasma. This PBPK model was developed using a typical European individual adjusted to the demography of the respective study population. 
 
-Oral administration of cimetidine in the fasted state frequently produces two plasma concentrations peaks. These double peaks are probably caused by the phasic gastrointestinal motility that controls gastric emptying in the fasted state. To describe the very different shapes of the observed mean cimetidine plasma profiles, split dose administration protocols for all studies of cimetidine administered orally in the fasted state were optimized in a NONMEM analysis (see [Hanke 2020](#5-References)). The resulting split dose administration protocols were then implemented and used for the PBPK modeling of the respective cimetidine studies.
+Oral administration of cimetidine in the fasted state frequently produces two plasma concentrations peaks. These double peaks are probably caused by the phasic gastrointestinal motility that controls gastric emptying in the fasted state. To describe the very different shapes of the observed mean cimetidine plasma profiles, split dose administration protocols for all studies of cimetidine administered orally in the fasted state were optimized in a NONMEM analysis (see [Hanke 2020](#5-references)). The resulting split dose administration protocols were then implemented and used for the PBPK modeling of the respective cimetidine studies.
 
 Unknown parameters (see below) were identified using the Parameter Identification module provided in PK-Sim®. Structural model selection was mainly guided by visual inspection of the resulting description of data and biological plausibility.
 
-Details about input data (physicochemical, *in vitro* and clinical) can be found in  [Section 2.2](#22-Data).
+Details about input data (physicochemical, *in vitro* and clinical) can be found in  [Section 2.2](#22-data).
 
-Details about the structural model and its parameters can be found in [Section 2.3](#23-Model-Parameters-and-Assumptions).
+Details about the structural model and its parameters can be found in [Section 2.3](#23-model-parameters-and-assumptions).
 
 ## 2.2 Data
 ### 2.2.1 In vitro / physico-chemical Data
@@ -70,20 +55,20 @@ A literature search was performed to collect available information on physiochem
 
 | **Parameter**   | **Unit** | **Value**       | Source                                                       | **Description**                                 |
 | :-------------- | -------- | --------------- | ------------------------------------------------------------ | ----------------------------------------------- |
-| MW              | g/mol    | 252.34    | [Wishart 2006](#5-References) | Molecular weight                                |
-| pK<sub>a</sub>1 | 6.93  | (base)          | [Avdeef 2001](#5-References)                       | Acid dissociation constant                      |
-| pK<sub>a</sub>2 | 13.38  | (acid)          | [Wishart 2006](#5-References)                    | Acid dissociation constant                      |
-| Solubility (pH) | mg/L     | 24.00 (6.8) | [Avdeef 2001](#5-References) | Water solubility                               |
-| logP            |          | 0.48 | [Avdeef 2001](#5-References) | Partition coefficient between octanol and water |
-| f<sub>u</sub> |   %      | 78.00 | [Taylor 1978](#5-References) | Fraction unbound in plasma                      |
-| B/P ratio              |         | 0.98 | [Somogyi 1983](#5-References) | Blood to plasma ratio        |
-| OCT1 K<sub>m</sub> | μmol/l | 2600 | [Umehara 2007](#5-References) | Michaelis-Menten constant |
-| OAT3 K<sub>m</sub> | µmol/l | 149     | [Tahara 2005](#5-References) | Michaelis-Menten constant |
-| MATE1 K<sub>m</sub> | µmol/l | 8.0 | [Ohta 2005](#5-References) | Michaelis-Menten constant |
-| OCT1 K<sub>i</sub> | µmol/l | 104     | [Ito 2012](#5-References) | Inhibition constant for competitive inhibition |
-| OCT2 K<sub>i</sub> | µmol/l | 124 | [Ito 2012](#5-References) | Inhibition constant for competitive inhibition |
-| MATE1 K<sub>i</sub> | µmol/l | 3.8     | [Ito 2012](#5-References) | Inhibition constant for competitive inhibition |
-| CYP3A4 K<sub>i</sub> | µmol/l | 268     | [Wrighton 1994](#5-References) | Inhibition constant for competitive inhibition |
+| MW              | g/mol    | 252.34    | [Wishart 2006](#5-references) | Molecular weight                                |
+| pK<sub>a</sub>1 | 6.93  | (base)          | [Avdeef 2001](#5-references)                       | Acid dissociation constant                      |
+| pK<sub>a</sub>2 | 13.38  | (acid)          | [Wishart 2006](#5-references)                    | Acid dissociation constant                      |
+| Solubility (pH) | mg/L     | 24.00 (6.8) | [Avdeef 2001](#5-references) | Water solubility                               |
+| logP            |          | 0.48 | [Avdeef 2001](#5-references) | Partition coefficient between octanol and water |
+| f<sub>u</sub> |   %      | 78.00 | [Taylor 1978](#5-references) | Fraction unbound in plasma                      |
+| B/P ratio              |         | 0.98 | [Somogyi 1983](#5-references) | Blood to plasma ratio        |
+| OCT1 K<sub>m</sub> | μmol/l | 2600 | [Umehara 2007](#5-references) | Michaelis-Menten constant |
+| OAT3 K<sub>m</sub> | µmol/l | 149     | [Tahara 2005](#5-references) | Michaelis-Menten constant |
+| MATE1 K<sub>m</sub> | µmol/l | 8.0 | [Ohta 2005](#5-references) | Michaelis-Menten constant |
+| OCT1 K<sub>i</sub> | µmol/l | 104     | [Ito 2012](#5-references) | Inhibition constant for competitive inhibition |
+| OCT2 K<sub>i</sub> | µmol/l | 124 | [Ito 2012](#5-references) | Inhibition constant for competitive inhibition |
+| MATE1 K<sub>i</sub> | µmol/l | 3.8     | [Ito 2012](#5-references) | Inhibition constant for competitive inhibition |
+| CYP3A4 K<sub>i</sub> | µmol/l | 268     | [Wrighton 1994](#5-references) | Inhibition constant for competitive inhibition |
 
 
 ### 2.2.2 Clinical Data
@@ -96,11 +81,11 @@ The following studies were used for model building:
 
 | Publication                       | Arm / Treatment / Information used for model building        |
 | :-------------------------------- | :----------------------------------------------------------- |
-| [Bodemar 1981](#5-References)     | Peptic ulcer patients receiving a single intravenous dose of 200 mg and oral doses of 200, 400 and 800 mg |
-| [Morgan 1983](#5-References)      | Peptic ulcer patients receiving a single intravenous dose of 200 mg (5 min infusion) |
-| [Bodemar 1979](#5-References)     | Healthy subjects receiving single oral doses of 200 and 400mg (tablet) |
-| [Walkenstein 1978](#5-References) | Healthy subjects receiving a single oral dose of 300mg (solution) |
-| [D'Angio 1986](#5-References)     | Healthy subjects receiving a single oral dose of 300mg (tablet) |
+| [Bodemar 1981](#5-references)     | Peptic ulcer patients receiving a single intravenous dose of 200 mg and oral doses of 200, 400 and 800 mg |
+| [Morgan 1983](#5-references)      | Peptic ulcer patients receiving a single intravenous dose of 200 mg (5 min infusion) |
+| [Bodemar 1979](#5-references)     | Healthy subjects receiving single oral doses of 200 and 400mg (tablet) |
+| [Walkenstein 1978](#5-references) | Healthy subjects receiving a single oral dose of 300mg (solution) |
+| [D'Angio 1986](#5-references)     | Healthy subjects receiving a single oral dose of 300mg (tablet) |
 
 
 
@@ -110,19 +95,19 @@ The following studies were used for model verification:
 
 | Publication                       | Arm / Treatment / Information used for model verification    |
 | :-------------------------------- | :----------------------------------------------------------- |
-| [Grahnen 1979](#5-References)     | Healthy subjects receiving a single intravenous dose of 100 mg and a single oral dose of 400 mg (tablet) |
-| [Larsson 1982](#5-References)     | Peptic ulcer patients receiving a single intravenous dose of 200 mg |
-| [Mihaly  1984](#5-References)     | Peptic ulcer patients receiving a single intravenous and a single oral dose of 200 mg |
-| [Morgan 1983](#5-References)      | Peptic ulcer patients receiving a single intravenous dose of 200 mg (30 min infusion) |
-| [Lebert 1981](#5-References)      | Healthy subjects receiving a single intravenous dose of 300 mg (2 min infusion) |
-| [Walkenstein 1978](#5-References) | Healthy subjects receiving a single intravenous dose of 300 mg (2 min infusion) and a single oral dose of 300 mg (tablet) |
-| [Kanto 1981](#5-References)       | Healthy subjects receiving a single oral dose of 200 mg      |
-| [Burland 1975](#5-References)     | Healthy subjects receiving single oral doses of 200 mg solution and capsule |
-| [Bodemar 1979](#5-References)     | Peptic ulcer patients receiving a single oral dose of 200 mg (tablet) |
-| [Bodemar 1981](#5-References)     | Peptic ulcer patients receiving single oral doses of 800 mg and multiple oral doses of 200 and 400 mg |
-| [Barbhaiya 1995](#5-References)   | Healthy subjects receiving multiple oral doses of 300 mg (tablet) |
-| [Somogyi 1981](#5-References)     | Healthy subjects receiving a single oral dose of 400 mg (tablet) |
-| [Tiseo 1998](#5-References)       | Healthy subjects receiving multiple oral doses of 800 mg (tablet) |
+| [Grahnen 1979](#5-references)     | Healthy subjects receiving a single intravenous dose of 100 mg and a single oral dose of 400 mg (tablet) |
+| [Larsson 1982](#5-references)     | Peptic ulcer patients receiving a single intravenous dose of 200 mg |
+| [Mihaly  1984](#5-references)     | Peptic ulcer patients receiving a single intravenous and a single oral dose of 200 mg |
+| [Morgan 1983](#5-references)      | Peptic ulcer patients receiving a single intravenous dose of 200 mg (30 min infusion) |
+| [Lebert 1981](#5-references)      | Healthy subjects receiving a single intravenous dose of 300 mg (2 min infusion) |
+| [Walkenstein 1978](#5-references) | Healthy subjects receiving a single intravenous dose of 300 mg (2 min infusion) and a single oral dose of 300 mg (tablet) |
+| [Kanto 1981](#5-references)       | Healthy subjects receiving a single oral dose of 200 mg      |
+| [Burland 1975](#5-references)     | Healthy subjects receiving single oral doses of 200 mg solution and capsule |
+| [Bodemar 1979](#5-references)     | Peptic ulcer patients receiving a single oral dose of 200 mg (tablet) |
+| [Bodemar 1981](#5-references)     | Peptic ulcer patients receiving single oral doses of 800 mg and multiple oral doses of 200 and 400 mg |
+| [Barbhaiya 1995](#5-references)   | Healthy subjects receiving multiple oral doses of 300 mg (tablet) |
+| [Somogyi 1981](#5-references)     | Healthy subjects receiving a single oral dose of 400 mg (tablet) |
+| [Tiseo 1998](#5-references)       | Healthy subjects receiving multiple oral doses of 800 mg (tablet) |
 
 ## 2.3 Model Parameters and Assumptions
 ### 2.3.1 Absorption
@@ -131,11 +116,11 @@ Absorption observed in clinical studies can be fully explained by passive absorp
 
 ### 2.3.2 Distribution
 
-Cimetidine is reported to be actively taken up into the liver by OCT1 ([Umehara 2007](#5-References)), into the kidney by OAT3 ([Tahara 2005](#5-References)) and secreted from the kidney into the urine by MATE1 ([Ohta 2010](#5-References)).
+Cimetidine is reported to be actively taken up into the liver by OCT1 ([Umehara 2007](#5-references)), into the kidney by OAT3 ([Tahara 2005](#5-references)) and secreted from the kidney into the urine by MATE1 ([Ohta 2010](#5-references)).
 
 After testing the available organ-plasma partition coefficient and cell permeability calculation methods built in PK-Sim, observed clinical data was best described by choosing the partition coefficient calculation method by `Rodgers and Rowland` and cellular permeability calculation by `PK-Sim Standard`. 
 
-A `Lipophilicity` of 1.66 was back-calculated from the blood-to-plasma ratio of 0.98 ([Somogyi 1983](#5-References), [Hanke 2020](#5-References)).
+A `Lipophilicity` of 1.66 was back-calculated from the blood-to-plasma ratio of 0.98 ([Somogyi 1983](#5-references), [Hanke 2020](#5-references)).
 
 
 
@@ -147,27 +132,27 @@ Cimetidine inhibits several enzymes such as CYP3A4 and CYP2D6 as well as transpo
 
 ### 2.3.4 Automated Parameter Identification
 
-The parameter identification tool in PK-Sim has been used to estimate selected model parameters by adjusting to PK data of the clinical studies that were used in the model building process (see [Section 2.2](#22-Data)). 
+The parameter identification tool in PK-Sim has been used to estimate selected model parameters by adjusting to PK data of the clinical studies that were used in the model building process (see [Section 2.2](#22-data)). 
 
-The result of the final parameter identification is shown in the table below:
+All values were reestimated in PK-Sim Version 10, and, therefore, do not correspond to the original values published by [Hanke 2020](#5-references). The result of the final parameter identification is shown in the table below:
 
 | Model Parameter            | Optimized Value | Unit |
 | -------------------------- | --------------- | ---- |
-| Specific intestinal permeability | 8.72E-7 | cm/min |
-| CLhep | 0.16 | 1/min |
-| kcat OCT1 | 8.66E+4 | 1/min |
-| kcat OAT3 | 5.75E+07 | 1/min |
-| kcat MATE1 | 32.37 | 1/min |
+| Specific intestinal permeability| 5.26E-06 | cm/min |
+| CLhep| 0.12| 1/min |
+| kcat OCT1| 14098.32 | 1/min |
+| kcat OAT3| 2522831.10 | 1/min |
+| kcat MATE1| 159.47 | 1/min |
 
 
 # 3 Results and Discussion
-The PBPK model for efavirenz was developed and evaluated using publicly available clinical pharmacokinetic data from studies listed in [Section 2.2.2](#222-Clinical-Data).
+The PBPK model for efavirenz was developed and evaluated using publicly available clinical pharmacokinetic data from studies listed in [Section 2.2.2](#222-clinical-data).
 
 The next sections show:
 
-1. the final model parameters for the building blocks: [Section 3.1](#31-Final-Input-Parameters).
-2. the overall goodness of fit: [Section 3.2](#32-Diagnostics-Plots).
-3. simulated vs. observed concentration-time profiles for the clinical studies used for model building and for model verification: [Section 3.3](#33-Concentration-Time-Profiles).
+1. the final model parameters for the building blocks: [Section 3.1](#31-final-input-parameters).
+2. the overall goodness of fit: [Section 3.2](#32-diagnostics-plots).
+3. simulated vs. observed concentration-time profiles for the clinical studies used for model building and for model verification: [Section 3.3](#33-concentration-time-profiles).
 
 
 ## 3.1 Final input parameters
@@ -180,16 +165,16 @@ The compound parameter values of the final PBPK model are illustrated below.
 
 #### Parameters
 
-Name                                             | Value                   | Value Origin             | Alternative | Default
------------------------------------------------- | ----------------------- | ------------------------ | ----------- | -------
-Solubility at reference pH                       | 24 mg/ml                | Publication-Avdeef 2001  | Measurement | True   
-Reference pH                                     | 6.8                     | Publication-Avdeef 2001  | Measurement | True   
-Lipophilicity                                    | 1.655 Log Units         | Parameter Identification | Measurement | True   
-Fraction unbound (plasma, reference value)       | 0.78                    | Publication-Taylor 1978  | Measurement | True   
-Specific intestinal permeability (transcellular) | 8.7196061807E-07 cm/min | Parameter Identification | Fit         | True   
-Is small molecule                                | Yes                     |                          |             |        
-Molecular weight                                 | 252.34 g/mol            | Database-Drugbank        |             |        
-Plasma protein binding partner                   | Unknown                 |                          |             |        
+Name                                             | Value                   | Value Origin                                                                                                        | Alternative | Default
+------------------------------------------------ | ----------------------- | ------------------------------------------------------------------------------------------------------------------- | ----------- | -------
+Solubility at reference pH                       | 24 mg/ml                | Publication-Avdeef 2001                                                                                             | Measurement | True   
+Reference pH                                     | 6.8                     | Publication-Avdeef 2001                                                                                             | Measurement | True   
+Lipophilicity                                    | 1.655 Log Units         | Parameter Identification                                                                                            | Measurement | True   
+Fraction unbound (plasma, reference value)       | 0.78                    | Publication-Taylor 1978                                                                                             | Measurement | True   
+Specific intestinal permeability (transcellular) | 5.2554004942E-06 cm/min | Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification' on 2021-09-13 17:00 | Fit         | True   
+Is small molecule                                | Yes                     |                                                                                                                     |             |        
+Molecular weight                                 | 252.34 g/mol            | Database-Drugbank                                                                                                   |             |        
+Plasma protein binding partner                   | Unknown                 |                                                                                                                     |             |        
 #### Calculation methods
 
 Name                    | Value              
@@ -203,45 +188,45 @@ Cellular permeabilities | PK-Sim Standard
 Species: Human
 ###### Parameters
 
-Name                          | Value              | Value Origin            
------------------------------ | ------------------ | ------------------------
-Fraction unbound (experiment) | 0.78               |                         
-Lipophilicity (experiment)    | 1.655 Log Units    |                         
-Plasma clearance              | 0 ml/min/kg        |                         
-Specific clearance            | 0.1600808777 1/min | Parameter Identification
+Name                          | Value              | Value Origin                                                                                                       
+----------------------------- | ------------------ | -------------------------------------------------------------------------------------------------------------------
+Fraction unbound (experiment) | 0.78               |                                                                                                                    
+Lipophilicity (experiment)    | 1.655 Log Units    |                                                                                                                    
+Plasma clearance              | 0 ml/min/kg        |                                                                                                                    
+Specific clearance            | 0.1209722937 1/min | Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification' on 2021-09-13 17:00
 ##### Transport Protein: MATE1-Paper
 
 Molecule: MATE1
 ###### Parameters
 
-Name                      | Value              | Value Origin            
-------------------------- | ------------------ | ------------------------
-Transporter concentration | 1 µmol/l           |                         
-Vmax                      | 0 µmol/l/min       |                         
-Km                        | 8 µmol/l           | Parameter Identification
-kcat                      | 32.371673382 1/min | Parameter Identification
+Name                      | Value                | Value Origin                                                                                                       
+------------------------- | -------------------- | -------------------------------------------------------------------------------------------------------------------
+Transporter concentration | 1 µmol/l             |                                                                                                                    
+Vmax                      | 0 µmol/l/min         |                                                                                                                    
+Km                        | 8 µmol/l             | Parameter Identification                                                                                           
+kcat                      | 159.4749627996 1/min | Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification' on 2021-09-13 17:00
 ##### Transport Protein: OAT3-Paper
 
 Molecule: OAT3
 ###### Parameters
 
-Name                      | Value             | Value Origin            
-------------------------- | ----------------- | ------------------------
-Transporter concentration | 1 µmol/l          |                         
-Vmax                      | 0 µmol/l/min      |                         
-Km                        | 149 µmol/l        | Publication-Tahara 2005 
-kcat                      | 57506485.67 1/min | Parameter Identification
+Name                      | Value              | Value Origin                                                                                                       
+------------------------- | ------------------ | -------------------------------------------------------------------------------------------------------------------
+Transporter concentration | 1 µmol/l           |                                                                                                                    
+Vmax                      | 0 µmol/l/min       |                                                                                                                    
+Km                        | 149 µmol/l         | Publication-Tahara 2005                                                                                            
+kcat                      | 2522831.1016 1/min | Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification' on 2021-09-13 17:00
 ##### Transport Protein: OCT1-Paper
 
 Molecule: OCT1
 ###### Parameters
 
-Name                      | Value                  | Value Origin            
-------------------------- | ---------------------- | ------------------------
-Transporter concentration | 1 µmol/l               |                         
-Vmax                      | 0 µmol/l/min           |                         
-Km                        | 2600 µmol/l            | Publication-Umehara 2007
-kcat                      | 86599.4219923521 1/min | Parameter Identification
+Name                      | Value                  | Value Origin                                                                                                       
+------------------------- | ---------------------- | -------------------------------------------------------------------------------------------------------------------
+Transporter concentration | 1 µmol/l               |                                                                                                                    
+Vmax                      | 0 µmol/l/min           |                                                                                                                    
+Km                        | 2600 µmol/l            | Publication-Umehara 2007                                                                                           
+kcat                      | 14098.3224931732 1/min | Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification' on 2021-09-13 17:00
 ##### Systemic Process: Glomerular Filtration-GFR
 
 Species: Human
@@ -296,7 +281,7 @@ Dissolution shape                | 10    |
 Use as suspension                | Yes   |             
 
 ## 3.2 Diagnostics Plots
-Below you find the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data used presented in [Section 2.2.2](#222-Clinical-Data).
+Below you find the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data used presented in [Section 2.2.2](#222-clinical-data).
 
 The first plot shows simulated versus observed plasma concentration, the second weighted residuals versus time. 
 
@@ -305,10 +290,10 @@ The first plot shows simulated versus observed plasma concentration, the second 
 
 ![002_plotGOFMergedResidualsOverTime.png](images/003_3_Results_and_Discussion/002_3_2_Diagnostics_Plots/002_plotGOFMergedResidualsOverTime.png)
 
-GMFE = 1.530217 
+GMFE = 1.472440 
 
 ## 3.3: Concentration-Time Profiles
-Simulated versus observed concentration-time profiles of all data listed in [Section 2.2.2](#222-Clinical-Data) are presented below.
+Simulated versus observed concentration-time profiles of all data listed in [Section 2.2.2](#222-clinical-data) are presented below.
 
 
 ### 3.3.1 Model Building
@@ -412,6 +397,8 @@ The herein presented PBPK model adequately describes the pharmacokinetics of cim
 **Grahnen 1979** Grahnén A, von Bahr C, Lindström B, Rosén A. Bioavailability and  pharmacokinetics of cimetidine. Eur J Clin Pharmacol. 1979  Nov;16(5):335-40. doi: 10.1007/BF00605632. PMID: 520401.
 
 **Greenblatt 1986** Greenblatt DJ, Locniskar A, Scavone JM, Blyden GT, Ochs HR, Harmatz JS,  Shader RI. Absence of interaction of cimetidine and ranitidine with  intravenous and oral midazolam. Anesth Analg. 1986 Feb;65(2):176-80.  PMID: 2935051.
+
+**Hanke 2020** Hanke N, Türk D, Selzer D, Ishiguro N, Ebner  T, Wiebe S, Müller F, Stopfer P, Nock V, Lehr T. A Comprehensive  Whole-Body Physiologically Based Pharmacokinetic Drug-Drug-Gene  Interaction Model of Metformin and Cimetidine in Healthy Adults and  Renally Impaired Individuals. Clin Pharmacokinet. 2020  Nov;59(11):1419-1431. doi: 10.1007/s40262-020-00896-w. PMID: 32449077;  PMCID: PMC7658088.
 
 **Ito 2012** Ito S, Kusuhara H,  Yokochi M, Toyoshima J, Inoue K, Yuasa H, Sugiyama Y. Competitive  inhibition of the luminal efflux by multidrug and toxin extrusions, but  not basolateral uptake by organic cation transporter 2, is the likely  mechanism underlying the pharmacokinetic drug-drug interactions caused  by cimetidine in the kidney. J Pharmacol Exp Ther. 2012  Feb;340(2):393-403. doi: 10.1124/jpet.111.184986. Epub 2011 Nov 9. PMID: 22072731.
 
