@@ -33,17 +33,17 @@ https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/
 # 1 Introduction
 The presented model building and evaluation report evaluates the performance of a PBPK model for vancomycin in adults.
 
-Vancomycin is a glycopeptide antibiotic related to ristocetin that inhibits bacterial cell wall assembly and is used to treat a number of bacterial infections. It can be administered intravenously, as well as orally in case of diarrhea therapy. Vancomyin is mainly eliminated via glomerular filtration (GFR). A previous PBPK model for vancomycin using PK-Sim was reported by Radke et al. ([Radke 2017](#5-references)), with the dose fraction extreted unchanged into urine in adults beeing 90% with 10% hepatic elimination. Our final vancomycin model was rebuild that applies only GFR mediated clearance that adequately described the pharmacokinetics in adults. No further improvement of vancomycin pharmacokinetics could be determined after introducing hepatic clearance.
+Vancomycin is a glycopeptide antibiotic related to ristocetin that inhibits bacterial cell wall assembly and is used to treat a number of bacterial infections. It can be administered intravenously, as well as orally in case of diarrhea therapy. Vancomyin is mainly eliminated via glomerular filtration (GF). A previous PBPK model for vancomycin using PK-Sim was reported by Radke et al. ([Radke 2017](#5-references)), with the dose fraction extreted unchanged into urine in adults beeing 90% with 10% hepatic elimination. Our final vancomycin model was rebuild that applies only GFR mediated clearance that adequately described the pharmacokinetics in adults. No further improvement of vancomycin pharmacokinetics could be determined after introducing hepatic clearance.
 
-The vancomyin model is a whole-body PBPK model, allowing for dynamic translation between individuals. The vancomyin report demonstrates the level of confidence in the vancomyin  PBPK model build with the OSP suite with regard to reliable predictions of vancomyin PK in adults during model-informed drug development.
+The vancomyin model is a whole-body PBPK model, allowing for dynamic translation between individuals. The vancomyin report demonstrates the level of confidence in the vancomyin  PBPK model built with the OSP suite with regard to reliable predictions of vancomyin PK in adults during model-informed drug development.
 
 # 2 Methods
 
 
 ## 2.1 Modeling strategy
-The general concept of building a PBPK model has previously been described by Kuepfer et al. ([Kuepfer 2016](#5-references)). Relevant information on anthropometric (height, weight) and physiological parameters (e.g. blood flows, organ volumes, binding protein concentrations, hematocrit, cardiac output) in adults was gathered from the literature and has been previously published ([PK-Sim Ontogeny Database Version 7.3](#5-references)). The information was incorporated into PK-Sim® and was used as default values for the simulations in adults.
+The general concept of building a PBPK model has previously been described by Kuepfer et al. ([Kuepfer 2016](#5-references)). Relevant information on anthropometric (height, weight) and physiological parameters (e.g. blood flows, organ volumes, binding protein concentrations, hematocrit, cardiac output) in adults was gathered from the literature and has been previously published ([Schlender 2016](#5-references)). The information was incorporated into PK-Sim® and was used as default values for the simulations in adults.
 
-The  applied activity and variability of plasma proteins and active processes that are integrated into PK-Sim® are described in the publicly available PK-Sim® Ontogeny Database Version 7.3 ([Schlender 2016](#5-references)) or otherwise referenced for the specific process.
+The  applied activity and variability of plasma proteins and active processes that are integrated into PK-Sim® are described in the publicly available PK-Sim® Ontogeny Database Version 7.3 ([PK-Sim Ontogeny Database Version 7.3](#5-references)) or otherwise referenced for the specific process.
 
 First, a base mean model was built using data from the single dose escalation study to find an appropriate structure describing the PK of vancomycin. The mean PK model was developed using a typical European individual. Unknown parameters were identified using the Parameter Identification module provided in PK-Sim®. Structural model selection was mainly guided by visual inspection of the resulting description of data and biological plausibility.
 
@@ -55,22 +55,22 @@ During model building, uncertainties in data quality, as well as study differenc
 
 
 ## 2.2 Data used
-### 2.2.1 In vitro / physico-chemical data
+### 2.2.1 In vitro / physicochemical data
 
 A literature search was performed to collect available information on physicochemical properties of vancomycin. The obtained information from literature is summarized in the table below, and is used for model building.
 
-| **Parameter**     | **Unit**  | **Vancomycin literature**                                    | **Description**                                 |
-| :---------------- | --------- | ------------------------------------------------------------ | ----------------------------------------------- |
-| MW                | g/mol     | 1449.3 ([Radke 2017](#5-references))                         | Molecular weight                                |
-| pKa               |           | Acid 2.18, Base 7.75, Base 8.89 ([Radke 2017](#5-references)) | Acid/base dissociation constant                 |
-| Solubility (pH)   | mg/L      | 225 ([Drugbank.ca](#5-references))                           | Solubility                                      |
-| logP              |           | -4.41 ([Zhou 2016](#5-references)), 1.11 ([Drugbank.ca](#5-references)), 2.45 ([Radke 2017](#5-references)) | Partition coefficient between octanol and water |
-| fu                |           | 0.48 ([Zhou 2016](#5-references)), 0.67 ([Radke 2017](#5-references)) | Fraction unbound                                |
-| GFR               | µM        | - ([Zhou 2016](#5-references))                               | Glomerular filtration rate                      |
-| Hepatic clearance | mL/min/kg | 0.11 ([Radke 2017](#5-references))                           | Hepatic clearance                               |
-| Renal clearance   | mL/min/kg | 0.95 ([Radke 2017](#5-references))                           | Renal clearance                                 |
+| **Parameter**      | **Unit**  | **Literature value (reference)**                             | **Description**                                 |
+| :----------------- | --------- | ------------------------------------------------------------ | ----------------------------------------------- |
+| MW                 | g/mol     | 1449.3 ([Radke 2017](#5-references))                         | Molecular weight                                |
+| pKa                |           | Acid 2.18, Base 7.75, Base 8.89 ([Radke 2017](#5-references)) | Acid/base dissociation constant                 |
+| Solubility (pH)    | mg/L      | 225 (7) ([Drugbank.ca](#5-references))                       | Solubility                                      |
+| logP               |           | -4.41 ([Zhou 2016](#5-references)), 1.11 ([Drugbank.ca](#5-references)), 2.45 ([Radke 2017](#5-references)) | Partition coefficient between octanol and water |
+| fu                 |           | 0.48 ([Zhou 2016](#5-references)), 0.67 ([Radke 2017](#5-references)) | Fraction unbound                                |
+| GFR fraction       | µM        | 1 ([Zhou 2016](#5-references))                               | fraction of Glomerular filtration rate          |
+| Hepatic clearance* | mL/min/kg | 0.11 ([Radke 2017](#5-references))                           | Hepatic clearance                               |
+| Renal clearance*   | mL/min/kg | 0.95 ([Radke 2017](#5-references))                           | Renal clearance                                 |
 
-
+*Both Hepatic and Renal clearance reported by others have not been used in the final model.
 
 ### 2.2.2 Clinical data
 
@@ -92,9 +92,9 @@ Only intravenous data was available for model building.
 
 ### 2.3.2 Distribution
 
-Sun et al. ([Sun 1993](#5-references)) reported that albumin and immunoglobulin A are the dominant binding protein of vancomycin, and that vancomycin does not bind to Alpha-1 acid glycoprotein (AAG). As in PK-Sim there is only option to bind to albumin or AAG, vancomycin binding is built-in as bound to albumin only in the PBPK model. The fraction unbound (fu) of Vancomycin is built-in as 0.67 as reported by Radke et al. ([Radke 2017](#5-references)).
+Sun et al. ([Sun 1993](#5-references)) reported that albumin and immunoglobulin A are the dominant protein binding partners of vancomycin, and that vancomycin does not bind to alpha-1 acid glycoprotein (AAG). As in PK-Sim there is only the option to bind to albumin or AAG, vancomycin binding is built-in as bound to albumin only in the PBPK model. The fraction unbound (fu) of vancomycin is built-in as 0.67 as reported by Radke et al. ([Radke 2017](#5-references)).
 
-After testing the available organ-plasma partition coefficient and cell permeability calculation methods built in PK-Sim, observed clinical data was best described by choosing the partition coefficient calculation method by Schmitt, and cell permeability calculation method by Charge dependent Schmidt . Specific organ permeability normalized to surface area was automatically calculated by PK-Sim.
+After testing the available organ-plasma partition coefficient and cell permeability calculation methods built in PK-Sim, observed clinical data was best described by choosing the partition coefficient calculation method by Schmitt, and cell permeability calculation method by Charge dependent Schmidt. Specific organ permeability normalized to surface area was automatically calculated by PK-Sim.
 
 ### 2.3.3 Metabolism and Elimination
 
@@ -102,13 +102,13 @@ A previous PBPK model for vancomycin using PK-Sim was reported by Radke et al. (
 
 
 # 3 Results and Discussion
-The PBPK model **vancomycin** was developed with clinical pharmacokinetic data covering intravenous administration with a dose range of 500-1000mg, including single dose (SD) as well as multiple dose (MD) clinical data. 
+The PBPK model vancomycin was developed with clinical pharmacokinetic data covering intravenous administration with a dose range of 500-1000mg, including single dose (SD) as well as multiple dose (MD) clinical data. 
 
-During the model-fitting, the following parameters were estimated (all other parameters were fixed to reported values):
+During the model-fitting, the following parameter was estimated (all other parameters were fixed to reported values):
 
 * Lipophilicity
 
-The fit resulted in an adequate description of all data. As only limited amount of data was available, and the description of the data was adequate, an additional inclusion of hepatic clearance did not further improve the description of the data as proposed in other published PBPK models, and is therefore not included in the model. Further available data could be used to further evaluate the model performance.
+The fit resulted in an adequate description of all data. As only limited amount of data was available, and the description of the data was adequate, an additional inclusion of hepatic clearance did not further improve the description of the data as proposed in other published PBPK models, and is therefore not included in the model. Further data were not available to further evaluate the model performance.
 
 The model results show that the PBPK model of vancomycin adequately described the data for intravenous administration for single and multiple dose. 
 
@@ -148,20 +148,9 @@ Species: Human
 Name         | Value | Value Origin               
 ------------ | -----:| ---------------------------
 GFR fraction |     1 | Publication-Other-Zhou 2016
-##### Systemic Process: Total Hepatic Clearance-Radtke 2017
-
-Species: Human
-###### Parameters
-
-Name                          | Value          | Value Origin                                                                                                         
------------------------------ | -------------- | ---------------------------------------------------------------------------------------------------------------------
-Fraction unbound (experiment) | 0.67           |                                                                                                                      
-Lipophilicity (experiment)    | 2.45 Log Units |                                                                                                                      
-Plasma clearance              | 0.11 ml/min/kg |                                                                                                                      
-Specific clearance            | 0 1/min        | Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 3' on 2018-07-13 11:16
 
 ## 3.2 Vancomycin Diagnostics Plots
-Below you find the goodness-of-fit visual diagnostic plots for vancomycin PBPK model performance (observed versus individually simulated plasma concentration and weighted residuals versus time, including the geometric mean fold error (GMFE)) of all data used for model building.
+Below you find the goodness-of-fit visual diagnostic plots for vancomycin PBPK model performance (Individually simulated versus observed plasma concentration and weighted residuals versus time, including the geometric mean fold error (GMFE)) of all data used for model building.
 
 
 ![001_plotGOFMergedPredictedVsObserved.png](images/003_3_Results_and_Discussion/002_3_2_Vancomycin_Diagnostics_Plots/001_plotGOFMergedPredictedVsObserved.png)

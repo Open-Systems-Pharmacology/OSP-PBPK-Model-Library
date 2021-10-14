@@ -31,19 +31,19 @@ https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/
   * [4 Conclusion](#4-conclusion)
   * [5 References](#5-references)
 # 1 Introduction
-The presented model building and evaluation report evaluates the performance of a physiology-based  pharmacokinetics (PBPK) model for montelukast in adults.
+The presented model building and evaluation report evaluates the performance of a physiology-based  pharmacokinetic (PBPK) model for montelukast in adults.
 
-Montelukast is a selective and orally active leukotriene receptor antagonist that inhibits the cysteinyl leukotriene (CysLT) receptor 1, used in the maintenance treatment of asthma. Montelukast is mainly metabolized by CYP2C8 (72%) ([Marzolini 2017](#5-references)).  Montelukast is a strongly lipophilic drug. The final lipophilicity was estimated to be lower than the reported values, as with lipophilicity values above 3-4 log units the drug already reached maximal permeability levels. The final montelukast model applies metabolism by CYP2C8, and minor involved enzymes CYP3A4/5 (16% ) CYP2C9 (12%) and glomerular filtration ([Marzolini 2017, Filppula 2011, Zhou 2017](#5-references)) and adequately described the pharmacokinetics of montelukast in adults.
+Montelukast is a selective and orally active leukotriene receptor antagonist that inhibits the cysteinyl leukotriene (CysLT) receptor 1, used in the maintenance treatment of asthma. Montelukast is mainly metabolized by CYP2C8 (72%) ([Marzolini 2017](#5-references)).  Montelukast is a strongly lipophilic drug. The final lipophilicity was estimated to be lower than the reported values, as with lipophilicity values above 3-4 log units the drug already reached maximal permeability levels. The final montelukast model applies metabolism by CYP2C8, and to a minor extend involved clearance by the enzymes CYP3A4/5 (16% ), CYP2C9 (12%) and glomerular filtration ([Marzolini 2017, Filppula 2011, Zhou 2017](#5-references)) and adequately described the pharmacokinetics of montelukast in adults.
 
-The montelukast model is a whole-body PBPK model, allowing for dynamic translation between individuals. The montelukast report demonstrates the level of confidence in the montelukast PBPK model build with the OSP suite with regard to reliable predictions of montelukast pharmacokinetics (PK) in adults during model-informed drug development.
+The montelukast model is a whole-body PBPK model, allowing for dynamic translation between individuals. The montelukast report demonstrates the level of confidence in the montelukast PBPK model built with the OSP suite with regard to reliable predictions of montelukast pharmacokinetics (PK) in adults during model-informed drug development.
 
 # 2 Methods
 
 
 ## 2.1 Modeling strategy
-The general concept of building a PBPK model has previously been described by Kuepfer et al. ([Kuepfer 2016](#5-references)). Relevant information on anthropometric (height, weight) and physiological parameters (e.g. blood flows, organ volumes, binding protein concentrations, hematocrit, cardiac output) in adults was gathered from the literature and has been previously published ([PK-Sim Ontogeny Database Version 7.3](#5-references)). The information was incorporated into PK-Sim® and was used as default values for the simulations in adults.
+The general concept of building a PBPK model has previously been described by Kuepfer et al. ([Kuepfer 2016](#5-references)). Relevant information on anthropometric (height, weight) and physiological parameters (e.g. blood flows, organ volumes, binding protein concentrations, hematocrit, cardiac output) in adults was gathered from the literature and has been previously published ([Schlender 2016](#5-references)). The information was incorporated into PK-Sim® and was used as default values for the simulations in adults.
 
-The  applied activity and variability of plasma proteins and active processes that are integrated into PK-Sim® are described in the publicly available PK-Sim® Ontogeny Database Version 7.3 ([Schlender 2016](#5-references)) or otherwise referenced for the specific process.
+The  applied activity and variability of plasma proteins and active processes that are integrated into PK-Sim® are described in the publicly available PK-Sim® Ontogeny Database Version 7.3 ([PK-Sim Ontogeny Database Version 7.3](#5-references)) or otherwise referenced for the specific process.
 
 First, a base mean model was built using data from the single dose escalation study to find an appropriate structure describing the PK of montelukast. The mean PK model was developed using a typical European individual. Unknown parameters were identified using the Parameter Identification module provided in PK-Sim®. Structural model selection was mainly guided by visual inspection of the resulting description of data and biological plausibility.
 
@@ -59,24 +59,24 @@ During model building, uncertainties in data quality, as well as study differenc
 
 A literature search was performed to collect available information on physicochemical properties of montelukast. The obtained information from literature is summarized in the table below and is used for model building.
 
-| **Parameter**   | **Unit**    | **montelukast literature**  | **Description**                                  |
+| **Parameter**   | **Unit**    | **Value (reference)** | **Description**                                  |
 | :-------------- | ----------- | ----------------------------------- | ------------------------------------------------ |
 | MW              | g/mol       | 586.2 ([Marzolini 2017](#5-references)) | Molecular weight                                 |
 | pKa             |             | 4.4 ([Marzolini 2017](#5-references)) | Acid dissociation constant                   |
 | Solubility (pH) | mg/mL       | 8.2E-06 (7) ([Drugbank](#5-references)) | Solubility                                       |
 | logP            |             | 7.90 ([Marzolini 2017](#5-references)) | Partition coefficient between octanol and water  |
 | fu              |             | 0.0018 ([Marzolini 2017](#5-references)) | Fraction unbound                                 |
-| fe*      |          | <0.002 ([Marzolini 2017](#5-references)) | fraction of drug excreted unchanged in urine |
+| fe**   |          | <0.002 ([Marzolini 2017](#5-references)) | fraction of dose excreted unchanged in urine |
 | CYP3A4-CLint | µl/min/pmol | 1.8 ([Marzolini 2017](#5-references)) | Cytochrome-P450 3A4 mediated intrinsic clearance |
 | CYP3A5-CLint | µl/min/pmol | 1.8 ([Marzolini 2017](#5-references)) | Cytochrome-P450 3A5 mediated intrinsic clearance |
 | CYP2C8-CLint | µl/min/pmol | 3.6 ([Marzolini 2017](#5-references)) | Cytochrome-P450 2C8 mediated intrinsic clearance |
 | CYP2C9-CLint | µl/min/pmol | 0.48 ([Marzolini 2017](#5-references)) | Cytochrome-P450 2C9 mediated intrinsic clearance |
 
-* fe was matched by modeling unchanged renal excretion in PK-sim as Glomerular filtration (GF)
+** fe was matched by modeling unchanged renal excretion in PK-Sim as glomerular filtration (GF)
 
 ### 2.2.2 Clinical data
 
-A literature search was performed to collect available clinical data on montelukast in adults. 
+A literature search was performed to collect available clinical data on montelukast PK in adults. 
 
 The following publications were found in adults for model building and evaluation:
 
@@ -92,20 +92,20 @@ The following publications were found in adults for model building and evaluatio
 ## 2.3 Model parameters and assumptions
 ### 2.3.1 Absorption
 
-Montelukast is a selective and orally active leukotriene receptor antagonist. For oral administration the following parameters play a role with regard to the absorption kinetics of a compound, which can be estimated with PBPK: solubility, lipophilicity and intestinal permeability. Montelukast is a strongly lipophilic drug. The final lipophilicity was estimated to be lower than the reported values, as with lipophilicity values above 3-4 log units the drug already reached maximal permeability levels.
+Montelukast is a selective and orally active leukotriene receptor antagonist. For oral administration the following parameters play, amongst others, a role with regard to the absorption kinetics of a compound, which can be estimated with PBPK: solubility, lipophilicity and intestinal permeability. Montelukast is a strongly lipophilic drug. The final lipophilicity was estimated to be lower than the reported values, as with lipophilicity values above 3-4 log units the drug already reached maximal permeability levels.
 
 ### 2.3.2 Distribution
 
-It has been determined that the protein binding of montelukast to plasma proteins exceeds 99% ([FDA drug label](#5-references)).  The fraction unbound (fu) of vancomycin is built-in as 0.0018 as also reported by Marzolini et al. ([Marzolini 2017](#5-references)).
+It has been determined that the protein binding of montelukast to plasma proteins exceeds 99% ([FDA drug label](#5-references)).  The fraction unbound (fu) of montelukast is built-in as 0.0018 as also reported by Marzolini et al. ([Marzolini 2017](#5-references)).
 
 After testing the available organ-plasma partition coefficient and cell permeability calculation methods built-in in PK-Sim, observed clinical data was best described by choosing the partition coefficient calculation method by Rodgers and Rowland, and PK-Sim standard cell permeability calculation method. Specific organ permeability normalized to surface area was automatically calculated by PK-Sim.
 
 ### 2.3.3 Metabolism and Elimination
 
-Montelukast is mainly metabolized by CYP2C8 (72%) ([Marzolini 2017](#5-references)).  The final montelukast model applies metabolism by CYP2C8, and minor involved enzymes CYP3A4/5 (16%) CYP2C9 (12%) and glomerular filtration ([Marzolini 2017, Filppula 2011, Zhou 2017](#5-references)) and adequately described the pharmacokinetics of montelukast in adults.
+Montelukast is mainly metabolized by CYP2C8 (72%) ([Marzolini 2017](#5-references)).  The final montelukast model applies metabolism by CYP2C8, and to a minor involved clearance by the enzymes CYP3A4/5 (16%), CYP2C9 (12%) and glomerular filtration ([Marzolini 2017, Filppula 2011, Zhou 2017](#5-references)) and adequately described the pharmacokinetics of montelukast in adults.
 
 # 3 Results and Discussion
-The PBPK model for **montelukast** was developed with clinical pharmacokinetic data covering intravenous as well as oral administration with a dose range of 2-10mg including single dose and multiple dose clinical data, for different types of tablet formulations.
+The PBPK model for montelukast was developed with clinical pharmacokinetic data covering intravenous as well as oral administration with a dose range of 2-10mg including single dose and multiple dose clinical data, for different types of tablet formulations.
 
 During the model fitting, the following parameters were estimated (all other parameters were fixed to reported values):
 
@@ -239,8 +239,7 @@ Dissolution shape                | 1.6357552071       | Parameter Identification
 Use as suspension                | Yes                |                                                                                                                       
 
 ## 3.2 Montelukast Diagnostics Plots
-Below you find the goodness-of-fit visual diagnostic plots for montelukast PBPK model performance (observed versus individually simulated plasma concentration and weighted residuals versus time, including the geometric mean fold error (GMFE)) of all data used for model building.
-
+Below you find the goodness-of-fit visual diagnostic plots for montelukast PBPK model performance (Individually simulated versus observed plasma concentration and weighted residuals versus time, including the geometric mean fold error (GMFE)) of all data used for model building.
 
 ![001_plotGOFMergedPredictedVsObserved.png](images/003_3_Results_and_Discussion/002_3_2_Montelukast_Diagnostics_Plots/001_plotGOFMergedPredictedVsObserved.png)
 
@@ -317,23 +316,11 @@ This model could be applied for the investigation of drug-drug interactions (DDI
 
 **Filppula 2011** Filppula AM, Laitila J, Neuvonen PJ, Backman JT. Reevaluation of the microsomal metabolism of montelukast: major contribution by CYP2C8 at clinically relevant concentrations. Drug Metab Dispos. 2011 May;39(5):904-11. doi: 10.1124/dmd.110.037689. Epub 2011 Feb 2.
 
-**Friesen 2004** Friesen CA, Kearns GL, Andre L, Neustrom M, Roberts CC, Abdel-Rahman SM. Clinical efficacy and pharmacokinetics of montelukast in dyspeptic children with duodenal eosinophilia. J Pediatr Gastroenterol Nutr. 2004 Mar;38(3):343-51.
-
-**Kearns 2008** Kearns GL, Lu S, Maganti L, Li XS, Migoya E, Ahmed T, Knorr B, Reiss TF. Pharmacokinetics and safety of montelukast oral granules in children 1 to 3 months of age with bronchiolitis. J Clin Pharmacol. 2008 Apr;48(4):502-11. doi: 10.1177/0091270008314251. Epub 2008 Feb 22.
-
-**Knorr 1999** Knorr B, Larson P, Nguyen HH, Holland S, Reiss TF, Chervinsky P, Blake K, van Nispen CH, Noonan G, Freeman A, Haesen R, Michiels N, Rogers JD, Amin RD, Zhao J, Xu X, Seidenberg BC, Gertz BJ, Spielberg S. Montelukast dose selection in 6- to 14-year-olds: comparison of single-dose pharmacokinetics in children and adults. J Clin Pharmacol. 1999 Aug;39(8):786-93.
-
 **Knorr 2000** Knorr B, Holland S, Rogers JD, Nguyen HH, Reiss TF. Montelukast adult (10-mg film-coated tablet) and pediatric (5-mg chewable tablet) dose selections. J Allergy Clin Immunol. 2000 Sep;106(3 Suppl):S171-8
-
-**Knorr 2001** Knorr B, Nguyen HH, Kearns GL, Villaran C, Boza ML, Reiss TF, Rogers JD, Zhang J, Larson P, Spielberg S. Montelukast dose selection in children ages 2 to 5 years: comparison of population pharmacokinetics between children and adults. J Clin Pharmacol. 2001 Jun;41(6):612-9.
-
-**Knorr 2006** Knorr B, Maganti L, Ramakrishnan R, Tozzi CA, Migoya E, Kearns G. Pharmacokinetics and safety of montelukast in children aged 3 to 6 months. J Clin Pharmacol. 2006 Jun;46(6):620-7.
 
 **Kuepfer 2016** Kuepfer L, Niederalt C, Wendl T, Schlender JF, Willmann S, Lippert J, Block M, Eissing T, Teutonico D. Applied Concepts in PBPK Modeling: How to Build a PBPK/PD Model.CPT Pharmacometrics Syst Pharmacol. 2016 Oct;5(10):516-531. doi: 10.1002/psp4.12134. Epub 2016 Oct 19.
 
 **Marzolini 2017** Marzolini C, Rajoli R, Battegay M, Elzi L, Back D, Siccardi M. Efavirenz Involving Simultaneous Inducing and Inhibitory Effects on Cytochromes. Clin Pharmacokinet. 2017 Apr;56(4):409-420. doi: 10.1007/s40262-016-0447-7.
-
-**Miyoga 2004** Migoya E1, Kearns GL, Hartford A, Zhao J, van Adelsberg J, Tozzi CA, Knorr B, Deutsch P. Pharmacokinetics of montelukast in asthmatic patients 6 to 24 months old. J Clin Pharmacol. 2004 May;44(5):487-94.
 
 **PK-Sim Ontogeny Database Version 7.3** (https://github.com/Open-Systems-Pharmacology/OSPSuite.Documentation/blob/38cf71b384cfc25cfa0ce4d2f3addfd32757e13b/PK-Sim%20Ontogeny%20Database%20Version%207.3.pdf)
 
