@@ -4,11 +4,11 @@
 
 
 
-| Version                                         | 1.2-OSP9.1                                                   |
+| Version                                         | 1.3-OSP10.0                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
-| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Itraconazole-Model/releases/tag/v1.2 |
-| OSP Version                                     | 9.1                                                          |
-| Qualification Framework Version                 | 2.2                                                          |
+| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Itraconazole-Model/releases/tag/v1.3 |
+| OSP Version                                     | 10.0                                                          |
+| Qualification Framework Version                 | 2.3                                                          |
 
 
 
@@ -30,30 +30,30 @@ https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/
   * [4 Conclusion](#4-conclusion)
   * [5 References](#5-references)
 # 1 Introduction
-Itraconazole is a triazole agent prescribed for the treatment of fungal infections. It is predominantly metabolized by CYP3A4, resulting in the sequential formation of several metabolites, starting with the major metabolite hydroxy-itraconazole, followed by keto-itraconazole and N-desalkyl-itraconazole. All three metabolites are further metabolized by CYP3A4 and parent and metabolites are reported to competitively inhibit CYP3A4 ([Isoherranen 2004](#5-References)). Therefore, the metabolites inhibit their own formation and itraconazole inhibits further conversion of its metabolites by CYP3A4. Itraconazole has been proposed as one of the most appropriate CYP3A4 inhibitors for clinical DDI studies, to replace the currently no longer recommended CYP3A4 inhibitor drug ketoconazole.
+Itraconazole is a triazole agent prescribed for the treatment of fungal infections. It is predominantly metabolized by CYP3A4, resulting in the sequential formation of several metabolites, starting with the major metabolite hydroxy-itraconazole, followed by keto-itraconazole and N-desalkyl-itraconazole. All three metabolites are further metabolized by CYP3A4 and parent and metabolites are reported to competitively inhibit CYP3A4 ([Isoherranen 2004](#5-references)). Therefore, the metabolites inhibit their own formation and itraconazole inhibits further conversion of its metabolites by CYP3A4. Itraconazole has been proposed as one of the most appropriate CYP3A4 inhibitors for clinical DDI studies, to replace the currently no longer recommended CYP3A4 inhibitor drug ketoconazole.
 
-The herein presented model represents an update of the itraconazole model publisdhed by Hanke *et al.* ([Hanke 2018](#5-References)). The model was originally established using various clinical studies, covering a dosing range from 100 to 200 mg in different formulations (solution and capsules), administered under fasted conditions or together with food. Although the plasma concentrations of keto-itraconazole and N-desalkyl-itraconazole are lower than those of itraconazole and hydroxy-itraconazole, N-desalkyl-itraconazole is reported to be a very potent inhibitor *in vitro*, and integration of the two further metabolites into the model with their inhibitory effects enabled the description the strong non-linearity and plasma accumulation of itraconazole. The model applies sequential metabolism of itraconazole to hydroxy-itraconazole to keto-itraconazole to N-desalkyl-itraconazole by CYP3A4, including competitive inhibition of CYP3A4 by the parent drug and all three metabolites, and glomerular filtration. Competitive inhibition of P-gp was included for itracaonazole.
+The herein presented model represents an update of the itraconazole model publisdhed by Hanke *et al.* ([Hanke 2018](#5-references)). The model was originally established using various clinical studies, covering a dosing range from 100 to 200 mg in different formulations (solution and capsules), administered under fasted conditions or together with food. Although the plasma concentrations of keto-itraconazole and N-desalkyl-itraconazole are lower than those of itraconazole and hydroxy-itraconazole, N-desalkyl-itraconazole is reported to be a very potent inhibitor *in vitro*, and integration of the two further metabolites into the model with their inhibitory effects enabled the description the strong non-linearity and plasma accumulation of itraconazole. The model applies sequential metabolism of itraconazole to hydroxy-itraconazole to keto-itraconazole to N-desalkyl-itraconazole by CYP3A4, including competitive inhibition of CYP3A4 by the parent drug and all three metabolites, and glomerular filtration. Competitive inhibition of P-gp was included for itracaonazole.
 
-In comparison to the published version by Hanke *et al.* 2018 ([Hanke 2018](#5-References)), the dissolution and solubility has been optimized and updated for the administration of itraconazole capsules in fasted state (by integrating additional data ([Jalava 1997](#5-References)) into the optimization routine).
+In comparison to the published version by Hanke *et al.* 2018 ([Hanke 2018](#5-references)), the dissolution and solubility has been optimized and updated for the administration of itraconazole capsules in fasted state (by integrating additional data ([Jalava 1997](#5-references)) into the optimization routine).
 
 
 # 2 Methods
 
 
 ## 2.1 Modeling Strategy
-The general concept of building a PBPK model has previously been described by Kuepfer et al. ([Kuepfer 2016](#5-References)). Relevant information on anthropometric (height, weight) and physiological parameters (e.g. blood flows, organ volumes, binding protein concentrations, hematocrit, cardiac output) in adults was gathered from the literature and has been previously published ([Willmann 2007](#5-References)). The information was incorporated into PK-Sim® and was used as default values for the simulations in adults.
+The general concept of building a PBPK model has previously been described by Kuepfer et al. ([Kuepfer 2016](#5-references)). Relevant information on anthropometric (height, weight) and physiological parameters (e.g. blood flows, organ volumes, binding protein concentrations, hematocrit, cardiac output) in adults was gathered from the literature and has been previously published ([Willmann 2007](#5-references)). The information was incorporated into PK-Sim® and was used as default values for the simulations in adults.
 
-The  applied activity and variability of plasma proteins and active processes that are integrated into PK-Sim® are described in the publicly available PK-Sim® Ontogeny Database Version 7.3 ([PK-Sim Ontogeny Database Version 7.3](#5-References)) or otherwise referenced for the specific process.
+The  applied activity and variability of plasma proteins and active processes that are integrated into PK-Sim® are described in the publicly available PK-Sim® Ontogeny Database Version 7.3 ([PK-Sim Ontogeny Database Version 7.3](#5-references)) or otherwise referenced for the specific process.
 
 First, a mean model including sequential metabolism of itraconazole to hydroxy-itraconazole to keto-itraconazole to N-desalkyl-itraconazole by CYP3A4 was built using clinical data from single dose and multiple dose studies with intravenous and oral administration (solution, fasted state) of itraconazole. Hereby, competitive inhibition of CYP3A4 was considered for all four compounds. The mean PBPK model was developed using a typical European individual. The relative tissue-specific expressions of enzymes predominantly being involved in the metabolism of midazolam (CYP3A4) were considered. 
 
 A specific set of parameters (see below) was optimized using the Parameter Identification module provided in PK-Sim®. Structural model selection was mainly guided by visual inspection of the resulting description of data and biological plausibility.
 
-Once the appropriate structural model was identified, additional parameters for different administration states (*solution fed*, *capsule fasted* and *capsule fed* versus the reference state *solution fasted*) were empirically optimized. Clinical data suggest that the bioavailability of itraconazole is enhanced when an oral solution is given in the fasted state compared to fed state ([Van de Welde 1996](#5-References), [Barone 1998a](#5-References)). In contrast, a meal significantly enhances the amount of itraconazole absorbed after administrations of capsules (in comparison to fasted state administrations of capsules) ([Barone 1993a](#5-References)). To reflect these observations, relevant parameters, in particular solubility and those describing dissolution kinetics (of capsules), were assumed to be variable between these four scenarios and were independently identified using the Parameter Identification module provided in PK-Sim®.
+Once the appropriate structural model was identified, additional parameters for different administration states (*solution fed*, *capsule fasted* and *capsule fed* versus the reference state *solution fasted*) were empirically optimized. Clinical data suggest that the bioavailability of itraconazole is enhanced when an oral solution is given in the fasted state compared to fed state ([Van de Welde 1996](#5-references), [Barone 1998a](#5-references)). In contrast, a meal significantly enhances the amount of itraconazole absorbed after administrations of capsules (in comparison to fasted state administrations of capsules) ([Barone 1993a](#5-references)). To reflect these observations, relevant parameters, in particular solubility and those describing dissolution kinetics (of capsules), were assumed to be variable between these four scenarios and were independently identified using the Parameter Identification module provided in PK-Sim®.
 
-Details about compound properties (physicochemical, *in vitro* and clinical) can be found in [Section 2.2](#22-Data).
+Details about compound properties (physicochemical, *in vitro* and clinical) can be found in [Section 2.2](#22-data).
 
-Details about the structural model and its parameters can be found in [Section 2.3](#23-Model-Parameters-and-Assumptions).
+Details about the structural model and its parameters can be found in [Section 2.3](#23-model-parameters-and-assumptions).
 
 
 
@@ -67,17 +67,17 @@ A literature search was performed to collect available information on physicoche
 
 | **Parameter**                         | **Unit**                   | **Value**      | Source                            | **Description**                                              |
 | :------------------------------------ | -------------------------- | -------------- | --------------------------------- | ------------------------------------------------------------ |
-| MW                                    | g/mol                      | 705.633        | [DrugBank DB01167](#5-References) | Molecular weight                                             |
-| pK<sub>a,base</sub>                   |                            | 3.7            | [Heykants 1989](#5-References)    | acid dissociation constant of conjugate acid; compound type: base |
-| Solubility (pH)                       | mg/L                       | 8.0<br />(6.5) | [Taupitz 2013](#5-References)     | Solubility in FaSSIF (fasted state simulated intestinal fluid) |
-| logP                                  |                            | 5.66           | [Heykants 1989](#5-References)    | Partition coefficient between octanol and water              |
-| fu                                    | %                          | 0.2            | [Heykants 1989](#5-References)    | Fraction unbound in plasma                                   |
-|                                       | %                          | 0.2            | [Riccardi 2015](#5-References)    | Fraction unbound in plasma                                   |
-|                                       | %                          | 1.58           | [Ishigam 2001](#5-References)     | Fraction unbound in plasma                                   |
-|                                       | %                          | 3.6            | [Templeton 2008](#5-References)   | Fraction unbound in plasma                                   |
-| V<sub>max</sub>, K<sub>m</sub> CYP3A4 | pmol/min/nmol,<br />nmol/L | 270<br />3.9   | [Isoherranen 2004](#5-References) | CYP3A4 supersomes Michaelis-Menten kinetics                  |
-| K<sub>i</sub> CYP3A4                  | nmol/L                     | 1.3            | [Isoherranen 2004](#5-References) | CYP3A4 inhibition constant                                   |
-| K<sub>i</sub> P-gp                    | nmol/L                     | 8.0            | [Shityakov 2014](#5-References)   | P-gp inhibition constant                                     |
+| MW                                    | g/mol                      | 705.633        | [DrugBank DB01167](#5-references) | Molecular weight                                             |
+| pK<sub>a,base</sub>                   |                            | 3.7            | [Heykants 1989](#5-references)    | acid dissociation constant of conjugate acid; compound type: base |
+| Solubility (pH)                       | mg/L                       | 8.0<br />(6.5) | [Taupitz 2013](#5-references)     | Solubility in FaSSIF (fasted state simulated intestinal fluid) |
+| logP                                  |                            | 5.66           | [Heykants 1989](#5-references)    | Partition coefficient between octanol and water              |
+| fu                                    | %                          | 0.2            | [Heykants 1989](#5-references)    | Fraction unbound in plasma                                   |
+|                                       | %                          | 0.2            | [Riccardi 2015](#5-references)    | Fraction unbound in plasma                                   |
+|                                       | %                          | 1.58           | [Ishigam 2001](#5-references)     | Fraction unbound in plasma                                   |
+|                                       | %                          | 3.6            | [Templeton 2008](#5-references)   | Fraction unbound in plasma                                   |
+| V<sub>max</sub>, K<sub>m</sub> CYP3A4 | pmol/min/nmol,<br />nmol/L | 270<br />3.9   | [Isoherranen 2004](#5-references) | CYP3A4 supersomes Michaelis-Menten kinetics                  |
+| K<sub>i</sub> CYP3A4                  | nmol/L                     | 1.3            | [Isoherranen 2004](#5-references) | CYP3A4 inhibition constant                                   |
+| K<sub>i</sub> P-gp                    | nmol/L                     | 8.0            | [Shityakov 2014](#5-references)   | P-gp inhibition constant                                     |
 
 
 
@@ -85,13 +85,13 @@ A literature search was performed to collect available information on physicoche
 
 | **Parameter**                         | **Unit**                   | **Value**   | Source                               | **Description**                                              |
 | :------------------------------------ | -------------------------- | ----------- | ------------------------------------ | ------------------------------------------------------------ |
-| MW                                    | g/mol                      | 721.633     | [DrugBank DBMET00374](#5-References) | Molecular weight                                             |
-| logP                                  |                            | 4.5         | [PubChem CID 108222](#5-References)  | Partition coefficient between octanol and water, computed by XLogP3 3.0 |
-| fu                                    | %                          | 0.5         | [Templeton 2008](#5-References)      | Fraction unbound in plasma                                   |
-|                                       | %                          | 1.7         | [Riccardi 2015](#5-References)       | Fraction unbound in plasma                                   |
-|                                       | %                          | 2.12        | [Chen 2016](#5-References)           | Fraction unbound in plasma                                   |
-| V<sub>max</sub>, K<sub>m</sub> CYP3A4 | pmol/min/nmol,<br />nmol/L | 543<br />27 | [Isoherranen 2004](#5-References)    | CYP3A4 supersomes Michaelis-Menten kinetics                  |
-| K<sub>i</sub> CYP3A4                  | nmol/L                     | 14.4        | [Isoherranen 2004](#5-References)    | CYP3A4 inhibition constant                                   |
+| MW                                    | g/mol                      | 721.633     | [DrugBank DBMET00374](#5-references) | Molecular weight                                             |
+| logP                                  |                            | 4.5         | [PubChem CID 108222](#5-references)  | Partition coefficient between octanol and water, computed by XLogP3 3.0 |
+| fu                                    | %                          | 0.5         | [Templeton 2008](#5-references)      | Fraction unbound in plasma                                   |
+|                                       | %                          | 1.7         | [Riccardi 2015](#5-references)       | Fraction unbound in plasma                                   |
+|                                       | %                          | 2.12        | [Chen 2016](#5-references)           | Fraction unbound in plasma                                   |
+| V<sub>max</sub>, K<sub>m</sub> CYP3A4 | pmol/min/nmol,<br />nmol/L | 543<br />27 | [Isoherranen 2004](#5-references)    | CYP3A4 supersomes Michaelis-Menten kinetics                  |
+| K<sub>i</sub> CYP3A4                  | nmol/L                     | 14.4        | [Isoherranen 2004](#5-references)    | CYP3A4 inhibition constant                                   |
 
 
 
@@ -99,14 +99,14 @@ A literature search was performed to collect available information on physicoche
 
 | **Parameter**                         | **Unit**                   | **Value**     | Source                                | **Description**                                              |
 | :------------------------------------ | -------------------------- | ------------- | ------------------------------------- | ------------------------------------------------------------ |
-| MW                                    | g/mol                      | 719.617       | [PubChem CID 53865186](#5-References) | Molecular weight                                             |
-| logP                                  |                            | 4.5           | [PubChem CID 53865186](#5-References) | Partition coefficient between octanol and water, computed by XLogP3 3.0 |
-| fu                                    | %                          | 1.0           | [Riccardi 2015](#5-References)        | Fraction unbound in plasma                                   |
-|                                       | %                          | 5.3           | [Templeton 2008](#5-References)       | Fraction unbound in plasma                                   |
-| V<sub>max</sub>, K<sub>m</sub> CYP3A4 | pmol/min/nmol,<br />nmol/L | 86.9<br />1.4 | [Isoherranen 2004](#5-References)     | CYP3A4 supersomes Michaelis-Menten kinetics                  |
-| IC<sub>50</sub> CYP3A4<sup>†</sup>    | nmol/L                     | 7.0           | [Isoherranen 2004](#5-References)     | CYP3A4 inhibition constant for half maximal inhibitory concentration at constant substrate concentration |
+| MW                                    | g/mol                      | 719.617       | [PubChem CID 53865186](#5-references) | Molecular weight                                             |
+| logP                                  |                            | 4.5           | [PubChem CID 53865186](#5-references) | Partition coefficient between octanol and water, computed by XLogP3 3.0 |
+| fu                                    | %                          | 1.0           | [Riccardi 2015](#5-references)        | Fraction unbound in plasma                                   |
+|                                       | %                          | 5.3           | [Templeton 2008](#5-references)       | Fraction unbound in plasma                                   |
+| V<sub>max</sub>, K<sub>m</sub> CYP3A4 | pmol/min/nmol,<br />nmol/L | 86.9<br />1.4 | [Isoherranen 2004](#5-references)     | CYP3A4 supersomes Michaelis-Menten kinetics                  |
+| IC<sub>50</sub> CYP3A4<sup>†</sup>    | nmol/L                     | 7.0           | [Isoherranen 2004](#5-references)     | CYP3A4 inhibition constant for half maximal inhibitory concentration at constant substrate concentration |
 
-<sup>†</sup> The IC<sub>50</sub> values was converted to a K<sub>i</sub> value via Cheng-Prusoff equation ([Chen 1973](#5-References)) with a substrate (*midazolam*) concentration of 1 µmol/L and an assumed substrate (*midazolam*) K<sub>m</sub> value of 2.73 µmol/L: **5.12 nmol/L**
+<sup>†</sup> The IC<sub>50</sub> values was converted to a K<sub>i</sub> value via Cheng-Prusoff equation ([Chen 1973](#5-references)) with a substrate (*midazolam*) concentration of 1 µmol/L and an assumed substrate (*midazolam*) K<sub>m</sub> value of 2.73 µmol/L: **5.12 nmol/L**
 
 
 
@@ -114,13 +114,13 @@ A literature search was performed to collect available information on physicoche
 
 | **Parameter**                      | **Unit** | **Value** | Source                                | **Description**                                              |
 | :--------------------------------- | -------- | --------- | ------------------------------------- | ------------------------------------------------------------ |
-| MW                                 | g/mol    | 649.527   | [PubChem CID 53789808](#5-References) | Molecular weight                                             |
-| logP                               |          | 4.2       | [PubChem CID 53789808](#5-References) | Partition coefficient between octanol and water, computed by XLogP3 3.0 |
-| fu                                 | %        | 1.1       | [Riccardi 2015](#5-References)        | Fraction unbound in plasma                                   |
-|                                    | %        | 1.2       | [Templeton 2008](#5-References)       | Fraction unbound in plasma                                   |
-| IC<sub>50</sub> CYP3A4<sup>†</sup> | nmol/L   | 0.44      | [Isoherranen 2004](#5-References)     | CYP3A4 inhibition constant for half maximal inhibitory concentration at constant substrate concentration |
+| MW                                 | g/mol    | 649.527   | [PubChem CID 53789808](#5-references) | Molecular weight                                             |
+| logP                               |          | 4.2       | [PubChem CID 53789808](#5-references) | Partition coefficient between octanol and water, computed by XLogP3 3.0 |
+| fu                                 | %        | 1.1       | [Riccardi 2015](#5-references)        | Fraction unbound in plasma                                   |
+|                                    | %        | 1.2       | [Templeton 2008](#5-references)       | Fraction unbound in plasma                                   |
+| IC<sub>50</sub> CYP3A4<sup>†</sup> | nmol/L   | 0.44      | [Isoherranen 2004](#5-references)     | CYP3A4 inhibition constant for half maximal inhibitory concentration at constant substrate concentration |
 
-<sup>†</sup> The IC<sub>50</sub> values was converted to a K<sub>i</sub> value via Cheng-Prusoff equation ([Chen 1973](#5-References)) with a substrate (*midazolam*) concentration of 1 µmol/L and an assumed substrate (*midazolam*) K<sub>m</sub> value of 2.73 µmol/L: **0.32 nmol/L**
+<sup>†</sup> The IC<sub>50</sub> values was converted to a K<sub>i</sub> value via Cheng-Prusoff equation ([Chen 1973](#5-references)) with a substrate (*midazolam*) concentration of 1 µmol/L and an assumed substrate (*midazolam*) K<sub>m</sub> value of 2.73 µmol/L: **0.32 nmol/L**
 
 
 
@@ -132,34 +132,34 @@ The following dosing senarios were simulated and compared to respective data:
 
 | Route | Formulation | Food state | Dose<br />[mg] | Dosing | PK Data                                                      | Used for<sup>†</sup> | Reference                          |
 | ----- | ----------- | ---------- | -------------- | ------ | ------------------------------------------------------------ | -------------------- | ---------------------------------- |
-| iv    | -           | -          | 100            | SD     | Itraconazole                                                 | mv                   | [Heykants 1989](#5-References)     |
-|       |             |            | 200            | OD     | Itraconazole<br />Hydroxy-Itr.                               | mbb                  | [Mouton 2006](#5-References)       |
-| po    | solution    | fasted     | 100            | SD     | Itraconazole                                                 | mbb                  | [Van de Velde 1996](#5-References) |
-|       |             |            |                |        | Itraconazole<br />Hydroxy-Itr.                               | mbb                  | [Van Peer 1989](#5-References)    |
-|       |             |            |                | OD     | Itraconazole<br />Hydroxy-Itr.<br />Keto-Itr.<br />N-Desalkyl-Itr. | mbb                  | [Templeton 2008](#5-References)    |
-|       |             |            | 200            | OD     | Itraconazole<br />Hydroxy-Itr.                               | mbb                  | [Barone 1998a](#5-References)      |
-|       |             | fed        | 100            | SD     | Itraconazole<br />Hydroxy-Itr.                               | mbe                  | [Van de Velde 1996](#5-References) |
-|       |             |            |                |        | Itraconazole                                                 | mbe                  | [Heykants 1989](#5-References)     |
-|       |             |            | 200            | SD     | Itraconazole<br />Hydroxy-Itr.                               | mbe                  | [Barone 1998b](#5-References)      |
-|       |             |            |                | OD     | Itraconazole<br />Hydroxy-Itr.                               | mbe                  | [Barone 1998a](#5-References)      |
-|       | capsule     | fasted     | 100            | SD     | Itraconazole                                                 | mbe                  | [Van Peer 1989](#5-References)     |
-|       |             |            |                | BID    | Itraconazole                                                 | mv                   | [Kivistö 1997](#5-References)       |
-|       |             |            | 200            | SD     | Itraconazole<br />Hydroxy-Itr.                               | mbe                  | [Barone 1993](#5-References)       |
-|       |             |            |                |        | Itraconazole                                                 | mv                   | [Neuvonen 1996](#5-References)      |
-|       |             |            |                | OD     | Itraconazole                                                 | mbe                  | [Jalava 1997](#5-References)       |
-|       |             |            |                |        | Itraconazole                                                 | mbe                  | [Olkkola 1994](#5-References)      |
-|       |             |            |                |        | Itraconazole                                                 | mv                   | [Varhe 1994](#5-References)         |
-|       |             | fed        | 100            | SD     | Itraconazole                                                 | mbe                  | [Van Peer 1989](#5-References)     |
-|       |             |            |                | OD     | Itraconazole                                                 | mbe                  | [Van Peer 1989](#5-References)    |
-|       |             |            |                |        | Itraconazole                                                 | mv                   | [Hardin 1988](#5-References)       |
-|       |             |            | 200            | SD     | Itraconazole<br />Hydroxy-Itr.                               | mbe                  | [Barone 1993](#5-References)       |
-|       |             |            |                |        | Itraconazole<br />Hydroxy-Itr.                               | mbe                  | [Barone 1998b](#5-References)      |
-|       |             |            |                |        | Itraconazole                                                 | mv                   | [Neuvonen 1996](#5-References)      |
-|       |             |            | 200            | OD     | Itraconazole                                                 | mv                   | [Hardin 1988](#5-References)       |
-|       |             |            |                | BID    | Itraconazole                                                 | mbe                  | [Barone 1993](#5-References)       |
-|       |             |            |                |        | Itraconazole<br />Hydroxy-Itr.                               | mv                   | [Hardin 1988](#5-References)       |
+| iv    | -           | -          | 100            | SD     | Itraconazole                                                 | mv                   | [Heykants 1989](#5-references)     |
+|       |             |            | 200            | OD     | Itraconazole<br />Hydroxy-Itr.                               | mbb                  | [Mouton 2006](#5-references)       |
+| po    | solution    | fasted     | 100            | SD     | Itraconazole                                                 | mbb                  | [Van de Velde 1996](#5-references) |
+|       |             |            |                |        | Itraconazole<br />Hydroxy-Itr.                               | mbb                  | [Van Peer 1989](#5-references)    |
+|       |             |            |                | OD     | Itraconazole<br />Hydroxy-Itr.<br />Keto-Itr.<br />N-Desalkyl-Itr. | mbb                  | [Templeton 2008](#5-references)    |
+|       |             |            | 200            | OD     | Itraconazole<br />Hydroxy-Itr.                               | mbb                  | [Barone 1998a](#5-references)      |
+|       |             | fed        | 100            | SD     | Itraconazole<br />Hydroxy-Itr.                               | mbe                  | [Van de Velde 1996](#5-references) |
+|       |             |            |                |        | Itraconazole                                                 | mbe                  | [Heykants 1989](#5-references)     |
+|       |             |            | 200            | SD     | Itraconazole<br />Hydroxy-Itr.                               | mbe                  | [Barone 1998b](#5-references)      |
+|       |             |            |                | OD     | Itraconazole<br />Hydroxy-Itr.                               | mbe                  | [Barone 1998a](#5-references)      |
+|       | capsule     | fasted     | 100            | SD     | Itraconazole                                                 | mbe                  | [Van Peer 1989](#5-references)     |
+|       |             |            |                | BID    | Itraconazole                                                 | mv                   | [Kivistö 1997](#5-references)       |
+|       |             |            | 200            | SD     | Itraconazole<br />Hydroxy-Itr.                               | mbe                  | [Barone 1993](#5-references)       |
+|       |             |            |                |        | Itraconazole                                                 | mv                   | [Neuvonen 1996](#5-references)      |
+|       |             |            |                | OD     | Itraconazole                                                 | mbe                  | [Jalava 1997](#5-references)       |
+|       |             |            |                |        | Itraconazole                                                 | mbe                  | [Olkkola 1994](#5-references)      |
+|       |             |            |                |        | Itraconazole                                                 | mv                   | [Varhe 1994](#5-references)         |
+|       |             | fed        | 100            | SD     | Itraconazole                                                 | mbe                  | [Van Peer 1989](#5-references)     |
+|       |             |            |                | OD     | Itraconazole                                                 | mbe                  | [Van Peer 1989](#5-references)    |
+|       |             |            |                |        | Itraconazole                                                 | mv                   | [Hardin 1988](#5-references)       |
+|       |             |            | 200            | SD     | Itraconazole<br />Hydroxy-Itr.                               | mbe                  | [Barone 1993](#5-references)       |
+|       |             |            |                |        | Itraconazole<br />Hydroxy-Itr.                               | mbe                  | [Barone 1998b](#5-references)      |
+|       |             |            |                |        | Itraconazole                                                 | mv                   | [Neuvonen 1996](#5-references)      |
+|       |             |            | 200            | OD     | Itraconazole                                                 | mv                   | [Hardin 1988](#5-references)       |
+|       |             |            |                | BID    | Itraconazole                                                 | mbe                  | [Barone 1993](#5-references)       |
+|       |             |            |                |        | Itraconazole<br />Hydroxy-Itr.                               | mv                   | [Hardin 1988](#5-references)       |
 
-<sup>†</sup> *mbb* model building basic: used to inform the basic model parameters (see [Section 2.3.5](#235-Automated-Parameter-Identification)); *mbe* model building extended: used to inform solubility and, if applicable, formulation-depenendent parameters only (see [Section 2.3.5](#235-Automated-Parameter-Identification)); *mv* model verification only
+<sup>†</sup> *mbb* model building basic: used to inform the basic model parameters (see [Section 2.3.5](#235-automated-parameter-identification)); *mbe* model building extended: used to inform solubility and, if applicable, formulation-depenendent parameters only (see [Section 2.3.5](#235-automated-parameter-identification)); *mv* model verification only
 
 
 
@@ -167,31 +167,31 @@ The following dosing senarios were simulated and compared to respective data:
 ## 2.3 Model Parameters and Assumptions
 ### 2.3.1 Absorption
 
-Clinical data suggest that the bioavailability of itraconazole is enhanced when an oral solution is given in the fasted state compared to fed state ([Van de Welde 1996](#5-References), [Barone 1998a](#5-References)). In contrast, a meal significantly enhances the amount of itraconazole absorbed after administrations of capsules (in comparison to fasted state administrations of capsules) ([Barone 1993a](#5-References)). Thus, four different scenarios can be identified:  *solution fasted*, *solution fed*, *capsule fasted* and *capsule fed*. The *solution fasted* scenario was considered to be the reference scenario.
+Clinical data suggest that the bioavailability of itraconazole is enhanced when an oral solution is given in the fasted state compared to fed state ([Van de Welde 1996](#5-references), [Barone 1998a](#5-references)). In contrast, a meal significantly enhances the amount of itraconazole absorbed after administrations of capsules (in comparison to fasted state administrations of capsules) ([Barone 1993a](#5-references)). Thus, four different scenarios can be identified:  *solution fasted*, *solution fed*, *capsule fasted* and *capsule fed*. The *solution fasted* scenario was considered to be the reference scenario.
 
-Herein, the model parameter `Specific intestinal permeability` was optimized to best match clinical data (see [Section 2.3.5](#235-Automated-Parameter-Identification)). The default solubility was assumed to be the measured value in FaSSIF (fasted state simulated intestinal fluid; see [Section 2.2.1](#221-In-vitro-and-physicochemical-data)).
+Herein, the model parameter `Specific intestinal permeability` was optimized to best match clinical data (see [Section 2.3.5](#235-automated-parameter-identification)). The default solubility was assumed to be the measured value in FaSSIF (fasted state simulated intestinal fluid; see [Section 2.2.1](#221-in-vitro-and-physicochemical-data)).
 
 In a next step, the solubility was optimized for the *solution fed* scenario (in comparison to *solution fasted*).
 
 Then, for the scenarios *capsule fasted* and *capsule fed*, solubility and the dissolution rate of the capsules (implemented via an empirical Weibull dissolution) were optimized. 
 
-The results of the optimization can be found in [Section 2.3.5](#235-Automated-Parameter-Identification).
+The results of the optimization can be found in [Section 2.3.5](#235-automated-parameter-identification).
 
 ### 2.3.2 Distribution
 
-Various values for the fraction unbound of itraconazole have been reported in literature, ranging from 0.2 to 3.6% (see [Section 2.2.1](#221-In-vitro-and-physicochemical-data)). For this model, the final value was optimized within this range to best match observed clinical data (see [Section 2.3.5](#235-Automated-Parameter-Identification)). For the metabolites, the measured values reported by Riccardi *et al.* ([Riccardi 2015](#5-References)) were incorporated into the model. It was assumed that the major binding partner is albumin.
+Various values for the fraction unbound of itraconazole have been reported in literature, ranging from 0.2 to 3.6% (see [Section 2.2.1](#221-in-vitro-and-physicochemical-data)). For this model, the final value was optimized within this range to best match observed clinical data (see [Section 2.3.5](#235-automated-parameter-identification)). For the metabolites, the measured values reported by Riccardi *et al.* ([Riccardi 2015](#5-references)) were incorporated into the model. It was assumed that the major binding partner is albumin.
 
-No pK<sub>a</sub> values were reported for the three metabolites. Here, it was assumed that the metabolites are similar to the parent drug and the reported basic pK<sub>a</sub> value of 3.7 was applied (see also [Section 2.2.1](#221-In-vitro-and-physicochemical-data))
+No pK<sub>a</sub> values were reported for the three metabolites. Here, it was assumed that the metabolites are similar to the parent drug and the reported basic pK<sub>a</sub> value of 3.7 was applied (see also [Section 2.2.1](#221-in-vitro-and-physicochemical-data))
 
-An important parameter influencing the resulting volume of distribution is lipophilicty. The reported experimental or predicted logP values served as starting values for the four compounds. Finally, the model parameters `Lipophilicity` were optimized to match best clinical data (see also [Section 2.3.5](#235-Automated-Parameter-Identification)).
+An important parameter influencing the resulting volume of distribution is lipophilicty. The reported experimental or predicted logP values served as starting values for the four compounds. Finally, the model parameters `Lipophilicity` were optimized to match best clinical data (see also [Section 2.3.5](#235-automated-parameter-identification)).
 
 After testing the available organ-plasma partition coefficient and cell permeability calculation methods built in PK-Sim®, observed clinical data was best described by choosing the partition coefficient calculation by `Rodgers and Rowland` and cellular permeability calculation by `PK-Sim Standard ` for itraconazole and its metabolites.
 
 ### 2.3.3 Metabolism and Elimination
 
-Metabolic pathways via CYP3A4 were implemented in the model via Michaelis-Menten kinetics for all four compounds. If available, *in vitro* determined unbound K<sub>m</sub> values ([Isoherranen 2004](#5-References)) served as starting values. Respective k<sub>cat</sub> values were optimized to best match clinical data (see also [Section 2.3.5](#235-Automated-Parameter-Identification)).
+Metabolic pathways via CYP3A4 were implemented in the model via Michaelis-Menten kinetics for all four compounds. If available, *in vitro* determined unbound K<sub>m</sub> values ([Isoherranen 2004](#5-references)) served as starting values. Respective k<sub>cat</sub> values were optimized to best match clinical data (see also [Section 2.3.5](#235-automated-parameter-identification)).
 
-The CYP3A4 expression profile is based on high-sensitivity real-time RT-PCR ([Nishimura 2013](#5-References)). Absolute tissue-specific concentrations were obtained by considering the respective absolute concentration in the liver. The PK-Sim® Ontogeny Database Version 7.3 provides a default value for CYP3A4 reference concentration in the liver (compare [Rodrigues 1999](#5-References) and assume 40 mg protein per gram liver). 
+The CYP3A4 expression profile is based on high-sensitivity real-time RT-PCR ([Nishimura 2013](#5-references)). Absolute tissue-specific concentrations were obtained by considering the respective absolute concentration in the liver. The PK-Sim® Ontogeny Database Version 7.3 provides a default value for CYP3A4 reference concentration in the liver (compare [Rodrigues 1999](#5-references) and assume 40 mg protein per gram liver). 
 
 Additionally, for all four compounds a renal clearance (assumed to be driven by glomerular filtration) was implemented.
 
@@ -200,12 +200,12 @@ Additionally, for all four compounds a renal clearance (assumed to be driven by 
 The following subsections describe the model input for DDI-related parameters, i.e. inhibition of certain enzymes and transporters, for which itraconazole may act in a perpetrator role. Verification of these model parameters and linked processes in combination with sensitive CYP3A4 / P-gp substrates is not evaluated in this report. Applications are assessed in specific use cases and reported elsewhere. Note, however, that the competitive CYP3A4 inhibition of the four compounds results in inhibition of metabolite formation (of hydroxy-itraconazole, keto-itraconazole, N-desalkyl-itraconazole) and the metabolism of N-desalkyl-itraconazole. This effectively contributes to the PK non-linearity of itraconazole and its metabolites, especially after multiple doses.
 
 #### CYP3A4 inhibition
-*In vitro* determined unbound K<sub>i</sub> values for itraconazole and hydroxy-itraconazole ([Isoherranen 2004](#5-References)) served directly as model input (see [Section 2.2.1](#221-In-vitro-and-physicochemical-data)).
+*In vitro* determined unbound K<sub>i</sub> values for itraconazole and hydroxy-itraconazole ([Isoherranen 2004](#5-references)) served directly as model input (see [Section 2.2.1](#221-in-vitro-and-physicochemical-data)).
 
-*In vitro* determined unbound IC<sub>50</sub> values for keto-itraconazole and N-desalkyl-itraconazol ([Isoherranen 2004](#5-References)) were converted to K<sub>i</sub>  values via the Cheng-Prusoff equation ([Chen 1973](#5-References)) with a substrate (*midazolam*) concentration of 1 µmol/L and an assumed substrate (*midazolam*) K<sub>m</sub> value of 2.73 µmol/L (see [Section 2.2.1](#221-In-vitro-and-physicochemical-data)).
+*In vitro* determined unbound IC<sub>50</sub> values for keto-itraconazole and N-desalkyl-itraconazol ([Isoherranen 2004](#5-references)) were converted to K<sub>i</sub>  values via the Cheng-Prusoff equation ([Chen 1973](#5-references)) with a substrate (*midazolam*) concentration of 1 µmol/L and an assumed substrate (*midazolam*) K<sub>m</sub> value of 2.73 µmol/L (see [Section 2.2.1](#221-in-vitro-and-physicochemical-data)).
 
 #### P-gp inhibition
-An *in vitro* determined K<sub>i</sub> values for itraconazole ([Shityakov 2014](#5-References)) served directly as model input (see [Section 2.2.1](#221-In-vitro-and-physicochemical-data)).
+An *in vitro* determined K<sub>i</sub> values for itraconazole ([Shityakov 2014](#5-references)) served directly as model input (see [Section 2.2.1](#221-in-vitro-and-physicochemical-data)).
 
 
 
@@ -221,15 +221,15 @@ This is the result of the final parameter identification for the basic model:
 |                 | `Km` (CYP3A4)                                | 2.07                                                         | nmol/L    |
 |                 | `kcat` (CYP3A4)                              | 0.040                                                        | 1/min     |
 | Hydroxy-Itr.    | `Lipophilicity`                              | 3.72                                                         | Log Units |
-|                 | `Fraction unbound (plasma, reference value)` | 1.7 FIXED (see [Section 2.2.1](#221-In-vitro-and-physicochemical-data)) | %         |
+|                 | `Fraction unbound (plasma, reference value)` | 1.7 FIXED (see [Section 2.2.1](#221-in-vitro-and-physicochemical-data)) | %         |
 |                 | `Km` (CYP3A4)                                | 4.17                                                         | nmol/L    |
 |                 | `kcat` (CYP3A4)                              | 0.020                                                        | 1/min     |
 | Keto-Itr.       | `Lipophilicity`                              | 4.21                                                         | Log Units |
-|                 | `Fraction unbound (plasma, reference value)` | 1.0 FIXED (see [Section 2.2.1](#221-In-vitro-and-physicochemical-data)) | %         |
+|                 | `Fraction unbound (plasma, reference value)` | 1.0 FIXED (see [Section 2.2.1](#221-in-vitro-and-physicochemical-data)) | %         |
 |                 | `Km` (CYP3A4)                                | 2.22                                                         | nmol/L    |
 |                 | `kcat` (CYP3A4)                              | 0.393                                                        | 1/min     |
 | N-Desalkyl-Itr. | `Lipophilicity`                              | 5.18                                                         | Log Units |
-|                 | `Fraction unbound (plasma, reference value)` | 1.1 FIXED (see [Section 2.2.1](#221-In-vitro-and-physicochemical-data)) | %         |
+|                 | `Fraction unbound (plasma, reference value)` | 1.1 FIXED (see [Section 2.2.1](#221-in-vitro-and-physicochemical-data)) | %         |
 |                 | `Km` (CYP3A4)                                | 0.63                                                         | nmol/L    |
 |                 | `kcat` (CYP3A4)                              | 0.061                                                        | 1/min     |
 
@@ -239,7 +239,7 @@ This is the result of the final parameter identification for the solubility and,
 
 | Scenario        | Model Parameter                    | Optimized Value                                              | Unit |
 | --------------- | ---------------------------------- | ------------------------------------------------------------ | ---- |
-| Solution fasted | `Solubility at reference pH`       | 8.0 FIXED (see [Section 2.2.1](#221-In-vitro-and-physicochemical-data)) | mg/L |
+| Solution fasted | `Solubility at reference pH`       | 8.0 FIXED (see [Section 2.2.1](#221-in-vitro-and-physicochemical-data)) | mg/L |
 | Solution fed    | `Solubility at reference pH`       | 1.58                                                         | mg/L |
 | Capsule fasted  | `Solubility at reference pH`       | 0.97                                                         | mg/L |
 |                 | `Dissolution time (50% dissolved)` | 406                                                          | min  |
@@ -256,9 +256,9 @@ The model quantifies metabolism via CYP3A4 and inhibition of CYP3A4.
 
 The next sections show:
 
-1. the final model input parameters for the building blocks: [Section 3.1](#31-Final-Input-Parameters).
-2. the overall goodness of fit: [Section 3.2](#32-Diagnostics-Plots).
-3. simulated vs. observed concentration-time profiles for the clinical studies used for model building and for model verification: [Section 3.3](#33-Concentration-Time-Profiles).
+1. the final model input parameters for the building blocks: [Section 3.1](#31-final-input-parameters).
+2. the overall goodness of fit: [Section 3.2](#32-diagnostics-plots).
+3. simulated vs. observed concentration-time profiles for the clinical studies used for model building and for model verification: [Section 3.3](#33-concentration-time-profiles).
 ## 3.1 Final input parameters
 The compound parameter values of the final PBPK model are illustrated below.
 
@@ -504,7 +504,7 @@ Name | Value       | Value Origin
 Ki   | 0.32 nmol/l | Publication-Isoherranen, 2004
 
 ## 3.2 Diagnostics Plots
-Below you find the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data used presented in [Section 2.2.2](#222-Clinical-data).
+Below you find the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data used presented in [Section 2.2.2](#222-clinical-data).
 
 The plot show observed versus simulated plasma concentration and second weighted residuals versus time for itraconazole, hydroxy-itraconazole, keto-itraconazole and N-desalkyl-itraconazole.
 
@@ -519,13 +519,13 @@ GMFE = 1.540898
 
 ![005_plotGOFMergedResidualsOverTime.png](images/003_3_Results_and_Discussion/002_3_2_Diagnostics_Plots/005_plotGOFMergedResidualsOverTime.png)
 
-GMFE = 1.498618 
+GMFE = 1.498617 
 
 ![007_plotGOFMergedPredictedVsObserved.png](images/003_3_Results_and_Discussion/002_3_2_Diagnostics_Plots/007_plotGOFMergedPredictedVsObserved.png)
 
 ![008_plotGOFMergedResidualsOverTime.png](images/003_3_Results_and_Discussion/002_3_2_Diagnostics_Plots/008_plotGOFMergedResidualsOverTime.png)
 
-GMFE = 1.658855 
+GMFE = 1.658845 
 
 ![010_plotGOFMergedPredictedVsObserved.png](images/003_3_Results_and_Discussion/002_3_2_Diagnostics_Plots/010_plotGOFMergedPredictedVsObserved.png)
 
@@ -534,7 +534,7 @@ GMFE = 1.658855
 GMFE = 1.529602 
 
 ## 3.3 Concentration-Time Profiles
-Simulated versus observed concentration-time profiles of all data listed in [Section 2.2.2](#222-Clinical-data) are presented below.
+Simulated versus observed concentration-time profiles of all data listed in [Section 2.2.2](#222-clinical-data) are presented below.
 
 
 ![001_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_plotTimeProfile.png)

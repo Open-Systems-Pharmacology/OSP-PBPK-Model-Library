@@ -2,11 +2,11 @@
 
 
 
-| Version                                         | 1.1-OSP9.1                                                   |
+| Version                                         | 1.2-OSP10.0                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
-| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Verapamil-Model/releases/tag/v1.1 |
-| OSP Version                                     | 9.1                                                          |
-| Qualification Framework Version                 | 2.2                                                          |
+| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Verapamil-Model/releases/tag/v1.2 |
+| OSP Version                                     | 10.0                                                          |
+| Qualification Framework Version                 | 2.3                                                          |
 
 
 
@@ -32,7 +32,7 @@ https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/
 # 1 Introduction
 Verapamil is used for the treatment of high blood pressure, angina (chest pain from not enough blood flow to the heart), and supraventricular tachycardia.
 
-Its major metabolizing enzyme is CYP3A4, but also CY2C8 to some extent ([Tracy 1999](#5-References)). The dose- and time-dependent nonlinear behavior of verapamil is well described through implementation of the synergistic CYP3A4 mechanism-based (auto-)inactivation by verapamil. 
+Its major metabolizing enzyme is CYP3A4, but also CY2C8 to some extent ([Tracy 1999](#5-references)). The dose- and time-dependent nonlinear behavior of verapamil is well described through implementation of the synergistic CYP3A4 mechanism-based (auto-)inactivation by verapamil. 
 
 The presented verapamil model was established using observed concentration-time profiles of more than 10 clinical studies with doses from 0.1 mg to 240 mg in different verapamil dosing schedules including multiple doses over up to 10 days and different routes of administration (intravenous, single and multiple oral administration). 
 
@@ -43,17 +43,17 @@ The established verapamil PBPK model is verified for the use as a perpetrator dr
 
 
 ## 2.1 Modeling Strategy
-The general concept of building a PBPK model has previously been described by e.g. Kuepfer et al. ([Kuepfer 2016](#5-References)). The relevant anthropometric (height, weight) and physiological information (e.g. blood flows, organ volumes, binding protein concentrations, hematocrit, cardiac output) in adults was gathered from the literature and has been previously published ([PK-Sim Ontogeny Database Version 7.3](#5-References)). This information was incorporated into PK-Sim® and was used as default values for the simulations in adults.
+The general concept of building a PBPK model has previously been described by e.g. Kuepfer et al. ([Kuepfer 2016](#5-references)). The relevant anthropometric (height, weight) and physiological information (e.g. blood flows, organ volumes, binding protein concentrations, hematocrit, cardiac output) in adults was gathered from the literature and has been previously published ([PK-Sim Ontogeny Database Version 7.3](#5-references)). This information was incorporated into PK-Sim® and was used as default values for the simulations in adults.
 
-Variability of plasma proteins and CYP enzymes are integrated into PK-Sim® and described in the publicly available PK-Sim® Ontogeny Database Version 7.3 ([PK-Sim Ontogeny Database Version 7.3](#5-References), [Schlender 2016](#5-References)) or otherwise referenced for the specific process.
+Variability of plasma proteins and CYP enzymes are integrated into PK-Sim® and described in the publicly available PK-Sim® Ontogeny Database Version 7.3 ([PK-Sim Ontogeny Database Version 7.3](#5-references), [Schlender 2016](#5-references)) or otherwise referenced for the specific process.
 
-First, a base mean model was built and adjusted to clinical data including single and multiple dose studies with oral applications of verapamil to find an appropriate structure to describe the pharmacokinetics in plasma. The mean PBPK model was developed using a typical European individual adjusted to the demography of the respective study population. The relative tissue specific expressions of enzymes predominantly being involved in the metabolism of verapamil were derived from RT-PCR data from [Nishimura 2003](#5-References).
+First, a base mean model was built and adjusted to clinical data including single and multiple dose studies with oral applications of verapamil to find an appropriate structure to describe the pharmacokinetics in plasma. The mean PBPK model was developed using a typical European individual adjusted to the demography of the respective study population. The relative tissue specific expressions of enzymes predominantly being involved in the metabolism of verapamil were derived from RT-PCR data from [Nishimura 2003](#5-references).
 
 Unknown parameters (see below) were identified using the Parameter Identification module provided in PK-Sim®. Structural model selection was mainly guided by visual inspection of the resulting description of data and biological plausibility.
 
-Details about input data (physicochemical, *in vitro* and clinical) can be found in [Section 2.2](#22-Data).
+Details about input data (physicochemical, *in vitro* and clinical) can be found in [Section 2.2](#22-data).
 
-Details about the structural model and its parameters can be found in [Section 2.3](#23-Model-Parameters-and-Assumptions).
+Details about the structural model and its parameters can be found in [Section 2.3](#23-model-parameters-and-assumptions).
 
 
 ## 2.2 Data
@@ -64,12 +64,12 @@ A literature search was performed to collect available information on physiochem
 | **Parameter**   | **Unit** | **Value**       | Source                                                       | **Description**                                 |
 | :-------------- | -------- | --------------- | ------------------------------------------------------------ | ----------------------------------------------- |
 | MW              | g/mol    | 454.6     | https://www.drugbank.ca/                                     | Molecular weight                                |
-| pK<sub>a</sub>  | 8.92  | (base)          | [Perdaems 2010](#5-References)               | Acid dissociation constant                      |
-| Solubility (pH) | mg/L     | 46.0 | [Heikkinen 2012](#5-References) | Water solubility                               |
-| logP            |  | 2.7                       | [Sandström 1999](#5-References) | Partition coefficient between octanol and water |
-| fu              |         | 0.1 | [Vogelpoel 2004](#5-References) | Fraction unbound in plasma                      |
-| KI             | µmol/L | 1.2 | [Rowland-Yeo 2011](#5-References) | Inhibition constant    |
-| kinact   		| 1/h | 2.8 | [Rowland-Yeo 2011](#5-References) | Rate of enzyme inactivation   |
+| pK<sub>a</sub>  | 8.92  | (base)          | [Perdaems 2010](#5-references)               | Acid dissociation constant                      |
+| Solubility (pH) | mg/L     | 46.0 | [Heikkinen 2012](#5-references) | Water solubility                               |
+| logP            |  | 2.7                       | [Sandström 1999](#5-references) | Partition coefficient between octanol and water |
+| fu              |         | 0.1 | [Vogelpoel 2004](#5-references) | Fraction unbound in plasma                      |
+| KI             | µmol/L | 1.2 | [Rowland-Yeo 2011](#5-references) | Inhibition constant    |
+| kinact   		| 1/h | 2.8 | [Rowland-Yeo 2011](#5-references) | Rate of enzyme inactivation   |
 
 
 ### 2.2.2 Clinical Data
@@ -82,9 +82,9 @@ The following studies were used for model building and parameterization of CYP3A
 
 | Publication                      | Arm / Treatment / Information used for model building        |
 | :------------------------------- | :----------------------------------------------------------- |
-| [Barbarash 1988](#5-References)  | Healthy subjects receiving single intravenous doses of 10 mg and single oral doses of 120 mg |
-| [Johnston 1981](#5-References)   | Healthy subjects receiving single intravenous doses of 0.1 mg/kg and single oral doses of 120 mg |
-| [McAllister 1982](#5-References) | Healthy subjects receiving single intravenous doses of 10 mg and single oral doses of 120 mg |
+| [Barbarash 1988](#5-references)  | Healthy subjects receiving single intravenous doses of 10 mg and single oral doses of 120 mg |
+| [Johnston 1981](#5-references)   | Healthy subjects receiving single intravenous doses of 0.1 mg/kg and single oral doses of 120 mg |
+| [McAllister 1982](#5-references) | Healthy subjects receiving single intravenous doses of 10 mg and single oral doses of 120 mg |
 
 
 
@@ -95,13 +95,13 @@ The following studies were used for model verification:
 
 | Publication                      | Arm / Treatment / Information used for model building        |
 | :------------------------------- | :----------------------------------------------------------- |
-| [Maeda 2011](#5-References)      | Healthy subjects receiving single oral doses of 80 mg |
-| [Streit 2005](#5-References)    | Healthy subjects receiving single intravenous doses of 5 mg |
-| [Hla 1987](#5-References)       | Healthy subjects receiving multiple oral doses of 120 mg BID |
-| [Joergenson 1988](#5-References) | Healthy subjects receiving multiple oral doses of 120 mg BID |
-| [Shand 1981](#5-References)     | Healthy subjects receiving multiple oral doses of 120 mg TID |
-| [Johnson 2001](#5-References)   | Healthy subjects receiving multiple oral doses of 400 mg verapamil  QD. On day 14, subjects receive a single oral verapamil dose of 3 mg. |
-| [Karim 1995](#5-References)     | Healthy subjects receiving single oral doses of 240 mg |
+| [Maeda 2011](#5-references)      | Healthy subjects receiving single oral doses of 80 mg |
+| [Streit 2005](#5-references)    | Healthy subjects receiving single intravenous doses of 5 mg |
+| [Hla 1987](#5-references)       | Healthy subjects receiving multiple oral doses of 120 mg BID |
+| [Joergenson 1988](#5-references) | Healthy subjects receiving multiple oral doses of 120 mg BID |
+| [Shand 1981](#5-references)     | Healthy subjects receiving multiple oral doses of 120 mg TID |
+| [Johnson 2001](#5-references)   | Healthy subjects receiving multiple oral doses of 400 mg verapamil  QD. On day 14, subjects receive a single oral verapamil dose of 3 mg. |
+| [Karim 1995](#5-references)     | Healthy subjects receiving single oral doses of 240 mg |
 
 
 
@@ -118,7 +118,7 @@ After testing the available organ-plasma partition coefficient and cell permeabi
 
 Verapamil is metabolized by CYP3A4  and CYP2C8. 
 
-Mechanism-based inactivation of CYP3A4  was taken into account. KI was taken from literature ([Rowland-Yeo 2011](#5-References)), kinact was optimized.
+Mechanism-based inactivation of CYP3A4  was taken into account. KI was taken from literature ([Rowland-Yeo 2011](#5-references)), kinact was optimized.
 
 The first model simulations showed that gut wall metabolization was too low in the PBPK model. In order to increase gut wall metabolization, the “mucosa permeability on basolateral side” (jointly the model parameters in the mucosa: ``P (interstitial->intracellular)`` and ``P (intracellular->interstitial)``) was estimated. This may lead to higher gut wall concentrations and, in turn, to a higher gut wall elimination.
 
@@ -138,13 +138,13 @@ The result of the final parameter identification is shown in the table below:
 | CYP2C8 - CLspec | 0.3179498362 | l/µmol/min |
 
 # 3 Results and Discussion
-The PBPK model for verapamil was developed and evaluated using publically available, clinical pharmacokinetic data from studies listed in [Section 2.2.2](#222-Clinical-Data).
+The PBPK model for verapamil was developed and evaluated using publically available, clinical pharmacokinetic data from studies listed in [Section 2.2.2](#222-clinical-data).
 
 The next sections show:
 
-1. the final model parameters for the building blocks: [Section 3.1](#31-Final-Input-Parameters).
-2. the overall goodness of fit: [Section 3.2](#32-Diagnostics-Plots).
-3. simulated vs. observed concentration-time profiles for the clinical studies used for model building and for model verification: [Section 3.3](#33-Concentration-Time-Profiles).
+1. the final model parameters for the building blocks: [Section 3.1](#31-final-input-parameters).
+2. the overall goodness of fit: [Section 3.2](#32-diagnostics-plots).
+3. simulated vs. observed concentration-time profiles for the clinical studies used for model building and for model verification: [Section 3.3](#33-concentration-time-profiles).
 
 
 ## 3.1 Final input parameters
@@ -228,7 +228,7 @@ Name         | Value | Value Origin
 GFR fraction |     1 |             
 
 ## 3.2 Diagnostics Plots
-Below you find the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data used presented in [Section 2.2.2](#222-Clinical-Data).
+Below you find the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data used presented in [Section 2.2.2](#222-clinical-data).
 
 The first plot shows observed versus simulated plasma concentration, the second weighted residuals versus time. 
 
@@ -240,7 +240,7 @@ The first plot shows observed versus simulated plasma concentration, the second 
 GMFE = 1.486734 
 
 ## 3.3: Concentration-Time Profiles
-Simulated versus observed concentration-time profiles of all data listed in [Section 2.2.2](#222-Clinical-Data) are presented below.
+Simulated versus observed concentration-time profiles of all data listed in [Section 2.2.2](#222-clinical-data) are presented below.
 
 
 ### 3.3.1 Model Building

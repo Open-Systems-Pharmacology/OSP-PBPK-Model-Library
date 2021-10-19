@@ -2,11 +2,11 @@
 
 
 
-| Version     | 1.0-OSP9.1            |
+| Version     | 1.1-OSP10.0            |
 | ----------- | --------------------- |
-| Based on Model Snapshot and Evaluation Plan | https://github.com/Open-Systems-Pharmacology/Efavirenz-Model/releases/tag/v1.0 |
-| OSP Version | 9.1                   |
-| Qualification Framework Version | 2.2                   |
+| Based on Model Snapshot and Evaluation Plan | https://github.com/Open-Systems-Pharmacology/Efavirenz-Model/releases/tag/v1.1 |
+| OSP Version | 10.0                   |
+| Qualification Framework Version | 2.3                   |
 
 
 
@@ -30,9 +30,9 @@ https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/
 # 1 Introduction
 Efavirenz is a non-nucleoside reverse transcriptase inhibitor (NNRTI) and is an antiretroviral drug to treat HIV.
 
-Its major metabolizing enzyme is CYP2B6, but CYP3A4, CYP3A5, CYP1A2 and CYP2A6 also play a role ([Ward 2003](#5-References), [Ogburn 2010](#5-References)). CYP2B6 polymorphism is a major determinant of clinical efavirenz disposition and dose adjustment. Efavirenz activates the pregnane X receptor (PXR) and induces its target gene expression. As a consequence, some cytochrome P450 genes are upregulated, and, e.g. higher CYP3A4  ([Shou 2008](#5-References)) and CYP2B6 ([Ke 2016](#5-References)) activity levels can be measured.
+Its major metabolizing enzyme is CYP2B6, but CYP3A4, CYP3A5, CYP1A2 and CYP2A6 also play a role ([Ward 2003](#5-references), [Ogburn 2010](#5-references)). CYP2B6 polymorphism is a major determinant of clinical efavirenz disposition and dose adjustment. Efavirenz activates the pregnane X receptor (PXR) and induces its target gene expression. As a consequence, some cytochrome P450 genes are upregulated, and, e.g. higher CYP3A4  ([Shou 2008](#5-references)) and CYP2B6 ([Ke 2016](#5-references)) activity levels can be measured.
 
-It has a long half-life ranging from 52 to 76 hours following single oral doses and 40 to 55 hours following long term administration as a result of auto-induction of efavirenz metabolism. The long plasma half-life allows for once daily administration with long term administration of a single 600 mg daily dose ([Smith 2001](#5-References)). 
+It has a long half-life ranging from 52 to 76 hours following single oral doses and 40 to 55 hours following long term administration as a result of auto-induction of efavirenz metabolism. The long plasma half-life allows for once daily administration with long term administration of a single 600 mg daily dose ([Smith 2001](#5-references)). 
 
 The presented efavirenz model was established using clinical PK data of 7 publications covering a dose range from 200 to 600 mg after single and multiple oral administration.  
 
@@ -44,19 +44,19 @@ The established efavirenz PBPK model is verified for the use as a perpetrator dr
 
 
 ## 2.1 Modeling Strategy
-The general concept of building a PBPK model has previously been described by e.g. Kuepfer et al. ([Kuepfer 2016](#5-References)). The relevant anthropometric (height, weight) and physiological information (e.g. blood flows, organ volumes, binding protein concentrations, hematocrit, cardiac output) in adults was gathered from the literature and has been previously published ([Willmann 2007](#5-References)). This information was incorporated into PK-Sim® and was used as default values for the simulations in adults.
+The general concept of building a PBPK model has previously been described by e.g. Kuepfer et al. ([Kuepfer 2016](#5-references)). The relevant anthropometric (height, weight) and physiological information (e.g. blood flows, organ volumes, binding protein concentrations, hematocrit, cardiac output) in adults was gathered from the literature and has been previously published ([Willmann 2007](#5-references)). This information was incorporated into PK-Sim® and was used as default values for the simulations in adults.
 
-Variability of plasma proteins and CYP enzymes are integrated into PK-Sim® and described in the publicly available PK-Sim® Ontogeny Database Version 7.3 ([PK-Sim Ontogeny Database Version 7.3](#5-References)) or otherwise referenced for the specific process.
+Variability of plasma proteins and CYP enzymes are integrated into PK-Sim® and described in the publicly available PK-Sim® Ontogeny Database Version 7.3 ([PK-Sim Ontogeny Database Version 7.3](#5-references)) or otherwise referenced for the specific process.
 
-First, a base mean model was built using clinical data including single and multiple dose studies with oral applications of efavirenz (Sustiva) to find an appropriate structure to describe the pharmacokinetics in plasma. The mean PBPK model was developed using a typical European individual adjusted to the demography of the respective study population. The relative tissue-specific expressions of enzymes predominantly being involved in the metabolism of efavirenz were derived from RT-PCR data from [Nishimura 2003](#5-References) and are implemented in the model as described previously ([Meyer 2012](#5-References)).
+First, a base mean model was built using clinical data including single and multiple dose studies with oral applications of efavirenz (Sustiva) to find an appropriate structure to describe the pharmacokinetics in plasma. The mean PBPK model was developed using a typical European individual adjusted to the demography of the respective study population. The relative tissue-specific expressions of enzymes predominantly being involved in the metabolism of efavirenz were derived from RT-PCR data from [Nishimura 2003](#5-references) and are implemented in the model as described previously ([Meyer 2012](#5-references)).
 
 Unknown parameters (see below) were identified using the Parameter Identification module provided in PK-Sim®. Structural model selection was mainly guided by visual inspection of the resulting description of data and biological plausibility.
 
-CYP3A4 plays only a minor role in efavirenz metabolism, and, therefore, auto-induction of CYP3A4 plays a minor role for efavirenz pharmacokinetics. Hence, to parameterize CYP3A4 induction, midazolam was used as victim substance and Emax and EC50 were identified by adjusted by . 
+CYP3A4 plays only a minor role in efavirenz metabolism, and, therefore, auto-induction of CYP3A4 plays a minor role for efavirenz pharmacokinetics. Hence, to parameterize CYP3A4 induction, midazolam was used as victim substance to identify the respective model parameter `Emax` and `EC50` for induction. The respective parmater identification (please refer to [Section 2.3.4](#234-automated-parameter-identification)) was performed using the midazolam model [version 1.0](https://github.com/Open-Systems-Pharmacology/Midazolam-Model/releases/tag/v1.0). 
 
-Details about input data (physicochemical, *in vitro* and clinical) can be found in  [Section 2.2](#22-Data).
+Details about input data (physicochemical, *in vitro* and clinical) can be found in  [Section 2.2](#22-data).
 
-Details about the structural model and its parameters can be found in [Section 2.3](#23-Model-Parameters-and-Assumptions).
+Details about the structural model and its parameters can be found in [Section 2.3](#23-model-parameters-and-assumptions).
 
 
 ## 2.2 Data
@@ -67,15 +67,15 @@ A literature search was performed to collect available information on physiochem
 | **Parameter**   | **Unit** | **Value**       | Source                                                       | **Description**                                 |
 | :-------------- | -------- | --------------- | ------------------------------------------------------------ | ----------------------------------------------- |
 | MW              | g/mol    | 315.675         | https://www.drugbank.ca/                                     | Molecular weight                                |
-| pK<sub>a</sub>  | 10.1     | (base)          | [Rabel 1996](#5-References)                                | Acid dissociation constant                      |
-| Solubility (pH) | mg/L     | 11.5 (6.4) | [Cristofoletti 2013](#5-References)        | Water solubility                               |
-| logP            |          | 2.07, 4.6       | [Almond 2005](#5-References), https://www.drugbank.ca/     | Partition coefficient between octanol and water |
-| logD            |          | 5.1       | [Janneh 2009](#5-References) | Partition coefficient between octanol and buffer solution |
-| fu              |         | 0.006 [0.004 - 0.015] | [Almond 2005](#5-References) | Fraction unbound in plasma                      |
-| Emax (CYP3A4) |          | 7.27, 3.15 (average 5.21) | [Shou 2008](#5-References) | Maximum induction effect |
-| EC50 (CYP3A4) | µmol/l | 12.5, 2.18 (average 7.34) | [Shou 2008](#5-References) | Concentration at half maximum induction |
-| Emax (CYP2B6) |          | 5.1       | [Ke 2016](#5-References) | Maximum induction effect |
-| EC50 (CYP2B6) | µmol/l | 5.1       | [Ke 2016](#5-References) | Concentration at half maximum induction |
+| pK<sub>a</sub>  | 10.1     | (base)          | [Rabel 1996](#5-references)                                | Acid dissociation constant                      |
+| Solubility (pH) | mg/L     | 11.5 (6.4) | [Cristofoletti 2013](#5-references)        | Water solubility                               |
+| logP            |          | 2.07, 4.6       | [Almond 2005](#5-references), https://www.drugbank.ca/     | Partition coefficient between octanol and water |
+| logD            |          | 5.1       | [Janneh 2009](#5-references) | Partition coefficient between octanol and buffer solution |
+| fu              |         | 0.006 [0.004 - 0.015] | [Almond 2005](#5-references) | Fraction unbound in plasma                      |
+| Emax (CYP3A4) |          | 7.27, 3.15 (average 5.21) | [Shou 2008](#5-references) | Maximum induction effect |
+| EC50 (CYP3A4) | µmol/l | 12.5, 2.18 (average 7.34) | [Shou 2008](#5-references) | Concentration at half maximum induction |
+| Emax (CYP2B6) |          | 5.1       | [Ke 2016](#5-references) | Maximum induction effect |
+| EC50 (CYP2B6) | µmol/l | 5.1       | [Ke 2016](#5-references) | Concentration at half maximum induction |
 
 
 ### 2.2.2 Clinical Data
@@ -88,12 +88,12 @@ The following studies were used for model building:
 
 | Publication                  | Arm / Treatment / Information used for model building        |
 | :--------------------------- | :----------------------------------------------------------- |
-| [Mouly 2002](#5-References)  | Healthy subjects receiving a single oral dose of 200 and 400 mg |
-| [Ogburn 2013](#5-References) | Healthy subjects receiving a single oral dose of 600 mg      |
-| [Xu 2013](#5-References)     | Healthy subjects with different CYP2B6 genotypes receiving a single oral dose of 600 mg |
-| [Dooley 2012](#5-References) | Healthy subjects with different CYP2B6 genotypes receiving multiple doses of 600 mg |
-| [Garg 2013](#5-References)   | Healthy subjects receiving multiple doses of 600 mg          |
-| [Huang 2012](#5-References)  | Healthy subjects receiving multiple doses of 600 mg          |
+| [Mouly 2002](#5-references)  | Healthy subjects receiving a single oral dose of 200 and 400 mg |
+| [Ogburn 2013](#5-references) | Healthy subjects receiving a single oral dose of 600 mg      |
+| [Xu 2013](#5-references)     | Healthy subjects with different CYP2B6 genotypes receiving a single oral dose of 600 mg |
+| [Dooley 2012](#5-references) | Healthy subjects with different CYP2B6 genotypes receiving multiple doses of 600 mg |
+| [Garg 2013](#5-references)   | Healthy subjects receiving multiple doses of 600 mg          |
+| [Huang 2012](#5-references)  | Healthy subjects receiving multiple doses of 600 mg          |
 
 
 
@@ -103,8 +103,8 @@ The following studies were used for parameterization of CYP3A4 interaction:
 
 | Publication                       | Arm / Treatment / Information used for model building        |
 | :-------------------------------- | :----------------------------------------------------------- |
-| [Mikus 2017](#5-References)       | Healthy subjects receiving a single oral dose of  400 mg Efavirenz at t=0h, 4 mg midazolam at t=12h and a single intravenous dose of 2 mg midazolam at t=18h. |
-| [Katzenmaier 2010](#5-References) | Healthy subjects receiving multiple oral doses of 400 mg efavirenz QD. On day 14, subjects receive a single oral midazolam dose of 3 mg. |
+| [Mikus 2017](#5-references)       | Healthy subjects receiving a single oral dose of  400 mg Efavirenz at t=0h, 4 mg midazolam at t=12h and a single intravenous dose of 2 mg midazolam at t=18h. |
+| [Katzenmaier 2010](#5-references) | Healthy subjects receiving multiple oral doses of 400 mg efavirenz QD. On day 14, subjects receive a single oral midazolam dose of 3 mg. |
 
 ## 2.3 Model Parameters and Assumptions
 ### 2.3.1 Absorption
@@ -119,7 +119,7 @@ After testing the available organ-plasma partition coefficient and cell permeabi
 
 Efavirenz is metabolized by CYP2B6, CYP3A4, CYP3A5, CYP1A2 and CYP2A6. 
 
-Induction of CYP3A4  ([Shou 2008](#5-References)) and CYP2B6 ([Ke 2016](#5-References)) was taken into account.
+Induction of CYP3A4  ([Shou 2008](#5-references)) and CYP2B6 ([Ke 2016](#5-references)) was taken into account.
 
 ### 2.3.4 Automated Parameter Identification
 
@@ -145,13 +145,13 @@ The is result of the final parameter identification is shown in the table below:
 
 
 # 3 Results and Discussion
-The PBPK model for efavirenz was developed and evaluated using publicly available clinical pharmacokinetic data from studies listed in [Section 2.2.2](#222-Clinical-Data).
+The PBPK model for efavirenz was developed and evaluated using publicly available clinical pharmacokinetic data from studies listed in [Section 2.2.2](#222-clinical-data).
 
 The next sections show:
 
-1. the final model parameters for the building blocks: [Section 3.1](#31-Final-Input-Parameters).
-2. the overall goodness of fit: [Section 3.2](#32-Diagnostics-Plots).
-3. simulated vs. observed concentration-time profiles for the clinical studies used for model building and for model verification: [Section 3.3](#33-Concentration-Time-Profiles).
+1. the final model parameters for the building blocks: [Section 3.1](#31-final-input-parameters).
+2. the overall goodness of fit: [Section 3.2](#32-diagnostics-plots).
+3. simulated vs. observed concentration-time profiles for the clinical studies used for model building and for model verification: [Section 3.3](#33-concentration-time-profiles).
 
 
 ## 3.1 Final input parameters
@@ -299,7 +299,7 @@ Dissolution shape                | 0.2720936819 | Parameter Identification-Param
 Use as suspension                | Yes          |                                                                                                                             
 
 ## 3.2 Diagnostics Plots
-Below you find the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data used presented in [Section 2.2.2](#222-Clinical-Data).
+Below you find the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data used presented in [Section 2.2.2](#222-clinical-data).
 
 The first plot shows simulated versus observed plasma concentration, the second weighted residuals versus time. 
 
@@ -308,10 +308,10 @@ The first plot shows simulated versus observed plasma concentration, the second 
 
 ![002_plotGOFMergedResidualsOverTime.png](images/003_3_Results_and_Discussion/002_3_2_Diagnostics_Plots/002_plotGOFMergedResidualsOverTime.png)
 
-GMFE = 1.445154 
+GMFE = 1.445151 
 
 ## 3.3: Concentration-Time Profiles
-Simulated versus observed concentration-time profiles of all data listed in [Section 2.2.2](#222-Clinical-Data) are presented below.
+Simulated versus observed concentration-time profiles of all data listed in [Section 2.2.2](#222-clinical-data) are presented below.
 
 
 ### 3.3.1 Model Building
