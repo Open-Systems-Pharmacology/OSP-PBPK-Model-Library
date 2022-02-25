@@ -101,7 +101,7 @@ A literature search was performed to collect available clinical data on moclobem
 | [Guentert 1990](#5-References)<sup>+</sup> | p.o.                  | 150 t.i.d.                      | HV                | 19-29                     | 59-86                       | m/f     | 14    | tablet           |                        |
 | [Raaflaub 1984](#5-References)<sup>+</sup> | p.o. & i.v. infusion  | 50 s.d.                         | HV                | 42                        | 4                           | m       | 6     | tablet/ solution |                        |
 
-**Table 2:**<a name="Table 2"></a> Literature sources of clinical concentration data of ethinylestradiol used for model development and validation. *-: respective information was not provided in the literature source; \*:single dose unless otherwise specified; EM: extensive metabolizers; PM: poor metabolizers; <sup>+</sup>: Data used for final parameter identification*
+**Table 2:**<a name="Table 2"></a> Literature sources of clinical concentration data of moclobemide used for model development and validation. *-: respective information was not provided in the literature source; \*:single dose unless otherwise specified; EM: extensive metabolizers; PM: poor metabolizers; <sup>+</sup>: Data used for final parameter identification*
 ## 2.3 Model Parameters and Assumptions
 ### 2.3.1 Absorption
 
