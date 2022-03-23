@@ -4,11 +4,11 @@
 
 
 
-| Version                                         | 1.1-OSP9.1                                                   |
+| Version                                         | 1.2-OSP10.0                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
-| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Clarithromycin-Model/releases/tag/v1.1 |
-| OSP Version                                     | 9.1                                                          |
-| Qualification Framework Version                 | 2.2                                                          |
+| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Clarithromycin-Model/releases/tag/v1.2 |
+| OSP Version                                     | 10.0                                                          |
+| Qualification Framework Version                 | 2.3                                                          |
 
 
 
@@ -33,28 +33,28 @@ https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/
 # 1 Introduction
 
 
-Clarithromycin is a widely prescribed macrolide antibiotic and a substrate and mechanism-based inactivator of CYP3A4. Furthermore, clarithromycin is a substrate and inhibitor of P-gp and an inhibitor of OATP1B1 and OATP1B3 ([Eberl 2007](#5-References), [Seithel 2007](#5-References)). Clarithromycin has been proposed as one of the best alternative CYP3A4 inhibitors for clinical DDI studies to avoid further use of ketoconazole.
+Clarithromycin is a widely prescribed macrolide antibiotic and a substrate and mechanism-based inactivator of CYP3A4. Furthermore, clarithromycin is a substrate and inhibitor of P-gp and an inhibitor of OATP1B1 and OATP1B3 ([Eberl 2007](#5-references), [Seithel 2007](#5-references)). Clarithromycin has been proposed as one of the best alternative CYP3A4 inhibitors for clinical DDI studies to avoid further use of ketoconazole.
 
 Objectives were to develop a fully mechanistic PBPK model for clarithromycin, describing its metabolism by CYP3A4 and its mechanism-based inactivation of the respective enzyme as well as its inhibition of P-gp.
 
-The presented clarithromycin model was developed by Moj et al. ([Moj 2017](#5-References)) and revised by Hanke et al. ([Hanke 2018](#5-References)).
+The presented clarithromycin model was developed by Moj et al. ([Moj 2017](#5-references)) and revised by Hanke et al. ([Hanke 2018](#5-references)).
 
 
 # 2 Methods
 
 
 ## 2.1 Modeling Strategy
-The general workflow for building an adult PBPK model has been described by Kuepfer et al. ([Kuepfer 2016](#5-References)). Relevant information on the anthropometry (height, weight) was gathered from the respective clinical study, if reported. Information on physiological parameters (e.g. blood flows, organ volumes, hematocrit) in adults was gathered from the literature and has been incorporated in PK-Sim® as described previously ([Willmann 2007](#5-References)). The  applied activity and variability of plasma proteins and active processes that are integrated into PK-Sim® are described in the publicly available 'PK-Sim® Ontogeny Database Version 7.3' ([PK-Sim Ontogeny Database Version 7.3](#5-References)).
+The general workflow for building an adult PBPK model has been described by Kuepfer et al. ([Kuepfer 2016](#5-references)). Relevant information on the anthropometry (height, weight) was gathered from the respective clinical study, if reported. Information on physiological parameters (e.g. blood flows, organ volumes, hematocrit) in adults was gathered from the literature and has been incorporated in PK-Sim® as described previously ([Willmann 2007](#5-references)). The  applied activity and variability of plasma proteins and active processes that are integrated into PK-Sim® are described in the publicly available 'PK-Sim® Ontogeny Database Version 7.3' ([PK-Sim Ontogeny Database Version 7.3](#5-references)).
 
 A typical European individual was used for the development of the clarithromycin model. The relative tissue-specific expression of CYP3A4 was implemented in accordance with literature information using the PK-Sim expression database RT-PCR profile. Enterohepatic recirculation was enabled as it is active under physiological conditions. 
 
-Unknown parameters (see [Section 2.3.4](#234-Automated-Parameter-Identification)) were identified using the Parameter Identification module provided in PK-Sim®.
+Unknown parameters (see [Section 2.3.4](#234-automated-parameter-identification)) were identified using the Parameter Identification module provided in PK-Sim®.
 
 The model was then verified by simulating the PK of additional clinical studies including a dose range of 100 to 1200 mg administered as single dose or as multiple doses.
 
-Details about input data (physicochemical, *in vitro* and clinical) can be found in [Section 2.2](#22-Data).
+Details about input data (physicochemical, *in vitro* and clinical) can be found in [Section 2.2](#22-data).
 
-Details about the structural model and its parameters can be found in [Section 2.3](#23-Model-Parameters-and-Assumptions).
+Details about the structural model and its parameters can be found in [Section 2.3](#23-model-parameters-and-assumptions).
 
 
 ## 2.2 Data
@@ -64,28 +64,28 @@ A literature search was performed to collect available information on physiochem
 
 | **Parameter**            | **Unit** | **Value**               | Source                          | **Description**                                              |
 | :----------------------- | -------- | ----------------------- | ------------------------------- | ------------------------------------------------------------ |
-| MW                       | g/mol    | 747.95                  | [drugbank.ca](#5-References)    | Molecular weight                                             |
-| pK<sub>a</sub> (base)    |          | 8.99                    | [McFarland 1997](#5-References) | Acid dissociation constant                                   |
-| Solubility (pH)          | mg/L     | 12170 (2.4)             | [Salem 2003](#5-References)     | Solubility                                                   |
-| logP                     |          | 2.3                     | [Lappin 2011](#5-References)    | Partition coefficient between octanol and water              |
-| fu                       | %        | 28.0                    | [Davey 1991](#5-References)     | Fraction unbound in plasma                                   |
-|                          | %        | 30.0                    | [Chu 1993b](#5-References)      | Fraction unbound in plasma                                   |
-|                          | %        | 40.0                    | [Noreddin 2002](#5-References)  | Fraction unbound in plasma                                   |
-| CYP3A4 K<sub>m</sub>     | µmol/L   | 48.7                    | [Rodrigues 1997](#5-References) | Michaelis-Menten constant for CYP3A4 metabolism              |
-| CL<sub>ren</sub>         | L/h      | 6.66 - 12.8<sup>a</sup> | [Rodvold 1999](#5-References)   | Renal clearance                                              |
-| CYP3A4 K<sub>I</sub>     | µmol/L   | 2.25                    | [Polasek 2006](#5-References)   | Conc. for half-maximal inactivation measured in recombinant CYP3A4 |
-|                          | µmol/L   | 29.5                    | [Polasek 2006](#5-References)   | Conc. for half-maximal inactivation measured in human liver microsomes |
-|                          | µmol/L   | 41.4                    | [Ito 2003](#5-References)       | Conc. for half-maximal inactivation measured in human liver microsomes for α-hydroxylation of midazolam |
-|                          | µmol/L   | 37.0                    | [Ito 2003](#5-References)       | Conc. for half-maximal inactivation measured in human liver microsomes for 4-hydroxylation of midazolam |
-|                          | µmol/L   | 5.49                    | [Mayhew 2000](#5-References)    | Conc. for half-maximal inactivation measured in human liver microsomes |
-| CYP3A4 k<sub>inact</sub> | 1/min    | 0.04                    | [Polasek 2006](#5-References),  | Maximum inactivation rate measured in recombinant CYP3A4     |
-|                          | 1/min    | 0.05                    | [Polasek 2006](#5-References)   | Maximum inactivation rate measured in human liver microsomes |
-|                          | 1/min    | 0.0423                  | [Ito 2003](#5-References)       | Maximum inactivation rate measured in human liver microsomes for α-hydroxylation of midazolam |
-|                          | 1/min    | 0.0459                  | [Ito 2003](#5-References)       | Maximum inactivation rate measured in human liver microsomes for 4-hydroxylation of midazolam |
-|                          | 1/min    | 0.072                   | [Mayhew 2000](#5-References)    | Maximum inactivation rate measured in human liver microsomes |
-| P-gp K<sub>i</sub>       | µmol/L   | 4.1                     | [Eberl 2007](#5-References)     | Conc. for half-maximal inhibition                            |
-| OATP1B1 IC<sub>50</sub>  | µmol/L   | 5.3 ± 1.3<sup>b</sup>   | [Vermeer 2016](#5-References)   | Half-maximal inhibitory concentration                        |
-| OATP1B3 IC<sub>50</sub>  | µmol/L   | 14 ± 2<sup>b</sup>      | [Vermeer 2016](#5-References)   | Half-maximal inhibitory concentration                        |
+| MW                       | g/mol    | 747.95                  | [drugbank.ca](#5-references)    | Molecular weight                                             |
+| pK<sub>a</sub> (base)    |          | 8.99                    | [McFarland 1997](#5-references) | Acid dissociation constant                                   |
+| Solubility (pH)          | mg/L     | 12170 (2.4)             | [Salem 2003](#5-references)     | Solubility                                                   |
+| logP                     |          | 2.3                     | [Lappin 2011](#5-references)    | Partition coefficient between octanol and water              |
+| fu                       | %        | 28.0                    | [Davey 1991](#5-references)     | Fraction unbound in plasma                                   |
+|                          | %        | 30.0                    | [Chu 1993b](#5-references)      | Fraction unbound in plasma                                   |
+|                          | %        | 40.0                    | [Noreddin 2002](#5-references)  | Fraction unbound in plasma                                   |
+| CYP3A4 K<sub>m</sub>     | µmol/L   | 48.7                    | [Rodrigues 1997](#5-references) | Michaelis-Menten constant for CYP3A4 metabolism              |
+| CL<sub>ren</sub>         | L/h      | 6.66 - 12.8<sup>a</sup> | [Rodvold 1999](#5-references)   | Renal clearance                                              |
+| CYP3A4 K<sub>I</sub>     | µmol/L   | 2.25                    | [Polasek 2006](#5-references)   | Conc. for half-maximal inactivation measured in recombinant CYP3A4 |
+|                          | µmol/L   | 29.5                    | [Polasek 2006](#5-references)   | Conc. for half-maximal inactivation measured in human liver microsomes |
+|                          | µmol/L   | 41.4                    | [Ito 2003](#5-references)       | Conc. for half-maximal inactivation measured in human liver microsomes for α-hydroxylation of midazolam |
+|                          | µmol/L   | 37.0                    | [Ito 2003](#5-references)       | Conc. for half-maximal inactivation measured in human liver microsomes for 4-hydroxylation of midazolam |
+|                          | µmol/L   | 5.49                    | [Mayhew 2000](#5-references)    | Conc. for half-maximal inactivation measured in human liver microsomes |
+| CYP3A4 k<sub>inact</sub> | 1/min    | 0.04                    | [Polasek 2006](#5-references),  | Maximum inactivation rate measured in recombinant CYP3A4     |
+|                          | 1/min    | 0.05                    | [Polasek 2006](#5-references)   | Maximum inactivation rate measured in human liver microsomes |
+|                          | 1/min    | 0.0423                  | [Ito 2003](#5-references)       | Maximum inactivation rate measured in human liver microsomes for α-hydroxylation of midazolam |
+|                          | 1/min    | 0.0459                  | [Ito 2003](#5-references)       | Maximum inactivation rate measured in human liver microsomes for 4-hydroxylation of midazolam |
+|                          | 1/min    | 0.072                   | [Mayhew 2000](#5-references)    | Maximum inactivation rate measured in human liver microsomes |
+| P-gp K<sub>i</sub>       | µmol/L   | 4.1                     | [Eberl 2007](#5-references)     | Conc. for half-maximal inhibition                            |
+| OATP1B1 IC<sub>50</sub>  | µmol/L   | 5.3 ± 1.3<sup>b</sup>   | [Vermeer 2016](#5-references)   | Half-maximal inhibitory concentration                        |
+| OATP1B3 IC<sub>50</sub>  | µmol/L   | 14 ± 2<sup>b</sup>      | [Vermeer 2016](#5-references)   | Half-maximal inhibitory concentration                        |
 
 <sup>a</sup> denotes range of reported values
 
@@ -103,8 +103,8 @@ The following studies were used for model building (training data):
 
 | Publication                | Arm / Treatment / Information used for model building        |
 | :------------------------- | :----------------------------------------------------------- |
-| [Chu 1992b](#5-References) | Healthy subjects with intravenous infusion of 250 mg over 45 min |
-| [Chu 1993a](#5-References) | Healthy subjects with oral administration of 250 or 500 mg as single dose or twice daily for 5 days |
+| [Chu 1992b](#5-references) | Healthy subjects with intravenous infusion of 250 mg over 45 min |
+| [Chu 1993a](#5-references) | Healthy subjects with oral administration of 250 or 500 mg as single dose or twice daily for 5 days |
 
 #### 2.2.2.2 Model Verification
 
@@ -112,10 +112,10 @@ The following studies were used for model verification (test data):
 
 | Publication                         | Arm / Treatment / Information used for model building        |
 | :---------------------------------- | :----------------------------------------------------------- |
-| [Chu 1992a](#5-References)          | Healthy Subjects with oral administration of single doses ranging from 100 to 1200 mg |
-| [Kees 1995](#5-References)          | Healthy subjects with oral administration of 250 or 500 mg as single or multiple dose |
-| [Rengelshausen 2003](#5-References) | Oral administration of 250 mg twice a day for 1.5 days       |
-| [Abduljialil 2009](#5-References)   | Oral administration of 500 mg twice a day for 3.5 days       |
+| [Chu 1992a](#5-references)          | Healthy Subjects with oral administration of single doses ranging from 100 to 1200 mg |
+| [Kees 1995](#5-references)          | Healthy subjects with oral administration of 250 or 500 mg as single or multiple dose |
+| [Rengelshausen 2003](#5-references) | Oral administration of 250 mg twice a day for 1.5 days       |
+| [Abduljialil 2009](#5-references)   | Oral administration of 500 mg twice a day for 3.5 days       |
 
 
 ## 2.3 Model Parameters and Assumptions
@@ -125,9 +125,9 @@ The specific intestinal permeability was optimized during parameter identificati
 
 ### 2.3.2	Distribution
 
-Values for lipophilicity and fraction unbound in plasma were fixed to literature values (namely to 2.3 ([Lappin 2011](#5-References)) and 0.30 ([Chu 1993b](#5-References)) for lipophilicity and fraction unbound, respectively). 
+Values for lipophilicity and fraction unbound in plasma were fixed to literature values (namely to 2.3 ([Lappin 2011](#5-references)) and 0.30 ([Chu 1993b](#5-references)) for lipophilicity and fraction unbound, respectively). 
 
-It was not possible to adequately describe the observed plasma concentration-time profile after intravenous administration using standard input parameters (e.g. lipophilicity) and calculation methods. Simulated concentration-time profiles overestimated C<sub>max</sub> and underestimated the observed data for time to C<sub>max</sub> (T<sub>max</sub>). According to literature data, clarithromycin accumulates in mononuclear and polymorphonuclear leukocytes, probably via active transport ([Ishiguro 1989](#5-References)). Implementing this process in the model improved the model fit significantly. Due to limited knowledge on this active transport, this process was technically implemented in the model by adjusting the permeability of clarithromycin across the membrane of the red blood cells (`P (blood cells->plasma)` and `P (plasma->blood cells)`). 
+It was not possible to adequately describe the observed plasma concentration-time profile after intravenous administration using standard input parameters (e.g. lipophilicity) and calculation methods. Simulated concentration-time profiles overestimated C<sub>max</sub> and underestimated the observed data for time to C<sub>max</sub> (T<sub>max</sub>). According to literature data, clarithromycin accumulates in mononuclear and polymorphonuclear leukocytes, probably via active transport ([Ishiguro 1989](#5-references)). Implementing this process in the model improved the model fit significantly. Due to limited knowledge on this active transport, this process was technically implemented in the model by adjusting the permeability of clarithromycin across the membrane of the red blood cells (`P (blood cells->plasma)` and `P (plasma->blood cells)`). 
 
 After testing the available organ-plasma partition coefficient and cell permeability calculation methods built in PK-Sim, observed clinical data was best described by choosing the partition coefficient calculation by `Rodgers and Rowland` and cellular permeability calculation by `PK-Sim Standard`. 
 
@@ -167,9 +167,9 @@ The model quantifies metabolism via CYP3A4, including also the mechanism-based i
 
 The next sections show:
 
-1. the final model parameters for the building blocks: [Section 3.1](#31-Final-Input-Parameters).
-2. the overall goodness of fit: [Section 3.2](#32-Diagnostics-Plots).
-3. simulated vs. observed concentration-time profiles for the clinical studies used for model building and for model verification: [Section 3.3](#33-Concentration-Time-Profiles).
+1. the final model parameters for the building blocks: [Section 3.1](#31-final-input-parameters).
+2. the overall goodness of fit: [Section 3.2](#32-diagnostics-plots).
+3. simulated vs. observed concentration-time profiles for the clinical studies used for model building and for model verification: [Section 3.3](#33-concentration-time-profiles).
 
 
 ## 3.1 Final input parameters
@@ -268,7 +268,7 @@ Dissolution shape                | 2.9   |
 Use as suspension                | No    |             
 
 ## 3.2 Diagnostics Plots
-Below you find the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data used presented in [Section 2.2.2](#222-Clinical-Data).
+Below you find the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data used presented in [Section 2.2.2](#222-clinical-data).
 
 The first plot shows simulated versus observed plasma concentrations, the second weighted residuals versus time. 
 
@@ -280,7 +280,7 @@ The first plot shows simulated versus observed plasma concentrations, the second
 GMFE = 1.576687 
 
 ## 3.3 Concentration-Time Profiles
-Simulated versus observed concentration-time profiles of all data listed in [Section 2.2.2](#222-Clinical-Data) are presented below.
+Simulated versus observed concentration-time profiles of all data listed in [Section 2.2.2](#222-clinical-data) are presented below.
 
 
 ### 3.3.1 Model Building

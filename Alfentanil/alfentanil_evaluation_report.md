@@ -2,11 +2,11 @@
 
 
 
-| Version                                         | 2.1-OSP9.1                                                   |
+| Version                                         | 2.2-OSP10.0                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
-| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Alfentanil-Model/releases/tag/v2.1 |
-| OSP Version                                     | 9.1                                                          |
-| Qualification Framework Version                 | 2.2                                                          |
+| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Alfentanil-Model/releases/tag/v2.2 |
+| OSP Version                                     | 10.0                                                          |
+| Qualification Framework Version                 | 2.3                                                          |
 
 
 
@@ -30,25 +30,25 @@ https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/
   * [4 Conclusion](#4-conclusion)
   * [5 References](#5-references)
 # 1 Introduction
-Alfentanil is a potent analgesic synthetic opioid. It is fast but short-acting and used for anesthesia during surgery. Alfentanil is metabolized solely by CYP3A4 ([Phimmasone 2001](#5-References)). Like midazolam, alfentanil is not a substrate for P-gp ([Wandel 2002](#5-References)) and less than 1% of an alfentanil dose is excreted unchanged in urine ([Meuldermans 1988](#5-References)).
+Alfentanil is a potent analgesic synthetic opioid. It is fast but short-acting and used for anesthesia during surgery. Alfentanil is metabolized solely by CYP3A4 ([Phimmasone 2001](#5-references)). Like midazolam, alfentanil is not a substrate for P-gp ([Wandel 2002](#5-references)) and less than 1% of an alfentanil dose is excreted unchanged in urine ([Meuldermans 1988](#5-references)).
 
-Although in clinical use alfentanil is always administered intravenously (iv), some DDI studies published plasma concentration-time profiles of alfentanil following oral ingestion. The presented alfentanil model was established using clinical PK data of 8 publications, covering iv and oral (po) administration and a dosing range from 0.015 to 0.075 mg/kg as well as absolute doses of 1 mg iv and 4 mg po. The established model is based on the model developed by Hanke *et al.* ([Hanke 2018](#5-References)) and applies metabolism by CYP3A4 and glomerular filtration.  
+Although in clinical use alfentanil is always administered intravenously (iv), some DDI studies published plasma concentration-time profiles of alfentanil following oral ingestion. The presented alfentanil model was established using clinical PK data of 8 publications, covering iv and oral (po) administration and a dosing range from 0.015 to 0.075 mg/kg as well as absolute doses of 1 mg iv and 4 mg po. The established model is based on the model developed by Hanke *et al.* ([Hanke 2018](#5-references)) and applies metabolism by CYP3A4 and glomerular filtration.  
 
 # 2 Methods
 
 
 ## 2.1 Modeling Strategy
-The general concept of building a PBPK model has previously been described by e.g. Kuepfer et al. ([Kuepfer 2016](#5-References)). The relevant anthropometric (height, weight) and physiological information (e.g. blood flows, organ volumes, binding protein concentrations, hematocrit, cardiac output) in adults was gathered from the literature and has been previously published ([Willmann 2007](#5-References)). This information was incorporated into PK-Sim® and was used as default values for the simulations in adults.
+The general concept of building a PBPK model has previously been described by e.g. Kuepfer et al. ([Kuepfer 2016](#5-references)). The relevant anthropometric (height, weight) and physiological information (e.g. blood flows, organ volumes, binding protein concentrations, hematocrit, cardiac output) in adults was gathered from the literature and has been previously published ([Willmann 2007](#5-references)). This information was incorporated into PK-Sim® and was used as default values for the simulations in adults.
 
-Variability of plasma proteins and CYP3A4 are integrated into PK-Sim® and described in the publicly available PK-Sim® Ontogeny Database Version 7.3 ([PK-Sim Ontogeny Database Version 7.3](#5-References)) or otherwise referenced for the specific process.
+Variability of plasma proteins and CYP3A4 are integrated into PK-Sim® and described in the publicly available PK-Sim® Ontogeny Database Version 7.3 ([PK-Sim Ontogeny Database Version 7.3](#5-references)) or otherwise referenced for the specific process.
 
-First, a base mean model was built using clinical data including selected single dose studies with intravenous and oral applications (solution) of alfentanil to find an appropriate structure to describe the pharmacokinetics in plasma. The mean PBPK model was developed using a typical European individual. The relative tissue specific expressions of enzymes predominantly being involved in the metabolism of alfentanil were included in the model as described elsewhere ([Meyer 2012](#5-References)).
+First, a base mean model was built using clinical data including selected single dose studies with intravenous and oral applications (solution) of alfentanil to find an appropriate structure to describe the pharmacokinetics in plasma. The mean PBPK model was developed using a typical European individual. The relative tissue specific expressions of enzymes predominantly being involved in the metabolism of alfentanil were included in the model as described elsewhere ([Meyer 2012](#5-references)).
 
 Unknown parameters (see below) were identified using the Parameter Identification module provided in PK-Sim®. Structural model selection was mainly guided by visual inspection of the resulting description of data and biological plausibility.
 
-Details about input data (physicochemical, *in vitro* and clinical) can be found in [Section 2.2](#22-Data).
+Details about input data (physicochemical, *in vitro* and clinical) can be found in [Section 2.2](#22-data).
 
-Details about the structural model and its parameters can be found in [Section 2.3](#23-Model-Parameters-and-Assumptions).
+Details about the structural model and its parameters can be found in [Section 2.3](#23-model-parameters-and-assumptions).
 
 
 ## 2.2 Data
@@ -58,14 +58,14 @@ A literature search was performed to collect available information on physicoche
 
 | **Parameter**   | **Unit** | **Value**  | Source                            | **Description**                                           |
 | :-------------- | -------- | ---------- | --------------------------------- | --------------------------------------------------------- |
-| MW              | g/mol    | 416.52     | [DrugBank DB00802](#5-References) | Molecular weight                                          |
-| pK<sub>a</sub>  |          | 6.5 (base) | [Jansson 2008](#5-References)     | Acid dissociation constant                                |
-| Solubility (pH) | mg/L     | 992 (6.5)  | [Baneyx 2014](#5-References)      | Solubility                                                |
-| logD            |          | 2.1        | [Baneyx 2014](#5-References)      | Partition coefficient between octanol and water at pH 7.4 |
-|                 |          | 2.2        | [Jansson 2008](#5-References)     | Partition coefficient between octanol and water           |
-| fu              | %        | 8.6        | [Gertz 2010](#5-References)       | Fraction unbound in plasma                                |
-|                 |          | 10.0       | [Edginton 2008](#5-References)    | Fraction unbound in plasma                                |
-|                 |          | 12.0       | [Almond 2016](#5-References)      | Fraction unbound in plasma                                |
+| MW              | g/mol    | 416.52     | [DrugBank DB00802](#5-references) | Molecular weight                                          |
+| pK<sub>a</sub>  |          | 6.5 (base) | [Jansson 2008](#5-references)     | Acid dissociation constant                                |
+| Solubility (pH) | mg/L     | 992 (6.5)  | [Baneyx 2014](#5-references)      | Solubility                                                |
+| logD            |          | 2.1        | [Baneyx 2014](#5-references)      | Partition coefficient between octanol and water at pH 7.4 |
+|                 |          | 2.2        | [Jansson 2008](#5-references)     | Partition coefficient between octanol and water           |
+| fu              | %        | 8.6        | [Gertz 2010](#5-references)       | Fraction unbound in plasma                                |
+|                 |          | 10.0       | [Edginton 2008](#5-references)    | Fraction unbound in plasma                                |
+|                 |          | 12.0       | [Almond 2016](#5-references)      | Fraction unbound in plasma                                |
 
 
 ### 2.2.2 Clinical Data
@@ -78,14 +78,14 @@ The following studies were used for model building:
 
 | Publication                      | Arm / Treatment / Information used for model building        |
 | :------------------------------- | :----------------------------------------------------------- |
-| [Ferrier 1985](#5-References)    | Healthy subjects with a single iv dose of 0.05 mg/kg         |
-| [Kharasch 1997](#5-References)   | Healthy subjects with a single iv dose of 0.02 mg/kg         |
-| [Kharasch 2004](#5-References)   | Healthy subjects with a single iv dose of 0.015 mg/kg, healthy subjects with a single oral dose of 0.06 mg/kg |
-| [Kharasch 2011](#5-References)   | Healthy subjects with a single iv dose of 0.015 mg/kg, healthy subjects with a single oral dose of 0.075 mg/kg |
-| [Kharasch 2011b](#5-References)  | Healthy subjects with an iv dose of 1 mg, healthy subjects with an oral dose of 1 mg. Publication compares sequential and simultaneous dosing of oral deuterated and intravenous unlabeled alfentanil. Furthermore, IV and oral administration of alfentanil is combined with grapefruit juice. Grapefruit juice is considered to have no effect on hepatic clearance, and, hence, no effect on IV administered alfentanil |
-| [Kharasch 2012](#5-References)   | Healthy subjects with a single iv dose of 0.02 mg/kg, healthy subjects with a single oral dose of 0.043 mg/kg |
-| [Meistelman 1987](#5-References) | Healthy subjects with a single iv dose of 0.02 mg/kg         |
-| [Phimmasone 2001](#5-References) | Healthy subjects with a single iv dose of 0.015 mg/kg        |
+| [Ferrier 1985](#5-references)    | Healthy subjects with a single iv dose of 0.05 mg/kg         |
+| [Kharasch 1997](#5-references)   | Healthy subjects with a single iv dose of 0.02 mg/kg         |
+| [Kharasch 2004](#5-references)   | Healthy subjects with a single iv dose of 0.015 mg/kg, healthy subjects with a single oral dose of 0.06 mg/kg |
+| [Kharasch 2011](#5-references)   | Healthy subjects with a single iv dose of 0.015 mg/kg, healthy subjects with a single oral dose of 0.075 mg/kg |
+| [Kharasch 2011b](#5-references)  | Healthy subjects with an iv dose of 1 mg, healthy subjects with an oral dose of 1 mg. Publication compares sequential and simultaneous dosing of oral deuterated and intravenous unlabeled alfentanil. Furthermore, IV and oral administration of alfentanil is combined with grapefruit juice. Grapefruit juice is considered to have no effect on hepatic clearance, and, hence, no effect on IV administered alfentanil |
+| [Kharasch 2012](#5-references)   | Healthy subjects with a single iv dose of 0.02 mg/kg, healthy subjects with a single oral dose of 0.043 mg/kg |
+| [Meistelman 1987](#5-references) | Healthy subjects with a single iv dose of 0.02 mg/kg         |
+| [Phimmasone 2001](#5-references) | Healthy subjects with a single iv dose of 0.015 mg/kg        |
 
 ## 2.3 Model Parameters and Assumptions
 ### 2.3.1 Absorption
@@ -98,7 +98,7 @@ After testing the available organ-plasma partition coefficient and cell permeabi
 
 ### 2.3.3 Metabolism and Elimination
 
-Alfentanil is metabolized solely by CYP3A4. The tissue-specific CYP3A4 expression implemented in the model is based on high-sensitive real-time RT-PCR ([Nishimura 2013](#5-References)). 
+Alfentanil is metabolized solely by CYP3A4. The tissue-specific CYP3A4 expression implemented in the model is based on high-sensitive real-time RT-PCR ([Nishimura 2013](#5-references)). 
 
 The first model simulations showed that gut wall metabolization was too low in the PBPK model. In order to increase gut wall metabolization, the “mucosa permeability on basolateral side” (jointly the model parameters in the mucosa: ``P (interstitial->intracellular)`` and ``P (intracellular->interstitial)``) was estimated. This may lead to higher gut wall concentrations and, in turn, to a higher gut wall elimination.
 
@@ -116,13 +116,13 @@ This is the result of the final parameter identification:
 
 
 # 3 Results and Discussion
-The PBPK model for alfentanil was developed and evaluated using publically available, clinical pharmacokinetic data from studies listed in [Section 2.2.2](#222-Clinical-Data).
+The PBPK model for alfentanil was developed and evaluated using publically available, clinical pharmacokinetic data from studies listed in [Section 2.2.2](#222-clinical-data).
 
 The next sections show:
 
-1. the final model parameters for the building blocks: [Section 3.1](#31-Final-Input-Parameters).
-2. the overall goodness of fit: [Section 3.2](#32-Diagnostics-Plots).
-3. simulated vs. observed concentration-time profiles for the clinical studies used for model building and for model verification: [Section 3.3](#33-Concentration-Time-Profiles).
+1. the final model parameters for the building blocks: [Section 3.1](#31-final-input-parameters).
+2. the overall goodness of fit: [Section 3.2](#32-diagnostics-plots).
+3. simulated vs. observed concentration-time profiles for the clinical studies used for model building and for model verification: [Section 3.3](#33-concentration-time-profiles).
 
 
 ## 3.1 Final input parameters
@@ -177,7 +177,7 @@ GFR fraction |  0.06 | Publication-Hanke 2018
 Type: Dissolved
 
 ## 3.2 Diagnostics Plots
-Below you find the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data used presented in [Section 2.2.2](#222-Clinical-Data).
+Below you find the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data used presented in [Section 2.2.2](#222-clinical-data).
 
 The first plot shows observed versus simulated plasma concentration, the second weighted residuals versus time. 
 
@@ -189,7 +189,7 @@ The first plot shows observed versus simulated plasma concentration, the second 
 GMFE = 1.316003 
 
 ## 3.3 Concentration-Time Profiles
-Simulated versus observed concentration-time profiles of all data listed in [Section 2.2.2](#222-Clinical-Data) are presented below.
+Simulated versus observed concentration-time profiles of all data listed in [Section 2.2.2](#222-clinical-data) are presented below.
 
 
 ### 3.3.1 Model Building

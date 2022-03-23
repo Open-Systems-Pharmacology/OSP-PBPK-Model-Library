@@ -1,16 +1,23 @@
-# Building and evaluation of a PBPK model for Fluvoxamine in adults
+# Building and evaluation of a PBPK model for fluvoxamine in healthy adults
 
 
 
-| Version                                         | 1.1-OSP10.0                                                  |
+
+
+| Version                                         | 1.1-OSP10.0                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
-| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Fluvoxamine-Model/releases/tag/v1.0 |
-| OSP Version                                     | 10.0                                                         |
+| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Fluvoxamine-Model/releases/tag/v1.1 |
+| OSP Version                                     | 10.0                                                          |
 | Qualification Framework Version                 | 2.3                                                          |
+
+
+
+
 
 This evaluation report and the corresponding PK-Sim project file are filed at:
 
 https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/
+
 # Table of Contents
   * [1 Introduction](#1-introduction)
   * [2 Methods](#2-methods)
@@ -25,11 +32,13 @@ https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/
       * [3.3.2 Model Verification](#332-model-verification)
   * [4 Conclusion](#4-conclusion)
   * [5 References](#5-references)
-  * [6 Glossary](#6-glossary)
 # 1 Introduction
-The presented PBPK model of fluvoxamine has been developed to be used in a PBPK Drug-Drug-Interactions (DDI) network with fluvoxamine as an inhibitor of CYP2C19 and CYP1A2.
+Fluvoxamine is a selective serotonin reuptake inhibitor used to treat major depression and obsessive compulsive disorder ([Perucca 1994](#5-References), [ANI Pharmaceuticals Inc. 2008](#5-References)) . Recommended doses are 50 to 300 mg once daily. The pharmacokinetics of orally administered single doses are linear. Following multiple oral administration, the pharmacokinetics at steady-state become non-linear, due to saturable Michaelis-Menten kinetics of the metabolic pathways ([Spigset 1998](#5-References)). Metabolism of fluvoxamine includes hydroxylation via CYP1A2 and O-demethylation via the very polymorphic CYP2D6 ([Miura 2007](#5-References), [Spigset 2001](#5-References)). Following oral administration fluvoxamine is excreted via the urine as metabolites ([DeBree 1983](#5-References)). The U.S. Food and Drug Administration (FDA) recommends fluvoxamine as strong clinical CYP1A2 and CYP2C19 index inhibitor to evaluate the impact of CYP1A2/CYP2C19 inhibition on CYP1A2/CYP2C19 substrates ([FDA 2017](#5-References)). Furthermore, the FDA lists fluvoxamine as moderate CYP3A4 inhibitor.
 
-Fluvoxamine is a selective serotonin reuptake inhibitor. After oral administration, fluvoxamine-maleate is absorbed moderately fast with peak plasma concentrations reached at approx. 2-4 hours post-dose. Approximately 77% of the drug is bound to plasma proteins. The concentration-time profile elicits a bi-phasic shape ([Perucca 1994](#5-References)). Fluvoxamine is extensively metabolised via CYP2D6 and CYP1A2. Plasma concentrations increase non-proportionally with increasing doses, suggesting (partially) saturable metabolism. Fluvoxamine is a strong inhibitor of CYP2C19 and CYP1A2 ([FDA DDI Labeling](#5-References)), and a weak inhibitor of CYP3A (AUCR <2) ([Lam 2003](#5-References)). Only a very minor part of the dose is recovered unchanged in the urine.
+The aim of this project was to develop a PBPK model of fluvoxamine, mechanistically describing its metabolism by CYP1A2 and CYP2D6 and its inhibitory effect on CYP1A2 and CYP3A4, that can be used for drug-drug interaction (DDI) predictions.
+
+The presented model was developed and evaluated by Britz et al. ([Britz 2019](#5-References))
+
 
 # 2 Methods
 
@@ -37,213 +46,233 @@ Fluvoxamine is a selective serotonin reuptake inhibitor. After oral administrati
 ## 2.1 Modeling Strategy
 The general workflow for building an adult PBPK model has been described by Kuepfer et al. ([Kuepfer 2016](#5-References)). Relevant information on the anthropometry (height, weight) was gathered from the respective clinical study, if reported. Information on physiological parameters (e.g. blood flows, organ volumes, hematocrit) in adults was gathered from the literature and has been incorporated in PK-Sim® as described previously ([Willmann 2007](#5-References)). The  applied activity and variability of plasma proteins and active processes that are integrated into PK-Sim® are described in the publicly available 'PK-Sim® Ontogeny Database Version 7.3' ([PK-Sim Ontogeny Database Version 7.3](#5-References)).
 
-In general, the following step-wise modeling work flow was followed:
+The PBPK model was built based on healthy individuals, using the reported mean values for age, weight, height, and genetic background for each study protocol. If no information on these parameters could be found, a healthy male European individual, 30 years of age, with a body weight of 73 kg and a height of 176 cm was used. To model the specific metabolic clearance,  CYP1A2 and CYP2D6 were implemented in accordance with literature, using the PK-Sim expression database RT-PCR profiles ([Meyer 2012](#5-References)) to define their relative expression in the different organs of the body. Glomerular filtration and enterohepatic cycling were enabled, as they are involved in fluvoxamine excretion.
 
-1. Predict i.v.-profiles based on in vitro data alone and optimize distribution model and metabolism parameters
-2. Predict single dose data following oral solution
-3. Optimize intestinal permeability and revisit metabolism model
-4. Predict single dose data following enteric-coated tablet
-5. Multiple dose predictions with preliminary model
-6. Refine model and optimize permeability and metabolism parameters.
+Unknown parameters (see below) were identified using the Parameter Identification module provided in PK-Sim®. 
 
-Selection of the distribution model was performed with i.v. data ([Iga 2015](# 5 References)) with a place-holder linear clearance. A typical Japanese subject (age = 30 y, weight = 61.87 kg, height = 168.99 cm, BMI = 21.67 kg/m2) was created in PK-Sim from predefined database “Japanese (2015)” by adding CYP1A2 and CYP2D6 expression from PK-Sim RT PCR database.
+The model was then verified by simulating:
 
-Intestinal permeability and the kinetics of the CYP1A2 and CYP2D6 clearance processes were estimated using the Parameter Identification module provided in PK-Sim® with the concentration-time data listed in [Section 2.2](#2.2-Data). The predefined “Standard European Male for DDI” individual (age = 30 y, weight = 73 kg, height = 176 cm, BMI = 23.57 kg/m2) with CYP1A2 and CYP2D6 expression obtained from PK-Sim RT PCR database was used for simulations of European individuals. Additionally, fractions metabolized via CYP1A2 and CYP2D6 were fitted to 29.5% and 66.5%, respectively ([Alqahtani 2016](# 5 References), [Britz 2018](# 5 References)). For simulations of poor metabolizers ([Carillo 1996](#5-References), [Spigset 1997](#5-References)), the CYP2D6 pathway was turned off.
+- single and multiple dose studies
+- the effect of smoking on CYP1A2 metabolism of fluvoxamine
+- plasma levels of fluvoxamine in CYP2D6 extensive (EM) and poor metabolizers (PM).
 
-Details about input data (physicochemical, *in vitro* and clinical) can be found in [Section 2.2](#2.2-Data).
+Details about input data (physicochemical, *in vitro* and clinical) can be found in [Section 2.2](#22-Data).
 
-Details about the structural model and its parameters can be found in [Section 2.3](#2.3-Model-Parameters-and-Assumptions).
+Details about the structural model and its parameters can be found in [Section 2.3](#23-Model-Parameters-and-Assumptions).
+
 
 ## 2.2 Data
-### 2.2.1 In vitro and physico-chemical data
+### 2.2.1	In vitro / physico-chemical Data
 
-A literature search was performed to collect available information on physico-chemical properties of fluvoxamine ([Table 1](#Table 1)).
+A literature search was performed to collect available information on physiochemical properties of fluvoxamine. The obtained information from literature is summarized in the table below. 
 
-| **Parameter**                     | **Unit** | **Value**       | Source                            | **Description**                                              |
-| :-------------------------------- | -------- | --------------- | --------------------------------- | ------------------------------------------------------------ |
-| MW<sup>+</sup>                    | g/mol    | 318.33          | [DrugBank DB00176](#5-References) | Molecular weight of free base. Dose of commercial product usually refers to amount of fluvoxamine maleate – conversion factor is 0.733 |
-| pK<sub>a,base</sub><sup>+</sup>   |          | 9.16            | [Alqahtani 2016](#5-References)   | Basic dissociation constant                                  |
-| Solubility (pH)<sup>+</sup>       | mg/mL    | 0.06<br />(7.4) | [PubChem 9560989](#5-References)  | Aqueous Solubility                                           |
-| logP<sup>+</sup>                  |          | 3.38            | [Alqahtani 2016](#5-References)   | Partitioning coefficient                                     |
-| fu<sup>+</sup>                    | %        | 23              | [Alqahtani 2016](#5-References)   | Fraction unbound in plasma                                   |
-| K<sub>i</sub> CYP1A2<sup>+</sup>  | nmol/L   | 2.97            | [Iga 2016](#5-References)         | CYP1A2 inhibition constant                                   |
-| K<sub>i</sub> CYP2C19<sup>+</sup> | nmol/L   | 3.6             | [Iga 2016](#5-References)         | CYP2C19 inhibition constant (omeprazole as substrate)        |
-| K<sub>i</sub> CYP2C19<sup>+</sup> | nmol/L   | 2.6             | [Iga 2016](#5-References)         | CYP2C19 inhibition constant (s-mephenytoin as substrate)     |
+| **Parameter**          | **Unit** | **Value**               | Source                                              | **Description**                                              |
+| :--------------------- | -------- | ----------------------- | --------------------------------------------------- | ------------------------------------------------------------ |
+| MW                     | g/mol    | 318.34                  | [Drugbank](#5-References)                           | Molecular weight                                             |
+| pK<sub>a</sub>         |          | 9.40 (base)             | [Hallifax 2007](#5-References)                      | Acid dissociation constant                                   |
+| Solubility (pH)        | mg/mL    | 14.66 (7.0)             | [MSDS](#5-References)                               | Solubility                                                   |
+| logP                   |          | 2.80                    | [Drugbank](#5-References) (predicted by ChemAxon)   | Partition coefficient between octanol and water              |
+|                        |          | 2.89                    | [Drugbank](#5-References) (predicted by ALOGPS)     | Partition coefficient between octanol and water              |
+|                        |          | 3.20                    | [Drugbank](#5-References) (experimentally measured) | Partition coefficient between octanol and water              |
+| f<sub>u</sub>          |          | 0.13 ± 0.01<sup>a</sup> | [Yao 2001](#5-References)                           | Fraction unbound in plasma                                   |
+|                        |          | 0.14 ± 0.02<sup>a</sup> | [Yao 2001](#5-References)                           | Fraction unbound in plasma                                   |
+|                        |          | 0.23                    | [Claassen 1983](#5-References)                      | Fraction unbound in plasma                                   |
+| f<sub>u,mic</sub>      |          | 0.20 ± 0.05<sup>a</sup> | [Yao 2001](#5-References)                           | Fraction unbound in human liver microsomes at a protein concentration of 1 mg/mL |
+|                        |          | 0.31 ± 0.03<sup>a</sup> | [Yao 2001](#5-References)                           | Fraction unbound in human liver microsomes at a protein concentration of 0.5 mg/mL |
+|                        |          | 0.70 ± 0.03<sup>a</sup> | [Yao 2001](#5-References)                           | Fraction unbound in supersomes at a protein concentration of 0.3 mg/mL |
+| CYP2D6 K<sub>m</sub>   | µmol/L   | 76.30                   | [Miura 2007](#5-References)                         | Michaelis-Menten constant                                    |
+| CYP2D6 k<sub>cat</sub> | 1/min    | 0                       | [Crews 2014](#5-References)                         | Renal plasma clearance                                       |
+| CYP1A2 K<sub>i</sub>   | µmol/L   | 0.011                   | [Karjalainen 2008](#5-References)                   | Competitive inhibition constant of the competitive inhibition model measured in human liver microsomes |
+| CYP1A2 K<sub>i,u</sub> | nmol/L   | 35                      | [Yao 2001](#5-References)                           | Unbound competitive inhibition constant of the mixed inhibition model measured in human liver microsomes at a protein concentration of 1 mg/mL |
+|                        | nmol/L   | 36                      | [Yao 2001](#5-References)                           | Competitive inhibition constant of the mixed inhibition model measured in human liver microsomes at a protein concentration of 0.5 mg/mL |
+|                        | nmol/L   | 36                      | [Yao 2001](#5-References)                           | Competitive inhibition constant of the mixed inhibition model measured in supersomes at a protein concentration of 0.3 mg/mL |
+| CYP3A4 K<sub>i</sub>   | µmol/L   | 1.60                    | [Olesen 2000](#5-References)                        | Competitive inhibition constant of the competitive inhibition model measured in human liver microsomes |
 
-**Table 1:**<a name="Table 1"></a> Physico-chemical and *in-vitro* metabolization properties of fluvoxamine extracted from literature. *<sup>+</sup>: Value used in final model*
+<sup>a</sup> denotes mean ± standard deviation
 
-### 2.2.2 Clinical data
+### 2.2.2 Clinical Data
 
-A literature search was performed to collect available clinical data on fluvoxamine in adults. Data used for model development and validation is listed in [Table 2](#Table 2).
+A literature search was performed to collect available clinical data on fluvoxamine in healthy adults.
 
-| **Source**           | **Route** | **Dose [mg]/**  **Schedule \*** | **Pop.**     | **Age [yrs] (mean)** | **Weight [kg] (mean)** | **Sex** | **N** | **Form.** | **Comment**                       |
-| -------------------- | --------- | ------------------------------- | ------------ | -------------------- | ---------------------- | ------- | ----- | --------- | --------------------------------- |
-| [Carillo 1996](#5-References) | p.o.      | 50                              | HV           | -                    | -                      | m/f     | 5     | e.c. Tab  | Non-smoking  EM / Smoking EM  |
-| [Carillo 1996](#5-References)<sup>+</sup> | p.o. | 50 | HV | - | - | m/f | 5 | e.c. Tab | Non-smoking PM |
-| [Spigset 1997](#5-References)<sup>+</sup> | p.o.      | 50                              | HV           | -                    | -                      |         | 5     | e.c. Tab  | PM                                |
-| [Spigset 1997](#5-References) | p.o.      | 50                              | HV           | -                    | -                      |         | 5     | e.c. Tab  | EM                                |
-| [Iga 2015](#5-References)<sup>+</sup> | i.v. | 50                        | Japanese     | -    | -    | -    | -    | -             | -                                   |
-| [Iga 2015](#5-References) | p.o. | 50                        | Japanese     | -    | -    | -    | -    | -             | -                                   |
-| [Orlando 2009](#5-References) | p.o. | 50                        | HV           | 35   | 79   | male | 10   | -             | -                                   |
-| [Spigset 1998](#5-References)<sup>+</sup> | p.o. | 50 / 100 b.i.d. | HV           | 28.9 | 85.6 | male | 10   | e.c. Tab      | -                                   |
-| [Spigset 1998](#5-References) | p.o. | 12.5/ 25 b.i.d. | HV | 28.9 | 85.6 | male | 10 | e.c. Tab | - |
-| [DeVries 1993](#5-References)<sup>+</sup> | p.o. | 25 / 50/ 100              | HV           | -    | -    | male | 12   | solution      | -                                   |
-| [VanHarten 1994](#5-References) | p.o. | 50                        | HV           | -    | -    | male | 17   | capsule       | -                                   |
-| [VanHarten 1991](#5-References) | p.o. | 50                        | HV           | 24   | 73   | m/f  | 12   | e.c. Tab      | With/ without food                  |
-| [Kunii 2005](#5-References) | p.o. | 50                        | HV           | 29.7 | 69.3 | m    | 10   | e.c. Tab      | -                                   |
-| [Fukasawa 2006](#5-References) | p.o. | 50                        | HV           | 29.6 | 68.3 | m    | 12   | e.c. Tab      | -                                   |
-| [Fleishaker 1994](#5-References)<sup>+</sup> | p.o. | 12.5 - 25 - 50 - 100 q.d. | HV           | 32   | 80   | m    | 20   | e.c. Tab      | -                                   |
-| [Labellarte 2004](#5-References)<sup>+</sup> | p.o. | 25 / 50 / 100/ 150 b.i.d. | Adole-scents | 14   | 60   | m/f  | 23   | e.c. Tab      | -                                   |
-| [Spigset 1997](#5-References) | p.o. | 50                        | HV           | 34.7 | 66.5 | m/f  | 12   | e.c. Tab      | non-smokers / smoker                |
-| [FDA_ClinPharmReview LuvoxCR](#5-References)<sup>+</sup> | p.o. | 100      | HV           | -    | -    | -    | 20   | e.c. Tab / CR | -                                   |
-| [FDA_ClinPharmReview LuvoxCR](#5-References)<sup>+</sup> | p.o. | 100 q.d. | HV | - | - | - | 20 | e.c. Tab / CR | - |
-| [FDA_ClinPharmReview LuvoxCR](#5-References) | p.o. | 200 / 300 q.d. | HV | - | - | - | 20 | e.c. Tab / CR | - |
+The fluvoxamine PBPK model was developed using 26 different clinical studies with pharmacokinetic (PK) blood sampling. These studies include 1 study of 30 mg fluvoxamine administered intravenously (iv) as a single-dose, and 25 studies of fluvoxamine administered orally (po) in single- or multiple-doses. In the single-dose po studies fluvoxamine was administered in doses of 25 - 200 mg. In the multiple-dose po studies fluvoxamine was administered once (q.d.) or twice daily (b.i.d.), in doses of 10 - 150 mg per administration.
 
-**Table 2:**<a name="Table 2"></a> Literature sources of clinical concentration data of fluvoxamine used for model development and validation. *e.c.: enteric coated; -: respective information was not provided in the literature source; \*:single dose unless otherwise specified; <sup>+</sup>: Data used for final parameter identification*
+#### 2.2.2.1	Model Building
+
+The following studies were used for model building (training data):
+
+| Publication                            | Arm / Treatment / Information used for model building        |
+| :------------------------------------- | :----------------------------------------------------------- |
+| [Japanese Society 2015](#5-References) | Healthy Japanese adults with 30 mg as 60 min infusion or oral administration of 200 mg |
+| [de Vries 1993](#5-References)         | Healthy adults with oral administration of 25-100 mg         |
+| [Orlando 2010](#5-References)          | Healthy adults with oral administration of 50 mg             |
+| [Labellarte 2004](#5-References)       | Healthy CYP2D6 EM with oral administration of 50 mg twice a day |
+| [Spigset 1998](#5-References)          | Healthy CYP2D6 EM (80%) and PM (20%) with oral administration of doses between 12.5-100 mg twice a day |
+| [Fleishaker 1994](#5-References)       | Healthy adults with oral administration of 50 mg or 100 mg once daily |
+
+#### 2.2.2.2	Model Verification
+
+The following studies were used for model verification:
+
+| Publication                            | Arm / Treatment / Information used for model building        |
+| :------------------------------------- | :----------------------------------------------------------- |
+| [Christensen 2002](#5-References)      | Healthy CYP2D6 EM with oral administration of 10 mg or 25 mg twice a day and healthy CYP2D6 PM with oral administration of 10 mg or 25 mg once daily |
+| [Fukasawa 2006](#5-References)         | Healthy Japanese adults with single oral doses of 50 mg      |
+| [Japanese Society 2015](#5-References) | Healthy Japanese adults with single oral doses of 25-100 mg  |
+| [Kunii 2005](#5-References)            | Healthy CYP2D6 EM with single oral doses of 50 mg            |
+| [Spigset 1995](#5-References)          | Healthy smokers or non-smokers with oral administration of 50 mg as single dose |
+| [Spigset 1997](#5-References)          | Healthy CYP2D6 EM or PM with oral administration of 50 mg as single dose |
+| [van Harten 1991](#5-References)       | Healthy adults  with oral administration of 50 mg as single dose |
+| [de Vries 1992](#5-References)          | Healthy adults with oral administration of 50 mg twice a day |
+| [Bahrami 2007](#5-References)          | Healthy adults with oral administration of 100 mg as single dose |
+| [de Bree 1983](#5-References)          | Healthy adults with oral administration of 100 mg as single dose |
+
+
 ## 2.3 Model Parameters and Assumptions
-### 2.3.1 Absorption
+### 2.3.1	Absorption
 
-The model parameter `Specific intestinal permeability` was optimized to best match clinical data (see  [Section 2.3.4](#2.3.4-Automated-Parameter-Identification)). The default solubility was assumed to be the measured value in the FaSSIF medium (see [Section 2.2.1](#2.2.1-In-vitro-and-physico-chemical-data)).
+Since a rapid dissolution and absorption was assumed for tablet as well as capsule formulation, the drug formulation was implemented as solution. 
 
-The dissolution of enteric-coated tablets were implemented via an empirical Weibull dissolution equation with `Dissolution time (50% dissolved)` = 10 min and `Lag time ` = 30 min.
+The specific intestinal permeability was identified during parameter identification.
 
-### 2.3.2 Distribution
+### 2.3.2	Distribution
 
-Physico-chemical parameter values were set to the reported values (see [Section 2.2.1](#2.2.1-In-vitro-and-physico-chemical-data)). It was assumed that the major binding partner in plasma is albumin.
+It is described in literature that fluvoxamine is moderately bound to plasma proteins (77%, [Claassen 1983](#5-References)). This value was impelented in PK-Sim®. The protein binding partner was set to unknown. 
 
-After testing the available organ-plasma partition coefficient and cell permeability calculation methods available in PK-Sim, observed clinical data were best described by choosing the partition coefficient calculation by `Rodgers and Rowland` and cellular permeability calculation by `PK-Sim Standard`.
+An important parameter influencing the distribution of a compound is lipophilicity. To accurately describe the distribution of fluvoxamine, logP was optimized during parameter identification to match observed clinical data.
 
-### 2.3.3 Metabolism and Elimination
+After testing the available organ-plasma partition coefficient and cell permeability calculation methods built in PK-Sim, observed clinical data was best described by choosing the partition coefficient calculation by `Schmitt` and cellular permeability calculation by `PK-Sim Standard`. 
 
-Two metabolic pathways were implement in the model:
+### 2.3.3	Metabolism and Elimination
 
-* CYP2D6 (saturable Michealis-Menten)
-* CYP1A2 (linear)
+The final model applies metabolism by CYP1A2, CYP2D6 and glomerular filtration. The metabolic processes by CYP1A2 and CYP2D6 were described by Michaelis-Menten kinetics. The Michaelis-Menten constant K<sub>m</sub> for CYP2D6 metabolism was fixed according to literature values, other parameters were identified during parameter identification.
 
-As the single elimination route via CYP2D6 was not sufficient to correctly describe the multiple dose administrations, elimination through CYP1A2 has been added as suggested by others ([Alqahtani 2016](# 5 References)).
+To distinguish between fluvoxamine metabolism in CYP2D6 extensive metabolizers (EM) and poor metabolizers (PM), the CYP2D6 catalytic rate constant k<sub>cat</sub> of PMs was set to zero. This assumption was made because CYP2D6 PMs were characterized by absent CYP2D6 enzymatic activity [Crews 2014](#5-References), which results in a predicted 1.5-fold increase of the fluvoxamine AUC in CYP2D6 PMs compared with CYP2D6 EMs.
 
-Expression profiles for CYP1A2 and CYP2D6 were obtained from PK-Sim RT PCR database. 
+Smoking is the strongest known inducer of CYP1A2 and results in higher metabolism of CYP1A2 substrates [Zhou 2009](#5-References). As no detailed information on the frequency, duration, and amount of smoking was available from literature, the induction of CYP1A2 was implemented as a static 1.38-fold increase in enzyme activity. This factor was optimized based on the study of Spigset et al. ([Spigset 1995](#5-References)) resulting in a 39% reduction of the fluvoxamine AUC in smokers.
 
-Additionally, renal glomerular filtration was implemented with `GFR fraction` = 1, that resulted in less than 2% of parent fluvoxamine being excreted in urine (4% observed in [DeVries 1993](#5-References)).
+### 2.3.4	Enzyme inhibition
 
-### 2.3.4 Inhibition
+To describe the inhibition of CYP1A2 by fluvoxamine, the reported K<sub>i</sub> value of 11 nmol/L [Karjalainen 2008](#5-References) was corrected for fluvoxamine binding in the in vitro test system as recommended by [Yao 2001](#5-References) and a value of 10 nmol/L was then used for both `Ki_c` and `Ki_u` to describe mixed-type inhibition in the PBPK model.
 
-Competitive inhibition of  CYP1A2 and CYP2C19 was added with Ki values as listed in [Section 2.2.1](#2.2.1-In-vitro-and-physico-chemical-data). For inhibition of CYP2C19, multiple substrate-specific Ki values are reported, and the modeler has to decide which to select depending on the substrate.
+To describe the inhibition of CYP3A4 by fluvoxamine, the reported K<sub>i</sub> value of 1.6 µmol/L ([Olesen 2000](#5-References)) was included in the model.
 
-### 2.3.5 Automated Parameter Identification
 
-Following parameter values were estimated for the base model:
+### 2.3.5	Automated Parameter Identification
 
-- `Specific intestinal permeability (transcellular)`
-- `Km` (CYP2D6)
-- `kcat` (CYP2D6)
-- `In vitro CL/recombinant enzyme` (CYP1A2)
+This is the result of the final parameter identification.
+
+| Model Parameter                               | Optimized Value | Unit      |
+| --------------------------------------------- | --------------- | --------- |
+| `logP`                                        | 3.57            | log units |
+| `Km` (CYP1A2)                                 | 7.35            | nmol/L    |
+| `kcat` (CYP1A2) *non-smokers*                 | 0.016           | 1/min     |
+| `kcat` (CYP1A2) *smokers*                     | 0.022           | 1/min     |
+| `kcat` (CYP2D6) *extensive metabolizers (EM)* | 110.56          | 1/min     |
+| `Specific intestinal permeability`            | 2.74 E-6        | dm/min    |
+
+
 # 3 Results and Discussion
+The PBPK model for fluvoxamine was developed and verified with clinical pharmacokinetic data.
+
+The model was evaluated covering data from studies including in particular
+
+* intravenous and oral administration
+* single and multiple doses 
+* a dose range from 25 mg to 200 mg
+* subjects phenotyped as CYP2D6 *extensive metabolizers* (*EM*) and *poor metabolizers* (*PM*)
+* smokers and non-smokers
+
+The model quantifies metabolism via CYP1A2 and CYP2D6 and the effect of smoking and different CYP2D6 phenotypes on fluvoxamine metabolism.
+
 The next sections show:
 
-1. Final model input parameters for the building blocks: [Section 3.1](#3.1-Final-Input-Parameters).
-2. Overall goodness of fit: [Section 3.2](#3.2-Diagnostics-Plots).
-3. Simulated vs. observed concentration-time profiles for the clinical studies used for model building and for model verification: [Section 3.3](#3.3-Concentration-Time-Profiles).
+1. the final model parameters for the building blocks: [Section 3.1](#31-Final-Input-Parameters).
+2. the overall goodness of fit: [Section 3.2](#32-Diagnostics-Plots).
+3. simulated vs. observed concentration-time profiles for the clinical studies used for model building and for model verification: [Section 3.3](#33-Concentration-Time-Profiles).
+
 
 ## 3.1 Final input parameters
-The parameter values of the final PBPK model are illustrated below.
+The compound parameter values of the final PBPK model are illustrated below.
 
-### Formulation: Fluvoxamine tablet
 
-Type: Weibull
-#### Parameters
 
-Name                             | Value  | Value Origin
--------------------------------- | ------ | ------------
-Dissolution time (50% dissolved) | 10 min | Manual Fit  
-Lag time                         | 30 min | Manual Fit  
-Dissolution shape                | 0.92   |             
-Use as suspension                | Yes    |             
 
 ### Compound: Fluvoxamine
 
 #### Parameters
 
-Name                                             | Value                   | Value Origin                                      | Alternative                | Default
------------------------------------------------- | ----------------------- | ------------------------------------------------- | -------------------------- | -------
-Solubility at reference pH                       | 0.062 mg/ml             | Database-PubChem 9560989                          | Water Solubility - Pubchem | True   
-Reference pH                                     | 7.4                     | Database-PubChem 9560989                          | Water Solubility - Pubchem | True   
-Lipophilicity                                    | 3.38 Log Units          | Publication-Alqahtani 2016                        | LogP Alqahtani2016         | True   
-Fraction unbound (plasma, reference value)       | 0.23                    | Publication-Alqahtani 2016                        | fu Alqahtani2016           | True   
-Specific intestinal permeability (transcellular) | 1.2322894625E-05 cm/min | Parameter Identification-Parameter Identification | Fit                        | True   
-F                                                | 3                       | Database-DrugBank DB00176                         |                            |        
-Is small molecule                                | Yes                     |                                                   |                            |        
-Molecular weight                                 | 318.3346 g/mol          | Database-DrugBank DB00176                         |                            |        
-Plasma protein binding partner                   | Albumin                 |                                                   |                            |        
+Name                                             | Value                   | Value Origin                                                                                                                                      | Alternative | Default
+------------------------------------------------ | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | -------
+Solubility at reference pH                       | 14.66 mg/ml             |                                                                                                                                                   | Measurement | True   
+Reference pH                                     | 7                       |                                                                                                                                                   | Measurement | True   
+Lipophilicity                                    | 3.5726507829 Log Units  | Parameter Identification                                                                                                                          | Measurement | True   
+Fraction unbound (plasma, reference value)       | 0.23                    | Publication-Claassen et al., Review of the animal pharmacology and pharmacokinetics of fluvoxamine. Br. J. Clin. Pharmacol. 15, 349S-355S (1983). | Measurement | True   
+Specific intestinal permeability (transcellular) | 2.7380788903E-06 dm/min | Parameter Identification                                                                                                                          | Fitted      | True   
+F                                                | 3                       |                                                                                                                                                   |             |        
+Is small molecule                                | Yes                     |                                                                                                                                                   |             |        
+Molecular weight                                 | 318.335 g/mol           |                                                                                                                                                   |             |        
+Plasma protein binding partner                   | Unknown                 |                                                                                                                                                   |             |        
 #### Calculation methods
 
-Name                    | Value              
------------------------ | -------------------
-Partition coefficients  | Rodgers and Rowland
-Cellular permeabilities | PK-Sim Standard    
+Name                    | Value          
+----------------------- | ---------------
+Partition coefficients  | Schmitt        
+Cellular permeabilities | PK-Sim Standard
 #### Processes
 
-##### Metabolizing Enzyme: CYP1A2-Linear_Fit_1A2_rec
+##### Metabolizing Enzyme: CYP1A2-Fit
 
 Molecule: CYP1A2
 ###### Parameters
 
-Name                           | Value                                | Value Origin
------------------------------- | ------------------------------------ | ------------:
-In vitro CL/recombinant enzyme | 0.5382573259 µl/min/pmol rec. enzyme |             
-##### Metabolizing Enzyme: CYP2D6-MM_2D6_rec
+Name                                        | Value                      | Value Origin
+------------------------------------------- | -------------------------- | ------------
+In vitro Vmax for liver microsomes          | 0 pmol/min/mg mic. protein |             
+Content of CYP proteins in liver microsomes | 45 pmol/mg mic. protein    | Unknown     
+Km                                          | 0.0073460807948 µmol/l     |             
+kcat                                        | 0.0155447966 1/min         | Unknown     
+##### Metabolizing Enzyme: CYP2D6-Miura2007
 
 Molecule: CYP2D6
 ###### Parameters
 
-Name                             | Value                        | Value Origin                                     
--------------------------------- | ---------------------------- | -------------------------------------------------
-In vitro Vmax/recombinant enzyme | 55 nmol/min/pmol rec. enzyme |                                                  
-Km                               | 0.00097708157358 µmol/l      | Parameter Identification-Parameter Identification
-kcat                             | 0.0362433252 1/min           | Parameter Identification-Parameter Identification
-##### Systemic Process: Glomerular Filtration-GFR
+Name                             | Value                          | Value Origin            
+-------------------------------- | ------------------------------ | ------------------------
+In vitro Vmax/recombinant enzyme | 0.69 pmol/min/pmol rec. enzyme |                         
+Km                               | 76.3 µmol/l                    |                         
+kcat                             | 110.5561921693 1/min           | Parameter Identification
+##### Systemic Process: Glomerular Filtration-4% Urine
 
 Species: Human
 ###### Parameters
 
-Name         | Value | Value Origin    
------------- | -----:| ----------------
-GFR fraction |     1 | Other-Assumption
-##### Inhibition: CYP1A2-Iga2016_Tab2_CAF
+Name         | Value | Value Origin
+------------ | -----:| ------------:
+GFR fraction |     1 |             
+##### Inhibition: CYP1A2-Karjalainen2008/Yao2001
 
 Molecule: CYP1A2
 ###### Parameters
 
-Name | Value       | Value Origin        
----- | ----------- | --------------------
-Ki   | 2.97 nmol/l | Publication-Iga 2016
-##### Inhibition: CYP2C19-Iga 2016 in vivo unbound KI - Omeprazole
+Name | Value     | Value Origin                                                                                                                                                                                                                                                                                                                                                                                                                  
+---- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Ki_c | 10 nmol/l | Publication-In Vitro-Karjalainen et al. In vitro inhibition of CYP1A2 by model inhibitors, anti-inflammatory analgesics and female sex steroids: predictability of in vivo interactions. Basic Clin. Pharmacol. Toxicol. 103, 157–65 (2008) and Yao, C. et al. Fluvoxamine-theophylline interaction: gap between in vitro and in vivo inhibition constants toward cytochrome P4501A2. Clin. Pharmacol. Ther. 70, 415–24 (2001)
+Ki_u | 10 nmol/l | Publication-In Vitro-Karjalainen et al. In vitro inhibition of CYP1A2 by model inhibitors, anti-inflammatory analgesics and female sex steroids: predictability of in vivo interactions. Basic Clin. Pharmacol. Toxicol. 103, 157–65 (2008) and Yao, C. et al. Fluvoxamine-theophylline interaction: gap between in vitro and in vivo inhibition constants toward cytochrome P4501A2. Clin. Pharmacol. Ther. 70, 415–24 (2001)
+##### Inhibition: CYP3A4-Olesen2000/Yao2001
 
-Molecule: CYP2C19
+Molecule: CYP3A4
 ###### Parameters
 
-Name | Value      | Value Origin        
----- | ---------- | --------------------
-Ki   | 3.6 nmol/l | Publication-Iga 2016
-##### Inhibition: CYP2C19-Iga 2016 in vivo unbound KI - S-mephenytoine
+Name | Value      | Value Origin                                                                                                                                                                                                                                                                                                                                                                                   
+---- | ---------- | -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Ki   | 1.6 µmol/l | Publication-In Vitro-Olesen et al. Fluvoxamine-Clozapine drug interaction: inhibition in vitro of five cytochrome P450 isoforms involved in clozapine metabolism. J. Clin. Psychopharmacol. 20, 35–42 (2000) and Yao, C. et al. Fluvoxamine-theophylline interaction: gap between in vitro and in vivo inhibition constants toward cytochrome P4501A2. Clin. Pharmacol. Ther. 70, 415–24 (2001)
 
-Molecule: CYP2C19
-###### Parameters
+### Formulation: Solution
 
-Name | Value      | Value Origin        
----- | ---------- | --------------------
-Ki   | 2.6 nmol/l | Publication-Iga 2016
-##### Inhibition: CYP1A2-Fit-Tizanidine
-
-Molecule: CYP1A2
-###### Parameters
-
-Name | Value         | Value Origin                                             
----- | ------------- | ---------------------------------------------------------
-Ki   | 0.8697 nmol/l | Parameter Identification-Fit to tizanidine concentrations
+Type: Dissolved
 
 ## 3.2 Diagnostics Plots
-The following section displays the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data listed in [Section 2.2.2](#2.2.2-Clinical-data).
+Below you find the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data used presented in [Section 2.2.2](#222-Clinical-Data).
 
 The first plot shows observed versus simulated plasma concentration, the second weighted residuals versus time. 
 
@@ -252,12 +281,17 @@ The first plot shows observed versus simulated plasma concentration, the second 
 
 ![002_plotGOFMergedResidualsOverTime.png](images/003_3_Results_and_Discussion/002_3_2_Diagnostics_Plots/002_plotGOFMergedResidualsOverTime.png)
 
-GMFE = 1.679152 
+GMFE = 1.398262 
 
 ## 3.3 Concentration-Time Profiles
-Simulated versus observed concentration-time profiles of all data listed in [Section 2.2.2](#2.2.2-Clinical-data) are presented below.
+Simulated versus observed concentration-time profiles of all data listed in [Section 2.2.2](#222-Clinical-Data) are presented below.
+
 
 ### 3.3.1 Model Building
+
+
+
+
 
 ![001_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_3_3_1_Model_Building/001_plotTimeProfile.png)
 
@@ -277,9 +311,10 @@ Simulated versus observed concentration-time profiles of all data listed in [Sec
 
 ![009_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_3_3_1_Model_Building/009_plotTimeProfile.png)
 
-![010_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_3_3_1_Model_Building/010_plotTimeProfile.png)
-
 ### 3.3.2 Model Verification
+
+
+
 
 
 ![001_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/001_plotTimeProfile.png)
@@ -288,116 +323,105 @@ Simulated versus observed concentration-time profiles of all data listed in [Sec
 
 ![003_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/003_plotTimeProfile.png)
 
+![004_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/004_plotTimeProfile.png)
+
+![005_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/005_plotTimeProfile.png)
+
+![006_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/006_plotTimeProfile.png)
+
+![007_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/007_plotTimeProfile.png)
+
+![008_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/008_plotTimeProfile.png)
+
+![009_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/009_plotTimeProfile.png)
+
+![010_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/010_plotTimeProfile.png)
+
+![011_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/011_plotTimeProfile.png)
+
+![012_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/012_plotTimeProfile.png)
+
+![013_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/013_plotTimeProfile.png)
+
+![014_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/014_plotTimeProfile.png)
+
+![015_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/015_plotTimeProfile.png)
+
+![016_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/016_plotTimeProfile.png)
+
+![017_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/017_plotTimeProfile.png)
+
 # 4 Conclusion
-The developed PBPK model of fluvoxamine describes the PK data after administrations of single as well as multiple doses well. The predictions of the 50 mg dose align closer to the studies where higher concentrations were observed. The most likely explanation is the smoking status of the subjects in the studies showing lower concentrations. Cigarette smoke is known to induce the CYP1A2 enzyme system. Hence, lower fluvoxamine concentrations would be expected in smokers due to the higher metabolism. Although there is no built-in smoking status in PK-Sim, this could be modeled by adapting CYP1A2 expression.
+The herein presented PBPK model adequately describes the pharmacokinetics of fluvoxamine in adults.
 
-In two studies, data from poor metabolizers were available ([Carillo 1996](#5-References), [Spigset 1997](#5-References)). Concentrations reported by [Carillo 1996](#5-References) were much higher than what [Spigset 1997](#5-References) reported for the subset of PM data. However, notice that plasma levels of extensive metabolizers were also higher in the Carillo-study compared to the other reports. Subjects in the Spigset 1997 dataset were all non-smokers. The reason for this discrepancy is unclear.
+In particular, it applies quantitative metabolism by CYP1A2 and CYP2D6. The inhibition of CYP1A2 and CYP3A4 are implemented and evaluated (shown elsewhere) in the current model as well. Thus, the model is fit for purpose to be applied for the prediction of drug-drug interaction
 
-The estimated values for Km and Kcat defining the metabolization of fluvoxamine by CYP2D6 were highly correlated (correlation of 0.93), indicating that more data would still be needed to estimate the saturable process with more precision.
+
 # 5 References
-**Alqahtani 2016** Alqahtani S, Kaddoumi A. Development of a Physiologically Based Pharmacokinetic/Pharmacodynamic Model to Predict the Impact of Genetic Polymorphisms on the Pharmacokinetics and Pharmacodynamics Represented by Receptor/Transporter Occupancy of Central Nervous System Drugs. Clinical Pharmacokinetics. 2016 Aug;55(8):957–69.
+**ANI Pharmaceuticals Inc. 2008** ANI Pharmaceuticals Inc. Fluvoxamine maleate - prescribing information. (2008).
 
-**Britz 2018** Britz H, Hanke N, Lehr T. Physiologically-based pharmacokinetic (PBPK) modeling of the strong CYP1A2 inhibitor fluvoxamine. PAGE meeting, Montreux, June 2018.
+**Bahrami 2007** Bahrami, G. & Mohammadi, B. Rapid and sensitive bioanalytical method for measurement of fluvoxamine in human serum using 4-chloro-7-nitrobenzofurazan as pre-column derivatization agent: application to a human pharmacokinetic study. J. Chromatogr. B. Analyt. Technol. Biomed. Life Sci. 857, 322–6 (2007).
 
-**Carillo 1996** Carrillo JA, Dahl ML, Svensson JO, Alm C, Rodríguez I, Bertilsson L.
-Disposition of fluvoxamine in humans is determined by the polymorphic
-CYP2D6 and also by the CYP1A2 activity. Clin Pharmacol Ther. 1996
-Aug;60(2):183-90  
+**Britz 2019** Physiologically-based pharmacokinetic models for CYP1A2 drug–drug interaction prediction: a modeling network of fluvoxamine, theophylline, caffeine, rifampicin, and midazolam. CPT Pharmacometrics Syst. Pharmacol. 8, 296-307 (2019)
 
-**DeVries 1993** De Vries MH, Van Harten J, Van Bemmel P, Raghoebar M. Pharmacokinetics of fluvoxamine maleate after increasing single oral doses in healthy subjects. Biopharmaceutics & Drug Disposition. 1993 May;14(4):291--6.
+**Christensen 2002** Christensen, M. et al. Low daily 10-mg and 20-mg doses of fluvoxamine inhibit the metabolism of both caffeine (cytochrome P4501A2) and omeprazole (cytochrome P4502C19). Clin. Pharmacol. Ther. 71, 141–52 (2002).
 
-**DrugBank DB00176** (https://www.drugbank.ca/drugs/DB00176)
+**Claassen 1983** Claassen, V. Review of the animal pharmacology and pharmacokinetics of fluvoxamine. Br. J. Clin. Pharmacol. 15, 349S–355S (1983).
 
-**FDA_ClinPharmReview LuvoxCR** FDA\_ClinPharmReview LuvoxCR, NDA 22-033, FDADrug\_42.pdf, website: digitalcollections.ohsu.edu/downloads/6m311p63g?locale=en
+**Crews 2014** Crews, K.R. et al. Clinical Pharmacogenetics Implementation Consortium guidelines for cytochrome P450 2D6 genotype and codeine therapy: 2014 update. Clin. Pharmacol. Ther. 95, 376–82 (2014).
 
-**FDA DDI Labeling** U.S. Food and Drug Administration. Drug development and drug interactions: table of substrates, inhibitors and inducers. \<Website fda.gov/Drugs/DevelopmentApprovalProcess/DevelopmentResources/DrugInteractionsLabeling/ucm093664.html (2017). Accessed 04 March 2019.
+**DeBree 1983** DeBree, H., VanderSchoot, J. & Post, L. Fluvoxamine maleate; Disposition in man. Eur. J. Drug Metab. Pharmacokinet. 8, 175–79 (1983).
 
-**Fleishaker 1994** Fleishaker JC, Hulst LK. A pharmacokinetic and pharmacodynamic evaluation of the combined administration of alprazolam and fluvoxamine. European Journal of Clinical Pharmacology. 1994;46(1):35--9.
+**DeVries 1992** DeVries, M., VanHarten, J., VanBemmel, P. & Raghoebar, M. Single and multiple oral dose fluvoxamine kinetics in young and elderly subjects. Ther. Drug Monit. 14, 493–98 (1992).
 
-**Fukasawa 2006** Fukasawa T, Yasui-Furukori N, Suzuki A, et al. Effects of Caffeine on the Kinetics of Fluvoxamine and its Major Metabolite in Plasma After a Single Oral Dose of the Drug. Ther Drug Monit. 2006;28(3):308-311.
+**Drugbank** (https://www.drugbank.ca/drugs/DB00176), last view: 22 October 2018;
 
-**Iga 2015** Iga K. Use of Three-Compartment Physiologically Based Pharmacokinetic Modeling to Predict Hepatic Blood Levels of Fluvoxamine Relevant for Drug-Drug Interactions. J Pharm Sci. 2015;104(4):1478-1491.
+**Fleishaker 1994** Fleishaker, J. & Hulst, L. A pharmacokinetic and pharmacodynamic evaluation of the combined administration of alprazolam and fluvoxamine. Eur. J. Clin. Pharmacol. 46, 35–9 (1994).
 
-**Iga 2016** Iga K. Dynamic and Static Simulations of Fluvoxamine-Perpetrated Drug-Drug Interactions Using Multiple Cytochrome P450 Inhibition Modeling, and Determination of Perpetrator-Specific CYP Isoform Inhibition Constants and Fractional CYP Isoform Contributions to Vic. *J Pharm Sci*.Victim Clearance. Journal of Pharmaceutical Sciences. 2016 Mar;105(3):1307-1317–17.
+**Fukasawa 2006** Fukasawa, T. et al. Effects of caffeine on the kinetics of fluvoxamine and its major metabolite in plasma after a single oral dose of the drug. Ther. Drug Monit. 28, 308–11 (2006).
 
-**Kuepfer 2016** Kuepfer L, Niederalt C, Wendl T, Schlender JF, Willmann S, Lippert J, Block M, Eissing T, Teutonico D. Applied Concepts in PBPK Modeling: How to Build a PBPK/PD Model.CPT Pharmacometrics Syst Pharmacol. 2016 Oct;5(10):516-531.
+**Hallifax 2007** Hallifax, D. & Houston, J.B. Saturable uptake of lipophilic amine drugs into isolated hepatocytes: mechanisms and consequences for quantitative clearance prediction. Drug Metab. Dispos. 35, 1325–32 (2007).
 
-**Kunii 2005** Kunii T, Fukasawa T, Yasui-Furukori N, et al. Interaction Study Between Enoxacin and Fluvoxamine. Ther Drug Monit. 2005;27(3):349-353.
+**Japanese Society 2015** Japanese Society of Hospital Pharmacists. 医薬品インタビューフォーム. (2015).
 
-**Labellarte 2004** Labellarte M, Biederman J, Emslie G, et al. Multiple-dose pharmacokinetics of fluvoxamine in children and adolescents. J Am Acad Child Adolesc Psychiatry. 2004;43(12):1497-1505
+**Karjalainen 2008** Karjalainen, M.J., Neuvonen, P.J. & Backman, J.T. In vitro inhibition of CYP1A2 by model inhibitors, anti-inflammatory analgesics and female sex steroids: predictability of in vivo interactions. Basic Clin. Pharmacol. Toxicol. 103, 157–65 (2008).
 
-**Lam 2003** Lam YWF, Alfaro CL, Ereshefsky L, Miller M. Pharmacokinetic and pharmacodynamic interactions of oral midazolam with ketoconazole, fluoxetine, fluvoxamine, and nefazodone. *J Clin Pharmacol*. 2003;43(11):1274-1282.
+**Kuepfer 2016** Kuepfer L, Niederalt C, Wendl T, Schlender JF, Willmann S, Lippert J, Block M, Eissing T, Teutonico D. Applied Concepts in PBPK Modeling: How to Build a PBPK/PD Model.CPT Pharmacometrics Syst Pharmacol. 2016 Oct;5(10):516-531. doi: 10.1002/psp4.12134. Epub 2016 Oct 19. 
 
-**Orlando 2009** Orlando R, De Martin S, Andrighetto L, Floreani M, Palatini P. Fluvoxamine pharmacokinetics in healthy elderly subjects and elderly patients with chronic heart failure. Br J Clin Pharmacol. 20 0 Mar;69(3):279-86.
+**Kunii 2005** Kunii, T. et al. Interaction study between enoxacin and fluvoxamine. Ther. Drug Monit. 27, 349–53 (2005).
 
-**Perucca 1994** Perucca E, Gatti G, Spina E. Clinical Pharmacokinetics of Fluvoxamine: *Clinical Pharmacokinetics*. 1994 Sep;27(3):175--90.
+**Labellarte 2004** Labellarte, M. et al. Multiple-dose pharmacokinetics of fluvoxamine in children and adolescents. J. Am. Acad. Child Adolesc. Psychiatry 43, 1497–505 (2004).
+
+**Meyer 2012** Meyer, M., Schneckener, S., Ludewig, B., Kuepfer, L. & Lippert, J. Using expression data for quantification of active processes in physiologically-based pharmacokinetic modeling. Drug Metab. Dispos. 40, 892–901 (2012).
+
+**Miura 2007** Miura, M. & Ohkubo, T. Identification of human cytochrome P450 enzymes involved in the major metabolic pathway of fluvoxamine. Xenobiotica. 37, 169–79 (2007).
+
+**MSDS** material safety data sheet of fluvoxamine
+
+**Olesen 2000** Olesen, O.V. & Linnet, K. Fluvoxamine-Clozapine drug interaction: inhibition in vitro of five cytochrome P450 isoforms involved in clozapine metabolism. J. Clin. Psychopharmacol. 20, 35–42 (2000).
+
+**Orlando 2010** Orlando, R., DeMartin, S., Andrighetto, L., Floreani, M. & Palatini, P. Fluvoxamine pharmacokinetics in healthy elderly subjects and elderly patients with chronic heart failure. Br. J. Clin. Pharmacol. 69, 279–86 (2010).
+
+**Perucca 1994** Perucca, E., Gatti, G. & Spina, E. Clinical pharmacokinetics of fluvoxamine. Clin. Pharmacokinet. 27, 175–90 (1994).
 
 **PK-Sim Ontogeny Database Version 7.3** (https://github.com/Open-Systems-Pharmacology/OSPSuite.Documentation/blob/38cf71b384cfc25cfa0ce4d2f3addfd32757e13b/PK-Sim%20Ontogeny%20Database%20Version%207.3.pdf)
 
-**PubChem 9560989** (https://pubchem.ncbi.nlm.nih.gov/compound/9560989)
+**Schlender 2016** Schlender JF, Meyer M, Thelen K, Krauss M, Willmann S, Eissing T, Jaehde U. Development of a Whole-Body Physiologically Based Pharmacokinetic Approach to Assess the Pharmacokinetics of Drugs in Elderly Individuals. Clin Pharmacokinet. 2016 Dec;55(12):1573-1589. 
 
-**Spigset 1997** Spigset O, Granberg K, Hägg S, Norström A, Dahlqvist R. Relationship between fluvoxamine pharmacokinetics and CYP2D6/CYP2C19 phenotype polymorphisms. Eur J Clin Pharmacol. 1997;52(2):129-33.
+**Spigset 1995** Spigset, O., Carleborg, L., Hedenmalm, K. & Dahlqvist, R. Effect of cigarette smoking on fluvoxamine pharmacokinetics in humans. Clin. Pharmacol. Ther. 58, 399–403 (1995).
 
-**Spigset 1998** Spigset O, Hägg S, Dahlqvist R, Granberg K, Söderström E. Non-linear fluvoxamine disposition. Br J Clin Pharmacol. 1998;45(3):257-263.
+**Spigset 1997** Spigset, O., Granberg, K., Hägg, S., Norström, A. & Dahlqvist, R. Relationship between fluvoxamine pharmacokinetics and CYP2D6/CYP2C19 phenotype polymorphisms. Eur. J. Clin. Pharmacol. 52, 129–33 (1997).
 
-**NCT02853136** Influence of fluvoxamine on the pharmacokinetics of BI 409306 after oral administration (randomized, open-label, two-treatment, two-sequence, two-period crossover study)
+**Spigset 1998** Spigset, O., Granberg, K., Hägg, S., Söderström, E. & Dahlqvist, R. Non-linear fluvoxamine disposition. Br. J. Clin. Pharmacol. 45, 257–63 (1998).	
 
-**VanHarten 1991** Van Harten J, Van Bemmel P, Dobrinska MR, Ferguson RK, Raghoebar M. Bioavailability of fluvoxamine given with and without food. Biopharm Drug Dispos. 1991;12(8):571-576.
+**Spigset 2001** Spigset, O., Axelsson, S., Norström, A., Hägg, S. & Dahlqvist, R. The major fluvoxamine metabolite in urine is formed by CYP2D6. Eur. J. Clin. Pharmacol. 57, 653–8 (2001).
 
-**VanHarten 1994** Van Harten J, Kok F, A. Lönnebo A. Grahnén A. Pharmacokinetics of fluvoxamine after intravenous and oral administration. Poster. P-1-58. 1994;4(3):331.
+**FDA 2017** U.S. Food and Drug Administration. Clinical Drug Interaction Studies - Study Design, Data Analysis, Implications for Dosing, and Labeling Recommendations. Draft Guidance for Industry. (2017).
 
-**Willmann 2007** Willmann S, Höhn K, Edginton A, Sevestre M, Solodenko J, Weiss W, Lippert J, Schmitt W. Development of a physiology-based whole-body population model for assessing the influence of individual variability on the pharmacokinetics of drugs. *J Pharmacokinet Pharmacodyn* 2007, 34(3): 401-431.
+**VanHarten 1991** VanHarten, J., VanBemmel, P., Dobrinska, M.R., Ferguson, R.K. & Raghoebar, M. Bioavailability of fluvoxamine given with and without food. Biopharm. Drug Dispos. 12, 571–6 (1991).
 
-# 6 Glossary
-| ADME    | Absorption, Distribution, Metabolism,  Excretion             |
-| ------- | ------------------------------------------------------------ |
-| AUC     | Area under the plasma concentration  versus time curve       |
-| AUCinf  | AUC until infinity                                           |
-| AUClast | AUC until last measurable sample                             |
-| AUCR    | Area under the plasma concentration  versus time curve Ratio |
-| b.i.d.  | Twice daily (bis in diem)                                    |
-| CL      | Clearance                                                    |
-| Clint   | Intrinsic liver clearance                                    |
-| Cmax    | Maximum concentration                                        |
-| CmaxR   | Maximum concentration Ratio                                  |
-| CYP     | Cytochrome P450 oxidase                                      |
-| CYP1A2  | Cytochrome P450 1A2 oxidase                                  |
-| CYP2C19 | Cytochrome P450 2C19 oxidase                                 |
-| CYP3A4  | Cytochrome P450 3A4 oxidase                                  |
-| DDI     | Drug-drug interaction                                        |
-| e.c.    | Enteric coated                                               |
-| EE      | Ethinylestradiol                                             |
-| EM      | Extensive metabolizers                                       |
-| fm      | Fraction metabolized                                         |
-| FMO     | Flavin-containing monooxygenase                              |
-| fu      | Fraction unbound                                             |
-| FDA     | Food and Drug administration                                 |
-| GFR     | Glomerular filtration rate                                   |
-| HLM     | Human liver microsomes                                       |
-| hm      | homozygous                                                   |
-| ht      | heterozygous                                                 |
-| IM      | Intermediate metabolizers                                    |
-| i.v.    | Intravenous                                                  |
-| IVIVE   | In Vitro to In  Vivo Extrapolation                           |
-| Ka      | Absorption rate constant                                     |
-| kcat    | Catalyst rate constant                                       |
-| Ki      | Inhibitor constant                                           |
-| Kinact  | Rate of enzyme inactivation                                  |
-| Km      | Michaelis Menten constant                                    |
-| m.d.    | Multiple dose                                                |
-| OSP     | Open Systems Pharmacology                                    |
-| PBPK    | Physiologically-based pharmacokinetics                       |
-| PK      | Pharmacokinetics                                             |
-| PI      | Parameter identification                                     |
-| PM      | Poor metabolizers                                            |
-| RT-PCR  | Reverse transcription polymerase chain  reaction             |
-| p.o.    | Per os                                                       |
-| q.d.    | Once daily (quaque diem)                                     |
-| SD      | Single Dose                                                  |
-| SE      | Standard error                                               |
-| s.d.SPC | Single doseSummary of Product Characteristics                |
-| SD      | Standard deviation                                           |
-| TDI     | Time dependent inhibition                                    |
-| t.i.d   | Three times a day (ter in die)                               |
-| UGT     | Uridine  5'-diphospho-glucuronosyltransferase                |
-| UM      | Ultra-rapid metabolizers                                     |
+**Yao 2001** Yao, C. et al. Fluvoxamine-theophylline interaction: gap between in vitro and in vivo inhibition constants toward cytochrome P4501A2. Clin. Pharmacol. Ther. 70, 415–24 (2001).
+
+**Zhou 2009** Zhou, S.F., Yang, L.P., Zhou, Z.W., Liu, Y.H. & Chan, E. Insights into the substrate specificity, inhibitors, regulation, and polymorphisms and the clinical impact of human cytochrome P450 1A2. AAPS J. 11, 481–494 (2009).
+
+

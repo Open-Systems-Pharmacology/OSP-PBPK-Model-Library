@@ -4,11 +4,11 @@
 
 
 
-| Version                                         | 1.1-OSP9.1                                                   |
+| Version                                         | 1.2-OSP10.0                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
-| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Erythromycin-Model/releases/tag/v1.1 |
-| OSP Version                                     | 9.1                                                          |
-| Qualification Framework Version                 | 2.2                                                          |
+| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Erythromycin-Model/releases/tag/v1.2 |
+| OSP Version                                     | 10.0                                                          |
+| Qualification Framework Version                 | 2.3                                                          |
 
 
 
@@ -41,7 +41,7 @@ Erythromycin a macrolide antibiotic used for the treatment of a number of bacter
 - erythromycin stearate in filmcoated tablets for oral administration
 - erythromycin ethylsuccinate in suspension or in filmcoated tablets for oral administration
 
-In its free form as base, erythromycin is easily hydrolyzed in acidic aqueous solution ([Mordi 2000](#5-References)). Therefore, orally administered erythromycin is given in the form of enteric-coated formulations or as more acid-stable salts or esters of erythromycin (e.g. erythromycin ethylsuccinate). Once in the small intestine, erythromycin is rapidly absorbed displaying a highly variable bioavailability ([Chun 1977](#5-References), [Mather 1981](#5-References)). Erythromycin diffuses in most tissues and accumulates in leukocytes and phagocytes ([Miller 1984](#5-References), [Carlier 1987](#5-References)). About 70% of erythromycin is bound to plasma proteins ([Barre 1987](#5-References)). Erythromycin has been shown to be a substrate for various transporters including P-gp and OATP1B1. The latter has been shown to critically affect erythromycin disposition ([Lancaster 2012](#5-References)). Erythromycin is extensively metabolized through N-demethylation catalyzed by CYP3A. Metabolism via CYP4F11 has also been suggested ([Kalsotra 2004](#5-References)). Biliary excretion also appears to play an important role in erythromycin clearance ([Acocella 1968](#5-References), [Chelvan 1979](#5-References)), but its contribution to total elimination remains unknown. The dose fraction excreted unchanged in urine is minimal and highly variable; reported fractions after IV administration range from 0.018 ± 0.005 to 0.171 ± 0.11 (mean ± SD) ([Pasic 1987](#5-References), [Austin 1980](#5-References)). There is abundant evidence from *in vitro* studies that erythromycin irreversibly inhibits CYP3A (e.g. [Larrey 1983](#5-References)) and the FDA lists erythromycin as moderate index inhibitor for CYP3A. Findings from *in vivo* studies investigating the dose linearity of erythromycin pharmacokinetics are not fully conclusive, but some studies observed a slight dose dependency ([Austin 1980](#5-References), [Josefsson 1982](#5-References)).
+In its free form as base, erythromycin is easily hydrolyzed in acidic aqueous solution ([Mordi 2000](#5-references)). Therefore, orally administered erythromycin is given in the form of enteric-coated formulations or as more acid-stable salts or esters of erythromycin (e.g. erythromycin ethylsuccinate). Once in the small intestine, erythromycin is rapidly absorbed displaying a highly variable bioavailability ([Chun 1977](#5-references), [Mather 1981](#5-references)). Erythromycin diffuses in most tissues and accumulates in leukocytes and phagocytes ([Miller 1984](#5-references), [Carlier 1987](#5-references)). About 70% of erythromycin is bound to plasma proteins ([Barre 1987](#5-references)). Erythromycin has been shown to be a substrate for various transporters including P-gp and OATP1B1. The latter has been shown to critically affect erythromycin disposition ([Lancaster 2012](#5-references)). Erythromycin is extensively metabolized through N-demethylation catalyzed by CYP3A. Metabolism via CYP4F11 has also been suggested ([Kalsotra 2004](#5-references)). Biliary excretion also appears to play an important role in erythromycin clearance ([Acocella 1968](#5-references), [Chelvan 1979](#5-references)), but its contribution to total elimination remains unknown. The dose fraction excreted unchanged in urine is minimal and highly variable; reported fractions after IV administration range from 0.018 ± 0.005 to 0.171 ± 0.11 (mean ± SD) ([Pasic 1987](#5-references), [Austin 1980](#5-references)). There is abundant evidence from *in vitro* studies that erythromycin irreversibly inhibits CYP3A (e.g. [Larrey 1983](#5-references)) and the FDA lists erythromycin as moderate index inhibitor for CYP3A. Findings from *in vivo* studies investigating the dose linearity of erythromycin pharmacokinetics are not fully conclusive, but some studies observed a slight dose dependency ([Austin 1980](#5-references), [Josefsson 1982](#5-references)).
 
 
 
@@ -49,7 +49,7 @@ In its free form as base, erythromycin is easily hydrolyzed in acidic aqueous so
 # 2 Methods
 
 ## 2.1 Modeling Strategy
-The general workflow for building an adult PBPK model has been described by Kuepfer et al. ([Kuepfer 2016](#5-References)). Relevant information on the anthropometry (height, weight) was gathered from the respective clinical study, if reported. Information on physiological parameters (e.g. blood flows, organ volumes, hematocrit) in adults was gathered from the literature and has been incorporated in PK-Sim® as described previously ([Willmann 2007](#5-References)). The  applied activity and variability of plasma proteins and active processes that are integrated into PK-Sim® are described in the publicly available 'PK-Sim® Ontogeny Database Version 7.3' ([PK-Sim Ontogeny Database Version 7.3](#5-References)).
+The general workflow for building an adult PBPK model has been described by Kuepfer et al. ([Kuepfer 2016](#5-references)). Relevant information on the anthropometry (height, weight) was gathered from the respective clinical study, if reported. Information on physiological parameters (e.g. blood flows, organ volumes, hematocrit) in adults was gathered from the literature and has been incorporated in PK-Sim® as described previously ([Willmann 2007](#5-references)). The  applied activity and variability of plasma proteins and active processes that are integrated into PK-Sim® are described in the publicly available 'PK-Sim® Ontogeny Database Version 7.3' ([PK-Sim Ontogeny Database Version 7.3](#5-references)).
 
 The PBPK model was developed based on clinical data of healthy adult subjects obtained from the literature, covering different formulation types and erythromycin salts. Multiple doses and dosing schedules following intravenous (IV) and oral (PO) administration were included in model building. Mass balance information on urinary excretion of unchanged erythromycin after IV administration was also accounted for during the model building process.
 
@@ -60,7 +60,7 @@ Unknown parameters were simultaneously optimized using all available PK data, in
 - 2 data sets following single PO administration of 500 mg erythromycin as enteric-coated tablets containing erythromycin as base
 - 2 data sets following single and multiple PO administration of 2 different doses of erythromycin (250 mg, 500 mg) as enteric-coated capsules containing pellets of erythromycin as base
 
-Structural model selection was mainly guided by visual inspection of the resulting description of data and biological plausibility. The following parameters were identified using the Parameter Identification module provided in PK-Sim® and MoBi® ([Open Systems Pharmacology Documentation](#5-References)):
+Structural model selection was mainly guided by visual inspection of the resulting description of data and biological plausibility. The following parameters were identified using the Parameter Identification module provided in PK-Sim® and MoBi® ([Open Systems Pharmacology Documentation](#5-references)):
 
 - `Specific intestinal permeability (transcellular)`
 - `Transport Protein - OATP1B1 - kcat`
@@ -74,9 +74,9 @@ Structural model selection was mainly guided by visual inspection of the resulti
 - `Dissolution lag time` (separately for the enteric-coated tablet containing erythromycin as base and the enteric-coated capsule containing pellets of erythromycin as base)
 - `Solubility at reference pH` (only for the enteric-coated tablet containing erythromycin as base)
 
-Details about input data (physicochemical, *in vitro* and clinical) can be found in [Section 2.2](#22-Data).
+Details about input data (physicochemical, *in vitro* and clinical) can be found in [Section 2.2](#22-data).
 
-Details about the structural model and its parameters can be found in [Section 2.3](#23-Model-Parameters-and-Assumptions).
+Details about the structural model and its parameters can be found in [Section 2.3](#23-model-parameters-and-assumptions).
 
 
 
@@ -90,13 +90,13 @@ A literature search was carried out to collect available information on physicoc
 
 | **Parameter**                                | **Unit** | **Literature**                                               | **Description**                                  |
 | :------------------------------------------- | -------- | ------------------------------------------------------------ | ------------------------------------------------ |
-| Molecular weight                             | g/mol    | 733.9 ([drugbank.ca](#5-References))                        | Molecular weight                                 |
-| pK<sub>a</sub> (basic)                       |          | 8.8 ([Lien 1974](#5-References)); 8.88 ([McFarland 1997](#5-References)) | Acid dissociation constant                       |
-| logP                                         |          | 2.48 ([Lien 1974](#5-References)); 2.92 ([Capobianco 1994](#5-References)); 3.06 ([McFarland 1997](#5-References)) | Partition coefficient between octanol and water  |
-| f<sub>u</sub>                                |          | 0.27 ± 0.05<sup>a</sup> ([Sun 2010](#5-References)); 0.28 ± 0.04<sup>a</sup> ([Iliopoulou 1982](#5-References)); 0.305 ± 0.028<sup>a</sup> ([Barre 1987](#5-References)); 0.326 ([Xu 2009](#5-References)) | Fraction unbound in human plasma                 |
-| Water solubility (erythromycin lactobionate) | mg/L     | 200000 ([U.S. Patent 2,761,859](#5-References))             | Solubility of erythromycin lactobionate in water |
-| Water solubility (erythromycin stearate)     | mg/L     | 182 ([Jones 1969](#5-References))                           | Solubility of erythromycin stearate in water     |
-| Water solubility (erythromycin base)         | mg/L     | 2100 ([Manna 1998](#5-References))                          | Solubility of free erythromycin as base in water |
+| Molecular weight                             | g/mol    | 733.9 ([drugbank.ca](#5-references))                        | Molecular weight                                 |
+| pK<sub>a</sub> (basic)                       |          | 8.8 ([Lien 1974](#5-references)); 8.88 ([McFarland 1997](#5-references)) | Acid dissociation constant                       |
+| logP                                         |          | 2.48 ([Lien 1974](#5-references)); 2.92 ([Capobianco 1994](#5-references)); 3.06 ([McFarland 1997](#5-references)) | Partition coefficient between octanol and water  |
+| f<sub>u</sub>                                |          | 0.27 ± 0.05<sup>a</sup> ([Sun 2010](#5-references)); 0.28 ± 0.04<sup>a</sup> ([Iliopoulou 1982](#5-references)); 0.305 ± 0.028<sup>a</sup> ([Barre 1987](#5-references)); 0.326 ([Xu 2009](#5-references)) | Fraction unbound in human plasma                 |
+| Water solubility (erythromycin lactobionate) | mg/L     | 200000 ([U.S. Patent 2,761,859](#5-references))             | Solubility of erythromycin lactobionate in water |
+| Water solubility (erythromycin stearate)     | mg/L     | 182 ([Jones 1969](#5-references))                           | Solubility of erythromycin stearate in water     |
+| Water solubility (erythromycin base)         | mg/L     | 2100 ([Manna 1998](#5-references))                          | Solubility of free erythromycin as base in water |
 
  <sup>a</sup> mean ± SD
 
@@ -106,58 +106,58 @@ A literature search was carried out to collect quantitative information the kine
 
 | Victim   compound | In   vitro system | Enzyme | K<sub>I</sub>   [µM] | k<sub>inact</sub>   [min<sup>-1</sup>] | Concentration   range of erythromycin [µM] | Concentration   of victim compound [µM] | Reference                           |
 | ----------------- | ----------------- | ------ | -------------------- | -------------------------------------- | ------------------------------------------ | --------------------------------------- | ----------------------------------- |
-| testosterone      | rec cDNA CYP3A4   | CYP3A4 | 1.04                 | 0.0293                                 | 0 - 20                                     | 100                                     | [Akiyoshi 2013](#5-References)     |
-| testosterone      | rec cDNA CYP3A4   | CYP3A4 | 1.21                 | 0.0164                                 | 0 - 20                                     | 100                                     | [Akiyoshi 2013](#5-References)     |
-| testosterone      | rec cDNA CYP3A4   | CYP3A4 | 0.415                | 0.0159                                 | 0 - 20                                     | 100                                     | [Akiyoshi 2013](#5-References)     |
-| testosterone      | rec cDNA CYP3A4   | CYP3A4 | 2.24                 | 0.0293                                 | 0 - 20                                     | 100                                     | [Akiyoshi 2013](#5-References)     |
-| testosterone      | rec cDNA CYP3A4   | CYP3A4 | 0.753                | 0.0248                                 | 0 - 20                                     | 100                                     | [Akiyoshi 2013](#5-References)     |
-| midazolam         | rec cDNA CYP3A4   | CYP3A  | 9.5                  | 0.16                                   | 50-fold range                              | 10                                      | [Atkinson 2005](#5-References)     |
-| midazolam         | rec cDNA CYP3A4   | CYP3A  | 8.82                 | 0.12                                   | 50-fold range                              | 10                                      | [Atkinson 2005](#5-References)     |
-| midazolam         | rec cDNA CYP3A4   | CYP3A  | 8.3                  | 0.09                                   | 50-fold range                              | 10                                      | [Atkinson 2005](#5-References)     |
-| testosterone      | rec cDNA CYP3A4   | CYP3A  | 9.5                  | 0.06                                   | 4 - 200                                    | 16.7                                    | [Atkinson 2005](#5-References)     |
-| triazolam         | HLM               | CYP3A  | 5.4                  | 0.069                                  |                                            | 400                                     | [Aueviriyavit 2010](#5-References) |
-| testosterone      | rec cDNA CYP3A4   | CYP3A4 | 5.3                  | 0.12                                   | 5 - 20                                     | 200                                     | [Chan 2000](#5-References)         |
-| midazolam         | cryopreserved HEP | CYP3A  | 60                   | 0.081                                  | 3 - 300                                    | 30                                      | [Chen 2011](#5-References)         |
-| midazolam         | cryopreserved HEP | CYP3A  | 67.9                 | 0.079                                  | 3 - 300                                    | 30                                      | [Chen 2011](#5-References)         |
-| midazolam         | rec cDNA CYP3A4   | CYP3A4 | 0.762                | 0.0648                                 | 0.1 - 30                                   | 4                                       | [Ishikawa 2017](#5-References)     |
-| testosterone      | rec cDNA CYP3A4   | CYP3A4 | 1.00                 | 0.0604                                 | 0.1 - 30                                   | 150                                     | [Ishikawa 2017](#5-References)     |
-| nifedipine        | rec cDNA CYP3A4   | CYP3A4 | 0.794                | 0.0766                                 | 0.1 - 30                                   | 6                                       | [Ishikawa 2017](#5-References)     |
-| triazolam         | HLM               | CYP3A4 | 15.9                 | 0.062                                  | 3 - 100                                    | 300                                     | [Kanamitsu 2000](#5-References)    |
-| triazolam         | HLM               | CYP3A4 | 17.4                 | 0.055                                  | 3 - 100                                    | 300                                     | [Kanamitsu 2000](#5-References)    |
-| triazolam         | rec cDNA CYP3A4   | CYP3A4 | 19.1                 | 0.173                                  | 3 - 100                                    | 300                                     | [Kanamitsu 2000](#5-References)    |
-| triazolam         | rec cDNA CYP3A4   | CYP3A4 | 18.9                 | 0.097                                  | 3 - 100                                    | 300                                     | [Kanamitsu 2000](#5-References)    |
-| testosterone      | HLM               | CYP3A4 | 29.4                 | 0.0271                                 |                                            | 250                                     | [Kosaka 2017](#5-References)       |
-| testosterone      | HLM               | CYP3A4 | 30                   | 0.040                                  | 0.3 - 300                                  |                                         | [Kozakai 2013](#5-References)      |
-| midazolam         | HLM               | CYP3A4 | 12                   | 0.035                                  | 0.3 - 300                                  |                                         | [Kozakai 2013](#5-References)      |
-| midazolam         | HLM               | CYP3A4 | 20                   | 0.033                                  | 0.3 - 300                                  |                                         | [Kozakai 2013](#5-References)      |
-| midazolam         | cryopreserved HEP | CYP3A  | 25.15                | 0.08                                   | 0.13 - 100                                 | 30                                      | [Mao 2011](#5-References)          |
-| midazolam         | HLM               | CYP3A  | 10.8                 | 0.032                                  |                                            |                                         | [Mao 2016](#5-References)          |
-| midazolam         | cryopreserved HEP | CYP3A  | 30.7                 | 0.05                                   | 0 - 300                                    | 20                                      | [Mao 2016](#5-References)          |
-| midazolam         | cryopreserved HEP | CYP3A  | 59.2                 | 0.062                                  | 0 - 100                                    | 5                                       | [Mao 2016](#5-References)          |
-| midazolam         | cryopreserved HEP | CYP3A  | 80.3                 | 0.052                                  | 0 - 100                                    | 20                                      | [Mao 2016](#5-References)          |
-| midazolam         | rec cDNA CYP3A4   | CYP3A4 | 7.47                 | 0.042                                  | 2 - 50                                     | 8                                       | [McConn 2004](#5-References)       |
-| midazolam         | HLM               | CYP3A4 | 10.9                 | 0.046                                  | 2 - 100                                    | 8                                       | [McConn 2004](#5-References)       |
-| midazolam         | primary HEP       | CYP3A  | 11                   | 0.07                                   | 0.1 - 10                                   | 3                                       | [McGinnity 2006](#5-References)    |
-| midazolam         | HLM               | CYP3A4 | 10                   | 0.036                                  | 0 - 25                                     |                                         | [Obach 2007](#5-References)        |
-| testosterone      | HLM               | CYP3A4 | 9.8                  | 0.039                                  | 0 - 25                                     | 500                                     | [Obach 2007](#5-References)        |
-| testosterone      | rec cDNA CYP3A4   | CYP3A4 | 0.92                 | 0.058                                  | 5 - 100                                    | 250                                     | [Polasek 2006](#5-References)      |
-| testosterone      | HLM               | CYP3A4 | 12.8                 | 0.037                                  | 5 - 100                                    | 250                                     | [Polasek 2006](#5-References)      |
-| midazolam         | rec cDNA CYP3A4   | CYP3A4 | 5.1                  | 0.30                                   | 0.5 - 50                                   | 100                                     | [Ring 2005](#5-References)         |
-| testosterone      | rec cDNA CYP3A4   | CYP3A4 | 0.92                 | 0.058                                  |                                            |                                         | [Teng 2010](#5-References)         |
-| testosterone      | HLM               | CYP3A4 | 4.579                | 0.0115                                 |                                            |                                         | [Teng 2010](#5-References)         |
-| domperidone       | HLM               | CYP3A4 | 18.4                 | 0.022                                  | 2.5 - 200                                  | 500                                     | [Ung 2009](#5-References)          |
-| domperidone       | rec cDNA CYP3A4   | CYP3A4 | 4.1                  | 0.026                                  | 2.5 - 200                                  | 500                                     | [Ung 2009](#5-References)          |
-| midazolam         | HLM               | CYP3A4 | 12.1                 | 0.0215                                 | 0 - 100                                    | 25                                      | [Watanabe 2007](#5-References)     |
-| nifedipine        | HLM               | CYP3A4 | 11.3                 | 0.0295                                 | 0 - 100                                    | 50                                      | [Watanabe 2007](#5-References)     |
-| testosterone      | HLM               | CYP3A4 | 10.9                 | 0.0352                                 | 0 - 100                                    | 200                                     | [Watanabe 2007](#5-References)     |
-| midazolam         | HLM               | CYP3A  | 1.48                 | 0.017                                  | 0.5 - 500                                  | 20                                      | [Xu 2009](#5-References)           |
-| midazolam         | cryopreserved HEP | CYP3A  | 20.0                 | 0.016                                  | 0.5 - 500                                  | 20                                      | [Xu 2009](#5-References)           |
-| midazolam         | cryopreserved HEP | CYP3A  | 109                  | 0.055                                  | 0.5 - 500                                  | 20                                      | [Xu 2009](#5-References)           |
-| midazolam         | HLM               | CYP3A  | 81.8                 | 0.0665                                 | 20 - 400                                   | 10                                      | [Yamano 2001](#5-References)       |
-| midazolam         | HLM               | CYP3A  | 15.7                 | 0.1                                    |                                            |                                         | [Zhang 2006](#5-References)        |
-| testosterone      | rec cDNA CYP3A4   | CYP3A4 | 5                    | 0.34                                   | 1 - 50                                     | 200                                     | [Zhang 2009](#5-References)        |
-| testosterone      | HLM               | CYP3A4 | 15.7                 | 0.09                                   | 1 - 50                                     | 200                                     | [Zhang 2009](#5-References)        |
-| midazolam         | HLM               | CYP3A4 | 26.5                 | 0.041                                  | 2.5 - 50                                   | 10                                      | [Zimmerlin 2011](#5-References)    |
+| testosterone      | rec cDNA CYP3A4   | CYP3A4 | 1.04                 | 0.0293                                 | 0 - 20                                     | 100                                     | [Akiyoshi 2013](#5-references)     |
+| testosterone      | rec cDNA CYP3A4   | CYP3A4 | 1.21                 | 0.0164                                 | 0 - 20                                     | 100                                     | [Akiyoshi 2013](#5-references)     |
+| testosterone      | rec cDNA CYP3A4   | CYP3A4 | 0.415                | 0.0159                                 | 0 - 20                                     | 100                                     | [Akiyoshi 2013](#5-references)     |
+| testosterone      | rec cDNA CYP3A4   | CYP3A4 | 2.24                 | 0.0293                                 | 0 - 20                                     | 100                                     | [Akiyoshi 2013](#5-references)     |
+| testosterone      | rec cDNA CYP3A4   | CYP3A4 | 0.753                | 0.0248                                 | 0 - 20                                     | 100                                     | [Akiyoshi 2013](#5-references)     |
+| midazolam         | rec cDNA CYP3A4   | CYP3A  | 9.5                  | 0.16                                   | 50-fold range                              | 10                                      | [Atkinson 2005](#5-references)     |
+| midazolam         | rec cDNA CYP3A4   | CYP3A  | 8.82                 | 0.12                                   | 50-fold range                              | 10                                      | [Atkinson 2005](#5-references)     |
+| midazolam         | rec cDNA CYP3A4   | CYP3A  | 8.3                  | 0.09                                   | 50-fold range                              | 10                                      | [Atkinson 2005](#5-references)     |
+| testosterone      | rec cDNA CYP3A4   | CYP3A  | 9.5                  | 0.06                                   | 4 - 200                                    | 16.7                                    | [Atkinson 2005](#5-references)     |
+| triazolam         | HLM               | CYP3A  | 5.4                  | 0.069                                  |                                            | 400                                     | [Aueviriyavit 2010](#5-references) |
+| testosterone      | rec cDNA CYP3A4   | CYP3A4 | 5.3                  | 0.12                                   | 5 - 20                                     | 200                                     | [Chan 2000](#5-references)         |
+| midazolam         | cryopreserved HEP | CYP3A  | 60                   | 0.081                                  | 3 - 300                                    | 30                                      | [Chen 2011](#5-references)         |
+| midazolam         | cryopreserved HEP | CYP3A  | 67.9                 | 0.079                                  | 3 - 300                                    | 30                                      | [Chen 2011](#5-references)         |
+| midazolam         | rec cDNA CYP3A4   | CYP3A4 | 0.762                | 0.0648                                 | 0.1 - 30                                   | 4                                       | [Ishikawa 2017](#5-references)     |
+| testosterone      | rec cDNA CYP3A4   | CYP3A4 | 1.00                 | 0.0604                                 | 0.1 - 30                                   | 150                                     | [Ishikawa 2017](#5-references)     |
+| nifedipine        | rec cDNA CYP3A4   | CYP3A4 | 0.794                | 0.0766                                 | 0.1 - 30                                   | 6                                       | [Ishikawa 2017](#5-references)     |
+| triazolam         | HLM               | CYP3A4 | 15.9                 | 0.062                                  | 3 - 100                                    | 300                                     | [Kanamitsu 2000](#5-references)    |
+| triazolam         | HLM               | CYP3A4 | 17.4                 | 0.055                                  | 3 - 100                                    | 300                                     | [Kanamitsu 2000](#5-references)    |
+| triazolam         | rec cDNA CYP3A4   | CYP3A4 | 19.1                 | 0.173                                  | 3 - 100                                    | 300                                     | [Kanamitsu 2000](#5-references)    |
+| triazolam         | rec cDNA CYP3A4   | CYP3A4 | 18.9                 | 0.097                                  | 3 - 100                                    | 300                                     | [Kanamitsu 2000](#5-references)    |
+| testosterone      | HLM               | CYP3A4 | 29.4                 | 0.0271                                 |                                            | 250                                     | [Kosaka 2017](#5-references)       |
+| testosterone      | HLM               | CYP3A4 | 30                   | 0.040                                  | 0.3 - 300                                  |                                         | [Kozakai 2013](#5-references)      |
+| midazolam         | HLM               | CYP3A4 | 12                   | 0.035                                  | 0.3 - 300                                  |                                         | [Kozakai 2013](#5-references)      |
+| midazolam         | HLM               | CYP3A4 | 20                   | 0.033                                  | 0.3 - 300                                  |                                         | [Kozakai 2013](#5-references)      |
+| midazolam         | cryopreserved HEP | CYP3A  | 25.15                | 0.08                                   | 0.13 - 100                                 | 30                                      | [Mao 2011](#5-references)          |
+| midazolam         | HLM               | CYP3A  | 10.8                 | 0.032                                  |                                            |                                         | [Mao 2016](#5-references)          |
+| midazolam         | cryopreserved HEP | CYP3A  | 30.7                 | 0.05                                   | 0 - 300                                    | 20                                      | [Mao 2016](#5-references)          |
+| midazolam         | cryopreserved HEP | CYP3A  | 59.2                 | 0.062                                  | 0 - 100                                    | 5                                       | [Mao 2016](#5-references)          |
+| midazolam         | cryopreserved HEP | CYP3A  | 80.3                 | 0.052                                  | 0 - 100                                    | 20                                      | [Mao 2016](#5-references)          |
+| midazolam         | rec cDNA CYP3A4   | CYP3A4 | 7.47                 | 0.042                                  | 2 - 50                                     | 8                                       | [McConn 2004](#5-references)       |
+| midazolam         | HLM               | CYP3A4 | 10.9                 | 0.046                                  | 2 - 100                                    | 8                                       | [McConn 2004](#5-references)       |
+| midazolam         | primary HEP       | CYP3A  | 11                   | 0.07                                   | 0.1 - 10                                   | 3                                       | [McGinnity 2006](#5-references)    |
+| midazolam         | HLM               | CYP3A4 | 10                   | 0.036                                  | 0 - 25                                     |                                         | [Obach 2007](#5-references)        |
+| testosterone      | HLM               | CYP3A4 | 9.8                  | 0.039                                  | 0 - 25                                     | 500                                     | [Obach 2007](#5-references)        |
+| testosterone      | rec cDNA CYP3A4   | CYP3A4 | 0.92                 | 0.058                                  | 5 - 100                                    | 250                                     | [Polasek 2006](#5-references)      |
+| testosterone      | HLM               | CYP3A4 | 12.8                 | 0.037                                  | 5 - 100                                    | 250                                     | [Polasek 2006](#5-references)      |
+| midazolam         | rec cDNA CYP3A4   | CYP3A4 | 5.1                  | 0.30                                   | 0.5 - 50                                   | 100                                     | [Ring 2005](#5-references)         |
+| testosterone      | rec cDNA CYP3A4   | CYP3A4 | 0.92                 | 0.058                                  |                                            |                                         | [Teng 2010](#5-references)         |
+| testosterone      | HLM               | CYP3A4 | 4.579                | 0.0115                                 |                                            |                                         | [Teng 2010](#5-references)         |
+| domperidone       | HLM               | CYP3A4 | 18.4                 | 0.022                                  | 2.5 - 200                                  | 500                                     | [Ung 2009](#5-references)          |
+| domperidone       | rec cDNA CYP3A4   | CYP3A4 | 4.1                  | 0.026                                  | 2.5 - 200                                  | 500                                     | [Ung 2009](#5-references)          |
+| midazolam         | HLM               | CYP3A4 | 12.1                 | 0.0215                                 | 0 - 100                                    | 25                                      | [Watanabe 2007](#5-references)     |
+| nifedipine        | HLM               | CYP3A4 | 11.3                 | 0.0295                                 | 0 - 100                                    | 50                                      | [Watanabe 2007](#5-references)     |
+| testosterone      | HLM               | CYP3A4 | 10.9                 | 0.0352                                 | 0 - 100                                    | 200                                     | [Watanabe 2007](#5-references)     |
+| midazolam         | HLM               | CYP3A  | 1.48                 | 0.017                                  | 0.5 - 500                                  | 20                                      | [Xu 2009](#5-references)           |
+| midazolam         | cryopreserved HEP | CYP3A  | 20.0                 | 0.016                                  | 0.5 - 500                                  | 20                                      | [Xu 2009](#5-references)           |
+| midazolam         | cryopreserved HEP | CYP3A  | 109                  | 0.055                                  | 0.5 - 500                                  | 20                                      | [Xu 2009](#5-references)           |
+| midazolam         | HLM               | CYP3A  | 81.8                 | 0.0665                                 | 20 - 400                                   | 10                                      | [Yamano 2001](#5-references)       |
+| midazolam         | HLM               | CYP3A  | 15.7                 | 0.1                                    |                                            |                                         | [Zhang 2006](#5-references)        |
+| testosterone      | rec cDNA CYP3A4   | CYP3A4 | 5                    | 0.34                                   | 1 - 50                                     | 200                                     | [Zhang 2009](#5-references)        |
+| testosterone      | HLM               | CYP3A4 | 15.7                 | 0.09                                   | 1 - 50                                     | 200                                     | [Zhang 2009](#5-references)        |
+| midazolam         | HLM               | CYP3A4 | 26.5                 | 0.041                                  | 2.5 - 50                                   | 10                                      | [Zimmerlin 2011](#5-references)    |
 
 *Note:* Abbreviations: HEP: human hepatocytes; HLM: human liver microsomes; rec cDNA CYP3A4: human recombinant c-DNA CYP3A4 enzymes (e.g. supersomes, baculovirus-insect cell system, E. coli transfected cells)
 
@@ -174,37 +174,37 @@ A literature search was carried out to collect available PK data on erythromycin
 
 | Publication                       | Study description                                            |
 | :-------------------------------- | :----------------------------------------------------------- |
-| [Austin 1980](#5-References)     | IV administration of 125 mg, 250 mg, 500 mg, and 900 mg as erythromycin lactobionate; single dose |
-| [Barre 1987](#5-References)      | IV administration of 500 mg as erythromycin lactobionate; single dose |
-| [Berend 1979](#5-References)     | PO administration of 500 mg erythromycin stearate; multiple dose |
-| [Birkett 1990](#5-References)    | PO administration of 250 mg as enteric-coated capsules containing pellets of erythromycin base; single and multiple dose |
-| [Brannan 1995](#5-References)    | PO administration of 500 mg erythromycin stearate; multiple dose |
-| [DiSanto 1981](#5-References)    | PO administration of 500 mg as unprotected tablets containing erythromycin base, as film-coated tablets containing erythromycin base, as enteric-coated tablets containing erythromycin base and as film-coated tablets containing erythromycin stearate; single and multiple dose |
-| [Henry 1980](#5-References)      | PO administration of 500 mg erythromycin stearate; single dose |
-| [Huppertz 2011](#5-References)   | IV administration of 1000 mg as erythromycin lactobionate; single dose |
-| [Iliopoulou 1982](#5-References) | PO administration of 500 mg as film-coated tablet containing erythromycin stearate; multiple dose |
-| [Josefsson 1982](#5-References)  | PO administration of 500 mg as film-coated tablet containing erythromycin stearate and 250 mg, 500 mg, 1000 mg as enteric coated capsules containing pellets of erythromycin base; single dose |
-| [Kavi 1988](#5-References)       | PO administration of 500 mg as film-coated tablet containing erythromycin stearate; single dose |
-| [Kivistö 1997](#5-References)    | PO administration of 500 mg as enteric-coated capsules containing erythromycin base; multiple dose |
-| [Kroboth 1982](#5-References)    | PO administration of 500 mg as enteric-coated tablets containing erythromycin base; single dose |
-| [Malmborg 1978](#5-References)   | PO administration of 500 mg as film-coated tablet containing erythromycin stearate; multiple dose |
-| [Miglioli 1990](#5-References)   | PO administration of 1000 mg erythromycin stearate; multiple dose |
-| [Olkkola 1993](#5-References)    | Midazolam-erythromycin interaction study; PO administration of 500 mg as enteric-coated tablet containing erythromycin base; multiple dose |
-| [Parsons 1977](#5-References)    | PO administration of 500 mg erythromycin stearate; single dose |
-| [Pasic 1987](#5-References)      | IV administration of 300 mg as erythromycin lactobionate; single dose |
-| [Posti 1983](#5-References)      | PO administration of 500 mg as film-coated tablets containing erythromycin stearate, as enteric-coated tablets containing erythromycin base, and as enteric-coated tablets containing erythromycin stearate; single dose |
-| [Schreiner 1984](#5-References)  | PO administration of 500 mg as film-coated tablets containing erythromycin stearate and as enteric-coated capsule containing pellets of erythromycin base; single dose |
-| [Shanson 1984](#5-References)    | PO administration of 1500 mg erythromycin stearate; single dose |
-| [Simon 1980](#5-References)      | IV administration of 500 mg erythromycin lactobionate and PO administration of 500 mg erythromycin stearate; single dose |
-| [Sun 2010](#5-References)        | IV administration of 125 mg and PO administration of 250 mg (salt and formulation type not specified); single dose |
-| [Yakatan 1979](#5-References)    | PO administration of 250 mg as film-coated tablet containing erythromycin stearate; single dose |
-| [Yakatan 1980](#5-References)    | PO administration of 250 mg as film-coated tablet containing erythromycin stearate and as enteric-coated tablet containing erythromycin base; single and multiple dose |
+| [Austin 1980](#5-references)     | IV administration of 125 mg, 250 mg, 500 mg, and 900 mg as erythromycin lactobionate; single dose |
+| [Barre 1987](#5-references)      | IV administration of 500 mg as erythromycin lactobionate; single dose |
+| [Berend 1979](#5-references)     | PO administration of 500 mg erythromycin stearate; multiple dose |
+| [Birkett 1990](#5-references)    | PO administration of 250 mg as enteric-coated capsules containing pellets of erythromycin base; single and multiple dose |
+| [Brannan 1995](#5-references)    | PO administration of 500 mg erythromycin stearate; multiple dose |
+| [DiSanto 1981](#5-references)    | PO administration of 500 mg as unprotected tablets containing erythromycin base, as film-coated tablets containing erythromycin base, as enteric-coated tablets containing erythromycin base and as film-coated tablets containing erythromycin stearate; single and multiple dose |
+| [Henry 1980](#5-references)      | PO administration of 500 mg erythromycin stearate; single dose |
+| [Huppertz 2011](#5-references)   | IV administration of 1000 mg as erythromycin lactobionate; single dose |
+| [Iliopoulou 1982](#5-references) | PO administration of 500 mg as film-coated tablet containing erythromycin stearate; multiple dose |
+| [Josefsson 1982](#5-references)  | PO administration of 500 mg as film-coated tablet containing erythromycin stearate and 250 mg, 500 mg, 1000 mg as enteric coated capsules containing pellets of erythromycin base; single dose |
+| [Kavi 1988](#5-references)       | PO administration of 500 mg as film-coated tablet containing erythromycin stearate; single dose |
+| [Kivistö 1997](#5-references)    | PO administration of 500 mg as enteric-coated capsules containing erythromycin base; multiple dose |
+| [Kroboth 1982](#5-references)    | PO administration of 500 mg as enteric-coated tablets containing erythromycin base; single dose |
+| [Malmborg 1978](#5-references)   | PO administration of 500 mg as film-coated tablet containing erythromycin stearate; multiple dose |
+| [Miglioli 1990](#5-references)   | PO administration of 1000 mg erythromycin stearate; multiple dose |
+| [Olkkola 1993](#5-references)    | Midazolam-erythromycin interaction study; PO administration of 500 mg as enteric-coated tablet containing erythromycin base; multiple dose |
+| [Parsons 1977](#5-references)    | PO administration of 500 mg erythromycin stearate; single dose |
+| [Pasic 1987](#5-references)      | IV administration of 300 mg as erythromycin lactobionate; single dose |
+| [Posti 1983](#5-references)      | PO administration of 500 mg as film-coated tablets containing erythromycin stearate, as enteric-coated tablets containing erythromycin base, and as enteric-coated tablets containing erythromycin stearate; single dose |
+| [Schreiner 1984](#5-references)  | PO administration of 500 mg as film-coated tablets containing erythromycin stearate and as enteric-coated capsule containing pellets of erythromycin base; single dose |
+| [Shanson 1984](#5-references)    | PO administration of 1500 mg erythromycin stearate; single dose |
+| [Simon 1980](#5-references)      | IV administration of 500 mg erythromycin lactobionate and PO administration of 500 mg erythromycin stearate; single dose |
+| [Sun 2010](#5-references)        | IV administration of 125 mg and PO administration of 250 mg (salt and formulation type not specified); single dose |
+| [Yakatan 1979](#5-references)    | PO administration of 250 mg as film-coated tablet containing erythromycin stearate; single dose |
+| [Yakatan 1980](#5-references)    | PO administration of 250 mg as film-coated tablet containing erythromycin stearate and as enteric-coated tablet containing erythromycin base; single and multiple dose |
 
 
 ## 2.3 Model Parameters and Assumptions
 ### 2.3.1	Dissolution and absorption
 
-Development of an adequate absorption model for erythromycin was complicated by the large intersubject variability in the absorption kinetics of erythromycin ([Chun 1977](#5-References), [Mather 1981](#5-References)). Additionally, multiple formulation types are available entailing different dissolution and absorption kinetics ([Chun 1977](#5-References), [Yakatan 1980](#5-References), [Mather 1981](#5-References)). The herein presented model was developed for the following oral dosage forms:
+Development of an adequate absorption model for erythromycin was complicated by the large intersubject variability in the absorption kinetics of erythromycin ([Chun 1977](#5-references), [Mather 1981](#5-references)). Additionally, multiple formulation types are available entailing different dissolution and absorption kinetics ([Chun 1977](#5-references), [Yakatan 1980](#5-references), [Mather 1981](#5-references)). The herein presented model was developed for the following oral dosage forms:
 
 - film-coated tablets containing erythromycin stearate
 - enteric-coated tablets containing erythromycin as free base
@@ -214,7 +214,7 @@ The following sections briefly address how each of these formulations was modele
 
 #### 2.3.1.1	Film-coated tablet containing erythromycin stearate
 
-Comparison of the reported erythromycin PK following administration of different doses of film-coated tablets containing the stearate salt indicated that the lowest dose - 250 mg - yields a larger t<sub>max</sub> than the higher doses (500, 1000 and 1500 mg). Different dissolution kinetics were therefore used for this formulation type; relatively slow dissolution kinetics was used for the 250 mg dose, whereas dissolution of the higher doses (500, 1000 and 1500 mg) was described by immediate-release kinetics. Both types of dissolution kinetics were described by the Weibull function. The parameters `Dissolution shape` and `Dissolution time (50% dissolved)` were optimized to optimally describe the clinical data. Additionally, solubility was also optimized as it was found during model building that solubility-limited absorption of the high doses better captured the observed PK profiles. 
+Comparison of the reported erythromycin PK following administration of different doses of film-coated tablets containing the stearate salt indicated that the lowest dose (250 mg) yields a larger t<sub>max</sub> than the higher doses (500, 1000 and 1500 mg). Different dissolution kinetics were therefore used for this formulation type; relatively slow dissolution kinetics was used for the 250 mg dose, whereas dissolution of the higher doses (500, 1000 and 1500 mg) was described by immediate-release kinetics. Both types of dissolution kinetics were described by the Weibull function. The parameters `Dissolution shape` and `Dissolution time (50% dissolved)` were optimized to optimally describe the clinical data. Additionally, solubility was also optimized as it was found during model building that solubility-limited absorption of the high doses captured the observed PK profiles better. 
 
 #### 2.3.1.2	Enteric-coated tablet containing erythromycin as free base
 
@@ -222,7 +222,7 @@ Relatively few PK data were available for enteric-coated tablets containing eryt
 
 #### 2.3.1.3	Enteric-coated capsule containing pellets of erythromycin as free base
 
-Comparison of the reported erythromycin PK following administration of different doses of enteric-coated capsules containing pellets of erythromycin base showed large variability in C<sub>max</sub> and t<sub>max</sub> both within and between different doses (dose range: 250 mg - 1000 mg). Here, dissolution kinetics was also described by the Weibull function with relevant parameters (`Dissolution shape`, `Dissolution time (50% dissolved)` and `lag time`) being optimized to better describe clinical data. However, optimizing solubility did not result in a better description of the observed PK profiles. Consequently, solubility of erythromycin in this formulation type was fixed to a high value (500 mg/L) to avoid any solubility-limitations.
+Comparison of the reported erythromycin PK following administration of different doses of enteric-coated capsules containing pellets of erythromycin base showed large variability in C<sub>max</sub> and t<sub>max</sub> both within and between different doses (dose range: 250 mg - 1000 mg). Here, dissolution kinetics was also described by the Weibull function with relevant parameters (`Dissolution shape`, `Dissolution time (50% dissolved)` and `lag time`) being optimized to better describe clinical data. However, optimizing solubility did not result in a better description of the observed PK profiles. Consequently, solubility of erythromycin in this formulation type was fixed to a high value (500 mg/L) to avoid any solubility-related limitations in dissolution and absorption.
 
 
 
@@ -230,7 +230,7 @@ For all three formulations, the same `Specific intestinal permeability (transcel
 
 ### 2.3.2	Distribution
 
-With an average fraction unbound in human plasma of approximately 0.30, erythromycin is moderately protein-bound. In the developed model, the `fraction unbound (plasma, reference value)` was set to 0.305 which is the value reported by Barre et al. ([Barre 1987](#5-References)). `Lipophilicity` was fixed to a value of 2.82 which is the average of three experimentally measured values reported in the literature ([Lien 1974](#5-References), [Capobianco 1994](#5-References), [McFarland 1997](#5-References)). The observed PK data were found to be best described using the model for estimating intracellular-to-plasma partition coefficients according to the method by `Rodgers and Rowland` ([Rodgers 2005](#5-References), [Rodgers 2006](#5-References)). Cellular permeabilities were automatically calculated using the method `Charge dependent Schmitt`  ([Open Systems Pharmacology Documentation](#5-References)). Active transfer of erythromycin by OATP1B1 was modeled as Michaelis-Menten kinetics using an `Influx` transporter type; the `Km` value of 13.2 µM was taken from the literature ([Lancaster 2012](#5-References)) and `kcat` was optimized to best match observed clinical data. The gene expression profile of OATP1B1 (default symbol for the gene: LST-3TM12) was loaded from the internal PK-Sim® database using the expression data quantified by RT-PCR ([Open Systems Pharmacology Documentation](#5-References)). 
+With an average fraction unbound in human plasma of approximately 0.30, erythromycin is moderately protein-bound. In the developed model, the `fraction unbound (plasma, reference value)` was set to 0.305 which is the value reported by Barre et al. ([Barre 1987](#5-references)). `Lipophilicity` was fixed to a value of 2.82 which is the average of three experimentally measured values reported in the literature ([Lien 1974](#5-references), [Capobianco 1994](#5-references), [McFarland 1997](#5-references)). The observed PK data were found to be best described using the model for estimating intracellular-to-plasma partition coefficients according to the method by `Rodgers and Rowland` ([Rodgers 2005](#5-references), [Rodgers 2006](#5-references)). Cellular permeabilities were automatically calculated using the method `Charge dependent Schmitt`  ([Open Systems Pharmacology Documentation](#5-references)). Active transfer of erythromycin by OATP1B1 was modeled as Michaelis-Menten kinetics using an `Influx` transporter type; the `Km` value of 13.2 µM was taken from the literature ([Lancaster 2012](#5-references)) and `kcat` was optimized to best match observed clinical data. The gene expression profile of OATP1B1 (default symbol for the gene: LST-3TM12) was loaded from the internal PK-Sim® database using the expression data quantified by RT-PCR ([Open Systems Pharmacology Documentation](#5-references)). 
 
 ### 2.3.3	Elimination
 
@@ -238,32 +238,59 @@ Erythromycin is extensively metabolized via N-demethylation catalyzed by CYP3A. 
 
 | Vmax [nmol/min/mg mic protein] | Km [µM] | Microsomal preparation | Reference                    |
 | ------------------------------ | ------- | ---------------------------- | ---------------------------- |
-| 2 ± 0.09                       | 78 ± 9  | HLM from donor HL 3926 | [Wang 1997](#5-References)  |
-| 0.41 ± 0.02                    | 44 ± 7  | HLM from donor HL 24493 | [Wang 1997](#5-References)  |
-| 0.345 ± 0.013     | 88 ± 10 | mixed HLM pool | [Riley 1997](#5-References) |
+| 2 ± 0.09                       | 78 ± 9  | HLM from donor HL 3926 | [Wang 1997](#5-references)  |
+| 0.41 ± 0.02                    | 44 ± 7  | HLM from donor HL 24493 | [Wang 1997](#5-references)  |
+| 0.345 ± 0.013     | 88 ± 10 | mixed HLM pool | [Riley 1997](#5-references) |
 
-In the PBPK model, `Vmax` and `Km` were fixed to the mean of the values tabulated above (70 µM and 0.918 nmol/min/mg mic protein). The gene expression profile of CYP3A4 was loaded from the internal PK-Sim® database using the expression data quantified by RT-PCR ([Open Systems Pharmacology Documentation](#5-References)).
+In the PBPK model, `Vmax` and `Km` were fixed to the mean of the values tabulated above (70 µM and 0.918 nmol/min/mg mic protein). The gene expression profile of CYP3A4 was loaded from the internal PK-Sim® database using the expression data quantified by RT-PCR ([Open Systems Pharmacology Documentation](#5-references)).
 
-Although it has also been observed that erythromycin is metabolized via CYP4F11 *in vitro* ([Kalsotra 2004](#5-References)), this elimination pathway was not accounted for in the model because its contribution to overall elimination was assumed to be low. In humans, CYP4F11 is mainly expressed in the liver and to a much lesser extent in the kidney ([Cui 2000](#5-References)) and the CYP4F family makes up approximately 15% of all hepatic CYP enzymes ([Michaels 2014](#5-References)). The K<sub>m</sub> and V<sub>max</sub> values for the CYP4F11-mediated biotransformation reported by [Kalsotra 2004](#5-References) are similar to those measured for CYP3A4 ([Riley 1997](#5-References), [Wang 1997](#5-References)), suggesting that the relative mass balance of these two metabolism pathways mainly depends on the absolute amount of each enzyme in the liver. While no information on total CYP4F11 in the human liver could be found in the literature, CYP4F11 expression in the liver of cynomolgus monkeys was observed to be approximately 6-fold lower than that of CYP3A4 ([Uehara 2015](#5-References)). Hence, it was assumed that CYP4F11-mediated metabolism of erythromycin can be neglected in humans.
+Although it has also been observed that erythromycin is metabolized via CYP4F11 *in vitro* ([Kalsotra 2004](#5-references)), this elimination pathway was not accounted for in the model because its contribution to overall elimination was assumed to be low. In humans, CYP4F11 is mainly expressed in the liver and to a much lesser extent in the kidney ([Cui 2000](#5-references)) and the CYP4F family makes up approximately 15% of all hepatic CYP enzymes ([Michaels 2014](#5-references)). The K<sub>m</sub> and V<sub>max</sub> values for the CYP4F11-mediated biotransformation reported by [Kalsotra 2004](#5-references) are similar to those measured for CYP3A4 ([Riley 1997](#5-references), [Wang 1997](#5-references)), suggesting that the relative mass balance of these two metabolism pathways mainly depends on the absolute amount of each enzyme in the liver. While no information on total CYP4F11 in the human liver could be found in the literature, CYP4F11 expression in the liver of cynomolgus monkeys was observed to be approximately 6-fold lower than that of CYP3A4 ([Uehara 2015](#5-references)). Hence, it was assumed that CYP4F11-mediated metabolism of erythromycin can be neglected in humans.
 
-Additional elimination pathways suggested for erythromycin are acid-catalyzed degradation (hydrolysis) the acidic milieu of the stomach ([Mordi 2000](#5-References)) and biliary excretion ([Acocella 1968](#5-References), [Chelvan 1979](#5-References)), but no quantitative information on the mass balance of these pathways could be found in the literature. Additionally, mechanism-based inhibition of CYP3A4 by erythromycin might constitute another clearance process which was neither considered in the model. However, a `total hepatic clearance` process was implemented in the model which could at least partly account for other elimination pathways not explicitly accounted for in the model. Of note, despite the name `total hepatic clearance`, this clearance pathway was implemented as dummy clearance accounting for additional elimination processes that are not covered by CYP3A-mediated clearance and unchanged renal excretion and it should hence rather be regarded as a partial than a total clearance. 
+Additional elimination pathways suggested for erythromycin are acid-catalyzed degradation (hydrolysis) the acidic milieu of the stomach ([Mordi 2000](#5-references)) and biliary excretion ([Acocella 1968](#5-references), [Chelvan 1979](#5-references)), but no quantitative information on the mass balance of these pathways could be found in the literature. Additionally, mechanism-based inhibition of CYP3A4 by erythromycin might constitute another clearance process which was neither considered in the model. However, a `total hepatic clearance` process was implemented in the model which could at least partly account for other elimination pathways not explicitly accounted for in the model. Of note, despite the name `total hepatic clearance`, this clearance pathway was implemented as dummy clearance accounting for additional elimination processes that are not covered by CYP3A-mediated clearance and unchanged renal excretion and it should hence rather be regarded as a partial than a total clearance. 
 
-The reported dose fractions of erythromycin undergoing unchanged renal excretion after IV administration range from 0.018 ± 0.005 to 0.171 ± 0.11 (mean ± SD) ([Pasic 1987](#5-References), [Austin 1980](#5-References)). This information was accounted for in the model by implementing a glomerular filtration process and optimizing the `GFR fraction` to match the observed dose fractions excreted unchanged in urine.
+The reported dose fractions of erythromycin undergoing unchanged renal excretion after IV administration range from 0.018 ± 0.005 to 0.171 ± 0.11 (mean ± SD) ([Pasic 1987](#5-references), [Austin 1980](#5-references)). This information was accounted for in the model by implementing a glomerular filtration process and optimizing the `GFR fraction` to match the observed dose fractions excreted unchanged in urine.
 
 ### 2.3.4 Autoinhibition
 
-In the scientific literature, large ranges have been reported for K<sub>I</sub> and k<sub>inact</sub> ([Section 2.2.2](#222-In-vitro-data-on-mechanism-based-inhibition-of-CYP3A)). Since the exact values are unknown,  `K_kinact_half` and `kinact` were both optimized within the observed range (see [Section 2.2.2](#222-In-vitro-data-on-mechanism-based-inhibition-of-CYP3A)) during model building to best match the observed clinical data. 
+In the scientific literature, large ranges have been reported for K<sub>I</sub> and k<sub>inact</sub> ([Section 2.2.2](#222-in-vitro-data-on-mechanism-based-inhibition-of-cyp3a)). Since the exact values are unknown,  `K_kinact_half` and `kinact` were both optimized within the observed range (see [Section 2.2.2](#222-in-vitro-data-on-mechanism-based-inhibition-of-cyp3a)) during model building to best match the observed clinical data. 
 
-To better inform optimization of these two parameters, clinical data of a midazolam-erythromycin interaction study conducted by Olkkola et al. ([Olkkola 1993](#5-References)) were included in the parameter optimization during model building. Therefore, the midazolam PBPK model v0.9 available on OSP GitHub (https://github.com/Open-Systems-Pharmacology/Midazolam-Model/releases/tag/0.9) was loaded in the PK-Sim® erythromycin file and the study by Olkkola et al. ([Olkkola 1993](#5-References)) was simulated. However, instead of using the reported midazolam plasma concentrations as observed data in the parameter identification, the AUC of midazolam was used. More specifically, a midazolam target AUC after IV and PO administration was calculated by multiplying the simulated midazolam AUC (24.3 and 54.0 µmol min/L and after IV and PO administration, respectively) with the observed geometric mean AUC ratio (1.96 and 4.07 after IV and PO administration, respectively) ([Olkkola 1993](#5-References)) resulting in target AUCs of 47.4 and 220 µmol min/L after IV and oral administration of midazolam, respectively. These values were included as observed data values in the parameter identification during model building. Since the AUC is not a default output that can directly be used in the parameter identification, the PBPK model structure was modified prior to running the parameter identification as described in the following. After exporting the model to MoBi®, an artificial reaction of a dummy molecule was created. The reaction rate was defined as the simulated peripheral venous blood plasma concentration of midazolam, hence yielding the AUC at any specific time point. Thereafter, the model was imported in PK-Sim® and included in the parameter identification. After being used in the parameter identification during model building, the model was not used any further. 
+To better inform optimization of these two parameters, clinical data of a midazolam-erythromycin interaction study conducted by Olkkola et al. ([Olkkola 1993](#5-references)) were included in the parameter optimization during model building. Therefore, the midazolam PBPK model v0.9 available on OSP GitHub (https://github.com/Open-Systems-Pharmacology/Midazolam-Model/releases/tag/0.9) was loaded in the PK-Sim® erythromycin file and the study by Olkkola et al. ([Olkkola 1993](#5-references)) was simulated. However, instead of using the reported midazolam plasma concentrations as observed data in the parameter identification, the AUC of midazolam was used. More specifically, a midazolam target AUC after IV and oral administration was calculated by multiplying the simulated midazolam AUC (24.3 and 54.0 µmol min/L and after IV and oral administration, respectively) with the observed geometric mean AUC ratio (1.96 and 4.07 after IV and PO administration, respectively) ([Olkkola 1993](#5-references)) resulting in target AUCs of 47.4 and 220 µmol min/L after IV and oral administration of midazolam, respectively. These values were included as observed data values in the parameter identification during model building. Since the AUC is not a default output that can directly be used in the parameter identification, the PBPK model structure was modified prior to running the parameter identification as described in the following. After exporting the model to MoBi®, an artificial reaction of a dummy molecule was created. The reaction rate was defined as the simulated peripheral venous blood plasma concentration of midazolam, hence yielding the AUC at any specific time point. Thereafter, the model was imported in PK-Sim® and included in the parameter identification. After being used in the parameter identification during model building, the model was not used any further. 
 
+### 2.3.5 Automated Parameter Identification
+
+This is the result of the final parameter identification:
+
+| Model Parameter                     | Formulation type/salt form               | Optimized Value          | Unit   |
+| ----------------------------------- | ---------------------------------------- | ------------------------ | ------ |
+| `Dissolution shape `                | Enteric coated pellets                   | 1.0564916105             |        |
+| `Dissolution shape `                | Enteric coated tablet                    | 1.0838799888             |        |
+| `Dissolution shape `                | Filmcoated tablet (except 250 mg dose)   | 1.0960212213             |        |
+| `Dissolution shape `                | Filmcoated tablet, 250 mg                | 3.2811974117             |        |
+| `Dissolution time (50% dissolved) ` | Enteric coated pellets                   | 1.7462743767             | min    |
+| `Dissolution time (50% dissolved) ` | Enteric coated tablet                    | 79.6337524677            | min    |
+| `Dissolution time (50% dissolved) ` | Filmcoated tablet (except 250 mg dose)   | 1.7038947098             | min    |
+| `Dissolution time (50% dissolved) ` | Filmcoated tablet, 250 mg                | 83.6562552486            | min    |
+| `GFR fraction`                      |                                          | 1.1591081815             |        |
+| `K_kinact_half` (CYP3A4)            |                                          | 7.6007360452             | µmol/L |
+| `kcat` (OATP1B1)                    |                                          | 2.0201069202<sup>*</sup> | 1/min  |
+| `kinact` (CYP3A4)                   |                                          | 0.0296261146             | 1/min  |
+| `Km` (OATP1B1)                      |                                          | 0.735836485              | µmol/L |
+| `Lag time`                          | Enteric coated pellets                   | 54.3490442506            | min    |
+| `Lag time`                          | Enteric coated tablet                    | 78.7967495765            | min    |
+| `Solubility at ref pH`              | Enteric coated tablet, erythromycin base | 8.3990771997             | mg/L   |
+| `Solubility at ref pH`              | Filmcoated tablet, erythromycin stearate | 28.0708790976            | mg/L   |
+| `Specific clearance`                |                                          | 4.1462183378             | 1/min  |
+| `Specific intestinal permeability`  |                                          | 0.00038668371665         | cm/min |
+
+<sup>*</sup> The value in the model was updated to 1.350032201 with the release of PK-Sim 10 to account for the updated calculation method of interstitial concentrations (please refer to the respective [release notes of version 10](https://github.com/Open-Systems-Pharmacology/Suite/releases/tag/v10.0)).
 # 3 Results and Discussion
 The PBPK model for erythromycin was developed and verified with clinical pharmacokinetic data.
 
 The next sections show:
 
-1. the final model parameters for the building blocks: [Section 3.1](#31-Final-Input-Parameters).
-2. the overall goodness of fit: [Section 3.2](#32-Diagnostics-Plots).
-3. simulated vs. observed concentration-time profiles for the clinical studies used for model building and for model verification: [Section 3.3](#33-Concentration-Time-Profiles).
+1. the final model parameters for the building blocks: [Section 3.1](#31-final-input-parameters).
+2. the overall goodness of fit: [Section 3.2](#32-diagnostics-plots).
+3. simulated vs. observed concentration-time profiles for the clinical studies used for model building and for model verification: [Section 3.3](#33-concentration-time-profiles).
 
 
 ## 3.1 Final input parameters
@@ -334,7 +361,7 @@ Name                      | Value              | Value Origin
 Transporter concentration | 1 µmol/l           |                                                                                                                      
 Vmax                      | 11.66 pmol/ml/min  | Publication-In Vitro-PMID: 22990751                                                                                  
 Km                        | 0.735836485 µmol/l | Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 1' on 2020-01-13 15:01
-kcat                      | 2.0201069202 1/min | Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 1' on 2020-01-13 15:01
+kcat                      | 1.350032201 1/min  | Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 1' on 2020-01-13 15:01
 ##### Systemic Process: Total Hepatic Clearance-fitted
 
 Species: Human
@@ -384,7 +411,7 @@ Dissolution shape                | 1.0960212213     | Parameter Identification-P
 Use as suspension                | Yes              |                                                                                                                      
 
 ## 3.2 Diagnostics Plots
-Below you find the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data used presented in [Section 2.2.3](#223-Clinical-Data).
+Below you find the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data used presented in [Section 2.2.3](#223-clinical-data).
 
 The first plot shows simulated versus observed plasma concentration, the second weighted residuals versus time. 
 
@@ -393,10 +420,10 @@ The first plot shows simulated versus observed plasma concentration, the second 
 
 ![002_plotGOFMergedResidualsOverTime.png](images/003_3_Results_and_Discussion/002_3_2_Diagnostics_Plots/002_plotGOFMergedResidualsOverTime.png)
 
-GMFE = 1.575450 
+GMFE = 1.575079 
 
 ## 3.3 Concentration-Time Profiles
-Simulated versus observed concentration-time profiles of all data listed in [Section 2.2.3](#223-Clinical-Data) are presented below.
+Simulated versus observed concentration-time profiles of all data listed in [Section 2.2.3](#223-clinical-data) are presented below.
 
 
 ### 3.3.1 Model Building

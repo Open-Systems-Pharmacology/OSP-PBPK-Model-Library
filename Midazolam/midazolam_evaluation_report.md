@@ -4,11 +4,11 @@
 
 
 
-| Version                                         | 1.0-OSP9.1                                                   |
+| Version                                         | 1.1-OSP10.0                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
-| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Midazolam-Model/releases/tag/v1.0 |
-| OSP Version                                     | 9.1                                                          |
-| Qualification Framework Version                 | 2.2                                                          |
+| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Midazolam-Model/releases/tag/v1.1 |
+| OSP Version                                     | 10.0                                                          |
+| Qualification Framework Version                 | 2.3                                                          |
 
 
 
@@ -34,7 +34,7 @@ https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/
 # 1 Introduction
 Midazolam is a widely-used sedative, approved as premedication before surgical interventions. It is almost exclusively metabolized by CYP3A4 making it a sensitive probe and victim drug for the investigation of CYP3A4 activity *in vivo*. Midazolam shows substantial first pass metabolism resulting in a bioavailability of under 50%. Less than 1% of a midazolam dose is excreted unchanged in urine.
 
-The herein presented model represents an update of the midazolam model published by Hanke et al. ([Hanke 2018](#5-References)). The model has been  developed using in particular published pharmacokinetic clinical data by Hohmann et al. ([Hohmann 2015](#5-Reference)), Hyland et al. 2009 ([Hyland 2009](#5-References)) and Thummel et al. 1996 ([Thummel 1996](#5-References)). It has then been evaluated by comparing observed data to simulations of a large number of clinical studies covering a dose range of 0.05 mg/kg to 20 mg after intravenous and oral administrations. Furthermore, it has been evaluated within a CYP3A4 DDI modeling network as a victim drug. 
+The herein presented model represents an update of the midazolam model published by Hanke et al. ([Hanke 2018](#5-references)). The model has been  developed using in particular published pharmacokinetic clinical data by Hohmann et al. ([Hohmann 2015](#5-references)), Hyland et al. 2009 ([Hyland 2009](#5-references)) and Thummel et al. 1996 ([Thummel 1996](#5-references)). It has then been evaluated by comparing observed data to simulations of a large number of clinical studies covering a dose range of 0.05 mg/kg to 20 mg after intravenous and oral administrations. Furthermore, it has been evaluated within a CYP3A4 DDI modeling network as a victim drug. 
 
 Model features include:
 
@@ -51,11 +51,11 @@ Model features include:
 
 
 ## 2.1 Modeling Strategy
-The general concept of building a PBPK model has previously been described by Kuepfer et al. ([Kuepfer 2016](#5-References)). Relevant information on anthropometric (height, weight) and physiological parameters (e.g. blood flows, organ volumes, binding protein concentrations, hematocrit, cardiac output) in adults was gathered from the literature and has been previously published ([Willmann 2007](#5-References)). The information was incorporated into PK-Sim® and was used as default values for the simulations in adults.
+The general concept of building a PBPK model has previously been described by Kuepfer et al. ([Kuepfer 2016](#5-references)). Relevant information on anthropometric (height, weight) and physiological parameters (e.g. blood flows, organ volumes, binding protein concentrations, hematocrit, cardiac output) in adults was gathered from the literature and has been previously published ([Willmann 2007](#5-references)). The information was incorporated into PK-Sim® and was used as default values for the simulations in adults.
 
-The applied activity and variability of plasma proteins and active processes that are integrated into PK-Sim® are described in the publicly available PK-Sim® Ontogeny Database Version 7.3 ([PK-Sim Ontogeny Database Version 7.3](#5-References)) or otherwise referenced for the specific process.
+The applied activity and variability of plasma proteins and active processes that are integrated into PK-Sim® are described in the publicly available PK-Sim® Ontogeny Database Version 7.3 ([PK-Sim Ontogeny Database Version 7.3](#5-references)) or otherwise referenced for the specific process.
 
-First, a mean model was built using clinical data from single dose studies with intravenous and oral administration of midazolam by Hohmann et al. ([Hohmann 2015](#5-Reference)) (reporting plasma concentrations), Hyland et al. 2009 ([Hyland 2009](#5-References)) (reporting the dose fraction metabolized via UGT1A4), and Thummel et al. 1996 ([Thummel 1996](#5-References)) (reporting the dose fraction excreted into urine of unchanged drug). The mean PBPK model was developed using a typical European individual. The relative tissue-specific expressions of enzymes predominantly being involved in the metabolism of midazolam (CYP3A4 and UGT1A4) were considered ([Meyer 2012](#5-References)).
+First, a mean model was built using clinical data from single dose studies with intravenous and oral administration of midazolam by Hohmann et al. ([Hohmann 2015](#5-references)) (reporting plasma concentrations), Hyland et al. 2009 ([Hyland 2009](#5-references)) (reporting the dose fraction metabolized via UGT1A4), and Thummel et al. 1996 ([Thummel 1996](#5-references)) (reporting the dose fraction excreted into urine of unchanged drug). The mean PBPK model was developed using a typical European individual. The relative tissue-specific expressions of enzymes predominantly being involved in the metabolism of midazolam (CYP3A4 and UGT1A4) were considered ([Meyer 2012](#5-references)).
 
 A specific set of parameters (see below) was optimized using the Parameter Identification module provided in PK-Sim®. Structural model selection was mainly guided by visual inspection of the resulting description of data and biological plausibility.
 
@@ -63,9 +63,9 @@ Once the appropriate structural model was identified, additional parameters for 
 
 The model was then verified by simulating further clinical studies reporting pharmacokinetic concentration-time profiles of midazolam.
 
-Details about input data (physicochemical, *in vitro* and clinical) can be found in [Section 2.2](#22-Data).
+Details about input data (physicochemical, *in vitro* and clinical) can be found in [Section 2.2](#22-data).
 
-Details about the structural model and its parameters can be found in [Section 2.3](#23-Model-Parameters-and-Assumptions).
+Details about the structural model and its parameters can be found in [Section 2.3](#23-model-parameters-and-assumptions).
 
 
 
@@ -77,28 +77,28 @@ A literature search was performed to collect available information on physicoche
 
 | **Parameter**                         | **Unit**                   | **Value**        | Source                            | **Description**                                              |
 | :------------------------------------ | -------------------------- | ---------------- | --------------------------------- | ------------------------------------------------------------ |
-| MW                                    | g/mol                      | 325.78           | [DrugBank DB00683](#5-References) | Molecular weight                                             |
-| pK<sub>a1</sub>                       |                            | 10.95            | [Wang 2019](#5-References)        | acid dissociation constant of conjugate acid; compound type: ampholyte |
-| pK<sub>a2</sub>                       |                            | 6.2              | [Wang 2019](#5-References)        | acid dissociation constant of conjugate acid; compound type: ampholyte |
-| Solubility (pH)                       | mg/mL                      | 0.13<br />(5)    | [Heikkinen 2012](#5-References)   | Aqueous Solubility                                           |
-|                                       |                            | 0.049<br />(6.5) | [Heikkinen 2012](#5-References)   | FaSSIF (fasted state simulated intestinal fluid) solubility  |
-|                                       |                            | 0.09<br />(5)    | [Heikkinen 2012](#5-References)   | FeSSIF (fed state simulated intestinal fluid) solubility     |
-| logP                                  |                            | 3.53             | [Wang 2019](#5-References)        | Partition coefficient between octanol and water              |
-|                                       |                            | 3.0              | [Dagenais 2009](#5-References)    | Partition coefficient between octanol and water              |
-|                                       |                            | 3.37             | [Bolger 2006](#5-References)      | Partition coefficient between octanol and water              |
-|                                       |                            | 3.1              | [Rodgers 2006](#5-References)     | Partition coefficient between octanol and water              |
-| fu                                    | %                          | 3.1              | [Gertz 2010](#5-References)       | Fraction unbound in plasma                                   |
-|                                       | %                          | 3.2              | [Wang 2019](#5-References)        | Fraction unbound in plasma                                   |
-|                                       | %                          | 2.2              | [Lown 1995](#5-References)        | Fraction unbound in plasma                                   |
-|                                       | %                          | 3.1              | [Björkman 2001](#5-References)    | Fraction unbound in plasma in men                            |
-|                                       | %                          | 3.1              | [Björkman 2001](#5-References)    | Fraction unbound in plasma in women                          |
-| V<sub>max</sub>, K<sub>m</sub> CYP3A4 | pmol/min/pmol,<br />µmol/L | 1.96<br />2.69   | [Galentin 2004](#5-References)    | CYP3A4 supersomes Michaelis-Menten kinetics (alpha-hydroxylation) |
-| V<sub>max</sub>, K<sub>m</sub> CYP3A4 | pmol/min/mg,<br />µmol/L   | 850<br />4       | [Bolger 2006](#5-References)      | CYP3A liver mircosomes Michaelis-Menten kinetics             |
-| V<sub>max</sub>, K<sub>m</sub> CYP3A4 | nmol/min/mg,<br />µmol/L   | 4.41<br />3.8    | [Ito 2003](#5-References)         | CYP3A liver mircosomes Michaelis-Menten kinetics (alpha-hydroxylation) |
-| V<sub>max</sub>, K<sub>m</sub> CYP3A4 | nmol/min/mg,<br />µmol/L   | 0.18<br />3.9    | [Patki 2003](#5-References)       | CYP3A liver mircosomes Michaelis-Menten kinetics (alpha-hydroxylation) |
-| V<sub>max</sub>, K<sub>m</sub> CYP3A4 | pmol/min/pmol,<br />µmol/L | 5.23<br />2.16   | [Wang 2019](#5-References)        | CYP3A4 supersomes Michaelis-Menten kinetics (alpha-hydroxylation) |
-| V<sub>max</sub>, K<sub>m</sub> UGT1A4 | pmol/min/mg,<br />µmol/L   | 276<br />37.8    | [Klieber 2008](#5-References)     | UGT1A4 liver mircosomes Michaelis-Menten kinetics            |
-| K<sub>D</sub> GABRG2                  | nmol/L                     | 1.8              | [Buhr 1997](#5-References)        | Binding affinity to GABRG2 (Gamma-Aminobutyric Acid Type A Receptor Subunit Gamma2) |
+| MW                                    | g/mol                      | 325.78           | [DrugBank DB00683](#5-references) | Molecular weight                                             |
+| pK<sub>a1</sub>                       |                            | 10.95            | [Wang 2019](#5-references)        | acid dissociation constant of conjugate acid; compound type: ampholyte |
+| pK<sub>a2</sub>                       |                            | 6.2              | [Wang 2019](#5-references)        | acid dissociation constant of conjugate acid; compound type: ampholyte |
+| Solubility (pH)                       | mg/mL                      | 0.13<br />(5)    | [Heikkinen 2012](#5-references)   | Aqueous Solubility                                           |
+|                                       |                            | 0.049<br />(6.5) | [Heikkinen 2012](#5-references)   | FaSSIF (fasted state simulated intestinal fluid) solubility  |
+|                                       |                            | 0.09<br />(5)    | [Heikkinen 2012](#5-references)   | FeSSIF (fed state simulated intestinal fluid) solubility     |
+| logP                                  |                            | 3.53             | [Wang 2019](#5-references)        | Partition coefficient between octanol and water              |
+|                                       |                            | 3.0              | [Dagenais 2009](#5-references)    | Partition coefficient between octanol and water              |
+|                                       |                            | 3.37             | [Bolger 2006](#5-references)      | Partition coefficient between octanol and water              |
+|                                       |                            | 3.1              | [Rodgers 2006](#5-references)     | Partition coefficient between octanol and water              |
+| fu                                    | %                          | 3.1              | [Gertz 2010](#5-references)       | Fraction unbound in plasma                                   |
+|                                       | %                          | 3.2              | [Wang 2019](#5-references)        | Fraction unbound in plasma                                   |
+|                                       | %                          | 2.2              | [Lown 1995](#5-references)        | Fraction unbound in plasma                                   |
+|                                       | %                          | 3.1              | [Björkman 2001](#5-references)    | Fraction unbound in plasma in men                            |
+|                                       | %                          | 3.1              | [Björkman 2001](#5-references)    | Fraction unbound in plasma in women                          |
+| V<sub>max</sub>, K<sub>m</sub> CYP3A4 | pmol/min/pmol,<br />µmol/L | 1.96<br />2.69   | [Galentin 2004](#5-references)    | CYP3A4 supersomes Michaelis-Menten kinetics (alpha-hydroxylation) |
+| V<sub>max</sub>, K<sub>m</sub> CYP3A4 | pmol/min/mg,<br />µmol/L   | 850<br />4       | [Bolger 2006](#5-references)      | CYP3A liver mircosomes Michaelis-Menten kinetics             |
+| V<sub>max</sub>, K<sub>m</sub> CYP3A4 | nmol/min/mg,<br />µmol/L   | 4.41<br />3.8    | [Ito 2003](#5-references)         | CYP3A liver mircosomes Michaelis-Menten kinetics (alpha-hydroxylation) |
+| V<sub>max</sub>, K<sub>m</sub> CYP3A4 | nmol/min/mg,<br />µmol/L   | 0.18<br />3.9    | [Patki 2003](#5-references)       | CYP3A liver mircosomes Michaelis-Menten kinetics (alpha-hydroxylation) |
+| V<sub>max</sub>, K<sub>m</sub> CYP3A4 | pmol/min/pmol,<br />µmol/L | 5.23<br />2.16   | [Wang 2019](#5-references)        | CYP3A4 supersomes Michaelis-Menten kinetics (alpha-hydroxylation) |
+| V<sub>max</sub>, K<sub>m</sub> UGT1A4 | pmol/min/mg,<br />µmol/L   | 276<br />37.8    | [Klieber 2008](#5-references)     | UGT1A4 liver mircosomes Michaelis-Menten kinetics            |
+| K<sub>D</sub> GABRG2                  | nmol/L                     | 1.8              | [Buhr 1997](#5-references)        | Binding affinity to GABRG2 (Gamma-Aminobutyric Acid Type A Receptor Subunit Gamma2) |
 
 ### 2.2.2 Clinical data
 
@@ -108,18 +108,18 @@ The following publications were found in adults for model building:
 
 | Publication                   | Arm / Treatment / Information used for model building        |
 | :---------------------------- | :----------------------------------------------------------- |
-| [Hohmann 2015](#5-References) | Plasma PK profiles in healthy subjects after single dose administrations of midazolam solutions:<br />- intravenous 0.001 mg<br />- intravenous 1 mg<br />- oral 0.003 mg<br />- oral 3 mg |
-| [Hyland 2009](#5-References)  | Quantification of direct UGT1A4-formed midazolam-*N*-glucuronide (in urine) after administration of a 3 mg oral and 1 mg intravenous dose of midazolam. See table below for summary of data. |
-| [Thummel 1996](#5-References) | Quantification of unchanged midazolam in urine after administration of a 2 mg oral and 1 mg intravenous dose of midazolam. See table below for summary of data. |
-| [Ahonen 1995](#5-References)  | Plasma PK profiles in healthy subjects with single dose administrations of a midazolam 7.5 mg tablet (in the absence of itraconazole) |
-| [Olkkola 1994](#5-References) | Plasma PK profiles in healthy subjects with single dose administrations of a midazolam 7.5 mg tablet (in the absence of itraconazole) |
-| [Olkkola 1996](#5-References) | Plasma PK profiles in healthy subjects with single dose administrations of a midazolam 7.5 mg tablet (in the absence of itraconazole) |
-| [Saari 2006](#5-References)   | Plasma PK profiles in healthy subjects with single dose administrations of a midazolam 7.5 mg tablet (in the absence of voriconazole) |
-| [Link 2008](#5-References)    | Plasma PK profiles in healthy subjects with single dose administrations of a midazolam 7.5 mg tablet (in the absence of rifampicin) |
+| [Hohmann 2015](#5-references) | Plasma PK profiles in healthy subjects after single dose administrations of midazolam solutions:<br />- intravenous 0.001 mg<br />- intravenous 1 mg<br />- oral 0.003 mg<br />- oral 3 mg |
+| [Hyland 2009](#5-references)  | Quantification of direct UGT1A4-formed midazolam-*N*-glucuronide (in urine) after administration of a 3 mg oral and 1 mg intravenous dose of midazolam. See table below for summary of data. |
+| [Thummel 1996](#5-references) | Quantification of unchanged midazolam in urine after administration of a 2 mg oral and 1 mg intravenous dose of midazolam. See table below for summary of data. |
+| [Ahonen 1995](#5-references)  | Plasma PK profiles in healthy subjects with single dose administrations of a midazolam 7.5 mg tablet (in the absence of itraconazole) |
+| [Olkkola 1994](#5-references) | Plasma PK profiles in healthy subjects with single dose administrations of a midazolam 7.5 mg tablet (in the absence of itraconazole) |
+| [Olkkola 1996](#5-references) | Plasma PK profiles in healthy subjects with single dose administrations of a midazolam 7.5 mg tablet (in the absence of itraconazole) |
+| [Saari 2006](#5-references)   | Plasma PK profiles in healthy subjects with single dose administrations of a midazolam 7.5 mg tablet (in the absence of voriconazole) |
+| [Link 2008](#5-references)    | Plasma PK profiles in healthy subjects with single dose administrations of a midazolam 7.5 mg tablet (in the absence of rifampicin) |
 
 
 
-The following table shows the data from the excretion studies ([Thummel 1996](#5-References), [Hyland 2009](#5-References)) used for model building:
+The following table shows the data from the excretion studies ([Thummel 1996](#5-references), [Hyland 2009](#5-references)) used for model building:
 
 | Observer                                                     | Value |
 | ------------------------------------------------------------ | ----- |
@@ -136,76 +136,78 @@ The following dosing scenarios were simulated and compared to respective data fo
 
 | Scenario                                                     | Data reference                       |
 | ------------------------------------------------------------ | ------------------------------------ |
-| iv 0.05 mg/kg (2 min)                                        | [Olkkola 1993](#5-References)         |
-| iv 0.05 mg/kg (30 min)                                       | [Gorski 1998](#5-References)          |
-|                                                              | [Gorski 2003](#5-References)          |
-|                                                              | [Quinney 2008](#5-References)         |
-| iv 0.05 mg/kg (bolus)                                        | [Szalat 2007](#5-References)          |
-| iv 0.075 mg/kg (1 min)                                       | [Allonen 1981](#5-References)         |
-|                                                              | [Swart 2002](#5-References)           |
-| iv 0.15 mg/kg (bolus)                                        | [Heizmann 1983](#5-References)        |
-| iv 1 mg (bolus)                                              | [Kharasch 1997](#5-References)        |
-|                                                              | [Kharasch 2004](#5-References)        |
-|                                                              | [Kharasch 2011](#5-References)        |
-|                                                              | [Phimmasone 2001](#5-References)      |
-|                                                              | [Shin 2013](#5-References)            |
-|                                                              | [Shin 2016](#5-References)            |
-| iv 1 mg (2 min)<br />Corean CYP3A5\*3/\*3 only, CYP3A4 reference concentration adjusted | [Yu 2004](#5-References)              |
-| iv 2 mg (bolus)                                              | [Darwish 2008](#5-References)         |
-| iv 5 mg (30 sec)                                             | [Schwagmeier 1998](#5-References)     |
-| iv 5 mg (bolus)                                              | [Smith 1981](#5-References)           |
-| po 0.01 mg (solution)                                        | [Prueksaritanont 2017](#5-References) |
-| po 0.075 mg (solution)                                       | [Eap 2004](#5-References)             |
-| po 0.075 mg/kg (syrup)                                       | [Chung 2006](#5-References)           |
-| po 1 mg (solution)                                           | [van Dyk 2018](#5-References)         |
-|                                                              | [Wiesinger 2020](#5-References)      |
-| po 10 mg (solution)                                          | [Lam 2003](#5-References)             |
-|                                                              | [Smith 1981](#5-References)           |
-| po 10 mg (tablet)                                            | [Heizmann 1983](#5-References)        |
-|                                                              | [Smith 1981](#5-References)           |
-| po 15 mg (tablet)                                            | [Allonen 1981](#5-References)         |
-|                                                              | [Backman 1994](#5-References)         |
-|                                                              | [Backman 1996](#5-References)         |
-|                                                              | [Backman 1998](#5-References)         |
-|                                                              | [Bornemann 1986](#5-References)       |
-|                                                              | [Olkkola 1993](#5-References)         |
-|                                                              | [Yeates 1996](#5-References)          |
-|                                                              | [Zimmermann 1996](#5-References)      |
-| po 15 mg (tablet) - with 1h after high-fat breakfast        | [Bornemann 1986](#5-References)       |
-| po 2 mg (solution)                                           | [Templeton 2010](#5-References)       |
-| po 20 mg (tablet)                                            | [Heizmann 1983](#5-References)        |
-| po 3 mg (solution)                                           | [Katzenmaier 2010](#5-References)     |
-|                                                              | [Kharasch 2004](#5-References)        |
-|                                                              | [Kharasch 2011](#5-References)        |
-|                                                              | [Markert 2013](#5-References)         |
-| po 3.5 mg (solution)                                         | [Quinney 2008](#5-References)         |
-| po 4 mg (solution)                                           | [Gorski 1998](#5-References)          |
-|                                                              | [Gorski 2003](#5-References)          |
-| po 40 mg (tablet)                                            | [Heizmann 1983](#5-References)        |
-| po 5 mg (solution)                                           | [Darwish 2008](#5-References)         |
-|                                                              | [Okudaira 2007](#5-References)        |
-|                                                              | [Tham 2006](#5-References)            |
-| po 6 mg (solution)                                           | [Greenblat 2003](#5-References)       |
-| po 7.5 mg (solution)                                         | [Eap 2004](#5-References)             |
-| po 8 mg (solution)                                           | [Gurley 2006](#5-References)          |
-|                                                              | [Gurley 2008a](#5-References)         |
-| Mikus 2017<br />(4 mg po solution, followed by 2 mg iv administration 6 hours later) | [Mikus 2017](#5-References)           |
+| iv 0.05 mg/kg (2 min)                                        | [Olkkola 1993](#5-references)         |
+| iv 0.05 mg/kg (30 min)                                       | [Gorski 1998](#5-references)          |
+|                                                              | [Gorski 2003](#5-references)          |
+|                                                              | [Quinney 2008](#5-references)         |
+| iv 0.05 mg/kg (bolus)                                        | [Szalat 2007](#5-references)          |
+| iv 0.075 mg/kg (1 min)                                       | [Allonen 1981](#5-references)         |
+|                                                              | [Swart 2002](#5-references)           |
+| iv 0.15 mg/kg (bolus)                                        | [Heizmann 1983](#5-references)        |
+| iv 1 mg (bolus)                                              | [Kharasch 1997](#5-references)        |
+|                                                              | [Kharasch 2004](#5-references)        |
+|                                                              | [Kharasch 2011](#5-references)        |
+|                                                              | [Phimmasone 2001](#5-references)      |
+|                                                              | [Shin 2013](#5-references)            |
+|                                                              | [Shin 2016](#5-references)            |
+| iv 1 mg (2 min)<br />Corean CYP3A5\*3/\*3 only, CYP3A4 reference concentration adjusted | [Yu 2004](#5-references)              |
+| iv 2 mg (bolus)                                              | [Darwish 2008](#5-references)         |
+| iv 5 mg (30 sec)                                             | [Schwagmeier 1998](#5-references)     |
+| iv 5 mg (bolus)                                              | [Smith 1981](#5-references)           |
+| po 0.01 mg (solution)                                        | [Prueksaritanont 2017](#5-references) |
+| po 0.075 mg (solution)                                       | [Eap 2004](#5-references)             |
+| po 0.075 mg/kg (syrup)                                       | [Chung 2006](#5-references)           |
+| po 1 mg (solution)                                           | [van Dyk 2018](#5-references)         |
+|                                                              | [Wiesinger 2020](#5-references)      |
+| | [Chattopadhyay 2018](#5-references) |
+| po 10 mg (solution)                                          | [Lam 2003](#5-references)             |
+|                                                              | [Smith 1981](#5-references)           |
+| po 10 mg (tablet)                                            | [Heizmann 1983](#5-references)        |
+|                                                              | [Smith 1981](#5-references)           |
+| po 15 mg (tablet)                                            | [Allonen 1981](#5-references)         |
+|                                                              | [Backman 1994](#5-references)         |
+|                                                              | [Backman 1996](#5-references)         |
+|                                                              | [Backman 1998](#5-references)         |
+|                                                              | [Bornemann 1986](#5-references)       |
+|                                                              | [Olkkola 1993](#5-references)         |
+|                                                              | [Yeates 1996](#5-references)          |
+|                                                              | [Zimmermann 1996](#5-references)      |
+| po 15 mg (tablet) - with 1h after high-fat breakfast        | [Bornemann 1986](#5-references)       |
+| po 2 mg (solution)                                           | [Templeton 2010](#5-references)       |
+|  | [Lutz 2018](#5-references) |
+| po 20 mg (tablet)                                            | [Heizmann 1983](#5-references)        |
+| po 3 mg (solution)                                           | [Katzenmaier 2010](#5-references)     |
+|                                                              | [Kharasch 2004](#5-references)        |
+|                                                              | [Kharasch 2011](#5-references)        |
+|                                                              | [Markert 2013](#5-references)         |
+| po 3.5 mg (solution)                                         | [Quinney 2008](#5-references)         |
+| po 4 mg (solution)                                           | [Gorski 1998](#5-references)          |
+|                                                              | [Gorski 2003](#5-references)          |
+| po 40 mg (tablet)                                            | [Heizmann 1983](#5-references)        |
+| po 5 mg (solution)                                           | [Darwish 2008](#5-references)         |
+|                                                              | [Okudaira 2007](#5-references)        |
+|                                                              | [Tham 2006](#5-references)            |
+| po 6 mg (solution)                                           | [Greenblat 2003](#5-references)       |
+| po 7.5 mg (solution)                                         | [Eap 2004](#5-references)             |
+| po 8 mg (solution)                                           | [Gurley 2006](#5-references)          |
+|                                                              | [Gurley 2008a](#5-references)         |
+| Mikus 2017<br />(4 mg po solution, followed by 2 mg iv administration 6 hours later) | [Mikus 2017](#5-references)           |
 ## 2.3 Model Parameters and Assumptions
 ### 2.3.1 Absorption
 
-The model parameter `Specific intestinal permeability` was optimized to best match clinical data (see  [Section 2.3.4](#234-Automated-Parameter-Identification)). The default solubility was assumed to be the measured value in FaSSIF (fasted state simulated intestinal fluid, see [Section 2.2.1](#221-In-vitro-and-physicochemical-data))
+The model parameter `Specific intestinal permeability` was optimized to best match clinical data (see  [Section 2.3.4](#234-automated-parameter-identification)). The default solubility was assumed to be the measured value in FaSSIF (fasted state simulated intestinal fluid, see [Section 2.2.1](#221-in-vitro-and-physicochemical-data))
 
-The dissolution of tablets were implemented via an empirical Weibull dissolution tablet. However, dissolution does not seem to be relevant in terms of *rate-limiting* kinetics; see results of optimization in [Section 2.3.4](#234-Automated-Parameter-Identification).
+The dissolution of tablets were implemented via an empirical Weibull dissolution tablet. However, dissolution does not seem to be relevant in terms of *rate-limiting* kinetics; see results of optimization in [Section 2.3.4](#234-automated-parameter-identification).
 
 ### 2.3.2 Distribution
 
-Midazolam is moderately to highly protein bound (approx. 97 %) in plasma (see [Section 2.2.1](#221-In-vitro-and-physicochemical-data)). A value of 3.1% was used in this PBPK model for `Fraction unbound (plasma, reference value)`. It was assumed that the major binding partner is albumin.
+Midazolam is moderately to highly protein bound (approx. 97 %) in plasma (see [Section 2.2.1](#221-in-vitro-and-physicochemical-data)). A value of 3.1% was used in this PBPK model for `Fraction unbound (plasma, reference value)`. It was assumed that the major binding partner is albumin.
 
-An important parameter influencing the resulting volume of distribution is lipophilicity. The reported experimental logP values are in the range of 3 (see [Section 2.2.1](#221-In-vitro-and-physicochemical-data)) which served as a starting value. Finally, the model parameters `Lipophilicity` was optimized to match best clinical data (see also [Section 2.3.4](#234-Automated-Parameter-Identification)).
+An important parameter influencing the resulting volume of distribution is lipophilicity. The reported experimental logP values are in the range of 3 (see [Section 2.2.1](#221-in-vitro-and-physicochemical-data)) which served as a starting value. Finally, the model parameters `Lipophilicity` was optimized to match best clinical data (see also [Section 2.3.4](#234-automated-parameter-identification)).
 
 After testing the available organ-plasma partition coefficient and cell permeability calculation methods built in PK-Sim, observed clinical data was best described by choosing the partition coefficient calculation by `Rodgers and Rowland` and cellular permeability calculation by `PK-Sim Standard`.
 
-Initial model building showed that the late disposition (approx. 24 hours after administration) could not be well described. This effect was assumed to be (re-)distribution-related. Finally, binding to a hypothetical binding partner in the brain was assumed (motivated by the target of midazolam: GABA receptor). After implementation of *in vitro* binding affinity to GABRG2 (Gamma-Aminobutyric Acid Type A Receptor Subunit Gamma 2) (see [Section 2.2.1](#221-In-vitro-and-physicochemical-data)), the  `Reference concentration` of GABRG2 was optimized to match best clinical data (see also [Section 2.3.4](#234-Automated-Parameter-Identification)). Note that the respective `koff` value was assumed to be 1 min<sup>-1</sup>.
+Initial model building showed that the late disposition (approx. 24 hours after administration) could not be well described. This effect was assumed to be (re-)distribution-related. Finally, binding to a hypothetical binding partner in the brain was assumed (motivated by the target of midazolam: GABA receptor). After implementation of *in vitro* binding affinity to GABRG2 (Gamma-Aminobutyric Acid Type A Receptor Subunit Gamma 2) (see [Section 2.2.1](#221-in-vitro-and-physicochemical-data)), the  `Reference concentration` of GABRG2 was optimized to match best clinical data (see also [Section 2.3.4](#234-automated-parameter-identification)). Note that the respective `koff` value was assumed to be 1 min<sup>-1</sup>.
 
 ### 2.3.3 Metabolism and Elimination
 
@@ -214,7 +216,7 @@ Two metabolic pathways were implement into the model via Michaelis-Menten kineti
 * CYP3A4
 * UGT1A4
 
-The CYP3A4 expression profiles is based on high-sensitive real-time RT-PCR ([Nishimura 2013](#5-References)). UGT1A4 was assumed to be exclusively expressed in the liver. Absolute tissue-specific expressions were obtained by considering the respective absolute concentration in the liver. The PK-Sim database provides a default value for CYP3A4 (compare [Rodrigues 1999](#5-References) and assume 40 mg protein per gram liver). A reference concentration of 2.32 µmol/L in the liver for UGT1A4 was derived from a quantification reported by Achour *et al.* ([Achour 2014](#5-References)) with 58.0 pmol/mg in Human Liver Microsomes (assuming 40 mg protein per gram liver).
+The CYP3A4 expression profiles is based on high-sensitive real-time RT-PCR ([Nishimura 2013](#5-references)). UGT1A4 was assumed to be exclusively expressed in the liver. Absolute tissue-specific expressions were obtained by considering the respective absolute concentration in the liver. The PK-Sim database provides a default value for CYP3A4 (compare [Rodrigues 1999](#5-references) and assume 40 mg protein per gram liver). A reference concentration of 2.32 µmol/L in the liver for UGT1A4 was derived from a quantification reported by Achour *et al.* ([Achour 2014](#5-references)) with 58.0 pmol/mg in Human Liver Microsomes (assuming 40 mg protein per gram liver).
 
 Additionally, a renal clearance (assumed to be mainly driven by glomerular filtration) was implemented.
 
@@ -229,12 +231,14 @@ This is the result of the final parameter identification for the base model:
 | `Lipophilicity`                                              | 2.897                                                        | Log Units |
 | `Specific intestinal permeability`                           | 1.555E-4                                                     | cm/min    |
 | Basolateral mucosa permeability<br />(``P (interstitial->intracellular)``, ``P (intracellular->interstitial)``) | 1.924E-3                                                     | cm/min    |
-| `Km` (CYP3A4)                                                | 4 FIXED (see [Section 2.2.1](#221-In-vitro-and-physicochemical-data)) | µmol/L    |
+| `Km` (CYP3A4)                                                | 4 FIXED (see [Section 2.2.1](#221-in-vitro-and-physicochemical-data)) | µmol/L    |
 | `kcat` (CYP3A4)                                              | 8.761                                                        | 1/min     |
-| `Km` (UGT1A4)                                                | 37.8 FIXED (see [Section 2.2.1](#221-In-vitro-and-physicochemical-data)) | µmol/L    |
+| `Km` (UGT1A4)                                                | 37.8 FIXED (see [Section 2.2.1](#221-in-vitro-and-physicochemical-data)) | µmol/L    |
 | `kcat` (UGT1A4)                                              | 3.591                                                        | 1/min     |
 | `GFR fraction`                                               | 0.6401                                                       |           |
-| `Reference concentration` (GABRG2)                           | 1.088                                                        | µmol/L    |
+| `Reference concentration` (GABRG2)                           | 1.088<sup>*</sup>                                        | µmol/L    |
+
+<sup>*</sup> The value in the model was updated to 1.041 with the release of PK-Sim 10 to account for the updated calculation method of interstitial concentrations (please refer to the respective [release notes of version 10](https://github.com/Open-Systems-Pharmacology/Suite/releases/tag/v10.0)).
 
 
 
@@ -256,9 +260,9 @@ The model quantifies metabolism via CYP3A4 and UGT1A4.
 
 The next sections show:
 
-1. the final model input parameters for the building blocks: [Section 3.1](#31-Final-Input-Parameters).
-2. the overall goodness of fit: [Section 3.2](#32-Diagnostics-Plots).
-3. simulated vs. observed concentration-time profiles for the clinical studies used for model building and for model verification: [Section 3.3](#33-Concentration-Time-Profiles).
+1. the final model input parameters for the building blocks: [Section 3.1](#31-final-input-parameters).
+2. the overall goodness of fit: [Section 3.2](#32-diagnostics-plots).
+3. simulated vs. observed concentration-time profiles for the clinical studies used for model building and for model verification: [Section 3.3](#33-concentration-time-profiles).
 ## 3.1 Final input parameters
 The compound parameter values of the final PBPK model are illustrated below.
 
@@ -345,7 +349,7 @@ Dissolution shape                | 4.3802943225     | Parameter Identification-P
 Use as suspension                | Yes              |                                                                                                            
 
 ## 3.2 Diagnostics Plots
-Below you find the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data used presented in [Section 2.2.2](#222-Clinical-data).
+Below you find the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data used presented in [Section 2.2.2](#222-clinical-data).
 
 The first plot shows observed versus simulated plasma concentration, the second weighted residuals versus time. 
 
@@ -354,10 +358,10 @@ The first plot shows observed versus simulated plasma concentration, the second 
 
 ![002_plotGOFMergedResidualsOverTime.png](images/003_3_Results_and_Discussion/002_3_2_Diagnostics_Plots/002_plotGOFMergedResidualsOverTime.png)
 
-GMFE = 1.451316 
+GMFE = 1.453536 
 
 ## 3.3 Concentration-Time Profiles
-Simulated versus observed concentration-time profiles of all data listed in [Section 2.2.2](#222-Clinical-data) are presented below.
+Simulated versus observed concentration-time profiles of all data listed in [Section 2.2.2](#222-clinical-data) are presented below.
 
 
 ### 3.3.1 Model Building
@@ -476,6 +480,9 @@ In particular, it applies quantitative metabolism by CYP3A4. Thus, the model is 
 
 **Buhr 1997** Buhr A, Baur R, Sigel E. Subtle changes in residue 77 of the gamma subunit of alpha1beta2gamma2 GABAA receptors drastically alter the affinity for ligands of the benzodiazepine binding site. J Biol Chem. 1997 May 2;272(18):11799-804.
 
+** Chattopadhyay 2018** Chattopadhyay N, Kanacher K, Casjens M, Frechen S, Ligges S, Zimmermann T, Rottmann A, Ploeger B, Höchel J, Schultze-Mosgau M-H. CYP3A4-mediated effects of rifampicin on the pharmacokinetics of vilaprisan and its UGT1A1-mediated effects on bilirubin glucuronidation in humans. Br J Clin Pharmacol
+. 2018 Dec;84(12):2857-2866.
+
 **Chung 2006** Chung E, Nafziger AN, Kazierad DJ, Bertino JS Jr. Comparison of midazolam and simvastatin as cytochrome P450 3A probes. Clin Pharmacol Ther. 2006 Apr;79(4):350-61.
 
 **Dagenais 2009** Dagenais C, Avdeef A, Tsinman O, Dudley A, Beliveau R. P-glycoprotein deficient mouse in situ blood-brain barrier permeability and its prediction using an in combo PAMPA model. Eur J Pharm Sci. 2009 Sep 10;38(2):121-37.
@@ -531,6 +538,9 @@ In particular, it applies quantitative metabolism by CYP3A4. Thus, the model is 
 **Link 2008** Link B, Haschke M, Grignaschi N, Bodmer M, Aschmann YZ, Wenk M, Krähenbühl S. Pharmacokinetics of intravenous and oral midazolam in plasma and saliva in humans: usefulness of saliva as matrix for CYP3A phenotyping. Br J Clin Pharmacol. 2008 Oct;66(4):473-84.
 
 **Lown 1995** Lown KS, Thummel KE, Benedict PE, Shen DD, Turgeon DK, Berent S, Watkins PB. The erythromycin breath test predicts the clearance of midazolam. Clin Pharmacol Ther. 1995 Jan;57(1):16-24.
+
+**Lutz 2018** Lutz JD, Kirby BJ, Wang L, Song Q, Ling J, Massetto B, Worth A, Kearney BP, Mathias A. Cytochrome P450 3A Induction Predicts P-glycoprotein Induction; Part 1: Establishing Induction Relationships Using Ascending Dose Rifampin. Clin Pharmacol Ther
+. 2018 Dec;104(6):1182-1190.
 
 **Majumdar 2007** Majumdar AK, Yan KX, Selverian DV, Barlas S, Constanzer M, Dru J, McCrea JB, Ahmed T, Frick GS, Kraft WK, Petty KJ, Greenberg HE. Effect of aprepitant on the pharmacokinetics of intravenous midazolam. J Clin Pharmacol. 2007 Jun;47(6):744-50.
 
@@ -599,6 +609,5 @@ In particular, it applies quantitative metabolism by CYP3A4. Thus, the model is 
 **Yu 2004** Yu KS, Cho JY, Jang IJ, Hong KS, Chung JY, Kim JR, Lim HS, Oh DS, Yi SY, Liu KH, Shin JG, Shin SG. Effect of the CYP3A5 genotype on the pharmacokinetics of intravenous midazolam during inhibited and induced metabolic states. Clin Pharmacol Ther. 2004 Aug;76(2):104-12.
 
 **Zimmermann 1996** Zimmermann T, Yeates RA, Laufen H, Scharpf F, Leitold M, Wildfeuer A. Influence of the antibiotics erythromycin and azithromycin on the pharmacokinetics and pharmacodynamics of midazolam. Arzneimittelforschung. 1996 Feb;46(2):213-7.
-
 
 

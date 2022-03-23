@@ -4,11 +4,11 @@
 
 
 
-| Version                                         | 1.1-OSP9.1                                                   |
+| Version                                         | 1.1-OSP10.0                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
 | based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Atazanavir-Model/releases/tag/v1.1 |
-| OSP Version                                     | 9.1                                                          |
-| Qualification Framework Version                 | 2.2                                                          |
+| OSP Version                                     | 10.0                                                          |
+| Qualification Framework Version                 | 2.3                                                          |
 
 
 
@@ -230,7 +230,7 @@ The first plot shows observed versus simulated plasma concentration, the second 
 
 ![002_plotGOFMergedResidualsOverTime.png](images/003_3_Results_and_Discussion/002_3_2_Diagnostics_Plots/002_plotGOFMergedResidualsOverTime.png)
 
-GMFE = 1.500685 
+GMFE = 1.500690 
 
 ## 3.3 Concentration-Time Profiles
 Simulated versus observed concentration-time profiles of all data listed in [Section 2.2.2](#222-Clinical-data) are presented below.
