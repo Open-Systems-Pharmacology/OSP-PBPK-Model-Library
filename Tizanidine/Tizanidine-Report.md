@@ -29,7 +29,7 @@ https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/
 # 1 Introduction
 The presented PBPK model of tizanidine has been developed to be used in a PBPK Drug-Drug-Interactions (DDI) network with tizanidine as a substrate of CYP1A2.
 
-Tizanidine is a centrally acting skeletal muscle relaxant generally used for the symptomatic treatment of acute painful muscle spasms and chronic spasticity resulting from diverse neurologic disorders ([Granfors 2004](#5-References)).
+Tizanidine is a centrally acting skeletal muscle relaxant generally used for the symptomatic treatment of acute painful muscle spasms and chronic spasticity resulting from diverse neurologic disorders ([Granfors 2004](#5-references)).
 
 **Absorption**: After oral administration of tizanidine-HCl it is absorbed fast and completely with peak plasma concentrations reached within 1 hour. Administration of tizanidine together with food increases plasma concentrations. The influence of food on the concentration-time profile is also dependent on the formulation. A capsule given with food leads to a prolonged Tmax, with a Cmax slightly lower than when the drug is given without food. In contrast, giving the tablet with food leads to higher peak concentrations while Tmax remains unchanged.
 
@@ -43,7 +43,7 @@ Tizanidine is a centrally acting skeletal muscle relaxant generally used for the
 
 
 ## 2.1 Modeling Strategy
-The general workflow for building an adult PBPK model has been described by Kuepfer et al. ([Kuepfer 2016](#5-References)). Relevant information on the anthropometry (height, weight) was gathered from the respective clinical study, if reported. Information on physiological parameters (e.g. blood flows, organ volumes, hematocrit) in adults was gathered from the literature and has been incorporated in PK-Sim® as described previously ([Willmann 2007](#5-References)). The  applied activity and variability of plasma proteins and active processes that are integrated into PK-Sim® are described in the publicly available 'PK-Sim® Ontogeny Database Version 7.3' ([PK-Sim Ontogeny Database Version 7.3](#5-References)).
+The general workflow for building an adult PBPK model has been described by Kuepfer et al. ([Kuepfer 2016](#5-references)). Relevant information on the anthropometry (height, weight) was gathered from the respective clinical study, if reported. Information on physiological parameters (e.g. blood flows, organ volumes, hematocrit) in adults was gathered from the literature and has been incorporated in PK-Sim® as described previously ([Willmann 2007](#5-references)). The  applied activity and variability of plasma proteins and active processes that are integrated into PK-Sim® are described in the publicly available 'PK-Sim® Ontogeny Database Version 7.3' ([PK-Sim Ontogeny Database Version 7.3](#5-references)).
 
 Since concentration-time profiles following intravenous administration are not publicly available, model building was based on data following oral administration. In general, the following step-wise workflow was followed:
 
@@ -57,11 +57,11 @@ The predefined “Standard European Male for DDI” individual (age = 30 y, weig
 
 Simulations of capsule administrations in fed state were carried out by adding the "High-fat breakfast" meal event at time = 0 in PK-Sim. Simulations of tablets administration in fed state were carried out without a food event but with adjusted dissolution profile.
 
-To judge the predictive variability of the model, a population simulation was carried out generating a virtual population of 2000 healthy European male subjects with the weight and age range according to [Granfors 2004](#5-References) (21 – 31 years, 65 – 83 kg).
+To judge the predictive variability of the model, a population simulation was carried out generating a virtual population of 2000 healthy European male subjects with the weight and age range according to [Granfors 2004](#5-references) (21 – 31 years, 65 – 83 kg).
 
-Details about input data (physicochemical, *in vitro* and clinical) can be found in [Section 2.2](#2.2-Data).
+Details about input data (physicochemical, *in vitro* and clinical) can be found in [Section 2.2](#22-data).
 
-Details about the structural model and its parameters can be found in [Section 2.3](#2.3-Model-Parameters-and-Assumptions).
+Details about the structural model and its parameters can be found in [Section 2.3](#23-model-parameters-and-assumptions).
 
 ## 2.2 Data
 ### 2.2.1 In vitro and physico-chemical data
@@ -70,12 +70,12 @@ A literature search was performed to collect available information on physico-ch
 
 | **Parameter**                   | **Unit**  | **Value**        | Source                            | **Description**                 |
 | :------------------------------ | --------- | ---------------- | --------------------------------- | ------------------------------- |
-| MW<sup>+</sup>                  | g/mol     | 253.711          | [DrugBank DB00697](#5-References) | Molecular weight                |
-| pK<sub>a,base</sub><sup>+</sup> |           | 7.49             | [DrugBank DB00697](#5-References) | Acidic dissociation constant    |
-| Solubility (pH)<sup>+</sup>     | mg/mL     | 0.133<br />(7.4) | [DrugBank DB00697](#5-References) | Aqueous Solubility              |
-| logP<sup>+</sup>                |           | 1.4              | [DrugBank DB00697](#5-References) | Partition coefficient           |
-| fu<sup>+</sup>                  | %         | 70               | [SmPC tizanidine](#5-References)  | Fraction unbound in plasma      |
-| Intrinsic CL                    | ml/min/kg | 17               | [Granfors 2004](#5-References)    | Predicted from microsomal assay |
+| MW<sup>+</sup>                  | g/mol     | 253.711          | [DrugBank DB00697](#5-references) | Molecular weight                |
+| pK<sub>a,base</sub><sup>+</sup> |           | 7.49             | [DrugBank DB00697](#5-references) | Acidic dissociation constant    |
+| Solubility (pH)<sup>+</sup>     | mg/mL     | 0.133<br />(7.4) | [DrugBank DB00697](#5-references) | Aqueous Solubility              |
+| logP<sup>+</sup>                |           | 1.4              | [DrugBank DB00697](#5-references) | Partition coefficient           |
+| fu<sup>+</sup>                  | %         | 70               | [SmPC tizanidine](#5-references)  | Fraction unbound in plasma      |
+| Intrinsic CL                    | ml/min/kg | 17               | [Granfors 2004](#5-references)    | Predicted from microsomal assay |
 
 **Table 1:**<a name="Table 1"></a> Physico-chemical and *in-vitro* metabolization properties of tizanidine extracted from literature. *<sup>+</sup>: Value used in final model*
 
@@ -85,16 +85,16 @@ A literature search was performed to collect available clinical data on tizanidi
 
 | **Source**           | **Dose [mg]/**  **Schedule \*** | **Pop.**     | Age [yrs] (mean or range) | Weight [kg] (mean or range) | **Sex** | **N** | **Form.** | Fasted or Fed | **Comment**                       |
 | -------------------- | ------------------------------- | ------------ | ------- | ----- | --------- | --------------------------------- | --------------------------------- | --------------------------------- | -------------------- |
-| [Momo 2010](#5-References)<sup>+</sup> | 2               | HV                | 29                      | 70                        | m    | 12   | Tablet         | Fed       |              |
-| [Granfors 2004](#5-References)<sup>+</sup> | 4                               | HV       | 21-31                     | 65-83                       | m       | 10    | Tablet           | Fasted        |                                          |
-| [Schellenberger 1999](#5-References) | 4 t.i.d.                        | HV       | 19-37                     | 70-97                       | m       | 12    | Tablet           | Fasted        |                                          |
-| [Henney 2007](#5-References)<sup>+</sup> | 4                               | HV       | 26                        | 71                          | m12/f6  | 18    | Tablet /Capsule  | Fed           |                                          |
-| [Backman 2008](#5-References)<sup>+</sup> | 4                               | HV       | 23                        | 78                          | m       | 38    | Tablet           | Fasted        | Male/female-non-smokers and male-smokers |
-| [Backman 2006](#5-References)<sup>+</sup> | 4                               | HV       | 21                        | 71                          | m6/f4   | 10    | Tablet           | Fasted        | Only control group used                  |
-| [Shah 2006](#5-References)           | 8                               | HV       | 18-52                     | 46-102                      | m54/f42 | 96    | Tablet / Capsule | Fed/   Fasted |                        |
-| [Henney 2008](#5-References)         | 6                               | HV       | 18-39                     | NA                          | m19/f9  | 27    | Capsule          | Fasted        | |
-| [Tse 1987](#5-References)            | 4 t.i.d.                        | HV       | 21-48                     | 57-86                       | m       | 6     | Tablet           | Fasted        | |
-| [Al-Ghazawi 2013](#5-References)<sup>+</sup> | 4                               | HV       | 28                        | 75                          | m       | 36    | Tablet           | Fasted        | |
+| [Momo 2010](#5-references)<sup>+</sup> | 2               | HV                | 29                      | 70                        | m    | 12   | Tablet         | Fed       |              |
+| [Granfors 2004](#5-references)<sup>+</sup> | 4                               | HV       | 21-31                     | 65-83                       | m       | 10    | Tablet           | Fasted        |                                          |
+| [Schellenberger 1999](#5-references) | 4 t.i.d.                        | HV       | 19-37                     | 70-97                       | m       | 12    | Tablet           | Fasted        |                                          |
+| [Henney 2007](#5-references)<sup>+</sup> | 4                               | HV       | 26                        | 71                          | m12/f6  | 18    | Tablet /Capsule  | Fed           |                                          |
+| [Backman 2008](#5-references)<sup>+</sup> | 4                               | HV       | 23                        | 78                          | m       | 38    | Tablet           | Fasted        | Male/female-non-smokers and male-smokers |
+| [Backman 2006](#5-references)<sup>+</sup> | 4                               | HV       | 21                        | 71                          | m6/f4   | 10    | Tablet           | Fasted        | Only control group used                  |
+| [Shah 2006](#5-references)           | 8                               | HV       | 18-52                     | 46-102                      | m54/f42 | 96    | Tablet / Capsule | Fed/   Fasted |                        |
+| [Henney 2008](#5-references)         | 6                               | HV       | 18-39                     | NA                          | m19/f9  | 27    | Capsule          | Fasted        | |
+| [Tse 1987](#5-references)            | 4 t.i.d.                        | HV       | 21-48                     | 57-86                       | m       | 6     | Tablet           | Fasted        | |
+| [Al-Ghazawi 2013](#5-references)<sup>+</sup> | 4                               | HV       | 28                        | 75                          | m       | 36    | Tablet           | Fasted        | |
 
 **Table 2:**<a name="Table 2"></a> Literature sources of clinical concentration data of tizanidine sused for model development and validation.  *\*: single dose unless otherwise specified; EM: extensive metabolizers;<sup>+</sup>: Data used for final parameter identification*
 ## 2.3 Model Parameters and Assumptions
@@ -106,7 +106,7 @@ The same parameter values are used for the capsule and tablet formulations in fa
 
 ### 2.3.2 Distribution
 
-Physico-chemical parameters were set to the reported values (see [Section 2.2.1](#2.2.1-In-vitro-and-physico-chemical-data)). It was assumed that the major binding partner in plasma is albumin.
+Physico-chemical parameters were set to the reported values (see [Section 2.2.1](#221-in-vitro-and-physico-chemical-data)). It was assumed that the major binding partner in plasma is albumin.
 
 After testing the available organ-plasma partition coefficient and cell permeability calculation methods available in PK-Sim, observed clinical data were best described by choosing the partition coefficient calculation by `Berezhkovskiy` and cellular permeability calculation by `PK-Sim Standard`.
 
@@ -129,9 +129,9 @@ Following parameter values were estimated for the base model:
 # 3 Results and Discussion
 The next sections show:
 
-1. Final model input parameters for the building blocks: [Section 3.1](#3.1-Final-Input-Parameters).
-2. Overall goodness of fit: [Section 3.2](#3.2-Diagnostics-Plots).
-3. Simulated vs. observed concentration-time profiles for the clinical studies used for model building and for model verification: [Section 3.3](#3.3-Concentration-Time-Profiles).
+1. Final model input parameters for the building blocks: [Section 3.1](#31-final-input-parameters).
+2. Overall goodness of fit: [Section 3.2](#32-diagnostics-plots).
+3. Simulated vs. observed concentration-time profiles for the clinical studies used for model building and for model verification: [Section 3.3](#33-concentration-time-profiles).
 
 ## 3.1 Final input parameters
 The parameter values of the final PBPK model are illustrated below.
@@ -201,7 +201,7 @@ Name         | Value | Value Origin
 GFR fraction |     1 | Other-Assumption
 
 ## 3.2 Diagnostics Plots
-The following section displays the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data listed in [Section 2.2.2](#2.2.2-Clinical-data).
+The following section displays the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data listed in [Section 2.2.2](#222-clinical-data).
 
 The first plot shows observed versus simulated plasma concentration, the second weighted residuals versus time. 
 
@@ -212,7 +212,7 @@ The first plot shows observed versus simulated plasma concentration, the second 
 GMFE = 1.645811 
 
 ## 3.3 Concentration-Time Profiles
-Simulated versus observed concentration-time profiles of all data listed in [Section 2.2.2](#2.2.2-Clinical-data) are presented below.
+Simulated versus observed concentration-time profiles of all data listed in [Section 2.2.2](#222-clinical-data) are presented below.
 
 ### 3.3.1 Model Building
 

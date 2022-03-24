@@ -31,7 +31,7 @@ The presented PBPK model of omeprazole has been developed to be used in a PBPK D
 
 Omeprazole is a proton pump inhibitor (PPI) for the treatment of gastric acid related diseases. Omeprazole is administered as a racemic mixture of its two enantiomers, S-omeprazole and R-omeprazole.
 
-The following ADME characteristics for (R-/S-) omeprazole were taken from omeprazole 20 mg capsule [FDA SPC](#5-References):
+The following ADME characteristics for (R-/S-) omeprazole were taken from omeprazole 20 mg capsule [FDA SPC](#5-references):
 
 **Absorption**: Absorption of (R-/S-) omeprazole is rapid, with peak plasma levels occurring approximately 1-2 hours after dose. Absorption of omeprazole takes place in the small intestine and is usually completed within 3-6 hours. The systemic availability (bioavailability) from a single oral dose of omeprazole is approximately 40%. After repeated once-daily administration, the bioavailability increases to about 60%.
 
@@ -43,13 +43,13 @@ The following ADME characteristics for (R-/S-) omeprazole were taken from omepra
 
 **Linearity/non-linearity:** The AUC of omeprazole increases with repeated administration following a non-linear dose-AUC relationship. This time- and dose- dependency is due to a decrease of first pass metabolism and systemic clearance probably caused by an inhibition of the CYP2C19 enzyme by omeprazole and/or its metabolites (e.g. the sulphone).
 
-**Stereoselectivity:** Because both enantiomers are substrates and inhibitors of CYP2C19, the PK profile of each enantiomer is expected to differ when the racemic mixture is administered as compared to as a single agent because of mutual inhibition between the enantiomers ([Äbelö 2000](#5-References)). The Ki for R-omeprazole is 2-5 higher compared to S-omeprazole ([Liu 2005](#5-References), [Wu 2014](#5-References)).
+**Stereoselectivity:** Because both enantiomers are substrates and inhibitors of CYP2C19, the PK profile of each enantiomer is expected to differ when the racemic mixture is administered as compared to as a single agent because of mutual inhibition between the enantiomers ([Äbelö 2000](#5-references)). The Ki for R-omeprazole is 2-5 higher compared to S-omeprazole ([Liu 2005](#5-references), [Wu 2014](#5-references)).
 
 # 2 Methods
 
 
 ## 2.1 Modeling Strategy
-The general workflow for building an adult PBPK model has been described by Kuepfer et al. ([Kuepfer 2016](#5-References)). Relevant information on the anthropometry (height, weight) was gathered from the respective clinical study, if reported. Information on physiological parameters (e.g. blood flows, organ volumes, hematocrit) in adults was gathered from the literature and has been incorporated in PK-Sim® as described previously ([Willmann 2007](#5-References)). The  applied activity and variability of plasma proteins and active processes that are integrated into PK-Sim® are described in the publicly available 'PK-Sim® Ontogeny Database Version 7.3' ([PK-Sim Ontogeny Database Version 7.3](#5-References)).
+The general workflow for building an adult PBPK model has been described by Kuepfer et al. ([Kuepfer 2016](#5-references)). Relevant information on the anthropometry (height, weight) was gathered from the respective clinical study, if reported. Information on physiological parameters (e.g. blood flows, organ volumes, hematocrit) in adults was gathered from the literature and has been incorporated in PK-Sim® as described previously ([Willmann 2007](#5-references)). The  applied activity and variability of plasma proteins and active processes that are integrated into PK-Sim® are described in the publicly available 'PK-Sim® Ontogeny Database Version 7.3' ([PK-Sim Ontogeny Database Version 7.3](#5-references)).
 
 The model includes distinct molecules for S- and R-omeprazole, the racemic omeprazole is represented by an observer that sums up the concentrations of S- and R-omeprazole. It was assumed that both isomers correspond to the half of the racemic omeprazole dose.
 
@@ -73,21 +73,21 @@ In general, the following step-wise workflow was followed:
 
 6.Refine CYP2C19 metabolism on CYP2C19 EM data
 
-The predefined “Standard European Male for DDI” individual was used (age = 30 y, weight = 73 kg, height = 176 cm, BMI = 23.57 kg/m2) until stated otherwise. CYP2C19 expression from the PK-Sim in-built RT-PCR database was added and adjusted as described in [Section 2.3.3](#2.3.3 Metabolism and Elimination).
+The predefined “Standard European Male for DDI” individual was used (age = 30 y, weight = 73 kg, height = 176 cm, BMI = 23.57 kg/m2) until stated otherwise. CYP2C19 expression from the PK-Sim in-built RT-PCR database was added and adjusted as described in [Section 2.3.3](#233-metabolism-and-elimination).
 
-Selection of the distribution model for S-omeprazole and estimation of the lipophilicity parameter were performed with i.v. data ([Wilder-Smith 2005](# 5 References), [Hassan-Alin 2000](# 5 References)).
+Selection of the distribution model for S-omeprazole and estimation of the lipophilicity parameter were performed with i.v. data ([Wilder-Smith 2005](#5-references), [Hassan-Alin 2000](#5-references)).
 
 The kinetics of CYP2C19 and CYP3A4 metabolization processes of S-omeprazole and R-omeprazole were estimated using the Parameter Identification module provided in PK-Sim® with i.v. and p.o. data including administration of S-, R- or racemic omeprazole, see [Table 3](#Table 3), [Table 4](#Table 4), and [Table 5](#Table 5) for more details. The kinetic parameters were assumed not to be identical for the isomers. For simulations of CYP2C19 poor metabolizers, the CYP2C19 pathway was switched off.
 
-For studies in Japanese subjects, a typical Japanese subject (age = 30 y, weight = 61.87 kg, height = 168.99 cm, BMI = 21.67 kg/m2) was created in PK-Sim from predefined database “Japanese (2015)” by adding CYP3A4 and CYP2C19 expression from PK-Sim RT PCR database, and adapting CYP2C19 expression in gut as described in [Section 2.3.3](#2.3.3 Metabolism and Elimination).
+For studies in Japanese subjects, a typical Japanese subject (age = 30 y, weight = 61.87 kg, height = 168.99 cm, BMI = 21.67 kg/m2) was created in PK-Sim from predefined database “Japanese (2015)” by adding CYP3A4 and CYP2C19 expression from PK-Sim RT PCR database, and adapting CYP2C19 expression in gut as described in [Section 2.3.3](#233-metabolism-and-elimination).
 
-Intestinal permeability of S-omeprazole was estimated by fitting the model to concentration-time data measured after p.o. administration of 20 or 40 mg given as solution ([Hassan-Alin 2005](#5-References)).
+Intestinal permeability of S-omeprazole was estimated by fitting the model to concentration-time data measured after p.o. administration of 20 or 40 mg given as solution ([Hassan-Alin 2005](#5-references)).
 
-Parameters `Dissolution time (50% dissolved)` and `Dissolution shape`  describing the dissolution of capsule formulation were fitted to the data after single dose S-omeprazole 40 mg capsule ([Wilder-Smith 2005](# 5 References)).
+Parameters `Dissolution time (50% dissolved)` and `Dissolution shape`  describing the dissolution of capsule formulation were fitted to the data after single dose S-omeprazole 40 mg capsule ([Wilder-Smith 2005](#5-references)).
 
-Details about input data (physicochemical, *in vitro* and clinical) can be found in [Section 2.2](#2.2-Data).
+Details about input data (physicochemical, *in vitro* and clinical) can be found in [Section 2.2](#22-data).
 
-Details about the structural model and its parameters can be found in [Section 2.3](#2.3-Model-Parameters-and-Assumptions).
+Details about the structural model and its parameters can be found in [Section 2.3](#23-model-parameters-and-assumptions).
 
 Population simulations of single and multiple i.v. or p.o. administration over a wide range of dose levels were conducted to visually compare the predicted concentration-time profile to the observed concentrations reported in the literature, in terms of mean and variability. The simulated populations matched the race (European or Asian) and the age-weight ranges reported in the respective clinical studies. A total of 1000 individuals were generated for studies in males only, while 2000 were generated for mixed gender populations. The concentration time profile was simulated for each virtual subject and summarized as geometric mean and 95% CI. The simulations were performed for extensive and poor CYP2C19 metabolizers.
 
@@ -98,16 +98,16 @@ A literature search was performed to collect available information on physico-ch
 
 | **Parameter**                                              | **Unit** | **Value**     | Source                                          | **Description**                                              |
 | :--------------------------------------------------------- | -------- | ------------- | ----------------------------------------------- | ------------------------------------------------------------ |
-| MW<sup>+</sup>                                             | g/mol    | 345.42        | [DrugBank DB00338](#5-References)               | Molecular weight.                                            |
-| pK<sub>a,acid</sub><sup>+</sup>                            |          | 9.29          | [DrugBank DB00338](#5-References)               | Acidic dissociation constant                                 |
-| pK<sub>a,base</sub><sup>+</sup>                            |          | 4.77          | [DrugBank DB00338](#5-References)               | Basic dissociation constant                                  |
-| Solubility (pH)<sup>+</sup>                                | mg/mL    | 0.36<br />(7) | [DrugBank DB00338](#5-References)               | Aqueous Solubility                                           |
-| logD                                                       |          | 2.23          | [Ogilvie 2011](#5-References)                   | Distribution coefficient                                     |
-| fu<sup>+</sup>                                             | %        | 3             | [Nexium prescribing information](#5-References) | Fraction unbound in plasma                                   |
-| Kinact  CYP2C19<sup>+</sup>                                | l/h      | 5             | [Wu 2014](#5-References)                        | Kinact of time dependent inhibition on CYP2C19               |
-| K<sub>i</sub> CYP2C19<sup>+</sup>                          | µM       | 0.3           | [Wu 2014](#5-References)                        | KI of time dependent inhibition on CYP2C19                   |
-| K<sub>i</sub> CYP2C19 (competitive inhibition)<sup>+</sup> | µM       | 3.1           | [Liu 2005](#5-References)                       | The total ki  value reported by Liu was 3.4 µmol/L and corrected with an fu_mic of 0.92 |
-| Renal Elimination<sup>+</sup>                              | l/h      | 0.037         | [Wu 2014](#5-References)                        | Assumed same as omeprazole                                   |
+| MW<sup>+</sup>                                             | g/mol    | 345.42        | [DrugBank DB00338](#5-references)               | Molecular weight.                                            |
+| pK<sub>a,acid</sub><sup>+</sup>                            |          | 9.29          | [DrugBank DB00338](#5-references)               | Acidic dissociation constant                                 |
+| pK<sub>a,base</sub><sup>+</sup>                            |          | 4.77          | [DrugBank DB00338](#5-references)               | Basic dissociation constant                                  |
+| Solubility (pH)<sup>+</sup>                                | mg/mL    | 0.36<br />(7) | [DrugBank DB00338](#5-references)               | Aqueous Solubility                                           |
+| logD                                                       |          | 2.23          | [Ogilvie 2011](#5-references)                   | Distribution coefficient                                     |
+| fu<sup>+</sup>                                             | %        | 3             | [Nexium prescribing information](#5-references) | Fraction unbound in plasma                                   |
+| Kinact  CYP2C19<sup>+</sup>                                | l/h      | 5             | [Wu 2014](#5-references)                        | Kinact of time dependent inhibition on CYP2C19               |
+| K<sub>i</sub> CYP2C19<sup>+</sup>                          | µM       | 0.3           | [Wu 2014](#5-references)                        | KI of time dependent inhibition on CYP2C19                   |
+| K<sub>i</sub> CYP2C19 (competitive inhibition)<sup>+</sup> | µM       | 3.1           | [Liu 2005](#5-references)                       | The total ki  value reported by Liu was 3.4 µmol/L and corrected with an fu_mic of 0.92 |
+| Renal Elimination<sup>+</sup>                              | l/h      | 0.037         | [Wu 2014](#5-references)                        | Assumed same as omeprazole                                   |
 
 **Table 1:**<a name="Table 1"></a> Physico-chemical and *in-vitro* metabolization properties of S-omeprazole extracted from literature. *<sup>+</sup>: Value used in final model*
 
@@ -115,16 +115,16 @@ A literature search was performed to collect available information on physico-ch
 
 | **Parameter**                                              | **Unit** | **Value**     | Source                            | **Description**                                              |
 | :--------------------------------------------------------- | -------- | ------------- | --------------------------------- | ------------------------------------------------------------ |
-| MW<sup>+</sup>                                             | g/mol    | 345.42        | [DrugBank DB00338](#5-References) | Molecular weight.                                            |
-| pK<sub>a,acid</sub><sup>+</sup>                            |          | 9.29          | [DrugBank DB00338](#5-References) | Acidic dissociation constant                                 |
-| pK<sub>a,base</sub><sup>+</sup>                            |          | 4.77          | [DrugBank DB00338](#5-References) | Basic dissociation constant                                  |
-| Solubility (pH)<sup>+</sup>                                | mg/mL    | 0.36<br />(7) | [DrugBank DB00338](#5-References) | Aqueous Solubility                                           |
-| logD                                                       |          | 2.23          | [Ogilvie 2011](#5-References)     | Distribution coefficient                                     |
-| fu<sup>+</sup>                                             | %        | 4             | [Ogilvie 2011](#5-References)     | Fraction unbound in plasma; assumed same as omeprazole       |
-| Kinact  CYP2C19<sup>+</sup>                                | l/h      | 4             | [Wu 2014](#5-References)          | Kinact of time dependent inhibition on CYP2C19               |
-| K<sub>i</sub> CYP2C19<sup>+</sup>                          | µM       | 1.6           | [Wu 2014](#5-References)          | KI of time dependent inhibition on CYP2C19                   |
-| K<sub>i</sub> CYP2C19 (competitive inhibition)<sup>+</sup> | µM       | 5.3           | [Liu 2005](#5-References)         | The total ki  value reported by Liu was 5.7 µmol/L and corrected with an fu_mic of 0.92 |
-| Renal Elimination<sup>+</sup>                              | l/h      | 0.037         | [Wu 2014](#5-References)          | Assumed same as omeprazole                                   |
+| MW<sup>+</sup>                                             | g/mol    | 345.42        | [DrugBank DB00338](#5-references) | Molecular weight.                                            |
+| pK<sub>a,acid</sub><sup>+</sup>                            |          | 9.29          | [DrugBank DB00338](#5-references) | Acidic dissociation constant                                 |
+| pK<sub>a,base</sub><sup>+</sup>                            |          | 4.77          | [DrugBank DB00338](#5-references) | Basic dissociation constant                                  |
+| Solubility (pH)<sup>+</sup>                                | mg/mL    | 0.36<br />(7) | [DrugBank DB00338](#5-references) | Aqueous Solubility                                           |
+| logD                                                       |          | 2.23          | [Ogilvie 2011](#5-references)     | Distribution coefficient                                     |
+| fu<sup>+</sup>                                             | %        | 4             | [Ogilvie 2011](#5-references)     | Fraction unbound in plasma; assumed same as omeprazole       |
+| Kinact  CYP2C19<sup>+</sup>                                | l/h      | 4             | [Wu 2014](#5-references)          | Kinact of time dependent inhibition on CYP2C19               |
+| K<sub>i</sub> CYP2C19<sup>+</sup>                          | µM       | 1.6           | [Wu 2014](#5-references)          | KI of time dependent inhibition on CYP2C19                   |
+| K<sub>i</sub> CYP2C19 (competitive inhibition)<sup>+</sup> | µM       | 5.3           | [Liu 2005](#5-references)         | The total ki  value reported by Liu was 5.7 µmol/L and corrected with an fu_mic of 0.92 |
+| Renal Elimination<sup>+</sup>                              | l/h      | 0.037         | [Wu 2014](#5-references)          | Assumed same as omeprazole                                   |
 
 **Table 2:**<a name="Table 2"></a> Physico-chemical and *in-vitro* metabolization properties of R-omeprazole extracted from literature. *<sup>+</sup>: Value used in final model*
 
@@ -134,61 +134,61 @@ A literature search was performed to collect available clinical data on omeprazo
 
 | **Source**           | **Route** | **Dose [mg]/**  **Schedule \*** | **Pop.**     | **Sex** | **N** | **Form.** | **Comment**                       |
 | -------------------- | --------- | ------------------------------- | ------------ | ------- | ----- | --------- | --------------------------------- |
-| [Andersson 1990](#5-References)<sup>+</sup> | i.v.      | 40 - 80                         | HV                        | M       | 10    | solution                      |                    |
-| [Andersson 1990](#5-References)              | p.o.      | 40 - 80                         | HV                        | M       | 10    | Oral solution                 |                    |
-| [Andersson 1991](#5-References)              | p.o.      | 10 - 20 – 40 q.d.               | HV                        | M       | 12    | e.c. granules                 |                    |
-| [Andersson 1991](#5-References)<sup>+</sup>  | i.v.      | 10 - 20 - 40                    | HV                        | M       | 12    | solution                      |                    |
-| [Andersson 1998](#5-References)              | p.o.      | 20 q.d.                         | HV                        | M       | 12    | capsule                       | EM                 |
-| [Andersson 1998](#5-References)              | p.o.      | 20 q.d.                         | HV                        | M       | 2     | capsule                       | PM                 |
-| [Oosterhuis 1992](#5-References)<sup>+</sup> | i.v.      | 40 - 80                         | HV                        | M       | 8     | solution                      |                    |
-| [Uno 2007](#5-References)<sup>+</sup>        | i.v.      | 20                              | HV japanese               | M - F   | 6     | solution                      | hmEM               |
-| [Uno 2007](#5-References)<sup>+</sup>        | i.v.      | 20                              | HV japanese               | M - F   | 6     | solution                      | PM                 |
-| [Uno 2007](#5-References)                    | p.o.      | 40                              | HV japanese               | M - F   | 6     | tablet                        | hmEM               |
-| [Uno 2007](#5-References)                    | p.o.      | 40                              | HV japanese               | M - F   | 6     | tablet                        | PM                 |
-| [Regårdh 1990](#5-References)<sup>+</sup>    | i.v.      | 10                              | HV                        | M       | 8     | solution                      |                    |
-| [Regårdh 1990](#5-References)                | p.o.      | 20                              | HV                        | M       | 8     | Oral solution                 |                    |
-| [Andersson 2000](#5-References)              | p.o.      | 15 q.d.                         | HV                        | -       | 4     | Oral solution                 | EM                 |
-| [Andersson 2000](#5-References)              | p.o.      | 60 q.d.                         | HV                        | -       | 5     | Oral solution                 | PM                 |
-| [Hassan-Alin 2005](#5-References)            | p.o.      | 20 – 40 q.d.                    | HV                        | -       | -     | Oral solution                 |                    |
-| [Cho 2002](#5-References)                    | p.o.      | 20                              | HV asian                  | -       | -     | capsule                       | EM +/- moclobemide |
-| [Cho 2002](#5-References)                    | p.o.      | 20                              | HV asian                  | -       | -     | capsule                       | PM +/- moclobemide |
-| [Yasui-Furukori 2004](#5-References)         | p.o.      | 40                              | HV japanese               | M - F   | 6     | omepral                       |                    |
-| [Yasui-Furukori 2004](#5-References)         | p.o.      | 40                              | HV japanese               | M - F   | 6     | omepral                       | PM +/- fluvoxamine |
-| [Wu 2016](#5-References)      | p.o.      | 40 q.d.                         | HV caucasian              | M - F   | 15    | gastro-resistant hard capsule |                    |
+| [Andersson 1990](#5-references)<sup>+</sup> | i.v.      | 40 - 80                         | HV                        | M       | 10    | solution                      |                    |
+| [Andersson 1990](#5-references)              | p.o.      | 40 - 80                         | HV                        | M       | 10    | Oral solution                 |                    |
+| [Andersson 1991](#5-references)              | p.o.      | 10 - 20 – 40 q.d.               | HV                        | M       | 12    | e.c. granules                 |                    |
+| [Andersson 1991](#5-references)<sup>+</sup>  | i.v.      | 10 - 20 - 40                    | HV                        | M       | 12    | solution                      |                    |
+| [Andersson 1998](#5-references)              | p.o.      | 20 q.d.                         | HV                        | M       | 12    | capsule                       | EM                 |
+| [Andersson 1998](#5-references)              | p.o.      | 20 q.d.                         | HV                        | M       | 2     | capsule                       | PM                 |
+| [Oosterhuis 1992](#5-references)<sup>+</sup> | i.v.      | 40 - 80                         | HV                        | M       | 8     | solution                      |                    |
+| [Uno 2007](#5-references)<sup>+</sup>        | i.v.      | 20                              | HV japanese               | M - F   | 6     | solution                      | hmEM               |
+| [Uno 2007](#5-references)<sup>+</sup>        | i.v.      | 20                              | HV japanese               | M - F   | 6     | solution                      | PM                 |
+| [Uno 2007](#5-references)                    | p.o.      | 40                              | HV japanese               | M - F   | 6     | tablet                        | hmEM               |
+| [Uno 2007](#5-references)                    | p.o.      | 40                              | HV japanese               | M - F   | 6     | tablet                        | PM                 |
+| [Regårdh 1990](#5-references)<sup>+</sup>    | i.v.      | 10                              | HV                        | M       | 8     | solution                      |                    |
+| [Regårdh 1990](#5-references)                | p.o.      | 20                              | HV                        | M       | 8     | Oral solution                 |                    |
+| [Andersson 2000](#5-references)              | p.o.      | 15 q.d.                         | HV                        | -       | 4     | Oral solution                 | EM                 |
+| [Andersson 2000](#5-references)              | p.o.      | 60 q.d.                         | HV                        | -       | 5     | Oral solution                 | PM                 |
+| [Hassan-Alin 2005](#5-references)            | p.o.      | 20 – 40 q.d.                    | HV                        | -       | -     | Oral solution                 |                    |
+| [Cho 2002](#5-references)                    | p.o.      | 20                              | HV asian                  | -       | -     | capsule                       | EM +/- moclobemide |
+| [Cho 2002](#5-references)                    | p.o.      | 20                              | HV asian                  | -       | -     | capsule                       | PM +/- moclobemide |
+| [Yasui-Furukori 2004](#5-references)         | p.o.      | 40                              | HV japanese               | M - F   | 6     | omepral                       |                    |
+| [Yasui-Furukori 2004](#5-references)         | p.o.      | 40                              | HV japanese               | M - F   | 6     | omepral                       | PM +/- fluvoxamine |
+| [Wu 2016](#5-references)      | p.o.      | 40 q.d.                         | HV caucasian              | M - F   | 15    | gastro-resistant hard capsule |                    |
 
 **Table 3:**<a name="Table 3"></a> Literature sources of clinical concentration data of omeprazole used for model development and validation. *e.c.: enteric coated; -: respective information was not provided in the literature source; \*:single dose unless otherwise specified; EM: extensive metabolizers; PM: pooor metabolizers; <sup>+</sup>: Data used for final parameter identification*
 
 | **Source**                                     | **Route** | **Dose [mg]/**  **Schedule \***                              | **Pop.** | **Sex** | **N** | **Form.**     | **Comment** |
 | ---------------------------------------------- | --------- | ------------------------------------------------------------ | -------- | ------- | ----- | ------------- | ----------- |
-| [Wilder-Smith 2005](#5-References)<sup>+</sup> | i.v.      | 40 q.d.                                                      | HV       | M - F   | 39    | solution      |             |
-| [Wilder-Smith 2005](#5-References)<sup>+</sup> | p.o.      | 40 q.d.                                                      | HV       | M - F   | 37    | capsule       |             |
-| [Hassan-Alin 2000](#5-References)<sup>+</sup>  | i.v.      | 20 - 40                                                      | HV       | -       | -     | solution      |             |
-| [Andersson 2000](#5-References)                | p.o.      | 15 q.d.                                                      | HV       | -       | 4     | oral solution | EM          |
-| [Andersson 2000](#5-References)<sup>+</sup>    | p.o.      | 60 q.d.                                                      | HV       | -       | 5     | oral solution | PM          |
-| [Hassan-Alin 2005](#5-References)<sup>+</sup>  | p.o.      | 20 - 40 q.d.                                                 | HV       | -       | -     | oral solution |             |
-| [FDA Nexium Review](#5-References)             | p.o.      | 40                                                           | HV       | M       | -     | -             | EM          |
-| [FDA Nexium Review](#5-References)<sup>+</sup> | p.o.      | 40                                                           | HV       | M       | -     | -             | PM          |
-| [Rohss 2007](#5-References)<sup>+</sup>        | i.v.      | 120mg(30min)+8mg/h - 120mg(2h)+8mg/h -  80mg(30min)+4mg/h - 80mg(30min)+8mg/h - 40mg(30min)+8mg/h | HV       | -       | 25    | solution      |             |
+| [Wilder-Smith 2005](#5-references)<sup>+</sup> | i.v.      | 40 q.d.                                                      | HV       | M - F   | 39    | solution      |             |
+| [Wilder-Smith 2005](#5-references)<sup>+</sup> | p.o.      | 40 q.d.                                                      | HV       | M - F   | 37    | capsule       |             |
+| [Hassan-Alin 2000](#5-references)<sup>+</sup>  | i.v.      | 20 - 40                                                      | HV       | -       | -     | solution      |             |
+| [Andersson 2000](#5-references)                | p.o.      | 15 q.d.                                                      | HV       | -       | 4     | oral solution | EM          |
+| [Andersson 2000](#5-references)<sup>+</sup>    | p.o.      | 60 q.d.                                                      | HV       | -       | 5     | oral solution | PM          |
+| [Hassan-Alin 2005](#5-references)<sup>+</sup>  | p.o.      | 20 - 40 q.d.                                                 | HV       | -       | -     | oral solution |             |
+| [FDA Nexium Review](#5-references)             | p.o.      | 40                                                           | HV       | M       | -     | -             | EM          |
+| [FDA Nexium Review](#5-references)<sup>+</sup> | p.o.      | 40                                                           | HV       | M       | -     | -             | PM          |
+| [Rohss 2007](#5-references)<sup>+</sup>        | i.v.      | 120mg(30min)+8mg/h - 120mg(2h)+8mg/h -  80mg(30min)+4mg/h - 80mg(30min)+8mg/h - 40mg(30min)+8mg/h | HV       | -       | 25    | solution      |             |
 
 **Table 4:**<a name="Table 4"></a> Literature sources of clinical concentration data of S-omeprazole used for model development and validation. *e.c.: enteric coated; -: respective information was not provided in the literature source; \*:single dose unless otherwise specified; EM: extensive metabolizers; PM: pooor metabolizers; <sup>+</sup>: Data used for final parameter identification*
 
 | **Source**                                    | **Route** | **Dose [mg]/**  **Schedule \*** | **Pop.** | **Sex** | **N** | **Form.**     | **Comment** |
 | --------------------------------------------- | --------- | ------------------------------- | -------- | ------- | ----- | ------------- | ----------- |
-| [Andersson 2000](#5-References)<sup>+</sup>   | p.o.      | 15 q.d.                         | HV       | -       | 4     | oral solution | EM          |
-| [Andersson 2000](#5-References)<sup>+</sup>   | p.o.      | 60 q.d.                         | HV       | -       | 5     | oral solution | PM          |
-| [Hassan-Alin 2005](#5-References)<sup>+</sup> | p.o.      | 20 - 40 q.d.                    | HV       | -       | -     | oral solution |             |
+| [Andersson 2000](#5-references)<sup>+</sup>   | p.o.      | 15 q.d.                         | HV       | -       | 4     | oral solution | EM          |
+| [Andersson 2000](#5-references)<sup>+</sup>   | p.o.      | 60 q.d.                         | HV       | -       | 5     | oral solution | PM          |
+| [Hassan-Alin 2005](#5-references)<sup>+</sup> | p.o.      | 20 - 40 q.d.                    | HV       | -       | -     | oral solution |             |
 
 **Table 5:**<a name="Table 5"></a> Literature sources of clinical concentration data of R-omeprazole used for model development and validation. *e.c.: enteric coated; -: respective information was not provided in the literature source; \*:single dose unless otherwise specified; EM: extensive metabolizers; PM: pooor metabolizers; <sup>+</sup>: Data used for final parameter identification*
 ## 2.3 Model Parameters and Assumptions
 ### 2.3.1 Absorption
 
-The model parameter `Specific intestinal permeability`  for S-omeprazole was optimized to best match clinical data (see  [Section 2.3.4](#2.3.4-Automated-Parameter-Identification)). The same parameter value was assumed for R-omeprazole.
+The model parameter `Specific intestinal permeability`  for S-omeprazole was optimized to best match clinical data (see  [Section 2.3.4](#234-automated-parameter-identification)). The same parameter value was assumed for R-omeprazole.
 
 The dissolution of the capsule formulation was implemented via an empirical Weibull dissolution equation with parameters `Dissolution time (50% dissolved)` and `Dissolution shape` fitted to observed data. A `Lag time ` = 30 min was used to account for the gastric emptying time.
 
 ### 2.3.2 Distribution
 
-Physico-chemical parameter values of S- and R-omeprazole were set to the reported values (see [Section 2.2.1](#2.2.1-In-vitro-and-physico-chemical-data)) except for lipophilicity of S-omeprazole, which was estimated with i.v. data. It was assumed that the major binding partner in plasma is albumin.
+Physico-chemical parameter values of S- and R-omeprazole were set to the reported values (see [Section 2.2.1](#221-in-vitro-and-physico-chemical-data)) except for lipophilicity of S-omeprazole, which was estimated with i.v. data. It was assumed that the major binding partner in plasma is albumin.
 
 After testing the available organ-plasma partition coefficient and cell permeability calculation methods available in PK-Sim, observed clinical data were best described by choosing the partition coefficient calculation by `Rodgers and Rowland` and cellular permeability calculation by `PK-Sim Standard`.
 
@@ -201,13 +201,13 @@ Two linear metabolic pathways for S- and R-omeprazole were implement in the mode
 * CYP2C19
 * CYP3A4
 
-To describe multiple dose oral solution data, time-dependent autoinhibition (TDI) on CYP2C19 was added as irreversible inhibition / Mechanism-based inactivation as described by [Wu 2014](#5-References).
+To describe multiple dose oral solution data, time-dependent autoinhibition (TDI) on CYP2C19 was added as irreversible inhibition / Mechanism-based inactivation as described by [Wu 2014](#5-references).
 
-Competitive inhibition of CYP2C19 by both isomers was implemented in addition to TDI ([Liu 2005](#5-References)).
+Competitive inhibition of CYP2C19 by both isomers was implemented in addition to TDI ([Liu 2005](#5-references)).
 
-Simulation results suggested that the expression of CYP2C19 isoenzymes in the GI tract as provided by the RT-PCR PK-Sim database is significantly preventing R-omeprazole from entering the circulation. This was less apparent for S-omeprazole. To note, while the absolute mean CYP3A4 abundance in liver (1.03e7 pmol per liver) and the intestinal/liver CYP3A4 ratio in PK-Sim default individual are similar to values used in other models, the relative intestinal CYP2C19 and CYP2D6 abundances differ ([Table 6](#Table 6)). The relative expression of CYP2C19 in gut was therefore reduced according to [Olivares-Morales 2016](#5-References) for the final model.
+Simulation results suggested that the expression of CYP2C19 isoenzymes in the GI tract as provided by the RT-PCR PK-Sim database is significantly preventing R-omeprazole from entering the circulation. This was less apparent for S-omeprazole. To note, while the absolute mean CYP3A4 abundance in liver (1.03e7 pmol per liver) and the intestinal/liver CYP3A4 ratio in PK-Sim default individual are similar to values used in other models, the relative intestinal CYP2C19 and CYP2D6 abundances differ ([Table 6](#Table 6)). The relative expression of CYP2C19 in gut was therefore reduced according to [Olivares-Morales 2016](#5-references) for the final model.
 
-| **Ratio**                                | **[Olivares-Morales 2016](#5-References)**<sup>1</sup> | **[Galetin and Houston 2006](#5-References)**<sup>2</sup> | **Gastroplus** | **RT-PCR PKsim** | **Comment**                                                  |
+| **Ratio**                                | **[Olivares-Morales 2016](#5-references)**<sup>1</sup> | **[Galetin and Houston 2006](#5-references)**<sup>2</sup> | **Gastroplus** | **RT-PCR PKsim** | **Comment**                                                  |
 | ---------------------------------------- | ------------------------------------------------------ | --------------------------------------------------------- | -------------- | ---------------- | ------------------------------------------------------------ |
 | CYP3A4/2C19 relative abundance liver     | 9.8                                                    | 11.1                                                      | 8.1            | 5.68             | CYP2C19 abundance in liver 1.8-fold higher than  other literature sources |
 | CYP3A4/2C19 relative abundance intestine | 43.8                                                   | 43.0                                                      | -              | 1.28             | CYP2C19 abundance in intestine 22-fold higher  than other literature sources |
@@ -219,7 +219,7 @@ Simulation results suggested that the expression of CYP2C19 isoenzymes in the GI
 
 **Table 6:**<a name="Table 6"></a> Comparison of CYP3A4, CYP2C19 and CYP2D6 relative abundance in liver and small intestine from different literature sources. <sup>1</sup> Based on Sjörgen 2014: CYP relative expressions (pmol/mg_mic_p) from Paine 2006 calibrated against total intestinal CYP3A4 abundance. <sup>2</sup> Mean hepatic and intestinal relative abundance based on Rowland and Yeo 2003 and Paine 2006
 
-Additionally, renal plasma clearance was implemented ([Wu 2014](#5-References)).
+Additionally, renal plasma clearance was implemented ([Wu 2014](#5-references)).
 
 ### 2.3.4 Observer for racemic omeprazole
 
@@ -246,9 +246,9 @@ Following parameter values were estimated for the base model:
 # 3 Results and Discussion
 The next sections show:
 
-1. Final model input parameters for the building blocks: [Section 3.1](#3.1-Final-Input-Parameters).
-2. Overall goodness of fit: [Section 3.2](#3.2-Diagnostics-Plots).
-3. Simulated vs. observed concentration-time profiles for the clinical studies used for model building and for model verification: [Section 3.3](#3.3-Concentration-Time-Profiles).
+1. Final model input parameters for the building blocks: [Section 3.1](#31-final-input-parameters).
+2. Overall goodness of fit: [Section 3.2](#32-diagnostics-plots).
+3. Simulated vs. observed concentration-time profiles for the clinical studies used for model building and for model verification: [Section 3.3](#33-concentration-time-profiles).
 
 ## 3.1 Final input parameters
 The parameter values of the final PBPK model are illustrated below.
@@ -405,7 +405,7 @@ kinact        | 4 1/h      | Publication-Wu 2014
 K_kinact_half | 1.6 µmol/l |                    
 
 ## 3.2 Diagnostics Plots
-The following section displays the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data listed in [Section 2.2.2](#2.2.2-Clinical-data).
+The following section displays the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data listed in [Section 2.2.2](#222-clinical-data).
 
 The first plot shows observed versus simulated plasma concentration, the second weighted residuals versus time. 
 
@@ -428,7 +428,7 @@ GMFE = 2.395866
 GMFE = 2.374414 
 
 ## 3.3 Concentration-Time Profiles
-Simulated versus observed concentration-time profiles of all data listed in [Section 2.2.2](#2.2.2-Clinical-data) are presented below.
+Simulated versus observed concentration-time profiles of all data listed in [Section 2.2.2](#222-clinical-data) are presented below.
 
 ### 3.3.1 Model Building
 
@@ -511,7 +511,7 @@ The developed PBPK model of omeprazole describes the PK data of S-, R-, and race
 
 The assumption for the same distribution model and lipophilicity for R-/S-omeprazole is reasonable, as no i.v. data were available for R-omeprazole.
 
-CYP2C19 expression in gut was reduced according to [Olivares-Morales 2016](#5-References) to better describe R-omeprazole. As CYP2C19 CL and expression are obviously inter-dependent, caution should be used when extrapolating such findings to other CYP2C19 substrates. The impact of the reduced expression of CYP2C19 in gut was therefore investigated for its impact on omeprazole levels.
+CYP2C19 expression in gut was reduced according to [Olivares-Morales 2016](#5-references) to better describe R-omeprazole. As CYP2C19 CL and expression are obviously inter-dependent, caution should be used when extrapolating such findings to other CYP2C19 substrates. The impact of the reduced expression of CYP2C19 in gut was therefore investigated for its impact on omeprazole levels.
 
 Comparison of population simulation results with observed data show that the observations were generally within the simulated ranges, both after i.v. and p.o. dosing and for either CYP2C19 EM and PM.
 # 5 References
