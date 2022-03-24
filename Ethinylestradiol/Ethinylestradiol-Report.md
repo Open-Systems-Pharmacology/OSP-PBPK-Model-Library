@@ -4,7 +4,7 @@
 
 | Version                                         | 1.1-OSP10.0                                                  |
 | ----------------------------------------------- | ------------------------------------------------------------ |
-| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Ethinylestradiol-Model/releases/tag/v1.0 |
+| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Ethinylestradiol-Model/releases/tag/v1.1 |
 | OSP Version                                     | 10.0                                                         |
 | Qualification Framework Version                 | 2.3                                                          |
 
@@ -35,11 +35,11 @@ Ethinylestradiol is an estrogen medication which is used widely as a birth contr
 
 **Distribution**: ethinylestradiol is rapidly distributed throughout most body tissues with the largest concentration found in adipose tissue. It distributes into breast milk, with low concentrations. More than 80% of ethinylestradiol in serum is conjugated as sulphate and almost all the conjugated form is bound to albumin.
 
-**Metabolism**: ethinylestradiol is metabolised in the liver. Hydroxylation appears to be the main metabolic pathway. 60% of a dose is excreted in the urine and 40% in the faeces. 
+**Metabolism**: ethinylestradiol is metabolized in the liver. Hydroxylation appears to be the main metabolic pathway. 60% of a dose is excreted in the urine and 40% in the faeces. 
 
 **Excretion**: About 30% is excreted in the urine and bile as the glucuronide or sulphate conjugate. The rate of metabolism of ethinylestradiol is affected by several factors, including enzyme-inducing agents, antibiotics, and cigarette smoking. The elimination half-life of ethinylestradiol ranges from 5 to 16 hours.
 
-After i.v administration, ethinylestradiol displays approximately linear dose relationship in the dose range 30-100 µg. A wide variability is present in the terminal part of the dose-normalized concentrations.
+After i.v. administration, ethinylestradiol displays approximately linear dose relationship in the dose range 30-100 µg. A wide variability is present in the terminal part of the dose-normalized concentrations.
 
 After p.o. single dose, ethinylestradiol shows linear dose relationship in the dose range 30-3000 µg. Secondary peaks can be observed in individual data, compatible with enterohepatic re-circulation. However, mean data do not display such feature as a result of such peak being averaged out. Therefore, enterohepatic re-circulation was not taken into account in the model.
 
@@ -82,7 +82,7 @@ A literature search was performed to collect available information on physico-ch
 | Km UGT1A1<sup>+</sup>           | µmol/l            | 19.22            | [Ezuruike 2018](#5-references)    | UGT1A1 saturation constant                     |
 | Vmax UGT1A1<sup>+</sup>         | pmol/min/mg prot. | 408.5            | [Ezuruike 2018](#5-references)    | Maximal metabolization rate by UGT1A1          |
 | Renal Elimination<sup>+</sup>   | l/h               | 2.079            | [Stanczyk 2013](#5-references)    | Renal clearance                                |
-| Clint HLM<sup>+</sup>           | µL/min/mg prot.   | 118.83           | [Ezuruike 2018](#5-references)    | Inttrinsic clearance in Human Liver Microsomes |
+| Clint HLM<sup>+</sup>           | µL/min/mg prot.   | 118.83           | [Ezuruike 2018](#5-references)    | Intrinsic clearance in Human Liver Microsomes |
 | Ki CYP1A2                       | µmol/l            | 10.6             | [Karjalainen 2008](#5-references) | CYP1A2 inhibition constant                     |
 
 **Table 1:**<a name="Table 1"></a> Physico-chemical and *in-vitro* metabolization properties of ethinylestradiol extracted from literature. *<sup>+</sup>: Value used in final model*
@@ -137,7 +137,7 @@ Renal plasma clearance is modeled with `Plasma clearance` set to 2.079 l/h repor
 
 ### 2.3.4 Enzyme Inhibition
 
-Simulations of co-administration of ethinylestradiol with tizanidine (see [CYP1A2 DDI Qualification report](link)) indicate that the reported competitive inhibition of CYP1A2 by ethinylestradiol ([Karjalainen 2008](#5-references)) is not sufficient to describe the increased concentrations of tizanidine after multiple days administration. Therefore, it was decided to fit a time-dependent inhibition (TDI) function to the CYP1A2 enzyme system. The parameters `Kinact` and `K_kinact_half` were estimated by fitting the model to concentration-time profiles of tizanidine ([Granfors 2005](#5-references)).
+Simulations of co-administration of ethinylestradiol with tizanidine (see [CYP1A2 DDI Qualification report](https://github.com/Open-Systems-Pharmacology/OSP-Qualification-Reports/releases)) indicate that the reported competitive inhibition of CYP1A2 by ethinylestradiol ([Karjalainen 2008](#5-references)) is not sufficient to describe the increased concentrations of tizanidine after multiple days administration. Therefore, it was decided to fit a time-dependent inhibition (TDI) function to the CYP1A2 enzyme system. The parameters `Kinact` and `K_kinact_half` were estimated by fitting the model to concentration-time profiles of tizanidine ([Granfors 2005](#5-references)).
 
 ### 2.3.5 Automated Parameter Identification
 
@@ -345,7 +345,7 @@ The implemented TDI mechanism for ethinylestradiol was not evident in literature
 
 **SmPC Namuscla ** SmPC Namuscla 167 mg hard capsules, 2019, website medicines.org.uk/emc/product/9838/smpc
 
-**Stanczyk 1983** Stanczyk FZ, Mroszczak EJ, Ling T, et al. Plasma levels and pharmacokinetics of norethindrone and ethinylestradiol administered in solution and as tablets to women. *Contraception*. 1983;28(3):241-251..
+**Stanczyk 1983** Stanczyk FZ, Mroszczak EJ, Ling T, et al. Plasma levels and pharmacokinetics of norethindrone and ethinylestradiol administered in solution and as tablets to women. *Contraception*. 1983;28(3):241-251.
 
 **Stanczyk 2013** Stanczyk FZ, Archer DF, Bhavnani BR. Ethinyl estradiol and 17beta-estradiol in combined oral contraceptives: pharmacokinetics, pharmacodynamics and risk assessment. *Contraception*. 2013;87(6):706-727.
 
@@ -411,7 +411,7 @@ The implemented TDI mechanism for ethinylestradiol was not evident in literature
 | q.d.    | Once daily (quaque diem)                                     |
 | SD      | Single Dose                                                  |
 | SE      | Standard error                                               |
-| s.d.SPC | Single doseSummary of Product Characteristics                |
+| s.d.SPC | Single dose Summary of Product Characteristics                |
 | SD      | Standard deviation                                           |
 | TDI     | Time dependent inhibition                                    |
 | t.i.d   | Three times a day (ter in die)                               |

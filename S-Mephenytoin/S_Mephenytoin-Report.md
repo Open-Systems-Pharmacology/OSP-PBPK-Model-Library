@@ -4,7 +4,7 @@
 
 | Version                                         | 1.1-OSP10.0                                                  |
 | ----------------------------------------------- | ------------------------------------------------------------ |
-| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/S-Mephenytoin-Model/releases/tag/v1.0 |
+| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/S-Mephenytoin-Model/releases/tag/v1.1 |
 | OSP Version                                     | 10.0                                                         |
 | Qualification Framework Version                 | 2.3                                                          |
 
@@ -14,14 +14,14 @@ https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/
 # Table of Contents
   * [1 Introduction](#1-introduction)
   * [2 Methods](#2-methods)
-    * [2.1 Modeling Strategy](#2.1-modeling-strategy)
-    * [2.2 Data](#2.2-data)
-    * [2.3 Model Parameters and Assumptions](#2.3-model-parameters-and-assumptions)
+    * [2.1 Modeling Strategy](#21-modeling-strategy)
+    * [2.2 Data](#22-data)
+    * [2.3 Model Parameters and Assumptions](#23-model-parameters-and-assumptions)
   * [3 Results and Discussion](#3-results-and-discussion)
-    * [3.1 Final input parameters](#3.1-final-input-parameters)
-    * [3.2 Diagnostics Plots](#3.2-diagnostics-plots)
-    * [3.3 Concentration-Time Profiles](#3.3-concentration-time-profiles)
-      * [3.3.1 Model Verification](#3.3.1-model-verification)
+    * [3.1 Final input parameters](#31-final-input-parameters)
+    * [3.2 Diagnostics Plots](#32-diagnostics-plots)
+    * [3.3 Concentration-Time Profiles](#33-concentration-time-profiles)
+      * [3.3.1 Model Verification](#331-model-verification)
   * [4 Conclusion](#4-conclusion)
   * [5 References](#5-references)
   * [6 Glossary](#6-glossary)
@@ -32,7 +32,7 @@ Mephenytoin is a hydantoin-derivative anticonvulsant used to control various par
 
 Only limited clinical PK and ADME data are available. Mephenytoin is soluble and rapidly absorbed with a Tmax of 1 hour. The mean half-life in human is 6.8 hours. No hints for dose non-linearity could be found in literature.
 
-Mephenytoin is the mixture of the two enantiomers S- and R-Mephenytoin. S-Mephenytoin is mainly metabolised via CYP2C19. Only a very minor part is metabolised by CYP2C9. The R-enantiomer is not metabolised by CYP2C19. The clearance of S-Mephenytoin in CYP2C19 EM is 40 to 100-fold higher than in PM.
+Mephenytoin is the mixture of the two enantiomers S- and R-Mephenytoin. S-Mephenytoin is mainly metabolized via CYP2C19. Only a very minor part is metabolized by CYP2C9. The R-enantiomer is not metabolized by CYP2C19. The clearance of S-Mephenytoin in CYP2C19 EM is 40 to 100-fold higher than in PM.
 
 # 2 Methods
 
@@ -262,7 +262,7 @@ Population simulated data had a comparable variability with the observed data wh
 | q.d.    | Once daily (quaque diem)                                     |
 | SD      | Single Dose                                                  |
 | SE      | Standard error                                               |
-| s.d.SPC | Single doseSummary of Product Characteristics                |
+| s.d.SPC | Single dose Summary of Product Characteristics                |
 | SD      | Standard deviation                                           |
 | TDI     | Time dependent inhibition                                    |
 | t.i.d   | Three times a day (ter in die)                               |
