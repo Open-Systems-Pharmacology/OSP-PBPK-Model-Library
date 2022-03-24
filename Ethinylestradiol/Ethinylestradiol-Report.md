@@ -29,9 +29,9 @@ https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/
 # 1 Introduction
 The presented PBPK model of ethinylestradiol (EE) has been developed to be used in a PBPK Drug-Drug-Interactions (DDI) network with ethinylestradiol as perpetrator of CYP1A2.
 
-Ethinylestradiol is an estrogen medication which is used widely as a birth control pills in combination with progestins. The following ADME properties characterize ethinylestradiol ([SmPC Namuscla](#5-References), [FDA. QUARTETTE](#5-References)):
+Ethinylestradiol is an estrogen medication which is used widely as a birth control pills in combination with progestins. The following ADME properties characterize ethinylestradiol ([SmPC Namuscla](#5-references), [FDA. QUARTETTE](#5-references)):
 
-**Absorption**: ethinylestradiol is rapidly and completely absorbed from the gut but it undergoes some first pass metabolism in the gut wall (mediated by a.o. CYP3A4 ([Wiesinger 2015](#5-References), [Wang 2004](#5-References))). After oral administration, an initial peak occurs in plasma at 2 to 3 hours, with a secondary peak at about 12 hours after dosing; the second peak is interpreted as evidence for extensive enterohepatic circulation of ethinylestradiol.
+**Absorption**: ethinylestradiol is rapidly and completely absorbed from the gut but it undergoes some first pass metabolism in the gut wall (mediated by a.o. CYP3A4 ([Wiesinger 2015](#5-references), [Wang 2004](#5-references))). After oral administration, an initial peak occurs in plasma at 2 to 3 hours, with a secondary peak at about 12 hours after dosing; the second peak is interpreted as evidence for extensive enterohepatic circulation of ethinylestradiol.
 
 **Distribution**: ethinylestradiol is rapidly distributed throughout most body tissues with the largest concentration found in adipose tissue. It distributes into breast milk, with low concentrations. More than 80% of ethinylestradiol in serum is conjugated as sulphate and almost all the conjugated form is bound to albumin.
 
@@ -47,19 +47,19 @@ After p.o. single dose, ethinylestradiol shows linear dose relationship in the d
 
 
 ## 2.1 Modeling Strategy
-The general workflow for building an adult PBPK model has been described by Kuepfer et al. ([Kuepfer 2016](#5-References)). Relevant information on the anthropometry (height, weight) was gathered from the respective clinical study, if reported. Information on physiological parameters (e.g. blood flows, organ volumes, hematocrit) in adults was gathered from the literature and has been incorporated in PK-Sim® as described previously ([Willmann 2007](#5-References)). The  applied activity and variability of plasma proteins and active processes that are integrated into PK-Sim® are described in the publicly available 'PK-Sim® Ontogeny Database Version 7.3' ([PK-Sim Ontogeny Database Version 7.3](#5-References)).
+The general workflow for building an adult PBPK model has been described by Kuepfer et al. ([Kuepfer 2016](#5-references)). Relevant information on the anthropometry (height, weight) was gathered from the respective clinical study, if reported. Information on physiological parameters (e.g. blood flows, organ volumes, hematocrit) in adults was gathered from the literature and has been incorporated in PK-Sim® as described previously ([Willmann 2007](#5-references)). The  applied activity and variability of plasma proteins and active processes that are integrated into PK-Sim® are described in the publicly available 'PK-Sim® Ontogeny Database Version 7.3' ([PK-Sim Ontogeny Database Version 7.3](#5-references)).
 
 The following steps were undertaken in model development:
 
-1. Define lipophilicity and distribution model on data after i.v. administration with linear total hepatic clearance fitted to data and renal clearance set to literature value ([Ezuruike 2018](#5-References)).
+1. Define lipophilicity and distribution model on data after i.v. administration with linear total hepatic clearance fitted to data and renal clearance set to literature value ([Ezuruike 2018](#5-references)).
 
 2. Predict p.o. data after single dose and at steady state 
 
 3. Detail metabolic contribution of different CYPs and UGTs to total hepatic clearance.
 
-Details about input data (physicochemical, *in vitro* and clinical) can be found in [Section 2.2](#2.2-Data).
+Details about input data (physicochemical, *in vitro* and clinical) can be found in [Section 2.2](#22-data).
 
-Details about the structural model and its parameters can be found in [Section 2.3](#2.3-Model-Parameters-and-Assumptions).
+Details about the structural model and its parameters can be found in [Section 2.3](#23-model-parameters-and-assumptions).
 
 A standard female subject was created based on the European (ICRP,2002) PK-Sim database (age = 30 y, weight = 60 kg, height = 163 cm, BMI = 22,58 kg/m2) and used for simulations, until stated otherwise. Expression of the enzymes CYP3A4, CYP2C9, CYP1A2, CYP2C8, and UGT1A1 from RT PCR database were added.
 
@@ -70,20 +70,20 @@ A literature search was performed to collect available information on physico-ch
 
 | **Parameter**                   | **Unit**          | **Value**        | Source                            | **Description**                                |
 | :------------------------------ | ----------------- | ---------------- | --------------------------------- | ---------------------------------------------- |
-| MW<sup>+</sup>                  | g/mol             | 296.4            | [DrugBank DB00977](#5-References) | Molecular weight                               |
-| pK<sub>a,acid</sub><sup>+</sup> |                   | 10.33            | [DrugBank DB00977](#5-References) | Acidic dissociation constant                   |
-| Solubility (pH)<sup>+</sup>     | mg/mL             | 6.77e-3<br />(7) | [DrugBank DB00977](#5-References) | Aqueous Solubility                             |
-| logD                            |                   | 3.63 - 3.9       | [DrugBank DB00977](#5-References) | Distribution coefficient                       |
-| fu<sup>+</sup>                  | %                 | 3                | [DrugBank DB00977](#5-References) | Fraction unbound in plasma                     |
-| CYP1A2 CL<sup>+</sup>           | µl/min/pmol       | 0.51             | [Ezuruike 2018](#5-References)    | Clearance by CYP1A2                            |
-| CYP2C8 CL<sup>+</sup>           | µl/min/pmol       | 0.13             | [Ezuruike 2018](#5-References)    | Clearance by CYP2C8                            |
-| CYP2C9 CL<sup>+</sup>           | µl/min/pmol       | 0.51             | [Ezuruike 2018](#5-References)    | Clearance by CYP2C9                            |
-| CYP3A4 CL<sup>+</sup>           | µl/min/pmol       | 0.5              | [Ezuruike 2018](#5-References)    | Clearance by CYP3A4                            |
-| Km UGT1A1<sup>+</sup>           | µmol/l            | 19.22            | [Ezuruike 2018](#5-References)    | UGT1A1 saturation constant                     |
-| Vmax UGT1A1<sup>+</sup>         | pmol/min/mg prot. | 408.5            | [Ezuruike 2018](#5-References)    | Maximal metabolization rate by UGT1A1          |
-| Renal Elimination<sup>+</sup>   | l/h               | 2.079            | [Stanczyk 2013](#5-References)    | Renal clearance                                |
-| Clint HLM<sup>+</sup>           | µL/min/mg prot.   | 118.83           | [Ezuruike 2018](#5-References)    | Inttrinsic clearance in Human Liver Microsomes |
-| Ki CYP1A2                       | µmol/l            | 10.6             | [Karjalainen 2008](#5-References) | CYP1A2 inhibition constant                     |
+| MW<sup>+</sup>                  | g/mol             | 296.4            | [DrugBank DB00977](#5-references) | Molecular weight                               |
+| pK<sub>a,acid</sub><sup>+</sup> |                   | 10.33            | [DrugBank DB00977](#5-references) | Acidic dissociation constant                   |
+| Solubility (pH)<sup>+</sup>     | mg/mL             | 6.77e-3<br />(7) | [DrugBank DB00977](#5-references) | Aqueous Solubility                             |
+| logD                            |                   | 3.63 - 3.9       | [DrugBank DB00977](#5-references) | Distribution coefficient                       |
+| fu<sup>+</sup>                  | %                 | 3                | [DrugBank DB00977](#5-references) | Fraction unbound in plasma                     |
+| CYP1A2 CL<sup>+</sup>           | µl/min/pmol       | 0.51             | [Ezuruike 2018](#5-references)    | Clearance by CYP1A2                            |
+| CYP2C8 CL<sup>+</sup>           | µl/min/pmol       | 0.13             | [Ezuruike 2018](#5-references)    | Clearance by CYP2C8                            |
+| CYP2C9 CL<sup>+</sup>           | µl/min/pmol       | 0.51             | [Ezuruike 2018](#5-references)    | Clearance by CYP2C9                            |
+| CYP3A4 CL<sup>+</sup>           | µl/min/pmol       | 0.5              | [Ezuruike 2018](#5-references)    | Clearance by CYP3A4                            |
+| Km UGT1A1<sup>+</sup>           | µmol/l            | 19.22            | [Ezuruike 2018](#5-references)    | UGT1A1 saturation constant                     |
+| Vmax UGT1A1<sup>+</sup>         | pmol/min/mg prot. | 408.5            | [Ezuruike 2018](#5-references)    | Maximal metabolization rate by UGT1A1          |
+| Renal Elimination<sup>+</sup>   | l/h               | 2.079            | [Stanczyk 2013](#5-references)    | Renal clearance                                |
+| Clint HLM<sup>+</sup>           | µL/min/mg prot.   | 118.83           | [Ezuruike 2018](#5-references)    | Inttrinsic clearance in Human Liver Microsomes |
+| Ki CYP1A2                       | µmol/l            | 10.6             | [Karjalainen 2008](#5-references) | CYP1A2 inhibition constant                     |
 
 **Table 1:**<a name="Table 1"></a> Physico-chemical and *in-vitro* metabolization properties of ethinylestradiol extracted from literature. *<sup>+</sup>: Value used in final model*
 
@@ -93,22 +93,22 @@ A literature search was performed to collect available clinical data on ethinyle
 
 | **Source**           | Route | **Dose [mg]/**  **Schedule \*** | **Pop.**     | **Sex** | **N** | **Form.** |
 | -------------------- | ------------------------------- | ------------ | ------- | --------------------------------- | --------------------------------- | --------------------------------- |
-| [Back 1981](#5-References)<sup>+</sup> | i.v.   | 0.03                            | HV       | F       | 5     | solution            |
-| [Back 1981](#5-References)<sup>+</sup>          | p.o.  | 0.03                            | HV       | F       | 5     | tablet              |
-| [Back 1979](#5-References)<sup>+</sup>          | i.v.  | 0.05                            | HV       | F       | 6     | solution            |
-| [Back 1979](#5-References)<sup>+</sup>          | p.o.  | 0.05                            | HV       | F       | 6     | NA                  |
-| [Back 1987](#5-References)                      | p.o.  | 0.05 q.d.                      | HV       | F       | 5     | tablet              |
-| [Orme 1991](#5-References)<sup>+</sup>          | i.v.  | 0.03                            | HV       | F       | 10    | solution            |
-| [Orme 1991](#5-References)<sup>+</sup>          | p.o.  | 0.03                            | HV       | F       | 10    | tablet              |
-| [Kuhnz 1996](#5-References)                     | i.v.  | 0.06                            | HV       | F       | 19    | solution            |
-| [Goebelsmann 1986](#5-References)<sup>+</sup>   | p.o.  | 0.03                            | HV       | F       | 24    | solution and tablet |
-| [Stanczyk 1983](#5-References)<sup>+</sup>      | p.o.  | 0.12                            | HV       | F       | 24    | solution and tablet |
-| [Zhang 2017](#5-References)<sup>+</sup>         | p.o.  | 0.03                            | HV       | F       | 12    | tablet              |
-| [Martin 2016](#5-References)                    | p.o.  | 0.03 q.d.                       | HV       | F       | 27    | tablet              |
-| [Stockis 2014](#5-References)                   | p.o.  | 0.03 q.d.                       | HV       | F       | 24    | tablet              |
-| [Sidhu 2006](#5-References)                     | p.o.  | 0.03 q.d.                       | HV       | F       | 16    | tablet              |
-| [Kothare 2012](#5-References)<sup>+</sup>       | p.o.  | 0.03/0.03 q.d.                  | HV       | F       | 20    | tablet              |
-| [Timmer 2000](#5-References)<sup>+</sup>        | p.o.  | 0.03                            | HV       | F       | -     | tablet              |
+| [Back 1981](#5-references)<sup>+</sup> | i.v.   | 0.03                            | HV       | F       | 5     | solution            |
+| [Back 1981](#5-references)<sup>+</sup>          | p.o.  | 0.03                            | HV       | F       | 5     | tablet              |
+| [Back 1979](#5-references)<sup>+</sup>          | i.v.  | 0.05                            | HV       | F       | 6     | solution            |
+| [Back 1979](#5-references)<sup>+</sup>          | p.o.  | 0.05                            | HV       | F       | 6     | NA                  |
+| [Back 1987](#5-references)                      | p.o.  | 0.05 q.d.                      | HV       | F       | 5     | tablet              |
+| [Orme 1991](#5-references)<sup>+</sup>          | i.v.  | 0.03                            | HV       | F       | 10    | solution            |
+| [Orme 1991](#5-references)<sup>+</sup>          | p.o.  | 0.03                            | HV       | F       | 10    | tablet              |
+| [Kuhnz 1996](#5-references)                     | i.v.  | 0.06                            | HV       | F       | 19    | solution            |
+| [Goebelsmann 1986](#5-references)<sup>+</sup>   | p.o.  | 0.03                            | HV       | F       | 24    | solution and tablet |
+| [Stanczyk 1983](#5-references)<sup>+</sup>      | p.o.  | 0.12                            | HV       | F       | 24    | solution and tablet |
+| [Zhang 2017](#5-references)<sup>+</sup>         | p.o.  | 0.03                            | HV       | F       | 12    | tablet              |
+| [Martin 2016](#5-references)                    | p.o.  | 0.03 q.d.                       | HV       | F       | 27    | tablet              |
+| [Stockis 2014](#5-references)                   | p.o.  | 0.03 q.d.                       | HV       | F       | 24    | tablet              |
+| [Sidhu 2006](#5-references)                     | p.o.  | 0.03 q.d.                       | HV       | F       | 16    | tablet              |
+| [Kothare 2012](#5-references)<sup>+</sup>       | p.o.  | 0.03/0.03 q.d.                  | HV       | F       | 20    | tablet              |
+| [Timmer 2000](#5-references)<sup>+</sup>        | p.o.  | 0.03                            | HV       | F       | -     | tablet              |
 
 **Table 2:**<a name="Table 2"></a> Literature sources of clinical concentration data of ethinylestradiol used for model development and validation. *\*: single dose unless otherwise specified;<sup>+</sup>: Data used for final parameter identification*
 ## 2.3 Model Parameters and Assumptions
@@ -118,13 +118,13 @@ Intestinal permeability was fitted to po data. Formulation of ethinylestradiol t
 
 ### 2.3.2 Distribution
 
-Physico-chemical parameters were set to the reported values (see [Section 2.2.1](#2.2.1-In-vitro-and-physico-chemical-data)). It was assumed that the major binding partner in plasma is albumin. The value of lipophilicity was estimated by fitting the model to iv and po data.
+Physico-chemical parameters were set to the reported values (see [Section 2.2.1](#221-in-vitro-and-physico-chemical-data)). It was assumed that the major binding partner in plasma is albumin. The value of lipophilicity was estimated by fitting the model to iv and po data.
 
 After testing the available organ-plasma partition coefficient and cell permeability calculation methods available in PK-Sim, observed clinical data were best described by choosing the partition coefficient calculation by `Berezhkovskiy` and cellular permeability calculation by `PK-Sim Standard`.
 
 ### 2.3.3 Metabolism and Elimination
 
-Following metabolization processes have been implemented based on [Ezuruike 2018](#5-References):
+Following metabolization processes have been implemented based on [Ezuruike 2018](#5-references):
 
 - Linear CYP1A2 CL
 - Linear CYP2C8 CL
@@ -133,11 +133,11 @@ Following metabolization processes have been implemented based on [Ezuruike 2018
 - Saturable UGT1A1
 - Unspecific liver metabolization
 
-Renal plasma clearance is modeled with `Plasma clearance` set to 2.079 l/h reported in literature ([Stanczyk 2013](#5-References)). The value was normalized to body weight by dividing by 70 kg.
+Renal plasma clearance is modeled with `Plasma clearance` set to 2.079 l/h reported in literature ([Stanczyk 2013](#5-references)). The value was normalized to body weight by dividing by 70 kg.
 
 ### 2.3.4 Enzyme Inhibition
 
-Simulations of co-administration of ethinylestradiol with tizanidine (see [CYP1A2 DDI Qualification report](link)) indicate that the reported competitive inhibition of CYP1A2 by ethinylestradiol ([Karjalainen 2008](#5-References)) is not sufficient to describe the increased concentrations of tizanidine after multiple days administration. Therefore, it was decided to fit a time-dependent inhibition (TDI) function to the CYP1A2 enzyme system. The parameters `Kinact` and `K_kinact_half` were estimated by fitting the model to concentration-time profiles of tizanidine ([Granfors 2005](#5-References)).
+Simulations of co-administration of ethinylestradiol with tizanidine (see [CYP1A2 DDI Qualification report](link)) indicate that the reported competitive inhibition of CYP1A2 by ethinylestradiol ([Karjalainen 2008](#5-references)) is not sufficient to describe the increased concentrations of tizanidine after multiple days administration. Therefore, it was decided to fit a time-dependent inhibition (TDI) function to the CYP1A2 enzyme system. The parameters `Kinact` and `K_kinact_half` were estimated by fitting the model to concentration-time profiles of tizanidine ([Granfors 2005](#5-references)).
 
 ### 2.3.5 Automated Parameter Identification
 
@@ -153,9 +153,9 @@ Following parameter values were estimated for the model:
 # 3 Results and Discussion
 The next sections show:
 
-1. Final model input parameters for the building blocks: [Section 3.1](#3.1-Final-Input-Parameters).
-2. Overall goodness of fit: [Section 3.2](#3.2-Diagnostics-Plots).
-3. Simulated vs. observed concentration-time profiles for the clinical studies used for model building and for model verification: [Section 3.3](#3.3-Concentration-Time-Profiles).
+1. Final model input parameters for the building blocks: [Section 3.1](#31-final-input-parameters).
+2. Overall goodness of fit: [Section 3.2](#32-diagnostics-plots).
+3. Simulated vs. observed concentration-time profiles for the clinical studies used for model building and for model verification: [Section 3.3](#33-concentration-time-profiles).
 
 ## 3.1 Final input parameters
 The parameter values of the final PBPK model are illustrated below.
@@ -267,7 +267,7 @@ kinact        | 200 1/min           | Parameter Identification
 K_kinact_half | 0.4833013314 µmol/l | Parameter Identification
 
 ## 3.2 Diagnostics Plots
-The following section displays the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data listed in [Section 2.2.2](#2.2.2-Clinical-data).
+The following section displays the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data listed in [Section 2.2.2](#222-clinical-data).
 
 The first plot shows observed versus simulated plasma concentration, the second weighted residuals versus time. 
 
@@ -278,7 +278,7 @@ The first plot shows observed versus simulated plasma concentration, the second 
 GMFE = 1.411117 
 
 ## 3.3 Concentration-Time Profiles
-Simulated versus observed concentration-time profiles of all data listed in [Section 2.2.2](#2.2.2-Clinical-data) are presented below.
+Simulated versus observed concentration-time profiles of all data listed in [Section 2.2.2](#222-clinical-data) are presented below.
 
 ### 3.3.1 Model Building
 
@@ -305,7 +305,7 @@ Simulated versus observed concentration-time profiles of all data listed in [Sec
 # 4 Conclusion
 The developed PBPK model of ethinylestradiol is able to predict the time-profiles following single and multiple dosing of ethinylestradiol accurately.
 
-The implemented TDI mechanism for ethinylestradiol was not evident in literature ([Zanaflex prescribing information](#5-References), [Karjalainen 2008](#5-References)). The substantial and prolonged inhibition may result from CYP1A2 inhibition by EE-metabolites having a different half-life from the parent. [Chang 2009](#5-References) for example found that the EE-2hydroxy and EE-2methoxy IC50s toward rCYP1A1 and rCYP1A2 are comparable to that of the parent. However, not having the possibility to model EE-metabolites contribution, a time-dependent inhibition function on CYP1A2 was used instead to account for this effect.
+The implemented TDI mechanism for ethinylestradiol was not evident in literature ([Zanaflex prescribing information](#5-references), [Karjalainen 2008](#5-references)). The substantial and prolonged inhibition may result from CYP1A2 inhibition by EE-metabolites having a different half-life from the parent. [Chang 2009](#5-references) for example found that the EE-2hydroxy and EE-2methoxy IC50s toward rCYP1A1 and rCYP1A2 are comparable to that of the parent. However, not having the possibility to model EE-metabolites contribution, a time-dependent inhibition function on CYP1A2 was used instead to account for this effect.
 # 5 References
 **Back 1979** Back DJ, Breckenridge AM, Crawford FE, et al. An investigation of the pharmacokinetics of ethynylestradiol in women using radioimmunoassay. *Contraception*. 1979;20(3):263-273.
 
