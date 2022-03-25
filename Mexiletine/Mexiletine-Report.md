@@ -67,7 +67,7 @@ Details about the structural model and its parameters can be found in [Section 2
 ## 2.2 Data
 ### 2.2.1 In vitro and physico-chemical data
 
-A literature search was performed to collect available information on physico-chemical properties of mexiletine ([Table 1](#Table 1)).
+A literature search was performed to collect available information on physico-chemical properties of mexiletine, see [Table 1](#table-1).
 
 | **Parameter**                   | **Unit** | **Value**             | Source                            | **Description**                                              |
 | :------------------------------ | -------- | --------------------- | --------------------------------- | ------------------------------------------------------------ |
@@ -82,11 +82,11 @@ A literature search was performed to collect available information on physico-ch
 | Renal elimination<sup>+</sup>   | l/h      | 1.8<sup>+</sup> - 2.1 | [Labbé 2000](#5-references)       | Renal clearance                                              |
 | Ki CYP1A2<sup>+</sup>           | µmol/l   | 0.28                  | [Wei 1991](#5-references)         | CYP1A2 inhibition constant                                   |
 
-**Table 1:**<a name="Table 1"></a> Physico-chemical and *in-vitro* metabolization properties of mexiletine extracted from literature. *<sup>+</sup>: Value used in final model*
+**Table 1:**<a name="table-1"></a> Physico-chemical and *in-vitro* metabolization properties of mexiletine extracted from literature. *<sup>+</sup>: Value used in final model*
 
 ### 2.2.2 Clinical data
 
-A literature search was performed to collect available clinical data on mexiletine ([Table 2](#Table 2)).
+A literature search was performed to collect available clinical data on mexiletine, see [Table 2](#table-2).
 
 | **Source**           | Route | **Dose [mg]/**  **Schedule \*** | **Pop.**     | **Sex** | **N** | **Form.** | **Comment**                       |
 | -------------------- | ------------------------------- | ------------ | ------- | --------------------------------- | --------------------------------- | --------------------------------- | -------------------- |
@@ -100,7 +100,7 @@ A literature search was performed to collect available clinical data on mexileti
 | [Pentikäinen 1984](#5-references)<sup>+</sup> | i.v.  | 166.62                                   | acute myocardial  infarction | -       | 18    | solution  | acute myocardial  infarction |
 | [Joeres 1987](#5-references)<sup>+</sup>      | p.o.  | 200                                      | HV                           | -       | 1     | -         |                              |
 
-**Table 2:**<a name="Table 2"></a> Literature sources of clinical concentration data of mexiletine used for model development and validation. *\*: single dose unless otherwise specified; EM: extensive metabolizers; PM: poor metabolizers; <sup>+</sup>: Data used for final parameter identification*
+**Table 2:**<a name="table-2"></a> Literature sources of clinical concentration data of mexiletine used for model development and validation. *\*: single dose unless otherwise specified; EM: extensive metabolizers; PM: poor metabolizers; <sup>+</sup>: Data used for final parameter identification*
 ## 2.3 Model Parameters and Assumptions
 ### 2.3.1 Absorption
 
@@ -284,7 +284,7 @@ The predicted fraction excreted in urine was similar to the fraction reported in
 # 5 References
 **Begg 1982** Begg, E., Chinwah, P., Webb, C., Day, R. & Wade, D. Enhanced metabolism of mexiletine after phenytoin administration. *British Journal of Clinical Pharmacology* **14**, 219–223 (1982).
 
-**Campbell 1978 ** Campbell NP, Kelly JG, Adgey AA, Shanks RG. Mexiletine in normal volunteers. *Br J Clin Pharmacol*. 1978;6(4):372-373.
+**Campbell 1978** Campbell NP, Kelly JG, Adgey AA, Shanks RG. Mexiletine in normal volunteers. *Br J Clin Pharmacol*. 1978;6(4):372-373.
 
 **DrugBank DB00379** (https://www.drugbank.ca/drugs/DB00379)
 
@@ -292,11 +292,11 @@ The predicted fraction excreted in urine was similar to the fraction reported in
 
 **Kuepfer 2016** Kuepfer L, Niederalt C, Wendl T, Schlender JF, Willmann S, Lippert J, Block M, Eissing T, Teutonico D. Applied Concepts in PBPK Modeling: How to Build a PBPK/PD Model.CPT Pharmacometrics Syst Pharmacol. 2016 Oct;5(10):516-531.
 
-**Kusumoto 1998 ** Kusumoto M, Ueno K, Tanaka K, et al. Lack of pharmacokinetic interaction between mexiletine and omeprazole. *Ann Pharmacother*. 1998;32(2):182-184. 
+**Kusumoto 1998** Kusumoto M, Ueno K, Tanaka K, et al. Lack of pharmacokinetic interaction between mexiletine and omeprazole. *Ann Pharmacother*. 1998;32(2):182-184. 
 
 **Labbé 2000** Labbé L, O’Hara G, Lefebvre M, et al. Pharmacokinetic and pharmacodynamic interaction be mexiletine and propafenone in human beings. *Clin Pharmacol Ther*. 2000;68(1):44-57.
 
-**Mexiletine, Drugs.com** Mexiletine, Drugs.com, Website drugs.com/pro/mexiletine.html
+**Mexiletine, Drugs.com** Mexiletine, Drugs.com, Website https://www.drugs.com/pro/mexiletine.html
 
 **Pentikäinen 1984** Pentikainen P, Halinen M, Helin M. Pharmacokinetics of intravenous Mexiletine in patients with acute myocardial infarction. *J Cardiovasc Pharmacol*. 1984;6:1-6.
 
@@ -304,7 +304,7 @@ The predicted fraction excreted in urine was similar to the fraction reported in
 
 **Pringle 1986** Pringle T, Fox J, McNeill J, et al. Dose independent pharmacokinetics of mexiletine in healthy volunteers. *Br J Clin Pharmacol*. 1986;21(3):319-321.
 
-**SmPC Namuscla** SmPC Namuscla 167 mg hard capsules, 2019, website medicines.org.uk/emc/product/9838/smpc
+**SmPC Namuscla** SmPC Namuscla 167 mg hard capsules, 2019, website https://www.medicines.org.uk/emc/product/9838/smpc
 
 **Begg 1982** Webb C, Day R, Chinwah P, Wade D, Begg E. Enhanced metabolism of mexiletine after phenytoin administration. *Br J Clin Pharmacol*. 2012;14(2):219-223. 
 

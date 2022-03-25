@@ -66,7 +66,7 @@ Details about the structural model and its parameters can be found in [Section 2
 ## 2.2 Data
 ### 2.2.1 In vitro and physico-chemical data
 
-A literature search was performed to collect available information on physico-chemical properties of tizanidine ([Table 1](#Table 1)).
+A literature search was performed to collect available information on physico-chemical properties of tizanidine ([Table 1](#table-1)).
 
 | **Parameter**                   | **Unit**  | **Value**        | Source                            | **Description**                 |
 | :------------------------------ | --------- | ---------------- | --------------------------------- | ------------------------------- |
@@ -77,11 +77,11 @@ A literature search was performed to collect available information on physico-ch
 | fu<sup>+</sup>                  | %         | 70               | [SmPC tizanidine](#5-references)  | Fraction unbound in plasma      |
 | Intrinsic CL                    | ml/min/kg | 17               | [Granfors 2004](#5-references)    | Predicted from microsomal assay |
 
-**Table 1:**<a name="Table 1"></a> Physico-chemical and *in-vitro* metabolization properties of tizanidine extracted from literature. *<sup>+</sup>: Value used in final model*
+**Table 1:**<a name="table-1"></a> Physico-chemical and *in-vitro* metabolization properties of tizanidine extracted from literature. *<sup>+</sup>: Value used in final model*
 
 ### 2.2.2 Clinical data
 
-A literature search was performed to collect available clinical data on tizanidine ([Table 2](#Table 2)).
+A literature search was performed to collect available clinical data on tizanidine ([Table 2](#table-2)).
 
 | **Source**           | **Dose [mg]/**  **Schedule \*** | **Pop.**     | Age [yrs] (mean or range) | Weight [kg] (mean or range) | **Sex** | **N** | **Form.** | Fasted or Fed | **Comment**                       |
 | -------------------- | ------------------------------- | ------------ | ------- | ----- | --------- | --------------------------------- | --------------------------------- | --------------------------------- | -------------------- |
@@ -96,7 +96,7 @@ A literature search was performed to collect available clinical data on tizanidi
 | [Tse 1987](#5-references)            | 4 t.i.d.                        | HV       | 21-48                     | 57-86                       | m       | 6     | Tablet           | Fasted        | |
 | [Al-Ghazawi 2013](#5-references)<sup>+</sup> | 4                               | HV       | 28                        | 75                          | m       | 36    | Tablet           | Fasted        | |
 
-**Table 2:**<a name="Table 2"></a> Literature sources of clinical concentration data of tizanidine sused for model development and validation.  *\*: single dose unless otherwise specified; EM: extensive metabolizers;<sup>+</sup>: Data used for final parameter identification*
+**Table 2:**<a name="table-2"></a> Literature sources of clinical concentration data of tizanidine used for model development and validation.  *\*: single dose unless otherwise specified; EM: extensive metabolizers;<sup>+</sup>: Data used for final parameter identification*
 ## 2.3 Model Parameters and Assumptions
 ### 2.3.1 Absorption
 
@@ -251,7 +251,7 @@ As the model was developed in non-smoking subjects, it cannot be used to predict
 
 
 # 5 References
-**Al-Ghazawi 2013 ** Al-Ghazawi M, Alzoubi M, Faidi B. Pharmacokinetic comparison of two 4 mg tablet formulations of tizanidine. Int Journal of Clinical Pharmacology and Therapeutics. 2013 Mar 1;51(03):255–63.
+**Al-Ghazawi 2013** Al-Ghazawi M, Alzoubi M, Faidi B. Pharmacokinetic comparison of two 4 mg tablet formulations of tizanidine. Int Journal of Clinical Pharmacology and Therapeutics. 2013 Mar 1;51(03):255–63.
 
 **Backman 2006** Backman JT, Granfors MT, Neuvonen PJ. Rifampicin is only a weak inducer of CYP1A2-mediated presystemic and systemic metabolism: Studies with tizanidine and caffeine. Eur J Clin Pharmacol. 2006;62(6):451-461. 
 
@@ -279,7 +279,7 @@ As the model was developed in non-smoking subjects, it cannot be used to predict
 
 **Shah 2006** Shah J, Wesnes KA, Kovelesky RA, Henney HR. Effects of food on the single-dose pharmacokinetics/pharmacodynamics of tizanidine capsules and tablets in healthy volunteers. Clin Ther. 2006;28(9):1308-1317. 
 
-**SmPC tizanidine** Zanaflex prescribing information. Website: accessdata.fda.gov/drugsatfda_docs/label/2006/020397s021,021447s002lbl.pdf, 2006, Acorda Therapeutics Inc
+**SmPC tizanidine** Zanaflex prescribing information. Website: https://www.accessdata.fda.gov/drugsatfda_docs/label/2006/020397s021,021447s002lbl.pdf , 2006, Acorda Therapeutics Inc
 
 **Tse 1987** Tse FLS, Jaffe JM, Bhuta S. Pharmacokinetics Of Orally Administered Tizanidine In Healthy Volunteers. Fundamental & Clinical Pharmacology. 1987 Nov 12;1(6):479–88.
 

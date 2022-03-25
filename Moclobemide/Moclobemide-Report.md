@@ -70,7 +70,7 @@ Details about the structural model and its parameters can be found in [Section 2
 ## 2.2 Data
 ### 2.2.1 In vitro and physico-chemical data
 
-A literature search was performed to collect available information on physico-chemical properties of moclobemide ([Table 1](#Table 1)).
+A literature search was performed to collect available information on physico-chemical properties of moclobemide, see [Table 1](#table-1).
 
 | **Parameter**                   | **Unit**          | **Value**    | Source                                  | **Description**                                              |
 | :------------------------------ | ----------------- | ------------ | --------------------------------------- | ------------------------------------------------------------ |
@@ -84,11 +84,11 @@ A literature search was performed to collect available information on physico-ch
 | Renal Elimination               | ml/min/kg         | 0.03         | [Schoerlin 1987](#5-references)         | Schoerlin reports 2.6 ml/min/76kg                            |
 | Ki_CYP2C19 (free)               | µmol/L            | 203.8        | [Kramer-Nielsen 1996](#5-references)    | The total ki value reported by Kramer was 210 umol/L and corrected with an fu_mic of 0.97 |
 
-**Table 1:**<a name="Table 1"></a> Physico-chemical and *in-vitro* metabolization properties of moclobemide extracted from literature. *<sup>+</sup>: Value used in final model*
+**Table 1:**<a name="table-1"></a> Physico-chemical and *in-vitro* metabolization properties of moclobemide extracted from literature. *<sup>+</sup>: Value used in final model*
 
 ### 2.2.2 Clinical data
 
-A literature search was performed to collect available clinical data on moclobemide in adults ([Table 2](#Table 2)).
+A literature search was performed to collect available clinical data on moclobemide in adults, see [Table 2](#table-2).
 
 | **Source**           | **Route** | **Dose [mg]/**  **Schedule \*** | **Pop.**     | Age [yrs] (mean or range) | Weight [kg] (mean or range) | **Sex** | **N** | **Form.** | **Comment**                       |
 | -------------------- | --------- | ------------------------------- | ------------ | ------- | ----- | --------- | --------------------------------- | --------------------------------- | --------------------------------- |
@@ -101,7 +101,7 @@ A literature search was performed to collect available clinical data on moclobem
 | [Guentert 1990](#5-references)<sup>+</sup> | p.o.                  | 150 t.i.d.                      | HV                | 19-29                     | 59-86                       | m/f     | 14    | tablet           |                        |
 | [Raaflaub 1984](#5-references)<sup>+</sup> | p.o. & i.v. infusion  | 50 s.d.                         | HV                | 42                        | 4                           | m       | 6     | tablet/ solution |                        |
 
-**Table 2:**<a name="Table 2"></a> Literature sources of clinical concentration data of moclobemide used for model development and validation. *-: respective information was not provided in the literature source; \*:single dose unless otherwise specified; EM: extensive metabolizers; PM: poor metabolizers; <sup>+</sup>: Data used for final parameter identification*
+**Table 2:**<a name="table-2"></a> Literature sources of clinical concentration data of moclobemide used for model development and validation. *-: respective information was not provided in the literature source; \*:single dose unless otherwise specified; EM: extensive metabolizers; PM: poor metabolizers; <sup>+</sup>: Data used for final parameter identification*
 ## 2.3 Model Parameters and Assumptions
 ### 2.3.1 Absorption
 
@@ -132,7 +132,7 @@ Following parameter values were estimated for the base model:
 
 - Vmax_2C19
 
-- Intrinisc Clearance FMO (i.e. non CYP2C19 metabolism)
+- Intrinsic Clearance FMO (i.e. non CYP2C19 metabolism)
 
 - Kinact<sub>half</sub> CYP2C19 for time-dependent autoinhibition
 
@@ -296,19 +296,19 @@ Given not enough data to evaluate inhibition of emerging moclobemide metabolites
 
 **Hoskins 2001** Hoskins J, Shenfield G, Murray M, Gross A. Characterization of moclobemide N -oxidation in human liver microsomes. Xenobiotica. 2001 Jan;31(7):387–97.
 
-**IPCS ICHEM** Website: inchem.org/documents/pims/pharm/pim151.htm#SectionTitle:3.3%20%20Physical%20properties
+**IPCS ICHEM** Website: https://inchem.org/documents/pims/pharm/pim151.htm#SectionTitle:3.3%20%20Physical%20properties
 
 **Ignjatovic 2009** Ignjatovic AR, Miljkovic B, Todorovic D, Timotijevic I, Pokrajac M. Moclobemide monotherapy vs. combined therapy with valproic acid or carbamazepine in depressive patients: A pharmacokinetic interaction study. Br J Clin Pharmacol. 2009;67(2):199-208.
 
 **Kuepfer 2016** Kuepfer L, Niederalt C, Wendl T, Schlender JF, Willmann S, Lippert J, Block M, Eissing T, Teutonico D. Applied Concepts in PBPK Modeling: How to Build a PBPK/PD Model.CPT Pharmacometrics Syst Pharmacol. 2016 Oct;5(10):516-531.
 
-**Kramer-Nielsen 1996 ** Kramer-Nielsen KK, Flinois JP, Beaune P, Brøsen K. The biotransformation of clomipramine in vitro, identification of the cytochrome P450s responsible for the separate metabolic pathways. *J Pharmacol Exp Ther*. 1996 Jun;277(3):1659–64.
+**Kramer-Nielsen 1996** Kramer-Nielsen KK, Flinois JP, Beaune P, Brøsen K. The biotransformation of clomipramine in vitro, identification of the cytochrome P450s responsible for the separate metabolic pathways. *J Pharmacol Exp Ther*. 1996 Jun;277(3):1659–64.
 
 **Mayersohn 1995**  Mayersohn M, Guentert TW. Clinical Pharmacokinetics of the Monoamine Oxidase-A Inhibitor Moclobemide*, Clinical Pharmacokinetics*. 1995 Nov;29(5):292–332.
 
-**MHRA Label Moclobemide ** MHRA label of Moclobemide film-coated tablets. Website: mhra.gov.uk/home/groups/par/documents/websiteresources/con097060.pdf
+**MHRA Label Moclobemide** MHRA label of Moclobemide film-coated tablets. Website: http://www.mhra.gov.uk/home/groups/par/documents/websiteresources/con097060.pdf
 
-**Moclobemide, INCHEM**, Website inchem.org/documents/pims/pharm/pim151.htm#PartTitle:3.%20%20PHYSICO-CHEMICAL%20PROPERTIES
+**Moclobemide, INCHEM**, Website https://inchem.org/documents/pims/pharm/pim151.htm#PartTitle:3.%20%20PHYSICO-CHEMICAL%20PROPERTIES
 
 **Nair 1993** Nair NPV, Ahmed SK, Ng Ying Kin NMK. Biochemistry and pharmacology of reversible inhibitors of MAO-A agents: Focus on moclobemide. *J Psychiatry Neurosci*. 1993;18(5):214-225.
 

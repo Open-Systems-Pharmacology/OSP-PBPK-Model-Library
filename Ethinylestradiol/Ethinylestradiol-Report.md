@@ -66,7 +66,7 @@ A standard female subject was created based on the European (ICRP,2002) PK-Sim d
 ## 2.2 Data
 ### 2.2.1 In vitro and physico-chemical data
 
-A literature search was performed to collect available information on physico-chemical properties of ethinylestradiol ([Table 1](#Table 1)).
+A literature search was performed to collect available information on physico-chemical properties of ethinylestradiol, see [Table 1](#table-1).
 
 | **Parameter**                   | **Unit**          | **Value**        | Source                            | **Description**                                |
 | :------------------------------ | ----------------- | ---------------- | --------------------------------- | ---------------------------------------------- |
@@ -85,11 +85,11 @@ A literature search was performed to collect available information on physico-ch
 | Clint HLM<sup>+</sup>           | µL/min/mg prot.   | 118.83           | [Ezuruike 2018](#5-references)    | Intrinsic clearance in Human Liver Microsomes |
 | Ki CYP1A2                       | µmol/l            | 10.6             | [Karjalainen 2008](#5-references) | CYP1A2 inhibition constant                     |
 
-**Table 1:**<a name="Table 1"></a> Physico-chemical and *in-vitro* metabolization properties of ethinylestradiol extracted from literature. *<sup>+</sup>: Value used in final model*
+**Table 1:**<a name="table-1"></a> Physico-chemical and *in-vitro* metabolization properties of ethinylestradiol extracted from literature. *<sup>+</sup>: Value used in final model*
 
 ### 2.2.2 Clinical data
 
-A literature search was performed to collect available clinical data on ethinylestradiol ([Table 2](#Table 2)).
+A literature search was performed to collect available clinical data on ethinylestradiol, see [Table 2](#table-2).
 
 | **Source**           | Route | **Dose [mg]/**  **Schedule \*** | **Pop.**     | **Sex** | **N** | **Form.** |
 | -------------------- | ------------------------------- | ------------ | ------- | --------------------------------- | --------------------------------- | --------------------------------- |
@@ -110,7 +110,7 @@ A literature search was performed to collect available clinical data on ethinyle
 | [Kothare 2012](#5-references)<sup>+</sup>       | p.o.  | 0.03/0.03 q.d.                  | HV       | F       | 20    | tablet              |
 | [Timmer 2000](#5-references)<sup>+</sup>        | p.o.  | 0.03                            | HV       | F       | -     | tablet              |
 
-**Table 2:**<a name="Table 2"></a> Literature sources of clinical concentration data of ethinylestradiol used for model development and validation. *\*: single dose unless otherwise specified;<sup>+</sup>: Data used for final parameter identification*
+**Table 2:**<a name="table-2"></a> Literature sources of clinical concentration data of ethinylestradiol used for model development and validation. *\*: single dose unless otherwise specified;<sup>+</sup>: Data used for final parameter identification*
 ## 2.3 Model Parameters and Assumptions
 ### 2.3.1 Absorption
 
@@ -321,13 +321,13 @@ The implemented TDI mechanism for ethinylestradiol was not evident in literature
 
 **Ezuruike 2018** Ezuruike U, Humphries H, Dickins M, Neuhoff S, Gardner I, Rowland Yeo K. Risk–Benefit Assessment of Ethinylestradiol Using a Physiologically Based Pharmacokinetic Modeling Approach. *Clin Pharmacol Ther*. 2018;104(6):1229-1239
 
-**FDA. QUARTETTE ** FDA. QUARTETTE (levonorgestrel/ethinyl estradiol and ethinyl estradiol) tablets, for oral use. Website: accessdata.fda.gov/drugsatfda_docs/label/2013/204061s000lbl.pdf.2013.
+**FDA. QUARTETTE** FDA. QUARTETTE (levonorgestrel/ethinyl estradiol and ethinyl estradiol) tablets, for oral use. Website: https://www.accessdata.fda.gov/drugsatfda_docs/label/2013/204061s000lbl.pdf
 
 **Goebelsmann 1986** Goebelsmann U, Hoffman D, Chiang S, Woutersz T. The relative bioavailability of levonorgestrel and ethinyl estradiol administered as a low-dose combination oral contraceptive. *Contraception*. 1986;34(4):341-351.
 
 **Granfors 2005** Granfors MT, Backman JT, Laitila J, Neuvonen PJ. Oral contraceptives containing ethinyl estradiol and gestodene markedly increase plasma concentrations and effects of tizanidine by inhibiting cytochrome P450 1A2. *Clin Pharmacol Ther*. 2005;78(4):400-411.
 
-**Karjalainen 2008** Karjalainen, M. (Thesis, 2008). Inhibition of CYP1A2-mediated drug metabolism in vitro and in humans: With special emphasis on rofecoxib and other NSAIDs. Website: helda.helsinki.fi/bitstream/handle/10138/23039/inhibiti.pdf?sequence=1&origin=publication_detail
+**Karjalainen 2008** Karjalainen, M. (Thesis, 2008). Inhibition of CYP1A2-mediated drug metabolism in vitro and in humans: With special emphasis on rofecoxib and other NSAIDs. Website: https://helda.helsinki.fi/bitstream/handle/10138/23039/inhibiti.pdf?sequence=1&origin=publication_detail
 
 **Kothare 2012** Kothare PA, Seger ME, Northrup J, Mace K, Mitchell MI, Linnebjerg H. Effect of exenatide on the pharmacokinetics of a combination oral contraceptive in healthy women: an open-label, randomised, crossover trial. *BMC Clin Pharmacol*. 2012;12:8. 
 
@@ -343,7 +343,7 @@ The implemented TDI mechanism for ethinylestradiol was not evident in literature
 
 **Sidhu 2006** Sidhu J, Job S, Singh S, Philipson R. The pharmacokinetic and pharmacodynamic consequences of the co-administration of lamotrigine and a combined oral contraceptive in healthy female subjects. *Br J Clin Pharmacol*. 2006;61(2):191-199.
 
-**SmPC Namuscla ** SmPC Namuscla 167 mg hard capsules, 2019, website medicines.org.uk/emc/product/9838/smpc
+**SmPC Namuscla** SmPC Namuscla 167 mg hard capsules, 2019, website https://www.medicines.org.uk/emc/product/9838/smpc
 
 **Stanczyk 1983** Stanczyk FZ, Mroszczak EJ, Ling T, et al. Plasma levels and pharmacokinetics of norethindrone and ethinylestradiol administered in solution and as tablets to women. *Contraception*. 1983;28(3):241-251.
 
@@ -361,7 +361,7 @@ The implemented TDI mechanism for ethinylestradiol was not evident in literature
 
 **Willmann 2007** Willmann S, Höhn K, Edginton A, Sevestre M, Solodenko J, Weiss W, Lippert J, Schmitt W. Development of a physiology-based whole-body population model for assessing the influence of individual variability on the pharmacokinetics of drugs. *J Pharmacokinet Pharmacodyn* 2007, 34(3): 401-431.
 
-**Zanaflex prescribing information**  Zanaflex prescribing information. Website: accessdata.fda.gov/drugsatfda_docs/label/2006/020397s021,021447s002lbl.pdf, 2006, Acorda Therapeutics Inc
+**Zanaflex prescribing information**  Zanaflex prescribing information. Website: https://www.accessdata.fda.gov/drugsatfda_docs/label/2006/020397s021,021447s002lbl.pdf , 2006, Acorda Therapeutics Inc
 
 **Zhang 2017** Zhang C, Li H, Xiong X, et al. An open-label, two-period comparative study on pharmacokinetics and safety of a combined ethinylestradiol/gestodene transdermal contraceptive patch. *Drug Des Devel Ther*. 2017;11:725-731.
 # 6 Glossary

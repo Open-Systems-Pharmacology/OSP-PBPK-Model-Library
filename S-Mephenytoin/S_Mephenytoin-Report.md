@@ -45,7 +45,7 @@ Only the  S-enantiomer of mephenytoin is modeled. The modeling work flow can be 
 | **Modelling step**                                           | **Data used / comment**                                      |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | **1.) Development of mean po model (no i.v. data  available)** | IVIVE based on physico-chemistry and in vitro  metabolization or recalculated in vivo clearance.  Alternative middle out fits to in vivo data were tried but could not improve DDI prediction significantly. Additional limited data lead to identifiability problems. |
-| **2.) Evaluation of p.o. model with virtual PK-Sim  population** | Range and mean plasma profiles after p.o. admininstration for the study population was in line with the PK-Sim in-built variability of  CYP2C9 and CYP2C19. |
+| **2.) Evaluation of p.o. model with virtual PK-Sim  population** | Range and mean plasma profiles after p.o. administration for the study population was in line with the PK-Sim in-built variability of  CYP2C9 and CYP2C19. |
 
 The predefined “Standard European Male for DDI” individual was used (age = 30 y, weight = 73 kg, height = 176 cm, BMI = 23.57 kg/m2). CYP2C19 expression from the PK-Sim in-built RT-PCR database was added.
 
@@ -61,7 +61,7 @@ Details about the structural model and its parameters can be found in [Section 2
 ## 2.2 Data
 ### 2.2.1 In vitro and physico-chemical data
 
-A literature search was performed to collect available information on physico-chemical properties of S-mephenytoin ([Table 1](#Table 1)).
+A literature search was performed to collect available information on physico-chemical properties of S-mephenytoin ([Table 1](#table-1)).
 
 | **Parameter**                   | **Unit** | **Value**     | Source                            | **Description**              |
 | :------------------------------ | -------- | ------------- | --------------------------------- | ---------------------------- |
@@ -71,13 +71,13 @@ A literature search was performed to collect available information on physico-ch
 | logP<sup>+</sup>                |          | 1.69          | [DrugBank DB00532](#5-references) | Partition coefficient        |
 | fu<sup>+</sup>                  | %        | 70.2          | [Steere 2015](#5-references)      | Fraction unbound in plasma   |
 
-**Table 1:**<a name="Table 1"></a> Physico-chemical and *in-vitro* metabolization properties of S-mephenytoin extracted from literature. *<sup>+</sup>: Value used in final model*
+**Table 1:**<a name="table-1"></a> Physico-chemical and *in-vitro* metabolization properties of S-mephenytoin extracted from literature. *<sup>+</sup>: Value used in final model*
 
 ### 2.2.2 Clinical data
 
-A literature search was performed to collect available clinical data on S-mephenytoin. Data used for model development and validation are listed in [Table 2](#Table 2).
+A literature search was performed to collect available clinical data on S-mephenytoin. Data used for model development and validation are listed in [Table 2](#table-2).
 
-| **Source**           | **Route** | **Dose [mg]/**  **Schedule ** | **Pop.**     | **Age [yrs] (mean) /range** | **Weight [kg] (mean) /range** | **Sex** | **N** | **Form.** | **Comment**                       |
+| **Source**           | **Route** | **Dose [mg]/**  **Schedule** | **Pop.**     | **Age [yrs] (mean) /range** | **Weight [kg] (mean) /range** | **Sex** | **N** | **Form.** | **Comment**                       |
 | -------------------- | --------- | ------------------------------- | ------------ | ------- | ----- | --------- | --------------------------------- | --------------------------------- | --------------------------------- |
 | [Adedoyin 1998](#5-references) | p.o.      | 100 mg s.d.                   | HV, all EM               | 54.7 / 32-73                | -                             | m/f     | 8     | tablet    | 50 g S-mephenytoin simulated                           |
 | [Jacqz 1986](#5-references)    | p.o.      | 100 mg s.d.                   | HV, 6 EM, 1  IM and 1 PM | 25-76                       | -                             | m/f     | 8     | tablet    | 50 g S-mephenytoin simulated                            |
@@ -86,7 +86,7 @@ A literature search was performed to collect available clinical data on S-mephen
 |                                |           |                               |                          |                             |                               |         |       |           |                                                              |
 | [Wedlund 1985](#5-references)  | p.o.      | 100 mg s.d.                  | HV                       | 21-7                        | 54-108                        | male    | 8     | tablet    | 50 g S-mephenytoin simulated                    |
 
-**Table 2:**<a name="Table 2"></a> Literature sources of clinical concentration data of S-mephenytoin used for model development and validation. *s.d.: single dose*
+**Table 2:**<a name="table-2"></a> Literature sources of clinical concentration data of S-mephenytoin used for model development and validation. *s.d.: single dose*
 ## 2.3 Model Parameters and Assumptions
 ### 2.3.1 Absorption
 
@@ -214,7 +214,7 @@ Population simulated data had a comparable variability with the observed data wh
 
 **Willmann 2007** Willmann S, Höhn K, Edginton A, Sevestre M, Solodenko J, Weiss W, Lippert J, Schmitt W. Development of a physiology-based whole-body population model for assessing the influence of individual variability on the pharmacokinetics of drugs. *J Pharmacokinet Pharmacodyn* 2007, 34(3): 401-431.
 
- **Yao 2003** Yao C, Kunze KL, Trager WF, Kharasch ED, Levy RH. Comparison of in vitro and in vivo inhibition potencies of fluvoxamine toward CYP2C19. *Drug Metab Dispos*. 2003;31(5):565-571.
+**Yao 2003** Yao C, Kunze KL, Trager WF, Kharasch ED, Levy RH. Comparison of in vitro and in vivo inhibition potencies of fluvoxamine toward CYP2C19. *Drug Metab Dispos*. 2003;31(5):565-571.
 # 6 Glossary
 | ADME    | Absorption, Distribution, Metabolism,  Excretion             |
 | ------- | ------------------------------------------------------------ |
