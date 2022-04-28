@@ -70,7 +70,7 @@ Details about the structural model and its parameters can be found in [Section 2
 ## 2.2 Data
 ### 2.2.1 In vitro and physico-chemical data
 
-A literature search was performed to collect available information on physico-chemical properties of moclobemide, see [Table 1](#Table 1).
+A literature search was performed to collect available information on physico-chemical properties of moclobemide, see [Table 1](#table-1).
 
 | **Parameter**                   | **Unit**          | **Value**    | Source                                  | **Description**                                              |
 | :------------------------------ | ----------------- | ------------ | --------------------------------------- | ------------------------------------------------------------ |
@@ -84,11 +84,11 @@ A literature search was performed to collect available information on physico-ch
 | Renal Elimination               | ml/min/kg         | 0.03         | [Schoerlin 1987](#5-references)         | Schoerlin reports 2.6 ml/min/76kg                            |
 | Ki_CYP2C19 (free)               | µmol/L            | 203.8        | [Kramer-Nielsen 1996](#5-references)    | The total ki value reported by Kramer was 210 umol/L and corrected with an fu_mic of 0.97 |
 
-**Table 1:**<a name="Table 1"></a> Physico-chemical and *in-vitro* metabolization properties of moclobemide extracted from literature. *<sup>+</sup>: Value used in final model*
+**Table 1:**<a name="table-1"></a> Physico-chemical and *in-vitro* metabolization properties of moclobemide extracted from literature. *<sup>+</sup>: Value used in final model*
 
 ### 2.2.2 Clinical data
 
-A literature search was performed to collect available clinical data on moclobemide in adults, see [Table 2](#Table 2).
+A literature search was performed to collect available clinical data on moclobemide in adults, see [Table 2](#table-2).
 
 | **Source**           | **Route** | **Dose [mg]/**  **Schedule \*** | **Pop.**     | Age [yrs] (mean or range) | Weight [kg] (mean or range) | **Sex** | **N** | **Form.** | **Comment**                       |
 | -------------------- | --------- | ------------------------------- | ------------ | ------- | ----- | --------- | --------------------------------- | --------------------------------- | --------------------------------- |
@@ -101,7 +101,7 @@ A literature search was performed to collect available clinical data on moclobem
 | [Guentert 1990](#5-references)<sup>+</sup> | p.o.                  | 150 t.i.d.                      | HV                | 19-29                     | 59-86                       | m/f     | 14    | tablet           |                        |
 | [Raaflaub 1984](#5-references)<sup>+</sup> | p.o. & i.v. infusion  | 50 s.d.                         | HV                | 42                        | 4                           | m       | 6     | tablet/ solution |                        |
 
-**Table 2:**<a name="Table 2"></a> Literature sources of clinical concentration data of moclobemide used for model development and validation. *-: respective information was not provided in the literature source; \*:single dose unless otherwise specified; EM: extensive metabolizers; PM: poor metabolizers; <sup>+</sup>: Data used for final parameter identification*
+**Table 2:**<a name="table-2"></a> Literature sources of clinical concentration data of moclobemide used for model development and validation. *-: respective information was not provided in the literature source; \*:single dose unless otherwise specified; EM: extensive metabolizers; PM: poor metabolizers; <sup>+</sup>: Data used for final parameter identification*
 ## 2.3 Model Parameters and Assumptions
 ### 2.3.1 Absorption
 
@@ -132,7 +132,7 @@ Following parameter values were estimated for the base model:
 
 - Vmax_2C19
 
-- Intrinisc Clearance FMO (i.e. non CYP2C19 metabolism)
+- Intrinsic Clearance FMO (i.e. non CYP2C19 metabolism)
 
 - Kinact<sub>half</sub> CYP2C19 for time-dependent autoinhibition
 

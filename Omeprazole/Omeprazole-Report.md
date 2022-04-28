@@ -55,29 +55,29 @@ The model includes distinct molecules for S- and R-omeprazole, the racemic omepr
 
 In general, the following step-wise workflow was followed:
 
-1a Define distribution and metabolism for S-omeprazole
+1a. Define distribution and metabolism for S-omeprazole
 
-1b.Mechanism based inactivation of CYP2C19 by omeprazole
+1b. Mechanism based inactivation of CYP2C19 by omeprazole
 
-2.Define S-omeprazole absorption based on p.o. 
+2. Define S-omeprazole absorption based on p.o. 
 
-3.Capsule formulation 
+3. Capsule formulation 
 
 - 3a. Building racemic omeprazole
 
 - 3b. Adjust CYP2C19 expression in gut
 
-4.Define metabolism for R-omeprazole
+4. Define metabolism for R-omeprazole
 
-5.Refine CYP3A4 metabolism on CYP2C19 PM data
+5. Refine CYP3A4 metabolism on CYP2C19 PM data
 
-6.Refine CYP2C19 metabolism on CYP2C19 EM data
+6. Refine CYP2C19 metabolism on CYP2C19 EM data
 
 The predefined “Standard European Male for DDI” individual was used (age = 30 y, weight = 73 kg, height = 176 cm, BMI = 23.57 kg/m2) until stated otherwise. CYP2C19 expression from the PK-Sim in-built RT-PCR database was added and adjusted as described in [Section 2.3.3](#233-metabolism-and-elimination).
 
 Selection of the distribution model for S-omeprazole and estimation of the lipophilicity parameter were performed with i.v. data ([Wilder-Smith 2005](#5-references), [Hassan-Alin 2000](#5-references)).
 
-The kinetics of CYP2C19 and CYP3A4 metabolization processes of S-omeprazole and R-omeprazole were estimated using the Parameter Identification module provided in PK-Sim® with i.v. and p.o. data including administration of S-, R- or racemic omeprazole, see [Table 3](#Table 3), [Table 4](#Table 4), and [Table 5](#Table 5) for more details. The kinetic parameters were assumed not to be identical for the isomers. For simulations of CYP2C19 poor metabolizers, the CYP2C19 pathway was switched off.
+The kinetics of CYP2C19 and CYP3A4 metabolization processes of S-omeprazole and R-omeprazole were estimated using the Parameter Identification module provided in PK-Sim® with i.v. and p.o. data including administration of S-, R- or racemic omeprazole, see [Table 3](#table-3), [Table 4](#table-4), and [Table 5](#table-5) for more details. The kinetic parameters were assumed not to be identical for the isomers. For simulations of CYP2C19 poor metabolizers, the CYP2C19 pathway was switched off.
 
 For studies in Japanese subjects, a typical Japanese subject (age = 30 y, weight = 61.87 kg, height = 168.99 cm, BMI = 21.67 kg/m2) was created in PK-Sim from predefined database “Japanese (2015)” by adding CYP3A4 and CYP2C19 expression from PK-Sim RT PCR database, and adapting CYP2C19 expression in gut as described in [Section 2.3.3](#233-metabolism-and-elimination).
 
@@ -94,7 +94,7 @@ Population simulations of single and multiple i.v. or p.o. administration over a
 ## 2.2 Data
 ### 2.2.1 In vitro and physico-chemical data
 
-A literature search was performed to collect available information on physico-chemical properties of S- and R-omeprazole and summarized in [Table 1](#Table 1) and [Table 2](#Table 2), respectively.
+A literature search was performed to collect available information on physico-chemical properties of S- and R-omeprazole and summarized in [Table 1](#table-1) and [Table 2](#table-2), respectively.
 
 | **Parameter**                                              | **Unit** | **Value**     | Source                                          | **Description**                                              |
 | :--------------------------------------------------------- | -------- | ------------- | ----------------------------------------------- | ------------------------------------------------------------ |
@@ -109,7 +109,7 @@ A literature search was performed to collect available information on physico-ch
 | K<sub>i</sub> CYP2C19 (competitive inhibition)<sup>+</sup> | µM       | 3.1           | [Liu 2005](#5-references)                       | The total ki  value reported by Liu was 3.4 µmol/L and corrected with an fu_mic of 0.92 |
 | Renal Elimination<sup>+</sup>                              | l/h      | 0.037         | [Wu 2014](#5-references)                        | Assumed same as omeprazole                                   |
 
-**Table 1:**<a name="Table 1"></a> Physico-chemical and *in-vitro* metabolization properties of S-omeprazole extracted from literature. *<sup>+</sup>: Value used in final model*
+**Table 1:**<a name="table-1"></a> Physico-chemical and *in-vitro* metabolization properties of S-omeprazole extracted from literature. *<sup>+</sup>: Value used in final model*
 
 
 
@@ -126,11 +126,11 @@ A literature search was performed to collect available information on physico-ch
 | K<sub>i</sub> CYP2C19 (competitive inhibition)<sup>+</sup> | µM       | 5.3           | [Liu 2005](#5-references)         | The total ki  value reported by Liu was 5.7 µmol/L and corrected with an fu_mic of 0.92 |
 | Renal Elimination<sup>+</sup>                              | l/h      | 0.037         | [Wu 2014](#5-references)          | Assumed same as omeprazole                                   |
 
-**Table 2:**<a name="Table 2"></a> Physico-chemical and *in-vitro* metabolization properties of R-omeprazole extracted from literature. *<sup>+</sup>: Value used in final model*
+**Table 2:**<a name="table-2"></a> Physico-chemical and *in-vitro* metabolization properties of R-omeprazole extracted from literature. *<sup>+</sup>: Value used in final model*
 
 ### 2.2.2 Clinical data
 
-A literature search was performed to collect available clinical data on omeprazole in adults. Data used for model development and validation for omeprazole, S-omeprazole, and R-omeprazole are listed in [Table 3](#Table 3), [Table 4](#Table 4), and [Table 5](#Table 5), respectively.
+A literature search was performed to collect available clinical data on omeprazole in adults. Data used for model development and validation for omeprazole, S-omeprazole, and R-omeprazole are listed in [Table 3](#table-3), [Table 4](#table-4), and [Table 5](#table-5), respectively.
 
 | **Source**           | **Route** | **Dose [mg]/**  **Schedule \*** | **Pop.**     | **Sex** | **N** | **Form.** | **Comment**                       |
 | -------------------- | --------- | ------------------------------- | ------------ | ------- | ----- | --------- | --------------------------------- |
@@ -156,7 +156,7 @@ A literature search was performed to collect available clinical data on omeprazo
 | [Yasui-Furukori 2004](#5-references)         | p.o.      | 40                              | HV japanese               | M - F   | 6     | omepral                       | PM +/- fluvoxamine |
 | [Wu 2016](#5-references)      | p.o.      | 40 q.d.                         | HV caucasian              | M - F   | 15    | gastro-resistant hard capsule |                    |
 
-**Table 3:**<a name="Table 3"></a> Literature sources of clinical concentration data of omeprazole used for model development and validation. *e.c.: enteric coated; -: respective information was not provided in the literature source; \*:single dose unless otherwise specified; EM: extensive metabolizers; PM: poor metabolizers; <sup>+</sup>: Data used for final parameter identification*
+**Table 3:**<a name="table-3"></a> Literature sources of clinical concentration data of omeprazole used for model development and validation. *e.c.: enteric coated; -: respective information was not provided in the literature source; \*:single dose unless otherwise specified; EM: extensive metabolizers; PM: poor metabolizers; <sup>+</sup>: Data used for final parameter identification*
 
 | **Source**                                     | **Route** | **Dose [mg]/**  **Schedule \***                              | **Pop.** | **Sex** | **N** | **Form.**     | **Comment** |
 | ---------------------------------------------- | --------- | ------------------------------------------------------------ | -------- | ------- | ----- | ------------- | ----------- |
@@ -170,7 +170,7 @@ A literature search was performed to collect available clinical data on omeprazo
 | [FDA Nexium Review](#5-references)<sup>+</sup> | p.o.      | 40                                                           | HV       | M       | -     | -             | PM          |
 | [Rohss 2007](#5-references)<sup>+</sup>        | i.v.      | 120mg(30min)+8mg/h - 120mg(2h)+8mg/h -  80mg(30min)+4mg/h - 80mg(30min)+8mg/h - 40mg(30min)+8mg/h | HV       | -       | 25    | solution      |             |
 
-**Table 4:**<a name="Table 4"></a> Literature sources of clinical concentration data of S-omeprazole used for model development and validation. *e.c.: enteric coated; -: respective information was not provided in the literature source; \*:single dose unless otherwise specified; EM: extensive metabolizers; PM: poor metabolizers; <sup>+</sup>: Data used for final parameter identification*
+**Table 4:**<a name="table-4"></a> Literature sources of clinical concentration data of S-omeprazole used for model development and validation. *e.c.: enteric coated; -: respective information was not provided in the literature source; \*:single dose unless otherwise specified; EM: extensive metabolizers; PM: poor metabolizers; <sup>+</sup>: Data used for final parameter identification*
 
 | **Source**                                    | **Route** | **Dose [mg]/**  **Schedule \*** | **Pop.** | **Sex** | **N** | **Form.**     | **Comment** |
 | --------------------------------------------- | --------- | ------------------------------- | -------- | ------- | ----- | ------------- | ----------- |
@@ -178,7 +178,7 @@ A literature search was performed to collect available clinical data on omeprazo
 | [Andersson 2000](#5-references)<sup>+</sup>   | p.o.      | 60 q.d.                         | HV       | -       | 5     | oral solution | PM          |
 | [Hassan-Alin 2005](#5-references)<sup>+</sup> | p.o.      | 20 - 40 q.d.                    | HV       | -       | -     | oral solution |             |
 
-**Table 5:**<a name="Table 5"></a> Literature sources of clinical concentration data of R-omeprazole used for model development and validation. *e.c.: enteric coated; -: respective information was not provided in the literature source; \*:single dose unless otherwise specified; EM: extensive metabolizers; PM: poor metabolizers; <sup>+</sup>: Data used for final parameter identification*
+**Table 5:**<a name="table-5"></a> Literature sources of clinical concentration data of R-omeprazole used for model development and validation. *e.c.: enteric coated; -: respective information was not provided in the literature source; \*:single dose unless otherwise specified; EM: extensive metabolizers; PM: poor metabolizers; <sup>+</sup>: Data used for final parameter identification*
 ## 2.3 Model Parameters and Assumptions
 ### 2.3.1 Absorption
 
@@ -205,7 +205,7 @@ To describe multiple dose oral solution data, time-dependent autoinhibition (TDI
 
 Competitive inhibition of CYP2C19 by both isomers was implemented in addition to TDI ([Liu 2005](#5-references)).
 
-Simulation results suggested that the expression of CYP2C19 isoenzymes in the GI tract as provided by the RT-PCR PK-Sim database is significantly preventing R-omeprazole from entering the circulation. This was less apparent for S-omeprazole. To note, while the absolute mean CYP3A4 abundance in liver (1.03e7 pmol per liver) and the intestinal/liver CYP3A4 ratio in PK-Sim default individual are similar to values used in other models, the relative intestinal CYP2C19 and CYP2D6 abundances differ ([Table 6](#Table 6)). The relative expression of CYP2C19 in gut was therefore reduced according to [Olivares-Morales 2016](#5-references) for the final model.
+Simulation results suggested that the expression of CYP2C19 isoenzymes in the GI tract as provided by the RT-PCR PK-Sim database is significantly preventing R-omeprazole from entering the circulation. This was less apparent for S-omeprazole. To note, while the absolute mean CYP3A4 abundance in liver (1.03e7 pmol per liver) and the intestinal/liver CYP3A4 ratio in PK-Sim default individual are similar to values used in other models, the relative intestinal CYP2C19 and CYP2D6 abundances differ ([Table 6](#table-6)). The relative expression of CYP2C19 in gut was therefore reduced according to [Olivares-Morales 2016](#5-references) for the final model.
 
 | **Ratio**                                | **[Olivares-Morales 2016](#5-references)**<sup>1</sup> | **[Galetin and Houston 2006](#5-references)**<sup>2</sup> | **Gastroplus** | **RT-PCR PK-Sim** | **Comment**                                                  |
 | ---------------------------------------- | ------------------------------------------------------ | --------------------------------------------------------- | -------------- | ---------------- | ------------------------------------------------------------ |
@@ -217,7 +217,7 @@ Simulation results suggested that the expression of CYP2C19 isoenzymes in the GI
 | CYP2C19 abundance Small intestine/liver  | 0.15%                                                  | -                                                         | -              | 1.95%            | 23-fold higher than in literature                            |
 | CYP2D6 Small intestine/liver             | 0.14%                                                  | -                                                         | -              | 0.55%            | 4-fold  higher than in literature                            |
 
-**Table 6:**<a name="Table 6"></a> Comparison of CYP3A4, CYP2C19 and CYP2D6 relative abundance in liver and small intestine from different literature sources. <sup>1</sup> Based on Sjörgen 2014: CYP relative expressions (pmol/mg_mic_p) from Paine 2006 calibrated against total intestinal CYP3A4 abundance. <sup>2</sup> Mean hepatic and intestinal relative abundance based on Rowland and Yeo 2003 and Paine 2006
+**Table 6:**<a name="table-6"></a> Comparison of CYP3A4, CYP2C19 and CYP2D6 relative abundance in liver and small intestine from different literature sources. <sup>1</sup> Based on Sjörgen 2014: CYP relative expressions (pmol/mg_mic_p) from Paine 2006 calibrated against total intestinal CYP3A4 abundance. <sup>2</sup> Mean hepatic and intestinal relative abundance based on Rowland and Yeo 2003 and Paine 2006
 
 Additionally, renal plasma clearance was implemented ([Wu 2014](#5-references)).
 
@@ -521,7 +521,7 @@ Comparison of population simulation results with observed data show that the obs
 
 **Andersson 1998** Andersson T, Holmberg J, Röhss K, Walan A. Pharmacokinetics and effect on caffeine metabolism of the proton pump inhibitors, omeprazole, lansoprazole, and pantoprazole. *Br J Clin Pharmacol*. 1998;45(4):369-375.
 
-**Andersson 2000 ** Andersson T, Rohss K, Hassan-alin M, et al. Pharmacokinetics (PK) and effect on pentagastrin stimulated peak acid output (PAO) of omeprazole (O) and its 2 optical isomers, S-omeprazole/esomeprazole (E) and R-omeprazole (R-O). *Gastroenterology*. 118(4):A1210
+**Andersson 2000** Andersson T, Rohss K, Hassan-alin M, et al. Pharmacokinetics (PK) and effect on pentagastrin stimulated peak acid output (PAO) of omeprazole (O) and its 2 optical isomers, S-omeprazole/esomeprazole (E) and R-omeprazole (R-O). *Gastroenterology*. 118(4):A1210
 
 **Äbelö 2000** Äbelö A, Andersson TB, Antonsson M, Naudot AK, Skanberg I, Weidolf L. Stereoselective metabolism of omeprazole by human cytochrome P450 enzymes. *Drug Metab Dispos*. 2000;28(8):966-972.
 
@@ -531,17 +531,17 @@ Comparison of population simulation results with observed data show that the obs
 
 **DrugBank DB00176** (https://www.drugbank.ca/drugs/DB00176)
 
-**FDA Nexium Review** FDA – Clinical Pharmacology and Biopharmacutics Review – Nexium delayed-Release Capsules – Esomeprazole sodium – Application number 21-153/21-154
+**FDA Nexium Review** FDA – Clinical Pharmacology and Biopharmaceutics Review – Nexium delayed-Release Capsules – Esomeprazole sodium – Application number 21-153/21-154
 
-**FDA SPC** FDA_ClinPharmReview LuvoxCR, NDA 22-033, FDADrug_42.pdf, website: digitalcollections.ohsu.edu/downloads/6m311p63g?locale=en
+**FDA SPC** FDA_ClinPharmReview LuvoxCR, NDA 22-033, FDADrug_42.pdf, website: https://scholararchive.ohsu.edu/downloads/6m311p63g?locale=en
 
 **Galetin and Houston 2006** Galetin A, Houston JB. Intestinal and hepatic metabolic activity of five cytochrome P450 enzymes: impact on prediction of first-pass metabolism. *J Pharmacol Exp Ther*. 2006;318(3):1220-1229. 
 
 **Hassan-Alin 2000** Hassan-Alin M, Andersson T, Bredberg E, Rohss K. Pharmacokinetics of esomeprazole after oral and intravenous administration of single and repeated doses to healthy subjects. *Eur J Clin Pharmacol*. 2000;56(9-10):665-670.
 
-**Hassan-Alin 2005 ** Hassan-Alin M, Andersson T, Niazi M, Röhss K. A pharmacokinetic study comparing single and repeated oral doses of 20 mg and 40 mg omeprazole and its two optical isomers, S-omeprazole (esomeprazole) and R-omeprazole, in healthy subjects. *Eur J Clin Pharmacol*. 2005;60(11):779-784
+**Hassan-Alin 2005** Hassan-Alin M, Andersson T, Niazi M, Röhss K. A pharmacokinetic study comparing single and repeated oral doses of 20 mg and 40 mg omeprazole and its two optical isomers, S-omeprazole (esomeprazole) and R-omeprazole, in healthy subjects. *Eur J Clin Pharmacol*. 2005;60(11):779-784
 
-**Nexium prescribing information** Website: accessdata.fda.gov/drugsatfda_docs/label/2014/022101s014021957s017021153s050lbl.pdf
+**Nexium prescribing information** Website: https://www.accessdata.fda.gov/drugsatfda_docs/label/2014/022101s014021957s017021153s050lbl.pdf
 
 **Kuepfer 2016** Kuepfer L, Niederalt C, Wendl T, Schlender JF, Willmann S, Lippert J, Block M, Eissing T, Teutonico D. Applied Concepts in PBPK Modeling: How to Build a PBPK/PD Model.CPT Pharmacometrics Syst Pharmacol. 2016 Oct;5(10):516-531.
 
@@ -551,17 +551,17 @@ Comparison of population simulation results with observed data show that the obs
 
 **Olivares-Morales 2016**  Olivares-Morales A, Ghosh A, Aarons L, Rostami-Hodjegan A. Development of a Novel Simplified PBPK Absorption Model to Explain the Higher Relative Bioavailability of the OROS(R) Formulation of Oxybutynin. *AAPS J*. 2016;18(6):1532-1549. 
 
-**Oosterhuis 1992 ** Oosterhuis B, Jonkman JHG, Andersson T, Zuiderwijk PBM. No influence of single intravenous doses of omeprazole on theophylline elimination kinetics. *J Clin Pharmacol*. 1992;32(5):470-475.
+**Oosterhuis 1992** Oosterhuis B, Jonkman JHG, Andersson T, Zuiderwijk PBM. No influence of single intravenous doses of omeprazole on theophylline elimination kinetics. *J Clin Pharmacol*. 1992;32(5):470-475.
 
 **PK-Sim Ontogeny Database Version 7.3** (https://github.com/Open-Systems-Pharmacology/OSPSuite.Documentation/blob/38cf71b384cfc25cfa0ce4d2f3addfd32757e13b/PK-Sim%20Ontogeny%20Database%20Version%207.3.pdf)
 
-**Regårdh 1990 ** Regårdh CG, Andersson T, Lagerstrom PO, Lundborg P, Skanberg I. The pharmacokinetics of omeprazole in humans--a study of single intravenous and oral doses. *Ther Drug Monit*. 1990;12(2):163-172.
+**Regårdh 1990** Regårdh CG, Andersson T, Lagerstrom PO, Lundborg P, Skanberg I. The pharmacokinetics of omeprazole in humans--a study of single intravenous and oral doses. *Ther Drug Monit*. 1990;12(2):163-172.
 
 **Röhss 2007** Röhss, K., Wilder-Smith, C., Kilhamn, J., Fjellman, M. & Lind, T. Suppression of gastric acid with intravenous esomeprazole and omeprazole: results of 3 studies in healthy subjects. *CP* **45**, 345–354 (2007).
 
-**Uno 2007 ** Uno T, Niioka T, Hayakari M, Yasui-Furukori N, Sugawara K, Tateishi T. Absolute bioavailability and metabolism of omeprazole in relation to CYP2C19 genotypes following single intravenous and oral administrations. *Eur J Clin Pharmacol*. 2007;63(2):143-149.
+**Uno 2007** Uno T, Niioka T, Hayakari M, Yasui-Furukori N, Sugawara K, Tateishi T. Absolute bioavailability and metabolism of omeprazole in relation to CYP2C19 genotypes following single intravenous and oral administrations. *Eur J Clin Pharmacol*. 2007;63(2):143-149.
 
-**Wilder-Smith 2005 ** Wilder-Smith CH, Bondarov P, Lundgren M, et al. Intravenous esomeprazole (40 mg and 20 mg) inhibits gastric acid secretion as effectively as oral esomeprazole: Results of two randomized clinical studies. *Eur J Gastroenterol Hepatol*. 2005;17(2):191-197
+**Wilder-Smith 2005** Wilder-Smith CH, Bondarov P, Lundgren M, et al. Intravenous esomeprazole (40 mg and 20 mg) inhibits gastric acid secretion as effectively as oral esomeprazole: Results of two randomized clinical studies. *Eur J Gastroenterol Hepatol*. 2005;17(2):191-197
 
 **Willmann 2007** Willmann S, Höhn K, Edginton A, Sevestre M, Solodenko J, Weiss W, Lippert J, Schmitt W. Development of a physiology-based whole-body population model for assessing the influence of individual variability on the pharmacokinetics of drugs. *J Pharmacokinet Pharmacodyn* 2007, 34(3): 401-431.
 
