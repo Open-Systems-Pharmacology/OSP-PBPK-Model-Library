@@ -42,7 +42,7 @@ function [success, errorMsg] = createModelReport(modelName)
 		cd([basisDir filesep modelName filesep 'Evaluation']);
         
         modelVersion = getModelVersion(modelName);
-        UpdateTitlePage([pwd filesep 'Input' filesep 'Content' filesep 'titlepage.md'], modelVersion, OSPVersion, qualificationFrameworkVersion);
+%        UpdateTitlePage([pwd filesep 'Input' filesep 'Content' filesep 'titlepage.md'], modelVersion, OSPVersion, qualificationFrameworkVersion);
         
         [success, message] = copyfile([basisDir filesep 'Workflow.m'], [pwd filesep 'Workflow.m'], 'f');
         if success ~= 1
