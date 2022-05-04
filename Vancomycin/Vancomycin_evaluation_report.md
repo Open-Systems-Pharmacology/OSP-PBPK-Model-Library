@@ -4,10 +4,10 @@
 
 
 
-| Version                                         | 1.2-OSP10.0                                                   |
+| Version                                         | 1.2-OSP11.0                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
 | based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Vancomycin-Model/releases/tag/v1.2 |
-| OSP Version                                     | 10.0                                                          |
+| OSP Version                                     | 11.0                                                          |
 | Qualification Framework Version                 | 2.3                                                          |
 
 
@@ -119,9 +119,9 @@ The compound parameter values of the final vancomycin PBPK model are illustrated
 
 
 
-### Compound: Vancomycin
+## Compound: Vancomycin
 
-#### Parameters
+### Parameters
 
 Name                                       | Value                  | Value Origin                                      | Alternative | Default
 ------------------------------------------ | ---------------------- | ------------------------------------------------- | ----------- | -------
@@ -132,18 +132,18 @@ Fraction unbound (plasma, reference value) | 0.67                   | Parameter 
 Is small molecule                          | Yes                    |                                                   |             |        
 Molecular weight                           | 1449.3 g/mol           | Publication-Other-Radke 2017                      |             |        
 Plasma protein binding partner             | Albumin                |                                                   |             |        
-#### Calculation methods
+### Calculation methods
 
 Name                    | Value                   
 ----------------------- | ------------------------
 Partition coefficients  | Schmitt                 
 Cellular permeabilities | Charge dependent Schmitt
-#### Processes
+### Processes
 
-##### Systemic Process: Glomerular Filtration-Zhou et al. 2016 GFR
+#### Systemic Process: Glomerular Filtration-Zhou et al. 2016 GFR
 
 Species: Human
-###### Parameters
+##### Parameters
 
 Name         | Value | Value Origin               
 ------------ | -----:| ---------------------------

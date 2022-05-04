@@ -4,10 +4,10 @@
 
 
 
-| Version                                         | 1.2-OSP10.0                                                   |
+| Version                                         | 1.2-OSP11.0                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
 | based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Sufentanil-Model/releases/tag/v1.2 |
-| OSP Version                                     | 10.0                                                          |
+| OSP Version                                     | 11.0                                                          |
 | Qualification Framework Version                 | 2.3                                                          |
 
 
@@ -120,9 +120,9 @@ The compound parameter values of the final sufentanil PBPK model are illustrated
 
 
 
-### Compound: Sufentanil
+## Compound: Sufentanil
 
-#### Parameters
+### Parameters
 
 Name                                       | Value                | Value Origin                                      | Alternative              | Default
 ------------------------------------------ | -------------------- | ------------------------------------------------- | ------------------------ | -------
@@ -133,27 +133,27 @@ Fraction unbound (plasma, reference value) | 0.075                | Publication-
 Is small molecule                          | Yes                  |                                                   |                          |        
 Molecular weight                           | 386.6 g/mol          | Publication-Zhou et al. 2017                      |                          |        
 Plasma protein binding partner             | α1-acid glycoprotein |                                                   |                          |        
-#### Calculation methods
+### Calculation methods
 
 Name                    | Value          
 ----------------------- | ---------------
 Partition coefficients  | Schmitt        
 Cellular permeabilities | PK-Sim Standard
-#### Processes
+### Processes
 
-##### Systemic Process: Glomerular Filtration-GFR
+#### Systemic Process: Glomerular Filtration-GFR
 
 Species: Human
-###### Parameters
+##### Parameters
 
 Name         | Value | Value Origin                
 ------------ | -----:| ----------------------------
 GFR fraction |     1 | Publication-Zhou et al. 2017
-##### Metabolizing Enzyme: CYP3A4-Zhou et al. 2017
+#### Metabolizing Enzyme: CYP3A4-Zhou et al. 2017
 
 Species: Human
 Molecule: CYP3A4
-###### Parameters
+##### Parameters
 
 Name                | Value              | Value Origin                                     
 ------------------- | ------------------ | -------------------------------------------------
@@ -167,7 +167,7 @@ Below you find the goodness-of-fit visual diagnostic plots for sufentanil PBPK m
 
 ![002_plotGOFMergedResidualsOverTime.png](images/003_3_Results_and_Discussion/002_3_2_Sufentanil_Diagnostics_Plots/002_plotGOFMergedResidualsOverTime.png)
 
-GMFE = 1.402222 
+GMFE = 1.402219 
 
 ## 3.3 Sufentanil Concentration-Time profiles
 Simulated versus observed plasma concentration-time profiles of all data are listed below.

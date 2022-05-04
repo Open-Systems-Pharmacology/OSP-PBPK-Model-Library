@@ -1,24 +1,6 @@
-# Building and evaluation of a PBPK model for amikacin in adults
-
-
-
-
-
-| Version                                         | 1.2-OSP10.0                                                   |
-| ----------------------------------------------- | ------------------------------------------------------------ |
-| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Amikacin-Model/releases/tag/v1.2 |
-| OSP Version                                     | 10.0                                                          |
-| Qualification Framework Version                 | 2.3                                                          |
-
-
-
-
-
-This evaluation report and the corresponding PK-Sim project file are filed at:
-
+# Building and evaluation of a PBPK model for amikacin in adults| Version                                         | 1.2-OSP11.0                                                   || ----------------------------------------------- | ------------------------------------------------------------ || based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Amikacin-Model/releases/tag/v1.2 || OSP Version                                     | 11.0                                                          || Qualification Framework Version                 | 2.3                                                          |
+This evaluation report and the corresponding PK-Sim project file are filed at:
 https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/
-
-
 # Table of Contents
   * [1 Introduction](#1-introduction)
   * [2 Methods](#2-methods)
@@ -117,9 +99,9 @@ The compound parameter values of the final amikacin PBPK model are illustrated b
 
 
 
-### Compound: Amikacin
+## Compound: Amikacin
 
-#### Parameters
+### Parameters
 
 Name                                       | Value           | Value Origin                          | Alternative | Default
 ------------------------------------------ | --------------- | ------------------------------------- | ----------- | -------
@@ -130,18 +112,18 @@ Fraction unbound (plasma, reference value) | 1               | Publication-Other
 Is small molecule                          | Yes             |                                       |             |        
 Molecular weight                           | 588.6 g/mol     | Publication-Claassen et al 2015       |             |        
 Plasma protein binding partner             | Albumin         |                                       |             |        
-#### Calculation methods
+### Calculation methods
 
 Name                    | Value          
 ----------------------- | ---------------
 Partition coefficients  | PK-Sim Standard
 Cellular permeabilities | PK-Sim Standard
-#### Processes
+### Processes
 
-##### Systemic Process: Glomerular Filtration-Claassen et al 2015
+#### Systemic Process: Glomerular Filtration-Claassen et al 2015
 
 Species: Human
-###### Parameters
+##### Parameters
 
 Name         | Value | Value Origin                   
 ------------ | -----:| -------------------------------
