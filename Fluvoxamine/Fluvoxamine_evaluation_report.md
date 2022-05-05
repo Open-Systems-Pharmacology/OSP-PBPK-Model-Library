@@ -197,9 +197,9 @@ The compound parameter values of the final PBPK model are illustrated below.
 
 
 
-## Compound: Fluvoxamine
+### Compound: Fluvoxamine
 
-### Parameters
+#### Parameters
 
 Name                                             | Value                   | Value Origin                                                                                                                                      | Alternative | Default
 ------------------------------------------------ | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | -------
@@ -212,18 +212,18 @@ F                                                | 3                       |    
 Is small molecule                                | Yes                     |                                                                                                                                                   |             |        
 Molecular weight                                 | 318.335 g/mol           |                                                                                                                                                   |             |        
 Plasma protein binding partner                   | Unknown                 |                                                                                                                                                   |             |        
-### Calculation methods
+#### Calculation methods
 
 Name                    | Value          
 ----------------------- | ---------------
 Partition coefficients  | Schmitt        
 Cellular permeabilities | PK-Sim Standard
-### Processes
+#### Processes
 
-#### Metabolizing Enzyme: CYP1A2-Fit
+##### Metabolizing Enzyme: CYP1A2-Fit
 
 Molecule: CYP1A2
-##### Parameters
+###### Parameters
 
 Name                                        | Value                      | Value Origin
 ------------------------------------------- | -------------------------- | ------------
@@ -231,43 +231,43 @@ In vitro Vmax for liver microsomes          | 0 pmol/min/mg mic. protein |
 Content of CYP proteins in liver microsomes | 45 pmol/mg mic. protein    | Unknown     
 Km                                          | 0.0073460807948 µmol/l     |             
 kcat                                        | 0.0155447966 1/min         | Unknown     
-#### Metabolizing Enzyme: CYP2D6-Miura2007
+##### Metabolizing Enzyme: CYP2D6-Miura2007
 
 Molecule: CYP2D6
-##### Parameters
+###### Parameters
 
 Name                             | Value                          | Value Origin            
 -------------------------------- | ------------------------------ | ------------------------
 In vitro Vmax/recombinant enzyme | 0.69 pmol/min/pmol rec. enzyme |                         
 Km                               | 76.3 µmol/l                    |                         
 kcat                             | 110.5561921693 1/min           | Parameter Identification
-#### Systemic Process: Glomerular Filtration-4% Urine
+##### Systemic Process: Glomerular Filtration-4% Urine
 
 Species: Human
-##### Parameters
+###### Parameters
 
 Name         | Value | Value Origin
 ------------ | -----:| ------------:
 GFR fraction |     1 |             
-#### Inhibition: CYP1A2-Karjalainen2008/Yao2001
+##### Inhibition: CYP1A2-Karjalainen2008/Yao2001
 
 Molecule: CYP1A2
-##### Parameters
+###### Parameters
 
 Name | Value     | Value Origin                                                                                                                                                                                                                                                                                                                                                                                                                  
 ---- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Ki_c | 10 nmol/l | Publication-In Vitro-Karjalainen et al. In vitro inhibition of CYP1A2 by model inhibitors, anti-inflammatory analgesics and female sex steroids: predictability of in vivo interactions. Basic Clin. Pharmacol. Toxicol. 103, 157–65 (2008) and Yao, C. et al. Fluvoxamine-theophylline interaction: gap between in vitro and in vivo inhibition constants toward cytochrome P4501A2. Clin. Pharmacol. Ther. 70, 415–24 (2001)
 Ki_u | 10 nmol/l | Publication-In Vitro-Karjalainen et al. In vitro inhibition of CYP1A2 by model inhibitors, anti-inflammatory analgesics and female sex steroids: predictability of in vivo interactions. Basic Clin. Pharmacol. Toxicol. 103, 157–65 (2008) and Yao, C. et al. Fluvoxamine-theophylline interaction: gap between in vitro and in vivo inhibition constants toward cytochrome P4501A2. Clin. Pharmacol. Ther. 70, 415–24 (2001)
-#### Inhibition: CYP3A4-Olesen2000/Yao2001
+##### Inhibition: CYP3A4-Olesen2000/Yao2001
 
 Molecule: CYP3A4
-##### Parameters
+###### Parameters
 
 Name | Value      | Value Origin                                                                                                                                                                                                                                                                                                                                                                                   
 ---- | ---------- | -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Ki   | 1.6 µmol/l | Publication-In Vitro-Olesen et al. Fluvoxamine-Clozapine drug interaction: inhibition in vitro of five cytochrome P450 isoforms involved in clozapine metabolism. J. Clin. Psychopharmacol. 20, 35–42 (2000) and Yao, C. et al. Fluvoxamine-theophylline interaction: gap between in vitro and in vivo inhibition constants toward cytochrome P4501A2. Clin. Pharmacol. Ther. 70, 415–24 (2001)
 
-## Formulation: Solution
+### Formulation: Solution
 
 Type: Dissolved
 

@@ -236,9 +236,9 @@ The compound parameter values of the final PBPK model are illustrated below.
 
 
 
-## Compound: Dapagliflozin
+### Compound: Dapagliflozin
 
-### Parameters
+#### Parameters
 
 Name                                             | Value                   | Value Origin                                                                                               | Alternative      | Default
 ------------------------------------------------ | ----------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------- | -------
@@ -252,48 +252,48 @@ Cl                                               | 1                       |    
 Is small molecule                                | Yes                     |                                                                                                            |                  |        
 Molecular weight                                 | 408.873 g/mol           |                                                                                                            |                  |        
 Plasma protein binding partner                   | Albumin                 |                                                                                                            |                  |        
-### Calculation methods
+#### Calculation methods
 
 Name                    | Value              
 ----------------------- | -------------------
 Partition coefficients  | Rodgers and Rowland
 Cellular permeabilities | PK-Sim Standard    
-### Processes
+#### Processes
 
-#### Metabolizing Enzyme: UGT1A9-Optimized
+##### Metabolizing Enzyme: UGT1A9-Optimized
 
 Molecule: UGT1A9
 Metabolite: Dapagliflozin-3-O-glucuronide
-##### Parameters
+###### Parameters
 
 Name                 | Value                  | Value Origin                                                                                              
 -------------------- | ---------------------- | ----------------------------------------------------------------------------------------------------------
 Enzyme concentration | 1 µmol/l               |                                                                                                           
 Specific clearance   | 0 1/min                |                                                                                                           
 CLspec/[Enzyme]      | 0.399443557 l/µmol/min | Parameter Identification-Parameter Identification-Value updated from 'PI full  (perm)' on 2019-08-23 15:34
-#### Metabolizing Enzyme: UGT2B7-Optimized
+##### Metabolizing Enzyme: UGT2B7-Optimized
 
 Molecule: UGT2B7
 Metabolite: Dapagliflozin-2-O-glucuronide
-##### Parameters
+###### Parameters
 
 Name                 | Value                      | Value Origin                                                                                              
 -------------------- | -------------------------- | ----------------------------------------------------------------------------------------------------------
 Enzyme concentration | 1 µmol/l                   |                                                                                                           
 Specific clearance   | 0 1/min                    |                                                                                                           
 CLspec/[Enzyme]      | 0.0066043366201 l/µmol/min | Parameter Identification-Parameter Identification-Value updated from 'PI full  (perm)' on 2019-08-23 15:34
-#### Systemic Process: Glomerular Filtration-assumed
+##### Systemic Process: Glomerular Filtration-assumed
 
 Species: Human
-##### Parameters
+###### Parameters
 
 Name         |        Value | Value Origin                                                                                              
 ------------ | ------------:| ----------------------------------------------------------------------------------------------------------
 GFR fraction | 0.7899801465 | Parameter Identification-Parameter Identification-Value updated from 'PI full  (perm)' on 2019-08-23 15:34
-#### Metabolizing Enzyme: Hepatic-CYP-Optimized
+##### Metabolizing Enzyme: Hepatic-CYP-Optimized
 
 Molecule: Hepatic-CYP
-##### Parameters
+###### Parameters
 
 Name                 | Value                   | Value Origin                                                                                              
 -------------------- | ----------------------- | ----------------------------------------------------------------------------------------------------------
@@ -301,14 +301,14 @@ Enzyme concentration | 1 µmol/l                |
 Specific clearance   | 0 1/min                 |                                                                                                           
 CLspec/[Enzyme]      | 0.1432967727 l/µmol/min | Parameter Identification-Parameter Identification-Value updated from 'PI full  (perm)' on 2019-08-23 15:34
 
-## Formulation: Dissolved
+### Formulation: Dissolved
 
 Type: Dissolved
 
-## Formulation: IC tablet (Chang 2015)
+### Formulation: IC tablet (Chang 2015)
 
 Type: Weibull
-### Parameters
+#### Parameters
 
 Name                             | Value  | Value Origin
 -------------------------------- | ------ | ------------:

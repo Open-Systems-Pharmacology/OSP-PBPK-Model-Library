@@ -117,9 +117,9 @@ The compound parameter values of the final amikacin PBPK model are illustrated b
 
 
 
-## Compound: Amikacin
+### Compound: Amikacin
 
-### Parameters
+#### Parameters
 
 Name                                       | Value           | Value Origin                          | Alternative | Default
 ------------------------------------------ | --------------- | ------------------------------------- | ----------- | -------
@@ -130,18 +130,18 @@ Fraction unbound (plasma, reference value) | 1               | Publication-Other
 Is small molecule                          | Yes             |                                       |             |        
 Molecular weight                           | 588.6 g/mol     | Publication-Claassen et al 2015       |             |        
 Plasma protein binding partner             | Albumin         |                                       |             |        
-### Calculation methods
+#### Calculation methods
 
 Name                    | Value          
 ----------------------- | ---------------
 Partition coefficients  | PK-Sim Standard
 Cellular permeabilities | PK-Sim Standard
-### Processes
+#### Processes
 
-#### Systemic Process: Glomerular Filtration-Claassen et al 2015
+##### Systemic Process: Glomerular Filtration-Claassen et al 2015
 
 Species: Human
-##### Parameters
+###### Parameters
 
 Name         | Value | Value Origin                   
 ------------ | -----:| -------------------------------

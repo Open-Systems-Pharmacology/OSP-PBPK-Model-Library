@@ -147,10 +147,10 @@ The next sections show:
 ## 3.1 Final input parameters
 The parameter values of the final PBPK model are illustrated below.
 
-## Formulation: Mexiletine tablet
+### Formulation: Mexiletine tablet
 
 Type: Weibull
-### Parameters
+#### Parameters
 
 Name                             | Value  | Value Origin
 -------------------------------- | ------ | ------------:
@@ -159,9 +159,9 @@ Lag time                         | 0 min  |
 Dissolution shape                | 0.92   |             
 Use as suspension                | Yes    |             
 
-## Compound: Mexiletine
+### Compound: Mexiletine
 
-### Parameters
+#### Parameters
 
 Name                                             | Value                   | Value Origin              | Alternative | Default
 ------------------------------------------------ | ----------------------- | ------------------------- | ----------- | -------
@@ -174,38 +174,38 @@ Specific intestinal permeability (transcellular) | 0.00047373454608 cm/min | Par
 Is small molecule                                | Yes                     |                           |             |        
 Molecular weight                                 | 179.26 g/mol            | Database-DrugBank DB00379 |             |        
 Plasma protein binding partner                   | Albumin                 |                           |             |        
-### Calculation methods
+#### Calculation methods
 
 Name                    | Value              
 ----------------------- | -------------------
 Partition coefficients  | Rodgers and Rowland
 Cellular permeabilities | PK-Sim Standard    
-### Processes
+#### Processes
 
-#### Metabolizing Enzyme: CYP1A2-Linear fit
+##### Metabolizing Enzyme: CYP1A2-Linear fit
 
 Species: Human
 Molecule: CYP1A2
-##### Parameters
+###### Parameters
 
 Name                | Value            | Value Origin                                                                                            
 ------------------- | ---------------- | --------------------------------------------------------------------------------------------------------
 Intrinsic clearance | 0 l/min          |                                                                                                         
 Specific clearance  | 0.07944444 1/min | Other-Assumption-28.6% of 0.50 tot hep spec CL - divided by 1.8 µmol/l reference concentration of CYP1A2
-#### Metabolizing Enzyme: CYP2D6-Linear fit
+##### Metabolizing Enzyme: CYP2D6-Linear fit
 
 Species: Human
 Molecule: CYP2D6
-##### Parameters
+###### Parameters
 
 Name                | Value         | Value Origin                                                                                            
 ------------------- | ------------- | --------------------------------------------------------------------------------------------------------
 Intrinsic clearance | 0 l/min       |                                                                                                         
 Specific clearance  | 0.46375 1/min | Other-Assumption-37.1% of 0.50 tot hep spec CL - divided by 0.4 µmol/l reference concentration of CYP2D6
-#### Systemic Process: Total Hepatic Clearance-Linear fit
+##### Systemic Process: Total Hepatic Clearance-Linear fit
 
 Species: Human
-##### Parameters
+###### Parameters
 
 Name                          | Value                  | Value Origin                                  
 ----------------------------- | ---------------------- | ----------------------------------------------
@@ -213,20 +213,20 @@ Fraction unbound (experiment) | 0.5                    |
 Lipophilicity (experiment)    | 2.3770265519 Log Units |                                               
 Plasma clearance              | 0 ml/min/kg            |                                               
 Specific clearance            | 0.1715 1/min           | Other-Assumption-34.3% of 0.50 tot hep spec CL
-#### Systemic Process: Renal Clearances-CLR - Rmex - Labbe2000
+##### Systemic Process: Renal Clearances-CLR - Rmex - Labbe2000
 
 Species: Human
-##### Parameters
+###### Parameters
 
 Name                          | Value              | Value Origin
 ----------------------------- | ------------------ | ------------
 Fraction unbound (experiment) | 0.5                |             
 Plasma clearance              | 0 ml/min/kg        |             
 Specific clearance            | 0.1434490274 1/min | Unknown     
-#### Inhibition: CYP1A2-Wei 1991
+##### Inhibition: CYP1A2-Wei 1991
 
 Molecule: CYP1A2
-##### Parameters
+###### Parameters
 
 Name | Value       | Value Origin        
 ---- | ----------- | --------------------

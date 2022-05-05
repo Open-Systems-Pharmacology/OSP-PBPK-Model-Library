@@ -119,9 +119,9 @@ The next sections show:
 ## 3.1 Final input parameters
 The parameter values of the final PBPK model are illustrated below.
 
-## Compound: S-Mephenytoin
+### Compound: S-Mephenytoin
 
-### Parameters
+#### Parameters
 
 Name                                       | Value          | Value Origin              | Alternative | Default
 ------------------------------------------ | -------------- | ------------------------- | ----------- | -------
@@ -132,36 +132,36 @@ Fraction unbound (plasma, reference value) | 70.2 %         | Publication-Steere
 Is small molecule                          | Yes            |                           |             |        
 Molecular weight                           | 218.52 g/mol   | Database-DrugBank DB00532 |             |        
 Plasma protein binding partner             | Albumin        |                           |             |        
-### Calculation methods
+#### Calculation methods
 
 Name                    | Value              
 ----------------------- | -------------------
 Partition coefficients  | Rodgers and Rowland
 Cellular permeabilities | PK-Sim Standard    
-### Processes
+#### Processes
 
-#### Metabolizing Enzyme: CYP2C19-Adedoyin1998_Table1_CL_F
+##### Metabolizing Enzyme: CYP2C19-Adedoyin1998_Table1_CL_F
 
 Species: Human
 Molecule: CYP2C19
-##### Parameters
+###### Parameters
 
 Name                | Value         | Value Origin             
 ------------------- | ------------- | -------------------------
 Intrinsic clearance | 1986.9 ml/min | Publication-Adedoyin 1998
-#### Metabolizing Enzyme: CYP2C9-Steere2015_Clint_CYP2C9_Table1
+##### Metabolizing Enzyme: CYP2C9-Steere2015_Clint_CYP2C9_Table1
 
 Molecule: CYP2C9
-##### Parameters
+###### Parameters
 
 Name                                        | Value                       | Value Origin              
 ------------------------------------------- | --------------------------- | --------------------------
 In vitro CL for liver microsomes            | 0.39 µl/min/mg mic. protein | Publication-Steere2015    
 Content of CYP proteins in liver microsomes | 96 pmol/mg mic. protein     | Publication-Rodrigues 1999
-#### Systemic Process: Glomerular Filtration-Assumption
+##### Systemic Process: Glomerular Filtration-Assumption
 
 Species: Human
-##### Parameters
+###### Parameters
 
 Name         | Value | Value Origin    
 ------------ | -----:| ----------------

@@ -172,9 +172,9 @@ The compound parameter values of the final mefenamic acid PBPK model are illustr
 
 
 
-## Compound: Mefenamic acid
+### Compound: Mefenamic acid
 
-### Parameters
+#### Parameters
 
 Name                                             | Value                   | Value Origin                                                                                                                                             | Alternative | Default
 ------------------------------------------------ | ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | -------
@@ -186,18 +186,18 @@ Specific intestinal permeability (transcellular) | 1.4111809841E-05 cm/min | Par
 Is small molecule                                | Yes                     |                                                                                                                                                          |             |        
 Molecular weight                                 | 241.29 g/mol            |                                                                                                                                                          |             |        
 Plasma protein binding partner                   | Albumin                 |                                                                                                                                                          |             |        
-### Calculation methods
+#### Calculation methods
 
 Name                    | Value              
 ----------------------- | -------------------
 Partition coefficients  | Rodgers and Rowland
 Cellular permeabilities | PK-Sim Standard    
-### Processes
+#### Processes
 
-#### Systemic Process: Total Hepatic Clearance-Simcyp (oral CL)
+##### Systemic Process: Total Hepatic Clearance-Simcyp (oral CL)
 
 Species: Human
-##### Parameters
+###### Parameters
 
 Name                          | Value              | Value Origin                                                                                                                                            
 ----------------------------- | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -205,20 +205,20 @@ Fraction unbound (experiment) | 0.01               |
 Lipophilicity (experiment)    | 3.52 Log Units     |                                                                                                                                                         
 Plasma clearance              | 0.2328761 l/h/kg   |                                                                                                                                                         
 Specific clearance            | 9.5031504329 1/min | Parameter Identification-Parameter Identification-Value updated from 'PI (Pint, CLspec, Lipo, Solub, meal; fu=1.9, Disso fix) FINAL' on 2019-08-06 18:52
-#### Inhibition: UGT1A9-PH-41095
+##### Inhibition: UGT1A9-PH-41095
 
 Molecule: UGT1A9
-##### Parameters
+###### Parameters
 
 Name | Value       | Value Origin
 ---- | ----------- | ------------:
 Ki_c | 0.3 µmol/l  |             
 Ki_u | 21.3 µmol/l |             
 
-## Formulation: Ponstan capsule
+### Formulation: Ponstan capsule
 
 Type: Weibull
-### Parameters
+#### Parameters
 
 Name                             | Value | Value Origin                                                                                                                                            
 -------------------------------- | ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------

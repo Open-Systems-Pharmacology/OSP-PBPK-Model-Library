@@ -149,9 +149,9 @@ The next sections show:
 The compound parameter values of the final PBPK model are illustrated below.
 
 
-## Compound: Atazanavir
+### Compound: Atazanavir
 
-### Parameters
+#### Parameters
 
 Name                                             | Value                   | Value Origin                            | Alternative | Default
 ------------------------------------------------ | ----------------------- | --------------------------------------- | ----------- | -------
@@ -163,55 +163,55 @@ Specific intestinal permeability (transcellular) | 9.8649602504E-06 cm/min | Par
 Is small molecule                                | Yes                     |                                         |             |        
 Molecular weight                                 | 704.8555 g/mol          | Internet-drugbank.ca                    |             |        
 Plasma protein binding partner                   | Unknown                 |                                         |             |        
-### Calculation methods
+#### Calculation methods
 
 Name                    | Value              
 ----------------------- | -------------------
 Partition coefficients  | Rodgers and Rowland
 Cellular permeabilities | PK-Sim Standard    
-### Processes
+#### Processes
 
-#### Metabolizing Enzyme: CYP3A4-Optimized
+##### Metabolizing Enzyme: CYP3A4-Optimized
 
 Molecule: CYP3A4
-##### Parameters
+###### Parameters
 
 Name                 | Value                   | Value Origin            
 -------------------- | ----------------------- | ------------------------
 Enzyme concentration | 1 µmol/l                |                         
 Specific clearance   | 0 1/min                 |                         
 CLspec/[Enzyme]      | 1.0383524966 l/µmol/min | Parameter Identification
-#### Systemic Process: Glomerular Filtration-Clinical Pharmacology Review
+##### Systemic Process: Glomerular Filtration-Clinical Pharmacology Review
 
 Species: Human
-##### Parameters
+###### Parameters
 
 Name         |       Value | Value Origin            
 ------------ | -----------:| ------------------------
 GFR fraction | 2.014495446 | Parameter Identification
-#### Inhibition: CYP3A4-Perloff2005
+##### Inhibition: CYP3A4-Perloff2005
 
 Molecule: CYP3A4
-##### Parameters
+###### Parameters
 
 Name          | Value                 | Value Origin            
 ------------- | --------------------- | ------------------------
 kinact        | 0.0033009852632 1/min | Parameter Identification
 K_kinact_half | 0.1292581489 µmol/l   | Parameter Identification
-#### Inhibition: UGT1A1-PH-41095
+##### Inhibition: UGT1A1-PH-41095
 
 Molecule: UGT1A1
-##### Parameters
+###### Parameters
 
 Name | Value          | Value Origin                                          
 ---- | -------------- | ------------------------------------------------------
 Ki_c | 0.18986 µmol/l | In Vitro-Calculated from reported Ki and fu,mic       
 Ki_u | 0.85437 µmol/l | In Vitro-Calculated from reported Ki, fu,mic and alpha
 
-## Formulation: Reyataz capsule
+### Formulation: Reyataz capsule
 
 Type: Weibull
-### Parameters
+#### Parameters
 
 Name                             | Value             | Value Origin            
 -------------------------------- | ----------------- | ------------------------

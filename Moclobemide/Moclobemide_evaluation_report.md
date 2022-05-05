@@ -146,10 +146,10 @@ The next sections show:
 ## 3.1 Final input parameters
 The parameter values of the final PBPK model are illustrated below.
 
-## Formulation: Moclobemide tablet
+### Formulation: Moclobemide tablet
 
 Type: Particle Dissolution
-### Parameters
+#### Parameters
 
 Name                               | Value        | Value Origin                                                                                                                                                                                                                                                   
 ---------------------------------- | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -157,9 +157,9 @@ Thickness (unstirred water layer)  | 20 µm        | Publication-Willmann S, The
 Type of particle size distribution | Monodisperse |                                                                                                                                                                                                                                                                
 Particle radius (mean)             | 10 µm        |                                                                                                                                                                                                                                                                
 
-## Compound: Moclobemide
+### Compound: Moclobemide
 
-### Parameters
+#### Parameters
 
 Name                                       | Value          | Value Origin                 | Alternative | Default
 ------------------------------------------ | -------------- | ---------------------------- | ----------- | -------
@@ -171,54 +171,54 @@ Cl                                         | 1              | Database-DrugBank 
 Is small molecule                          | Yes            |                              |             |        
 Molecular weight                           | 268.74 g/mol   | Database-DrugBank DB01171    |             |        
 Plasma protein binding partner             | Albumin        |                              |             |        
-### Calculation methods
+#### Calculation methods
 
 Name                    | Value              
 ----------------------- | -------------------
 Partition coefficients  | Rodgers and Rowland
 Cellular permeabilities | PK-Sim Standard    
-### Processes
+#### Processes
 
-#### Metabolizing Enzyme: CYP2C19-Intrinsic-CL_MM_fit
+##### Metabolizing Enzyme: CYP2C19-Intrinsic-CL_MM_fit
 
 Species: Human
 Molecule: CYP2C19
-##### Parameters
+###### Parameters
 
 Name                | Value                   | Value Origin            
 ------------------- | ----------------------- | ------------------------
 Vmax (liver tissue) | 2.03 µmol/min/kg tissue | Parameter Identification
 Km                  | 1.11 µmol/l             | Parameter Identification
-#### Metabolizing Enzyme: FMO_other-Intrinsic-CL-fit
+##### Metabolizing Enzyme: FMO_other-Intrinsic-CL-fit
 
 Species: Human
 Molecule: FMO_other
-##### Parameters
+###### Parameters
 
 Name                | Value      | Value Origin            
 ------------------- | ---------- | ------------------------
 Intrinsic clearance | 0.24 l/min | Parameter Identification
-#### Systemic Process: Renal Clearances-Schoerlin 1987
+##### Systemic Process: Renal Clearances-Schoerlin 1987
 
 Species: Human
-##### Parameters
+###### Parameters
 
 Name                          | Value           | Value Origin              
 ----------------------------- | --------------- | --------------------------
 Fraction unbound (experiment) | 0.5             |                           
 Plasma clearance              | 0.034 ml/min/kg | Publication-Schoerlin 1987
-#### Inhibition: CYP2C19-Kramer-unbound
+##### Inhibition: CYP2C19-Kramer-unbound
 
 Molecule: CYP2C19
-##### Parameters
+###### Parameters
 
 Name | Value         | Value Origin                   
 ---- | ------------- | -------------------------------
 Ki   | 203.82 µmol/l | Publication-Kramer-Nielsen 1996
-#### Inhibition: CYP2C19-TimeDep_AutoInh-fit
+##### Inhibition: CYP2C19-TimeDep_AutoInh-fit
 
 Molecule: CYP2C19
-##### Parameters
+###### Parameters
 
 Name          | Value        | Value Origin            
 ------------- | ------------ | ------------------------

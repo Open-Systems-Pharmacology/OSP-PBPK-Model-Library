@@ -136,10 +136,10 @@ The next sections show:
 ## 3.1 Final input parameters
 The parameter values of the final PBPK model are illustrated below.
 
-## Formulation: Tizanidine tablet fasted
+### Formulation: Tizanidine tablet fasted
 
 Type: Weibull
-### Parameters
+#### Parameters
 
 Name                             | Value       | Value Origin            
 -------------------------------- | ----------- | ------------------------
@@ -148,10 +148,10 @@ Lag time                         | 0 min       |
 Dissolution shape                | 0.963       | Parameter Identification
 Use as suspension                | Yes         |                         
 
-## Formulation: Tizanidine tablet fed
+### Formulation: Tizanidine tablet fed
 
 Type: Weibull
-### Parameters
+#### Parameters
 
 Name                             | Value      | Value Origin            
 -------------------------------- | ---------- | ------------------------
@@ -160,9 +160,9 @@ Lag time                         | 0 min      |
 Dissolution shape                | 0.3881     | Parameter Identification
 Use as suspension                | Yes        |                         
 
-## Compound: Tizanidine
+### Compound: Tizanidine
 
-### Parameters
+#### Parameters
 
 Name                                       | Value         | Value Origin              | Alternative | Default
 ------------------------------------------ | ------------- | ------------------------- | ----------- | -------
@@ -174,27 +174,27 @@ Cl                                         | 1             | Database-DrugBank D
 Is small molecule                          | Yes           |                           |             |        
 Molecular weight                           | 253.711 g/mol | Database-DrugBank DB00697 |             |        
 Plasma protein binding partner             | Albumin       |                           |             |        
-### Calculation methods
+#### Calculation methods
 
 Name                    | Value          
 ----------------------- | ---------------
 Partition coefficients  | Berezhkovskiy  
 Cellular permeabilities | PK-Sim Standard
-### Processes
+#### Processes
 
-#### Metabolizing Enzyme: CYP1A2-CLint
+##### Metabolizing Enzyme: CYP1A2-CLint
 
 Species: Human
 Molecule: CYP1A2
-##### Parameters
+###### Parameters
 
 Name                | Value        | Value Origin            
 ------------------- | ------------ | ------------------------
 Intrinsic clearance | 7.2862 l/min | Parameter Identification
-#### Systemic Process: Glomerular Filtration-Assumption
+##### Systemic Process: Glomerular Filtration-Assumption
 
 Species: Human
-##### Parameters
+###### Parameters
 
 Name         | Value | Value Origin    
 ------------ | -----:| ----------------

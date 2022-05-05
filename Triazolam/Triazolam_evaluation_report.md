@@ -140,10 +140,10 @@ The next sections show:
 The compound parameter values of the final PBPK model are illustrated below. 
 
 
-## Formulation: Halcion
+### Formulation: Halcion
 
 Type: Weibull
-### Parameters
+#### Parameters
 
 Name                             | Value            | Value Origin                                                                                        
 -------------------------------- | ---------------- | ----------------------------------------------------------------------------------------------------
@@ -152,9 +152,9 @@ Lag time                         | 0 min            |
 Dissolution shape                | 2.5169993312     | Parameter Identification-Parameter Identification-Value updated from 'IV + Oral' on 2018-11-13 16:52
 Use as suspension                | Yes              |                                                                                                     
 
-## Compound: Triazolam
+### Compound: Triazolam
 
-### Parameters
+#### Parameters
 
 Name                                             | Value                   | Value Origin                                                                                         | Alternative | Default
 ------------------------------------------------ | ----------------------- | ---------------------------------------------------------------------------------------------------- | ----------- | -------
@@ -167,28 +167,28 @@ Cl                                               | 2                       |    
 Is small molecule                                | Yes                     |                                                                                                      |             |        
 Molecular weight                                 | 343.21 g/mol            |                                                                                                      |             |        
 Plasma protein binding partner                   | Unknown                 |                                                                                                      |             |        
-### Calculation methods
+#### Calculation methods
 
 Name                    | Value              
 ----------------------- | -------------------
 Partition coefficients  | Rodgers and Rowland
 Cellular permeabilities | PK-Sim Standard    
-### Processes
+#### Processes
 
-#### Metabolizing Enzyme: CYP3A4-alpha-OH pathway
+##### Metabolizing Enzyme: CYP3A4-alpha-OH pathway
 
 Molecule: CYP3A4
-##### Parameters
+###### Parameters
 
 Name                               | Value                         | Value Origin                                                                                        
 ---------------------------------- | ----------------------------- | ----------------------------------------------------------------------------------------------------
 In vitro Vmax for liver microsomes | 2.36 nmol/min/mg mic. protein | Publication-In Vitro-PMID: 8632299                                                                  
 Km                                 | 74.2 µmol/l                   | Publication-In Vitro-PMID: 8632299                                                                  
 kcat                               | 4.0317206142 1/min            | Parameter Identification-Parameter Identification-Value updated from 'IV + Oral' on 2018-11-13 16:52
-#### Metabolizing Enzyme: CYP3A4-4-OH pathway
+##### Metabolizing Enzyme: CYP3A4-4-OH pathway
 
 Molecule: CYP3A4
-##### Parameters
+###### Parameters
 
 Name                               | Value                          | Value Origin                                                                                        
 ---------------------------------- | ------------------------------ | ----------------------------------------------------------------------------------------------------

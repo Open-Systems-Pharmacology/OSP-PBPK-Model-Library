@@ -120,9 +120,9 @@ The compound parameter values of the final sufentanil PBPK model are illustrated
 
 
 
-## Compound: Sufentanil
+### Compound: Sufentanil
 
-### Parameters
+#### Parameters
 
 Name                                       | Value                | Value Origin                                      | Alternative              | Default
 ------------------------------------------ | -------------------- | ------------------------------------------------- | ------------------------ | -------
@@ -133,27 +133,27 @@ Fraction unbound (plasma, reference value) | 0.075                | Publication-
 Is small molecule                          | Yes                  |                                                   |                          |        
 Molecular weight                           | 386.6 g/mol          | Publication-Zhou et al. 2017                      |                          |        
 Plasma protein binding partner             | α1-acid glycoprotein |                                                   |                          |        
-### Calculation methods
+#### Calculation methods
 
 Name                    | Value          
 ----------------------- | ---------------
 Partition coefficients  | Schmitt        
 Cellular permeabilities | PK-Sim Standard
-### Processes
+#### Processes
 
-#### Systemic Process: Glomerular Filtration-GFR
+##### Systemic Process: Glomerular Filtration-GFR
 
 Species: Human
-##### Parameters
+###### Parameters
 
 Name         | Value | Value Origin                
 ------------ | -----:| ----------------------------
 GFR fraction |     1 | Publication-Zhou et al. 2017
-#### Metabolizing Enzyme: CYP3A4-Zhou et al. 2017
+##### Metabolizing Enzyme: CYP3A4-Zhou et al. 2017
 
 Species: Human
 Molecule: CYP3A4
-##### Parameters
+###### Parameters
 
 Name                | Value              | Value Origin                                     
 ------------------- | ------------------ | -------------------------------------------------
