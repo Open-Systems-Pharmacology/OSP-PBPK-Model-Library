@@ -3,7 +3,7 @@
 % --------------------------------------------------------------
 
 close all
-tic
+workflowStart = tic;
 
 warning('off','MATLAB:table:ModifiedAndSavedVarnames')
 
@@ -68,9 +68,6 @@ WSettings.Watermark = '';
 % run the Worklfow tasklist of ConfigurationPlan
 runQualificationWorkflow(WSettings, ConfigurationPlan, TaskList, ObservedDataSets);
 
-QualificationWorkflowTime = toc/60;
-fprintf('\n Qualification Workflow Duration: %0.1f minutes \n', QualificationWorkflowTime);
-
 % --------------------------------------------------------------
 % STEP #3: call MarkdownJoiner to combine Reporting Engine output into the final report
 MarkdownJoiner_path=fullfile(markdownJoinerFolder,'markdown-joiner.exe');
@@ -82,4 +79,7 @@ status = system(['"' MarkdownJoiner_path '" -i "' REOutput_path '" -o "' ReportO
 %status = system(['"' MarkdownJoiner_path '" -i "' REOutput_path '" -o "' ReportOutput_path '" -f']);
 
 if status~=0 error('MarkdownJoiner failed'); end
+
+QualificationWorkflowTime = toc(workflowStart)/60;
+fprintf('\n Qualification Workflow Duration: %0.1f minutes \n', QualificationWorkflowTime);
 

@@ -230,7 +230,7 @@ The first plot shows observed versus simulated plasma concentration, the second 
 
 ![002_plotGOFMergedResidualsOverTime.png](images/003_3_Results_and_Discussion/002_3_2_Diagnostics_Plots/002_plotGOFMergedResidualsOverTime.png)
 
-GMFE = 3.819643 
+GMFE = 1.500690 
 
 ## 3.3 Concentration-Time Profiles
 Simulated versus observed concentration-time profiles of all data listed in [Section 2.2.2](#222-clinical-data) are presented below.

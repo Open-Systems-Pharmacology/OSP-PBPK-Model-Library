@@ -1,10 +1,10 @@
 function runModelEvaluationReports
-    tic
+    runStart = tic;
     
     modelNames = GetModelNames;
     failedModels = {};
     
-    UpdateTitlePages(modelNames);
+%    UpdateTitlePages(modelNames);
     
     for i=1:length(modelNames)
         modelName = modelNames{i};
@@ -24,7 +24,8 @@ function runModelEvaluationReports
         disp(failedModels');
     end
         
-    toc
+    QualificationWorkflowTime = toc(runStart)/60;
+    fprintf('\n Qualification Run total Duration: %0.1f minutes \n', QualificationWorkflowTime);
 end
 
 function UpdateTitlePages(modelNames)
