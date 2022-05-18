@@ -2,10 +2,10 @@
 
 
 
-| Version                                         | 1.1-OSP10.0                                                  |
+| Version                                         | 1.1-OSP11.0                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
 | based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Mexiletine-Model/releases/tag/v1.1 |
-| OSP Version                                     | 10.0                                                         |
+| OSP Version                                     | 11.0                                                          |
 | Qualification Framework Version                 | 2.3                                                          |
 
 This evaluation report and the corresponding PK-Sim project file are filed at:
@@ -358,7 +358,7 @@ The predicted fraction excreted in urine was similar to the fraction reported in
 | q.d.    | Once daily (quaque diem)                                     |
 | SD      | Single Dose                                                  |
 | SE      | Standard error                                               |
-| s.d.SPC | Single dose Summary of Product Characteristics                |
+| s.d.SPC | Single doseSummary of Product Characteristics                |
 | SD      | Standard deviation                                           |
 | TDI     | Time dependent inhibition                                    |
 | t.i.d   | Three times a day (ter in die)                               |

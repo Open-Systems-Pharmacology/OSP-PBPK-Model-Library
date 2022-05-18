@@ -2,10 +2,10 @@
 
 
 
-| Version                                         | 1.1-OSP10.0                                                  |
+| Version                                         | 1.1-OSP11.0                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
 | based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Tizanidine-Model/releases/tag/v1.1 |
-| OSP Version                                     | 10.0                                                         |
+| OSP Version                                     | 11.0                                                          |
 | Qualification Framework Version                 | 2.3                                                          |
 
 This evaluation report and the corresponding PK-Sim project file are filed at:

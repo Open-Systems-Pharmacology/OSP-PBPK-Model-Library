@@ -4,10 +4,10 @@
 
 
 
-| Version                                         | 1.1-OSP10.0                                                   |
+| Version                                         | 1.2-OSP11.0                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
-| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Fluvoxamine-Model/releases/tag/v1.1 |
-| OSP Version                                     | 10.0                                                          |
+| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Fluvoxamine-Model/releases/tag/v1.2 |
+| OSP Version                                     | 11.0                                                          |
 | Qualification Framework Version                 | 2.3                                                          |
 
 
@@ -33,20 +33,20 @@ https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/
   * [4 Conclusion](#4-conclusion)
   * [5 References](#5-references)
 # 1 Introduction
-Fluvoxamine is a selective serotonin reuptake inhibitor used to treat major depression and obsessive compulsive disorder ([Perucca 1994](#5-References), [ANI Pharmaceuticals Inc. 2008](#5-References)) . Recommended doses are 50 to 300 mg once daily. The pharmacokinetics of orally administered single doses are linear. Following multiple oral administration, the pharmacokinetics at steady-state become non-linear, due to saturable Michaelis-Menten kinetics of the metabolic pathways ([Spigset 1998](#5-References)). Metabolism of fluvoxamine includes hydroxylation via CYP1A2 and O-demethylation via the very polymorphic CYP2D6 ([Miura 2007](#5-References), [Spigset 2001](#5-References)). Following oral administration fluvoxamine is excreted via the urine as metabolites ([DeBree 1983](#5-References)). The U.S. Food and Drug Administration (FDA) recommends fluvoxamine as strong clinical CYP1A2 and CYP2C19 index inhibitor to evaluate the impact of CYP1A2/CYP2C19 inhibition on CYP1A2/CYP2C19 substrates ([FDA 2017](#5-References)). Furthermore, the FDA lists fluvoxamine as moderate CYP3A4 inhibitor.
+Fluvoxamine is a selective serotonin reuptake inhibitor used to treat major depression and obsessive compulsive disorder ([Perucca 1994](#5-references), [ANI Pharmaceuticals Inc. 2008](#5-references)) . Recommended doses are 50 to 300 mg once daily. The pharmacokinetics of orally administered single doses are linear. Following multiple oral administration, the pharmacokinetics at steady-state become non-linear, due to saturable Michaelis-Menten kinetics of the metabolic pathways ([Spigset 1998](#5-references)). Metabolism of fluvoxamine includes hydroxylation via CYP1A2 and O-demethylation via the very polymorphic CYP2D6 ([Miura 2007](#5-references), [Spigset 2001](#5-references)). Following oral administration fluvoxamine is excreted via the urine as metabolites ([DeBree 1983](#5-references)). The U.S. Food and Drug Administration (FDA) recommends fluvoxamine as strong clinical CYP1A2 and CYP2C19 index inhibitor to evaluate the impact of CYP1A2/CYP2C19 inhibition on CYP1A2/CYP2C19 substrates ([FDA 2017](#5-references)). Furthermore, the FDA lists fluvoxamine as moderate CYP3A4 inhibitor.
 
 The aim of this project was to develop a PBPK model of fluvoxamine, mechanistically describing its metabolism by CYP1A2 and CYP2D6 and its inhibitory effect on CYP1A2 and CYP3A4, that can be used for drug-drug interaction (DDI) predictions.
 
-The presented model was developed and evaluated by Britz et al. ([Britz 2019](#5-References))
+The presented model was developed and evaluated by Britz et al. ([Britz 2019](#5-references))
 
 
 # 2 Methods
 
 
 ## 2.1 Modeling Strategy
-The general workflow for building an adult PBPK model has been described by Kuepfer et al. ([Kuepfer 2016](#5-References)). Relevant information on the anthropometry (height, weight) was gathered from the respective clinical study, if reported. Information on physiological parameters (e.g. blood flows, organ volumes, hematocrit) in adults was gathered from the literature and has been incorporated in PK-Sim® as described previously ([Willmann 2007](#5-References)). The  applied activity and variability of plasma proteins and active processes that are integrated into PK-Sim® are described in the publicly available 'PK-Sim® Ontogeny Database Version 7.3' ([PK-Sim Ontogeny Database Version 7.3](#5-References)).
+The general workflow for building an adult PBPK model has been described by Kuepfer et al. ([Kuepfer 2016](#5-references)). Relevant information on the anthropometry (height, weight) was gathered from the respective clinical study, if reported. Information on physiological parameters (e.g. blood flows, organ volumes, hematocrit) in adults was gathered from the literature and has been incorporated in PK-Sim® as described previously ([Willmann 2007](#5-references)). The  applied activity and variability of plasma proteins and active processes that are integrated into PK-Sim® are described in the publicly available 'PK-Sim® Ontogeny Database Version 7.3' ([PK-Sim Ontogeny Database Version 7.3](#5-references)).
 
-The PBPK model was built based on healthy individuals, using the reported mean values for age, weight, height, and genetic background for each study protocol. If no information on these parameters could be found, a healthy male European individual, 30 years of age, with a body weight of 73 kg and a height of 176 cm was used. To model the specific metabolic clearance,  CYP1A2 and CYP2D6 were implemented in accordance with literature, using the PK-Sim expression database RT-PCR profiles ([Meyer 2012](#5-References)) to define their relative expression in the different organs of the body. Glomerular filtration and enterohepatic cycling were enabled, as they are involved in fluvoxamine excretion.
+The PBPK model was built based on healthy individuals, using the reported mean values for age, weight, height, and genetic background for each study protocol. If no information on these parameters could be found, a healthy male European individual, 30 years of age, with a body weight of 73 kg and a height of 176 cm was used. To model the specific metabolic clearance,  CYP1A2 and CYP2D6 were implemented in accordance with literature, using the PK-Sim expression database RT-PCR profiles ([Meyer 2012](#5-references)) to define their relative expression in the different organs of the body. Glomerular filtration and enterohepatic cycling were enabled, as they are involved in fluvoxamine excretion.
 
 Unknown parameters (see below) were identified using the Parameter Identification module provided in PK-Sim®. 
 
@@ -56,37 +56,37 @@ The model was then verified by simulating:
 - the effect of smoking on CYP1A2 metabolism of fluvoxamine
 - plasma levels of fluvoxamine in CYP2D6 extensive (EM) and poor metabolizers (PM).
 
-Details about input data (physicochemical, *in vitro* and clinical) can be found in [Section 2.2](#22-Data).
+Details about input data (physicochemical, *in vitro* and clinical) can be found in [Section 2.2](#22-data).
 
-Details about the structural model and its parameters can be found in [Section 2.3](#23-Model-Parameters-and-Assumptions).
+Details about the structural model and its parameters can be found in [Section 2.3](#23-model-parameters-and-assumptions).
 
 
 ## 2.2 Data
 ### 2.2.1	In vitro / physico-chemical Data
 
-A literature search was performed to collect available information on physiochemical properties of fluvoxamine. The obtained information from literature is summarized in the table below. 
+A literature search was performed to collect available information on physicochemical properties of fluvoxamine. The obtained information from literature is summarized in the table below. 
 
 | **Parameter**          | **Unit** | **Value**               | Source                                              | **Description**                                              |
 | :--------------------- | -------- | ----------------------- | --------------------------------------------------- | ------------------------------------------------------------ |
-| MW                     | g/mol    | 318.34                  | [Drugbank](#5-References)                           | Molecular weight                                             |
-| pK<sub>a</sub>         |          | 9.40 (base)             | [Hallifax 2007](#5-References)                      | Acid dissociation constant                                   |
-| Solubility (pH)        | mg/mL    | 14.66 (7.0)             | [MSDS](#5-References)                               | Solubility                                                   |
-| logP                   |          | 2.80                    | [Drugbank](#5-References) (predicted by ChemAxon)   | Partition coefficient between octanol and water              |
-|                        |          | 2.89                    | [Drugbank](#5-References) (predicted by ALOGPS)     | Partition coefficient between octanol and water              |
-|                        |          | 3.20                    | [Drugbank](#5-References) (experimentally measured) | Partition coefficient between octanol and water              |
-| f<sub>u</sub>          |          | 0.13 ± 0.01<sup>a</sup> | [Yao 2001](#5-References)                           | Fraction unbound in plasma                                   |
-|                        |          | 0.14 ± 0.02<sup>a</sup> | [Yao 2001](#5-References)                           | Fraction unbound in plasma                                   |
-|                        |          | 0.23                    | [Claassen 1983](#5-References)                      | Fraction unbound in plasma                                   |
-| f<sub>u,mic</sub>      |          | 0.20 ± 0.05<sup>a</sup> | [Yao 2001](#5-References)                           | Fraction unbound in human liver microsomes at a protein concentration of 1 mg/mL |
-|                        |          | 0.31 ± 0.03<sup>a</sup> | [Yao 2001](#5-References)                           | Fraction unbound in human liver microsomes at a protein concentration of 0.5 mg/mL |
-|                        |          | 0.70 ± 0.03<sup>a</sup> | [Yao 2001](#5-References)                           | Fraction unbound in supersomes at a protein concentration of 0.3 mg/mL |
-| CYP2D6 K<sub>m</sub>   | µmol/L   | 76.30                   | [Miura 2007](#5-References)                         | Michaelis-Menten constant                                    |
-| CYP2D6 k<sub>cat</sub> | 1/min    | 0                       | [Crews 2014](#5-References)                         | Renal plasma clearance                                       |
-| CYP1A2 K<sub>i</sub>   | µmol/L   | 0.011                   | [Karjalainen 2008](#5-References)                   | Competitive inhibition constant of the competitive inhibition model measured in human liver microsomes |
-| CYP1A2 K<sub>i,u</sub> | nmol/L   | 35                      | [Yao 2001](#5-References)                           | Unbound competitive inhibition constant of the mixed inhibition model measured in human liver microsomes at a protein concentration of 1 mg/mL |
-|                        | nmol/L   | 36                      | [Yao 2001](#5-References)                           | Competitive inhibition constant of the mixed inhibition model measured in human liver microsomes at a protein concentration of 0.5 mg/mL |
-|                        | nmol/L   | 36                      | [Yao 2001](#5-References)                           | Competitive inhibition constant of the mixed inhibition model measured in supersomes at a protein concentration of 0.3 mg/mL |
-| CYP3A4 K<sub>i</sub>   | µmol/L   | 1.60                    | [Olesen 2000](#5-References)                        | Competitive inhibition constant of the competitive inhibition model measured in human liver microsomes |
+| MW                     | g/mol    | 318.34                  | [Drugbank](#5-references)                           | Molecular weight                                             |
+| pK<sub>a</sub>         |          | 9.40 (base)             | [Hallifax 2007](#5-references)                      | Acid dissociation constant                                   |
+| Solubility (pH)        | mg/mL    | 14.66 (7.0)             | [MSDS](#5-references)                               | Solubility                                                   |
+| logP                   |          | 2.80                    | [Drugbank](#5-references) (predicted by ChemAxon)   | Partition coefficient between octanol and water              |
+|                        |          | 2.89                    | [Drugbank](#5-references) (predicted by ALOGPS)     | Partition coefficient between octanol and water              |
+|                        |          | 3.20                    | [Drugbank](#5-references) (experimentally measured) | Partition coefficient between octanol and water              |
+| f<sub>u</sub>          |          | 0.13 ± 0.01<sup>a</sup> | [Yao 2001](#5-references)                           | Fraction unbound in plasma                                   |
+|                        |          | 0.14 ± 0.02<sup>a</sup> | [Yao 2001](#5-references)                           | Fraction unbound in plasma                                   |
+|                        |          | 0.23                    | [Claassen 1983](#5-references)                      | Fraction unbound in plasma                                   |
+| f<sub>u,mic</sub>      |          | 0.20 ± 0.05<sup>a</sup> | [Yao 2001](#5-references)                           | Fraction unbound in human liver microsomes at a protein concentration of 1 mg/mL |
+|                        |          | 0.31 ± 0.03<sup>a</sup> | [Yao 2001](#5-references)                           | Fraction unbound in human liver microsomes at a protein concentration of 0.5 mg/mL |
+|                        |          | 0.70 ± 0.03<sup>a</sup> | [Yao 2001](#5-references)                           | Fraction unbound in supersomes at a protein concentration of 0.3 mg/mL |
+| CYP2D6 K<sub>m</sub>   | µmol/L   | 76.30                   | [Miura 2007](#5-references)                         | Michaelis-Menten constant                                    |
+| CYP2D6 k<sub>cat</sub> | 1/min    | 0                       | [Crews 2014](#5-references)                         | The number of substrate molecule each enzyme site converts to product per unit time, and in which the enzyme is working at maximum efficiency |
+| CYP1A2 K<sub>i</sub>   | µmol/L   | 0.011                   | [Karjalainen 2008](#5-references)                   | Competitive inhibition constant of the competitive inhibition model measured in human liver microsomes |
+| CYP1A2 K<sub>i,u</sub> | nmol/L   | 35                      | [Yao 2001](#5-references)                           | Unbound competitive inhibition constant of the mixed inhibition model measured in human liver microsomes at a protein concentration of 1 mg/mL |
+|                        | nmol/L   | 36                      | [Yao 2001](#5-references)                           | Competitive inhibition constant of the mixed inhibition model measured in human liver microsomes at a protein concentration of 0.5 mg/mL |
+|                        | nmol/L   | 36                      | [Yao 2001](#5-references)                           | Competitive inhibition constant of the mixed inhibition model measured in supersomes at a protein concentration of 0.3 mg/mL |
+| CYP3A4 K<sub>i</sub>   | µmol/L   | 1.60                    | [Olesen 2000](#5-references)                        | Competitive inhibition constant of the competitive inhibition model measured in human liver microsomes |
 
 <sup>a</sup> denotes mean ± standard deviation
 
@@ -102,12 +102,12 @@ The following studies were used for model building (training data):
 
 | Publication                            | Arm / Treatment / Information used for model building        |
 | :------------------------------------- | :----------------------------------------------------------- |
-| [Japanese Society 2015](#5-References) | Healthy Japanese adults with 30 mg as 60 min infusion or oral administration of 200 mg |
-| [de Vries 1993](#5-References)         | Healthy adults with oral administration of 25-100 mg         |
-| [Orlando 2010](#5-References)          | Healthy adults with oral administration of 50 mg             |
-| [Labellarte 2004](#5-References)       | Healthy CYP2D6 EM with oral administration of 50 mg twice a day |
-| [Spigset 1998](#5-References)          | Healthy CYP2D6 EM (80%) and PM (20%) with oral administration of doses between 12.5-100 mg twice a day |
-| [Fleishaker 1994](#5-References)       | Healthy adults with oral administration of 50 mg or 100 mg once daily |
+| [Japanese Society 2015](#5-references) | Healthy Japanese adults with 30 mg as 60 min infusion or oral administration of 200 mg |
+| [de Vries 1993](#5-references)         | Healthy adults with oral administration of 25-100 mg         |
+| [Orlando 2010](#5-references)          | Healthy adults with oral administration of 50 mg             |
+| [Labellarte 2004](#5-references)       | Healthy CYP2D6 EM with oral administration of 50 mg twice a day |
+| [Spigset 1998](#5-references)          | Healthy CYP2D6 EM (80%) and PM (20%) with oral administration of doses between 12.5-100 mg twice a day |
+| [Fleishaker 1994](#5-references)       | Healthy adults with oral administration of 50 mg or 100 mg once daily |
 
 #### 2.2.2.2	Model Verification
 
@@ -115,16 +115,16 @@ The following studies were used for model verification:
 
 | Publication                            | Arm / Treatment / Information used for model building        |
 | :------------------------------------- | :----------------------------------------------------------- |
-| [Christensen 2002](#5-References)      | Healthy CYP2D6 EM with oral administration of 10 mg or 25 mg twice a day and healthy CYP2D6 PM with oral administration of 10 mg or 25 mg once daily |
-| [Fukasawa 2006](#5-References)         | Healthy Japanese adults with single oral doses of 50 mg      |
-| [Japanese Society 2015](#5-References) | Healthy Japanese adults with single oral doses of 25-100 mg  |
-| [Kunii 2005](#5-References)            | Healthy CYP2D6 EM with single oral doses of 50 mg            |
-| [Spigset 1995](#5-References)          | Healthy smokers or non-smokers with oral administration of 50 mg as single dose |
-| [Spigset 1997](#5-References)          | Healthy CYP2D6 EM or PM with oral administration of 50 mg as single dose |
-| [van Harten 1991](#5-References)       | Healthy adults  with oral administration of 50 mg as single dose |
-| [de Vries 1992](#5-References)          | Healthy adults with oral administration of 50 mg twice a day |
-| [Bahrami 2007](#5-References)          | Healthy adults with oral administration of 100 mg as single dose |
-| [de Bree 1983](#5-References)          | Healthy adults with oral administration of 100 mg as single dose |
+| [Christensen 2002](#5-references)      | Healthy CYP2D6 EM with oral administration of 10 mg or 25 mg twice a day and healthy CYP2D6 PM with oral administration of 10 mg or 25 mg once daily |
+| [Fukasawa 2006](#5-references)         | Healthy Japanese adults with single oral doses of 50 mg      |
+| [Japanese Society 2015](#5-references) | Healthy Japanese adults with single oral doses of 25-100 mg  |
+| [Kunii 2005](#5-references)            | Healthy CYP2D6 EM with single oral doses of 50 mg            |
+| [Spigset 1995](#5-references)          | Healthy smokers or non-smokers with oral administration of 50 mg as single dose |
+| [Spigset 1997](#5-references)          | Healthy CYP2D6 EM or PM with oral administration of 50 mg as single dose |
+| [van Harten 1991](#5-references)       | Healthy adults  with oral administration of 50 mg as single dose |
+| [de Vries 1992](#5-references)          | Healthy adults with oral administration of 50 mg twice a day |
+| [Bahrami 2007](#5-references)          | Healthy adults with oral administration of 100 mg as single dose |
+| [de Bree 1983](#5-references)          | Healthy adults with oral administration of 100 mg as single dose |
 
 
 ## 2.3 Model Parameters and Assumptions
@@ -136,7 +136,7 @@ The specific intestinal permeability was identified during parameter identificat
 
 ### 2.3.2	Distribution
 
-It is described in literature that fluvoxamine is moderately bound to plasma proteins (77%, [Claassen 1983](#5-References)). This value was impelented in PK-Sim®. The protein binding partner was set to unknown. 
+It is described in literature that fluvoxamine is moderately bound to plasma proteins (77%, [Claassen 1983](#5-references)). This value was implemented in PK-Sim®. The protein binding partner was set to unknown. 
 
 An important parameter influencing the distribution of a compound is lipophilicity. To accurately describe the distribution of fluvoxamine, logP was optimized during parameter identification to match observed clinical data.
 
@@ -146,15 +146,15 @@ After testing the available organ-plasma partition coefficient and cell permeabi
 
 The final model applies metabolism by CYP1A2, CYP2D6 and glomerular filtration. The metabolic processes by CYP1A2 and CYP2D6 were described by Michaelis-Menten kinetics. The Michaelis-Menten constant K<sub>m</sub> for CYP2D6 metabolism was fixed according to literature values, other parameters were identified during parameter identification.
 
-To distinguish between fluvoxamine metabolism in CYP2D6 extensive metabolizers (EM) and poor metabolizers (PM), the CYP2D6 catalytic rate constant k<sub>cat</sub> of PMs was set to zero. This assumption was made because CYP2D6 PMs were characterized by absent CYP2D6 enzymatic activity [Crews 2014](#5-References), which results in a predicted 1.5-fold increase of the fluvoxamine AUC in CYP2D6 PMs compared with CYP2D6 EMs.
+To distinguish between fluvoxamine metabolism in CYP2D6 extensive metabolizers (EM) and poor metabolizers (PM), the CYP2D6 catalytic rate constant k<sub>cat</sub> of PMs was set to zero. This assumption was made because CYP2D6 PMs were characterized by absent CYP2D6 enzymatic activity [Crews 2014](#5-references), which results in a predicted 1.5-fold increase of the fluvoxamine AUC in CYP2D6 PMs compared with CYP2D6 EMs.
 
-Smoking is the strongest known inducer of CYP1A2 and results in higher metabolism of CYP1A2 substrates [Zhou 2009](#5-References). As no detailed information on the frequency, duration, and amount of smoking was available from literature, the induction of CYP1A2 was implemented as a static 1.38-fold increase in enzyme activity. This factor was optimized based on the study of Spigset et al. ([Spigset 1995](#5-References)) resulting in a 39% reduction of the fluvoxamine AUC in smokers.
+Smoking is the strongest known inducer of CYP1A2 and results in higher metabolism of CYP1A2 substrates [Zhou 2009](#5-references). As no detailed information on the frequency, duration, and amount of smoking was available from literature, the induction of CYP1A2 was implemented as a static 1.38-fold increase in enzyme activity. This factor was optimized based on the study of Spigset et al. ([Spigset 1995](#5-references)) resulting in a 39% reduction of the fluvoxamine AUC in smokers.
 
 ### 2.3.4	Enzyme inhibition
 
-To describe the inhibition of CYP1A2 by fluvoxamine, the reported K<sub>i</sub> value of 11 nmol/L [Karjalainen 2008](#5-References) was corrected for fluvoxamine binding in the in vitro test system as recommended by [Yao 2001](#5-References) and a value of 10 nmol/L was then used for both `Ki_c` and `Ki_u` to describe mixed-type inhibition in the PBPK model.
+To describe the inhibition of CYP1A2 by fluvoxamine, the reported K<sub>i</sub> value of 11 nmol/L [Karjalainen 2008](#5-references) was corrected for fluvoxamine binding in the in vitro test system as recommended by [Yao 2001](#5-references) and a value of 10 nmol/L was then used for both `Ki_c` and `Ki_u` to describe mixed-type inhibition in the PBPK model.
 
-To describe the inhibition of CYP3A4 by fluvoxamine, the reported K<sub>i</sub> value of 1.6 µmol/L ([Olesen 2000](#5-References)) was included in the model.
+To describe the inhibition of CYP3A4 by fluvoxamine, the reported K<sub>i</sub> value of 1.6 µmol/L ([Olesen 2000](#5-references)) was included in the model.
 
 
 ### 2.3.5	Automated Parameter Identification
@@ -186,9 +186,9 @@ The model quantifies metabolism via CYP1A2 and CYP2D6 and the effect of smoking 
 
 The next sections show:
 
-1. the final model parameters for the building blocks: [Section 3.1](#31-Final-Input-Parameters).
-2. the overall goodness of fit: [Section 3.2](#32-Diagnostics-Plots).
-3. simulated vs. observed concentration-time profiles for the clinical studies used for model building and for model verification: [Section 3.3](#33-Concentration-Time-Profiles).
+1. the final model parameters for the building blocks: [Section 3.1](#31-final-input-parameters).
+2. the overall goodness of fit: [Section 3.2](#32-diagnostics-plots).
+3. simulated vs. observed concentration-time profiles for the clinical studies used for model building and for model verification: [Section 3.3](#33-concentration-time-profiles).
 
 
 ## 3.1 Final input parameters
@@ -272,7 +272,7 @@ Ki   | 1.6 µmol/l | Publication-In Vitro-Olesen et al. Fluvoxamine-Clozapine dr
 Type: Dissolved
 
 ## 3.2 Diagnostics Plots
-Below you find the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data used presented in [Section 2.2.2](#222-Clinical-Data).
+Below you find the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data used presented in [Section 2.2.2](#222-clinical-data).
 
 The first plot shows observed versus simulated plasma concentration, the second weighted residuals versus time. 
 
@@ -281,10 +281,10 @@ The first plot shows observed versus simulated plasma concentration, the second 
 
 ![002_plotGOFMergedResidualsOverTime.png](images/003_3_Results_and_Discussion/002_3_2_Diagnostics_Plots/002_plotGOFMergedResidualsOverTime.png)
 
-GMFE = 1.398262 
+GMFE = 1.398072 
 
 ## 3.3 Concentration-Time Profiles
-Simulated versus observed concentration-time profiles of all data listed in [Section 2.2.2](#222-Clinical-Data) are presented below.
+Simulated versus observed concentration-time profiles of all data listed in [Section 2.2.2](#222-clinical-data) are presented below.
 
 
 ### 3.3.1 Model Building
