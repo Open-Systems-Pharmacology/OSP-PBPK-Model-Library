@@ -4,10 +4,10 @@
 
 
 
-| Version                                         | 1.2-OSP10.0                                                   |
+| Version                                         | 1.2-OSP11.0                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
 | based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Sufentanil-Model/releases/tag/v1.2 |
-| OSP Version                                     | 10.0                                                          |
+| OSP Version                                     | 11.0                                                          |
 | Qualification Framework Version                 | 2.3                                                          |
 
 
@@ -167,7 +167,7 @@ Below you find the goodness-of-fit visual diagnostic plots for sufentanil PBPK m
 
 ![002_plotGOFMergedResidualsOverTime.png](images/003_3_Results_and_Discussion/002_3_2_Sufentanil_Diagnostics_Plots/002_plotGOFMergedResidualsOverTime.png)
 
-GMFE = 1.402222 
+GMFE = 1.402219 
 
 ## 3.3 Sufentanil Concentration-Time profiles
 Simulated versus observed plasma concentration-time profiles of all data are listed below.

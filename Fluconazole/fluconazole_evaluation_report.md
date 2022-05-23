@@ -4,10 +4,10 @@
 
 
 
-| Version                                         | 1.0-OSP10.0                                                   |
+| Version                                         | 1.0-OSP11.0                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
 | based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Fluconazole-Model/releases/tag/v1.0 |
-| OSP Version                                     | 10.0                                                          |
+| OSP Version                                     | 11.0                                                          |
 | Qualification Framework Version                 | 2.3                                                          |
 
 

@@ -1,11 +1,14 @@
 function runModelEvaluationReports
-    tic
+    runStart = tic;
     
     modelNames = GetModelNames;
     failedModels = {};
     
+%    UpdateTitlePages(modelNames);
+    
     for i=1:length(modelNames)
         modelName = modelNames{i};
+        
         [success, errorMsg] = createModelReport(modelName);
         if success == 0
             failedModels{end+1} = sprintf('%s: %s', modelName, errorMsg); %#ok<AGROW>
@@ -21,9 +24,18 @@ function runModelEvaluationReports
         disp(failedModels');
     end
         
-    toc
+    QualificationWorkflowTime = toc(runStart)/60;
+    fprintf('\n Qualification Run total Duration: %0.1f minutes \n', QualificationWorkflowTime);
 end
 
+function UpdateTitlePages(modelNames)
+    env = QualificationEnvironment;
+    
+    for i=1:length(modelNames)
+        modelVersion = getModelVersion(modelNames{i});
+        UpdateTitlePage([pwd filesep 'Input' filesep 'Content' filesep 'titlepage.md'], modelVersion, env.OSPVersion, env.QualificationFrameworkVersion);
+    end
+end
 
 function [success, errorMsg] = createModelReport(modelName)
     errorMsg = '';
@@ -40,10 +52,7 @@ function [success, errorMsg] = createModelReport(modelName)
 	try
         fprintf('===================== Creating model report for "%s" ===================== \n\n', modelName);
 		cd([basisDir filesep modelName filesep 'Evaluation']);
-        
-        modelVersion = getModelVersion(modelName);
-        UpdateTitlePage([pwd filesep 'Input' filesep 'Content' filesep 'titlepage.md'], modelVersion, OSPVersion, qualificationFrameworkVersion);
-        
+                
         [success, message] = copyfile([basisDir filesep 'Workflow.m'], [pwd filesep 'Workflow.m'], 'f');
         if success ~= 1
             error('Could no copy Workflow.m: %s\n', message);

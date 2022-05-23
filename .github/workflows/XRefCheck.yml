@@ -6,10 +6,6 @@ on:
       - develop
 
 jobs:
-  markdown-link-check2:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-      with:
-        ref: ${{ github.event.pull_request.head.sha }}
-    - uses: serokell/xrefcheck-action@959c7cecf1b316023bfd204ae88642338f6bb91c
+  crossref-check-without-anchors:
+    uses: Open-Systems-Pharmacology/Workflows/.github/workflows/XRefCheck.yml@main
+

@@ -2,10 +2,10 @@
 
 
 
-| Version                                         | 2.2-OSP10.0                                                   |
+| Version                                         | 2.2-OSP11.0                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
 | based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Alfentanil-Model/releases/tag/v2.2 |
-| OSP Version                                     | 10.0                                                          |
+| OSP Version                                     | 11.0                                                          |
 | Qualification Framework Version                 | 2.3                                                          |
 
 
@@ -15,6 +15,7 @@
 This evaluation report and the corresponding PK-Sim project file are filed at:
 
 https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/
+
 # Table of Contents
   * [1 Introduction](#1-introduction)
   * [2 Methods](#2-methods)
