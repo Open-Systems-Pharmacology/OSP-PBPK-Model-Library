@@ -4,10 +4,10 @@
 
 
 
-| Version                                         | 1.2-OSP11.0                                                   |
+| Version                                         | 1.2-OSP11.1                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
 | based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Atazanavir-Model/releases/tag/v1.2 |
-| OSP Version                                     | 11.0                                                          |
+| OSP Version                                     | 11.1                                                          |
 | Qualification Framework Version                 | 2.3                                                          |
 
 
@@ -163,17 +163,22 @@ Specific intestinal permeability (transcellular) | 9.8649602504E-06 cm/min | Par
 Is small molecule                                | Yes                     |                                         |             |        
 Molecular weight                                 | 704.8555 g/mol          | Internet-drugbank.ca                    |             |        
 Plasma protein binding partner                   | Unknown                 |                                         |             |        
+
+
 #### Calculation methods
 
 Name                    | Value              
 ----------------------- | -------------------
 Partition coefficients  | Rodgers and Rowland
 Cellular permeabilities | PK-Sim Standard    
+
+
 #### Processes
 
 ##### Metabolizing Enzyme: CYP3A4-Optimized
 
 Molecule: CYP3A4
+
 ###### Parameters
 
 Name                 | Value                   | Value Origin            
@@ -181,26 +186,35 @@ Name                 | Value                   | Value Origin
 Enzyme concentration | 1 µmol/l                |                         
 Specific clearance   | 0 1/min                 |                         
 CLspec/[Enzyme]      | 1.0383524966 l/µmol/min | Parameter Identification
+
+
 ##### Systemic Process: Glomerular Filtration-Clinical Pharmacology Review
 
 Species: Human
+
 ###### Parameters
 
 Name         |       Value | Value Origin            
 ------------ | -----------:| ------------------------
 GFR fraction | 2.014495446 | Parameter Identification
+
+
 ##### Inhibition: CYP3A4-Perloff2005
 
 Molecule: CYP3A4
+
 ###### Parameters
 
 Name          | Value                 | Value Origin            
 ------------- | --------------------- | ------------------------
 kinact        | 0.0033009852632 1/min | Parameter Identification
 K_kinact_half | 0.1292581489 µmol/l   | Parameter Identification
+
+
 ##### Inhibition: UGT1A1-PH-41095
 
 Molecule: UGT1A1
+
 ###### Parameters
 
 Name | Value          | Value Origin                                          
@@ -208,9 +222,12 @@ Name | Value          | Value Origin
 Ki_c | 0.18986 µmol/l | In Vitro-Calculated from reported Ki and fu,mic       
 Ki_u | 0.85437 µmol/l | In Vitro-Calculated from reported Ki, fu,mic and alpha
 
+
+
 ### Formulation: Reyataz capsule
 
 Type: Weibull
+
 #### Parameters
 
 Name                             | Value             | Value Origin            
@@ -219,6 +236,8 @@ Dissolution time (50% dissolved) | 78.8787658271 min | Parameter Identification
 Lag time                         | 0 min             |                         
 Dissolution shape                | 1.5566465018      | Parameter Identification
 Use as suspension                | Yes               | Other                   
+
+
 
 ## 3.2 Diagnostics Plots
 Below you find the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data used presented in [Section 2.2.2](#222-clinical-data).

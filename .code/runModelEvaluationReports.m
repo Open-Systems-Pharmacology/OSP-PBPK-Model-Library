@@ -4,7 +4,7 @@ function runModelEvaluationReports
     modelNames = GetModelNames;
     failedModels = {};
     
-%    UpdateTitlePages(modelNames);
+    UpdateTitlePages(modelNames);
     
     for i=1:length(modelNames)
         modelName = modelNames{i};
@@ -33,7 +33,7 @@ function UpdateTitlePages(modelNames)
     
     for i=1:length(modelNames)
         modelVersion = getModelVersion(modelNames{i});
-        UpdateTitlePage([pwd filesep 'Input' filesep 'Content' filesep 'titlepage.md'], modelVersion, env.OSPVersion, env.QualificationFrameworkVersion);
+        UpdateTitlePage([pwd filesep modelNames{i} filesep 'Evaluation' filesep 'Input' filesep 'Content' filesep 'titlepage.md'], modelVersion, env.OSPVersion, env.QualificationFrameworkVersion);
     end
 end
 

@@ -4,10 +4,10 @@
 
 
 
-| Version                                         | 1.0-OSP11.0                                                   |
+| Version                                         | 1.0-OSP11.1                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
 | based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Fluconazole-Model/releases/tag/v1.0 |
-| OSP Version                                     | 11.0                                                          |
+| OSP Version                                     | 11.1                                                          |
 | Qualification Framework Version                 | 2.3                                                          |
 
 
@@ -223,44 +223,59 @@ F                                                | 2                      |     
 Is small molecule                                | Yes                    |                                                                                                                       |                                                         |        
 Molecular weight                                 | 306.328 g/mol          |                                                                                                                       |                                                         |        
 Plasma protein binding partner                   | α1-acid glycoprotein   |                                                                                                                       |                                                         |        
+
+
 #### Calculation methods
 
 Name                    | Value              
 ----------------------- | -------------------
 Partition coefficients  | Rodgers and Rowland
 Cellular permeabilities | PK-Sim Standard    
+
+
 #### Processes
 
 ##### Metabolizing Enzyme: UGT2B7-Watt2018
 
 Species: Human
+
 Molecule: UGT2B7
+
 ###### Parameters
 
 Name                | Value                 | Value Origin                                                                                                         
 ------------------- | --------------------- | ---------------------------------------------------------------------------------------------------------------------
 Intrinsic clearance | 0.008 l/min           |                                                                                                                      
 Specific clearance  | 0.0018460294654 1/min | Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 1' on 2021-07-13 15:29
+
+
 ##### Systemic Process: Glomerular Filtration-Watt2018
 
 Species: Human
+
 ###### Parameters
 
 Name         |        Value | Value Origin                                                                                                         
 ------------ | ------------:| ---------------------------------------------------------------------------------------------------------------------
 GFR fraction | 0.1433240785 | Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 1' on 2021-07-13 15:29
+
+
 ##### Inhibition: CYP3A4-Watt2018
 
 Molecule: CYP3A4
+
 ###### Parameters
 
 Name | Value       | Value Origin
 ---- | ----------- | ------------:
 Ki   | 10.7 µmol/l |             
 
+
+
 ### Formulation: Fluconazole_Weibull_high dose
 
 Type: Weibull
+
 #### Parameters
 
 Name                             | Value              | Value Origin                                                                                                         
@@ -270,9 +285,12 @@ Lag time                         | 0 min              |
 Dissolution shape                | 2.1410681544       | Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 2' on 2021-07-13 18:01
 Use as suspension                | Yes                |                                                                                                                      
 
+
+
 ### Formulation: Fluconazole_Weibull_low dose
 
 Type: Weibull
+
 #### Parameters
 
 Name                             | Value             | Value Origin                                                                                                         
@@ -282,9 +300,12 @@ Lag time                         | 0 min             |
 Dissolution shape                | 2.1410681544      | Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 2' on 2021-07-13 18:01
 Use as suspension                | Yes               |                                                                                                                      
 
+
+
 ### Formulation: Fluconazole_Weibull_medium high dose
 
 Type: Weibull
+
 #### Parameters
 
 Name                             | Value             | Value Origin                                                                                                         
@@ -293,6 +314,8 @@ Dissolution time (50% dissolved) | 75.1395611322 min | Parameter Identification-
 Lag time                         | 0 min             |                                                                                                                      
 Dissolution shape                | 2.1410681544      | Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 2' on 2021-07-13 18:01
 Use as suspension                | Yes               |                                                                                                                      
+
+
 
 ## 3.2 Fluconazole Diagnostics Plots
 Below you find the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data used presented in [Section 2.2.2](#222-clinical-data).

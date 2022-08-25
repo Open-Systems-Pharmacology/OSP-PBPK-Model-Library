@@ -4,10 +4,10 @@
 
 
 
-| Version                                         | 1.2-OSP11.0                                                   |
+| Version                                         | 1.2-OSP11.1                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
 | based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Sufentanil-Model/releases/tag/v1.2 |
-| OSP Version                                     | 11.0                                                          |
+| OSP Version                                     | 11.1                                                          |
 | Qualification Framework Version                 | 2.3                                                          |
 
 
@@ -133,31 +133,42 @@ Fraction unbound (plasma, reference value) | 0.075                | Publication-
 Is small molecule                          | Yes                  |                                                   |                          |        
 Molecular weight                           | 386.6 g/mol          | Publication-Zhou et al. 2017                      |                          |        
 Plasma protein binding partner             | α1-acid glycoprotein |                                                   |                          |        
+
+
 #### Calculation methods
 
 Name                    | Value          
 ----------------------- | ---------------
 Partition coefficients  | Schmitt        
 Cellular permeabilities | PK-Sim Standard
+
+
 #### Processes
 
 ##### Systemic Process: Glomerular Filtration-GFR
 
 Species: Human
+
 ###### Parameters
 
 Name         | Value | Value Origin                
 ------------ | -----:| ----------------------------
 GFR fraction |     1 | Publication-Zhou et al. 2017
+
+
 ##### Metabolizing Enzyme: CYP3A4-Zhou et al. 2017
 
 Species: Human
+
 Molecule: CYP3A4
+
 ###### Parameters
 
 Name                | Value              | Value Origin                                     
 ------------------- | ------------------ | -------------------------------------------------
 Intrinsic clearance | 9.6138746106 l/min | Parameter Identification-Parameter Identification
+
+
 
 ## 3.2 Sufentanil Diagnostics Plots
 Below you find the goodness-of-fit visual diagnostic plots for sufentanil PBPK model performance (Individually simulated versus observed plasma concentration and weighted residuals versus time, including the geometric mean fold error (GMFE)) of all data used for model building.

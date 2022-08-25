@@ -2,10 +2,10 @@
 
 
 
-| Version                                         | 1.2-OSP11.0                                                   |
+| Version                                         | 1.2-OSP11.1                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
 | based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Verapamil-Model/releases/tag/v1.2 |
-| OSP Version                                     | 11.0                                                          |
+| OSP Version                                     | 11.1                                                          |
 | Qualification Framework Version                 | 2.3                                                          |
 
 
@@ -156,6 +156,7 @@ The compound parameter values of the final PBPK model are illustrated below.
 ### Formulation: controlled release
 
 Type: Weibull
+
 #### Parameters
 
 Name                             | Value             | Value Origin                                                                                                         
@@ -165,9 +166,12 @@ Lag time                         | 0 min             |
 Dissolution shape                | 1.2441115042      | Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 4' on 2019-11-26 13:43
 Use as suspension                | Yes               |                                                                                                                      
 
+
+
 ### Formulation: solution
 
 Type: Dissolved
+
 
 ### Compound: Verapamil
 
@@ -183,49 +187,65 @@ Specific intestinal permeability (transcellular) | 1.6341738226E-05 cm/min | Par
 Is small molecule                                | Yes                     |                                                                                                                       |             |        
 Molecular weight                                 | 454.6 g/mol             |                                                                                                                       |             |        
 Plasma protein binding partner                   | Albumin                 |                                                                                                                       |             |        
+
+
 #### Calculation methods
 
 Name                    | Value              
 ----------------------- | -------------------
 Partition coefficients  | Rodgers and Rowland
 Cellular permeabilities | PK-Sim Standard    
+
+
 #### Processes
 
 ##### Metabolizing Enzyme: CYP2C8-Tracy 1999
 
 Molecule: CYP2C8
+
 ###### Parameters
 
 Name                           | Value                         | Value Origin                                                                                                         
 ------------------------------ | ----------------------------- | ---------------------------------------------------------------------------------------------------------------------
 In vitro CL/recombinant enzyme | 0.057 µl/min/pmol rec. enzyme |                                                                                                                      
 CLspec/[Enzyme]                | 0.3179498362 l/µmol/min       | Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 1' on 2019-11-26 09:16
+
+
 ##### Metabolizing Enzyme: CYP3A4-Tracy 1999
 
 Molecule: CYP3A4
+
 ###### Parameters
 
 Name                           | Value                          | Value Origin                                                                                                         
 ------------------------------ | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------
 In vitro CL/recombinant enzyme | 0.8333 µl/min/pmol rec. enzyme |                                                                                                                      
 CLspec/[Enzyme]                | 4.6482034823 l/µmol/min        | Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 1' on 2019-11-26 09:16
+
+
 ##### Inhibition: CYP3A4-Rowland-Yeo 2010
 
 Molecule: CYP3A4
+
 ###### Parameters
 
 Name          | Value              | Value Origin                                                                                                         
 ------------- | ------------------ | ---------------------------------------------------------------------------------------------------------------------
 kinact        | 0.0376212371 1/min | Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 2' on 2019-11-26 10:33
 K_kinact_half | 1.2 µmol/l         |                                                                                                                      
+
+
 ##### Systemic Process: Glomerular Filtration-GFR
 
 Species: Human
+
 ###### Parameters
 
 Name         | Value | Value Origin
 ------------ | -----:| ------------:
 GFR fraction |     1 |             
+
+
 
 ## 3.2 Diagnostics Plots
 Below you find the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data used presented in [Section 2.2.2](#222-clinical-data).
