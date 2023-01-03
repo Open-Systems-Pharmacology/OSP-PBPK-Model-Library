@@ -4,10 +4,10 @@
 
 
 
-| Version                                         | 1.3-OSP11.0                                                   |
+| Version                                         | 1.3-OSP11.1                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
 | based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Itraconazole-Model/releases/tag/v1.3 |
-| OSP Version                                     | 11.0                                                          |
+| OSP Version                                     | 11.1                                                          |
 | Qualification Framework Version                 | 2.3                                                          |
 
 
@@ -268,6 +268,7 @@ The compound parameter values of the final PBPK model are illustrated below.
 ### Formulation: Capsule fasted
 
 Type: Weibull
+
 #### Parameters
 
 Name                             | Value              | Value Origin                                                                                             
@@ -277,9 +278,12 @@ Lag time                         | 0 min              |
 Dissolution shape                | 1.4297720052       | Parameter Identification-Parameter Identification-Value updated from 'Capsule fasted' on 2019-05-15 12:25
 Use as suspension                | Yes                |                                                                                                          
 
+
+
 ### Formulation: Capsule fed
 
 Type: Weibull
+
 #### Parameters
 
 Name                             | Value      | Value Origin
@@ -288,6 +292,8 @@ Dissolution time (50% dissolved) | 138.95 min |
 Lag time                         | 0 min      |             
 Dissolution shape                | 0.82       |             
 Use as suspension                | Yes        |             
+
+
 
 ### Compound: Hydroxy-Itraconazole
 
@@ -303,18 +309,24 @@ Cl                                         | 2               |                  
 Is small molecule                          | Yes             |                             |                    |        
 Molecular weight                           | 721.633 g/mol   |                             |                    |        
 Plasma protein binding partner             | Albumin         |                             |                    |        
+
+
 #### Calculation methods
 
 Name                    | Value              
 ----------------------- | -------------------
 Partition coefficients  | Rodgers and Rowland
 Cellular permeabilities | PK-Sim Standard    
+
+
 #### Processes
 
 ##### Metabolizing Enzyme: CYP3A4-Isoherranen 2004
 
 Molecule: CYP3A4
+
 Metabolite: Keto-Itraconazole
+
 ###### Parameters
 
 Name                             | Value                           | Value Origin                
@@ -322,22 +334,30 @@ Name                             | Value                           | Value Origi
 In vitro Vmax/recombinant enzyme | 0.543 nmol/min/pmol rec. enzyme | Publication-Isoherranen 2004
 Km                               | 4.1716224833 nmol/l             | Publication-Isoherranen 2004
 kcat                             | 0.0203370845 1/min              | Unknown                     
+
+
 ##### Systemic Process: Glomerular Filtration-GFR
 
 Species: Human
+
 ###### Parameters
 
 Name         | Value | Value Origin                 
 ------------ | -----:| -----------------------------
 GFR fraction |     1 | Publication-Isoherranen, 2004
+
+
 ##### Inhibition: CYP3A4-Isoherranen, 2004
 
 Molecule: CYP3A4
+
 ###### Parameters
 
 Name | Value       | Value Origin                 
 ---- | ----------- | -----------------------------
 Ki   | 14.4 nmol/l | Publication-Isoherranen, 2004
+
+
 
 ### Compound: Itraconazole
 
@@ -360,18 +380,24 @@ Cl                                               | 2                       |    
 Is small molecule                                | Yes                     |                                                                                                           |                                       |        
 Molecular weight                                 | 705.633 g/mol           |                                                                                                           |                                       |        
 Plasma protein binding partner                   | Albumin                 |                                                                                                           |                                       |        
+
+
 #### Calculation methods
 
 Name                    | Value              
 ----------------------- | -------------------
 Partition coefficients  | Rodgers and Rowland
 Cellular permeabilities | PK-Sim Standard    
+
+
 #### Processes
 
 ##### Metabolizing Enzyme: CYP3A4-Isoherranen 2004
 
 Molecule: CYP3A4
+
 Metabolite: Hydroxy-Itraconazole
+
 ###### Parameters
 
 Name                             | Value                          | Value Origin                
@@ -379,30 +405,41 @@ Name                             | Value                          | Value Origin
 In vitro Vmax/recombinant enzyme | 0.27 pmol/min/pmol rec. enzyme | Publication-Isoherranen 2004
 Km                               | 2.0688492598 nmol/l            | Publication-Isoherranen 2004
 kcat                             | 0.0402937875 1/min             | Unknown                     
+
+
 ##### Systemic Process: Glomerular Filtration-GFR
 
 Species: Human
+
 ###### Parameters
 
 Name         | Value | Value Origin                
 ------------ | -----:| ----------------------------
 GFR fraction |     1 | Publication-Isoherranen 2004
+
+
 ##### Inhibition: CYP3A4-Isoherranen, 2004
 
 Molecule: CYP3A4
+
 ###### Parameters
 
 Name | Value      | Value Origin                              
 ---- | ---------- | ------------------------------------------
 Ki   | 1.3 nmol/l | Parameter Identification-Isoherranen, 2004
+
+
 ##### Inhibition: ABCB1-Shityakov 2014
 
 Molecule: ABCB1
+
 ###### Parameters
 
 Name | Value        | Value Origin              
 ---- | ------------ | --------------------------
 Ki   | 0.008 µmol/l | Publication-Shityakov 2014
+
+
 
 ### Compound: Keto-Itraconazole
 
@@ -418,18 +455,24 @@ Cl                                         | 2                      |           
 Is small molecule                          | Yes                    |                             |                    |        
 Molecular weight                           | 719.617 g/mol          |                             |                    |        
 Plasma protein binding partner             | Albumin                |                             |                    |        
+
+
 #### Calculation methods
 
 Name                    | Value              
 ----------------------- | -------------------
 Partition coefficients  | Rodgers and Rowland
 Cellular permeabilities | PK-Sim Standard    
+
+
 #### Processes
 
 ##### Metabolizing Enzyme: CYP3A4-Isoherranen 2004
 
 Molecule: CYP3A4
+
 Metabolite: N-desalkyl-Itraconazole
+
 ###### Parameters
 
 Name                             | Value                            | Value Origin                
@@ -437,22 +480,30 @@ Name                             | Value                            | Value Orig
 In vitro Vmax/recombinant enzyme | 0.0869 pmol/min/pmol rec. enzyme | Publication-Isoherranen 2004
 Km                               | 2.2214874285 nmol/l              | Publication-Isoherranen 2004
 kcat                             | 0.3933927416 1/min               | Unknown                     
+
+
 ##### Systemic Process: Glomerular Filtration-GFR
 
 Species: Human
+
 ###### Parameters
 
 Name         | Value | Value Origin                
 ------------ | -----:| ----------------------------
 GFR fraction |     1 | Publication-Isoherranen 2004
+
+
 ##### Inhibition: CYP3A4-Isoherranen, 2004
 
 Molecule: CYP3A4
+
 ###### Parameters
 
 Name | Value       | Value Origin                
 ---- | ----------- | ----------------------------
 Ki   | 5.12 nmol/l | Publication-Isoherranen 2004
+
+
 
 ### Compound: N-desalkyl-Itraconazole
 
@@ -468,17 +519,22 @@ Cl                                         | 2                      |           
 Is small molecule                          | Yes                    |                             |                    |        
 Molecular weight                           | 649.527 g/mol          |                             |                    |        
 Plasma protein binding partner             | Albumin                |                             |                    |        
+
+
 #### Calculation methods
 
 Name                    | Value              
 ----------------------- | -------------------
 Partition coefficients  | Rodgers and Rowland
 Cellular permeabilities | PK-Sim Standard    
+
+
 #### Processes
 
 ##### Metabolizing Enzyme: CYP3A4-Isoherranen 2004
 
 Molecule: CYP3A4
+
 ###### Parameters
 
 Name                             | Value                       | Value Origin                
@@ -486,22 +542,30 @@ Name                             | Value                       | Value Origin
 In vitro Vmax/recombinant enzyme | 0 nmol/min/pmol rec. enzyme |                             
 Km                               | 0.6284266369 nmol/l         | Publication-Isoherranen 2004
 kcat                             | 0.0605873508 1/min          | Unknown                     
+
+
 ##### Systemic Process: Glomerular Filtration-GFR
 
 Species: Human
+
 ###### Parameters
 
 Name         | Value | Value Origin                
 ------------ | -----:| ----------------------------
 GFR fraction |     1 | Publication-Isoherranen 2004
+
+
 ##### Inhibition: CYP3A4-Isoherranen, 2004
 
 Molecule: CYP3A4
+
 ###### Parameters
 
 Name | Value       | Value Origin                 
 ---- | ----------- | -----------------------------
 Ki   | 0.32 nmol/l | Publication-Isoherranen, 2004
+
+
 
 ## 3.2 Diagnostics Plots
 Below you find the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data used presented in [Section 2.2.2](#222-clinical-data).

@@ -2,10 +2,10 @@
 
 
 
-| Version                                         | 1.1-OSP11.0                                                   |
+| Version                                         | 1.1-OSP11.1                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
 | based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Ethinylestradiol-Model/releases/tag/v1.1 |
-| OSP Version                                     | 11.0                                                          |
+| OSP Version                                     | 11.1                                                          |
 | Qualification Framework Version                 | 2.3                                                          |
 
 This evaluation report and the corresponding PK-Sim project file are filed at:
@@ -163,6 +163,7 @@ The parameter values of the final PBPK model are illustrated below.
 ### Formulation: Ethinylestradiol tablet
 
 Type: Weibull
+
 #### Parameters
 
 Name                             | Value             | Value Origin            
@@ -171,6 +172,8 @@ Dissolution time (50% dissolved) | 36.5087007601 min | Parameter Identification
 Lag time                         | 6.7747764588 min  | Parameter Identification
 Dissolution shape                | 0.92              |                         
 Use as suspension                | Yes               |                         
+
+
 
 ### Compound: Ethinylestradiol
 
@@ -186,49 +189,66 @@ Specific intestinal permeability (transcellular) | 0.000168 cm/min        | Para
 Is small molecule                                | Yes                    |                           |             |        
 Molecular weight                                 | 296.4 g/mol            | Database-DrugBank DB00977 |             |        
 Plasma protein binding partner                   | Albumin                |                           |             |        
+
+
 #### Calculation methods
 
 Name                    | Value          
 ----------------------- | ---------------
 Partition coefficients  | Berezhkovskiy  
 Cellular permeabilities | PK-Sim Standard
+
+
 #### Processes
 
 ##### Metabolizing Enzyme: CYP1A2-Ezuruike_2018
 
 Molecule: CYP1A2
+
 ###### Parameters
 
 Name                           | Value                        | Value Origin             
 ------------------------------ | ---------------------------- | -------------------------
 In vitro CL/recombinant enzyme | 0.51 µl/min/pmol rec. enzyme | Publication-Ezuruike 2018
+
+
 ##### Metabolizing Enzyme: CYP2C8-Ezuruike_2018
 
 Molecule: CYP2C8
+
 ###### Parameters
 
 Name                           | Value                        | Value Origin             
 ------------------------------ | ---------------------------- | -------------------------
 In vitro CL/recombinant enzyme | 0.13 µl/min/pmol rec. enzyme | Publication-Ezuruike 2018
+
+
 ##### Metabolizing Enzyme: CYP2C9-Ezuruike_2018
 
 Molecule: CYP2C9
+
 ###### Parameters
 
 Name                           | Value                        | Value Origin             
 ------------------------------ | ---------------------------- | -------------------------
 In vitro CL/recombinant enzyme | 0.51 µl/min/pmol rec. enzyme | Publication-Ezuruike 2018
+
+
 ##### Metabolizing Enzyme: CYP3A4-Ezuruike_2018
 
 Molecule: CYP3A4
+
 ###### Parameters
 
 Name                           | Value                       | Value Origin             
 ------------------------------ | --------------------------- | -------------------------
 In vitro CL/recombinant enzyme | 0.5 µl/min/pmol rec. enzyme | Publication-Ezuruike 2018
+
+
 ##### Metabolizing Enzyme: UGT1A1-Ezuruike_2018
 
 Molecule: UGT1A1
+
 ###### Parameters
 
 Name                                        | Value                          | Value Origin             
@@ -236,18 +256,24 @@ Name                                        | Value                          | V
 In vitro Vmax for liver microsomes          | 408.5 pmol/min/mg mic. protein | Publication-Ezuruike 2018
 Content of CYP proteins in liver microsomes | 33.6 pmol/mg mic. protein      | Publication-Ezuruike 2018
 Km                                          | 19.22 µmol/l                   | Publication-Ezuruike 2018
+
+
 ##### Systemic Process: Renal Clearances-Stanczyk_2013
 
 Species: Human
+
 ###### Parameters
 
 Name                          | Value         | Value Origin                        
 ----------------------------- | ------------- | ------------------------------------
 Fraction unbound (experiment) | 0.03          |                                     
 Plasma clearance              | 0.0285 l/h/kg | Publication-Stanczyk_2013; 2.079/73=
+
+
 ##### Systemic Process: Total Hepatic Clearance-Ezuruike_2018
 
 Species: Human
+
 ###### Parameters
 
 Name                          | Value                  | Value Origin                                                                                                  
@@ -256,15 +282,20 @@ Fraction unbound (experiment) | 0.03                   |
 Lipophilicity (experiment)    | 3.4805414593 Log Units |                                                                                                               
 Plasma clearance              | 0 ml/min/kg            |                                                                                                               
 Specific clearance            | 1.1002777778 1/min     | Publication-Ezuruike 2018 - Calculated from 118.83 µl/min/mg mic. protein divided by 108 pmol/mg/ mic. protein
+
+
 ##### Inhibition: CYP1A2-Fit
 
 Molecule: CYP1A2
+
 ###### Parameters
 
 Name          | Value               | Value Origin            
 ------------- | ------------------- | ------------------------
 kinact        | 200 1/min           | Parameter Identification
 K_kinact_half | 0.4833013314 µmol/l | Parameter Identification
+
+
 
 ## 3.2 Diagnostics Plots
 The following section displays the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data listed in [Section 2.2.2](#222-clinical-data).

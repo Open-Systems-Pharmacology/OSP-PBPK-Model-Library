@@ -4,10 +4,10 @@
 
 
 
-| Version                                         | 1.2-OSP11.0                                                   |
+| Version                                         | 1.2-OSP11.1                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
 | based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Amikacin-Model/releases/tag/v1.2 |
-| OSP Version                                     | 11.0                                                          |
+| OSP Version                                     | 11.1                                                          |
 | Qualification Framework Version                 | 2.3                                                          |
 
 
@@ -130,22 +130,29 @@ Fraction unbound (plasma, reference value) | 1               | Publication-Other
 Is small molecule                          | Yes             |                                       |             |        
 Molecular weight                           | 588.6 g/mol     | Publication-Claassen et al 2015       |             |        
 Plasma protein binding partner             | Albumin         |                                       |             |        
+
+
 #### Calculation methods
 
 Name                    | Value          
 ----------------------- | ---------------
 Partition coefficients  | PK-Sim Standard
 Cellular permeabilities | PK-Sim Standard
+
+
 #### Processes
 
 ##### Systemic Process: Glomerular Filtration-Claassen et al 2015
 
 Species: Human
+
 ###### Parameters
 
 Name         | Value | Value Origin                   
 ------------ | -----:| -------------------------------
 GFR fraction |     1 | Publication-Claassen et al 2015
+
+
 
 ## 3.2 Diagnostics Plots
 Below you find the goodness-of-fit visual diagnostic plots for amikacin PBPK model performance (Individually simulated versus observed plasma concentration) and residuals versus time of all data used for model building.

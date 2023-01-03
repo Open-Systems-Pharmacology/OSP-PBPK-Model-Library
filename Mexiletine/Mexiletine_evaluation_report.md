@@ -2,10 +2,10 @@
 
 
 
-| Version                                         | 1.1-OSP11.0                                                   |
+| Version                                         | 1.1-OSP11.1                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
-| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Mexiletine-Model/releases/tag/v1.1 |
-| OSP Version                                     | 11.0                                                          |
+| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Mexiletine-Model/releases/tag/v1.0 |
+| OSP Version                                     | 11.1                                                          |
 | Qualification Framework Version                 | 2.3                                                          |
 
 This evaluation report and the corresponding PK-Sim project file are filed at:
@@ -150,6 +150,7 @@ The parameter values of the final PBPK model are illustrated below.
 ### Formulation: Mexiletine tablet
 
 Type: Weibull
+
 #### Parameters
 
 Name                             | Value  | Value Origin
@@ -158,6 +159,8 @@ Dissolution time (50% dissolved) | 60 min |
 Lag time                         | 0 min  |             
 Dissolution shape                | 0.92   |             
 Use as suspension                | Yes    |             
+
+
 
 ### Compound: Mexiletine
 
@@ -174,37 +177,50 @@ Specific intestinal permeability (transcellular) | 0.00047373454608 cm/min | Par
 Is small molecule                                | Yes                     |                           |             |        
 Molecular weight                                 | 179.26 g/mol            | Database-DrugBank DB00379 |             |        
 Plasma protein binding partner                   | Albumin                 |                           |             |        
+
+
 #### Calculation methods
 
 Name                    | Value              
 ----------------------- | -------------------
 Partition coefficients  | Rodgers and Rowland
 Cellular permeabilities | PK-Sim Standard    
+
+
 #### Processes
 
 ##### Metabolizing Enzyme: CYP1A2-Linear fit
 
 Species: Human
+
 Molecule: CYP1A2
+
 ###### Parameters
 
 Name                | Value            | Value Origin                                                                                            
 ------------------- | ---------------- | --------------------------------------------------------------------------------------------------------
 Intrinsic clearance | 0 l/min          |                                                                                                         
 Specific clearance  | 0.07944444 1/min | Other-Assumption-28.6% of 0.50 tot hep spec CL - divided by 1.8 µmol/l reference concentration of CYP1A2
+
+
 ##### Metabolizing Enzyme: CYP2D6-Linear fit
 
 Species: Human
+
 Molecule: CYP2D6
+
 ###### Parameters
 
 Name                | Value         | Value Origin                                                                                            
 ------------------- | ------------- | --------------------------------------------------------------------------------------------------------
 Intrinsic clearance | 0 l/min       |                                                                                                         
 Specific clearance  | 0.46375 1/min | Other-Assumption-37.1% of 0.50 tot hep spec CL - divided by 0.4 µmol/l reference concentration of CYP2D6
+
+
 ##### Systemic Process: Total Hepatic Clearance-Linear fit
 
 Species: Human
+
 ###### Parameters
 
 Name                          | Value                  | Value Origin                                  
@@ -213,9 +229,12 @@ Fraction unbound (experiment) | 0.5                    |
 Lipophilicity (experiment)    | 2.3770265519 Log Units |                                               
 Plasma clearance              | 0 ml/min/kg            |                                               
 Specific clearance            | 0.1715 1/min           | Other-Assumption-34.3% of 0.50 tot hep spec CL
+
+
 ##### Systemic Process: Renal Clearances-CLR - Rmex - Labbe2000
 
 Species: Human
+
 ###### Parameters
 
 Name                          | Value              | Value Origin
@@ -223,14 +242,19 @@ Name                          | Value              | Value Origin
 Fraction unbound (experiment) | 0.5                |             
 Plasma clearance              | 0 ml/min/kg        |             
 Specific clearance            | 0.1434490274 1/min | Unknown     
+
+
 ##### Inhibition: CYP1A2-Wei 1991
 
 Molecule: CYP1A2
+
 ###### Parameters
 
 Name | Value       | Value Origin        
 ---- | ----------- | --------------------
 Ki   | 0.28 µmol/l | Publication-Wei 1991
+
+
 
 ## 3.2 Diagnostics Plots
 The following section displays the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data listed in [Section 2.2.2](#222-clinical-data).

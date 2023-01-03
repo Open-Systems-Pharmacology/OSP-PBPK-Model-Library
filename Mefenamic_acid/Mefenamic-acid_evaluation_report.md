@@ -4,10 +4,10 @@
 
 
 
-| Version                                         | 1.2-OSP11.0                                                   |
+| Version                                         | 1.2-OSP11.1                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
 | based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Mefenamic-acid-Model/releases/tag/v1.2 |
-| OSP Version                                     | 11.0                                                          |
+| OSP Version                                     | 11.1                                                          |
 | Qualification Framework Version                 | 2.3                                                          |
 
 
@@ -186,17 +186,22 @@ Specific intestinal permeability (transcellular) | 1.4111809841E-05 cm/min | Par
 Is small molecule                                | Yes                     |                                                                                                                                                          |             |        
 Molecular weight                                 | 241.29 g/mol            |                                                                                                                                                          |             |        
 Plasma protein binding partner                   | Albumin                 |                                                                                                                                                          |             |        
+
+
 #### Calculation methods
 
 Name                    | Value              
 ----------------------- | -------------------
 Partition coefficients  | Rodgers and Rowland
 Cellular permeabilities | PK-Sim Standard    
+
+
 #### Processes
 
 ##### Systemic Process: Total Hepatic Clearance-Simcyp (oral CL)
 
 Species: Human
+
 ###### Parameters
 
 Name                          | Value              | Value Origin                                                                                                                                            
@@ -205,9 +210,12 @@ Fraction unbound (experiment) | 0.01               |
 Lipophilicity (experiment)    | 3.52 Log Units     |                                                                                                                                                         
 Plasma clearance              | 0.2328761 l/h/kg   |                                                                                                                                                         
 Specific clearance            | 9.5031504329 1/min | Parameter Identification-Parameter Identification-Value updated from 'PI (Pint, CLspec, Lipo, Solub, meal; fu=1.9, Disso fix) FINAL' on 2019-08-06 18:52
+
+
 ##### Inhibition: UGT1A9-PH-41095
 
 Molecule: UGT1A9
+
 ###### Parameters
 
 Name | Value       | Value Origin
@@ -215,9 +223,12 @@ Name | Value       | Value Origin
 Ki_c | 0.3 µmol/l  |             
 Ki_u | 21.3 µmol/l |             
 
+
+
 ### Formulation: Ponstan capsule
 
 Type: Weibull
+
 #### Parameters
 
 Name                             | Value | Value Origin                                                                                                                                            
@@ -226,6 +237,8 @@ Dissolution time (50% dissolved) | 1 min | Parameter Identification-Parameter Id
 Lag time                         | 0 min |                                                                                                                                                         
 Dissolution shape                | 10    | Parameter Identification-Parameter Identification-Value updated from 'PI (Pint, CLspec, Lipo, Solub, meal; fu=1.9, Disso fix) FINAL' on 2019-08-06 18:52
 Use as suspension                | Yes   |                                                                                                                                                         
+
+
 
 ## 3.2 Diagnostics Plots
 Below you find the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data used presented in [Section 2.2.2](#222-clinical-data).

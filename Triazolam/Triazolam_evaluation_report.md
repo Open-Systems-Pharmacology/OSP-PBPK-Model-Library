@@ -1,10 +1,10 @@
 # Building and evaluation of a PBPK model for triazolam in healthy adults
 
 
-| Version                                         | 1.1-OSP11.0                                                   |
+| Version                                         | 1.1-OSP11.1                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
 | based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Triazolam-Model/releases/tag/v1.1 |
-| OSP Version                                     | 11.0                                                          |
+| OSP Version                                     | 11.1                                                          |
 | Qualification Framework Version                 | 2.3                                                          |
 
 
@@ -143,6 +143,7 @@ The compound parameter values of the final PBPK model are illustrated below.
 ### Formulation: Halcion
 
 Type: Weibull
+
 #### Parameters
 
 Name                             | Value            | Value Origin                                                                                        
@@ -151,6 +152,8 @@ Dissolution time (50% dissolved) | 1.7958147418 min | Parameter Identification-P
 Lag time                         | 0 min            |                                                                                                     
 Dissolution shape                | 2.5169993312     | Parameter Identification-Parameter Identification-Value updated from 'IV + Oral' on 2018-11-13 16:52
 Use as suspension                | Yes              |                                                                                                     
+
+
 
 ### Compound: Triazolam
 
@@ -167,17 +170,22 @@ Cl                                               | 2                       |    
 Is small molecule                                | Yes                     |                                                                                                      |             |        
 Molecular weight                                 | 343.21 g/mol            |                                                                                                      |             |        
 Plasma protein binding partner                   | Unknown                 |                                                                                                      |             |        
+
+
 #### Calculation methods
 
 Name                    | Value              
 ----------------------- | -------------------
 Partition coefficients  | Rodgers and Rowland
 Cellular permeabilities | PK-Sim Standard    
+
+
 #### Processes
 
 ##### Metabolizing Enzyme: CYP3A4-alpha-OH pathway
 
 Molecule: CYP3A4
+
 ###### Parameters
 
 Name                               | Value                         | Value Origin                                                                                        
@@ -185,9 +193,12 @@ Name                               | Value                         | Value Origi
 In vitro Vmax for liver microsomes | 2.36 nmol/min/mg mic. protein | Publication-In Vitro-PMID: 8632299                                                                  
 Km                                 | 74.2 µmol/l                   | Publication-In Vitro-PMID: 8632299                                                                  
 kcat                               | 4.0317206142 1/min            | Parameter Identification-Parameter Identification-Value updated from 'IV + Oral' on 2018-11-13 16:52
+
+
 ##### Metabolizing Enzyme: CYP3A4-4-OH pathway
 
 Molecule: CYP3A4
+
 ###### Parameters
 
 Name                               | Value                          | Value Origin                                                                                        
@@ -195,6 +206,8 @@ Name                               | Value                          | Value Orig
 In vitro Vmax for liver microsomes | 10.27 nmol/min/mg mic. protein | Publication-In Vitro-PMID: 8632299                                                                  
 Km                                 | 305 µmol/l                     | Publication-In Vitro-PMID: 8632299                                                                  
 kcat                               | 17.5448180963 1/min            | Parameter Identification-Parameter Identification-Value updated from 'IV + Oral' on 2018-11-13 16:52
+
+
 
 ## 3.2 Diagnostics Plots
 Below you find the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data used presented in [Section 2.2.2](#222-clinical-data).

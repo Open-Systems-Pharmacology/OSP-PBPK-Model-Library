@@ -4,10 +4,10 @@
 
 
 
-| Version                                         | 1.2-OSP11.0                                                   |
+| Version                                         | 1.2-OSP11.1                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
 | based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Dapagliflozin-Model/releases/tag/v1.2 |
-| OSP Version                                     | 11.0                                                          |
+| OSP Version                                     | 11.1                                                          |
 | Qualification Framework Version                 | 2.3                                                          |
 
 
@@ -252,18 +252,24 @@ Cl                                               | 1                       |    
 Is small molecule                                | Yes                     |                                                                                                            |                  |        
 Molecular weight                                 | 408.873 g/mol           |                                                                                                            |                  |        
 Plasma protein binding partner                   | Albumin                 |                                                                                                            |                  |        
+
+
 #### Calculation methods
 
 Name                    | Value              
 ----------------------- | -------------------
 Partition coefficients  | Rodgers and Rowland
 Cellular permeabilities | PK-Sim Standard    
+
+
 #### Processes
 
 ##### Metabolizing Enzyme: UGT1A9-Optimized
 
 Molecule: UGT1A9
+
 Metabolite: Dapagliflozin-3-O-glucuronide
+
 ###### Parameters
 
 Name                 | Value                  | Value Origin                                                                                              
@@ -271,10 +277,14 @@ Name                 | Value                  | Value Origin
 Enzyme concentration | 1 µmol/l               |                                                                                                           
 Specific clearance   | 0 1/min                |                                                                                                           
 CLspec/[Enzyme]      | 0.399443557 l/µmol/min | Parameter Identification-Parameter Identification-Value updated from 'PI full  (perm)' on 2019-08-23 15:34
+
+
 ##### Metabolizing Enzyme: UGT2B7-Optimized
 
 Molecule: UGT2B7
+
 Metabolite: Dapagliflozin-2-O-glucuronide
+
 ###### Parameters
 
 Name                 | Value                      | Value Origin                                                                                              
@@ -282,17 +292,23 @@ Name                 | Value                      | Value Origin
 Enzyme concentration | 1 µmol/l                   |                                                                                                           
 Specific clearance   | 0 1/min                    |                                                                                                           
 CLspec/[Enzyme]      | 0.0066043366201 l/µmol/min | Parameter Identification-Parameter Identification-Value updated from 'PI full  (perm)' on 2019-08-23 15:34
+
+
 ##### Systemic Process: Glomerular Filtration-assumed
 
 Species: Human
+
 ###### Parameters
 
 Name         |        Value | Value Origin                                                                                              
 ------------ | ------------:| ----------------------------------------------------------------------------------------------------------
 GFR fraction | 0.7899801465 | Parameter Identification-Parameter Identification-Value updated from 'PI full  (perm)' on 2019-08-23 15:34
+
+
 ##### Metabolizing Enzyme: Hepatic-CYP-Optimized
 
 Molecule: Hepatic-CYP
+
 ###### Parameters
 
 Name                 | Value                   | Value Origin                                                                                              
@@ -301,13 +317,17 @@ Enzyme concentration | 1 µmol/l                |
 Specific clearance   | 0 1/min                 |                                                                                                           
 CLspec/[Enzyme]      | 0.1432967727 l/µmol/min | Parameter Identification-Parameter Identification-Value updated from 'PI full  (perm)' on 2019-08-23 15:34
 
+
+
 ### Formulation: Dissolved
 
 Type: Dissolved
 
+
 ### Formulation: IC tablet (Chang 2015)
 
 Type: Weibull
+
 #### Parameters
 
 Name                             | Value  | Value Origin
@@ -316,6 +336,8 @@ Dissolution time (50% dissolved) | 30 min |
 Lag time                         | 0 min  |             
 Dissolution shape                | 0.6    |             
 Use as suspension                | Yes    |             
+
+
 
 ## 3.2 Diagnostics Plots
 Below you find the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data used presented in [Section 2.2.2](#222-clinical-data).
