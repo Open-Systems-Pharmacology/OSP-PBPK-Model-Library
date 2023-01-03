@@ -4,7 +4,7 @@
 
 | Version                                         | 1.1-OSP11.1                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
-| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Omeprazole-Model/releases/tag/v1.0 |
+| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Omeprazole-Model/releases/tag/v1.1 |
 | OSP Version                                     | 11.1                                                          |
 | Qualification Framework Version                 | 2.3                                                          |
 
