@@ -4,10 +4,10 @@
 
 
 
-| Version                                         | 1.2-OSP11.0                                                   |
+| Version                                         | 1.2-OSP11.1                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
 | based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Vancomycin-Model/releases/tag/v1.2 |
-| OSP Version                                     | 11.0                                                          |
+| OSP Version                                     | 11.1                                                          |
 | Qualification Framework Version                 | 2.3                                                          |
 
 
@@ -132,22 +132,29 @@ Fraction unbound (plasma, reference value) | 0.67                   | Parameter 
 Is small molecule                          | Yes                    |                                                   |             |        
 Molecular weight                           | 1449.3 g/mol           | Publication-Other-Radke 2017                      |             |        
 Plasma protein binding partner             | Albumin                |                                                   |             |        
+
+
 #### Calculation methods
 
 Name                    | Value                   
 ----------------------- | ------------------------
 Partition coefficients  | Schmitt                 
 Cellular permeabilities | Charge dependent Schmitt
+
+
 #### Processes
 
 ##### Systemic Process: Glomerular Filtration-Zhou et al. 2016 GFR
 
 Species: Human
+
 ###### Parameters
 
 Name         | Value | Value Origin               
 ------------ | -----:| ---------------------------
 GFR fraction |     1 | Publication-Other-Zhou 2016
+
+
 
 ## 3.2 Vancomycin Diagnostics Plots
 Below you find the goodness-of-fit visual diagnostic plots for vancomycin PBPK model performance (Individually simulated versus observed plasma concentration and weighted residuals versus time, including the geometric mean fold error (GMFE)) of all data used for model building.

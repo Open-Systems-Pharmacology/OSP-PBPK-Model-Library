@@ -4,10 +4,10 @@
 
 
 
-| Version                                         | 1.2-OSP11.0                                                   |
+| Version                                         | 1.2-OSP11.1                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
 | based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Clarithromycin-Model/releases/tag/v1.2 |
-| OSP Version                                     | 11.0                                                          |
+| OSP Version                                     | 11.1                                                          |
 | Qualification Framework Version                 | 2.3                                                          |
 
 
@@ -192,17 +192,22 @@ Specific intestinal permeability (transcellular) | 1.23E-06 dm/min | Parameter I
 Is small molecule                                | Yes             |                                    |             |        
 Molecular weight                                 | 747.9534 g/mol  |                                    |             |        
 Plasma protein binding partner                   | Albumin         |                                    |             |        
+
+
 #### Calculation methods
 
 Name                    | Value              
 ----------------------- | -------------------
 Partition coefficients  | Rodgers and Rowland
 Cellular permeabilities | PK-Sim Standard    
+
+
 #### Processes
 
 ##### Metabolizing Enzyme: CYP3A4-fit
 
 Molecule: CYP3A4
+
 ###### Parameters
 
 Name                               | Value                      | Value Origin              
@@ -210,9 +215,12 @@ Name                               | Value                      | Value Origin
 In vitro Vmax for liver microsomes | 0 pmol/min/mg mic. protein |                           
 Km                                 | 48.7 µmol/l                | Publication-Rodrigues 1997
 kcat                               | 76.5 1/min                 | Parameter Identification  
+
+
 ##### Systemic Process: Renal Clearances-fitted
 
 Species: Human
+
 ###### Parameters
 
 Name                          | Value          | Value Origin
@@ -221,43 +229,58 @@ Body weight                   | 71.5 kg        | Unknown
 Blood flow rate (kidney)      | 1.31 l/min     | Unknown     
 Fraction unbound (experiment) | 0.4            |             
 Plasma clearance              | 1.75 ml/min/kg |             
+
+
 ##### Inhibition: P-gp-Eberl (2007)
 
 Molecule: P-gp
+
 ###### Parameters
 
 Name | Value      | Value Origin          
 ---- | ---------- | ----------------------
 Ki   | 4.1 µmol/l | Publication-Eberl 2007
+
+
 ##### Inhibition: CYP3A4-fitted
 
 Molecule: CYP3A4
+
 ###### Parameters
 
 Name          | Value       | Value Origin
 ------------- | ----------- | ------------:
 kinact        | 0.04 1/min  |             
 K_kinact_half | 6.04 µmol/l |             
+
+
 ##### Inhibition: OATP1B1-Vermeer 2016
 
 Molecule: OATP1B1
+
 ###### Parameters
 
 Name | Value      | Value Origin            
 ---- | ---------- | ------------------------
 Ki   | 5.3 µmol/l | Publication-Vermeer 2016
+
+
 ##### Inhibition: OATP1B3-Vermeer 2016
 
 Molecule: OATP1B3
+
 ###### Parameters
 
 Name | Value     | Value Origin            
 ---- | --------- | ------------------------
 Ki   | 14 µmol/l | Publication-Vermeer 2016
 
+
+
 ### Formulation: Tablet Clarithromycin
 
 Type: Weibull
+
 #### Parameters
 
 Name                             | Value | Value Origin
@@ -266,6 +289,8 @@ Dissolution time (50% dissolved) | 5 min |
 Lag time                         | 0 min |             
 Dissolution shape                | 2.9   |             
 Use as suspension                | No    |             
+
+
 
 ## 3.2 Diagnostics Plots
 Below you find the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data used presented in [Section 2.2.2](#222-clinical-data).
