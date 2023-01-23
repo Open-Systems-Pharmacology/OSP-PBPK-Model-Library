@@ -1,13 +1,11 @@
 # Building and Evaluation of a PBPK Model for Carbamazepine in Adults
 
 
-
 | Version                                         | 1.1-OSP11.1                                                  |
 | ----------------------------------------------- | ------------------------------------------------------------ |
 | based on *Model Snapshot* and *Evaluation Plan* | 1.1<br />(https://github.com/Open-Systems-Pharmacology/Carbamazepine-Model/releases/tag/v1.1) |
 | OSP Version                                     | 11.1                                                         |
 | Qualification Framework Version                 | 2.3                                                          |
-
 
 
 # Table of Contents
@@ -25,11 +23,12 @@
 # 1 Introduction
 Carbamazepine, sold under the trade name Tegretol<sup>®</sup> among others, is an anticonvulsant medication used primarily to treat epilepsy and neuropathic pain. Other indications include schizophrenia where it is used as an adjunctive treatment along with other medications, and bipolar disorder where it is used as a second-line agent. Carbamazepine is typically taken by mouth on empty stomach or together with meals, depending on the administered formulation. 
 
-Carbamazepine is extensively metabolized by various enzymes including CYP2B6, 2C8, 3A4, and UGT2B7 ([Kerr 1994](#5-References), [Pelkonen 2001](#5-References), [Staines 2004](#5-References)). Following oral administration the major dose fraction (approx. ) is metabolized to carbamazepine-10,11-epoxide ([Eichelbaum 1985](#5-References), [Tomson 1983](#5-References)). This reaction is mainly catalyzed by CYP3A4, with some contribution from CYP2C8 ([Kerr 1994](#5-References)). After oral administration, a minor fraction of the dose (approximately 1 - 3%) is excreted unchanged in urine ([Bernus 1994](#5-References), [Morselli 1975](#5-References)), while approximately 1% of the dose can be recovered as unchanged drug in the bile ([Terhaag 1978](#5-References)).
+Carbamazepine is extensively metabolized by various enzymes including CYP2B6, 2C8, 3A4, and UGT2B7 ([Kerr 1994](#5-references), [Pelkonen 2001](#5-references), [Staines 2004](#5-references)). Following oral administration the major dose fraction is metabolized to carbamazepine-10,11-epoxide ([Eichelbaum 1985](#5-references), [Tomson 1983](#5-references)). This reaction is mainly catalyzed by CYP3A4, with some contribution from CYP2C8 ([Kerr 1994](#5-references)). After oral administration, a minor fraction of the dose (approximately 1 - 3%) is excreted unchanged in urine ([Bernus 1994](#5-references), [Morselli 1975](#5-references)), while approximately 1% of the dose can be recovered as unchanged drug in the bile ([Terhaag 1978](#5-references)).
 
-Carbamazepine is classified by the U.S. Food and Drug Administration (FDA) as a strong CYP3A4 and CYP2B6 inducer (https://www.fda.gov/drugs/drug-interactions-labeling/drug-development-and-drug-interactions) and hence induces its own metabolism.
+Carbamazepine is classified by the U.S. Food and Drug Administration (FDA) as a strong CYP3A4 and CYP2B6 inducer and hence induces its own metabolism.
 
-The herein presented model was developed independently of the model reported by Fuhr et al. ([Fuhr 2021](#5-References)). The main difference between the two models pertains to the metabolite carbamazepine-10,11-epoxide, which is included as separate compound in the model by Fuhr et al. ([Fuhr 2021](#5-References)), but not modeled in the herein presented model. Another structural model differences concerns the enzymatic elimination pathways of carbamazepine; the model by Fuhr et al. ([Fuhr 2021](#5-References)) includes five different metabolism pathways, whereas the herein presented model includes three different metabolism pathways. Additionally, the parameterization of CYP2B6 and 3A4 induction differs between the two models.
+The herein presented model was developed independently of the model reported by Fuhr et al. ([Fuhr 2021](#5-references)). The main difference between the two models pertains to the metabolite carbamazepine-10,11-epoxide, which is included as separate compound in the model by Fuhr et al. ([Fuhr 2021](#5-references)), but not modeled in the herein presented model. Another structural model differences concerns the enzymatic elimination pathways of carbamazepine; the model by Fuhr et al. ([Fuhr 2021](#5-references)) includes five different metabolism pathways, whereas the herein presented model includes three different metabolism pathways. Additionally, the parameterization of CYP2B6 and 3A4 induction differs between the two models.
+
 # 2 Methods
 
 
@@ -40,9 +39,9 @@ The PBPK model was developed based on publicly available pharmacokinetic data of
 
 Unknown parameters (see below) were identified using the Parameter Identification module provided in PK-Sim<sup>®</sup>. Structural model selection was mainly guided by visual inspection of the resulting description of data and biological plausibility. Several parameter identifications were conducted to optimize unknown parameters. In a first step, lipophilicity and enzymatic clearances (catalyzed by CYP3A4, CYP2B6 and UGT2B7) were optimized using observed plasma concentration-time profile data following administration of carbamazepine intravenously or orally as syrup. In a second parameter identification, enzymatic clearances were refined and optimized together with the glomerular filtration rate fraction of carbamazepine and the dissolution kinetics of the IR tablet using observed plasma concentration-time profiles and the dose fraction excreted unchanged in urine after single dose administration of various doses as IR tablet. Subsequently, the EC<sub>50</sub> value of CYP3A4 induction was optimized using observed plasma concentration-time profile data after multiple dose administration of carbamazepine. In a final parameter identification, the dissolution kinetics and carbamazepine solubility of XR formulations were optimized.
 
-Details about input data (physicochemical, *in vitro* and clinical) can be found in [Section 2.2](#22-Data).
+Details about input data (physicochemical, *in vitro* and clinical) can be found in [Section 2.2](#22-data).
 
-Details about the structural model and its parameters can be found in [Section 2.3](#23-Model-Parameters-and-Assumptions).
+Details about the structural model and its parameters can be found in [Section 2.3](#23-model-parameters-and-assumptions).
 
 
 ## 2.2 Data
@@ -52,30 +51,30 @@ A literature search was performed to collect available information on physicoche
 
 | **Parameter**   | **Unit** | **Value**       | Source                                                       | **Description**                                 |
 | :-------------- | -------- | --------------- | ------------------------------------------------------------ | ----------------------------------------------- |
-| MW              | g/mol    | 236.27    | [DrugBank DB00564](#5-References) | Molecular weight                                |
-| logP (calculated)                        |                          | 1.54                                   | [Austin 2002](#5-References)      | Partition coefficient between octanol and water         |
-| logP (calculated)                        |                          | 2.1                                    | [DrugBank DB00564](#5-References) | Partition coefficient between octanol and water         |
-| logP (calculated) | | 2.45 | [Fenet 2012](#5-References) | Partition coefficient between octanol and water |
-| logP (calculated)                        |                          | 2.77                                   | [DrugBank DB00564](#5-References) | Partition coefficient between octanol and water         |
+| MW              | g/mol    | 236.27    | [DrugBank DB00564](#5-references) | Molecular weight                                |
+| logP (calculated)                        |                          | 1.54                                   | [Austin 2002](#5-references)      | Partition coefficient between octanol and water         |
+| logP (calculated)                        |                          | 2.1                                    | [DrugBank DB00564](#5-references) | Partition coefficient between octanol and water         |
+| logP (calculated) | | 2.45 | [Fenet 2012](#5-references) | Partition coefficient between octanol and water |
+| logP (calculated)                        |                          | 2.77                                   | [DrugBank DB00564](#5-references) | Partition coefficient between octanol and water         |
 | pK<sub>a</sub> | | 11.83 |  | Logarithm of the acid dissociation constant |
-| Solubility (pH) | µg/mL   | 336 (6.2)                              | [Annaert 2010](#5-References) | Solubility in human intestinal fluid |
-| Solubility (pH) | µg/mL | 283 (7.0)                              | [Söderlind 2010](#5-References) | Solubility in human intestinal fluid |
-| Solubility (pH) | µg/mL                    | 306 (6.9)                              | [Clarysse 2011](#5-References)    | Solubility in fasted human intestinal fluid             |
-| f<sub>u</sub>                            |                          | 0.25                                   | [Pynnönen 1977](#5-References)    | Fraction unbound in plasma of healthy subjects          |
-| f<sub>u</sub> | | 0.243 ± 0.013 [0.225 - 0.258]<sup>a</sup> | [Morselli 1975](#5-References) | Fraction unbound in plasma of healthy male subjects |
-| f<sub>u</sub>                            |                          | 0.239                                  | [Di Salle 1974](#5-References)    | Fraction unbound in plasma of normal subjects           |
-| f<sub>u</sub> | | 0.237 ± 0.031<sup>b</sup> | [Vinçon 1987](#5-References) | Fraction unbound in plasma of epileptic patients |
-| f<sub>u</sub>                            |                          | 0.182 ± 0.05 [0.103 - 0.297]<sup>a</sup> | [Hooper 1975](#5-References)      | Fraction unbound in plasma of normal subjects           |
-| K<sub>m</sub> CYP2B6                     | µM                       | 420                                    | [Pearce 2002](#5-References)      | CYP2B6 Michaelis-Menten constant                        |
-| V<sub>max</sub> CYP2B6 | pmol/min/pmol rec enzyme | 0.429                                  | [Pearce 2002](#5-References)      | in vitro metabolic rate constant for recombinant CYP2B6 |
-| K<sub>m</sub> CYP2C8 | µM                       | 757                                    | [Cazali 2003](#5-References)      | CYP2C8 Michaelis-Menten constant                        |
-| V<sub>max</sub> CYP2C8 | pmol/min/pmol rec enzyme | 0.673                                  | [Cazali 2003](#5-References)      | in vitro metabolic rate constant for recombinant CYP2C8 |
-| K<sub>m</sub> CYP3A4<sup>c</sup> | µM                       | 282                                    | [Pearce 2002](#5-References)      | CYP3A4 Michaelis-Menten constant                        |
-| K<sub>m</sub> CYP3A4 (→CBZE)<sup>d</sup> | µM                       | 248                                    | [Huang 2004](#5-References)       | CYP3A4 Michaelis-Menten constant                        |
-| K<sub>m</sub> UGT2B7 | µM                       | 214                                    | [Staines 2004](#5-References)     | UGT2B7 Michaelis-Menten constant                        |
-| V<sub>max</sub> UGT2B7 | pmol/min/mg mic enzyme   | 0.79                                   | [Staines 2004](#5-References)     | in vitro metabolic rate constant for microsomal enzymes |
-| Microsomal UGT2B7 | pmol/mg mic protein      | 82.9                                   | [Achour 2014](#5-References)      | Content of UGT2B7 proteins in liver microsomes          |
-| Intestinal permeability                  | cm/min                   | 0.0258                                 | [Lennernäs 2007](#5-References) | Transcellular intestinal permeability        |
+| Solubility (pH) | µg/mL   | 336 (6.2)                              | [Annaert 2010](#5-references) | Solubility in human intestinal fluid |
+| Solubility (pH) | µg/mL | 283 (7.0)                              | [Söderlind 2010](#5-references) | Solubility in human intestinal fluid |
+| Solubility (pH) | µg/mL                    | 306 (6.9)                              | [Clarysse 2011](#5-references)    | Solubility in fasted human intestinal fluid             |
+| f<sub>u</sub>                            |                          | 0.25                                   | [Pynnönen 1977](#5-references)    | Fraction unbound in plasma of healthy subjects          |
+| f<sub>u</sub> | | 0.243 ± 0.013 [0.225 - 0.258]<sup>a</sup> | [Morselli 1975](#5-references) | Fraction unbound in plasma of healthy male subjects |
+| f<sub>u</sub>                            |                          | 0.239                                  | [Di Salle 1974](#5-references)    | Fraction unbound in plasma of normal subjects           |
+| f<sub>u</sub> | | 0.237 ± 0.031<sup>b</sup> | [Vinçon 1987](#5-references) | Fraction unbound in plasma of epileptic patients |
+| f<sub>u</sub>                            |                          | 0.182 ± 0.05 [0.103 - 0.297]<sup>a</sup> | [Hooper 1975](#5-references)      | Fraction unbound in plasma of normal subjects           |
+| K<sub>m</sub> CYP2B6                     | µM                       | 420                                    | [Pearce 2002](#5-references)      | CYP2B6 Michaelis-Menten constant                        |
+| V<sub>max</sub> CYP2B6 | pmol/min/pmol rec enzyme | 0.429                                  | [Pearce 2002](#5-references)      | in vitro metabolic rate constant for recombinant CYP2B6 |
+| K<sub>m</sub> CYP2C8 | µM                       | 757                                    | [Cazali 2003](#5-references)      | CYP2C8 Michaelis-Menten constant                        |
+| V<sub>max</sub> CYP2C8 | pmol/min/pmol rec enzyme | 0.673                                  | [Cazali 2003](#5-references)      | in vitro metabolic rate constant for recombinant CYP2C8 |
+| K<sub>m</sub> CYP3A4<sup>c</sup> | µM                       | 282                                    | [Pearce 2002](#5-references)      | CYP3A4 Michaelis-Menten constant                        |
+| K<sub>m</sub> CYP3A4 (→CBZE)<sup>d</sup> | µM                       | 248                                    | [Huang 2004](#5-references)       | CYP3A4 Michaelis-Menten constant                        |
+| K<sub>m</sub> UGT2B7 | µM                       | 214                                    | [Staines 2004](#5-references)     | UGT2B7 Michaelis-Menten constant                        |
+| V<sub>max</sub> UGT2B7 | pmol/min/mg mic enzyme   | 0.79                                   | [Staines 2004](#5-references)     | in vitro metabolic rate constant for microsomal enzymes |
+| Microsomal UGT2B7 | pmol/mg mic protein      | 82.9                                   | [Achour 2014](#5-references)      | Content of UGT2B7 proteins in liver microsomes          |
+| Intestinal permeability                  | cm/min                   | 0.0258                                 | [Lennernäs 2007](#5-references) | Transcellular intestinal permeability        |
 <sup>a</sup> denotes mean ± standard deviation [range]
 
 <sup>b</sup> denotes mean ± standard deviation
@@ -93,75 +92,75 @@ The following studies were used for model building:
 
 | Publication                    | Arm / Treatment / Information used for model building        |
 | :----------------------------- | :----------------------------------------------------------- |
-| [Bernus 1994](#5-References)   | Healthy subjects receiving two oral doses of 600 mg carbamazepine as IR tablet (only pharmacokinetic data following the first dose were used for model building) |
-| [Gérardin 1976](#5-References) | Healthy subjects receiving a single oral dose of 100 mg carbamazepine as IR tablet |
-| [Gérardin 1990](#5-References) | Healthy subjects receiving a single oral dose of 100 mg [<sup>15</sup>N]-carbamazepine as suspension concomitantly with a single intravenous dose of 10 mg carbamazepine |
-| [McLean 2001](#5-References)   | Healthy subjects receiving a single oral dose of 400 mg carbamazepine as XR formulation in fasted state |
-| [Møller 2001](#5-References)   | Healthy subjects receiving a multiple oral doses of carbamazepine, starting at 100 mg and escalating to 400 mg |
-| [Wada 1978](#5-References)     | Healthy subjects receiving a single oral dose of 200 mg carbamazepine as syrup and IR tablet |
+| [Bernus 1994](#5-references)   | Healthy subjects receiving two oral doses of 600 mg carbamazepine as IR tablet (only pharmacokinetic data following the first dose were used for model building) |
+| [Gérardin 1976](#5-references) | Healthy subjects receiving a single oral dose of 100 mg carbamazepine as IR tablet |
+| [Gérardin 1990](#5-references) | Healthy subjects receiving a single oral dose of 100 mg [<sup>15</sup>N]-carbamazepine as suspension concomitantly with a single intravenous dose of 10 mg carbamazepine |
+| [McLean 2001](#5-references)   | Healthy subjects receiving a single oral dose of 400 mg carbamazepine as XR formulation in fasted state |
+| [Møller 2001](#5-references)   | Healthy subjects receiving a multiple oral doses of carbamazepine, starting at 100 mg and escalating to 400 mg |
+| [Wada 1978](#5-references)     | Healthy subjects receiving a single oral dose of 200 mg carbamazepine as syrup and IR tablet |
 
 
 The following studies were used for model evaluation:
 
 | Publication                                                 | Arm / Treatment / Information used for model building        |
 | :---------------------------------------------------------- | :----------------------------------------------------------- |
-| [Barzaghi 1987](#5-References)                              | Healthy subjects receiving a single oral dose of 400 mg carbamazepine |
-| [Bedada 2015](#5-References)                                | Healthy subjects receiving a single oral dose of 200 mg carbamazepine |
-| [Bedada 2016](#5-References)                                | Healthy subjects receiving a single oral dose of 200 mg carbamazepine |
-| [Bernus 1994](#5-References)                                | Healthy subjects receiving two oral doses of 600 mg carbamazepine (only pharmacokinetic data following the second were was used for model evaluation) |
-| [Bianchetti 1987](#5-References)                            | Healthy subjects receiving a single oral dose of 400 mg carbamazepine |
-| [Burstein 2000](#5-References)                              | Healthy subjects receiving a multiple oral doses of carbamazepine, starting at 100 mg and escalating to 400 mg |
-| [Caraco 1995](#5-References)                                | Healthy lean subjects receiving a single oral dose of 200 mg carbamazepine |
-| [Cawello 2000](#5-References)                               | Healthy subjects receiving a multiple oral doses of carbamazepine, starting at 100 mg and escalating to 200 mg |
-| [Cotter 1977](#5-References)                                | Healthy subject receiving a single oral dose of 800 mg carbamazepine |
-| [Dalton 1985a](#5-References)                               | Healthy subjects receiving a single oral dose of 600 mg carbamazepine |
-| [Dalton 1985b](#5-References)                               | Healthy subjects receiving a single oral dose of 600 mg carbamazepine |
-| [Eichelbaum 1985](#5-References)                            | Healthy subjects receiving a single oral dose of 200 mg carbamazepine |
-| [Elqidra 2004](#5-References)                               | Healthy subjects receiving a single oral dose of 200 mg carbamazepine |
-| [European Patent Application EP 1044681 A2](#5-References)  | Healthy subjects receiving a single oral dose of 400 and 600 mg carbamazepine |
-| [Gérardin 1976](#5-References)                              | Healthy subjects receiving a single oral dose of 200, and 600 mg carbamazepine |
-| [Ji 2008](#5-References)                                    | Healthy subjects receiving a multiple oral doses of carbamazepine, starting at 200 mg and escalating to 400 mg |
-| [Kayali 1994](#5-References)                                | Healthy subjects receiving a single oral dose of 200 mg carbamazepine |
-| [Kim 2005](#5-References)                                   | Healthy subjects receiving a single oral dose of 200 mg carbamazepine |
-| [Kovacević 2009](#5-References)                             | Healthy subjects receiving a single oral dose of 400 mg carbamazepine |
-| [Levy 1975](#5-References)                                  | Healthy subjects receiving a single oral carbamazepine dose of 6 mg/kg body weight |
-| [Meyer 1996](#5-References)                                 | Healthy subjects receiving a single oral dose of 200 mg carbamazepine |
-| [Meyer 1998](#5-References)                                 | Healthy subjects receiving a single oral dose of 200 mg carbamazepine |
-| [Miles 1989](#5-References)                                 | Healthy subjects receiving a multiple oral doses of 300 and 400 mg carbamazepine |
-| [Morselli 1975](#5-References)                              | Healthy subjects receiving a single oral dose of 400 mg carbamazepine |
-| [Pynnönen 1977](#5-References)                              | Healthy subjects receiving a single oral dose of 400 mg carbamazepine |
-| [Rawlins 1975](#5-References)                               | Healthy subject receiving a single oral dose of 50, 100, and 200 mg carbamazepine |
-| [Saint-Salvi 1987](#5-References)                           | Healthy subjects receiving a single oral dose of 200 mg carbamazepine |
-| [Stevens 1998](#5-References)                               | Healthy subjects receiving multiple oral doses of 400 mg carbamazepine |
-| [Strandjord 1975](#5-References)                            | Healthy subjects receiving a single oral dose of 400 mg carbamazepine |
-| [Sumi 1987](#5-References)                                  | Healthy subjects receiving a single oral dose of 200 mg carbamazepine |
-| [Tomson 1983](#5-References)                                | Healthy subject receiving a single oral doses of 200 mg carbamazepine |
-| [US Patent Application - US 2009/0169619 A1](#5-References) | Healthy subjects receiving a single oral dose of 300 mg carbamazepine |
-| [Wong 1983](#5-References)                                  | Healthy subjects receiving a single oral dose of 400 mg carbamazepine |
+| [Barzaghi 1987](#5-references)                              | Healthy subjects receiving a single oral dose of 400 mg carbamazepine |
+| [Bedada 2015](#5-references)                                | Healthy subjects receiving a single oral dose of 200 mg carbamazepine |
+| [Bedada 2016](#5-references)                                | Healthy subjects receiving a single oral dose of 200 mg carbamazepine |
+| [Bernus 1994](#5-references)                                | Healthy subjects receiving two oral doses of 600 mg carbamazepine (only pharmacokinetic data following the second were was used for model evaluation) |
+| [Bianchetti 1987](#5-references)                            | Healthy subjects receiving a single oral dose of 400 mg carbamazepine |
+| [Burstein 2000](#5-references)                              | Healthy subjects receiving a multiple oral doses of carbamazepine, starting at 100 mg and escalating to 400 mg |
+| [Caraco 1995](#5-references)                                | Healthy lean subjects receiving a single oral dose of 200 mg carbamazepine |
+| [Cawello 2000](#5-references)                               | Healthy subjects receiving a multiple oral doses of carbamazepine, starting at 100 mg and escalating to 200 mg |
+| [Cotter 1977](#5-references)                                | Healthy subject receiving a single oral dose of 800 mg carbamazepine |
+| [Dalton 1985a](#5-references)                               | Healthy subjects receiving a single oral dose of 600 mg carbamazepine |
+| [Dalton 1985b](#5-references)                               | Healthy subjects receiving a single oral dose of 600 mg carbamazepine |
+| [Eichelbaum 1985](#5-references)                            | Healthy subjects receiving a single oral dose of 200 mg carbamazepine |
+| [Elqidra 2004](#5-references)                               | Healthy subjects receiving a single oral dose of 200 mg carbamazepine |
+| [European Patent Application EP 1044681 A2](#5-references)  | Healthy subjects receiving a single oral dose of 400 and 600 mg carbamazepine |
+| [Gérardin 1976](#5-references)                              | Healthy subjects receiving a single oral dose of 200, and 600 mg carbamazepine |
+| [Ji 2008](#5-references)                                    | Healthy subjects receiving a multiple oral doses of carbamazepine, starting at 200 mg and escalating to 400 mg |
+| [Kayali 1994](#5-references)                                | Healthy subjects receiving a single oral dose of 200 mg carbamazepine |
+| [Kim 2005](#5-references)                                   | Healthy subjects receiving a single oral dose of 200 mg carbamazepine |
+| [Kovacević 2009](#5-references)                             | Healthy subjects receiving a single oral dose of 400 mg carbamazepine |
+| [Levy 1975](#5-references)                                  | Healthy subjects receiving a single oral carbamazepine dose of 6 mg/kg body weight |
+| [Meyer 1996](#5-references)                                 | Healthy subjects receiving a single oral dose of 200 mg carbamazepine |
+| [Meyer 1998](#5-references)                                 | Healthy subjects receiving a single oral dose of 200 mg carbamazepine |
+| [Miles 1989](#5-references)                                 | Healthy subjects receiving a multiple oral doses of 300 and 400 mg carbamazepine |
+| [Morselli 1975](#5-references)                              | Healthy subjects receiving a single oral dose of 400 mg carbamazepine |
+| [Pynnönen 1977](#5-references)                              | Healthy subjects receiving a single oral dose of 400 mg carbamazepine |
+| [Rawlins 1975](#5-references)                               | Healthy subject receiving a single oral dose of 50, 100, and 200 mg carbamazepine |
+| [Saint-Salvi 1987](#5-references)                           | Healthy subjects receiving a single oral dose of 200 mg carbamazepine |
+| [Stevens 1998](#5-references)                               | Healthy subjects receiving multiple oral doses of 400 mg carbamazepine |
+| [Strandjord 1975](#5-references)                            | Healthy subjects receiving a single oral dose of 400 mg carbamazepine |
+| [Sumi 1987](#5-references)                                  | Healthy subjects receiving a single oral dose of 200 mg carbamazepine |
+| [Tomson 1983](#5-references)                                | Healthy subject receiving a single oral doses of 200 mg carbamazepine |
+| [US Patent Application - US 2009/0169619 A1](#5-references) | Healthy subjects receiving a single oral dose of 300 mg carbamazepine |
+| [Wong 1983](#5-references)                                  | Healthy subjects receiving a single oral dose of 400 mg carbamazepine |
 
 
 ## 2.3 Model Parameters and Assumptions
 ### 2.3.1	Absorption
 
-Absorption of carbamazepine from the gastrointestinal tract can be fully explained by passive diffusion; active uptake by drug transporters does not seem to play a role. Intestinal permeability was observed to be not a rate-limiting step in drug absorption. The solubility of carbamazepine following administration of the IR tablet was fixed to the mean value (308 mg/L at a pH of 6.7) reported by several studies in fasted human intestinal fluid ([Annaert 2010](#5-References), [Söderlind 2010](#5-References), [Clarysse 2011](#5-References)).
+Absorption of carbamazepine from the gastrointestinal tract can be fully explained by passive diffusion; active uptake by drug transporters does not seem to play a role. Intestinal permeability was observed to be not a rate-limiting step in drug absorption. The solubility of carbamazepine following administration of the IR tablet was fixed to the mean value (308 mg/L at a pH of 6.7) reported by several studies in fasted human intestinal fluid ([Annaert 2010](#5-references), [Söderlind 2010](#5-references), [Clarysse 2011](#5-references)).
 
 ### 2.3.2	Distribution
 
-Plasma protein binding of carbamazepine was fixed to 75.7% as reported by Morselli et al. for healthy subjects ([Morselli 1975](#5-References)). The distribution of carbamazepine throughout the body was found to be best described by the partition coefficient calculation by `Rodgers and Rowlands` and cellular permeability calculation by `PK-Sim Standard`. 
+Plasma protein binding of carbamazepine was fixed to 75.7% as reported by Morselli et al. for healthy subjects ([Morselli 1975](#5-references)). The distribution of carbamazepine throughout the body was found to be best described by the partition coefficient calculation by `Rodgers and Rowlands` and cellular permeability calculation by `PK-Sim Standard`. 
 
 ### 2.3.3	Metabolism, Excretion and Induction
 
 #### Metabolism
 
-Carbamazepine metabolism is complex involving multiple enzymes with more than 30 metabolites identified ([Lertratanangkoon 1982](#5-References)). Several *in vitro* studies suggest involvement of CYP1A2, 2A6, 2B6, 2C8, 2E1, 3A4, and UGT2B7 in carbamazepine metabolism ([Cazali 2003](#5-References), [Kerr 1994](#5-References), [Pearce 2002](#5-References), [Pelkonen 2001](#5-References), [Staines 2004](#5-References)). 
+Carbamazepine metabolism is complex involving multiple enzymes with more than 30 metabolites identified ([Lertratanangkoon 1982](#5-references)). Several *in vitro* studies suggest involvement of CYP1A2, 2A6, 2B6, 2C8, 2E1, 3A4, and UGT2B7 in carbamazepine metabolism ([Cazali 2003](#5-references), [Kerr 1994](#5-references), [Pearce 2002](#5-references), [Pelkonen 2001](#5-references), [Staines 2004](#5-references)). 
 
-In various *in vitro* assays, the biotransformation to the main metabolite, carbamazepine-10,11-epoxide, appears to be mainly catalyzed by CYP3A4 with minimal contribution by CYP2C8 ([Cazali 2003](#5-References), [Egnell 2003](#5-References), [Kerr 1994](#5-References)). For example, Egnell et al. report that, at equimolar amounts of recombinantly expressed CYP enzymes, the activity of CYP3A4 towards carbamazepine was more than 20-fold higher than that of CYP2C8 ([Egnell 2003](#5-References)). Therefore, carbamazepine epoxidation was modeled via CYP3A4 only.
+In various *in vitro* assays, the biotransformation to the main metabolite, carbamazepine-10,11-epoxide, appears to be mainly catalyzed by CYP3A4 with minimal contribution by CYP2C8 ([Cazali 2003](#5-references), [Egnell 2003](#5-references), [Kerr 1994](#5-references)). For example, Egnell et al. report that, at equimolar amounts of recombinantly expressed CYP enzymes, the activity of CYP3A4 towards carbamazepine was more than 20-fold higher than that of CYP2C8 ([Egnell 2003](#5-references)). Therefore, carbamazepine epoxidation was modeled via CYP3A4 only.
 
-Further oxidative metabolism pathways include 2- and 3-hydroxylation. The formation of 2-hydroxycarbamazepine is mediated by several CYP enzymes *in vitro* (including CYP1A2, 2A6, 2B6, 2E1, and 3A4); though, the contribution of any of these isoforms does not exceed 50% of the total formation ([Pearce 2002](#5-References)). In experiments with liver slices, 2-hydroxylation appears to be a minor elimination pathway (1-2 % of total clearance) as reported by Pelkonen et al. ([Pelkonen 2001](#5-References)). Hence, 2-hydroxylation was not accounted for in the PBPK model. 
+Further oxidative metabolism pathways include 2- and 3-hydroxylation. The formation of 2-hydroxycarbamazepine is mediated by several CYP enzymes *in vitro* (including CYP1A2, 2A6, 2B6, 2E1, and 3A4); though, the contribution of any of these isoforms does not exceed 50% of the total formation ([Pearce 2002](#5-references)). In experiments with liver slices, 2-hydroxylation appears to be a minor elimination pathway (1-2 % of total clearance) as reported by Pelkonen et al. ([Pelkonen 2001](#5-references)). Hence, 2-hydroxylation was not accounted for in the PBPK model. 
 
-The formation of 3-hydroxycarbamazepine also appears to constitute a minor metabolism pathway ([Pelkonen 2001](#5-References)); still, in human liver microsomes, 3-hydroxycarbamazepine was formed at rates ~25 times greater than those of 2-hydroxycarbamazepine ([Pearce 2002](#5-References)). The responsible enzyme for 3-hydroxylation *in vitro* seems to be CYP2B6, although a minor contribution by CYP1A2, 2A6, and 3A4 cannot be ruled out ([Pearce 2002](#5-References)). In the PBPK model, 3-hydroxylation was implemented as CYP2B6-mediated reaction.
+The formation of 3-hydroxycarbamazepine also appears to constitute a minor metabolism pathway ([Pelkonen 2001](#5-references)); still, in human liver microsomes, 3-hydroxycarbamazepine was formed at rates ~25 times greater than those of 2-hydroxycarbamazepine ([Pearce 2002](#5-references)). The responsible enzyme for 3-hydroxylation *in vitro* seems to be CYP2B6, although a minor contribution by CYP1A2, 2A6, and 3A4 cannot be ruled out ([Pearce 2002](#5-references)). In the PBPK model, 3-hydroxylation was implemented as CYP2B6-mediated reaction.
 
-N-glucuronidation of carbamazepine in human liver microsomes and baculovirus-infected insect cells expressing human UGTs was also observed with UGT2B7 appearing to be the responsible enzyme for this reaction ([Staines 2004](#5-References)). Thus, the PBPK model also includes UGT2B7-mediated N-glucuronidation of carbamazepine.
+N-glucuronidation of carbamazepine in human liver microsomes and baculovirus-infected insect cells expressing human UGTs was also observed with UGT2B7 appearing to be the responsible enzyme for this reaction ([Staines 2004](#5-references)). Thus, the PBPK model also includes UGT2B7-mediated N-glucuronidation of carbamazepine.
 
 In summary, the following three metabolic pathways, each mediated by a specific enzyme, were implemented in the PBPK model:
 
@@ -173,17 +172,17 @@ Since no clinical mass balance data were found for these three pathways, the fol
 
 | Biotransformation pathway | K<sub>m</sub> [µM] | V<sub>max</sub> [pmol/min/mg microsomal protein] | Source                         |
 | ------------------------- | ------------------ | ------------------------------------------------ | ------------------------------ |
-| 10,11-epoxidation         | 808                | 726                                              | [Sakamoto 2013](#5-References) |
-| 3-hydroxylation           | 235                | 49.0                                             | [Pearce 2002](#5-References)   |
-| N-glucuronidation         | 234                | 3.5                                              | [Staines 2004](#5-References)  |
+| 10,11-epoxidation         | 808                | 726                                              | [Sakamoto 2013](#5-references) |
+| 3-hydroxylation           | 235                | 49.0                                             | [Pearce 2002](#5-references)   |
+| N-glucuronidation         | 234                | 3.5                                              | [Staines 2004](#5-references)  |
 
 The following enzymatic content in human liver microsomes was assumed:
 
 | Enzyme | Enzyme content [pmol/mg microsomal protein] | Source                          |
 | ------ | ------------------------------------------- | ------------------------------- |
-| CYP3A4 | 108                                         | [Rodrigues 1999](#5-References) |
-| CYP2B6 | 39                                          | [Rodrigues 1999](#5-References) |
-| UGT2B7 | 82.9                                        | [Achour 2014](#5-References)    |
+| CYP3A4 | 108                                         | [Rodrigues 1999](#5-references) |
+| CYP2B6 | 39                                          | [Rodrigues 1999](#5-references) |
+| UGT2B7 | 82.9                                        | [Achour 2014](#5-references)    |
 
 The expression profiles for these enzymes were loaded from the 'PK-Sim<sup>®</sup> Ontogeny Database Version 7.3' ([PK-Sim Ontogeny Database Version 7.3](#5-references)) using RT-PCR as data source for each enzyme.
 
@@ -191,13 +190,13 @@ Upon implementation of these enzyme clearance pathways, it was seen that total c
 
 #### Excretion
 
-A minor fraction of the carbamazepine dose (approximately 1%) is excreted unchanged in urine ([Bernus 1994](#5-References), [Morselli 1975](#5-References)). In the model, unchanged renal excretion was implemented as glomerular filtration with the parameter `GFR fraction` being fitted to the clinical excretion data reported by Bernus et al. ([Bernus 1994](#5-References)).
+A minor fraction of the carbamazepine dose (approximately 1%) is excreted unchanged in urine ([Bernus 1994](#5-references), [Morselli 1975](#5-references)). In the model, unchanged renal excretion was implemented as glomerular filtration with the parameter `GFR fraction` being fitted to the clinical excretion data reported by Bernus et al. ([Bernus 1994](#5-references)).
 
 #### Induction
 
-Carbamazepine induces CYP2B6 and 3A4 via the CAR- and PXR-pathway ([Faucette 2007](#5-References), [Williamson 2016](#5-References)). CYP2B6 induction was informed based on *in vitro* experiments conducted by Faucette et al. ([Faucette 2004](#5-References)). These authors reported the induction of CYP2B6 activity at various carbamazepine concentrations in three preparations of primary human hepatocytes. The reported data suggest linear induction in the tested carbamazepine concentration range. A linear-mixed effects model was fitted to the reported data; the fitted slope was 0.149. To implement a linear induction in the PBPK model, the EC<sub>50</sub> value of the E<sub>max</sub> model was set to an arbitrarily high value (1000 µM) and E<sub>max</sub> was then calculated as product of the fitted slope value and EC<sub>50</sub> resulting in a value of 149.
+Carbamazepine induces CYP2B6 and 3A4 via the CAR- and PXR-pathway ([Faucette 2007](#5-references), [Williamson 2016](#5-references)). CYP2B6 induction was informed based on *in vitro* experiments conducted by Faucette et al. ([Faucette 2004](#5-references)). These authors reported the induction of CYP2B6 activity at various carbamazepine concentrations in three preparations of primary human hepatocytes. The reported data suggest linear induction in the tested carbamazepine concentration range. A linear-mixed effects model was fitted to the reported data; the fitted slope was 0.149. To implement a linear induction in the PBPK model, the EC<sub>50</sub> value of the E<sub>max</sub> model was set to an arbitrarily high value (1000 µM) and E<sub>max</sub> was then calculated as product of the fitted slope value and EC<sub>50</sub> resulting in a value of 149.
 
-CYP3A4 induction was initially parameterized based on internal *in vitro* experiments and calibrated with rifampicin induction data as described by Almond et al. ([Almond 2016](#5-References)). This resulted in an EC<sub>50</sub> of 63.0 µM and an E<sub>max</sub> of 5.39. Simulated carbamazepine plasma concentrations in steady-state indicated that the induction was underestimated; therefore, the calibrated EC<sub>50</sub> value was optimized during parameter identification, while the calibrated E<sub>max</sub> value was kept fixed. 
+CYP3A4 induction was initially parameterized based on internal *in vitro* experiments and calibrated with rifampicin induction data as described by Almond et al. ([Almond 2016](#5-references)). This resulted in an EC<sub>50</sub> of 63.0 µM and an E<sub>max</sub> of 5.39. Simulated carbamazepine plasma concentrations in steady-state indicated that the induction was underestimated; therefore, the calibrated EC<sub>50</sub> value was optimized during parameter identification, while the calibrated E<sub>max</sub> value was kept fixed. 
 
 ### 2.3.4	Automated Parameter Identification
 
@@ -219,13 +218,13 @@ The parameter identification tool in PK-Sim<sup>®</sup> has been used to estima
 
 
 # 3 Results and Discussion
-The PBPK model for carbamazepine was developed and evaluated using publicly available clinical pharmacokinetic data from studies listed in [Section 2.2.2](#222-Clinical-Data).
+The PBPK model for carbamazepine was developed and evaluated using publicly available clinical pharmacokinetic data from studies listed in [Section 2.2.2](#222clinical-data).
 
 The next sections show:
 
-1. the final model parameters for the building blocks: [Section 3.1](#31-Final-Input-Parameters).
-2. the overall goodness of fit: [Section 3.2](#32-Diagnostics-Plots).
-3. simulated vs. observed concentration-time profiles for the clinical studies used for model building and for model verification: [Section 3.3](#33-Concentration-Time-Profiles).
+1. the final model parameters for the building blocks: [Section 3.1](#31-final-input-parameters).
+2. the overall goodness of fit: [Section 3.2](#32-diagnostics-plots).
+3. simulated vs. observed concentration-time profiles for the clinical studies used for model building and for model verification: [Section 3.3](#33-concentration-time-profiles).
 
 
 ## 3.1 Final input parameters
@@ -427,7 +426,7 @@ EC50 | 1000 µmol/l | Publication-Set to an arbitrarily high value to enable lin
 Emax | 148.7284    | Publication-Linear-mixed effects model fitted to reported data by Faucette 2004 (DOI: 10.1124/dmd.32.3.348); see evaluation report for details                      
 
 ## 3.2 Diagnostics Plots
-Below you find the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data used presented in [Section 2.2.2](#222-Clinical-Data).
+Below you find the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data used presented in [Section 2.2.2](#222clinical-data).
 
 The first plot shows simulated versus observed plasma concentration, the second weighted residuals versus time. 
 
@@ -439,7 +438,7 @@ The first plot shows simulated versus observed plasma concentration, the second 
 GMFE = 1.486311 
 
 ## 3.3 Concentration-Time Profiles
-Simulated versus observed concentration-time profiles of all data listed in [Section 2.2.2](#222-Clinical-Data) are presented below.
+Simulated versus observed concentration-time profiles of all data listed in [Section 2.2.2](#222clinical-data) are presented below.
 
 
 ![001_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_plotTimeProfile.png)
