@@ -1,9 +1,9 @@
 # Building and Evaluation of a PBPK Model for Carbamazepine in Adults
 
 
-| Version                                         | 1.1-OSP11.1                                                  |
+| Version                                         | 1.2-OSP11.1                                                  |
 | ----------------------------------------------- | ------------------------------------------------------------ |
-| based on *Model Snapshot* and *Evaluation Plan* | 1.1<br />(https://github.com/Open-Systems-Pharmacology/Carbamazepine-Model/releases/tag/v1.1) |
+| based on *Model Snapshot* and *Evaluation Plan* | 1.2<br />(https://github.com/Open-Systems-Pharmacology/Carbamazepine-Model/releases/tag/v1.2) |
 | OSP Version                                     | 11.1                                                         |
 | Qualification Framework Version                 | 2.3                                                          |
 
@@ -107,7 +107,7 @@ The following studies were used for model evaluation:
 | [Barzaghi 1987](#5-references)                              | Healthy subjects receiving a single oral dose of 400 mg carbamazepine |
 | [Bedada 2015](#5-references)                                | Healthy subjects receiving a single oral dose of 200 mg carbamazepine |
 | [Bedada 2016](#5-references)                                | Healthy subjects receiving a single oral dose of 200 mg carbamazepine |
-| [Bernus 1994](#5-references)                                | Healthy subjects receiving two oral doses of 600 mg carbamazepine (only pharmacokinetic data following the second were was used for model evaluation) |
+| [Bernus 1994](#5-references)                                | Healthy subjects receiving two oral doses of 600 mg carbamazepine (only pharmacokinetic data following the second dose were used for model evaluation) |
 | [Bianchetti 1987](#5-references)                            | Healthy subjects receiving a single oral dose of 400 mg carbamazepine |
 | [Burstein 2000](#5-references)                              | Healthy subjects receiving a multiple oral doses of carbamazepine, starting at 100 mg and escalating to 400 mg |
 | [Caraco 1995](#5-references)                                | Healthy lean subjects receiving a single oral dose of 200 mg carbamazepine |
