@@ -4,10 +4,10 @@
 
 
 
-| Version                                         | 1.2-OSP11.0                                                   |
+| Version                                         | 1.2-OSP11.1                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
 | based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Rifampicin-Model/releases/tag/v1.2 |
-| OSP Version                                     | 11.0                                                          |
+| OSP Version                                     | 11.1                                                          |
 | Qualification Framework Version                 | 2.3                                                          |
 
 
@@ -302,17 +302,22 @@ Specific intestinal permeability (transcellular) | 1.24E-05 cm/min | Publication
 Is small molecule                                | Yes             |                                                            |                    |        
 Molecular weight                                 | 822.94 g/mol    |                                                            |                    |        
 Plasma protein binding partner                   | Albumin         |                                                            |                    |        
+
+
 #### Calculation methods
 
 Name                    | Value              
 ----------------------- | -------------------
 Partition coefficients  | Rodgers and Rowland
 Cellular permeabilities | PK-Sim Standard    
+
+
 #### Processes
 
 ##### Metabolizing Enzyme: AADAC-Nakajima 2011
 
 Molecule: AADAC
+
 ###### Parameters
 
 Name                 | Value          | Value Origin                                          
@@ -321,9 +326,12 @@ Enzyme concentration | 1 µmol/l       |
 Vmax                 | 6.5 µmol/l/min |                                                       
 Km                   | 195.1 µmol/l   |                                                       
 kcat                 | 9.865 1/min    | Publication-Parameter Identification-Hanke et al. 2018
+
+
 ##### Transport Protein: P-gp-Collett 2004
 
 Molecule: P-gp
+
 ###### Parameters
 
 Name                      | Value           | Value Origin                                          
@@ -332,9 +340,12 @@ Transporter concentration | 60 nmol/l       |
 Vmax                      | 2.87 µmol/l/min |                                                       
 Km                        | 55 µmol/l       |                                                       
 kcat                      | 0.6088 1/min    | Publication-Parameter Identification-Hanke et al. 2018
+
+
 ##### Transport Protein: OATP1B1-Tirona 2003
 
 Molecule: OATP1B1
+
 ###### Parameters
 
 Name                      | Value            | Value Origin                                          
@@ -343,117 +354,158 @@ Transporter concentration | 109.6 µmol/l     |
 Vmax                      | 0.372 µmol/l/min |                                                       
 Km                        | 1.5 µmol/l       |                                                       
 kcat                      | 5.21004653 1/min | Publication-Parameter Identification-Hanke et al. 2018
+
+
 ##### Systemic Process: Glomerular Filtration-GFR
 
 Species: Human
+
 ###### Parameters
 
 Name         | Value | Value Origin                            
 ------------ | -----:| ----------------------------------------
 GFR fraction |     1 | Publication-Assumption-Hanke et al. 2018
+
+
 ##### Inhibition: CYP3A4-Kajosaari 2005
 
 Molecule: CYP3A4
+
 ###### Parameters
 
 Name | Value       | Value Origin                     
 ---- | ----------- | ---------------------------------
 Ki   | 18.5 µmol/l | Publication-Kajosaari et al. 2005
+
+
 ##### Inhibition: P-gp-Reitman 2011
 
 Molecule: P-gp
+
 ###### Parameters
 
 Name | Value      | Value Origin                                                                    
 ---- | ---------- | --------------------------------------------------------------------------------
 Ki   | 169 µmol/l | Publication-Assumption-Reitman 2011 (IC50 = Ki (169 µM / (1+ (0.1 µM / 177 µM) )
+
+
 ##### Induction: CYP3A4-Templeton 2011
 
 Molecule: CYP3A4
+
 ###### Parameters
 
 Name | Value       | Value Origin                                      
 ---- | ----------- | --------------------------------------------------
 EC50 | 0.34 µmol/l | Publication-Templeton 2011 (weighted mean for FHH)
 Emax | 9           | Publication-Templeton 2011 (weighted mean for FHH)
+
+
 ##### Induction: P-gp-Greiner 1999
 
 Molecule: P-gp
+
 ###### Parameters
 
 Name | Value       | Value Origin                              
 ---- | ----------- | ------------------------------------------
 EC50 | 0.34 µmol/l | Publication-Assumption-Hanke et al. 2018  
 Emax | 2.5         | Publication-Assumption-Greiner et al. 1999
+
+
 ##### Induction: OATP1B1-Dixit 2007
 
 Molecule: OATP1B1
+
 ###### Parameters
 
 Name | Value       | Value Origin                                          
 ---- | ----------- | ------------------------------------------------------
 EC50 | 0.34 µmol/l | Publication-Assumption-Hanke et al. 2018              
 Emax | 0.383       | Publication-Parameter Identification-Hanke et al. 2018
+
+
 ##### Induction: AADAC-Assumed
 
 Molecule: AADAC
+
 ###### Parameters
 
 Name | Value       | Value Origin                                          
 ---- | ----------- | ------------------------------------------------------
 EC50 | 0.34 µmol/l | Publication-Assumption-Hanke et al. 2018              
 Emax | 0.985       | Publication-Parameter Identification-Hanke et al. 2018
+
+
 ##### Inhibition: CYP2C8-Kajosaari 2005
 
 Molecule: CYP2C8
+
 ###### Parameters
 
 Name | Value       | Value Origin                     
 ---- | ----------- | ---------------------------------
 Ki   | 30.2 µmol/l | Publication-Kajosaari et al. 2005
+
+
 ##### Inhibition: OATP1B1-Hirano 2006
 
 Molecule: OATP1B1
+
 ###### Parameters
 
 Name | Value        | Value Origin                                                                                                                                                      
 ---- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Ki   | 0.477 µmol/l | Publication-Hirano M, Maeda K, Shitara Y, Sugiyama Y. Drug-drug interaction between pitavastatin and various drugs via OATP1B1. Drug Metab Dispos. 2006;34:1229–36
+
+
 ##### Induction: CYP2C8-Buckley 2014
 
 Molecule: CYP2C8
+
 ###### Parameters
 
 Name | Value       | Value Origin                                                                                                                                                                                                                                                                                                                                                                                          
 ---- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 EC50 | 0.34 µmol/l | Publication-Templeton IE, Houston JB, Galetin A. Predictive utility of in vitro rifampin induction data generated in fresh and cryopreserved human hepatocytes, Fa2N-4, and HepaRG cells. Drug Metab Dispos. 2011;39:1921–9; Shou M, Hayashi M, Pan Y, Xu Y, Morrissey K, Xu L, et al. Modeling, prediction, and in vitro in vivo correlation of CYP3A4 induction. Drug Metab Dispos. 2008;36:2355–70.
 Emax | 3.2         | Publication-Buckley DB, Wiegand CM, Prentiss PL, Fahmi OA. Time-course of cytochrome P450 (CYP450) induction in cultured human hepatocytes: Evaluation of activity and mRNA expression profiles for six inducible CYP450 enzymes. ISSX. 2013                                                                                                                                                          
+
+
 ##### Induction: CYP1A2-Chen 2010
 
 Molecule: CYP1A2
+
 ###### Parameters
 
 Name | Value       | Value Origin
 ---- | ----------- | ------------:
 EC50 | 0.34 µmol/l |             
 Emax | 0.65        |             
+
+
 ##### Induction: CYP2E1-Rae 2001
 
 Molecule: CYP2E1
+
 ###### Parameters
 
 Name | Value       | Value Origin
 ---- | ----------- | ------------:
 EC50 | 0.34 µmol/l |             
 Emax | 0.8         |             
+
+
 ##### Inhibition: OATP1B3-Annaert 2010
 
 Molecule: OATP1B3
+
 ###### Parameters
 
 Name | Value      | Value Origin
 ---- | ---------- | ------------:
 Ki   | 0.9 µmol/l |             
+
+
 
 ## 3.2 Diagnostics Plots
 Below you find the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data used presented in [Section 2.2.2](#222-clinical-data).

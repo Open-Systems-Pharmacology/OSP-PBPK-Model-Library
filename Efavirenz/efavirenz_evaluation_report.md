@@ -2,10 +2,10 @@
 
 
 
-| Version     | 1.1-OSP11.0            |
+| Version     | 1.1-OSP11.1            |
 | ----------- | --------------------- |
 | Based on Model Snapshot and Evaluation Plan | https://github.com/Open-Systems-Pharmacology/Efavirenz-Model/releases/tag/v1.1 |
-| OSP Version | 11.0                   |
+| OSP Version | 11.1                   |
 | Qualification Framework Version | 2.3                   |
 
 
@@ -176,18 +176,24 @@ F                                                | 3                       |    
 Is small molecule                                | Yes                     |                                                                                                                              |             |        
 Molecular weight                                 | 315.675 g/mol           |                                                                                                                              |             |        
 Plasma protein binding partner                   | Albumin                 |                                                                                                                              |             |        
+
+
 #### Calculation methods
 
 Name                    | Value          
 ----------------------- | ---------------
 Partition coefficients  | Schmitt        
 Cellular permeabilities | PK-Sim Standard
+
+
 #### Processes
 
 ##### Metabolizing Enzyme: CYP2B6-Ward2003
 
 Molecule: CYP2B6
+
 Metabolite: 8-OH efavirenz
+
 ###### Parameters
 
 Name                             | Value                         | Value Origin                                                                                                                
@@ -195,10 +201,14 @@ Name                             | Value                         | Value Origin
 In vitro Vmax/recombinant enzyme | 3.5 pmol/min/pmol rec. enzyme |                                                                                                                             
 Km                               | 6.4 µmol/l                    |                                                                                                                             
 kcat                             | 1.601451904 1/min             | Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 7 (Mida)' on 2019-10-11 09:02
+
+
 ##### Metabolizing Enzyme: CYP1A2-Ward2003
 
 Molecule: CYP1A2
+
 Metabolite: 8-OH efavirenz
+
 ###### Parameters
 
 Name                             | Value                         | Value Origin                                                                                                                
@@ -206,10 +216,14 @@ Name                             | Value                         | Value Origin
 In vitro Vmax/recombinant enzyme | 0.6 pmol/min/pmol rec. enzyme |                                                                                                                             
 Km                               | 8.3 µmol/l                    |                                                                                                                             
 kcat                             | 0.1910198104 1/min            | Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 7 (Mida)' on 2019-10-11 09:02
+
+
 ##### Metabolizing Enzyme: CYP3A4-Ward2003
 
 Molecule: CYP3A4
+
 Metabolite: 8-OH efavirenz
+
 ###### Parameters
 
 Name                             | Value                          | Value Origin                                                                                                                
@@ -217,10 +231,14 @@ Name                             | Value                          | Value Origin
 In vitro Vmax/recombinant enzyme | 0.16 pmol/min/pmol rec. enzyme |                                                                                                                             
 Km                               | 23.5 µmol/l                    |                                                                                                                             
 kcat                             | 0.0509386161 1/min             | Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 7 (Mida)' on 2019-10-11 09:02
+
+
 ##### Metabolizing Enzyme: CYP3A5-Ward2003
 
 Molecule: CYP3A5
+
 Metabolite: 8-OH efavirenz
+
 ###### Parameters
 
 Name                             | Value                         | Value Origin                                                                                                                
@@ -228,10 +246,14 @@ Name                             | Value                         | Value Origin
 In vitro Vmax/recombinant enzyme | 0.6 pmol/min/pmol rec. enzyme |                                                                                                                             
 Km                               | 19.1 µmol/l                   |                                                                                                                             
 kcat                             | 0.1910198104 1/min            | Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 7 (Mida)' on 2019-10-11 09:02
+
+
 ##### Metabolizing Enzyme: CYP2A6-Ogburn2010
 
 Molecule: CYP2A6
+
 Metabolite: 8-OH efavirenz
+
 ###### Parameters
 
 Name                             | Value                       | Value Origin                                                                                                                
@@ -239,56 +261,76 @@ Name                             | Value                       | Value Origin
 In vitro Vmax/recombinant enzyme | 1 pmol/min/pmol rec. enzyme |                                                                                                                             
 Km                               | 7.7 µmol/l                  |                                                                                                                             
 kcat                             | 0.3183663507 1/min          | Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 7 (Mida)' on 2019-10-11 09:02
+
+
 ##### Metabolizing Enzyme: CYP2B6-CYP2B6*1/*6
 
 Molecule: CYP2B6
+
 Metabolite: 8-OH efavirenz
+
 ###### Parameters
 
 Name                             | Value                              | Value Origin
 -------------------------------- | ---------------------------------- | ------------:
 In vitro Vmax/recombinant enzyme | 2.268966 pmol/min/pmol rec. enzyme |             
 Km                               | 6.4 µmol/l                         |             
+
+
 ##### Metabolizing Enzyme: CYP2B6-CYP2B6*6/*6
 
 Molecule: CYP2B6
+
 Metabolite: 8-OH efavirenz
+
 ###### Parameters
 
 Name                             | Value                              | Value Origin
 -------------------------------- | ---------------------------------- | ------------:
 In vitro Vmax/recombinant enzyme | 1.448276 pmol/min/pmol rec. enzyme |             
 Km                               | 6.4 µmol/l                         |             
+
+
 ##### Induction: CYP3A4-Shou2008
 
 Molecule: CYP3A4
+
 ###### Parameters
 
 Name | Value              | Value Origin                                                                                                                
 ---- | ------------------ | ----------------------------------------------------------------------------------------------------------------------------
 EC50 | 0.071279975 µmol/l | Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 7 (Mida)' on 2019-10-11 09:02
 Emax | 5.21               | Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 7 (Mida)' on 2019-10-11 09:02
+
+
 ##### Induction: CYP2B6-Ke2016
 
 Molecule: CYP2B6
+
 ###### Parameters
 
 Name | Value               | Value Origin                                                                                                                
 ---- | ------------------- | ----------------------------------------------------------------------------------------------------------------------------
 EC50 | 0.0116534019 µmol/l | Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 7 (Mida)' on 2019-10-11 09:02
 Emax | 5.2                 | Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 7 (Mida)' on 2019-10-11 09:02
+
+
 ##### Systemic Process: Glomerular Filtration-GFR
 
 Species: Human
+
 ###### Parameters
 
 Name         | Value | Value Origin
 ------------ | -----:| ------------:
 GFR fraction |     1 |             
 
+
+
 ### Formulation: Sustiva
 
 Type: Weibull
+
 #### Parameters
 
 Name                             | Value        | Value Origin                                                                                                                
@@ -297,6 +339,8 @@ Dissolution time (50% dissolved) | 60 min       | Parameter Identification-Param
 Lag time                         | 0 min        |                                                                                                                             
 Dissolution shape                | 0.2720936819 | Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 7 (Mida)' on 2019-10-11 09:02
 Use as suspension                | Yes          |                                                                                                                             
+
+
 
 ## 3.2 Diagnostics Plots
 Below you find the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data used presented in [Section 2.2.2](#222-clinical-data).
