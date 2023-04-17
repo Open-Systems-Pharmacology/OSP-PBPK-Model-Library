@@ -4,12 +4,11 @@
 
 
 
-| Version                                         | 1.2-OSP11.2                                                   |
+| Version                                         | 1.3-OSP11.2                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
-| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Dapagliflozin-Model/releases/tag/v1.2 |
+| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Dapagliflozin-Model/releases/tag/v1.3 |
 | OSP Version                                     | 11.2                                                          |
 | Qualification Framework Version                 | 2.3                                                          |
-
 
 
 
@@ -451,6 +450,12 @@ Overview of the multiple ascending dose study stratified by dose and day ([Komor
 
 
 
+
+![001_plotComparisonTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/003_3_3_3_Overview/001_plotComparisonTimeProfile.png)
+
+![002_plotComparisonTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/003_3_3_3_Overview/002_plotComparisonTimeProfile.png)
+
+![003_plotComparisonTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/003_3_3_3_Overview/003_plotComparisonTimeProfile.png)
 
 # 4 Conclusion
 The herein presented PBPK model adequately describes the pharmacokinetics of dapagliflozin in adults.

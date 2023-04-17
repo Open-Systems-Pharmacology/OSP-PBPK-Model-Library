@@ -49,11 +49,6 @@ ReportOutput_path=fullfile(baseDir,'report');
 
 % --------------------------------------------------------------
 % STEP #1: start qualification runner to generate inputs for the reporting engine
-% if isempty(env.PKSimPortablePath)
-%     additionalOptions = ['-p ' env.PKSimPortablePath];
-% else
-%     additionalOptions = '';
-% end
 startQualificationRunner(qualificationRunnerFolder, qualificationPlan, REInput_path, ['-p ' env.PKSimPortablePath]);
 
 % --------------------------------------------------------------
