@@ -4,12 +4,11 @@
 
 
 
-| Version                                         | 1.2-OSP11.1                                                   |
+| Version                                         | 1.3-OSP11.2                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
-| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Dapagliflozin-Model/releases/tag/v1.2 |
-| OSP Version                                     | 11.1                                                          |
+| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Dapagliflozin-Model/releases/tag/v1.3 |
+| OSP Version                                     | 11.2                                                          |
 | Qualification Framework Version                 | 2.3                                                          |
-
 
 
 

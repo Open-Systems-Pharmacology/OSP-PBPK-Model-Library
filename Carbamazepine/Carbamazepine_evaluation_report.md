@@ -1,10 +1,10 @@
 # Building and Evaluation of a PBPK Model for Carbamazepine in Adults
 
 
-| Version                                         | 1.2-OSP11.1                                                  |
+| Version                                         | 1.2-OSP11.2                                                         |
 | ----------------------------------------------- | ------------------------------------------------------------ |
-| based on *Model Snapshot* and *Evaluation Plan* | 1.2<br />(https://github.com/Open-Systems-Pharmacology/Carbamazepine-Model/releases/tag/v1.2) |
-| OSP Version                                     | 11.1                                                         |
+| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Carbamazepine-Model/releases/tag/v1.2 |
+| OSP Version                                     | 11.2                                                         |
 | Qualification Framework Version                 | 2.3                                                          |
 
 
@@ -107,7 +107,7 @@ The following studies were used for model evaluation:
 | [Barzaghi 1987](#5-references)                              | Healthy subjects receiving a single oral dose of 400 mg carbamazepine |
 | [Bedada 2015](#5-references)                                | Healthy subjects receiving a single oral dose of 200 mg carbamazepine |
 | [Bedada 2016](#5-references)                                | Healthy subjects receiving a single oral dose of 200 mg carbamazepine |
-| [Bernus 1994](#5-references)                                | Healthy subjects receiving two oral doses of 600 mg carbamazepine (only pharmacokinetic data following the second dose were used for model evaluation) |
+| [Bernus 1994](#5-references)                                | Healthy subjects receiving two oral doses of 600 mg carbamazepine (only pharmacokinetic data following the second were was used for model evaluation) |
 | [Bianchetti 1987](#5-references)                            | Healthy subjects receiving a single oral dose of 400 mg carbamazepine |
 | [Burstein 2000](#5-references)                              | Healthy subjects receiving a multiple oral doses of carbamazepine, starting at 100 mg and escalating to 400 mg |
 | [Caraco 1995](#5-references)                                | Healthy lean subjects receiving a single oral dose of 200 mg carbamazepine |
@@ -248,34 +248,45 @@ Fraction unbound (plasma, reference value) | 0.243                  | Publicatio
 Is small molecule                          | Yes                    |                                                                                                                                                                                                                                                                                             |                    |        
 Molecular weight                           | 236.2686 g/mol         | Internet-DrugBank (https://go.drugbank.com/drugs/DB00564)                                                                                                                                                                                                                                   |                    |        
 Plasma protein binding partner             | Albumin                |                                                                                                                                                                                                                                                                                             |                    |        
+
+
 #### Calculation methods
 
 Name                    | Value              
 ----------------------- | -------------------
 Partition coefficients  | Rodgers and Rowland
 Cellular permeabilities | PK-Sim Standard    
+
+
 #### Processes
 
 ##### Induction: CYP3A4-DMPK
 
 Molecule: CYP3A4
+
 ###### Parameters
 
 Name | Value               | Value Origin                                                                                                                                                                                                                                          
 ---- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 EC50 | 27.193363407 µmol/l | Parameter Identification-Parameter Identification-Value updated from '003-1_from002-3-6_EC50' on 2022-02-24 10:23                                                                                                                                     
 Emax | 5.3929777775        | Publication-In Vitro-DMPK measurement (internal data); the measured Emax was calibrated with rifampicin by using the Emax implemented in the rifampicin OSP model v1.2 according the the method described by Almond 2016 (DOI: 10.1124/dmd.115.066845)
+
+
 ##### Systemic Process: Glomerular Filtration-Glomerular Filtration
 
 Species: Human
+
 ###### Parameters
 
 Name         |        Value | Value Origin                                                                                                                             
 ------------ | ------------:| -----------------------------------------------------------------------------------------------------------------------------------------
 GFR fraction | 0.0240108793 | Parameter Identification-Parameter Identification-Value updated from '002-3-6_from001-5-3_IRtablet-sd_Pint-FIX_FINAL' on 2022-02-23 17:18
+
+
 ##### Metabolizing Enzyme: UGT2B7-N-Glucuronidation_Staines2004
 
 Molecule: UGT2B7
+
 ###### Parameters
 
 Name                                        | Value                        | Value Origin                                                                                                                             
@@ -284,9 +295,12 @@ In vitro Vmax for liver microsomes          | 3.5 pmol/min/mg mic. protein | Pub
 Content of CYP proteins in liver microsomes | 82.9 pmol/mg mic. protein    | Publication-In Vitro-Achour 2014 (DOI: 10.1124/dmd.113.055632)                                                                           
 Km                                          | 234 µmol/l                   | Publication-In Vitro-Staines 2004 (DOI: 10.1124/jpet.104.073114)                                                                         
 kcat                                        | 0.0668699322 1/min           | Parameter Identification-Parameter Identification-Value updated from '002-3-6_from001-5-3_IRtablet-sd_Pint-FIX_FINAL' on 2022-02-23 17:18
+
+
 ##### Metabolizing Enzyme: CYP2B6-3-Hydroxylation_Pearce2002
 
 Molecule: CYP2B6
+
 ###### Parameters
 
 Name                                        | Value                       | Value Origin                                                                                                                             
@@ -295,9 +309,12 @@ In vitro Vmax for liver microsomes          | 49 pmol/min/mg mic. protein | Publ
 Content of CYP proteins in liver microsomes | 39 pmol/mg mic. protein     | Publication-In Vitro-Rodrigues 1999 (DOI: 10.1016/s0006-2952(98)00268-8)                                                                 
 Km                                          | 235 µmol/l                  | Publication-Pearce 2002 (DOI: 10.1124/dmd.30.11.1170)                                                                                    
 kcat                                        | 0.9361790504 1/min          | Parameter Identification-Parameter Identification-Value updated from '002-3-6_from001-5-3_IRtablet-sd_Pint-FIX_FINAL' on 2022-02-23 17:18
+
+
 ##### Metabolizing Enzyme: CYP3A4-Epoxidation_Sakamoto2013
 
 Molecule: CYP3A4
+
 ###### Parameters
 
 Name                               | Value                        | Value Origin                                                                                                                             
@@ -305,9 +322,12 @@ Name                               | Value                        | Value Origin
 In vitro Vmax for liver microsomes | 726 pmol/min/mg mic. protein | Publication-In Vitro-Sakamoto 2013 (DOI: 10.1248/bpb.b13-00569)                                                                          
 Km                                 | 808 µmol/l                   | Publication-In Vitro-Sakamoto 2013 (DOI: 10.1248/bpb.b13-00569)                                                                          
 kcat                               | 5.0088763476 1/min           | Parameter Identification-Parameter Identification-Value updated from '002-3-6_from001-5-3_IRtablet-sd_Pint-FIX_FINAL' on 2022-02-23 17:18
+
+
 ##### Induction: CYP2B6-Faucette2004
 
 Molecule: CYP2B6
+
 ###### Parameters
 
 Name | Value       | Value Origin                                                                                                                                                        
@@ -315,9 +335,12 @@ Name | Value       | Value Origin
 EC50 | 1000 µmol/l | Publication-Set to an arbitrarily high value to enable linear induction as suggested by Faucette 2004 (DOI: 10.1124/dmd.32.3.348); see evaluation report for details
 Emax | 148.7284    | Publication-Linear-mixed effects model fitted to reported data by Faucette 2004 (DOI: 10.1124/dmd.32.3.348); see evaluation report for details                      
 
+
+
 ### Formulation: CBZ_capsuleXR_fasted (Carbatrol)
 
 Type: Weibull
+
 #### Parameters
 
 Name                             | Value              | Value Origin                                                                                                                                
@@ -327,9 +350,12 @@ Lag time                         | 0 min              |
 Dissolution shape                | 1.2290186648       | Parameter Identification-Parameter Identification-Value updated from '004-2_from-003-1_XRtablet_fasted_solubility_FINAL' on 2022-03-24 12:41
 Use as suspension                | Yes                |                                                                                                                                             
 
+
+
 ### Formulation: CBZ_tabletIR_fasted (Tegretol)
 
 Type: Weibull
+
 #### Parameters
 
 Name                             | Value              | Value Origin                                                                                                                             
@@ -339,9 +365,12 @@ Lag time                         | 0 min              |
 Dissolution shape                | 0.6890123758       | Parameter Identification-Parameter Identification-Value updated from '002-3-6_from001-5-3_IRtablet-sd_Pint-FIX_FINAL' on 2022-02-23 17:18
 Use as suspension                | Yes                |                                                                                                                                          
 
+
+
 ### Formulation: Solution
 
 Type: Dissolved
+
 
 ### Compound: [15N]-Carbamazepine
 
@@ -358,34 +387,45 @@ Fraction unbound (plasma, reference value) | 0.243                  | Publicatio
 Is small molecule                          | Yes                    |                                                                                                                                                                                                                                                                                             |                    |        
 Molecular weight                           | 236.2686 g/mol         | Internet-DrugBank (https://go.drugbank.com/drugs/DB00564)                                                                                                                                                                                                                                   |                    |        
 Plasma protein binding partner             | Albumin                |                                                                                                                                                                                                                                                                                             |                    |        
+
+
 #### Calculation methods
 
 Name                    | Value              
 ----------------------- | -------------------
 Partition coefficients  | Rodgers and Rowland
 Cellular permeabilities | PK-Sim Standard    
+
+
 #### Processes
 
 ##### Induction: CYP3A4-DMPK
 
 Molecule: CYP3A4
+
 ###### Parameters
 
 Name | Value               | Value Origin                                                                                                                                                                                                                                          
 ---- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 EC50 | 27.193363407 µmol/l | Parameter Identification-Parameter Identification-Value updated from '003-1_from002-3-6_EC50' on 2022-02-24 10:23                                                                                                                                     
 Emax | 5.3929777775        | Publication-In Vitro-DMPK measurement (internal data); the measured Emax was calibrated with rifampicin by using the Emax implemented in the rifampicin OSP model v1.2 according the the method described by Almond 2016 (DOI: 10.1124/dmd.115.066845)
+
+
 ##### Systemic Process: Glomerular Filtration-Glomerular Filtration
 
 Species: Human
+
 ###### Parameters
 
 Name         |        Value | Value Origin                                                                                                                             
 ------------ | ------------:| -----------------------------------------------------------------------------------------------------------------------------------------
 GFR fraction | 0.0240108793 | Parameter Identification-Parameter Identification-Value updated from '002-3-6_from001-5-3_IRtablet-sd_Pint-FIX_FINAL' on 2022-02-23 17:18
+
+
 ##### Metabolizing Enzyme: UGT2B7-N-Glucuronidation_Staines2004
 
 Molecule: UGT2B7
+
 ###### Parameters
 
 Name                                        | Value                        | Value Origin                                                                                                                             
@@ -394,9 +434,12 @@ In vitro Vmax for liver microsomes          | 3.5 pmol/min/mg mic. protein | Pub
 Content of CYP proteins in liver microsomes | 82.9 pmol/mg mic. protein    | Publication-In Vitro-Achour 2014 (DOI: 10.1124/dmd.113.055632)                                                                           
 Km                                          | 234 µmol/l                   | Publication-In Vitro-Staines 2004 (DOI: 10.1124/jpet.104.073114)                                                                         
 kcat                                        | 0.0668699322 1/min           | Parameter Identification-Parameter Identification-Value updated from '002-3-6_from001-5-3_IRtablet-sd_Pint-FIX_FINAL' on 2022-02-23 17:18
+
+
 ##### Metabolizing Enzyme: CYP2B6-3-Hydroxylation_Pearce2002
 
 Molecule: CYP2B6
+
 ###### Parameters
 
 Name                                        | Value                       | Value Origin                                                                                                                             
@@ -405,9 +448,12 @@ In vitro Vmax for liver microsomes          | 49 pmol/min/mg mic. protein | Publ
 Content of CYP proteins in liver microsomes | 39 pmol/mg mic. protein     | Publication-In Vitro-Rodrigues 1999 (DOI: 10.1016/s0006-2952(98)00268-8)                                                                 
 Km                                          | 235 µmol/l                  | Publication-Pearce 2002 (DOI: 10.1124/dmd.30.11.1170)                                                                                    
 kcat                                        | 0.9361790504 1/min          | Parameter Identification-Parameter Identification-Value updated from '002-3-6_from001-5-3_IRtablet-sd_Pint-FIX_FINAL' on 2022-02-23 17:18
+
+
 ##### Metabolizing Enzyme: CYP3A4-Epoxidation_Sakamoto2013
 
 Molecule: CYP3A4
+
 ###### Parameters
 
 Name                               | Value                        | Value Origin                                                                                                                             
@@ -415,15 +461,20 @@ Name                               | Value                        | Value Origin
 In vitro Vmax for liver microsomes | 726 pmol/min/mg mic. protein | Publication-In Vitro-Sakamoto 2013 (DOI: 10.1248/bpb.b13-00569)                                                                          
 Km                                 | 808 µmol/l                   | Publication-In Vitro-Sakamoto 2013 (DOI: 10.1248/bpb.b13-00569)                                                                          
 kcat                               | 5.0088763476 1/min           | Parameter Identification-Parameter Identification-Value updated from '002-3-6_from001-5-3_IRtablet-sd_Pint-FIX_FINAL' on 2022-02-23 17:18
+
+
 ##### Induction: CYP2B6-Faucette2004
 
 Molecule: CYP2B6
+
 ###### Parameters
 
 Name | Value       | Value Origin                                                                                                                                                        
 ---- | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------
 EC50 | 1000 µmol/l | Publication-Set to an arbitrarily high value to enable linear induction as suggested by Faucette 2004 (DOI: 10.1124/dmd.32.3.348); see evaluation report for details
 Emax | 148.7284    | Publication-Linear-mixed effects model fitted to reported data by Faucette 2004 (DOI: 10.1124/dmd.32.3.348); see evaluation report for details                      
+
+
 
 ## 3.2 Diagnostics Plots
 Below you find the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data used presented in [Section 2.2.2](#222clinical-data).

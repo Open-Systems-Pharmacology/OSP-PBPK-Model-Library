@@ -4,10 +4,10 @@
 
 
 
-| Version                                         | 1.2-OSP11.1                                                   |
+| Version                                         | 1.2-OSP11.2                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
 | based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Fluvoxamine-Model/releases/tag/v1.2 |
-| OSP Version                                     | 11.1                                                          |
+| OSP Version                                     | 11.2                                                          |
 | Qualification Framework Version                 | 2.3                                                          |
 
 
