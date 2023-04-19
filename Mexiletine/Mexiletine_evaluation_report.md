@@ -2,10 +2,10 @@
 
 
 
-| Version                                         | 1.1-OSP11.1                                                   |
+| Version                                         | 1.1-OSP11.2                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
 | based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Mexiletine-Model/releases/tag/v1.1 |
-| OSP Version                                     | 11.1                                                          |
+| OSP Version                                     | 11.2                                                          |
 | Qualification Framework Version                 | 2.3                                                          |
 
 This evaluation report and the corresponding PK-Sim project file are filed at:
