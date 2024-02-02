@@ -4,15 +4,15 @@
 
 
 
-| Version                                         | 1.1-OSP11.2                                                   |
+| Version                                         | 1.2-OSP11.2                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
-| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Cimetidine-Model/releases/tag/v1.1 |
+| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Cimetidine-Model/releases/tag/v1.2 |
 | OSP Version                                     | 11.2                                                          |
 | Qualification Framework Version                 | 2.3                                                          |
 
 
 
-This evaluation report and the corresponding PK-Sim project file are filed at:
+This evaluation report and the corresponding PK-Sim project file are stored at:
 
 https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/
 
@@ -33,7 +33,7 @@ https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/
 # 1 Introduction
 Cimetidine is a histamine H2 receptor antagonist that inhibits stomach acid production. It is mainly used as an antacid for the treatment of gastric and duodenal ulcers, Zollinger-Ellison syndrome and esophageal reflux.
 
-The herein presented model was developed and published by Hanke et al. ([Hanke 2020](#5-references)).
+The herein presented model was developed and published by Hanke et al. ([Hanke 2020](#5-references)) and adjusted later on to PK-Sim V10 by refitting CYP3A4 K<sub>i</sub>.
 
 Cimetidine is mainly excreted unchanged via the kidneys (40–80% of the dose) with a high renal clearance of 400 ml/min. Metabolism is reported to account for 25– 40% of of the total elimination of cimetidine, with less than 2% of the dose excreted unchanged with the bile. Cimetidine inhibits several transporters and CYP enzymes and it is recommended by the FDA as strong inhibitor of OCT2/MATE and as weak inhibitor of CYP3A4 and CYP2D6 for the use in clinical DDI studies and drug labeling.
 
@@ -49,10 +49,10 @@ The herein presented model building and evaluation report evaluates the performa
 
 
 ## 2.1 Modeling Strategy
-The general concept of building a PBPK model has previously been described by e.g. Kuepfer et al. ([Kuepfer 2016](#5-references)). The relevant anthropometric (height, weight) and physiological information (e.g. blood flows, organ volumes, binding protein concentrations, hematocrit, cardiac output) in adults was gathered from the literature and has been previously published ([Willmann 2007](#5-references)). This information was incorporated into PK-Sim® and was used as default values for the simulations in adults.
+The general concept of building a PBPK model has previously been described by e.g. Kuepfer et al. ([Kuepfer 2016](#5-references)). The relevant anthropometric (height, weight) and physiological information (e.g. blood flows, organ volumes, binding protein concentrations, hematocrit, cardiac output) in adults was gathered from the literature and has been previously published ([Willmann 2007](#5-references)). This information was incorporated into PK-Sim® and was used as default values for the simulations in adults. Variability of plasma proteins and CYP enzymes are integrated into PK-Sim® and described in the publicly available PK-Sim® Ontogeny Database Version 7.3 ([PK-Sim Ontogeny Database Version 7.3](#5-references)) or otherwise referenced for the specific process. 
 
-Variability of plasma proteins and CYP enzymes are integrated into PK-Sim® and described in the publicly available PK-Sim® Ontogeny Database Version 7.3 ([PK-Sim Ontogeny Database Version 7.3](#5-references)) or otherwise referenced for the specific process. The final model applies active uptake of cimetidine into the liver by OCT1, uptake into the kidney by OAT3 and secretion from the kidney into the urine by MATE1, as well
-as an unspecific hepatic clearance and passive renal glomerular filtration. The transporters were integrated into the PBPK model using the ([PK-Sim Ontogeny Database Version 7.3](#5-references)) and is described in detail in [Hanke 2020](#5-references).
+The final model applies active uptake of cimetidine into the liver by OCT1, uptake into the kidney by OAT3 and secretion from the kidney into the urine by MATE1, as well
+as an unspecific hepatic clearance and passive renal glomerular filtration. The transporters were integrated into the PBPK model using the ([PK-Sim Ontogeny Database Version 7.3](#5-references)) and is described in detail in [Hanke 2020](#5-references). For PK-Sim V10, CYP3A4 K<sub>i</sub> was adjusted to to improve the performance in CYP3A4 interactions. For further details, see [Section 2.3](#23-model-parameters-and-assumptions).
 
 First, a base PBPK model was built using clinical data including single and multiple dose studies with intravenous and oral applications of cimetidine to find an appropriate structure to describe the pharmacokinetics in plasma. This PBPK model was developed using a typical European individual adjusted to the demography of the respective study population. 
 
@@ -84,7 +84,7 @@ A literature search was performed to collect available information on physiochem
 | OCT1 K<sub>i</sub> | µmol/l | 104     | [Ito 2012](#5-references) | Inhibition constant for competitive inhibition |
 | OCT2 K<sub>i</sub> | µmol/l | 124 | [Ito 2012](#5-references) | Inhibition constant for competitive inhibition |
 | MATE1 K<sub>i</sub> | µmol/l | 3.8     | [Ito 2012](#5-references) | Inhibition constant for competitive inhibition |
-| CYP3A4 K<sub>i</sub> | µmol/l | 268     | [Wrighton 1994](#5-references) | Inhibition constant for competitive inhibition |
+| CYP3A4 K<sub>i</sub> (refitted in PK-Sim V10) | µmol/l | 268 (30.51266) | [Wrighton 1994](#5-references) | Inhibition constant for competitive inhibition |
 
 
 ### 2.2.2 Clinical Data
@@ -125,6 +125,23 @@ The following studies were used for model verification:
 | [Somogyi 1981](#5-references)     | Healthy subjects receiving a single oral dose of 400 mg (tablet) |
 | [Tiseo 1998](#5-references)       | Healthy subjects receiving multiple oral doses of 800 mg (tablet) |
 
+#### 2.2.2.3 Model update due to PK-Sim V10 conversion
+
+As a consequence of updating the cimetidine PBPK model to PK-Sim version 10, the K<sub>i</sub> needed to be readjusted. For this purpose, AUC ratios of the following clinical DDI studies were used to inform K<sub>i</sub> in an additional parameter identification:
+
+| Publication                      | Interaction of cimetidine with:                              |
+| :------------------------------------- | :------------------------------|
+| [Kienlen 1993](#5-references)    | Alfentanil |
+| [Abernethy 1983](#5-references)  | Alprazolam and triazolam |
+| [Elliott 1984](#5-references)    | Midazolam |
+| [Fee 1987](#5-references)        | Midazolam |
+| [Greenblatt 1986](#5-references) | Intravenous and oral midazolam |
+| [Martinez 1999](#5-references)   | Midazolam |
+| [Salonen 1986](#5-references)    | Midazolam |
+| [Pourbaix 1985](#5-references)   | Triazolam. NOTE: The interaction of cimetidine with alprazolam of this publication was not used for parameterization due to very long simulation duration! |
+| [Cox 1986](#5-references)        | Triazolam |
+| [Friedman 1988](#5-references)   | Triazolam |
+
 ## 2.3 Model Parameters and Assumptions
 ### 2.3.1 Absorption
 
@@ -150,7 +167,7 @@ Cimetidine inhibits several enzymes such as CYP3A4 and CYP2D6 as well as transpo
 
 The parameter identification tool in PK-Sim has been used to estimate selected model parameters by adjusting to PK data of the clinical studies that were used in the model building process (see [Section 2.2](#22-data)). 
 
-All values were reestimated in PK-Sim Version 10, and, therefore, do not correspond to the original values published by [Hanke 2020](#5-references). The result of the final parameter identification is shown in the table below:
+Specific intestinal permeability, unspecific hepatic clearance (CLhep) and Kcat values for OCT1, OAT3 and MATE1 were reestimated in PK-Sim Version 10, and, therefore, do not correspond to the original values published by [Hanke 2020](#5-references). The result of the final parameter identification is shown in the table below:
 
 | Model Parameter            | Optimized Value | Unit |
 | -------------------------- | --------------- | ---- |
@@ -160,9 +177,14 @@ All values were reestimated in PK-Sim Version 10, and, therefore, do not corresp
 | kcat OAT3| 2522831.10 | 1/min |
 | kcat MATE1| 159.47 | 1/min |
 
+As a result of updating the cimetidine PBPK model to PK-Sim V10, the interaction parameter CYP3A4 K<sub>i</sub> was fitted in a second step to improve the performance in CYP3A4 interactions. In detail, CYP3A4 K<sub>i</sub> was adjusted such that the error of the simulated AUC ratios of cimetidine with several CYP3A4 substrates vs. corresponding observed AUC ratios of the clinical studies (see [Section 2.2.2.3](#2223-Model-update-due-to-PK-Sim-V10-conversion)) was minimized.
+
+| Model Parameter            | Optimized Value | Unit |
+| -------------------------- | --------------- | ---- |
+| CYP3A4 K<sub>i</sub>| 30.51266 | µmol/l |
 
 # 3 Results and Discussion
-The PBPK model for efavirenz was developed and evaluated using publicly available clinical pharmacokinetic data from studies listed in [Section 2.2.2](#222-clinical-data).
+The PBPK model for cimetidine was developed and evaluated using publicly available clinical pharmacokinetic data from studies listed in [Section 2.2.2](#222-clinical-data).
 
 The next sections show:
 
@@ -309,9 +331,9 @@ Molecule: CYP3A4
 
 ###### Parameters
 
-Name | Value      | Value Origin
----- | ---------- | ------------:
-Ki   | 268 µmol/l |             
+Name | Value           | Value Origin                                                                                                                
+---- | --------------- | ----------------------------------------------------------------------------------------------------------------------------
+Ki   | 30.51266 µmol/l | Parameter Identification-Parameter Identification-Value adjusted in parameter identification outside of PK-Sim on 2023-11-14
 
 
 
@@ -430,6 +452,8 @@ Simulated versus observed concentration-time profiles of all data listed in [Sec
 The herein presented PBPK model adequately describes the pharmacokinetics of cimetidine after intravenous and oral administration of single and multiple doses to healthy adults and peptic ulcer patients covering a broad dosing range from 100 to 800 mg. The established cimetidine PBPK model is verified for the use as a mild inhibitor of CYP3A4 drug in drug-drug interaction simulations.
 
 # 5 References
+**Abernethy 1983**  Abernethy DR,  Greenblatt DJ, Divoll M, Moschitto LJ, Harmatz JS, Shader RI.  Interaction of cimetidine with the triazolobenzodiazepines alprazolam  and triazolam. Psychopharmacology (Berl). 1983;80(3):275-8. doi:  10.1007/BF00436169.
+
 **Avdeef 2001** Avdeef A, Berger CM. pH-metric solubility. 3. Dissolution titration  template method for solubility determination. Eur J Pharm Sci. 2001  Dec;14(4):281-91. doi: 10.1016/s0928-0987(01)00190-7. PMID: 11684402.
 
 **Barbhaiya 1995** Barbhaiya RH, Shukla UA, Greene DS. Lack of interaction between  nefazodone and cimetidine: a steady state pharmacokinetic study in  humans. Br J Clin Pharmacol. 1995 Aug;40(2):161-5. doi:  10.1111/j.1365-2125.1995.tb05771.x. PMID: 8562300; PMCID: PMC1365177.
@@ -440,9 +464,15 @@ The herein presented PBPK model adequately describes the pharmacokinetics of cim
 
 **Burland 1975** Burland WL, Duncan WA, Hesselbo T, Mills JG, Sharpe PC, Haggie SJ,  Wyllie JH. Pharmacological evaluation of cimetidine, a new histamine  H2-receptor antagonist, in healthy man. Br J Clin Pharmacol. 1975  Dec;2(6):481-6. doi: 10.1111/j.1365-2125.1975.tb00564.x. PMID: 9952;  PMCID: PMC1402643.
 
+**Cox 1986** Cox SR, Kroboth PD, Anderson PH, Smith RB. Mechanism for the interaction between triazolam  and cimetidine. Biopharm Drug Dispos. 1986 Nov-Dec;7(6):567-75.
+
 **D'Angio 1986** D'Angio R, Mayersohn M, Conrad KA, Bliss M. Cimetidine absorption in  humans during sucralfate coadministration. Br J Clin Pharmacol. 1986  May;21(5):515-20. doi: 10.1111/j.1365-2125.1986.tb02834.x. PMID:  3755052; PMCID: PMC1401033.
 
+**Elliott 1984** Elliott P, Dundee  JW, Elwood RJ, Collier PS. The influence of H2 receptor antagonists on  the plasma concentrations of midazolam and temazepam. Eur J  Anaesthesiol. 1984 Sep;1(3):245-51.
+
 **Fee 1987** Fee JP, Collier PS, Howard PJ, Dundee JW. Cimetidine and ranitidine increase midazolam  bioavailability. Clin Pharmacol Ther. 1987 Jan;41(1):80-4. doi:  10.1038/clpt.1987.13. PMID: 3802710.
+
+**Friedman 1988** Friedman H,  Greenblatt DJ, Burstein ES, Scavone JM, Harmatz JS, Shader RI. Triazolam kinetics: interaction with cimetidine, propranolol, and the  combination. J Clin Pharmacol. 1988 Mar;28(3):228-33.
 
 **Grahnen 1979** Grahnén A, von Bahr C, Lindström B, Rosén A. Bioavailability and  pharmacokinetics of cimetidine. Eur J Clin Pharmacol. 1979  Nov;16(5):335-40. doi: 10.1007/BF00605632. PMID: 520401.
 
@@ -455,6 +485,8 @@ The herein presented PBPK model adequately describes the pharmacokinetics of cim
 **Kanto 1981** Kanto J, Allonen H, Jalonen H, Mäntylä R. The effect of metoclopramide  and propantheline on the gastrointestinal absorption of cimetidine. Br J Clin Pharmacol. 1981 Jun;11(6):629-31. doi:  10.1111/j.1365-2125.1981.tb01184.x. PMID: 7272182; PMCID: PMC1402204.
 
 **Kuepfer 2016** Kuepfer L, Niederalt C, Wendl T, Schlender JF, Willmann S, Lippert J, Block M, Eissing T, Teutonico D. Applied Concepts in PBPK Modeling: How to Build a PBPK/PD Model.CPT Pharmacometrics Syst Pharmacol. 2016 Oct;5(10):516-531.
+
+**Kienlen 1993** Kienlen, J., Levron, JC., Aubas, S. *et al.* Pharmacokinetics of Alfentanil in Patients Treated with Either Cimetidine or Ranitidine.  Drug Invest **6,** 257–262 (1993).
 
 **Larsson 1982** Larsson R, Erlanson P, Bodemar G, Walan A, Bertler A, Fransson L,  Norlander B. The pharmacokinetics of cimetidine and its sulphoxide  metabolite in patients with normal and impaired renal function. Br J  Clin Pharmacol. 1982 Feb;13(2):163-70. doi:  10.1111/j.1365-2125.1982.tb01351.x. PMID: 7059413; PMCID: PMC1402003.
 
@@ -473,6 +505,8 @@ The herein presented PBPK model adequately describes the pharmacokinetics of cim
 **Ohta 2005** Ohta KY, Inoue K, Yasujima T, Ishimaru M, Yuasa H. Functional  characteristics of two human MATE transporters: kinetics of cimetidine  transport and profiles of inhibition by various compounds. J Pharm Pharm Sci. 2009;12(3):388-96. doi: 10.18433/j3r59x. PMID: 20067714.
 
 **PK-Sim Ontogeny Database Version 7.3** (https://github.com/Open-Systems-Pharmacology/OSPSuite.Documentation/blob/38cf71b384cfc25cfa0ce4d2f3addfd32757e13b/PK-Sim%20Ontogeny%20Database%20Version%207.3.pdf)
+
+**Pourbaix 1985** Pourbaix S, Desager JP, Hulhoven R, Smith RB, Harvengt C. Pharmacokinetic consequences of  long term coadministration of cimetidine and triazolobenzodiazepines,  alprazolam and triazolam, in healthy subjects. Int J Clin Pharmacol Ther Toxicol. 1985 Aug;23(8):447-51.
 
 **Salonen 1986** Salonen M, Aantaa  E, Aaltonen L, Kanto J. Importance of the interaction of midazolam and  cimetidine. Acta Pharmacol Toxicol (Copenh). 1986 Feb;58(2):91-5. doi:  10.1111/j.1600-0773.1986.tb00076.x. PMID: 2939688.
 
@@ -497,5 +531,4 @@ The herein presented PBPK model adequately describes the pharmacokinetics of cim
 **Wishart 2006** Wishart DS, Knox C, Guo AC, Shrivastava S, Hassanali M, Stothard P,  Chang Z, Woolsey J. DrugBank: a comprehensive resource for in silico  drug discovery and exploration. Nucleic Acids Res. 2006 Jan  1;34(Database issue):D668-72. doi: 10.1093/nar/gkj067. PMID: 16381955;  PMCID: PMC1347430.
 
 **Wrighton 1994** Wrighton SA, Ring  BJ. Inhibition of human CYP3A catalyzed 1'-hydroxy midazolam formation  by ketoconazole, nifedipine, erythromycin, cimetidine, and nizatidine.  Pharm Res. 1994 Jun;11(6):921-4. doi: 10.1023/a:1018906614320. PMID:  7937537.
-
 
