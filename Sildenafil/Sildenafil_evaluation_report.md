@@ -4,9 +4,9 @@
 
 
 
-| Version                                         | 1.0-OSP11.2                                                   |
+| Version                                         | 1.1-OSP11.2                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
-| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Sildenafil-Model/releases/tag/v1.0 |
+| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Sildenafil-Model/releases/tag/v1.1 |
 | OSP Version                                     | 11.2                                                          |
 | Qualification Framework Version                 | 2.3                                                          |
 
@@ -197,12 +197,11 @@ This is the result of the final parameter identification for the base model:
 | ------------------------------------------------------------ | ------------------------------------------------------------ | --------- |
 | `Lipophilicity`                                              | 2.84                                                         | Log Units |
 | `Fraction unbound`                                           | 0.04 (FIXED)                                                 |           |
-| `Organ permeability`                                         | 0.08                                                         | cm/min    |
-| `Specific intestinal permeability`                           | 4.48E-4                                                      | cm/min    |
-| Basolateral mucosa permeability<br />(``P (interstitial->intracellular)``, ``P (intracellular->interstitial)``) | 1.78E-3   | cm/min    |
-| `kcat` (CYP3A4)                                              | 29.81                                                        | 1/min     |
-| `kcat` (CYP2C9)                                              | 3.52                                                         | 1/min     |
-| `kcat` (CYP2C19)                                             | 1.78                                                         | 1/min     |
+| `Specific intestinal permeability`                           | 1.21E-3                                                      | cm/min    |
+| Basolateral mucosa permeability<br />(``P (interstitial->intracellular)``, ``P (intracellular->interstitial)``) | 6.07E-4   | cm/min    |
+| `kcat` (CYP3A4)                                              | 27.21                                                        | 1/min     |
+| `kcat` (CYP2C9)                                              | 3.22                                                         | 1/min     |
+| `kcat` (CYP2C19)                                             | 1.62                                                         | 1/min     |
 | `Dissolution time`                                           | 4.16 (FIXED)                                                 | min       |
 | `Dissolution shape`                                          | 1.37 (FIXED)                                                 |           |
 
@@ -234,12 +233,12 @@ Type: Weibull
 
 #### Parameters
 
-Name                             | Value        | Value Origin                                                                                                     
--------------------------------- | ------------ | -----------------------------------------------------------------------------------------------------------------
-Dissolution time (50% dissolved) | 4.164698 min | Parameter Identification-Parameter Identification-Value updated from 'PI_All_DissoKineticFit' on 2022-08-12 15:40
-Lag time                         | 0 min        |                                                                                                                  
-Dissolution shape                | 1.37405      | Parameter Identification-Parameter Identification-Value updated from 'PI_All_DissoKineticFit' on 2022-08-12 15:40
-Use as suspension                | Yes          |                                                                                                                  
+Name                             | Value        | Value Origin                                                                                                                  
+-------------------------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------
+Dissolution time (50% dissolved) | 4.164698 min | Parameter Identification-Parameter Identification-Value updated from 'PI_All_DissoKineticFit_P calculated' on 2023-03-24 17:29
+Lag time                         | 0 min        |                                                                                                                               
+Dissolution shape                | 1.37405      | Parameter Identification-Parameter Identification-Value updated from 'PI_All_DissoKineticFit_P calculated' on 2023-03-24 17:29
+Use as suspension                | Yes          |                                                                                                                               
 
 
 
@@ -247,19 +246,19 @@ Use as suspension                | Yes          |
 
 #### Parameters
 
-Name                                             | Value                   | Value Origin                                                                                                      | Alternative   | Default
------------------------------------------------- | ----------------------- | ----------------------------------------------------------------------------------------------------------------- | ------------- | -------
-Solubility at reference pH                       | 3.5 mg/l                | Publication-Salerno 2021                                                                                          | Measurement   | True   
-Reference pH                                     | 7                       | Publication-Salerno 2021                                                                                          | Measurement   | True   
-Solubility at reference pH                       | 100 mg/l                | Other-Assumption                                                                                                  | Oral solution | False  
-Reference pH                                     | 7                       | Other-Assumption                                                                                                  | Oral solution | False  
-Lipophilicity                                    | 2.8411110506 Log Units  | Parameter Identification-Parameter Identification-Value updated from 'PI_All_DissoKineticFit' on 2022-08-12 15:40 | Measurement   | True   
-Fraction unbound (plasma, reference value)       | 0.04                    | Parameter Identification-Parameter Identification-Value updated from 'PI_All_DissoKineticFit' on 2022-08-12 15:40 | Measurement   | True   
-Permeability                                     | 0.0758702742 cm/min     | Parameter Identification-Parameter Identification-Value updated from 'PI_All_DissoKineticFit' on 2022-08-12 15:40 | Optimized     | True   
-Specific intestinal permeability (transcellular) | 0.00044843836067 cm/min | Parameter Identification-Parameter Identification-Value updated from 'PI_All_DissoKineticFit' on 2022-08-12 15:40 | Optimized     | True   
-Is small molecule                                | Yes                     |                                                                                                                   |               |        
-Molecular weight                                 | 474.58 g/mol            | Internet-DrugBank DB00203                                                                                         |               |        
-Plasma protein binding partner                   | α1-acid glycoprotein    |                                                                                                                   |               |        
+Name                                             | Value                  | Value Origin                                                                                                                   | Alternative   | Default
+------------------------------------------------ | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------ | ------------- | -------
+Solubility at reference pH                       | 3.5 mg/l               | Publication-Salerno 2021                                                                                                       | Measurement   | True   
+Reference pH                                     | 7                      | Publication-Salerno 2021                                                                                                       | Measurement   | True   
+Solubility at reference pH                       | 100 mg/l               | Other-Assumption                                                                                                               | Oral solution | False  
+Reference pH                                     | 7                      | Other-Assumption                                                                                                               | Oral solution | False  
+Lipophilicity                                    | 2.8413676507 Log Units | Parameter Identification-Parameter Identification-Value updated from 'PI_All_DissoKineticFit_P calculated' on 2023-03-24 17:29 | Measurement   | True   
+Fraction unbound (plasma, reference value)       | 0.04                   | Parameter Identification-Parameter Identification-Value updated from 'PI_All_DissoKineticFit_P calculated' on 2023-03-24 17:29 | Measurement   | True   
+Permeability                                     | 0.0758702742 cm/min    | Parameter Identification-Parameter Identification-Value updated from 'PI_All_DissoKineticFit' on 2022-08-12 15:40              | Optimized     | False  
+Specific intestinal permeability (transcellular) | 0.0012071993309 cm/min | Parameter Identification-Parameter Identification-Value updated from 'PI_All_DissoKineticFit_P calculated' on 2023-03-24 17:29 | Optimized     | True   
+Is small molecule                                | Yes                    |                                                                                                                                |               |        
+Molecular weight                                 | 474.58 g/mol           | Internet-DrugBank DB00203                                                                                                      |               |        
+Plasma protein binding partner                   | α1-acid glycoprotein   |                                                                                                                                |               |        
 
 
 #### Calculation methods
@@ -278,11 +277,11 @@ Molecule: CYP2C19
 
 ###### Parameters
 
-Name                             | Value                                | Value Origin                                                                                                     
--------------------------------- | ------------------------------------ | -----------------------------------------------------------------------------------------------------------------
-In vitro Vmax/recombinant enzyme | 0.01009105 pmol/min/pmol rec. enzyme | Publication-Warrington 2000                                                                                      
-Km                               | 23.1 µmol/l                          | Publication-Warrington 2000                                                                                      
-kcat                             | 1.777778489 1/min                    | Parameter Identification-Parameter Identification-Value updated from 'PI_All_DissoKineticFit' on 2022-08-12 15:40
+Name                             | Value                                | Value Origin                                                                                                                  
+-------------------------------- | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------
+In vitro Vmax/recombinant enzyme | 0.01009105 pmol/min/pmol rec. enzyme | Publication-Warrington 2000                                                                                                   
+Km                               | 23.1 µmol/l                          | Publication-Warrington 2000                                                                                                   
+kcat                             | 1.6232116026 1/min                   | Parameter Identification-Parameter Identification-Value updated from 'PI_All_DissoKineticFit_P calculated' on 2023-03-24 17:29
 
 
 ##### Metabolizing Enzyme: CYP2C9-Warrington
@@ -291,11 +290,11 @@ Molecule: CYP2C9
 
 ###### Parameters
 
-Name                             | Value                          | Value Origin                                                                                                     
--------------------------------- | ------------------------------ | -----------------------------------------------------------------------------------------------------------------
-In vitro Vmax/recombinant enzyme | 0.02 pmol/min/pmol rec. enzyme | Publication-Warrington 2000                                                                                      
-Km                               | 9.6 µmol/l                     | Publication-Warrington 2000                                                                                      
-kcat                             | 3.5234757314 1/min             | Parameter Identification-Parameter Identification-Value updated from 'PI_All_DissoKineticFit' on 2022-08-12 15:40
+Name                             | Value                          | Value Origin                                                                                                                  
+-------------------------------- | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------
+In vitro Vmax/recombinant enzyme | 0.02 pmol/min/pmol rec. enzyme | Publication-Warrington 2000                                                                                                   
+Km                               | 9.6 µmol/l                     | Publication-Warrington 2000                                                                                                   
+kcat                             | 3.2171312254 1/min             | Parameter Identification-Parameter Identification-Value updated from 'PI_All_DissoKineticFit_P calculated' on 2023-03-24 17:29
 
 
 ##### Metabolizing Enzyme: CYP3A4-Warrington
@@ -304,11 +303,11 @@ Molecule: CYP3A4
 
 ###### Parameters
 
-Name                             | Value                                | Value Origin                                                                                                     
--------------------------------- | ------------------------------------ | -----------------------------------------------------------------------------------------------------------------
-In vitro Vmax/recombinant enzyme | 0.16918611 pmol/min/pmol rec. enzyme | Publication-Warrington 2000                                                                                      
-Km                               | 23.1 µmol/l                          | Publication-Warrington 2000                                                                                      
-kcat                             | 29.8061576339 1/min                  | Parameter Identification-Parameter Identification-Value updated from 'PI_All_DissoKineticFit' on 2022-08-12 15:40
+Name                             | Value                                | Value Origin                                                                                                                  
+-------------------------------- | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------
+In vitro Vmax/recombinant enzyme | 0.16918611 pmol/min/pmol rec. enzyme | Publication-Warrington 2000                                                                                                   
+Km                               | 23.1 µmol/l                          | Publication-Warrington 2000                                                                                                   
+kcat                             | 27.2146958692 1/min                  | Parameter Identification-Parameter Identification-Value updated from 'PI_All_DissoKineticFit_P calculated' on 2023-03-24 17:29
 
 
 
@@ -322,7 +321,7 @@ The first plot shows observed versus simulated plasma concentration, the second 
 
 ![002_plotGOFMergedResidualsOverTime.png](images/003_3_Results_and_Discussion/002_3_2_Diagnostics_Plots/002_plotGOFMergedResidualsOverTime.png)
 
-GMFE = 1.521820 
+GMFE = 1.621730 
 
 ## 3.3 Concentration-Time Profiles
 Simulated versus observed concentration-time profiles of all data listed in [Section 2.2.2](#222-clinical-data) are presented below.
@@ -364,14 +363,6 @@ Simulated versus observed concentration-time profiles of all data listed in [Sec
 ![003_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/003_plotTimeProfile.png)
 
 ![004_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/004_plotTimeProfile.png)
-
-![005_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/005_plotTimeProfile.png)
-
-![006_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/006_plotTimeProfile.png)
-
-![007_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/007_plotTimeProfile.png)
-
-![008_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/008_plotTimeProfile.png)
 
 # 4 Conclusion
 The herein presented PBPK model adequately describes the pharmacokinetics of sildenafil in adults.
