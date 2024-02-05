@@ -3,7 +3,7 @@
 
 | Version                                         | 1.3-OSP11.2                                                         |
 | ----------------------------------------------- | ------------------------------------------------------------ |
-| based on *Model Snapshot* and *Evaluation Plan* | 1.1<br />(https://github.com/Open-Systems-Pharmacology/Carbamazepine-Model/releases/tag/v1.3) |
+| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Carbamazepine-Model/releases/tag/v1.3|
 | OSP Version                                     | 11.2                                                         |
 | Qualification Framework Version                 | 2.3                                                          |
 
