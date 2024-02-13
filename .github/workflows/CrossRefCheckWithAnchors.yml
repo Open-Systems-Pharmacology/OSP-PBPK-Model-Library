@@ -1,7 +1,9 @@
 name: CrossRefCheck with Anchors
 
 on: 
-  push:
+  pull_request:
+    branches:
+      - develop
 
 jobs:
   crossref-check-with-anchors:
