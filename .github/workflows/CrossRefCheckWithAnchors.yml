@@ -1,0 +1,10 @@
+name: CrossRefCheck with Anchors
+
+on: 
+  pull_request:
+    branches:
+      - develop
+
+jobs:
+  crossref-check-with-anchors:
+    uses: Open-Systems-Pharmacology/Workflows/.github/workflows/MarkdownCrossrefCheck_withAnchors.yml@main
