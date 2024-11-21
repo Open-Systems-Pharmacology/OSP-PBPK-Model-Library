@@ -10,6 +10,7 @@ runEvaluationReport <- function(modelIndex, modelsData, toolsData) {
     return()
   }
   library(ospsuite.reportingengine)
+  ospsuite::clearMemory(clearSimulationsCache = TRUE)
 
   qualificationProject <- modelsData$`Repository name`[modelIndex]
   snapshotFile <- paste0(modelsData$`Snapshot name`[modelIndex], ".json")
