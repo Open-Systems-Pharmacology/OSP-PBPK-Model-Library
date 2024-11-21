@@ -29,18 +29,6 @@ jobs:
         rmarkdown::render("README.Rmd", encoding = "UTF-8")
       shell: Rscript {0}  
 
-    - name: Commit and push test files
-      run: |
-        git config --local user.email "actions@github.com"
-        git config --local user.name "${{ github.actor }}"
-        git add */images || echo "No image to add"
-        git add */*.md ||  echo "No md report to add"
-        git add */*.pdf ||  echo "No pdf report to add"
-        git add */*.pksim5 ||  echo "No model to add"
-        git add README.md ||  echo "No Readme to add"
-        git commit -m "Added/modified evaluation reports" || echo "No changes to commit"
-        git push origin
-
 # Create a pull request to the develop branch
 # Adding reviewers/assignees for example
     - name: Create Pull Request
@@ -48,6 +36,12 @@ jobs:
       with:
         branch: ${{ github.ref_name }}
         base: develop
+        add-paths: |
+            */images/**
+            */*.pdf
+            */*.pksim5
+            */*.md
+            README.md
         title: 'Update Evaluation Reports'
         body: |
           Update Evaluation Reports #83
