@@ -47,6 +47,7 @@ jobs:
       uses: peter-evans/create-pull-request@v7
       with:
         branch: ${{ github.ref_name }}
+        base: develop
         title: 'Update Evaluation Reports'
         body: |
           Update Evaluation Reports #83
