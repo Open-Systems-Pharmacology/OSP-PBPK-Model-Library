@@ -64,7 +64,8 @@ runEvaluationReport <- function(modelIndex, modelsData, toolsData) {
   #' If not set, report created will be named `report.md` and located in the workflow folder namely `reOutputFolder`
   #' Here, the report will be copied in the test reports at the end of the workflow
   reportFolder <- qualificationProject
-  reportPath <- file.path(reportFolder, "Report.md")
+  reportPath <- file.path(reportFolder, paste0(modelsData$`Snapshot name`[modelIndex] , "_evaluation_report.md"))
+  
 
   #' @description Start **Qualification Runner** to generate inputs for the reporting engine
   #' @param logFile If not `null` is passed internally via the `-l` option
@@ -118,4 +119,11 @@ runEvaluationReport <- function(modelIndex, modelsData, toolsData) {
     to = reportFolder,
     overwrite = TRUE
   )
+
+  # Convert markdown to html for pdf conversion
+  knitr::pandoc(
+    reportPath, 
+    paste("html", "--embed-resources", "--standalone", "-c \"osp.css\"")
+    )
+  
 }
