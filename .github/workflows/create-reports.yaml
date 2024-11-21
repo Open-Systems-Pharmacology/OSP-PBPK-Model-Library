@@ -37,6 +37,7 @@ jobs:
         git add */*.md ||  echo "No md report to add"
         git add */*.pdf ||  echo "No pdf report to add"
         git add */*.pksim5 ||  echo "No model to add"
+        git add README.md ||  echo "No Readme to add"
         git commit -m "Added/modified evaluation reports" || echo "No changes to commit"
         git push ${{ github.ref_name }}
 
