@@ -33,18 +33,22 @@ jobs:
       run: |
         git config --local user.email "actions@github.com"
         git config --local user.name "${{ github.actor }}"
-        git add --all -- :!QualificationRunner :!PK-Sim || echo "No changes"
+        git add */images || echo "No image to add"
+        git add */*.md ||  echo "No md report to add"
+        git add */*.pdf ||  echo "No pdf report to add"
+        git add */*.pksim5 ||  echo "No model to add"
+        git add README.md ||  echo "No Readme to add"
         git commit -m "Added/modified evaluation reports" || echo "No changes to commit"
-        git push origin
+        git push ${{ github.ref_name }}
 
 # Create a pull request to the develop branch
-# Added reviewers/assignees for example
+# Adding reviewers/assignees for example
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v7
       with:
-        branch: develop
+        branch: ${{ github.ref_name }}
         title: 'Update Evaluation Reports'
         body: |
           Update Evaluation Reports #83
-        assignees: pchelle
+        assignees: ${{ github.actor }}
         reviewers: pchelle
