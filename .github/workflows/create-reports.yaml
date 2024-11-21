@@ -39,7 +39,7 @@ jobs:
         git add */*.pksim5 ||  echo "No model to add"
         git add README.md ||  echo "No Readme to add"
         git commit -m "Added/modified evaluation reports" || echo "No changes to commit"
-        git push ${{ github.ref_name }}
+        git push origin
 
 # Create a pull request to the develop branch
 # Adding reviewers/assignees for example
