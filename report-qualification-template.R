@@ -13,7 +13,8 @@ runEvaluationReport <- function(modelIndex, modelsData, toolsData) {
   ospsuite::clearMemory(clearSimulationsCache = TRUE)
 
   qualificationProject <- modelsData$`Repository name`[modelIndex]
-  snapshotFile <- paste0(modelsData$`Snapshot name`[modelIndex], ".json")
+  modelName <- modelsData$`Snapshot name`[modelIndex]
+  snapshotFile <- paste0(modelName, ".json")
   workingDirectory <- normalizePath(qualificationProject, mustWork = FALSE, winslash = "/")
   qualificationRunnerFolder <- "QualificationRunner/QualificationRunner"
   pkSimPortableFolder <- "PK-Sim/PK-Sim"
@@ -65,7 +66,7 @@ runEvaluationReport <- function(modelIndex, modelsData, toolsData) {
   #' If not set, report created will be named `report.md` and located in the workflow folder namely `reOutputFolder`
   #' Here, the report will be copied in the test reports at the end of the workflow
   reportFolder <- qualificationProject
-  reportPath <- file.path(reportFolder, paste0(modelsData$`Snapshot name`[modelIndex] , "_evaluation_report.md"))
+  reportPath <- file.path(reportFolder, paste0(modelName, "_evaluation_report.md"))
   
 
   #' @description Start **Qualification Runner** to generate inputs for the reporting engine
@@ -127,7 +128,7 @@ runEvaluationReport <- function(modelIndex, modelsData, toolsData) {
     paste("html", "--embed-resources", "--standalone", "-c \"osp.css\"")
     )
 
-  # Use PKSim CLI to create .pksim5 file
+  # Use PKSim CLI to create project named report-configuration-plan.pksim5 by default
   pkSimPath <- normalizePath(file.path(pkSimPortableFolder, "PKSim.CLI.exe"), mustWork = FALSE)
   cmdLine <- paste(
     pkSimPath,
@@ -137,5 +138,8 @@ runEvaluationReport <- function(modelIndex, modelsData, toolsData) {
     "-p"
     )
   system(cmdLine)
-  
+  file.rename(
+    file.path(reportFolder, "report-configuration-plan.pksim5"),
+    file.path(reportFolder, paste0(modelName, ".pksim5"))
+    )
 }
