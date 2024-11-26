@@ -20,9 +20,6 @@ jobs:
     - name: Setup Pandoc for html conversion
       uses: r-lib/actions/setup-pandoc@v2
 
-    - name: Setup wkhtmltopdf for pdf conversion
-      uses: DistruApp/github-action-setup-wkhtmltopdf/action.yml@master
-
     - name: Install OSPSuite tools
       run: |
         Rscript install_tools.R
