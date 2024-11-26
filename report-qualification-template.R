@@ -126,5 +126,16 @@ runEvaluationReport <- function(modelIndex, modelsData, toolsData) {
     reportPath, 
     paste("html", "--embed-resources", "--standalone", "-c \"osp.css\"")
     )
+
+  # Use PKSim CLI to create .pksim5 file
+  pkSimPath <- normalizePath(file.path(pkSimPortableFolder, "PKSim.CLI.exe"), mustWork = FALSE)
+  cmdLine <- paste(
+    pkSimPath,
+    "snap",
+    "-i", reInputFolder, 
+    "-o", reportFolder,
+    "-p"
+    )
+  system(cmdLine)
   
 }
