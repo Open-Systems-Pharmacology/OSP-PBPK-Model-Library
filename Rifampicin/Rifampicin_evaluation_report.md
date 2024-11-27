@@ -1,23 +1,5 @@
-# Building and evaluation of a PBPK model for Rifampicin in healthy adults
-
-
-
-
-
-| Version                                         | 1.2-OSP11.2                                                   |
-| ----------------------------------------------- | ------------------------------------------------------------ |
-| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Rifampicin-Model/releases/tag/v1.2 |
-| OSP Version                                     | 11.2                                                          |
-| Qualification Framework Version                 | 2.3                                                          |
-
-
-
-
-
-This evaluation report and the corresponding PK-Sim project file are filed at:
-
-https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/
-# Table of Contents
+# Building and evaluation of a PBPK model for Rifampicin in healthy adults| Version                                         | 1.3-OSP11.3                                                   || ----------------------------------------------- | ------------------------------------------------------------ || based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Rifampicin-Model/releases/tag/v1.3 || OSP Version                                     | 11.3                                                          || Qualification Framework Version                 | 2.3                                                          |This evaluation report and the corresponding PK-Sim project file are filed at:https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/
+# Table of Contents
   * [1 Introduction](#1-introduction)
   * [2 Methods](#2-methods)
     * [2.1 Modeling Strategy](#21-modeling-strategy)
@@ -32,7 +14,7 @@ https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/
 # 1 Introduction
 Rifampicin is an antibiotic used for the treatment of mycobacterium infections, including tuberculosis and leprosy. For the investigation of DDIs, rifampicin is an established potent inducer of multiple drug metabolizing enzymes (CYP3A4, CYP2B6, CYP2C8, CYP2C9, CYP2C19) and transporters (P-gp, MRP2, MRP3, MRP4, OATP1A2). In addition to its inducing capabilities, rifampicin also competitively inhibits enzymes and transporters like CYP3A4, P-gp, OATP1B1 and OATP1B3.
 
-The herein presented model represents the rifampicin model originally published by Hanke *et al.* ([Hanke 2018](#5-references)), and extended in later publications ([Britz 2019](#5-references), [Türk 2019](#5-references)). The model was originally established using various clinical studies, covering a dosing range of 300 to 600 mg after intravenous and oral administration of rifampicin. The original model focused specifically on the integration of effects on **CYP3A4** and **P-gp** by rifampicin. Britz *et al.* ([Britz 2019](#5-references)) integrated rifampicin-mediated induction of **CYP1A2** (and CYP2E1) and Türk *et al.* ([Türk 2019](#5-references)) extended the model with regard to effects on **CYP2C8** and **OATP1B1**.
+The herein presented model represents the rifampicin model originally published by Hanke *et al.* ([Hanke 2018](#5-references)), and extended in later publications ([Britz 2019](#5-references), [Türk 2019](#5-references), [Hanke 2021](#5-references)). The model was originally established using various clinical studies, covering a dosing range of 300 to 600 mg after intravenous and oral administration of rifampicin. The original model focused specifically on the integration of effects on **CYP3A4** and **P-gp** by rifampicin. Britz *et al.* ([Britz 2019](#5-references)) integrated rifampicin-mediated induction of **CYP1A2** (and CYP2E1), Türk *et al.* ([Türk 2019](#5-references)) extended the model with regard to effects on **CYP2C8** and **OATP1B1**. Later, [Hanke 2021](#5-references) updated **P-gp**, **OATP1B1** and **OATP1B3** interaction and added **CYP2C9**, **BCRP** and **OATP2B1** interaction.
 
 It is known that for both CYP3A4 and P-gp, rifampicin shows inductive and inhibitory effects. While induction by rifampicin involves gene expression and therefore takes several days to fully develop, competitive inhibition has an instantaneous effect and is strongest at the time of highest exposure to the inhibitor. As a consequence, the effects of rifampicin caused via competitive inhibition are most prominent 1-2 h after its oral administration and of relatively short duration. These opposing effects of rifampicin can be reasonably considered in PBPK models. 
 
@@ -90,11 +72,14 @@ A literature search was performed to collect available information on physicoche
 | E<sub>max</sub>, EC<sub>50</sub> CYP3A4 | *dimensionless*<br />µmol/L        | 9<br />0.34      | [Templeton 2011](#5-references)   | CYP3A4 induction parameters in primary human hepatocytes,<br />EC<sub>50</sub> corrected for fraction unbound in human hepatocytes of 0.419 as reported by [Shou 2008](#5-references) |
 | K<sub>i</sub> CYP3A4                    | µmol/L                             | 18.5             | [Kajosaari 2005](#5-references)    | CYP3A4 inhibition constant                                   |
 | E<sub>max</sub> P-gp                    | *dimensionless*                    | 2.5              | [Greiner 1999](#5-references)     | P-gp induction parameter based on an increased intestinal P-gp content in duodenal biopsies of 3.5 after rifampicin treatment |
-| K<sub>i</sub> P-gp                      | µmol/L                             | 169.0            | [Reitman 2011](#5-references)     | P-gp inhibition constant                                     |
-| K<sub>i</sub> OATP1B1                   | µmol/L                             | 0.477            | [Hirano 2006](#5-references)      | OATP1B1 inhibition constant (based on OATP1B1-mediated pitavastatin uptake) |
-| K<sub>i</sub> OATP1B3                   | µmol/L                             | 0.9              | [Annaert 2010](#5-references)      | OATP1B3 inhibition constant                                  |
+| K<sub>i</sub> P-gp                      | µmol/L                             | 9.1 (169.0)  | [Hanke 2021](#5-references) ([Reitman 2011](#5-references)) | P-gp inhibition constant                                     |
+| K<sub>i</sub> BCRP                      | µmol/L                             | 14 | [Hanke 2021](#5-references), [Prueksaritanont 2014](#5-references)) | BCRP inhibition constant                                  |
+| K<sub>i</sub> OATP1B1                   | µmol/L                             | 0.29 (0.477)     | [Hanke 2021](#5-references), ([Hirano 2006](#5-references)) | OATP1B1 inhibition constant (based on OATP1B1-mediated pitavastatin uptake) |
+| K<sub>i</sub> OATP1B3                   | µmol/L                             | 0.5 (0.9)        | [Hanke 2021](#5-references), ([Annaert 2010](#5-references)) | OATP1B3 inhibition constant                                  |
+| K<sub>i</sub> OATP2B1                   | µmol/L                             | 78.2           | [Hanke 2021](#5-references), [Zhang 2019](#5-references) | OATP2B1 inhibition constant                                  |
 | E<sub>max</sub> CYP2C8                  | *dimensionless*                    | 3.2              | [Buckley 2014](#5-references)      | CYP2C8 E<sub>max</sub> in primary human hepatocytes (based on activity) |
 | K<sub>i</sub> CYP2C8                    | µmol/L                             | 30.2             | [Kajosaari 2005](#5-references)    | CYP2C8 inhibition constant                                   |
+| K<sub>i</sub> CYP2C9                    | µmol/L                             | 150           | [Hanke 2021](#5-references), [Yoshida 2012](#5-references) | CYP2C9 inhibition constant                                   |
 | E<sub>max</sub> CYP1A2                  | *dimensionless*                    | 0.65             | [Chen 2010](#5-references)         | CYP1A2 E<sub>max</sub> in cultured human hepatocytes (based on activity) |
 | E<sub>max</sub> CYP2E1                  | *dimensionless*                    | 0.8              | [Rae 2001](#5-references)          | CYP2E1 fold induction of 1.8 calculated as the normalized ratio of expression in rifampin-treated versus vehicle control-treated cells |
 
@@ -196,23 +181,6 @@ Competitive inhibition of CYP3A4 by rifampicin was included using a dissociation
 
 Time to reach newly induced CYP3A4 levels and time for de-induction depends on the half-lives of the perpetrator drug but also of the endogenous natural turnover of the induced protein. CYP3A4 turnover featured zero-order synthesis rate and first-order degradation rate. A distinct degradation rate constant (k<sub>deg</sub>) was considered for the intestinal mucosa which rather reflects enterocytic turnover than protein turnover, while in all other CYP3A4 expressing organs CYP3A4 turnover was assumed to follow that of the liver. **CYP3A4 half-life** (= ln(2)/k<sub>deg</sub>) of 23 and 36 h in intestine and liver, respectively, were incorporated ([Obach 2007](#5-references), [Greenblatt 2003](#5-references), [PK-Sim Ontogeny Database Version 7.3](#5-references)).
 
-#### P-gp induction and inhibition
-P-gp induction is described above.
-
-An *in vitro* determined K<sub>i</sub> value for rifampicin ([Reitman 2011](#5-references)) served directly as model input (see [Section 2.2.1](#221-in-vitro-and-physicochemical-data)).
-
-#### OATP1B1 induction and inhibition
-
-OATP1B1 induction is described above. 
-
-An *in vitro* determined K<sub>i</sub> value for rifampicin ([Hirano 2006](#5-references)) served directly as model input (see [Section 2.2.1](#221-in-vitro-and-physicochemical-data)).
-
-#### OATP1B3 induction and inhibition
-
-The same parameters as for OATP1B1 induction were assumed.
-
-An *in vitro* determined K<sub>i</sub> value for rifampicin ([Annaert 2010](#5-references)) served directly as model input (see [Section 2.2.1](#221-in-vitro-and-physicochemical-data)).
-
 #### CYP2C8 induction and inhibition
 
 For PXR-mediated induction, the same unbound EC<sub>50</sub> of 0.34 µmol/L (originally measured in primary human hepatocytes for CYP3A4 induction after correcting for the fraction unbound ([Baneyx 2014](#5-references), [Shou 2008](#5-references), [Templeton 2011](#5-references))) was applied (see above).
@@ -222,6 +190,10 @@ An E<sub>max</sub> value reported by Buckley *et al.* ([Buckley 2014](#5-referen
 CYP2C8 half-life of 23 h in the liver ([Renwick 2000](#5-references), [PK-Sim Ontogeny Database Version 7.3](#5-references)) and of 23 h in the intestine (assuming that the turnover here rather reflects enterocytic turnover than protein turnover) ([Greenblatt 2003](#5-references), [PK-Sim Ontogeny Database Version 7.3](#5-references)) were incorporated.
 
 An *in vitro* determined K<sub>i</sub> value for rifampicin ([Kajosaari 2005](#5-references)) served directly as model input.
+
+#### CYP2C9 inhibition
+
+Competitive inhibition of CYP2C9 by rifampicin was included using a dissociation (inhibition) constant (**K<sub>i</sub>**) of 150 µmol/L ([Yoshida 2012](#5-references), [Hanke 2021](#5-references)).
 
 #### CYP1A2 induction
 
@@ -239,18 +211,48 @@ An E<sub>max</sub> value reported by Rae *et al.* ([Rae 2001](#5-references)) se
 
 CYP2E1 half-life of 50 h in the liver ([Emery 1999](#5-references), [PK-Sim Ontogeny Database Version 7.3](#5-references)) and of 23 h in the intestine (assuming that the turnover here rather reflects enterocytic turnover than protein turnover) ([Greenblatt 2003](#5-references), [PK-Sim Ontogeny Database Version 7.3](#5-references)) were incorporated.
 
+#### P-gp induction and inhibition
+P-gp induction is described above.
+
+An *in vitro* determined K<sub>i</sub> value for rifampicin ([Reitman 2011](#5-references)) was updated by [Hanke 2021](#5-references) and served as model input (see [Section 2.2.1](#221-in-vitro-and-physicochemical-data)).
+
+#### BCRP inhibition
+
+Competitive inhibition of CYP2C9 by rifampicin was included using a dissociation (inhibition) constant (**K<sub>i</sub>**) of 14 µmol/L ([Prueksaritanont 2014](#5-references), [Hanke 2021](#5-references)).
+
+#### OATP1B1 induction and inhibition
+
+OATP1B1 induction is described above. 
+
+An *in vitro* determined K<sub>i</sub> value for rifampicin ([Hirano 2006](#5-references)) was updated by [Hanke 2021](#5-references) and served as model input (see [Section 2.2.1](#221-in-vitro-and-physicochemical-data)).
+
+#### OATP1B3 induction and inhibition
+
+The same parameters as for OATP1B1 induction were assumed.
+
+An *in vitro* determined K<sub>i</sub> value for rifampicin ([Annaert 2010](#5-references)) was updated by [Hanke 2021](#5-references) and served as model input (see [Section 2.2.1](#221-in-vitro-and-physicochemical-data)).
+
+#### OATP2B1 inhibition
+
+Competitive inhibition of CYP2C9 by rifampicin was included using a dissociation (inhibition) constant (**K<sub>i</sub>**) of 78.2 µmol/L ([Zhang 2019](#5-references), [Hanke 2021](#5-references)).
+
+
+
 #### Summary DDI Parameters
 
 | Protein | K<sub>i</sub><br />[µmol/L] | E<sub>max</sub><br />                                | EC<sub>50,u</sub><br />[µmol/L] | Half-life<br />liver [h] | Half-life<br />intestine [h] |
 | ------- | --------------------------- | ---------------------------------------------------- | ------------------------------- | ------------------------ | ---------------------------- |
 | CYP1A2  | -                           | 0.65                                                 | 0.34                            | 39                       | 23 (assumed)                 |
 | CYP2C8  | 30.2                        | 3.2                                                  | 0.34                            | 23                       | 23 (assumed)                 |
+| CYP2C9  | 150                         | -                                                    | -                               | -                        | -                            |
 | CYP2E1  | -                           | 0.8                                                  | 0.34                            | 50                       | 23 (assumed)                 |
 | CYP3A4  | 18.5                        | 9                                                    | 0.34                            | 36                       | 23                           |
 | AADAC   | -                           | [optimized](#235-automated-parameter-identification) | 0.34                            | 36 (assumed)             | 23 (assumed)                 |
-| P-gp    | 169                         | [optimized](#235-automated-parameter-identification) | 0.34                            | 36 (assumed)             | 23 (assumed)                 |
+| P-gp    | 9.1                         | [optimized](#235-automated-parameter-identification) | 0.34                            | 36 (assumed)             | 23 (assumed)                 |
+| BCRP    | 14                          | -                                                    | -                               | -                        | -                            |
 | OATP1B1 | 0.477                       | [optimized](#235-automated-parameter-identification) | 0.34                            | 36 (assumed)             | 23 (assumed)                 |
 | OATP1B3 | 0.9                         | assumed to be equal to OATP1B1                       | 0.34                            | 36 (assumed)             | 23 (assumed)                 |
+| OATP2B1 | 78.2                        | -                                                    | -                               | -                        | -                            |
 
 
 
@@ -367,76 +369,6 @@ Name         | Value | Value Origin
 GFR fraction |     1 | Publication-Assumption-Hanke et al. 2018
 
 
-##### Inhibition: CYP3A4-Kajosaari 2005
-
-Molecule: CYP3A4
-
-###### Parameters
-
-Name | Value       | Value Origin                     
----- | ----------- | ---------------------------------
-Ki   | 18.5 µmol/l | Publication-Kajosaari et al. 2005
-
-
-##### Inhibition: P-gp-Reitman 2011
-
-Molecule: P-gp
-
-###### Parameters
-
-Name | Value      | Value Origin                                                                    
----- | ---------- | --------------------------------------------------------------------------------
-Ki   | 169 µmol/l | Publication-Assumption-Reitman 2011 (IC50 = Ki (169 µM / (1+ (0.1 µM / 177 µM) )
-
-
-##### Induction: CYP3A4-Templeton 2011
-
-Molecule: CYP3A4
-
-###### Parameters
-
-Name | Value       | Value Origin                                      
----- | ----------- | --------------------------------------------------
-EC50 | 0.34 µmol/l | Publication-Templeton 2011 (weighted mean for FHH)
-Emax | 9           | Publication-Templeton 2011 (weighted mean for FHH)
-
-
-##### Induction: P-gp-Greiner 1999
-
-Molecule: P-gp
-
-###### Parameters
-
-Name | Value       | Value Origin                              
----- | ----------- | ------------------------------------------
-EC50 | 0.34 µmol/l | Publication-Assumption-Hanke et al. 2018  
-Emax | 2.5         | Publication-Assumption-Greiner et al. 1999
-
-
-##### Induction: OATP1B1-Dixit 2007
-
-Molecule: OATP1B1
-
-###### Parameters
-
-Name | Value       | Value Origin                                          
----- | ----------- | ------------------------------------------------------
-EC50 | 0.34 µmol/l | Publication-Assumption-Hanke et al. 2018              
-Emax | 0.383       | Publication-Parameter Identification-Hanke et al. 2018
-
-
-##### Induction: AADAC-Assumed
-
-Molecule: AADAC
-
-###### Parameters
-
-Name | Value       | Value Origin                                          
----- | ----------- | ------------------------------------------------------
-EC50 | 0.34 µmol/l | Publication-Assumption-Hanke et al. 2018              
-Emax | 0.985       | Publication-Parameter Identification-Hanke et al. 2018
-
-
 ##### Inhibition: CYP2C8-Kajosaari 2005
 
 Molecule: CYP2C8
@@ -448,27 +380,81 @@ Name | Value       | Value Origin
 Ki   | 30.2 µmol/l | Publication-Kajosaari et al. 2005
 
 
-##### Inhibition: OATP1B1-Hirano 2006
+##### Inhibition: CYP2C9-Hanke 2021
+
+Molecule: CYP2C9
+
+###### Parameters
+
+Name | Value      | Value Origin            
+---- | ---------- | ------------------------
+Ki   | 150 µmol/l | Publication-Yoshida 2012
+
+
+##### Inhibition: CYP3A4-Kajosaari 2005
+
+Molecule: CYP3A4
+
+###### Parameters
+
+Name | Value       | Value Origin                     
+---- | ----------- | ---------------------------------
+Ki   | 18.5 µmol/l | Publication-Kajosaari et al. 2005
+
+
+##### Inhibition: BCRP-Hanke 2021
+
+Molecule: BCRP
+
+###### Parameters
+
+Name | Value     | Value Origin                    
+---- | --------- | --------------------------------
+Ki   | 14 µmol/l | Publication-Prueksaritanont 2014
+
+
+##### Inhibition: OATP1B1-Hanke 2021
 
 Molecule: OATP1B1
 
 ###### Parameters
 
-Name | Value        | Value Origin                                                                                                                                                      
----- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Ki   | 0.477 µmol/l | Publication-Hirano M, Maeda K, Shitara Y, Sugiyama Y. Drug-drug interaction between pitavastatin and various drugs via OATP1B1. Drug Metab Dispos. 2006;34:1229–36
+Name | Value       | Value Origin                
+---- | ----------- | ----------------------------
+Ki   | 0.29 µmol/l | Publication-In Vitro-Bi 2019
 
 
-##### Induction: CYP2C8-Buckley 2014
+##### Inhibition: OATP1B3-Hanke 2021
 
-Molecule: CYP2C8
+Molecule: OATP1B3
 
 ###### Parameters
 
-Name | Value       | Value Origin                                                                                                                                                                                                                                                                                                                                                                                          
----- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-EC50 | 0.34 µmol/l | Publication-Templeton IE, Houston JB, Galetin A. Predictive utility of in vitro rifampin induction data generated in fresh and cryopreserved human hepatocytes, Fa2N-4, and HepaRG cells. Drug Metab Dispos. 2011;39:1921–9; Shou M, Hayashi M, Pan Y, Xu Y, Morrissey K, Xu L, et al. Modeling, prediction, and in vitro in vivo correlation of CYP3A4 induction. Drug Metab Dispos. 2008;36:2355–70.
-Emax | 3.2         | Publication-Buckley DB, Wiegand CM, Prentiss PL, Fahmi OA. Time-course of cytochrome P450 (CYP450) induction in cultured human hepatocytes: Evaluation of activity and mRNA expression profiles for six inducible CYP450 enzymes. ISSX. 2013                                                                                                                                                          
+Name | Value      | Value Origin                
+---- | ---------- | ----------------------------
+Ki   | 0.5 µmol/l | Publication-In Vitro-Bi 2019
+
+
+##### Inhibition: OATP2B1-Hanke 2021
+
+Molecule: OATP2B1
+
+###### Parameters
+
+Name | Value       | Value Origin                   
+---- | ----------- | -------------------------------
+Ki   | 78.2 µmol/l | Publication-In Vitro-Zhang 2019
+
+
+##### Inhibition: P-gp-Hanke 2021
+
+Molecule: P-gp
+
+###### Parameters
+
+Name | Value      | Value Origin      
+---- | ---------- | ------------------
+Ki   | 9.1 µmol/l | Other-In Vitro-NBI
 
 
 ##### Induction: CYP1A2-Chen 2010
@@ -483,6 +469,18 @@ EC50 | 0.34 µmol/l |
 Emax | 0.65        |             
 
 
+##### Induction: CYP2C8-Buckley 2014
+
+Molecule: CYP2C8
+
+###### Parameters
+
+Name | Value       | Value Origin                                                                                                                                                                                                                                                                                                                                                                                          
+---- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+EC50 | 0.34 µmol/l | Publication-Templeton IE, Houston JB, Galetin A. Predictive utility of in vitro rifampin induction data generated in fresh and cryopreserved human hepatocytes, Fa2N-4, and HepaRG cells. Drug Metab Dispos. 2011;39:1921–9; Shou M, Hayashi M, Pan Y, Xu Y, Morrissey K, Xu L, et al. Modeling, prediction, and in vitro in vivo correlation of CYP3A4 induction. Drug Metab Dispos. 2008;36:2355–70.
+Emax | 3.2         | Publication-Buckley DB, Wiegand CM, Prentiss PL, Fahmi OA. Time-course of cytochrome P450 (CYP450) induction in cultured human hepatocytes: Evaluation of activity and mRNA expression profiles for six inducible CYP450 enzymes. ISSX. 2013                                                                                                                                                          
+
+
 ##### Induction: CYP2E1-Rae 2001
 
 Molecule: CYP2E1
@@ -495,15 +493,52 @@ EC50 | 0.34 µmol/l |
 Emax | 0.8         |             
 
 
-##### Inhibition: OATP1B3-Annaert 2010
+##### Induction: CYP3A4-Templeton 2011
 
-Molecule: OATP1B3
+Molecule: CYP3A4
 
 ###### Parameters
 
-Name | Value      | Value Origin
----- | ---------- | ------------:
-Ki   | 0.9 µmol/l |             
+Name | Value       | Value Origin                                      
+---- | ----------- | --------------------------------------------------
+EC50 | 0.34 µmol/l | Publication-Templeton 2011 (weighted mean for FHH)
+Emax | 9           | Publication-Templeton 2011 (weighted mean for FHH)
+
+
+##### Induction: AADAC-Assumed
+
+Molecule: AADAC
+
+###### Parameters
+
+Name | Value       | Value Origin                                          
+---- | ----------- | ------------------------------------------------------
+EC50 | 0.34 µmol/l | Publication-Assumption-Hanke et al. 2018              
+Emax | 0.985       | Publication-Parameter Identification-Hanke et al. 2018
+
+
+##### Induction: OATP1B1-Dixit 2007
+
+Molecule: OATP1B1
+
+###### Parameters
+
+Name | Value       | Value Origin                                          
+---- | ----------- | ------------------------------------------------------
+EC50 | 0.34 µmol/l | Publication-Assumption-Hanke et al. 2018              
+Emax | 0.383       | Publication-Parameter Identification-Hanke et al. 2018
+
+
+##### Induction: P-gp-Greiner 1999
+
+Molecule: P-gp
+
+###### Parameters
+
+Name | Value       | Value Origin                              
+---- | ----------- | ------------------------------------------
+EC50 | 0.34 µmol/l | Publication-Assumption-Hanke et al. 2018  
+Emax | 2.5         | Publication-Assumption-Greiner et al. 1999
 
 
 

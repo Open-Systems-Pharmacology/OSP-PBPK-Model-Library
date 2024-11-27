@@ -1,21 +1,5 @@
-# Building and Evaluation of a PBPK Model for Verapamil in Adults
-
-
-
-| Version                                         | 1.2-OSP11.2                                                   |
-| ----------------------------------------------- | ------------------------------------------------------------ |
-| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Verapamil-Model/releases/tag/v1.2 |
-| OSP Version                                     | 11.2                                                          |
-| Qualification Framework Version                 | 2.3                                                          |
-
-
-
-
-
-This evaluation report and the corresponding PK-Sim project file are filed at:
-
-https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/
-# Table of Contents
+# Building and Evaluation of a PBPK Model for Verapamil in Adults| Version                                         | 1.2-OSP11.3                                                   || ----------------------------------------------- | ------------------------------------------------------------ || based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Verapamil-Model/releases/tag/v1.2 || OSP Version                                     | 11.3                                                          || Qualification Framework Version                 | 2.3                                                          |This evaluation report and the corresponding PK-Sim project file are filed at:https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/
+# Table of Contents
   * [1 Introduction](#1-introduction)
   * [2 Methods](#2-methods)
     * [2.1 Modeling Strategy](#21-modeling-strategy)
