@@ -734,7 +734,7 @@ Use as suspension                | Yes                |
 ## 3.2 Diagnostics Plots<a id="diagnostics-plots"></a>
 
 
-Below you find the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data used presented in [Section 2.2.2](#222-clinical-data).
+Below you find the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data used presented in [Section 2.2.2](#clinical-data).
 
 The first plot shows observed versus simulated plasma concentration, the second weighted residuals versus time. 
 
@@ -796,7 +796,7 @@ The first plot shows observed versus simulated plasma concentration, the second 
 ## 3.3 Concentration-Time Profiles<a id="ct-profiles"></a>
 
 
-Simulated versus observed concentration-time profiles of all data listed in [Section 2.2.2](#222-clinical-data) are presented below.
+Simulated versus observed concentration-time profiles of all data listed in [Section 2.2.2](#clinical-data) are presented below.
 
 
 
