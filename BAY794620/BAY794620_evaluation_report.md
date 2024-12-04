@@ -1,7 +1,3 @@
-
-
-
-
 # Building and evaluation of a PBPK model for BAY 79-4620 in mice
 
 

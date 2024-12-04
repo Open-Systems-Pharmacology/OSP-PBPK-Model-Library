@@ -1,7 +1,3 @@
-
-
-
-
 # Building and evaluation of a PBPK model for antibody MEDI-524 in cynomolgus monkeys
 
 

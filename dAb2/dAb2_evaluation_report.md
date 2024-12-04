@@ -1,7 +1,3 @@
-
-
-
-
 # Building and evaluation of a PBPK model for domain antibody dAb2 in mice
 
 

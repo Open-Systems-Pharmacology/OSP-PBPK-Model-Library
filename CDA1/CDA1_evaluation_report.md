@@ -1,7 +1,3 @@
-
-
-
-
 # Building and evaluation of a PBPK model for antibody CDA1 in healthy adults
 
 
