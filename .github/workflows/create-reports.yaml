@@ -1,0 +1,53 @@
+name: Automated Evaluation Reports and Projects
+
+# Workflow manually triggered and suggest available branches in input
+on:
+  workflow_dispatch:
+
+jobs:
+  evaluation:
+    runs-on: windows-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Setup R
+      uses: r-lib/actions/setup-r@v2
+      with:
+        r-version: '4.1.0'
+        use-public-rspm: true
+    
+    - name: Install chromehtml2pdf for pdf conversion
+      run: |
+        npm install -g chromehtml2pdf
+
+    - name: Setup Pandoc for html conversion
+      uses: r-lib/actions/setup-pandoc@v2
+
+    - name: Install OSPSuite tools
+      run: |
+        Rscript install_tools.R
+
+    - name: Run evaluations through README.Rmd
+      run: |
+        rmarkdown::render("README.Rmd", encoding = "UTF-8")
+      shell: Rscript {0}  
+
+# Create a pull request to the develop branch
+# Adding reviewers/assignees for example
+    - name: Create Pull Request
+      uses: peter-evans/create-pull-request@v7
+      with:
+        branch: ${{ github.ref_name }}
+        base: develop
+        add-paths: |
+            */images/**
+            */*.pdf
+            */*.pksim5
+            */*.md
+            README.md
+        title: 'Update Evaluation Reports'
+        body: |
+          Update Evaluation Reports #83
+        assignees: ${{ github.actor }}
+        reviewers: ${{ github.actor }}
