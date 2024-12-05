@@ -16,6 +16,10 @@ jobs:
       with:
         r-version: '4.1.0'
         use-public-rspm: true
+    
+    - name: Install chromehtml2pdf for pdf conversion
+      run: |
+        npm install -g chromehtml2pdf
 
     - name: Setup Pandoc for html conversion
       uses: r-lib/actions/setup-pandoc@v2
@@ -46,4 +50,4 @@ jobs:
         body: |
           Update Evaluation Reports #83
         assignees: ${{ github.actor }}
-        reviewers: pchelle
+        reviewers: ${{ github.actor }}
