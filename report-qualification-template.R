@@ -122,11 +122,19 @@ runEvaluationReport <- function(modelIndex, modelsData, toolsData) {
     overwrite = TRUE
   )
 
-  # Convert markdown to html for pdf conversion
-  knitr::pandoc(
-    reportPath, 
-    paste("html", "--embed-resources", "--standalone", "-c \"osp.css\"")
+  # Convert markdown to html and then to conversion
+  knitr::pandoc(reportPath, paste("html", "--embed-resources", "--standalone", "-c \"osp.css\""))
+  cmdLine <- paste(
+    'chromehtml2pdf',
+    paste0('--out="', normalizePath(gsub(pattern = ".md", ".pdf", reportPath), mustWork = FALSE), '"'),
+    "--displayHeaderFooter true",
+    "--format A4", "--marginTop 10mm", "--marginBottom 10mm", "--marginLeft 10mm", "--marginRight 10mm",
+    # Header and footer templates are not well converted, leaving default footer so far 
+    '--headerTemplate "<span></span>"',
+    #'--footerTemplate "<span>Page <span class=\"pageNumber\"></span> / <span class=\"totalPages\"></span></span>"',
+    paste0('"', normalizePath(gsub(pattern = ".md", ".html", reportPath)), '"')
     )
+  system(cmdLine)
 
   # Use PKSim CLI to create project named report-configuration-plan.pksim5 by default
   pkSimPath <- normalizePath(file.path(pkSimPortableFolder, "PKSim.CLI.exe"), mustWork = FALSE)
