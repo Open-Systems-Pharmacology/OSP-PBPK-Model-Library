@@ -48,6 +48,6 @@ jobs:
             README.md
         title: 'Update Evaluation Reports'
         body: |
-          Update Evaluation Reports #83
+          Update Evaluation Reports
         assignees: ${{ github.actor }}
         reviewers: ${{ github.actor }}
