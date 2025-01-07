@@ -1,0 +1,61 @@
+---
+title: "OSP-PBPK-Model-Library"
+author: "Open Systems Pharmacology"
+date: "`r Sys.Date()`"
+output: github_document
+---
+
+Library of released PBPK substance models and evaluation reports
+
+## How to create evaluation reports
+
+- Create a new branch from the `create-reports` branch (for instance, `my-reports`)
+  - Define the appropriate OSP environment and tools by updating `tools.csv`
+  - Define the models and projects by updating `models.csv`
+  - Go to the Github Action: [Automated Evaluation Reports and Projects](https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/actions/workflows/create-reports.yaml)
+    - Click on the button __Run workflow__ 
+      - Select your branch (for instance, `my-reports`)
+      - Click on the green button __Run workflow__ 
+  
+## What to do when reports are created
+
+When the evaluation reports are created, a pull request is triggered toward the `develop` branch.
+The pull request will allow users to review the updates in the reports and adopt the new version.
+
+
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+toolsData <- read.csv(
+  "tools.csv",
+  stringsAsFactors = FALSE,
+  colClasses = "character"
+)
+modelsData <- read.csv(
+  "models.csv",
+  check.names = FALSE,
+  stringsAsFactors = FALSE,
+  colClasses = c("logical", rep("character", 5))
+)
+source("report-qualification-template.R")
+```
+
+```{r run reports, include=FALSE, warning=NA}
+for (modelIndex in 1:nrow(modelsData)) {
+  runEvaluationReport(modelIndex, modelsData, toolsData)
+}
+```
+
+## Table of evaluated PBPK models
+
+```{r, results='asis'}
+knitr::kable(modelsData)
+```
+
+## Table of tools
+
+```{r, results='asis'}
+knitr::kable(toolsData)
+```
