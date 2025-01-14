@@ -1,4 +1,4 @@
-name: Automated Evaluation Reports and Projects
+name: Automated Evaluation Reports and Projects 
 
 # Workflow manually triggered and suggest available branches in input
 on:
