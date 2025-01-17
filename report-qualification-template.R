@@ -65,18 +65,12 @@ runEvaluationReport <- function(modelIndex, modelsData, toolsData) {
     versionInfo = versionInfo
   )
   setwd(workingDirectory)
-  reportPath <- list.files(recursive = TRUE, pattern = "report.md", full.names = TRUE, ignore.case = TRUE)
-  
-  # Copy logs to get final run time on reports
-  file.copy(
-    from = list.files(recursive = TRUE, pattern = "log-info", full.names = TRUE, ignore.case = TRUE),
-    to = dirname(reportPath),
-    overwrite = TRUE
-  )
-
+  reportPath <- list.files(pattern = "report.md", recursive = TRUE, full.names = TRUE, ignore.case = TRUE)
+  reportPath <- normalizePath(reportPath, winslash = "/")
   # Convert markdown to html and then to conversion
   setwd("..")
-  knitr::pandoc(reportPath, paste("html", "--embed-resources", "--standalone", "-c \"osp.css\""))
+  knitr::pandoc(reportPath, paste("html", "--embed-resources", "--standalone", "-c \"../osp.css\""))
+  setwd("..")
   cmdLine <- paste(
     'chromehtml2pdf',
     paste0('--out="', normalizePath(gsub(pattern = ".md", ".pdf", reportPath), mustWork = FALSE), '"'),
