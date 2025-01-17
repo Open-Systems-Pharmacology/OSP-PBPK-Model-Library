@@ -12,6 +12,10 @@ runEvaluationReport <- function(modelIndex, modelsData, toolsData) {
   library(ospsuite.reportingengine)
   ospsuite::clearMemory(clearSimulationsCache = TRUE)
 
+  qualificationRunnerFolder <- normalizePath("QualificationRunner/QualificationRunner", winslash = "/")
+  pkSimPortableFolder <- normalizePath("PK-Sim/PK-Sim", winslash = "/")
+  pkSimPath <- file.path(pkSimPortableFolder, "PKSim.CLI.exe")
+  
   qualificationProject <- modelsData$`Repository name`[modelIndex]
   modelName <- modelsData$`Snapshot name`[modelIndex]
   snapshotFile <- paste0(modelName, ".json")
@@ -55,8 +59,8 @@ runEvaluationReport <- function(modelIndex, modelsData, toolsData) {
   # Needs to be run from same directory as workflow.R
   setwd(dirname(qualificationPath))
   createQualificationReport(
-    qualificationRunnerFolder = "QualificationRunner/QualificationRunner",
-    pkSimPortableFolder = "PK-Sim/PK-Sim",
+    qualificationRunnerFolder = qualificationRunnerFolder,
+    pkSimPortableFolder = pkSimPortableFolder,
     createWordReport = FALSE,
     versionInfo = versionInfo
   )
@@ -84,8 +88,7 @@ runEvaluationReport <- function(modelIndex, modelsData, toolsData) {
     )
   system(cmdLine)
 
-  # Use PKSim CLI to create project named report-configuration-plan.pksim5 by default
-  pkSimPath <- normalizePath("PK-Sim/PK-Sim/PKSim.CLI.exe", mustWork = FALSE)
+  # Use PKSim CLI to create project .pksim5
   cmdLine <- paste(
     pkSimPath,
     "snap",
