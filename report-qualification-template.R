@@ -5,8 +5,7 @@
 #' @param modelIndex Index of model to run
 #' @param modelsData data.frame defining input data of models
 #' @param toolsData data.frame defining tools used to evaluate models and generate reports
-#' @param watermark Watermark in exported figures
-runEvaluationReport <- function(modelIndex, modelsData, toolsData, watermark = "") {
+runEvaluationReport <- function(modelIndex, modelsData, toolsData) {
   if (!modelsData$Execute[modelIndex]) {
     return()
   }
@@ -17,8 +16,6 @@ runEvaluationReport <- function(modelIndex, modelsData, toolsData, watermark = "
   modelName <- modelsData$`Snapshot name`[modelIndex]
   snapshotFile <- paste0(modelName, ".json")
   workingDirectory <- normalizePath(qualificationProject, mustWork = FALSE, winslash = "/")
-  qualificationRunnerFolder <- "QualificationRunner/QualificationRunner"
-  pkSimPortableFolder <- "PK-Sim/PK-Sim"
   versionInfo <- QualificationVersionInfo$new(
     modelsData$`Released version`[modelIndex],
     paste(head(unlist(strsplit(toolsData$Version[toolsData$Tool %in% "PK-Sim"], "\\.")), 2), collapse = "."),
@@ -38,84 +35,35 @@ runEvaluationReport <- function(modelIndex, modelsData, toolsData, watermark = "
   unzip("archive.zip", exdir = "archive")
   unlink("archive.zip")
   dir.create(workingDirectory)
-  projectFolder <- list.files("archive", pattern = qualificationProject)
-  file.copy(file.path("archive", projectFolder, "Evaluation", "Input"), workingDirectory, recursive = TRUE)
-  # In this repo, the snapshot is outside the evaluation folder and its path needs to be updated
-  file.copy(file.path("archive", projectFolder, snapshotFile), workingDirectory, recursive = TRUE)
+  file.copy(
+    list.files("archive", pattern = qualificationProject), 
+    workingDirectory, 
+    recursive = TRUE
+    )
   unlink("archive", recursive = TRUE)
   
-  #' @description Code hereafter is adapted from `createQualificationReport()` template
-  qualificationPlanName <- "evaluation_plan.json"
-  qualificationPlanFile <- file.path(workingDirectory, "input", qualificationPlanName)
-  jsonContent <- readLines(qualificationPlanFile)
-  jsonContent <- gsub(pattern = paste0("../", snapshotFile), replacement = snapshotFile, x = jsonContent)
-  writeLines(jsonContent, qualificationPlanFile)
-
-  #' The default outputs of qualification runner should be generated under `<workingDirectory>/re_input`
-  reInputFolder <- file.path(workingDirectory, "re_input")
-  #' The default outputs or RE should be generated under `<workingDirectory>/re_output`
-  reOutputFolder <- file.path(workingDirectory, "re_output")
-
-  #' Configuration Plan created from the Qualification Plan by the Qualification Runner
-  configurationPlanName <- "report-configuration-plan"
-  configurationPlanFile <- file.path(reInputFolder, paste0(configurationPlanName, ".json"))
-
-  #' If not set, report created will be named `report.md` and located in the workflow folder namely `reOutputFolder`
-  #' Here, the report will be copied in the test reports at the end of the workflow
-  reportFolder <- qualificationProject
-  reportPath <- file.path(reportFolder, paste0(modelName, "_evaluation_report.md"))
+  #' @description Use Workflow name to run the qualification
+  setwd(workingDirectory)
+  qualificationPath <- ifelse(
+    modelsData$`Workflow name`[modelIndex] %in% "",
+    # If note specified, use default evaluation/workflow.R
+    list.files(recursive = TRUE, pattern = "workflow.R", full.names = TRUE, ignore.case = TRUE),
+    modelsData$`Workflow name`[modelIndex]
+  )
+    
+  source(qualificationPath)
+  createQualificationReport(
+    qualificationRunnerFolder = "QualificationRunner/QualificationRunner",
+    pkSimPortableFolder = "PK-Sim/PK-Sim",
+    createWordReport = FALSE,
+    versionInfo = versionInfo
+  )
+  reportPath <- list.files(recursive = TRUE, pattern = "report.md", full.names = TRUE, ignore.case = TRUE)
   
-
-  #' @description Start **Qualification Runner** to generate inputs for the reporting engine
-  #' @param logFile If not `null` is passed internally via the `-l` option
-  logFile <- NULL
-  #' @param logLevel If not `null` is passed internally via the `--logLevel` option
-  logLevel <- NULL
-  #' @param overwrite If `true`, eventual results from the previous run of the QualiRunner/RE will be removed first
-  overwrite <- TRUE
-
-  startQualificationRunner(
-    qualificationRunnerFolder = qualificationRunnerFolder,
-    qualificationPlanFile = qualificationPlanFile,
-    outputFolder = reInputFolder,
-    pkSimPortableFolder = pkSimPortableFolder,
-    configurationPlanName = configurationPlanName,
-    overwrite = overwrite,
-    logFile = logFile,
-    logLevel = logLevel
-  )
-
-  #' @description Run Qualification Workflow to generate inputs for the reporting engine
-  titlePageFile <- file.path(reInputFolder, "Intro/titlepage.md")
-  addTitlePage <- all(
-    !is.null(versionInfo),
-    file.exists(titlePageFile)
-  )
-  if (addTitlePage) {
-    adjustTitlePage(titlePageFile, qualificationVersionInfo = versionInfo)
-  }
-
-  #' Load `QualificationWorkflow` object from configuration plan
-  workflow <- loadQualificationWorkflow(
-    workflowFolder = reOutputFolder,
-    configurationPlanFile = configurationPlanFile
-  )
-
-  #' Set the name of the final report
-  workflow$reportFilePath <- reportPath
-  #' Do not export word report
-  workflow$createWordReport <- FALSE
-
-  #' Set watermark. If set, it will appear in all generated plots
-  workflow$setWatermark(watermark)
-
-  #' Run the `QualificationWorklfow`
-  workflow$runWorkflow()
-
   # Copy logs to get final run time on reports
   file.copy(
-    from = file.path(reOutputFolder, "log-info.txt"),
-    to = reportFolder,
+    from = list.files(recursive = TRUE, pattern = "log-info", full.names = TRUE, ignore.case = TRUE),
+    to = dirname(reportPath),
     overwrite = TRUE
   )
 
@@ -134,15 +82,32 @@ runEvaluationReport <- function(modelIndex, modelsData, toolsData, watermark = "
   system(cmdLine)
 
   # Use PKSim CLI to create project named report-configuration-plan.pksim5 by default
-  pkSimPath <- normalizePath(file.path(pkSimPortableFolder, "PKSim.CLI.exe"), mustWork = FALSE)
+  pkSimPath <- normalizePath("PK-Sim/PK-Sim/PKSim.CLI.exe", mustWork = FALSE)
   cmdLine <- paste(
     pkSimPath,
     "snap",
     # Snapshot file <modelName>.json is in working directory
     "-i", workingDirectory,
-    "-o", reportFolder,
+    "-o", workingDirectory,
     "-p"
     )
   system(cmdLine)
+  # For next step, remove potential json from working directory
+  unlink(file.path(workingDirectory, snapshotFile))
+  additionalSnapshots <- ospsuite::toPathArray(modelsData$`Additional projects`[modelIndex])
+  for(additionalSnapshot in additionalSnapshots){
+    download.file(
+      # Use Github raw.githubusercontent.com to download snapshot file
+      file.path(
+      "https://raw.githubusercontent.com/Open-Systems-Pharmacology/", 
+      additionalSnapshot
+      ), 
+      # Keep only the last name of the path (eg <model name>_Pediatrics.json)
+      destfile = basename(additionalSnapshot)
+      )
+    system(cmdLine)
+    unlink(file.path(workingDirectory, basename(additionalSnapshot)))
+  }
+  return(invisible())
   
 }
