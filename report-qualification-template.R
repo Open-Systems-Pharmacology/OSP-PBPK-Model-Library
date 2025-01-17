@@ -52,12 +52,15 @@ runEvaluationReport <- function(modelIndex, modelsData, toolsData) {
   )
     
   source(qualificationPath)
+  # Needs to be run from same directory as workflow.R
+  setwd(dirname(qualificationPath))
   createQualificationReport(
     qualificationRunnerFolder = "QualificationRunner/QualificationRunner",
     pkSimPortableFolder = "PK-Sim/PK-Sim",
     createWordReport = FALSE,
     versionInfo = versionInfo
   )
+  setwd(workingDirectory)
   reportPath <- list.files(recursive = TRUE, pattern = "report.md", full.names = TRUE, ignore.case = TRUE)
   
   # Copy logs to get final run time on reports
