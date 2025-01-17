@@ -69,8 +69,7 @@ runEvaluationReport <- function(modelIndex, modelsData, toolsData) {
   reportPath <- normalizePath(reportPath, winslash = "/")
   # Convert markdown to html and then to conversion
   setwd("..")
-  knitr::pandoc(reportPath, paste("html", "--embed-resources", "--standalone", "-c \"../osp.css\""))
-  setwd("..")
+  knitr::pandoc(reportPath, paste("html", "--embed-resources", "--standalone", "-c \"osp.css\""))
   cmdLine <- paste(
     'chromehtml2pdf',
     paste0('--out="', normalizePath(gsub(pattern = ".md", ".pdf", reportPath), mustWork = FALSE), '"'),
