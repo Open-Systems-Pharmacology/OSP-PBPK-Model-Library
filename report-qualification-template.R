@@ -67,19 +67,22 @@ runEvaluationReport <- function(modelIndex, modelsData, toolsData) {
   setwd(workingDirectory)
   reportPath <- list.files(pattern = "report.md", recursive = TRUE, full.names = TRUE, ignore.case = TRUE)
   reportPath <- normalizePath(reportPath, winslash = "/")
+  warning(getwd())
+  warning(reportPath)
   # Convert markdown to html and then to conversion
   setwd("..")
   knitr::pandoc(reportPath, paste("html", "--embed-resources", "--standalone", "-c \"osp.css\""))
   cmdLine <- paste(
     'chromehtml2pdf',
-    paste0('--out="', normalizePath(gsub(pattern = ".md", ".pdf", reportPath), mustWork = FALSE), '"'),
+    paste0('--out="', gsub(pattern = ".md", ".pdf", reportPath), '"'),
     "--displayHeaderFooter true",
     "--format A4", "--marginTop 10mm", "--marginBottom 10mm", "--marginLeft 10mm", "--marginRight 10mm",
     # Header and footer templates are not well converted, leaving default footer so far 
     '--headerTemplate "<span></span>"',
     #'--footerTemplate "<span>Page <span class=\"pageNumber\"></span> / <span class=\"totalPages\"></span></span>"',
-    paste0('"', normalizePath(gsub(pattern = ".md", ".html", reportPath)), '"')
+    paste0('"', gsub(pattern = ".md", ".html", reportPath), '"')
     )
+  warning(cmdLine)
   system(cmdLine)
 
   # Use PKSim CLI to create project .pksim5
@@ -91,6 +94,7 @@ runEvaluationReport <- function(modelIndex, modelsData, toolsData) {
     "-o", workingDirectory,
     "-p"
     )
+  warning(cmdLine)
   system(cmdLine)
   # For next step, remove potential json from working directory
   unlink(file.path(workingDirectory, snapshotFile))
@@ -105,6 +109,7 @@ runEvaluationReport <- function(modelIndex, modelsData, toolsData) {
       # Keep only the last name of the path (eg <model name>_Pediatrics.json)
       destfile = basename(additionalSnapshot)
       )
+    warning(cmdLine)
     system(cmdLine)
     unlink(file.path(workingDirectory, basename(additionalSnapshot)))
   }
