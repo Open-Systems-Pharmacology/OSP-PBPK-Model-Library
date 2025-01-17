@@ -64,9 +64,17 @@ runEvaluationReport <- function(modelIndex, modelsData, toolsData) {
     createWordReport = FALSE,
     versionInfo = versionInfo
   )
+  # Include report only in the model folder
+  # And clean up qualification
   setwd(workingDirectory)
-  reportPath <- list.files(pattern = "report.md", recursive = TRUE, full.names = TRUE, ignore.case = TRUE)
-  reportPath <- normalizePath(reportPath, winslash = "/")
+  reportPaths <- list.files(pattern = "report.md", recursive = TRUE, full.names = TRUE, ignore.case = TRUE)
+  copyReport(
+    from = tail(reportPaths, 1), 
+    to = paste0(modelName, "_evaluation_report.md"), 
+    copyWordReport = FALSE
+    )
+  unlink(dirname(qualificationPath), recursive = TRUE)
+  reportPath <- file.path(workingDirectory, paste0(modelName, "_evaluation_report.md"))
   warning(getwd())
   warning(reportPath)
   # Convert markdown to html and then to conversion
