@@ -75,6 +75,7 @@ runEvaluationReport <- function(modelIndex, modelsData, toolsData) {
   )
 
   # Convert markdown to html and then to conversion
+  setwd("..")
   knitr::pandoc(reportPath, paste("html", "--embed-resources", "--standalone", "-c \"osp.css\""))
   cmdLine <- paste(
     'chromehtml2pdf',
@@ -114,6 +115,5 @@ runEvaluationReport <- function(modelIndex, modelsData, toolsData) {
     system(cmdLine)
     unlink(file.path(workingDirectory, basename(additionalSnapshot)))
   }
-  setwd("..")
   return(invisible())
 }
