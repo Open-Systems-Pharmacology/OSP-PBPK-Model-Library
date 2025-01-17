@@ -34,12 +34,12 @@ runEvaluationReport <- function(modelIndex, modelsData, toolsData) {
   )
   unzip("archive.zip", exdir = "archive")
   unlink("archive.zip")
-  dir.create(workingDirectory)
   file.copy(
-    list.files("archive", pattern = qualificationProject), 
-    workingDirectory, 
+    list.files("archive", pattern = qualificationProject, full.names = TRUE), 
+    getwd(), 
     recursive = TRUE
     )
+  file.rename(from = list.files(pattern = qualificationProject), to = workingDirectory)
   unlink("archive", recursive = TRUE)
   
   #' @description Use Workflow name to run the qualification
@@ -108,6 +108,6 @@ runEvaluationReport <- function(modelIndex, modelsData, toolsData) {
     system(cmdLine)
     unlink(file.path(workingDirectory, basename(additionalSnapshot)))
   }
+  setwd("..")
   return(invisible())
-  
 }
