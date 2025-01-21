@@ -19,7 +19,7 @@ runEvaluationReport <- function(modelIndex, modelsData, toolsData) {
   qualificationProject <- modelsData$`Repository name`[modelIndex]
   modelName <- modelsData$`Snapshot name`[modelIndex]
   snapshotFile <- paste0(modelName, ".json")
-  workingDirectory <- normalizePath(qualificationProject, mustWork = FALSE, winslash = "/")
+  workingDirectory <- normalizePath(modelName, mustWork = FALSE, winslash = "/")
   versionInfo <- QualificationVersionInfo$new(
     modelsData$`Released version`[modelIndex],
     paste(head(unlist(strsplit(toolsData$Version[toolsData$Tool %in% "PK-Sim"], "\\.")), 2), collapse = "."),
