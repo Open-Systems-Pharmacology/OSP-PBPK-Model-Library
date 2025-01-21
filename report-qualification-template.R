@@ -111,7 +111,7 @@ runEvaluationReport <- function(modelIndex, modelsData, toolsData) {
     download.file(
       # Use Github raw.githubusercontent.com to download snapshot file
       file.path(
-      "https://raw.githubusercontent.com/Open-Systems-Pharmacology/", 
+      "https://raw.githubusercontent.com/Open-Systems-Pharmacology", 
       additionalSnapshot
       ), 
       # Keep only the last name of the path (eg <model name>_Pediatrics.json)
