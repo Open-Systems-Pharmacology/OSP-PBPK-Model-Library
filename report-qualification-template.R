@@ -115,7 +115,7 @@ runEvaluationReport <- function(modelIndex, modelsData, toolsData) {
       additionalSnapshot
       ), 
       # Keep only the last name of the path (eg <model name>_Pediatrics.json)
-      destfile = basename(additionalSnapshot)
+      destfile = file.path(workingDirectory, basename(additionalSnapshot))
       )
     warning(cmdLine)
     system(cmdLine)
