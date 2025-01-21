@@ -31,7 +31,14 @@ jobs:
     - name: Run evaluations through README.Rmd
       run: |
         rmarkdown::render("README.Rmd", encoding = "UTF-8")
-      shell: Rscript {0}  
+      shell: Rscript {0} 
+
+    - name: Rebase onto develop
+      run: |
+        git config --global user.name 'github-actions'
+        git config --global user.email 'github-actions@github.com'
+        git fetch origin develop
+        git rebase origin/develop
 
 # Create a pull request to the develop branch
 # Adding reviewers/assignees for example
