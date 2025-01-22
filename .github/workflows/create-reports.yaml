@@ -16,7 +16,7 @@ jobs:
         git config --global user.name 'github-actions'
         git config --global user.email 'github-actions@github.com'
         git fetch origin develop
-        git rebase origin/develop --continue
+        git merge origin/develop
 
     - name: Setup R
       uses: r-lib/actions/setup-r@v2
