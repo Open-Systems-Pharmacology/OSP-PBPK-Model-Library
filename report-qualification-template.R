@@ -21,7 +21,7 @@ runEvaluationReport <- function(modelIndex, modelsData, toolsData) {
   snapshotFile <- paste0(modelName, ".json")
   workingDirectory <- normalizePath(modelName, mustWork = FALSE, winslash = "/")
   # Clean up because of potential rebase
-  unlink(file.path(workingDirectory, modelName), recursive = TRUE)
+  unlink(workingDirectory, recursive = TRUE)
   
   versionInfo <- QualificationVersionInfo$new(
     modelsData$`Released version`[modelIndex],
@@ -46,6 +46,7 @@ runEvaluationReport <- function(modelIndex, modelsData, toolsData) {
     getwd(), 
     recursive = TRUE
     )
+  warning(list.files())
   file.rename(from = list.files(pattern = qualificationProject), to = modelName)
   unlink("archive", recursive = TRUE)
   
