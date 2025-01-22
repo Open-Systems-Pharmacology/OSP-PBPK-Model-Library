@@ -4,6 +4,9 @@ name: Automated Evaluation Reports and Projects
 on:
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   evaluation:
     runs-on: windows-latest
