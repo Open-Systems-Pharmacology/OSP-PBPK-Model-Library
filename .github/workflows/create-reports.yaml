@@ -16,7 +16,9 @@ jobs:
         git config --global user.name 'github-actions'
         git config --global user.email 'github-actions@github.com'
         git fetch origin develop
-        git merge origin/develop --allow-unrelated-histories
+        git add .github/workflows/create-reports.yaml README.md
+        git rebase origin/develop --continue
+        git push origin ${{ github.ref_name }} --force
 
     - name: Setup R
       uses: r-lib/actions/setup-r@v2
