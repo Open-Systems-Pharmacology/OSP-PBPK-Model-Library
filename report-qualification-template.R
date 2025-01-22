@@ -41,18 +41,12 @@ runEvaluationReport <- function(modelIndex, modelsData, toolsData) {
   )
   unzip("archive.zip", exdir = "archive")
   unlink("archive.zip")
-  warning("Qualification Project")
-  warning(qualificationProject)
-  warning(list.files("archive", pattern = qualificationProject, full.names = TRUE))
   file.copy(
     list.files("archive", pattern = qualificationProject, full.names = TRUE), 
     getwd(), 
     recursive = TRUE
     )
-  warning("Qualification Project after copy")
-  warning(list.files(pattern = qualificationProject))
-  warning(list.files(pattern = qualificationProject, full.names = TRUE))
-  file.rename(from = list.files(pattern = qualificationProject), to = workingDirectory)
+  file.rename(from = list.files(pattern = qualificationProject), to = modelName)
   unlink("archive", recursive = TRUE)
   
   #' @description Use Workflow name to run the qualification
