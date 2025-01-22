@@ -22,6 +22,7 @@ runEvaluationReport <- function(modelIndex, modelsData, toolsData) {
   workingDirectory <- normalizePath(modelName, mustWork = FALSE, winslash = "/")
   # Clean up because of potential rebase
   unlink(file.path(workingDirectory, modelName), recursive = TRUE)
+  
   versionInfo <- QualificationVersionInfo$new(
     modelsData$`Released version`[modelIndex],
     paste(head(unlist(strsplit(toolsData$Version[toolsData$Tool %in% "PK-Sim"], "\\.")), 2), collapse = "."),
@@ -40,11 +41,17 @@ runEvaluationReport <- function(modelIndex, modelsData, toolsData) {
   )
   unzip("archive.zip", exdir = "archive")
   unlink("archive.zip")
+  warning("Qualification Project")
+  warning(qualificationProject)
+  warning(list.files("archive", pattern = qualificationProject, full.names = TRUE))
   file.copy(
     list.files("archive", pattern = qualificationProject, full.names = TRUE), 
     getwd(), 
     recursive = TRUE
     )
+  warning("Qualification Project after copy")
+  warning(list.files(pattern = qualificationProject))
+  warning(list.files(pattern = qualificationProject, full.names = TRUE))
   file.rename(from = list.files(pattern = qualificationProject), to = workingDirectory)
   unlink("archive", recursive = TRUE)
   
