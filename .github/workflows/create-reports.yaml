@@ -21,6 +21,7 @@ jobs:
         git config --global user.email 'github-actions@github.com'
         git fetch origin develop
         git rebase -Xours origin/develop
+        git reset --soft
 
     - name: Setup R
       uses: r-lib/actions/setup-r@v2
