@@ -1,0 +1,12 @@
+name: Create evaluation reports and projects
+
+on:
+  workflow_dispatch:
+
+jobs:
+  create-reports:
+    runs-on: ubuntu-latest
+    steps: 
+    - name: Print branch name 
+      run: echo "Please branch from create-reports to use this action"
+  
