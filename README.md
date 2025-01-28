@@ -36,6 +36,7 @@ The header includes the following fields:
 ## Tools 
 
 The `tools.csv` file indicates software and software versions to be installed in environment before running the qualifications of the models.
+If a link is defined in the `URL` column, the installation will use the software from the link as is instead of searching from the version.
 Please ensure compatibility between their versions.
 The following available tools to installed are detailed below:
 

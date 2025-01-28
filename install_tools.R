@@ -17,10 +17,12 @@ print(toolsData)
 #' @param toolName Identifier of the tool to install
 #' @param toolsData data.frame mapping tool identifier and version
 installTool <- function(toolName, toolsData = toolsData) {
+  toolURL <- toolsData$URL[toolsData$Tool %in% toolName]
   toolVersion <- toolsData$Version[toolsData$Tool %in% toolName]
-  if (is.na(toolVersion)) {
+  if (all(is.na(toolVersion), is.na(toolURL))) {
     return()
   }
+  # Download tool from url if defined
   toolPath <- switch(toolName,
     "ospsuite-R" = paste0(
       "https://github.com/Open-Systems-Pharmacology/OSPSuite-R/releases/download/v",
@@ -57,6 +59,8 @@ installTool <- function(toolName, toolsData = toolsData) {
       toolVersion, "/pk-sim-portable-setup.zip"
     )
   )
+  # Download tool from url if defined
+  toolPath <- ifelse(is.na(toolURL), toolPath, toolURL)
   archiveName <- switch(toolName,
     "ospsuite-R" = "ospsuite",
     "TLF" = "tlf",
