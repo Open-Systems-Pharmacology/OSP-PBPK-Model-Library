@@ -1,14 +1,18 @@
+
+
+
+
 # Building and evaluation of a PBPK model for antibody 7E3 in wild-type and FcRn knockout mice
 
 
 
 
 
-| Version                                         | 1.0-OSP11.3                                                   |
+| Version                                         | 1.0-OSP12.0                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
 | based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/7E3-Model/releases/tag/v1.0 |
-| OSP Version                                     | 11.3                                                          |
-| Qualification Framework Version                 | 3.2                                                          |
+| OSP Version                                     | 12.0                                                          |
+| Qualification Framework Version                 | 3.3                                                          |
 
 
 
@@ -233,9 +237,9 @@ The first plot shows observed versus simulated plasma concentration, the second 
 
 |Group           |GMFE |
 |:---------------|:----|
-|FcRn KO mouse   |1.52 |
-|Wild-type mouse |1.29 |
-|All             |1.39 |
+|FcRn KO mouse   |1.77 |
+|Wild-type mouse |1.81 |
+|All             |1.79 |
 
 
 <br>

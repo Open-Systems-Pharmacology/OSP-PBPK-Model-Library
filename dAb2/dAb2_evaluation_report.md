@@ -1,14 +1,18 @@
+
+
+
+
 # Building and evaluation of a PBPK model for domain antibody dAb2 in mice
 
 
 
 
 
-| Version                                         | 1.0-OSP11.3                                                   |
+| Version                                         | 1.0-OSP12.0                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
 | based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/dAb2-Model/releases/tag/v1.0 |
-| OSP Version                                     | 11.3                                                          |
-| Qualification Framework Version                 | 3.2                                                          |
+| OSP Version                                     | 12.0                                                          |
+| Qualification Framework Version                 | 3.3                                                          |
 
 
 
@@ -237,8 +241,8 @@ The first plot shows observed versus simulated plasma concentration, the second 
 |Group                                           |GMFE  |
 |:-----------------------------------------------|:-----|
 |Blood and tissue concentrations - except kidney |1.89  |
-|Kidney tissue concentrations                    |23.23 |
-|All                                             |2.29  |
+|Kidney tissue concentrations                    |21.68 |
+|All                                             |2.28  |
 
 
 <br>
