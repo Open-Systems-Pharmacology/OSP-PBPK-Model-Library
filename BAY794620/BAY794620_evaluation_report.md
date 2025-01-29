@@ -1,14 +1,18 @@
+
+
+
+
 # Building and evaluation of a PBPK model for BAY 79-4620 in mice
 
 
 
 
 
-| Version                                         | 1.0-OSP11.3                                                   |
+| Version                                         | 1.0-OSPNA                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
 | based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/BAY794620-Model/releases/tag/v1.0 |
-| OSP Version                                     | 11.3                                                          |
-| Qualification Framework Version                 | 3.2                                                          |
+| OSP Version                                     | NA                                                          |
+| Qualification Framework Version                 | 3.3                                                          |
 
 
 
@@ -229,9 +233,9 @@ The first plot shows observed versus simulated plasma concentration, the second 
 
 |Group                           |GMFE |
 |:-------------------------------|:----|
-|BAY 79-4620 - autoradiography   |1.48 |
-|BAY 79-4620 - tissue dissection |1.62 |
-|All                             |1.53 |
+|BAY 79-4620 - autoradiography   |1.55 |
+|BAY 79-4620 - tissue dissection |1.88 |
+|All                             |1.66 |
 
 
 <br>

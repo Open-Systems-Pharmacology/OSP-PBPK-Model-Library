@@ -1,14 +1,18 @@
+
+
+
+
 # Building and evaluation of a PBPK model for inulin in rats
 
 
 
 
 
-| Version                                         | 1.0-OSP11.3                                                   |
+| Version                                         | 1.0-OSPNA                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
 | based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Inulin-Model/releases/tag/v1.0 |
-| OSP Version                                     | 11.3                                                          |
-| Qualification Framework Version                 | 3.2                                                          |
+| OSP Version                                     | NA                                                          |
+| Qualification Framework Version                 | 3.3                                                          |
 
 
 
@@ -234,8 +238,8 @@ The first plot shows observed versus simulated plasma concentration, the second 
 |Group                                       |GMFE |
 |:-------------------------------------------|:----|
 |Plasma concentrations (20 & 200 mg/kg dose) |1.38 |
-|Tissue concentrations (20 mg/kg dose)       |2.01 |
-|All                                         |1.71 |
+|Tissue concentrations (20 mg/kg dose)       |2.20 |
+|All                                         |1.79 |
 
 
 <br>

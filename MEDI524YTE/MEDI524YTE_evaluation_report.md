@@ -1,14 +1,18 @@
+
+
+
+
 # Building and evaluation of a PBPK model for antibody MEDI-524-YTE in cynomolgus monkeys
 
 
 
 
 
-| Version                                         | 1.0-OSP11.3                                                   |
+| Version                                         | 1.0-OSPNA                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
 | based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/MEDI524YTE-Model/releases/tag/v1.0 |
-| OSP Version                                     | 11.3                                                          |
-| Qualification Framework Version                 | 3.2                                                          |
+| OSP Version                                     | NA                                                          |
+| Qualification Framework Version                 | 3.3                                                          |
 
 
 
