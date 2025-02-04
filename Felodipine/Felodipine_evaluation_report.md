@@ -1,4 +1,24 @@
-# Building and evaluation of a PBPK model for Felodipine in healthy adults| Version                                         | 1.0-OSP11.3                                                   || ----------------------------------------------- | ------------------------------------------------------------ || based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Felodipine-Model/releases/tag/v1.0 || OSP Version                                     | 11.3                                                          || Qualification Framework Version                 | 2.3                                                          |This evaluation report and the corresponding PK-Sim project file are filed at:https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/
+# Building and evaluation of a PBPK model for Felodipine in healthy adults
+
+
+
+
+
+| Version                                         | 1.0-OSP12.0                                                   |
+| ----------------------------------------------- | ------------------------------------------------------------ |
+| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Felodipine-Model/releases/tag/v1.0 |
+| OSP Version                                     | 12.0                                                          |
+| Qualification Framework Version                 | 3.3                                                          |
+
+
+
+
+
+This evaluation report and the corresponding PK-Sim project file are filed at:
+
+https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/
+
+
 # Table of Contents
   * [1 Introduction](#1-introduction)
   * [2 Methods](#2-methods)
@@ -283,7 +303,7 @@ The first plot shows observed versus simulated plasma concentration, the second 
 
 ![002_plotGOFMergedResidualsOverTime.png](images/003_3_Results_and_Discussion/002_3_2_Diagnostics_Plots/002_plotGOFMergedResidualsOverTime.png)
 
-GMFE = 1.325174 
+GMFE = 1.325173 
 
 ## 3.3 Concentration-Time Profiles
 Simulated versus observed concentration-time profiles of all data listed in [Section 2.2.2](#222-clinical-data) are presented below.
