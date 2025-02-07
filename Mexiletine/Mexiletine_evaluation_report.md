@@ -1,5 +1,17 @@
-# Building and evaluation of a PBPK model for Mexiletine in adults| Version                                         | 1.1-OSP11.3                                                   || ----------------------------------------------- | ------------------------------------------------------------ || based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Mexiletine-Model/releases/tag/v1.0 || OSP Version                                     | 11.3                                                          || Qualification Framework Version                 | 2.3                                                          |This evaluation report and the corresponding PK-Sim project file are filed at:https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/
-# Table of Contents
+# Building and evaluation of a PBPK model for Mexiletine in adults
+
+
+
+| Version                                         | 1.1-OSP12.0                                                   |
+| ----------------------------------------------- | ------------------------------------------------------------ |
+| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Mexiletine-Model/releases/tag/v1.0 |
+| OSP Version                                     | 12.0                                                          |
+| Qualification Framework Version                 | 3.3                                                          |
+
+This evaluation report and the corresponding PK-Sim project file are filed at:
+
+https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/
+# Table of Contents
   * [1 Introduction](#1-introduction)
   * [2 Methods](#2-methods)
     * [2.1 Modeling Strategy](#21-modeling-strategy)
