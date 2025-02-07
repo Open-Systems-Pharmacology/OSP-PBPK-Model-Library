@@ -1,12 +1,16 @@
+
+
+
+
 # Building and Evaluation of a PBPK Model for Verapamil in Adults
 
 
 
-| Version                                         | 2.0-OSP11.3                                                   |
+| Version                                         | 2.1-OSP12.0                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
-| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Verapamil-Model/releases/tag/v2.0 |
-| OSP Version                                     | 11.3                                                          |
-| Qualification Framework Version                 | 3.2                                                          |
+| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Verapamil-Model/releases/tag/v2.1 |
+| OSP Version                                     | 12.0                                                          |
+| Qualification Framework Version                 | 3.3                                                          |
 
 
 
@@ -65,7 +69,7 @@ The herein presented model building and evaluation report evaluates the performa
 ## 2.1 Modeling Strategy<a id="modeling-strategy"></a>
 
 
-The general concept of building a PBPK model has previously been described by e.g. Kuepfer et al. ([Kuepfer 2016](#5-references)). The relevant anthropometric (height, weight) and physiological information (e.g. blood flows, organ volumes, binding protein concentrations, hematocrit, cardiac output) in adults was gathered from the literature and has been previously published ([PK-Sim Ontogeny Database Version 7.3](#5-references)). This information was incorporated into PK-Sim® and was used as default values for the simulations in adults.
+The general concept of building a PBPK model has previously been described by e.g. Kuepfer et al. ([Kuepfer 2016](#5-references)). The relevant anthropometric (height, weight) and physiological information (e.g. blood flows, organ volumes, binding protein concentrations, hematocrit, cardiac output) in adults was gathered from the literature and has been previously published ([Schlender 2016](#5-references)). This information was incorporated into PK-Sim® and was used as default values for the simulations in adults.
 
 Variability of plasma proteins and CYP enzymes are integrated into PK-Sim® and described in the publicly available PK-Sim® Ontogeny Database Version 7.3 ([PK-Sim Ontogeny Database Version 7.3](#5-references), [Schlender 2016](#5-references)) or otherwise referenced for the specific process.
 
@@ -97,13 +101,13 @@ A literature search was performed to collect available information on physiochem
 | pK<sub>a</sub> (base)  | -  | 8.75          | [Hasegawa 1984](#5-references)              | Acid dissociation constant                      |
 | Solubility (pH 6.54) | g/L     | 46.0 | [Vogelpoel 2004](#5-references)    | Water solubility                               |
 | logP            |  | 3.79                       | [Hansch  1995](#5-references) | Partition coefficient between octanol and water |
-| fu              |  %       | 5.1 | [**Sanaee 2011**](#5-references) | Fraction unbound in plasma                      |
+| fu              |  %       | 5.1 | [Sanaee 2011](#5-references) | Fraction unbound in plasma                      |
 | CYP3A4 Km -> Norvera            | µmol/L | 19.59 | [Wang 2013](#5-references) | CYP3A4 Michaelis-Menten constant for norverapamil formation    |
 | CYP3A4 Km -> D617		  | µmol/L | 35.34 | [Wang 2013](#5-references) | CYP3A4 Michaelis-Menten constant for D617 formation    |
 | P-gp Km		  | µmol/L | 1.01 | [Shirasaka 2008](#5-references) | Pgp Michaelis-Menten constant    |
 | CYP3A4 MBI KI		  | µmol/L | 27.63 | [Wang 2013](#5-references) | Conc. for half-maximal inactivation    |
 | CYP3A4 MBI kinact		  | 1/min | 0.038 | [Wang 2013](#5-references) | Maximum inactivation rate    |
-| Pgp non-competitive Ki		  | µmol/L | 0.31 | Döppenschmitt 1999 (#5-references) | Conc. for half-maximal inactivation    |
+| Pgp non-competitive Ki		  | µmol/L | 0.31 | [Döppenschmitt 1999](#5-references) | Conc. for half-maximal inactivation    |
 
 #### S-verapamil
 
@@ -221,7 +225,7 @@ Verapamil is transported by P-gp. The model includes non-stereospecific P-gp tra
 
 After testing the available organ-plasma partition coefficient and cell permeability calculation methods built in PK-Sim, observed clinical data was best described by choosing the partition coefficient calculation by `Rodgers and Rowland` and cellular permeability calculation by `PK-Sim Standard`. 
 
-### Metabolism, Elimination and Induction
+### Metabolism, Elimination and Inhibition
 
 Verapamil is metabolized by CYP3A4 and transported by P-gp. The model includes enantioselective metabolism by CYP3A4, non-stereospecific P-gp transport. Additionally passive glomerular filtration was integrated. 
 
@@ -298,7 +302,7 @@ The result of the final parameter identification is shown in the tables below:
 # 3 Results and Discussion<a id="results-and-discussion"></a>
 
 
-The PBPK model for verapamil was developed and evaluated using publically available, clinical pharmacokinetic data from studies listed in [Section 2.2.2](#clinical-data).
+The PBPK model for verapamil was developed and evaluated using publically available, clinical pharmacokinetic data from studies listed in [Section 2.2](#clinical-data).
 
 The next sections show:
 
@@ -734,7 +738,7 @@ Use as suspension                | Yes                |
 ## 3.2 Diagnostics Plots<a id="diagnostics-plots"></a>
 
 
-Below you find the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data used presented in [Section 2.2.2](#clinical-data).
+Below you find the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data used presented in [Section 2.2](#clinical-data).
 
 The first plot shows observed versus simulated plasma concentration, the second weighted residuals versus time. 
 
@@ -796,7 +800,7 @@ The first plot shows observed versus simulated plasma concentration, the second 
 ## 3.3 Concentration-Time Profiles<a id="ct-profiles"></a>
 
 
-Simulated versus observed concentration-time profiles of all data listed in [Section 2.2.2](#clinical-data) are presented below.
+Simulated versus observed concentration-time profiles of all data listed in [Section 2.2](#clinical-data) are presented below.
 
 
 
