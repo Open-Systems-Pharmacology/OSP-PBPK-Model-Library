@@ -1,5 +1,23 @@
-# Building and evaluation of a PBPK model for Itraconazole in healthy adults| Version                                         | 1.3-OSP11.3                                                   || ----------------------------------------------- | ------------------------------------------------------------ || based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Itraconazole-Model/releases/tag/v1.3 || OSP Version                                     | 11.3                                                          || Qualification Framework Version                 | 2.3                                                          |This evaluation report and the corresponding PK-Sim project file are filed at:https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/
-# Table of Contents
+# Building and evaluation of a PBPK model for Itraconazole in healthy adults
+
+
+
+
+
+| Version                                         | 1.3-OSP12.0                                                   |
+| ----------------------------------------------- | ------------------------------------------------------------ |
+| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Itraconazole-Model/releases/tag/v1.3 |
+| OSP Version                                     | 12.0                                                          |
+| Qualification Framework Version                 | 3.3                                                          |
+
+
+
+
+
+This evaluation report and the corresponding PK-Sim project file are filed at:
+
+https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/
+# Table of Contents
   * [1 Introduction](#1-introduction)
   * [2 Methods](#2-methods)
     * [2.1 Modeling Strategy](#21-modeling-strategy)
@@ -565,13 +583,13 @@ GMFE = 1.541301
 
 ![005_plotGOFMergedResidualsOverTime.png](images/003_3_Results_and_Discussion/002_3_2_Diagnostics_Plots/005_plotGOFMergedResidualsOverTime.png)
 
-GMFE = 1.497044 
+GMFE = 1.497045 
 
 ![007_plotGOFMergedPredictedVsObserved.png](images/003_3_Results_and_Discussion/002_3_2_Diagnostics_Plots/007_plotGOFMergedPredictedVsObserved.png)
 
 ![008_plotGOFMergedResidualsOverTime.png](images/003_3_Results_and_Discussion/002_3_2_Diagnostics_Plots/008_plotGOFMergedResidualsOverTime.png)
 
-GMFE = 1.658829 
+GMFE = 1.658837 
 
 ![010_plotGOFMergedPredictedVsObserved.png](images/003_3_Results_and_Discussion/002_3_2_Diagnostics_Plots/010_plotGOFMergedPredictedVsObserved.png)
 
