@@ -28,7 +28,7 @@ jobs:
       id: tools
       run: echo "::set-output name=data::$(cat tools.json)"
       shell: bash
-  models:
+  read-models:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
@@ -52,7 +52,7 @@ jobs:
       run: echo "::set-output name=data::$(cat models.json)"
       shell: bash
   evaluation:
-    needs: [tools, models]
+    needs: [read-tools, read-models]
     strategy:
       matrix:
         row: ${{ fromJson(needs.models.outputs.data) }}
@@ -98,16 +98,16 @@ jobs:
             */*.pdf
             */*.pksim5
             */*.md
-        title: 'Update Evaluation Reports for ${{ matrix.row["Snapshot name"] }}'
+        title: Update Evaluation Reports for ${{ matrix.row['Snapshot name'] }}
         body: |
           ## Tools
           | Tools | Version	| URL |
           |-------|---------|-----|
-          ${{ join(fromJson(needs.tools.outputs.data), "\n| ", "| ", " |") }}
+          ${{ join(fromJson(needs.tools.outputs.data), '\n| ', '| ', ' |') }}
           ## All evaluated models
           | Execute |	Repository name |	Released version | Snapshot name | Workflow name | Additional projects |
           |---------|-----------------|------------------|---------------|---------------|---------------------|
-          ${{ join(fromJson(needs.models.outputs.data), "\n| ", "| ", " |") }}
+          ${{ join(fromJson(needs.models.outputs.data), '\n| ', '| ', ' |') }}
         assignees: ${{ github.actor }}
         reviewers: ${{ github.actor }}
     - name: Upload artifact if failed
