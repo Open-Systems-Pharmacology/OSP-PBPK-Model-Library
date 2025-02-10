@@ -80,7 +80,6 @@ jobs:
     - name: Install OSPSuite tools
       run: |
         Rscript install_tools.R
-      shell: Rscript {0} 
     - name: Run evaluations
       run: |
         toolsData <- read.csv("tools.csv", stringsAsFactors = FALSE, colClasses = "character")
