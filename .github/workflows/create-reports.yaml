@@ -30,11 +30,11 @@ jobs:
       shell: bash
     - name: Set tools data as output
       id: tools
-      run: echo "data='$(cat tools.json)'" >> $GITHUB_OUTPUT
+      run: echo "data={\"include\":$(cat tools.json)}" >> $GITHUB_OUTPUT
       shell: bash
     - name: Set models data as output
       id: models
-      run: echo "data='$(cat models.json)'" >> $GITHUB_OUTPUT
+      run: echo "data={\"include\":$(cat models.json)}" >> $GITHUB_OUTPUT
       shell: bash
     outputs:
       tools: ${{steps.tools.outputs.data}}
@@ -43,12 +43,15 @@ jobs:
     needs: read_inputs
     runs-on: ubuntu-latest
     steps:
-    - run: |
+    - name: Model raw data
+      run: |
         echo "${{ needs.read_inputs.outputs.tools }}"
-        echo "${{ needs.read_inputs.outputs.models }}" 
-    - run: |
-        echo "${{ fromJSON(needs.read_inputs.outputs.tools) }}"
-        echo "${{ fromJSON(needs.read_inputs.outputs.models).Index }}" 
+    - name: Model data as json
+      run: |
+        echo "${{ fromJSON(needs.read_inputs.outputs.models) }}" 
+    - name: Model data as json
+      run: |
+        echo "${{ fromJSON(needs.read_inputs.outputs.models)['Snapshot name'] }}" 
   evaluation:
     needs: read_inputs
     strategy:
