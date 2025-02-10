@@ -40,6 +40,16 @@ jobs:
     outputs:
       tools: ${{steps.tools.outputs.data}}
       models: ${{steps.models.outputs.data}}
+  check-outputs:
+    needs: read_inputs
+    runs-on: ubuntu-latest
+    steps:
+    - run: |
+        echo "${{ needs.read_inputs.outputs.tools }}"
+        echo "${{ needs.read_inputs.outputs.models }}" 
+    - run: |
+        echo "${{ fromJson(needs.read_inputs.outputs.tools) }}"
+        echo "${{ fromJson(needs.read_inputs.outputs.models) }}" 
   evaluation:
     needs: read_inputs
     strategy:
@@ -105,16 +115,6 @@ jobs:
           ${{ steps.models_table.outputs.table }}
         assignees: ${{ github.actor }}
         reviewers: ${{ github.actor }}
-    - name: Generate markdown table
-      id: generate_table
-      run: |
-          echo "::set-output name=table::| Repository Name | Snapshot Name |"
-          for row in $(jq -c '.[]' data.json); do
-            repo=$(echo $row | jq -r '."Repository Name"')
-            snap=$(echo $row | jq -r '."Snapshot Name"')
-            echo "::append-output name=table::| $repo | $snap |"
-          done
-      shell: bash
     - name: Upload artifact if failed
       if: failure()
       uses: actions/upload-artifact@v4
