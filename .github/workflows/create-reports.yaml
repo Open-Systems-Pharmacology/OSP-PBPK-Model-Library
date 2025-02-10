@@ -31,11 +31,11 @@ jobs:
       shell: bash
     - name: Set tools data as output
       id: tools
-      run: echo "{ data }={ $(cat tools.json) }" >> $GITHUB_OUTPUT
+      run: echo "data='$(cat tools.json)'" >> $GITHUB_OUTPUT
       shell: bash
     - name: Set models data as output
       id: models
-      run: echo "{ data }={ $(cat models.json) }" >> $GITHUB_OUTPUT
+      run: echo "data='$(cat models.json)'" >> $GITHUB_OUTPUT
       shell: bash
     outputs:
       tools: ${{steps.tools.outputs.data}}
