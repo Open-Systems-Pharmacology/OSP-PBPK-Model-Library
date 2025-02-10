@@ -88,6 +88,16 @@ jobs:
         source("report-qualification-template.R")
         runEvaluationReport(${{ matrix.row.Index }}, modelsData, toolsData)
       shell: Rscript {0}
+    - name: Markdown table for tools
+      uses: buildingcash/json-to-markdown-table-action@v1 
+      id: tools_table
+      with: 
+        json: ${{ needs.tools.outputs.data }}
+    - name: Markdown table for models
+      uses: buildingcash/json-to-markdown-table-action@v1 
+      id: models_table
+      with: 
+        json: ${{ needs.models.outputs.data }}
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v7
       with:
@@ -101,15 +111,21 @@ jobs:
         title: Update Evaluation Reports for ${{ matrix.row['Snapshot name'] }}
         body: |
           ## Tools
-          | Tools | Version	| URL |
-          |-------|---------|-----|
-          ${{ join(fromJson(needs.tools.outputs.data), '\n| ', '| ', ' |') }}
+          ${{ steps.tools_table.outputs.table }}
           ## All evaluated models
-          | Execute |	Repository name |	Released version | Snapshot name | Workflow name | Additional projects |
-          |---------|-----------------|------------------|---------------|---------------|---------------------|
-          ${{ join(fromJson(needs.models.outputs.data), '\n| ', '| ', ' |') }}
+          ${{ steps.models_table.outputs.table }}
         assignees: ${{ github.actor }}
         reviewers: ${{ github.actor }}
+    - name: Generate markdown table
+      id: generate_table
+      run: |
+          echo "::set-output name=table::| Repository Name | Snapshot Name |"
+          for row in $(jq -c '.[]' data.json); do
+            repo=$(echo $row | jq -r '."Repository Name"')
+            snap=$(echo $row | jq -r '."Snapshot Name"')
+            echo "::append-output name=table::| $repo | $snap |"
+          done
+      shell: bash
     - name: Upload artifact if failed
       if: failure()
       uses: actions/upload-artifact@v4
