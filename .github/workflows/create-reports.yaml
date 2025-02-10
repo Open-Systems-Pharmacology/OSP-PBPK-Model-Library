@@ -54,19 +54,6 @@ jobs:
       id: models
       run: echo "data={\"include\":$(cat models.json)}" >> $GITHUB_OUTPUT
       shell: bash
-  check-outputs:
-    needs: read_inputs
-    runs-on: ubuntu-latest
-    steps:
-    - name: Model table
-      run: |
-        echo "${{ needs.read_inputs.outputs.models_table }}"
-    - name: Tool table
-      run: |
-        echo "${{ needs.read_inputs.outputs.tools_table }}"
-    - name: Tool table
-      run: |
-        echo "${{ needs.read_inputs.outputs.models }}"
   evaluation:
     needs: read_inputs
     continue-on-error: false
