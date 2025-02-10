@@ -19,7 +19,7 @@ jobs:
       with:
         r-version: '4.3.1'
         use-public-rspm: true
-    - name: Read and export tools as json
+    - name: Read and export tools and models as json
       run: |
         Rscript -e 'install.packages("jsonlite", repos="https://cloud.r-project.org/")'
         Rscript -e '
@@ -32,20 +32,16 @@ jobs:
         cat(jsonlite::toJSON(modelsData, dataframe = "rows"))
         ' > models.json
       shell: bash
-    - name: Set tools data as output
-      id: tools
-      run: echo "data=$(cat tools.json)" >> $GITHUB_OUTPUT
-      shell: bash
     - name: Markdown table for tools
       uses: buildingcash/json-to-markdown-table-action@v1 
       id: tools_table
       with: 
-        json: "tools.json"
+        json_file_path: "tools.json"
     - name: Markdown table for models
       uses: buildingcash/json-to-markdown-table-action@v1 
       id: models_table
       with: 
-        json: "models.json"
+        json_file_path: "models.json"
     - name: Set models data as output for matrix run strategy
       id: models
       run: echo "data={\"include\":$(cat models.json)}" >> $GITHUB_OUTPUT
@@ -60,6 +56,9 @@ jobs:
     - name: Tool table
       run: |
         echo "${{ needs.read_inputs.outputs.tools_table }}"
+    - name: Tool table
+      run: |
+        echo "${{ needs.read_inputs.outputs.models }}"
   evaluation:
     needs: read_inputs
     strategy:
@@ -118,4 +117,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: failed-${{ matrix['Snapshot name'] }}
-        path: ${{ runner.temp }}
+        path: |
+          ${{ matrix['Snapshot name'] }}/**
+          **.txt
+          **.md
