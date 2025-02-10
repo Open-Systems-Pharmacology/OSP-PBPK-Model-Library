@@ -69,8 +69,10 @@ jobs:
         echo "${{ needs.read_inputs.outputs.models }}"
   evaluation:
     needs: read_inputs
+    continue-on-error: false
     strategy:
       matrix: ${{ fromJSON(needs.read_inputs.outputs.models) }}
+      fail-fast: false
     runs-on: windows-latest
     steps:
     - name: Checkout repository
@@ -79,6 +81,8 @@ jobs:
       run: |
         git config --global user.name 'github-actions'
         git config --global user.email 'github-actions@github.com'
+        git checkout -b ${{ github.ref_name }}-${{ matrix['Snapshot name'] }}
+        git push -u origin ${{ github.ref_name }}-${{ matrix['Snapshot name'] }}
         git fetch origin develop
         git rebase -Xours origin/develop
         git reset HEAD^
