@@ -5,56 +5,117 @@ on:
   workflow_dispatch:
 
 jobs:
-  evaluation:
-    runs-on: windows-latest
+  read_inputs:
+    runs-on: ubuntu-latest
+    outputs:
+      tools_table: ${{ steps.tools_table.outputs.table }}
+      models_table: ${{ steps.models_table.outputs.table }}
+      models: ${{steps.models.outputs.data}}
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
-
-    - name: Rebase from develop
-      run: |
-        git config --global user.name 'github-actions'
-        git config --global user.email 'github-actions@github.com'
-        git fetch origin develop
-        git rebase -Xours origin/develop
-        git reset HEAD^
-
     - name: Setup R
       uses: r-lib/actions/setup-r@v2
       with:
         r-version: '4.3.1'
         use-public-rspm: true
-    
+    - name: Read and export tools and models as json
+      run: |
+        Rscript -e 'install.packages("jsonlite", repos="https://cloud.r-project.org/")'
+        Rscript -e '
+        toolsData <- read.csv("tools.csv", stringsAsFactors = FALSE, colClasses = "character")
+        cat(jsonlite::toJSON(toolsData, dataframe = "rows"))
+        ' > tools.json
+        Rscript -e '
+        modelsData <- read.csv("models.csv", check.names = FALSE, stringsAsFactors = FALSE, colClasses = c("logical", rep("character", 5)))
+        modelsData$Index <- seq.int(nrow(modelsData))
+        cat(jsonlite::toJSON(modelsData, dataframe = "rows"))
+        ' > models.json
+      shell: bash
+    - name: Output tools data for table conversion
+      id: tools_data
+      run: echo "json=$(cat tools.json)" >> $GITHUB_OUTPUT
+      shell: bash
+    - name: Markdown table for tools
+      uses: buildingcash/json-to-markdown-table-action@v1 
+      id: tools_table
+      with: 
+        json: "${{ steps.tools_data.outputs.json }}"
+    - name: Output models data for table conversion
+      id: models_data
+      run: echo "json=$(cat models.json)" >> $GITHUB_OUTPUT
+      shell: bash
+    - name: Markdown table for models
+      uses: buildingcash/json-to-markdown-table-action@v1 
+      id: models_table
+      with: 
+        json: "${{ steps.models_data.outputs.json }}"
+    - name: Set models data as output for matrix run strategy
+      id: models
+      run: echo "data={\"include\":$(cat models.json)}" >> $GITHUB_OUTPUT
+      shell: bash
+  evaluation:
+    needs: read_inputs
+    strategy:
+      matrix: ${{ fromJSON(needs.read_inputs.outputs.models) }}
+      fail-fast: false
+    runs-on: windows-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+    - name: Rebase from develop
+      run: |
+        git config --global user.name 'github-actions'
+        git config --global user.email 'github-actions@github.com'
+        git checkout -b ${{ github.ref_name }}-${{ matrix['Snapshot name'] }}
+        git push -u origin ${{ github.ref_name }}-${{ matrix['Snapshot name'] }}
+        git fetch origin develop
+        git rebase -Xours origin/develop
+        git reset HEAD^
+    - name: Setup R
+      uses: r-lib/actions/setup-r@v2
+      with:
+        r-version: '4.3.1'
+        use-public-rspm: true    
     - name: Install chromehtml2pdf for pdf conversion
       run: |
         npm install -g chromehtml2pdf
-
     - name: Setup Pandoc for html conversion
       uses: r-lib/actions/setup-pandoc@v2
-
     - name: Install OSPSuite tools
       run: |
         Rscript install_tools.R
-
-    - name: Run evaluations through README.Rmd
+    - name: Run evaluations
       run: |
-        rmarkdown::render("README.Rmd", encoding = "UTF-8")
-      shell: Rscript {0} 
-
-# Create a pull request to the develop branch
-# Adding reviewers/assignees for example
+        toolsData <- read.csv("tools.csv", stringsAsFactors = FALSE, colClasses = "character")
+        modelsData <- read.csv("models.csv", check.names = FALSE, stringsAsFactors = FALSE, colClasses = c("logical", rep("character", 5)))
+        source("report-qualification-template.R")
+        runEvaluationReport(${{ matrix.Index }}, modelsData, toolsData)
+      shell: Rscript {0}
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v7
       with:
-        branch: ${{ github.ref_name }}
+        branch: ${{ github.ref_name }}-${{ matrix['Snapshot name'] }}
         base: develop
         add-paths: |
             */images/**
             */*.pdf
             */*.pksim5
             */*.md
-        title: 'Update Evaluation Reports'
+        title: Update Evaluation Reports for ${{ matrix['Snapshot name'] }}
         body: |
-          Update Evaluation Reports
+          ## Tools
+          ${{ needs.read_inputs.outputs.tools_table }}
+          ## All evaluated models
+          ${{ needs.read_inputs.outputs.models_table }}
         assignees: ${{ github.actor }}
         reviewers: ${{ github.actor }}
+    - name: Upload artifact if failed
+      if: failure()
+      uses: actions/upload-artifact@v4
+      with:
+        name: failed-${{ matrix['Snapshot name'] }}
+        path: |
+          ${{ matrix['Snapshot name'] }}/**
+          **.txt
+          **.md
