@@ -32,16 +32,24 @@ jobs:
         cat(jsonlite::toJSON(modelsData, dataframe = "rows"))
         ' > models.json
       shell: bash
+    - name: Output tools data for table conversion
+      id: tools_data
+      run: echo "json=$(cat tools.json)" >> $GITHUB_OUTPUT
+      shell: bash
     - name: Markdown table for tools
       uses: buildingcash/json-to-markdown-table-action@v1 
       id: tools_table
       with: 
-        json: "$(cat table.json)"
+        json: "${{ steps.tools_data.outputs.json }}"
+    - name: Output models data for table conversion
+      id: models_data
+      run: echo "json=$(cat models.json)" >> $GITHUB_OUTPUT
+      shell: bash
     - name: Markdown table for models
       uses: buildingcash/json-to-markdown-table-action@v1 
       id: models_table
       with: 
-        json: "$(cat models.json)"
+        json: "${{ steps.models_data.outputs.json }}"
     - name: Set models data as output for matrix run strategy
       id: models
       run: echo "data={\"include\":$(cat models.json)}" >> $GITHUB_OUTPUT
