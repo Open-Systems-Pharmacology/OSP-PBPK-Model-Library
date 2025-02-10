@@ -5,12 +5,61 @@ on:
   workflow_dispatch:
 
 jobs:
+  read-tools:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+    - name: Setup R
+      uses: r-lib/actions/setup-r@v2
+      with:
+        r-version: '4.3.1'
+        use-public-rspm: true
+    - name: Read and export tools as json
+      run: |
+        Rscript -e 'install.packages("jsonlite", repos="https://cloud.r-project.org/")'
+        Rscript -e '
+        toolsData <- read.csv("tools.csv", stringsAsFactors = FALSE, colClasses = "character")
+        toolsData$Index <- seq.int(nrow(toolsData))
+        cat(jsonlite::toJSON(toolsData, dataframe = "rows"))
+        ' > tools.json
+      shell: bash
+    - name: Set tools data as output
+      id: tools
+      run: echo "::set-output name=data::$(cat tools.json)"
+      shell: bash
+  models:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+    - name: Setup R
+      uses: r-lib/actions/setup-r@v2
+      with:
+        r-version: '4.3.1'
+        use-public-rspm: true
+    - name: Read and export models as json
+      run: |
+        Rscript -e 'install.packages("jsonlite", repos="https://cloud.r-project.org/")'
+        Rscript -e '
+        modelsData <- read.csv("models.csv", check.names = FALSE, stringsAsFactors = FALSE, colClasses = c("logical", rep("character", 5)))
+        modelsData$Index <- seq.int(nrow(modelsData))
+        cat(jsonlite::toJSON(modelsData, dataframe = "rows"))
+        ' > models.json
+      shell: bash
+    - name: Set models data as output
+      id: models
+      run: echo "::set-output name=data::$(cat models.json)"
+      shell: bash
   evaluation:
+    needs: [tools, models]
+    strategy:
+      matrix:
+        row: ${{ fromJson(needs.models.outputs.data) }}
     runs-on: windows-latest
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
-
     - name: Rebase from develop
       run: |
         git config --global user.name 'github-actions'
@@ -18,43 +67,52 @@ jobs:
         git fetch origin develop
         git rebase -Xours origin/develop
         git reset HEAD^
-
     - name: Setup R
       uses: r-lib/actions/setup-r@v2
       with:
         r-version: '4.3.1'
-        use-public-rspm: true
-    
+        use-public-rspm: true    
     - name: Install chromehtml2pdf for pdf conversion
       run: |
         npm install -g chromehtml2pdf
-
     - name: Setup Pandoc for html conversion
       uses: r-lib/actions/setup-pandoc@v2
-
     - name: Install OSPSuite tools
       run: |
         Rscript install_tools.R
-
-    - name: Run evaluations through README.Rmd
-      run: |
-        rmarkdown::render("README.Rmd", encoding = "UTF-8")
       shell: Rscript {0} 
-
-# Create a pull request to the develop branch
-# Adding reviewers/assignees for example
+    - name: Run evaluations
+      run: |
+        toolsData <- read.csv("tools.csv", stringsAsFactors = FALSE, colClasses = "character")
+        modelsData <- read.csv("models.csv", check.names = FALSE, stringsAsFactors = FALSE, colClasses = c("logical", rep("character", 5)))
+        source("report-qualification-template.R")
+        runEvaluationReport(${{ matrix.row.Index }}, modelsData, toolsData)
+      shell: Rscript {0}
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v7
       with:
-        branch: ${{ github.ref_name }}
+        branch: ${{ github.ref_name }}-${{ matrix.row['Snapshot name'] }}
         base: develop
         add-paths: |
             */images/**
             */*.pdf
             */*.pksim5
             */*.md
-        title: 'Update Evaluation Reports'
+        title: 'Update Evaluation Reports for ${{ matrix.row["Snapshot name"] }}'
         body: |
-          Update Evaluation Reports
+          ## Tools
+          | Tools | Version	| URL |
+          |-------|---------|-----|
+          ${{ join(fromJson(needs.tools.outputs.data), "\n| ", "| ", " |") }}
+          ## All evaluated models
+          | Execute |	Repository name |	Released version | Snapshot name | Workflow name | Additional projects |
+          |---------|-----------------|------------------|---------------|---------------|---------------------|
+          ${{ join(fromJson(needs.models.outputs.data), "\n| ", "| ", " |") }}
         assignees: ${{ github.actor }}
         reviewers: ${{ github.actor }}
+    - name: Upload artifact if failed
+      if: failure()
+      uses: actions/upload-artifact@v4
+      with:
+        name: failed-${{ matrix.row['Snapshot name'] }}
+        path: ${{ runner.temp }}
