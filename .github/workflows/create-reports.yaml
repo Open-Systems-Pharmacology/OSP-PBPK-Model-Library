@@ -36,12 +36,12 @@ jobs:
       uses: buildingcash/json-to-markdown-table-action@v1 
       id: tools_table
       with: 
-        json_file_path: "tools.json"
+        json: "$(cat table.json)"
     - name: Markdown table for models
       uses: buildingcash/json-to-markdown-table-action@v1 
       id: models_table
       with: 
-        json_file_path: "models.json"
+        json: "$(cat models.json)"
     - name: Set models data as output for matrix run strategy
       id: models
       run: echo "data={\"include\":$(cat models.json)}" >> $GITHUB_OUTPUT
