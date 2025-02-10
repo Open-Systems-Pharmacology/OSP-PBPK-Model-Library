@@ -1,5 +1,23 @@
-# Building and evaluation of a PBPK model for erythromycin in healthy adults| Version                                         | 1.3-OSP11.3                                                   || ----------------------------------------------- | ------------------------------------------------------------ || based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Erythromycin-Model/releases/tag/v1.3 || OSP Version                                     | 11.3                                                          || Qualification Framework Version                 | 2.3                                                          |This evaluation report and the corresponding PK-Sim project file are filed at:https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/
-# Table of Contents
+# Building and evaluation of a PBPK model for erythromycin in healthy adults
+
+
+
+
+
+| Version                                         | 1.4-OSP12.0                                                   |
+| ----------------------------------------------- | ------------------------------------------------------------ |
+| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Erythromycin-Model/releases/tag/v1.4 |
+| OSP Version                                     | 12.0                                                          |
+| Qualification Framework Version                 | 3.3                                                          |
+
+
+
+
+
+This evaluation report and the corresponding PK-Sim project file are filed at:
+
+https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/
+# Table of Contents
   * [1 Introduction](#1-introduction)
   * [2 Methods](#2-methods)
     * [2.1 Modeling Strategy](#21-modeling-strategy)
@@ -232,13 +250,17 @@ Additional elimination pathways suggested for erythromycin are acid-catalyzed de
 
 The reported dose fractions of erythromycin undergoing unchanged renal excretion after IV administration range from 0.018 ± 0.005 to 0.171 ± 0.11 (mean ± SD) ([Pasic 1987](#5-references), [Austin 1980](#5-references)). This information was accounted for in the model by implementing a glomerular filtration process and optimizing the `GFR fraction` to match the observed dose fractions excreted unchanged in urine.
 
-### 2.3.4 Autoinhibition
+### 2.3.4 Autoinhibition via CYP3A4
 
 In the scientific literature, large ranges have been reported for K<sub>I</sub> and k<sub>inact</sub> ([Section 2.2.2](#222in-vitro-data-on-mechanism-based-inhibition-of-cyp3a)). Since the exact values are unknown,  `K_kinact_half` and `kinact` were both optimized within the observed range (see [Section 2.2.2](#222in-vitro-data-on-mechanism-based-inhibition-of-cyp3a)) during model building to best match the observed clinical data. 
 
 To better inform optimization of these two parameters, clinical data of a midazolam-erythromycin interaction study conducted by Olkkola et al. ([Olkkola 1993](#5-references)) were included in the parameter optimization during model building. Therefore, the midazolam PBPK model v0.9 available on OSP GitHub (https://github.com/Open-Systems-Pharmacology/Midazolam-Model/releases/tag/0.9) was loaded in the PK-Sim® erythromycin file and the study by Olkkola et al. ([Olkkola 1993](#5-references)) was simulated. However, instead of using the reported midazolam plasma concentrations as observed data in the parameter identification, the AUC of midazolam was used. More specifically, a midazolam target AUC after IV and oral administration was calculated by multiplying the simulated midazolam AUC (24.3 and 54.0 µmol min/L and after IV and oral administration, respectively) with the observed geometric mean AUC ratio (1.96 and 4.07 after IV and PO administration, respectively) ([Olkkola 1993](#5-references)) resulting in target AUCs of 47.4 and 220 µmol min/L after IV and oral administration of midazolam, respectively. These values were included as observed data values in the parameter identification during model building. Since the AUC is not a default output that can directly be used in the parameter identification, the PBPK model structure was modified prior to running the parameter identification as described in the following. After exporting the model to MoBi®, an artificial reaction of a dummy molecule was created. The reaction rate was defined as the simulated peripheral venous blood plasma concentration of midazolam, hence yielding the AUC at any specific time point. Thereafter, the model was imported in PK-Sim® and included in the parameter identification. After being used in the parameter identification during model building, the model was not used any further. 
 
-### 2.3.5 Automated Parameter Identification
+### 2.3.5 Inhibition of P-gp
+
+The model also includes competitive inhibition of P-gp with a K<sub>i</sub> of 22.7 µmol/L ([Eberl 2007](#5-references)).
+
+### 2.3.6 Automated Parameter Identification
 
 This is the result of the final parameter identification:
 
@@ -265,6 +287,7 @@ This is the result of the final parameter identification:
 | `Specific intestinal permeability`  |                                          | 0.00038668371665         | cm/min |
 
 <sup>*</sup> The value in the model was updated to 1.350032201 with the release of PK-Sim 10 to account for the updated calculation method of interstitial concentrations (please refer to the respective [release notes of version 10](https://github.com/Open-Systems-Pharmacology/Suite/releases/tag/v10.0)).
+
 # 3 Results and Discussion
 The PBPK model for erythromycin was developed and verified with clinical pharmacokinetic data.
 
@@ -374,6 +397,17 @@ Plasma clearance              | 0 ml/min/kg        |
 Specific clearance            | 4.1462183378 1/min | Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 1' on 2020-01-13 15:01
 
 
+##### Inhibition: P-gp-Eberl2007
+
+Molecule: P-gp
+
+###### Parameters
+
+Name | Value       | Value Origin                                                                                                                                                                                                                                                                                                                                                                                   
+---- | ----------- | -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Ki   | 22.7 µmol/l | Publication-Eberl S, Renner B, Neubert A, Reisig M, Bachmakov I, König J, Dörje F, Mürdter TE, Ackermann A, Dormann H, Gassmann KG, Hahn EG, Zierhut S, Brune K, Fromm MF. Role of p-glycoprotein inhibition for drug interactions: evidence from in vitro and pharmacoepidemiological studies. Clin Pharmacokinet. 2007;46(12):1039-49. doi: 10.2165/00003088-200746120-00004. PMID: 18027988.
+
+
 
 ### Formulation: Erythromycin_Weibull_enteric-coated-pellets
 
@@ -430,7 +464,7 @@ The first plot shows simulated versus observed plasma concentration, the second 
 
 ![002_plotGOFMergedResidualsOverTime.png](images/003_3_Results_and_Discussion/002_3_2_Diagnostics_Plots/002_plotGOFMergedResidualsOverTime.png)
 
-GMFE = 1.575080 
+GMFE = 1.575079 
 
 ## 3.3 Concentration-Time Profiles
 Simulated versus observed concentration-time profiles of all data listed in [Section 2.2.3](#223-clinical-data) are presented below.
@@ -645,6 +679,8 @@ The final erythromycin PBPK model applies metabolism by CYP3A4, glomerular filtr
 
 **drugbank** (https://www.drugbank.ca/drugs/DB00199), accessed on 05-14-2018.
 
+**Eberl 2007** Eberl S, Renner B, Neubert A, Reisig M, Bachmakov I, König J, Dörje F, Mürdter TE, Ackermann A, Dormann H, Gassmann KG, Hahn EG, Zierhut S, Brune K, Fromm MF. Role of p-glycoprotein inhibition for drug interactions: evidence from in vitro and pharmacoepidemiological studies. *Clin Pharmacokinet* 2007, 46(12): 1039-1049.
+
 **Henry 1980** Henry J, Turner P, Garland M, Esmieu F. Plasma and salivary concentrations of erythromycin after administration of three different formulations. *Postgrad Med J* 1980, 56(660): 707-710.
 
 **Huppertz 2011** Huppertz A, Breuer J, Fels LM, Schultze‐Mosgau M, Sutter G, Klein S, et al. Evaluation of possible drug–drug interaction between gadoxetic acid and erythromycin as an inhibitor of organic anion transporting peptides (OATP). *J Magn Reson Imaging* 2011, 33(2): 409-416.
@@ -758,3 +794,4 @@ The final erythromycin PBPK model applies metabolism by CYP3A4, glomerular filtr
 **Zhang 2009** Zhang X, Jones DR, Hall SD. Prediction of the effect of erythromycin, diltiazem, and their metabolites, alone and in combination, on CYP3A4 inhibition. *Drug Metab Dispos* 2009, 37(1):150-160.
 
 **Zimmerlin 2011** Zimmerlin A, Trunzer M, Faller B. CYP3A time-dependent inhibition risk assessment validated with 400 reference drugs. *Drug Metab Dispos* 2011, 39(6): 1039-1046.
+

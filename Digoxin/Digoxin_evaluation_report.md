@@ -1,14 +1,18 @@
+
+
+
+
 # Building and evaluation of a PBPK model for digoxin in adults
 
 
 
 
 
-| Version                                         | 2.0-OSP11.3                                                   |
+| Version                                         | 2.0-OSP12.0                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
 | based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Digoxin-Model/releases/tag/v2.0 |
-| OSP Version                                     | 11.3                                                          |
-| Qualification Framework Version                 | 3.2                                                          |
+| OSP Version                                     | 12.0                                                          |
+| Qualification Framework Version                 | 3.3                                                          |
 
 
 
