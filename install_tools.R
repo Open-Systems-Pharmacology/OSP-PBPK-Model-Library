@@ -6,7 +6,7 @@
 
 #' @description Install CRAN R packages
 install.packages(c("dplyr", "purrr", "covr", "readr", "tidyr", "webshot", "spelling", "readxl", "data.table", "gridtext", "ggtext", "tidyselect", "testthat", "rmarkdown", "rsvg", "svglite", "cowplot"), repos = "http://cran.us.r-project.org", type = "win.binary")
-
+install.packages("showtext")
 toolsData <- read.csv("tools.csv", stringsAsFactors = FALSE, colClasses = "character")
 print(toolsData)
 
