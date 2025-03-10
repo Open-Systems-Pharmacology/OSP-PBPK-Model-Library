@@ -1,30 +1,44 @@
+
+
+
+
 # Building and evaluation of a PBPK Model for carbamazepine in healthy adults
 
 
-| Version                                         | 1.3-OSP12.0                                                         |
+| Version                                         | 1.0-OSP12.0                                                         |
 | ----------------------------------------------- | ------------------------------------------------------------ |
-| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Carbamazepine-Model/releases/tag/v1.3 |
+| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Carbamazepine-Model/releases/tag/v1.0 |
 | OSP Version                                     | 12.0                                                         |
 | Qualification Framework Version                 | 3.3                                                         |
 
 
 This evaluation report and the corresponding PK-Sim project file are stored at:
 
-https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/
+[https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library](https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library)
+
+
 
 # Table of Contents
-  * [1 Introduction](#1-introduction)
-  * [2 Methods](#2-methods)
-    * [2.1 Modeling Strategy](#21-modeling-strategy)
-    * [2.2 Data](#22-data)
-    * [2.3 Model Parameters and Assumptions](#23-model-parameters-and-assumptions)
-  * [3 Results and Discussion](#3-results-and-discussion)
-    * [3.1 Final input parameters](#31-final-input-parameters)
-    * [3.2 Diagnostics Plots](#32-diagnostics-plots)
-    * [3.3 Concentration-Time Profiles](#33-concentration-time-profiles)
-  * [4 Conclusion](#4-conclusion)
-  * [5 References](#5-references)
-# 1 Introduction
+
+ * [1 Introduction](#introduction)
+ * [2 Methods](#methods)
+   * [2.1 Modeling Strategy](#modeling-strategy)
+   * [2.2 Data](#data)
+   * [2.3 Model Parameters and Assumptions](#model-parameters-and-assumptions)
+ * [3 Results and Discussion](#results-and-discussion)
+   * [3.1 Final input parameters](#final-input-parameters)
+   * [3.2 Diagnostics Plots](#diagnostics-plots)
+   * [3.3 Concentration-Time Profiles](#ct-profiles)
+ * [4 Conclusion](#conclusion)
+ * [5 References](#main-references)
+
+
+
+
+
+# 1 Introduction<a id="introduction"></a>
+
+
 Carbamazepine, sold under the trade name Tegretol<sup>®</sup> among others, is an anticonvulsant medication used primarily to treat epilepsy and neuropathic pain. Other indications include schizophrenia where it is used as an adjunctive treatment along with other medications, and bipolar disorder where it is used as a second-line agent. Carbamazepine is typically taken by mouth on empty stomach or together with meals, depending on the administered formulation. 
 
 Carbamazepine is extensively metabolized by various enzymes including CYP2B6, 2C8, 3A4, and UGT2B7 ([Kerr 1994](#5-references), [Pelkonen 2001](#5-references), [Staines 2004](#5-references)). Following oral administration the major dose fraction is metabolized to carbamazepine-10,11-epoxide ([Eichelbaum 1985](#5-references), [Tomson 1983](#5-references)). This reaction is mainly catalyzed by CYP3A4, with some contribution from CYP2C8 ([Kerr 1994](#5-references)). After oral administration, a minor fraction of the dose (approximately 1 - 3%) is excreted unchanged in urine ([Bernus 1994](#5-references), [Morselli 1975](#5-references)), while approximately 1% of the dose can be recovered as unchanged drug in the bile ([Terhaag 1978](#5-references)).
@@ -33,10 +47,22 @@ Carbamazepine is classified by the U.S. Food and Drug Administration (FDA) as a 
 
 The herein presented model was developed independently of the model reported by Fuhr et al. ([Fuhr 2021](#5-references)). The main difference between the two models pertains to the metabolite carbamazepine-10,11-epoxide, which is included as separate compound in the model by Fuhr et al. ([Fuhr 2021](#5-references)), but not modeled in the herein presented model. Another structural model differences concerns the enzymatic elimination pathways of carbamazepine; the model by Fuhr et al. ([Fuhr 2021](#5-references)) includes five different metabolism pathways, whereas the herein presented model includes three different metabolism pathways. Additionally, the parameterization of CYP2B6 and 3A4 induction differs between the two models.
 
-# 2 Methods
 
 
-## 2.1 Modeling Strategy
+
+
+# 2 Methods<a id="methods"></a>
+
+
+
+
+
+
+
+
+## 2.1 Modeling Strategy<a id="modeling-strategy"></a>
+
+
 The general workflow for building an adult PBPK model has been described by Kuepfer et al. ([Kuepfer 2016](#5-references)). Relevant information on the anthropometry (height, weight) was gathered from the respective clinical study, if reported. Information on physiological parameters (e.g. blood flows, organ volumes, hematocrit) in adults was gathered from the literature and has been incorporated in PK-Sim<sup>®</sup>) as described previously ([Willmann 2007](#5-references)). The  applied activity and variability of plasma proteins and active processes that are integrated into PK-Sim<sup>®</sup> are described in the publicly available 'PK-Sim<sup>®</sup> Ontogeny Database Version 7.3' ([PK-Sim Ontogeny Database Version 7.3](#5-references)).
 
 The PBPK model was developed based on publicly available pharmacokinetic data of adult healthy subjects covering a carbamazepine dose range from 10 to 800 mg following intravenous administration or oral administration as liquid oral dosage form, immediate release (IR) tablet or extended release (XR) formulations in the fasted state. The carbamazepine PBPK model includes metabolism by CYP2B6, CYP3A4, and UGT2B7, unchanged renal excretion, and induction of CYP2B6 and 3A4 by carbamazepine. Pharmacokinetics of carbamazepine following administration in the fed state was not considered in the herein presented model. Furthermore, the metabolite carbamazepine-10,11-epoxide was not modeled as separate compound. 
@@ -48,8 +74,14 @@ Details about input data (physicochemical, *in vitro* and clinical) can be found
 Details about the structural model and its parameters can be found in [Section 2.3](#23-model-parameters-and-assumptions).
 
 
-## 2.2 Data
-### 2.2.1    In vitro / physicochemical Data
+
+
+
+
+## 2.2 Data<a id="data"></a>
+
+
+### 2.2.1 In vitro / physicochemical Data
 
 A literature search was performed to collect available information on physicochemical properties of carbamazepine and carbamazepine-10,11-epoxide. The information is summarized in the table below. 
 
@@ -88,7 +120,7 @@ A literature search was performed to collect available information on physicoche
 
 <sup>d</sup> refers to CYP3A4-mediated reaction forming carbamazepine-10,11-epoxide
 
-### 2.2.2    Clinical Data
+### 2.2.2 Clinical Data
 
 A literature search was conducted to collect available data on carbamazepine pharmacokinetics in healthy adult subjects after intravenous or oral administration in the fasted state.
 
@@ -141,7 +173,13 @@ The following studies were used for model evaluation:
 | [US Patent Application - US 2009/0169619 A1](#5-references) | Healthy subjects receiving a single oral dose of 300 mg carbamazepine                                                                                  |
 | [Wong 1983](#5-references)                                  | Healthy subjects receiving a single oral dose of 400 mg carbamazepine                                                                                  |
 
-## 2.3 Model Parameters and Assumptions
+
+
+
+
+## 2.3 Model Parameters and Assumptions<a id="model-parameters-and-assumptions"></a>
+
+
 ### 2.3.1	Absorption
 
 Absorption of carbamazepine from the gastrointestinal tract can be fully explained by passive diffusion; active uptake by drug transporters does not seem to play a role. Intestinal permeability was observed to be not a rate-limiting step in drug absorption. The solubility of carbamazepine following administration of the IR tablet was fixed to the mean value (308 mg/L at a pH of 6.7) reported by several studies in fasted human intestinal fluid ([Annaert 2010](#5-references), [Söderlind 2010](#5-references), [Clarysse 2011](#5-references)).
@@ -219,8 +257,14 @@ The parameter identification tool in PK-Sim<sup>®</sup> has been used to estima
 | `Solubility at ref pH` -- for XR formulations only | 546 | mg/L |
 
 
-# 3 Results and Discussion
-The PBPK model for carbamazepine was developed and evaluated using publicly available clinical pharmacokinetic data from studies listed in [Section 2.2.2](#222clinical-data).
+
+
+
+
+# 3 Results and Discussion<a id="results-and-discussion"></a>
+
+
+The PBPK model for carbamazepine was developed and evaluated using publicly available clinical pharmacokinetic data from studies listed in [Section 2.2.2](#222-clinical-data).
 
 The next sections show:
 
@@ -229,8 +273,15 @@ The next sections show:
 3. simulated vs. observed concentration-time profiles for the clinical studies used for model building and for model verification: [Section 3.3](#33-concentration-time-profiles).
 
 
-## 3.1 Final input parameters
+
+
+
+
+## 3.1 Final input parameters<a id="final-input-parameters"></a>
+
+
 The compound parameter values of the final PBPK model are illustrated below.
+
 
 
 
@@ -339,40 +390,6 @@ Emax | 148.7284    | Publication-Linear-mixed effects model fitted to reported d
 
 
 
-### Formulation: CBZ_capsuleXR_fasted (Carbatrol)
-
-Type: Weibull
-
-#### Parameters
-
-Name                             | Value              | Value Origin                                                                                                                                
--------------------------------- | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------
-Dissolution time (50% dissolved) | 315.2431776804 min | Parameter Identification-Parameter Identification-Value updated from '004-2_from-003-1_XRtablet_fasted_solubility_FINAL' on 2022-03-24 12:41
-Lag time                         | 0 min              |                                                                                                                                             
-Dissolution shape                | 1.2290186648       | Parameter Identification-Parameter Identification-Value updated from '004-2_from-003-1_XRtablet_fasted_solubility_FINAL' on 2022-03-24 12:41
-Use as suspension                | Yes                |                                                                                                                                             
-
-
-
-### Formulation: CBZ_tabletIR_fasted (Tegretol)
-
-Type: Weibull
-
-#### Parameters
-
-Name                             | Value              | Value Origin                                                                                                                             
--------------------------------- | ------------------ | -----------------------------------------------------------------------------------------------------------------------------------------
-Dissolution time (50% dissolved) | 109.3089775422 min | Parameter Identification-Parameter Identification-Value updated from '002-3-6_from001-5-3_IRtablet-sd_Pint-FIX_FINAL' on 2022-02-23 17:18
-Lag time                         | 0 min              |                                                                                                                                          
-Dissolution shape                | 0.6890123758       | Parameter Identification-Parameter Identification-Value updated from '002-3-6_from001-5-3_IRtablet-sd_Pint-FIX_FINAL' on 2022-02-23 17:18
-Use as suspension                | Yes                |                                                                                                                                          
-
-
-
-### Formulation: Solution
-
-Type: Dissolved
-
 
 ### Compound: [15N]-Carbamazepine
 
@@ -478,152 +495,934 @@ Emax | 148.7284    | Publication-Linear-mixed effects model fitted to reported d
 
 
 
-## 3.2 Diagnostics Plots
-Below you find the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data used presented in [Section 2.2.2](#222clinical-data).
+
+### Formulation: CBZ_tabletIR_fasted (Tegretol)
+
+Type: Weibull
+
+#### Parameters
+
+Name                             | Value              | Value Origin                                                                                                                             
+-------------------------------- | ------------------ | -----------------------------------------------------------------------------------------------------------------------------------------
+Dissolution time (50% dissolved) | 109.3089775422 min | Parameter Identification-Parameter Identification-Value updated from '002-3-6_from001-5-3_IRtablet-sd_Pint-FIX_FINAL' on 2022-02-23 17:18
+Lag time                         | 0 min              |                                                                                                                                          
+Dissolution shape                | 0.6890123758       | Parameter Identification-Parameter Identification-Value updated from '002-3-6_from001-5-3_IRtablet-sd_Pint-FIX_FINAL' on 2022-02-23 17:18
+Use as suspension                | Yes                |                                                                                                                                          
+
+
+
+
+### Formulation: CBZ_capsuleXR_fasted (Carbatrol)
+
+Type: Weibull
+
+#### Parameters
+
+Name                             | Value              | Value Origin                                                                                                                                
+-------------------------------- | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------
+Dissolution time (50% dissolved) | 315.2431776804 min | Parameter Identification-Parameter Identification-Value updated from '004-2_from-003-1_XRtablet_fasted_solubility_FINAL' on 2022-03-24 12:41
+Lag time                         | 0 min              |                                                                                                                                             
+Dissolution shape                | 1.2290186648       | Parameter Identification-Parameter Identification-Value updated from '004-2_from-003-1_XRtablet_fasted_solubility_FINAL' on 2022-03-24 12:41
+Use as suspension                | Yes                |                                                                                                                                             
+
+
+
+
+### Formulation: Solution
+
+Type: Dissolved
+
+
+
+
+
+
+## 3.2 Diagnostics Plots<a id="diagnostics-plots"></a>
+
+
+Below you find the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data used presented in [Section 2.2.2](#222-clinical-data).
 
 The first plot shows simulated versus observed plasma concentration, the second weighted residuals versus time. 
 
 
-![001_plotGOFMergedPredictedVsObserved.png](images/003_3_Results_and_Discussion/002_3_2_Diagnostics_Plots/001_plotGOFMergedPredictedVsObserved.png)
 
-![002_plotGOFMergedResidualsOverTime.png](images/003_3_Results_and_Discussion/002_3_2_Diagnostics_Plots/002_plotGOFMergedResidualsOverTime.png)
+<a id="table-3-1"></a>
 
-GMFE = 1.486311 
+**Table 3-1: GMFE for Goodness of fit plot for concentration in plasma**
 
-## 3.3 Concentration-Time Profiles
-Simulated versus observed concentration-time profiles of all data listed in [Section 2.2.2](#222clinical-data) are presented below.
 
+|Group                                                            |GMFE |
+|:----------------------------------------------------------------|:----|
+|Carbamazepine, IV administration                                 |1.27 |
+|Carbamazepine, PO administration as extended release formulation |1.41 |
+|Carbamazepine, PO administration as immediate release tablet     |1.40 |
+|Carbamazepine, PO administration as liquid oral dosage form      |2.35 |
+|All                                                              |1.49 |
 
-![001_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_plotTimeProfile.png)
 
-![002_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_plotTimeProfile.png)
+<br>
+<br>
 
-![003_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/003_plotTimeProfile.png)
 
-![004_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/004_plotTimeProfile.png)
+<a id="figure-3-1"></a>
 
-![005_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/005_plotTimeProfile.png)
+![](images/006_section_results-and-discussion/008_section_diagnostics-plots/2_gof_plot_predictedVsObserved.png)
 
-![006_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/006_plotTimeProfile.png)
 
-![007_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/007_plotTimeProfile.png)
 
-![008_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/008_plotTimeProfile.png)
+**Figure 3-1: Goodness of fit plot for concentration in plasma**
 
-![009_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/009_plotTimeProfile.png)
 
-![010_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/010_plotTimeProfile.png)
+<br>
+<br>
 
-![011_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/011_plotTimeProfile.png)
 
-![012_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/012_plotTimeProfile.png)
+<a id="figure-3-2"></a>
 
-![013_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/013_plotTimeProfile.png)
+![](images/006_section_results-and-discussion/008_section_diagnostics-plots/3_gof_plot_residualsOverTime.png)
 
-![014_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/014_plotTimeProfile.png)
 
-![015_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/015_plotTimeProfile.png)
 
-![016_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/016_plotTimeProfile.png)
+**Figure 3-2: Goodness of fit plot for concentration in plasma**
 
-![017_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/017_plotTimeProfile.png)
 
-![018_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/018_plotTimeProfile.png)
+<br>
+<br>
 
-![019_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/019_plotTimeProfile.png)
 
-![020_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/020_plotTimeProfile.png)
 
-![021_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/021_plotTimeProfile.png)
 
-![022_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/022_plotTimeProfile.png)
 
-![023_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/023_plotTimeProfile.png)
+## 3.3 Concentration-Time Profiles<a id="ct-profiles"></a>
 
-![024_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/024_plotTimeProfile.png)
 
-![025_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/025_plotTimeProfile.png)
+Simulated versus observed concentration-time profiles of all data listed in [Section 2.2.2](#222-clinical-data) are presented below.
 
-![026_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/026_plotTimeProfile.png)
 
-![027_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/027_plotTimeProfile.png)
 
-![028_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/028_plotTimeProfile.png)
+<a id="figure-3-3"></a>
 
-![029_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/029_plotTimeProfile.png)
+![](images/006_section_results-and-discussion/009_section_ct-profiles/1_time_profile_plot_Carbamazepine_Barzaghi1987_400mg_sd_tabIR.png)
 
-![030_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/030_plotTimeProfile.png)
 
-![031_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/031_plotTimeProfile.png)
 
-![032_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/032_plotTimeProfile.png)
+**Figure 3-3: Barzaghi1987_400mg_sd_tabIR**
 
-![033_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/033_plotTimeProfile.png)
 
-![034_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/034_plotTimeProfile.png)
+<br>
+<br>
 
-![035_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/035_plotTimeProfile.png)
 
-![036_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/036_plotTimeProfile.png)
+<a id="figure-3-4"></a>
 
-![037_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/037_plotTimeProfile.png)
+![](images/006_section_results-and-discussion/009_section_ct-profiles/2_time_profile_plot_Carbamazepine_Bedada2015_200mg_sd_tabIR.png)
 
-![038_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/038_plotTimeProfile.png)
 
-![039_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/039_plotTimeProfile.png)
 
-![040_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/040_plotTimeProfile.png)
+**Figure 3-4: Bedada2015_200mg_sd_tabIR**
 
-![041_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/041_plotTimeProfile.png)
 
-![042_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/042_plotTimeProfile.png)
+<br>
+<br>
 
-![043_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/043_plotTimeProfile.png)
 
-![044_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/044_plotTimeProfile.png)
+<a id="figure-3-5"></a>
 
-![045_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/045_plotTimeProfile.png)
+![](images/006_section_results-and-discussion/009_section_ct-profiles/3_time_profile_plot_Carbamazepine_Bedada2016_200mg_sd_tabIR.png)
 
-![046_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/046_plotTimeProfile.png)
 
-![047_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/047_plotTimeProfile.png)
 
-![048_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/048_plotTimeProfile.png)
+**Figure 3-5: Bedada2016_200mg_sd_tabIR**
 
-![049_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/049_plotTimeProfile.png)
 
-![050_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/050_plotTimeProfile.png)
+<br>
+<br>
 
-![051_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/051_plotTimeProfile.png)
 
-![052_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/052_plotTimeProfile.png)
+<a id="figure-3-6"></a>
 
-![053_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/053_plotTimeProfile.png)
+![](images/006_section_results-and-discussion/009_section_ct-profiles/4_time_profile_plot_Carbamazepine_Bernus1994_600mg_D1_D5_tabIR.png)
 
-![054_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/054_plotTimeProfile.png)
 
-![055_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/055_plotTimeProfile.png)
 
-![056_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/056_plotTimeProfile.png)
+**Figure 3-6: Bernus1994_600mg_D1+D5_tabIR - plasma**
 
-![057_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/057_plotTimeProfile.png)
 
-![058_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/058_plotTimeProfile.png)
+<br>
+<br>
 
-![059_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/059_plotTimeProfile.png)
 
-![060_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/060_plotTimeProfile.png)
+<a id="figure-3-7"></a>
 
-![061_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/061_plotTimeProfile.png)
+![](images/006_section_results-and-discussion/009_section_ct-profiles/5_time_profile_plot_Carbamazepine_Bernus1994_600mg_D1_D5_tabIR.png)
 
-![062_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/062_plotTimeProfile.png)
 
-# 4 Conclusion
+
+**Figure 3-7: Bernus1994_600mg_D1+D5_tabIR - urine**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-8"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/6_time_profile_plot_Carbamazepine_Bianchetti1987_400mg_sd_tabIR.png)
+
+
+
+**Figure 3-8: Bianchetti1987_400mg_sd_tabIR_fed**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-9"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/7_time_profile_plot_Carbamazepine_Burstein2000_100_200_400mg_md_tabIR.png)
+
+
+
+**Figure 3-9: Burstein2000_100-200-400mg_md_tabIR**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-10"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/8_time_profile_plot_Carbamazepine_Caraco1995_200mg_sd_LeanGroup.png)
+
+
+
+**Figure 3-10: Time Profile Analysis**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-11"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/9_time_profile_plot_Carbamazepine_Cawello2010_TrialB_200mg_BID.png)
+
+
+
+**Figure 3-11: Time Profile Analysis**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-12"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/10_time_profile_plot_Carbamazepine_Cotter1977_individual_800mg_sd_tabIR.png)
+
+
+
+**Figure 3-12: Cotter1977_individual_800mg_sd_tabIR**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-13"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/11_time_profile_plot_Carbamazepine_Dalton1985a_control_600mg_sd_tabIR.png)
+
+
+
+**Figure 3-13: Dalton1985_control_600mg_sd_tabIR**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-14"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/12_time_profile_plot_Carbamazepine_Dalton1985b_600mg_sd_tabIR.png)
+
+
+
+**Figure 3-14: Dalton1985a_600mg_sd_tabIR**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-15"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/13_time_profile_plot_Carbamazepine_Eichelbaum1985_VolunteerEH_200mg_sd_susp.png)
+
+
+
+**Figure 3-15: Time Profile Analysis**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-16"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/14_time_profile_plot_Carbamazepine_Elqidra2004_200mg_sd.png)
+
+
+
+**Figure 3-16: Time Profile Analysis**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-17"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/15_time_profile_plot_Carbamazepine_EUPatent2000_400mg_sd_TegretolXR.png)
+
+
+
+**Figure 3-17: EUPatent2005_400mg_sd_TegretolXR**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-18"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/16_time_profile_plot_Carbamazepine_EUPatent2000_600mg_sd_TegretolXR.png)
+
+
+
+**Figure 3-18: EUPatent2005_600mg_sd_TegretolXR**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-19"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/17_time_profile_plot_Carbamazepine_Gerardin1976_100mg_sd_tabIR.png)
+
+
+
+**Figure 3-19: Time Profile Analysis**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-20"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/18_time_profile_plot_Carbamazepine_Gerardin1976_200mg_sd_tabIR.png)
+
+
+
+**Figure 3-20: Geradin1976_200mg_sd_tabIR**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-21"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/19_time_profile_plot_Carbamazepine_Gerardin1976_600mg_sd_tabIR.png)
+
+
+
+**Figure 3-21: Time Profile Analysis**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-22"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/20_time_profile_plot_Carbamazepine_Gerardin1976_mean_200mg_md_tabIR.png)
+
+
+
+**Figure 3-22: Geradin1976_mean_200mg_md_tabIR**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-23"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/21_time_profile_plot_Carbamazepine_Gerardin1976_mean_200mg_md_tabIR.png)
+
+
+
+**Figure 3-23: Geradin1976_mean_200mg_md_tabIR - first dose**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-24"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/22_time_profile_plot_Carbamazepine_Gerardin1976_mean_200mg_md_tabIR.png)
+
+
+
+**Figure 3-24: Geradin1976_mean_200mg_md_tabIR - last dose**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-25"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/23_time_profile_plot_Carbamazepine_Gerardin1990_Subject1_10mg_iv_100mg_po_sol.png)
+
+
+
+**Figure 3-25: Geradin1990_Subject1_100mg-iv_100mg-po-sol**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-26"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/24_time_profile_plot_Carbamazepine_Gerardin1990_Subject2_10mg_iv_100mg_po_sol.png)
+
+
+
+**Figure 3-26: Geradin1990_Subject2_100mg-iv_100mg-po-sol**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-27"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/25_time_profile_plot_Carbamazepine_Ji2008_Arm2_Control_100_200_400mg_md_tabIR.png)
+
+
+
+**Figure 3-27: Ji2008_100-200-400mg_md_tabIR**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-28"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/26_time_profile_plot_Carbamazepine_Kayali1994_200mg_sd.png)
+
+
+
+**Figure 3-28: Time Profile Analysis**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-29"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/27_time_profile_plot_Carbamazepine_Kim2005_200mg_sd_tabIR.png)
+
+
+
+**Figure 3-29: Kim2005_200mg_sd_tabIR**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-30"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/28_time_profile_plot_Carbamazepine_Kovacevic2009_400mg_sd_TegretolIR.png)
+
+
+
+**Figure 3-30: Kovacevic2009_400mg_sd_TegretolIR**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-31"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/29_time_profile_plot_Carbamazepine_Kovacevic2009_400mg_sd_TegretolXR.png)
+
+
+
+**Figure 3-31: Kovacevic2009_400mg_sd_TegretolXR**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-32"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/30_time_profile_plot_Carbamazepine_Levy1975_6mg_kg_sd_solution_fasted.png)
+
+
+
+**Figure 3-32: Levy1975_6mg-kg_sd_solution_fasted**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-33"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/31_time_profile_plot_Carbamazepine_Levy1975_6mg_kg_sd_tabIR_fasted.png)
+
+
+
+**Figure 3-33: Levy1975_6mg-kg_sd_tabIR_fasted**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-34"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/32_time_profile_plot_Carbamazepine_McLean2001_400mg_sd_capXR_fasted.png)
+
+
+
+**Figure 3-34: McLean2001_400mg_sd_capXR_fasted**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-35"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/33_time_profile_plot_Carbamazepine_Meyer1992_200mg_sd_TegretolIR.png)
+
+
+
+**Figure 3-35: Time Profile Analysis**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-36"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/34_time_profile_plot_Carbamazepine_Meyer1998_200mg_sd_TegretolIR.png)
+
+
+
+**Figure 3-36: Time Profile Analysis**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-37"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/35_time_profile_plot_Carbamazepine_Miles1989_control_357mg_md_tabIR.png)
+
+
+
+**Figure 3-37: Miles1989_control_357_md_tabIR**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-38"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/36_time_profile_plot_Carbamazepine_Moller2001_100_200_400mg_md_tabIR.png)
+
+
+
+**Figure 3-38: Moller2001_100-200-400mg_md_tabIR**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-39"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/37_time_profile_plot_Carbamazepine_Morselli1975_healthy_400mg_sd_tabIR.png)
+
+
+
+**Figure 3-39: Morselli1975_healthy_400mg_sd_tabIR_plasma**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-40"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/38_time_profile_plot_Carbamazepine_Morselli1975_healthy_400mg_sd_tabIR.png)
+
+
+
+**Figure 3-40: Morselli1975_healthy_400mg_sd_tabIR_urine**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-41"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/39_time_profile_plot_Carbamazepine_Pynnoenen1977_400mg_sd_tabIR.png)
+
+
+
+**Figure 3-41: Pynnoenen1977_400mg_sd_tabIR_plasma**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-42"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/40_time_profile_plot_Carbamazepine_Pynnoenen1977_400mg_sd_tabIR.png)
+
+
+
+**Figure 3-42: Pynnoenen1977_400mg_sd_tabIR_saliva**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-43"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/41_time_profile_plot_Carbamazepine_Rawlins1975_100mg_sd_solution_volunteerG.png)
+
+
+
+**Figure 3-43: Rawlins1975_100mg_sd_sol**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-44"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/42_time_profile_plot_Carbamazepine_Rawlins1975_200mg_sd_solution_volunteerG.png)
+
+
+
+**Figure 3-44: Rawlins1975_200mg_sd_sol**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-45"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/43_time_profile_plot_Carbamazepine_Rawlins1975_200mg_sd_tablet_volunteerG.png)
+
+
+
+**Figure 3-45: Rawlins1975_200mg_sd_sol**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-46"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/44_time_profile_plot_Carbamazepine_Rawlins1975_50mg_sd_solution_volunteerG.png)
+
+
+
+**Figure 3-46: Rawlins1975_50mg_sd_sol**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-47"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/45_time_profile_plot_Carbamazepine_Saint_Salvi1987_200mg_sd_tabIR.png)
+
+
+
+**Figure 3-47: SaintSalvi1987_200mg_sd_tabIR**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-48"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/46_time_profile_plot_Carbamazepine_Stevens1998_400mg_bid_CarbatrolXR.png)
+
+
+
+**Figure 3-48: Stevens1998_400mg_bid_CarbatrolXR**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-49"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/47_time_profile_plot_Carbamazepine_Stevens1998_400mg_bid_CarbatrolXR.png)
+
+
+
+**Figure 3-49: Stevens1998_400mg_bid_CarbatrolXR - last dose**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-50"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/48_time_profile_plot_Carbamazepine_Stevens1998_400mg_bid_TegretolXR.png)
+
+
+
+**Figure 3-50: Stevens1998_400mg_bid_TegretolXR**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-51"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/49_time_profile_plot_Carbamazepine_Stevens1998_400mg_bid_TegretolXR.png)
+
+
+
+**Figure 3-51: Stevens1998_400mg_bid_TegretolXR - last dose**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-52"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/50_time_profile_plot_Carbamazepine_Strandjord1975_mean_400mg_sd_tabIR.png)
+
+
+
+**Figure 3-52: Strandjord1975_mean_400mg_sd_tabIR - observed mean data**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-53"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/51_time_profile_plot_Carbamazepine_Strandjord1975_mean_400mg_sd_tabIR.png)
+
+
+
+**Figure 3-53: Strandjord1975_mean_400mg_sd_tabIR - observed individual data**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-54"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/52_time_profile_plot_Carbamazepine_Sumi1987_200mg_sd_sol.png)
+
+
+
+**Figure 3-54: Sumi1987_200mg_sd_solution**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-55"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/53_time_profile_plot_Carbamazepine_Sumi1987_200mg_sd_tabletA.png)
+
+
+
+**Figure 3-55: Sumi1987_200mg_sd_tabletA**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-56"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/54_time_profile_plot_Carbamazepine_Sumi1987_200mg_sd_tabletB.png)
+
+
+
+**Figure 3-56: Sumi1987_200mg_sd_tabletB**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-57"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/55_time_profile_plot_Carbamazepine_Sumi1987_200mg_sd_tabletC.png)
+
+
+
+**Figure 3-57: Sumi1987_200mg_sd_tabletC**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-58"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/56_time_profile_plot_Carbamazepine_Tomson1983_GB_200mg_sd_susp.png)
+
+
+
+**Figure 3-58: Tomson1983_GB_200mg_sd_susp**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-59"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/57_time_profile_plot_Carbamazepine_USPatent2009_300mg_sd_capXR.png)
+
+
+
+**Figure 3-59: USPatent2009_300mg_sd_capXR**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-60"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/58_time_profile_plot_Carbamazepine_Wada1978_200mg_sd_syrup.png)
+
+
+
+**Figure 3-60: Wada1987_200mg_sd_syrup_plasma**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-61"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/59_time_profile_plot_Carbamazepine_Wada1978_200mg_sd_syrup.png)
+
+
+
+**Figure 3-61: Wada1987_200mg_sd_syrup_saliva**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-62"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/60_time_profile_plot_Carbamazepine_Wada1978_200mg_sd_tabIR.png)
+
+
+
+**Figure 3-62: Wada1978_200mg_sd_tabIR_plasma**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-63"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/61_time_profile_plot_Carbamazepine_Wada1978_200mg_sd_tabIR.png)
+
+
+
+**Figure 3-63: Wada1978_200mg_sd_tabIR_plasma 1**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-64"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/62_time_profile_plot_Carbamazepine_Wong1983_control_400mg_sd_tabIR.png)
+
+
+
+**Figure 3-64: Wong1983_control_400mg_sd_tabIR**
+
+
+<br>
+<br>
+
+
+
+
+
+# 4 Conclusion<a id="conclusion"></a>
+
+
 The herein presented PBPK model adequately describes the pharmacokinetics of carbamazepine after single and multiple oral administration of various doses to healthy adults. 
 
 In conclusion, the presented carbamazepine PBPK model is well-suited to be applied in drug-drug-interaction scenarios.
 
-# 5 References
+
+
+
+
+# 5 References<a id="main-references"></a>
+
+
 **Achour 2014** Achour, B., Russell, M. R., Barber, J., & Rostami-Hodjegan, A. (2014). Simultaneous quantification of the abundance of several cytochrome P450 and uridine 5′-diphospho-glucuronosyltransferase enzymes in human liver microsomes using multiplexed targeted proteomics. *Drug metabolism and disposition*, *42*(4), 500-510.
 
 **Almond 2016** Almond, L. M., Mukadam, S., Gardner, I., Okialda, K., Wong, S., Hatley, O., ... & Kenny, J. R. (2016). Prediction of drug-drug interactions arising from CYP3A induction using a physiologically based dynamic model. *Drug Metabolism and Disposition*, *44*(6), 821-832.
@@ -644,7 +1443,7 @@ In conclusion, the presented carbamazepine PBPK model is well-suited to be appli
 
 **Burstein 2000** Burstein, A. H., Horton, R. L., Dunn, T., Alfaro, R. M., Piscitelli, S. C., & Theodore, W. (2000). Lack of effect of St John's Wort on carbamazepine pharmacokinetics in healthy volunteers. *Clinical Pharmacology & Therapeutics*, *68*(6), 605-612.
 
-**Caraco 1995** Caraco, Y., Zylber-Katz, E., Berry, E. M., & Levy, M. (1995). Carbamazepine phakmacokinetics in obese and lean subjects. *Annals of Pharmacotherapy*, *29*(9), 843-847.
+**Caraco 1995** Caraco, Y., Zylber-Katz, E., Berry, E. M., & Levy, M. (1995). Carbamazepine pharmacokinetics in obese and lean subjects. *Annals of Pharmacotherapy*, *29*(9), 843-847.
 
 **Cawello 2010** Cawello, W., Nickel, B., & Eggert‐Formella, A. (2010). No pharmacokinetic interaction between lacosamide and carbamazepine in healthy volunteers. *The Journal of Clinical Pharmacology*, *50*(4), 459-471.
 
@@ -767,6 +1566,8 @@ In conclusion, the presented carbamazepine PBPK model is well-suited to be appli
 **Willmann 2007** Willmann, S., Höhn, K., Edginton, A., Sevestre, M., Solodenko, J., Weiss, W., ... & Schmitt, W. (2007). Development of a physiology-based whole-body population model for assessing the influence of individual variability on the pharmacokinetics of drugs. *Journal of pharmacokinetics and pharmacodynamics*, *34*(3), 401-431.
 
 **Wong 1983** Wong, Y. Y., Ludden, T. M., & Bell, R. D. (1983). Effect of erythromycin on carbamazepine kinetics. *Clinical Pharmacology & Therapeutics*, *33*(4), 460-464.
+
+
 
 
 
