@@ -1,12 +1,16 @@
+
+
+
+
 # Building and Evaluation of a PBPK Model for Dapagliflozin in Adults
 
 
 
 
 
-| Version                                         | 1.3-OSP12.0                                                   |
+| Version                                         | 1.0-OSP12.0                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
-| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Dapagliflozin-Model/releases/tag/v1.3 |
+| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Dapagliflozin-Model/releases/tag/v1.0 |
 | OSP Version                                     | 12.0                                                          |
 | Qualification Framework Version                 | 3.3                                                          |
 
@@ -17,22 +21,33 @@
 This evaluation report and the corresponding PK-Sim project file are filed at:
 
 https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/
+
+
+
 # Table of Contents
-  * [1 Introduction](#1-introduction)
-  * [2 Methods](#2-methods)
-    * [2.1 Modeling Strategy](#21-modeling-strategy)
-    * [2.2 Data](#22-data)
-    * [2.3 Model Parameters and Assumptions](#23-model-parameters-and-assumptions)
-  * [3 Results and Discussion](#3-results-and-discussion)
-    * [3.1 Final input parameters](#31-final-input-parameters)
-    * [3.2 Diagnostics Plots](#32-diagnostics-plots)
-    * [3.3 Concentration-Time Profiles](#33-concentration-time-profiles)
-      * [3.3.1 Model Building](#331-model-building)
-      * [3.3.2 Model Verification](#332-model-verification)
-      * [3.3.3 Overview](#333-overview)
-  * [4 Conclusion](#4-conclusion)
-  * [5 References](#5-references)
-# 1 Introduction
+
+ * [1 Introduction](#introduction)
+ * [2 Methods](#methods)
+   * [2.1 Modeling Strategy](#modeling-strategy)
+   * [2.2 Data](#data)
+   * [2.3 Model Parameters and Assumptions](#model-parameters-and-assumptions)
+ * [3 Results and Discussion](#results-and-discussion)
+   * [3.1 Final input parameters](#final-input-parameters)
+   * [3.2 Diagnostics Plots](#diagnostics-plots)
+   * [3.3 Concentration-Time Profiles](#ct-profiles)
+     * [3.3.1 Model Building](#model-building)
+     * [3.3.2 Model Verification](#model-verification)
+     * [3.3.3 Overview](#ct-profiles-overview)
+ * [4 Conclusion](#conclusion)
+ * [5 References](#main-references)
+
+
+
+
+
+# 1 Introduction<a id="introduction"></a>
+
+
 Dapagliflozin is an active, highly selective sodium-glucose transport protein 2 (SGLT2) inhibitor that improves glycemic control in patients with type 2 diabetes mellitus by reducing renal glucose reabsorption leading to urinary glucose excretion (glucuresis). It is administered orally.
 
 Dapagliflozin is predominantly metabolized by uridine diphosphate-glucuronosyltransferase 1A9 (UGT1A9) in the liver and kidneys to the major metabolite dapagliflozin 3-O-glucuronide and can be considered a sensitive substrate for characterization of UGT1A9 activity. In a clinical drug interaction study, co-administration of mefenamic acid with dapagliflozin resulted in a dapagliflozin AUC ratio of 1.51 and C<sub>max</sub> ratio of 1.13 ([Kasichayanula 2013a](#5-references)).
@@ -42,10 +57,22 @@ Using published clinical data, the objective is to establish a whole-body PBPK m
 The herein presented model building and evaluation report evaluates the performance of the PBPK model for dapagliflozin in (healthy) adults.
 
 
-# 2 Methods
 
 
-## 2.1 Modeling Strategy
+
+
+# 2 Methods<a id="methods"></a>
+
+
+
+
+
+
+
+
+## 2.1 Modeling Strategy<a id="modeling-strategy"></a>
+
+
 The general concept of building a PBPK model has previously been described by Kuepfer *et al.* ([Kuepfer 2016](#5-references)). Relevant information on anthropometric (height, weight) and physiological parameters (e.g. blood flows, organ volumes, binding protein concentrations, hematocrit, cardiac output) in adults was gathered from the literature and has been previously published ([PK-Sim Ontogeny Database Version 7.3](#5-references)). The information was incorporated into PK-Sim® and was used as default values for the simulations in adults.
 
 The  applied activity and variability of plasma proteins and active processes that are integrated into PK-Sim® are described in the publicly available PK-Sim® Ontogeny Database Version 7.3 ([Schlender 2016](#5-references)) or otherwise referenced for the specific process.
@@ -66,7 +93,13 @@ Details about input data (physicochemical, *in vitro* and clinical) can be found
 Details about the structural model and its parameters can be found in [Section 2.3](#23-model-parameters-and-assumptions).
 
 
-## 2.2 Data
+
+
+
+
+## 2.2 Data<a id="data"></a>
+
+
 ### 2.2.1 In vitro / physicochemical Data
 
 A literature search was performed to collect available information on physicochemical properties of dapagliflozin. The obtained information from literature is summarized in the table below. 
@@ -153,7 +186,13 @@ The following studies were used for model verification:
 | [Komoroski 2009](#5-references)                              | Single oral dose 250 mg (fed)                                |
 
 
-## 2.3 Model Parameters and Assumptions
+
+
+
+
+## 2.3 Model Parameters and Assumptions<a id="model-parameters-and-assumptions"></a>
+
+
 ### 2.3.1 Absorption
 
 Studies including oral applications of dapagliflozin used for model building applied either a capsule or immediate release tablets. They all demonstrated rapid and extensive absorption. The availability of dense data during absorption, data covering a broad range of doses (from 2.5 up to 500 mg), and intravenous pharmacokinetic data ([Boulton 2013](#5-references)) allowed the identification of the *in vivo* intestinal permeability and an effective *in vivo* solubility in this PBPK model (see also [Section 2.3.4](#234-automated-parameter-identification)).
@@ -211,7 +250,13 @@ This is the result of the final parameter identification.
 | `Blood/Plasma concentration ratio` | 0.88 FIXED      |            |
 
 
-# 3 Results and Discussion
+
+
+
+
+# 3 Results and Discussion<a id="results-and-discussion"></a>
+
+
 The PBPK model for dapagliflozin was developed and verified with clinical pharmacokinetic data.
 
 The model was evaluated covering data from studies including in particular
@@ -230,8 +275,15 @@ The next sections show:
 3. simulated vs. observed concentration-time profiles for the clinical studies used for model building and for model verification: [Section 3.3](#33-concentration-time-profiles).
 
 
-## 3.1 Final input parameters
+
+
+
+
+## 3.1 Final input parameters<a id="final-input-parameters"></a>
+
+
 The compound parameter values of the final PBPK model are illustrated below.
+
 
 
 
@@ -319,10 +371,6 @@ CLspec/[Enzyme]      | 0.1432967727 l/µmol/min | Parameter Identification-Param
 
 
 
-### Formulation: Dissolved
-
-Type: Dissolved
-
 
 ### Formulation: IC tablet (Chang 2015)
 
@@ -339,132 +387,703 @@ Use as suspension                | Yes    |
 
 
 
-## 3.2 Diagnostics Plots
+
+### Formulation: Dissolved
+
+Type: Dissolved
+
+
+
+
+
+
+## 3.2 Diagnostics Plots<a id="diagnostics-plots"></a>
+
+
 Below you find the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data used presented in [Section 2.2.2](#222-clinical-data).
 
 The first plot shows simulated versus observed plasma concentrations, the second weighted residuals versus time. 
 
 
-![001_plotGOFMergedPredictedVsObserved.png](images/003_3_Results_and_Discussion/002_3_2_Diagnostics_Plots/001_plotGOFMergedPredictedVsObserved.png)
 
-![002_plotGOFMergedResidualsOverTime.png](images/003_3_Results_and_Discussion/002_3_2_Diagnostics_Plots/002_plotGOFMergedResidualsOverTime.png)
+<a id="table-3-1"></a>
 
-GMFE = 1.222396 
+**Table 3-1: GMFE for Goodness of fit plot for concentration in plasma**
 
-## 3.3 Concentration-Time Profiles
+
+|Group                         |GMFE |
+|:-----------------------------|:----|
+|IV (model building)           |1.38 |
+|PO MD                         |1.22 |
+|PO SD fasted (model building) |1.20 |
+|PO SD fed                     |1.43 |
+|PO SD IC tablets (Chang 2015) |1.27 |
+|All                           |1.22 |
+
+
+<br>
+<br>
+
+
+<a id="figure-3-1"></a>
+
+![](images/006_section_results-and-discussion/008_section_diagnostics-plots/2_gof_plot_predictedVsObserved.png)
+
+
+
+**Figure 3-1: Goodness of fit plot for concentration in plasma**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-2"></a>
+
+![](images/006_section_results-and-discussion/008_section_diagnostics-plots/3_gof_plot_residualsOverTime.png)
+
+
+
+**Figure 3-2: Goodness of fit plot for concentration in plasma**
+
+
+<br>
+<br>
+
+
+
+
+
+## 3.3 Concentration-Time Profiles<a id="ct-profiles"></a>
+
+
 Simulated versus observed concentration-time profiles of all data listed in [Section 2.2.2](#222-clinical-data) are presented below.
 
 
-### 3.3.1 Model Building
+
+
+
+
+### 3.3.1 Model Building<a id="model-building"></a>
 
 
 
 
 
-![001_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_3_3_1_Model_Building/001_plotTimeProfile.png)
-
-![002_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_3_3_1_Model_Building/002_plotTimeProfile.png)
-
-![003_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_3_3_1_Model_Building/003_plotTimeProfile.png)
-
-![004_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_3_3_1_Model_Building/004_plotTimeProfile.png)
-
-![005_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_3_3_1_Model_Building/005_plotTimeProfile.png)
-
-![006_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_3_3_1_Model_Building/006_plotTimeProfile.png)
-
-![007_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_3_3_1_Model_Building/007_plotTimeProfile.png)
-
-![008_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_3_3_1_Model_Building/008_plotTimeProfile.png)
-
-![009_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_3_3_1_Model_Building/009_plotTimeProfile.png)
-
-![010_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_3_3_1_Model_Building/010_plotTimeProfile.png)
-
-![011_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_3_3_1_Model_Building/011_plotTimeProfile.png)
-
-![012_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_3_3_1_Model_Building/012_plotTimeProfile.png)
-
-![013_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_3_3_1_Model_Building/013_plotTimeProfile.png)
-
-![014_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_3_3_1_Model_Building/014_plotTimeProfile.png)
-
-![015_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_3_3_1_Model_Building/015_plotTimeProfile.png)
-
-![016_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_3_3_1_Model_Building/016_plotTimeProfile.png)
-
-![017_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_3_3_1_Model_Building/017_plotTimeProfile.png)
-
-![018_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_3_3_1_Model_Building/018_plotTimeProfile.png)
-
-![019_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_3_3_1_Model_Building/019_plotTimeProfile.png)
-
-![020_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_3_3_1_Model_Building/020_plotTimeProfile.png)
-
-![021_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_3_3_1_Model_Building/021_plotTimeProfile.png)
-
-![022_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_3_3_1_Model_Building/022_plotTimeProfile.png)
-
-![023_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_3_3_1_Model_Building/023_plotTimeProfile.png)
-
-![024_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_3_3_1_Model_Building/024_plotTimeProfile.png)
-
-![025_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_3_3_1_Model_Building/025_plotTimeProfile.png)
-
-### 3.3.2 Model Verification
 
 
-![001_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/001_plotTimeProfile.png)
 
-![002_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/002_plotTimeProfile.png)
+<a id="figure-3-3"></a>
 
-![003_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/003_plotTimeProfile.png)
+![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/1_time_profile_plot_Dapagliflozin_IV_0_08_mg__perm_.png)
 
-![004_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/004_plotTimeProfile.png)
 
-![005_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/005_plotTimeProfile.png)
 
-![006_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/006_plotTimeProfile.png)
+**Figure 3-3: IV 0.08 mg (perm)**
 
-![007_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/007_plotTimeProfile.png)
 
-![008_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/008_plotTimeProfile.png)
+<br>
+<br>
 
-![009_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/009_plotTimeProfile.png)
 
-![010_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/010_plotTimeProfile.png)
+<a id="figure-3-4"></a>
 
-![011_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/011_plotTimeProfile.png)
+![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/2_time_profile_plot_Dapagliflozin_PO_SD_2_5_mg__perm_.png)
 
-![012_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/012_plotTimeProfile.png)
 
-![013_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/013_plotTimeProfile.png)
 
-![014_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/014_plotTimeProfile.png)
+**Figure 3-4: PO SD 2.5 mg (perm)**
 
-![015_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/015_plotTimeProfile.png)
 
-![016_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/016_plotTimeProfile.png)
+<br>
+<br>
 
-### 3.3.3 Overview
+
+<a id="figure-3-5"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/3_time_profile_plot_Dapagliflozin_PO_SD_2_5_mg__perm_.png)
+
+
+
+**Figure 3-5: PO SD 2.5 mg (perm)**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-6"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/4_time_profile_plot_Dapagliflozin_PO_SD_2_5_mg__perm_.png)
+
+
+
+**Figure 3-6: PO SD 2.5 mg (perm) (urinary excretion)**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-7"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/5_time_profile_plot_Dapagliflozin_PO_SD_5_mg__perm_.png)
+
+
+
+**Figure 3-7: PO SD 5 mg (perm)**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-8"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/6_time_profile_plot_Dapagliflozin_PO_SD_5_mg__perm_.png)
+
+
+
+**Figure 3-8: PO SD 5 mg (perm)**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-9"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/7_time_profile_plot_Dapagliflozin_PO_SD_5_mg__perm_.png)
+
+
+
+**Figure 3-9: PO SD 5 mg (perm) (urinary excretion)**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-10"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/8_time_profile_plot_Dapagliflozin_PO_SD_10_mg__perm_.png)
+
+
+
+**Figure 3-10: PO SD 10 mg (perm)**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-11"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/9_time_profile_plot_Dapagliflozin_PO_SD_10_mg__perm_.png)
+
+
+
+**Figure 3-11: PO SD 10 mg (perm)**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-12"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/10_time_profile_plot_Dapagliflozin_PO_SD_10_mg__perm_.png)
+
+
+
+**Figure 3-12: PO SD 10 mg (perm) (urinary excretion)**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-13"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/11_time_profile_plot_Dapagliflozin_PO_SD_20_mg__perm_.png)
+
+
+
+**Figure 3-13: PO SD 20 mg (perm)**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-14"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/12_time_profile_plot_Dapagliflozin_PO_SD_20_mg__perm_.png)
+
+
+
+**Figure 3-14: PO SD 20 mg (perm)**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-15"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/13_time_profile_plot_Dapagliflozin_PO_SD_20_mg__perm_.png)
+
+
+
+**Figure 3-15: PO SD 2.5 mg (perm) (urinary excretion)**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-16"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/14_time_profile_plot_Dapagliflozin_PO_SD_50_mg__perm_.png)
+
+
+
+**Figure 3-16: PO SD 50 mg (perm)**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-17"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/15_time_profile_plot_Dapagliflozin_PO_SD_50_mg__perm_.png)
+
+
+
+**Figure 3-17: PO SD 50 mg (perm)**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-18"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/16_time_profile_plot_Dapagliflozin_PO_SD_50_mg__perm_.png)
+
+
+
+**Figure 3-18: PO SD 50 mg (perm) (fraction excreted/metabolized)**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-19"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/17_time_profile_plot_Dapagliflozin_PO_SD_100_mg__perm_.png)
+
+
+
+**Figure 3-19: PO SD 100 mg (perm)**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-20"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/18_time_profile_plot_Dapagliflozin_PO_SD_100_mg__perm_.png)
+
+
+
+**Figure 3-20: PO SD 100 mg (perm)**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-21"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/19_time_profile_plot_Dapagliflozin_PO_SD_100_mg__perm_.png)
+
+
+
+**Figure 3-21: PO SD 100 mg (perm) (urinary excretion)**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-22"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/20_time_profile_plot_Dapagliflozin_PO_SD_250_mg__perm_.png)
+
+
+
+**Figure 3-22: PO SD 250 mg (perm)**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-23"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/21_time_profile_plot_Dapagliflozin_PO_SD_250_mg__perm_.png)
+
+
+
+**Figure 3-23: PO SD 250 mg (perm)**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-24"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/22_time_profile_plot_Dapagliflozin_PO_SD_250_mg__perm_.png)
+
+
+
+**Figure 3-24: PO SD 250 mg (perm) (urinary excretion)**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-25"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/23_time_profile_plot_Dapagliflozin_PO_SD_500_mg__perm_.png)
+
+
+
+**Figure 3-25: PO SD 500 mg (perm)**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-26"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/24_time_profile_plot_Dapagliflozin_PO_SD_500_mg__perm_.png)
+
+
+
+**Figure 3-26: PO SD 500 mg (perm)**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-27"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/25_time_profile_plot_Dapagliflozin_PO_SD_500_mg__perm_.png)
+
+
+
+**Figure 3-27: PO SD 500 mg (perm) (urinary excretion)**
+
+
+<br>
+<br>
+
+
+
+
+
+### 3.3.2 Model Verification<a id="model-verification"></a>
+
+
+
+
+
+<a id="figure-3-28"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/26_time_profile_plot_Dapagliflozin_PO_SD_5_mg_IC_tablet__Chang_2015___perm_.png)
+
+
+
+**Figure 3-28: PO SD 5 mg IR tablet (perm)**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-29"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/27_time_profile_plot_Dapagliflozin_PO_SD_5_mg_IC_tablet__Chang_2015___perm_.png)
+
+
+
+**Figure 3-29: PO SD 5 mg IR tablet (perm)**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-30"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/28_time_profile_plot_Dapagliflozin_PO_SD_10_mg_IC_tablet__Chang_2015___perm_.png)
+
+
+
+**Figure 3-30: PO SD 10 mg IR tablet (perm)**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-31"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/29_time_profile_plot_Dapagliflozin_PO_SD_10_mg_IC_tablet__Chang_2015___perm_.png)
+
+
+
+**Figure 3-31: PO SD 10 mg IR tablet (perm)**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-32"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/30_time_profile_plot_Dapagliflozin_PO_SD_250_mg_fed__perm_.png)
+
+
+
+**Figure 3-32: PO SD 250 mg fed (perm) (log)**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-33"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/31_time_profile_plot_Dapagliflozin_PO_SD_250_mg_fed__perm_.png)
+
+
+
+**Figure 3-33: PO SD 250 mg fed (perm)**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-34"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/32_time_profile_plot_Dapagliflozin_PO_MD_2_5_mg__perm_.png)
+
+
+
+**Figure 3-34: PO MD 2.5 mg (perm)**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-35"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/33_time_profile_plot_Dapagliflozin_PO_MD_2_5_mg__perm_.png)
+
+
+
+**Figure 3-35: PO MD 2.5 mg (perm)**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-36"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/34_time_profile_plot_Dapagliflozin_PO_MD_10_mg__perm_.png)
+
+
+
+**Figure 3-36: PO MD 10 mg (perm)**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-37"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/35_time_profile_plot_Dapagliflozin_PO_MD_10_mg__perm_.png)
+
+
+
+**Figure 3-37: PO MD 10 mg (perm)**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-38"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/36_time_profile_plot_Dapagliflozin_PO_MD_20_mg__perm_.png)
+
+
+
+**Figure 3-38: PO MD 20 mg (perm)**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-39"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/37_time_profile_plot_Dapagliflozin_PO_MD_20_mg__perm_.png)
+
+
+
+**Figure 3-39: PO MD 20 mg (perm)**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-40"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/38_time_profile_plot_Dapagliflozin_PO_MD_50_mg__perm_.png)
+
+
+
+**Figure 3-40: PO MD 20 mg (perm)**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-41"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/39_time_profile_plot_Dapagliflozin_PO_MD_50_mg__perm_.png)
+
+
+
+**Figure 3-41: PO MD 50 mg (perm)**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-42"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/40_time_profile_plot_Dapagliflozin_PO_MD_100_mg__perm_.png)
+
+
+
+**Figure 3-42: PO MD 100 mg (perm)**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-43"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/41_time_profile_plot_Dapagliflozin_PO_MD_100_mg__perm_.png)
+
+
+
+**Figure 3-43: PO MD 100 mg (perm)**
+
+
+<br>
+<br>
+
+
+
+
+
+### 3.3.3 Overview<a id="ct-profiles-overview"></a>
+
+
 Overview of the multiple ascending dose study stratified by dose and day ([Komoroski 2009](#5-references), [FDA Clinical Pharmacology Review for NDA 202293](#5-references)).
 
 
 
 
-![001_plotComparisonTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/003_3_3_3_Overview/001_plotComparisonTimeProfile.png)
 
-![002_plotComparisonTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/003_3_3_3_Overview/002_plotComparisonTimeProfile.png)
+<a id="figure-3-44"></a>
 
-![003_plotComparisonTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/003_3_3_3_Overview/003_plotComparisonTimeProfile.png)
+![](images/006_section_results-and-discussion/009_section_ct-profiles/012_section_ct-profiles-overview/comparison_time_profile_Multiple_Dose_Escalation_Study__day_1__1.png)
 
-# 4 Conclusion
+
+
+**Figure 3-44: Multiple Dose Escalation Study (day 1)**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-45"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/012_section_ct-profiles-overview/comparison_time_profile_Multiple_Dose_Escalation_Study__day_7__2.png)
+
+
+
+**Figure 3-45: Multiple Dose Escalation Study (day 7)**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-46"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/012_section_ct-profiles-overview/comparison_time_profile_Multiple_Dose_Escalation_Study__day_14__3.png)
+
+
+
+**Figure 3-46: Multiple Dose Escalation Study (day 14)**
+
+
+<br>
+<br>
+
+
+
+
+
+# 4 Conclusion<a id="conclusion"></a>
+
+
 The herein presented PBPK model adequately describes the pharmacokinetics of dapagliflozin in adults.
 
 In particular, it applies quantitative metabolism by UGT1A9 and UGT2B7. Thus, the model is fit for purpose to be applied for the investigation of drug-drug interactions with regard to its UGT metabolism.
 
 
-# 5 References
+
+
+
+
+# 5 References<a id="main-references"></a>
+
+
 **Blaut 2013** Blaut, M., Ecology and physiology of the intestinal tract. Curr Top Microbiol Immunol, 2013. 358: p. 247-72.
 
 **Boulton 2013** Boulton DW, Kasichayanula S, Keung CF, Arnold ME, Christopher LJ, Xu XS, Lacreta F. Simultaneous oral therapeutic and intravenous 14C-microdoses to determine the absolute oral bioavailability of saxagliptin and dapagliflozin. Br J Clin Pharmacol. 2013 Mar;75(3):763-8. doi: 10.1111/j.1365-2125.2012.04391.x.	
@@ -516,3 +1135,6 @@ In particular, it applies quantitative metabolism by UGT1A9 and UGT2B7. Thus, th
 **Schlender 2016** Schlender JF, Meyer M, Thelen K, Krauss M, Willmann S, Eissing T, Jaehde U. Development of a Whole-Body Physiologically Based Pharmacokinetic Approach to Assess the Pharmacokinetics of Drugs in Elderly Individuals. Clin Pharmacokinet. 2016 Dec;55(12):1573-1589. 
 
 **Vakkalagadda 2016** Vakkalagadda B, Lubin S, Reynolds L, Liang D, Marion AS, LaCreta F, Boulton DW. Lack of a Pharmacokinetic Interaction Between Saxagliptin and Dapagliflozin in Healthy Subjects: A Randomized Crossover Study. Clin Ther. 2016 Aug;38(8):1890-9. doi: 10.1016/j.clinthera.2016.07.005.	
+
+
+
