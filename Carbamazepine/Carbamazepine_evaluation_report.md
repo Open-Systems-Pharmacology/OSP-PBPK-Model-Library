@@ -83,7 +83,7 @@ Details about the structural model and its parameters can be found in [Section 2
 
 ### 2.2.1 In vitro / physicochemical Data
 
-A literature search was performed to collect available information on physicochemical properties of carbamazepine and carbamazepine-10,11-epoxide. The information is summarized in the table below. 
+A literature search was performed to collect available information on physicochemical properties of carbamazepine. The information is summarized in the table below. 
 
 | **Parameter**                            | **Unit**                 | **Value**                                 | Source                            | **Description**                                         |
 |:---------------------------------------- | ------------------------ | ----------------------------------------- | --------------------------------- | ------------------------------------------------------- |
@@ -92,7 +92,6 @@ A literature search was performed to collect available information on physicoche
 | logP (calculated)                        |                          | 2.1                                       | [DrugBank DB00564](#5-references) | Partition coefficient between octanol and water         |
 | logP (calculated)                        |                          | 2.45                                      | [Fenet 2012](#5-references)       | Partition coefficient between octanol and water         |
 | logP (calculated)                        |                          | 2.77                                      | [DrugBank DB00564](#5-references) | Partition coefficient between octanol and water         |
-| pK<sub>a</sub>                           |                          | 11.83                                     |                                   | Logarithm of the acid dissociation constant             |
 | Solubility (pH)                          | µg/mL                    | 336 (6.2)                                 | [Annaert 2010](#5-references)     | Solubility in human intestinal fluid                    |
 | Solubility (pH)                          | µg/mL                    | 283 (7.0)                                 | [Söderlind 2010](#5-references)   | Solubility in human intestinal fluid                    |
 | Solubility (pH)                          | µg/mL                    | 306 (6.9)                                 | [Clarysse 2011](#5-references)    | Solubility in fasted human intestinal fluid             |
@@ -553,7 +552,7 @@ The first plot shows simulated versus observed plasma concentration, the second 
 
 |Group                                                            |GMFE |
 |:----------------------------------------------------------------|:----|
-|Carbamazepine, IV administration                                 |1.27 |
+|Carbamazepine, IV administration                                 |1.28 |
 |Carbamazepine, PO administration as extended release formulation |1.41 |
 |Carbamazepine, PO administration as immediate release tablet     |1.40 |
 |Carbamazepine, PO administration as liquid oral dosage form      |2.35 |
