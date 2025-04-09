@@ -167,45 +167,43 @@ ol:last-child {
     margin-bottom: 0;
 }
 blockquote {
-    border-left: 4px solid #dfe2e5;
+    border-left: 4px solid #b0b0b0;
     padding: 0 15px;
     color: #777777;
 }
 blockquote blockquote {
     padding-right: 0;
 }
+/* Table */
 table {
-    padding: 0;
-    word-break: initial;
+  border-collapse: collapse;
+  width: 100%;
+  margin: 20px 0;
+  font-size: 16px;
+  text-align: left;
 }
-table tr {
-    border-top: 1px solid #dfe2e5;
-    margin: 0;
-    padding: 0;
+
+/* Table Header */
+table th {
+  background-color: #f6f8fa;
+  color: #333;
+  padding: 10px;
+  border-top: 1px solid #b0b0b0;
+  border-bottom: 1px solid #b0b0b0;
+  font-weight: bold;
 }
-table tr:nth-child(2n),
-thead {
-    background-color: #f8f8f8;
+
+/* Table Cells */
+table td {
+  background-color: #fff;
+  color: #333;
+  padding: 10px;
+  border-bottom: 1px solid #b0b0b0;
 }
-table tr th {
-    font-weight: bold;
-    border: 1px solid #dfe2e5;
-    border-bottom: 0;
-    margin: 0;
-    padding: 6px 13px;
-}
-table tr td {
-    border: 1px solid #dfe2e5;
-    margin: 0;
-    padding: 6px 13px;
-}
-table tr th:first-child,
-table tr td:first-child {
-    margin-top: 0;
-}
-table tr th:last-child,
-table tr td:last-child {
-    margin-bottom: 0;
+
+/* Alternate Row Coloring */
+table tr:nth-child(odd) {
+  background-color: #f6f8fa;
 }
 
 .CodeMirror-lines {
