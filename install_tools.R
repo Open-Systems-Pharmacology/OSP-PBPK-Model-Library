@@ -6,7 +6,7 @@
 
 #' @description Install CRAN R packages
 install.packages(c("dplyr", "purrr", "covr", "readr", "tidyr", "webshot", "spelling", "readxl", "data.table", "gridtext", "ggtext", "tidyselect", "testthat", "rmarkdown", "rsvg", "svglite", "cowplot"), repos = "http://cran.us.r-project.org", type = "win.binary")
-
+install.packages("showtext")
 toolsData <- read.csv("tools.csv", stringsAsFactors = FALSE, colClasses = "character")
 print(toolsData)
 
@@ -30,7 +30,7 @@ installTool <- function(toolName, toolsData = toolsData) {
     ),
     "TLF" = paste0(
       "https://github.com/Open-Systems-Pharmacology/TLF-Library/releases/download/v",
-      toolVersion, "/tlf_", toolVersion, ".zip"
+      toolVersion, "/tlf_", ifelse(toolVersion %in% "1.6.0", "1.6.174", toolVersion), ".zip"
     ),
     "RUtils" = paste0(
       "https://github.com/Open-Systems-Pharmacology/OSPSuite.RUtils/releases/download/v",

@@ -83,15 +83,36 @@ runEvaluationReport <- function(modelIndex, modelsData, toolsData) {
   warning(reportPath)
   # Convert markdown to html and then to conversion
   setwd("..")
-  knitr::pandoc(reportPath, paste("html", "--embed-resources", "--standalone", "-c \"osp.css\""))
+  knitr::pandoc(
+    reportPath, 
+    paste(
+      "html", 
+      "--embed-resources", 
+      "--standalone", 
+      "--quiet", 
+      # mathjax and tex_math_dollars converts LateX equations within dollar signs
+      "--mathjax",
+      "-c \"osp.css\"",
+      # Github Flavoured Markdown allows anchors that include section number in cross references
+      "-f gfm+tex_math_dollars"
+    )
+  )
   cmdLine <- paste(
     'chromehtml2pdf',
     paste0('--out="', gsub(pattern = ".md", ".pdf", reportPath), '"'),
     "--displayHeaderFooter true",
-    "--format A4", "--marginTop 10mm", "--marginBottom 10mm", "--marginLeft 10mm", "--marginRight 10mm",
-    # Header and footer templates are not well converted, leaving default footer so far 
+    "--format A4",
+    # Background allows to use css background colors
+    # Used to display nicer tables
+    "--printBackground true",
+    "--marginTop 10mm",
+    # Bottom margin wide enough to display footer
+    "--marginBottom 20mm",
+    "--marginLeft 10mm",
+    "--marginRight 10mm",
     '--headerTemplate "<span></span>"',
-    #'--footerTemplate "<span>Page <span class=\"pageNumber\"></span> / <span class=\"totalPages\"></span></span>"',
+    # Creates a centered footer displaying <page number> / <total pages>
+    '--footerTemplate "<p style=\\"text-align: center; margin: auto; font-size: 10px;\\"><span class=\\"pageNumber\\"></span>/<span class=\\"totalPages\\"></span></p>"',
     paste0('"', gsub(pattern = ".md", ".html", reportPath), '"')
     )
   warning(cmdLine)
