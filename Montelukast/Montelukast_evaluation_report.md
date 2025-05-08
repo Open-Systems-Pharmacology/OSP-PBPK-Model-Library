@@ -339,13 +339,13 @@ Below you find the goodness-of-fit visual diagnostic plots for montelukast PBPK 
 **Table 3-1: GMFE for Goodness of fit plot for concentration in plasma.**
 
 
-|Group                        |GMFE |
-|:----------------------------|:----|
-|Montelukast Chewable Tablet  |1.17 |
-|Montelukast Fimcoated Tablet |1.38 |
-|Montelukast iv               |1.32 |
-|Montelukast Oral Granules    |1.31 |
-|All                          |1.31 |
+|Group                         |GMFE |
+|:-----------------------------|:----|
+|Montelukast Chewable Tablet   |1.17 |
+|Montelukast Filmcoated Tablet |1.38 |
+|Montelukast iv                |1.32 |
+|Montelukast Oral Granules     |1.31 |
+|All                           |1.31 |
 
 
 <br>
