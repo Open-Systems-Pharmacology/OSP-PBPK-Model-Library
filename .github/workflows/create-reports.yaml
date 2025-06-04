@@ -19,7 +19,7 @@ jobs:
     
     - id: tools_table
       name: Get tools table
-      uses: Open-Systems-Pharmacology/Workflows/get-tools-versions@main
+      uses: Open-Systems-Pharmacology/Workflows/.github/actions/get-tools-versions@main
       with:
         tools-path: tools.csv
         
@@ -68,13 +68,13 @@ jobs:
 
     - id: qualification-environment
       name: Setup Qualification Environment
-      uses: Open-Systems-Pharmacology/Workflows/setup-qualification-environment@main
+      uses: Open-Systems-Pharmacology/Workflows/.github/actions/setup-qualification-environment@main
       with:
         tools-path: tools.csv
 
     - id: evaluate-model
       name: Run evaluation
-      uses: Open-Systems-Pharmacology/Workflows/report-evaluation@main
+      uses: Open-Systems-Pharmacology/Workflows/.github/actions/report-evaluation@main
       with:
           model-repo: matrix['Repository name']
           model-version: matrix['Released version']
