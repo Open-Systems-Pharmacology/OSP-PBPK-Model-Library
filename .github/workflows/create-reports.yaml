@@ -6,7 +6,7 @@ on:
 
 jobs:
   read_inputs:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     outputs:
       tools_table: ${{ steps.tools_table.outputs.tools-table }}
       pk_sim_version: ${{ steps.tools_table.outputs.pk-sim }}
@@ -19,7 +19,7 @@ jobs:
     
     - id: tools_table
       name: Get tools table
-      uses: Open-Systems-Pharmacology/Workflows/.github/actions/get-tools-versions@main
+      uses: pchelle/Workflows/.github/actions/get-tools-versions@tools_version
       with:
         tools-path: tools.csv
         
