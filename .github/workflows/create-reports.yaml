@@ -76,11 +76,11 @@ jobs:
       name: Run evaluation
       uses: Open-Systems-Pharmacology/Workflows/.github/actions/report-evaluation@main
       with:
-          model-repo: matrix['Repository name']
-          model-version: matrix['Released version']
-          snapshot: matrix['Snapshot name']
-          workflow-script: matrix['Workflow name']
-          additional-project-urls: matrix['Additional projects']
+          model-repo: ${{ matrix['Repository name'] }}
+          model-version: ${{ matrix['Released version'] }}
+          snapshot: ${{ matrix['Snapshot name'] }}
+          workflow-script: ${{ matrix['Workflow name'] }}
+          additional-project-urls: ${{ matrix['Additional projects'] }}
           pk-sim-version: ${{ needs.read_inputs.outputs.pk_sim_version }}
           qualification-framework-version: ${{ needs.read_inputs.outputs.qualification_framework_version }}
           save-model-file: true
