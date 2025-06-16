@@ -1,10 +1,10 @@
 Tool,Version,URL
-ospsuite-R,12.1.0,NA
-Reporting Engine,2.2.367,NA
-RUtils,1.5.37,NA
-TLF,1.5.170,NA
+ospsuite-R,12.2.0,NA
+Reporting Engine,2.2.369,NA
+RUtils,1.7.0,NA
+TLF,1.6.174,NA
 rClr,NA,NA
-rSharp,1.0.0,NA
+rSharp,1.1.2,NA
 Qualification Runner,11.1,NA
 Qualification Framework,3.2,NA
 PK-Sim,11.3.208,NA
