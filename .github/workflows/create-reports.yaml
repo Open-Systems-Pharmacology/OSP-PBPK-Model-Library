@@ -19,7 +19,7 @@ jobs:
     
     - id: tools_table
       name: Get tools table
-      uses: pchelle/Workflows/.github/actions/get-tools-versions@tools_version
+      uses: Open-Systems-Pharmacology/Workflows/.github/actions/get-tools-versions@main
       with:
         tools-path: tools.csv
         
@@ -68,7 +68,7 @@ jobs:
 
     - id: qualification-environment
       name: Setup Qualification Environment
-      uses: pchelle/Workflows/.github/actions/setup-qualification-environment@tools_version
+      uses: Open-Systems-Pharmacology/Workflows/.github/actions/setup-qualification-environment@main
       with:
         tools-path: tools.csv
 
