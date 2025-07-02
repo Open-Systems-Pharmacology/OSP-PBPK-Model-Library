@@ -8,39 +8,30 @@ jobs:
   read_inputs:
     runs-on: ubuntu-latest
     outputs:
-      tools_table: ${{ steps.tools_table.outputs.table }}
+      tools_table: ${{ steps.tools_table.outputs.tools-table }}
+      pk_sim_version: ${{ steps.tools_table.outputs.pk-sim }}
+      qualification_framework_version: ${{ steps.tools_table.outputs.qualification-framework }}
       models_table: ${{ steps.models_table.outputs.table }}
       models: ${{steps.models.outputs.data}}
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
-    - name: Setup R
-      uses: r-lib/actions/setup-r@v2
+    
+    - id: tools_table
+      name: Get tools table
+      uses: Open-Systems-Pharmacology/Workflows/.github/actions/get-tools-versions@main
       with:
-        r-version: '4.3.1'
-        use-public-rspm: true
-    - name: Read and export tools and models as json
+        tools-path: tools.csv
+        
+    - name: Read and export models as json
       run: |
-        Rscript -e 'install.packages("jsonlite", repos="https://cloud.r-project.org/")'
-        Rscript -e '
-        toolsData <- read.csv("tools.csv", stringsAsFactors = FALSE, colClasses = "character")
-        cat(jsonlite::toJSON(toolsData, dataframe = "rows"))
-        ' > tools.json
         Rscript -e '
         modelsData <- read.csv("models.csv", check.names = FALSE, stringsAsFactors = FALSE, colClasses = c("logical", rep("character", 5)))
         modelsData$Index <- seq.int(nrow(modelsData))
         cat(jsonlite::toJSON(modelsData, dataframe = "rows"))
         ' > models.json
       shell: bash
-    - name: Output tools data for table conversion
-      id: tools_data
-      run: echo "json=$(cat tools.json)" >> $GITHUB_OUTPUT
-      shell: bash
-    - name: Markdown table for tools
-      uses: buildingcash/json-to-markdown-table-action@v1 
-      id: tools_table
-      with: 
-        json: "${{ steps.tools_data.outputs.json }}"
+    
     - name: Output models data for table conversion
       id: models_data
       run: echo "json=$(cat models.json)" >> $GITHUB_OUTPUT
@@ -54,6 +45,7 @@ jobs:
       id: models
       run: echo "data={\"include\":$(cat models.json)}" >> $GITHUB_OUTPUT
       shell: bash
+  
   evaluation:
     needs: read_inputs
     strategy:
@@ -63,6 +55,7 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
+    
     - name: Rebase from develop
       run: |
         git config --global user.name 'github-actions'
@@ -72,26 +65,27 @@ jobs:
         git fetch origin develop
         git rebase -Xours origin/develop
         git reset HEAD^
-    - name: Setup R
-      uses: r-lib/actions/setup-r@v2
+
+    - id: qualification-environment
+      name: Setup Qualification Environment
+      uses: Open-Systems-Pharmacology/Workflows/.github/actions/setup-qualification-environment@main
       with:
-        r-version: '4.3.1'
-        use-public-rspm: true    
-    - name: Install chromehtml2pdf for pdf conversion
-      run: |
-        npm install -g chromehtml2pdf
-    - name: Setup Pandoc for html conversion
-      uses: r-lib/actions/setup-pandoc@v2
-    - name: Install OSPSuite tools
-      run: |
-        Rscript install_tools.R
-    - name: Run evaluations
-      run: |
-        toolsData <- read.csv("tools.csv", stringsAsFactors = FALSE, colClasses = "character")
-        modelsData <- read.csv("models.csv", check.names = FALSE, stringsAsFactors = FALSE, colClasses = c("logical", rep("character", 5)))
-        source("report-qualification-template.R")
-        runEvaluationReport(${{ matrix.Index }}, modelsData, toolsData)
-      shell: Rscript {0}
+        tools-path: tools.csv
+
+    - id: evaluate-model
+      name: Run evaluation
+      uses: Open-Systems-Pharmacology/Workflows/.github/actions/report-evaluation@main
+      with:
+          model-repo: ${{ matrix['Repository name'] }}
+          model-version: ${{ matrix['Released version'] }}
+          snapshot: ${{ matrix['Snapshot name'] }}
+          workflow-script: ${{ matrix['Workflow name'] }}
+          additional-project-urls: ${{ matrix['Additional projects'] }}
+          pk-sim-version: ${{ needs.read_inputs.outputs.pk_sim_version }}
+          qualification-framework-version: ${{ needs.read_inputs.outputs.qualification_framework_version }}
+          save-model-file: true
+          save-pdf: true
+
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v7
       with:
@@ -110,6 +104,7 @@ jobs:
           ${{ needs.read_inputs.outputs.models_table }}
         assignees: ${{ github.actor }}
         reviewers: ${{ github.actor }}
+        
     - name: Upload artifact if failed
       if: failure()
       uses: actions/upload-artifact@v4
