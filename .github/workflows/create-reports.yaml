@@ -4,6 +4,10 @@ name: Automated Evaluation Reports and Projects
 on:
   workflow_dispatch:
 
+env:
+  WORKING_DIR: 'D:/0'
+  GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+
 jobs:
   read_inputs:
     runs-on: ubuntu-latest
@@ -79,12 +83,25 @@ jobs:
           model-repo: ${{ matrix['Repository name'] }}
           model-version: ${{ matrix['Released version'] }}
           snapshot: ${{ matrix['Snapshot name'] }}
+          evaluation: 'true'
           workflow-script: ${{ matrix['Workflow name'] }}
           additional-project-urls: ${{ matrix['Additional projects'] }}
           pk-sim-version: ${{ needs.read_inputs.outputs.pk_sim_version }}
           qualification-framework-version: ${{ needs.read_inputs.outputs.qualification_framework_version }}
-          save-model-file: true
-          save-pdf: true
+          save-model-file: 'true'
+          save-pdf: 'true'
+          run-directory: ${{ env.WORKING_DIR }}
+
+    - id: copy-to-workspace
+      name: Copy back to workspace and clean working directory before PR
+      run: |
+        file.copy(
+          list.files("${{ env.WORKING_DIR }}", full.names = TRUE), 
+          normalizePath(Sys.getenv("GITHUB_WORKSPACE"), winslash = "/"),
+          recursive = TRUE
+          )
+        unlink("${{ env.WORKING_DIR }}", recursive = TRUE)
+      shell: Rscript {0}
 
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v7
@@ -104,13 +121,3 @@ jobs:
           ${{ needs.read_inputs.outputs.models_table }}
         assignees: ${{ github.actor }}
         reviewers: ${{ github.actor }}
-        
-    - name: Upload artifact if failed
-      if: failure()
-      uses: actions/upload-artifact@v4
-      with:
-        name: failed-${{ matrix['Snapshot name'] }}
-        path: |
-          ${{ matrix['Snapshot name'] }}/**
-          **.txt
-          **.md
