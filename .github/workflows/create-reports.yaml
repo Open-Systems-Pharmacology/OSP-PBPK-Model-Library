@@ -97,7 +97,7 @@ jobs:
       run: |
         file.copy(
           list.files("${{ env.WORKING_DIR }}", full.names = TRUE), 
-          "${{ github.workspace }}",
+          normalizePath("${{ github.workspace }}", winslash = "/"),
           recursive = TRUE
           )
         unlink("${{ env.WORKING_DIR }}", recursive = TRUE)
