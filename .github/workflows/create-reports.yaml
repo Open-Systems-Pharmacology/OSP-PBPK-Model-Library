@@ -6,6 +6,7 @@ on:
 
 env:
   WORKING_DIR: 'D:/0'
+  GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
   read_inputs:
