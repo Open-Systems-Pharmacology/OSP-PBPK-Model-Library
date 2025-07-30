@@ -31,7 +31,6 @@ jobs:
       run: |
         Rscript -e '
         modelsData <- read.csv("models.csv", check.names = FALSE, stringsAsFactors = FALSE, colClasses = c("logical", rep("character", 5)))
-        modelsData$Index <- seq.int(nrow(modelsData))
         cat(jsonlite::toJSON(modelsData, dataframe = "rows"))
         ' > models.json
       shell: bash
@@ -69,6 +68,9 @@ jobs:
         git fetch origin develop
         git rebase -Xours origin/develop
         git reset HEAD^
+        [ -d "${{ matrix['Snapshot name'] }}" ] && rm -rf ${{ matrix['Snapshot name'] }}/*
+        git add ${{ matrix['Snapshot name'] }} || echo "No file in ${{ matrix['Snapshot name'] }}"
+        git commit -m "Update ${{ matrix['Snapshot name'] }}" || echo "No changes to commit"
 
     - id: qualification-environment
       name: Setup Qualification Environment
@@ -110,10 +112,10 @@ jobs:
         base: develop
         add-paths: |
             */images/**
-            */*.pdf
+            */${{ matrix['Snapshot name'] }}_report.pdf
             */*.pksim5
-            */*.md
-        title: Update Evaluation Reports for ${{ matrix['Snapshot name'] }}
+            */${{ matrix['Snapshot name'] }}_report.md
+        title: Update Evaluation Report for ${{ matrix['Snapshot name'] }}
         body: |
           ## Tools
           ${{ needs.read_inputs.outputs.tools_table }}
