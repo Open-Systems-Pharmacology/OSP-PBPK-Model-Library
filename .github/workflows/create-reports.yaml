@@ -113,9 +113,9 @@ jobs:
         base: develop
         add-paths: |
             */images/**
-            */${{ matrix['Snapshot name'] }}_report.pdf
+            */*_report.pdf
             */*.pksim5
-            */${{ matrix['Snapshot name'] }}_report.md
+            */*_report.md
         title: Update Evaluation Report for ${{ matrix['Snapshot name'] }}
         body: |
           ## Tools
