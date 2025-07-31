@@ -4,6 +4,10 @@ name: Automated Evaluation Reports and Projects
 on:
   workflow_dispatch:
 
+permissions:
+  contents: write
+  pull-requests: write
+
 env:
   WORKING_DIR: 'D:/0'
   GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
@@ -62,6 +66,7 @@ jobs:
     
     - name: Rebase from develop
       run: |
+        git config --global core.longpaths true
         git config --global user.name 'github-actions'
         git config --global user.email 'github-actions@github.com'
         git checkout -b ${{ github.ref_name }}-${{ matrix['Snapshot name'] }}
