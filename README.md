@@ -14,7 +14,7 @@ Library of released PBPK substance models and evaluation reports
   
 ## What to do when reports are created
 
-When the evaluation reports are created, a pull request is triggered toward the `develop` branch.
+When the evaluation reports are created, pull requests are triggered (one pull request for each evaluation report) toward the `develop` branch.
 The pull request will allow users to review the updates in the reports and adopt the new version.
 
 ## Models
@@ -29,7 +29,7 @@ The header includes the following fields:
 - __Workflow name__: Path of workflow R script that creates the function to run the qualification if not default.
 > [!TIP]
 > Leave blank cell if default path, `evaluation/workflow.R`, is used (this path is case insensitive). 
-- __Additional projects__: Url of additional project snapshots to export as `pksim5` projects, e.g. `Propofol-Pediatrics/refs/heads/main/Propofol-Pediatrics.json`
+- __Additional projects__: Url of additional project snapshots to export as `pksim5` projects, e.g. `Propofol-Pediatrics/refs/tags/v1.0/Propofol-Pediatrics.json`
 > [!TIP]
 > If multiple projects are exported, they need to be separated by a pipe character: `|`, e.g. `X-Pediatrics.json|Y-Pediatrics.json`
 

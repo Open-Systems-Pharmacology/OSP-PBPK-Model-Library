@@ -73,6 +73,10 @@ jobs:
         git fetch origin develop
         git rebase -Xours origin/develop
         git reset HEAD^
+        [ -d "${{ matrix['Snapshot name'] }}" ] && rm -rf ${{ matrix['Snapshot name'] }}/*
+        git add ${{ matrix['Snapshot name'] }} || echo "No file in ${{ matrix['Snapshot name'] }}"
+        git commit -m "Update ${{ matrix['Snapshot name'] }}" || echo "No changes to commit"
+      shell: bash
 
     - id: qualification-environment
       name: Setup Qualification Environment
@@ -114,10 +118,10 @@ jobs:
         base: develop
         add-paths: |
             */images/**
-            */*.pdf
+            */*_report.pdf
             */*.pksim5
-            */*.md
-        title: Update Evaluation Reports for ${{ matrix['Snapshot name'] }}
+            */*_report.md
+        title: Update Evaluation Report for ${{ matrix['Snapshot name'] }}
         body: |
           ## Tools
           ${{ needs.read_inputs.outputs.tools_table }}
