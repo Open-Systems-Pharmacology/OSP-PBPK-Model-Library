@@ -31,8 +31,7 @@ jobs:
       run: |
         Rscript -e '
         modelsData <- read.csv("models.csv", check.names = FALSE, stringsAsFactors = FALSE, colClasses = c("logical", rep("character", 5)))
-        modelsData$Index <- seq.int(nrow(modelsData))
-        cat(jsonlite::toJSON(modelsData, dataframe = "rows"))
+        cat(jsonlite::toJSON(modelsData[modelsData$Execute, ], dataframe = "rows"))
         ' > models.json
       shell: bash
     
