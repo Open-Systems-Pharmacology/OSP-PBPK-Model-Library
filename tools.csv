@@ -1,10 +1,10 @@
 Tool,Version,URL
-ospsuite-R,12.2.0,NA
-Reporting Engine,main,NA
+ospsuite-R,12.3.0,NA
+Reporting Engine,2.3.11,NA
 RUtils,1.7.0,NA
 TLF,1.6.0,NA
 rClr,NA,NA
 rSharp,1.1.2,NA
-Qualification Runner,12.0,https://github.com/Open-Systems-Pharmacology/QualificationRunner/releases/download/v12.0/qualificationrunner-portable-setup.12.0.1.zip
+Qualification Runner,12.1,NA
 Qualification Framework,3.3,NA
-PK-Sim,12.0.440,https://github.com/Open-Systems-Pharmacology/PK-Sim/releases/download/v12.0.440/pk-sim-portable-setup.12.0.440.zip
+PK-Sim,12.1.168,NA

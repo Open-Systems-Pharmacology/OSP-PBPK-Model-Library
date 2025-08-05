@@ -1,4 +1,4 @@
-name: Automated Evaluation Reports and Projects 
+name: Create evaluation reports and projects
 
 # Workflow manually triggered and suggest available branches in input
 on:
@@ -68,8 +68,8 @@ jobs:
         git config --global core.longpaths true
         git config --global user.name 'github-actions'
         git config --global user.email 'github-actions@github.com'
-        git checkout -b ${{ github.ref_name }}-${{ matrix['Snapshot name'] }}
-        git push -u origin ${{ github.ref_name }}-${{ matrix['Snapshot name'] }}
+        git checkout -b ${{ github.ref_name }}-${{ matrix['Repository name'] }}
+        git push -u origin ${{ github.ref_name }}-${{ matrix['Repository name'] }}
         git fetch origin develop
         git rebase -Xours origin/develop
         git reset HEAD^
@@ -114,7 +114,10 @@ jobs:
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v7
       with:
-        branch: ${{ github.ref_name }}-${{ matrix['Snapshot name'] }}
+        # Use a custom PAT because GITHUB_TOKEN cannot trigger subsequent workflows (here: required checks on pull_request).
+        # S. https://github.com/peter-evans/create-pull-request/blob/main/docs/concepts-guidelines.md#triggering-further-workflow-runs
+        token: ${{ secrets.PAT_PR_TRIGGERED_BY_ACTIONS }}
+        branch: ${{ github.ref_name }}-${{ matrix['Repository name'] }}
         base: develop
         add-paths: |
             */images/**
