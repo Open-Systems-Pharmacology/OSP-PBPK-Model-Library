@@ -1,7 +1,7 @@
-Execute,Repository name,Released version,Snapshot name,Workflow name,Additional projects
-TRUE,7E3-Model,1.0,7E3,,
-TRUE,Alfentanil-Model,3.0,Alfentanil-Model,,https://raw.githubusercontent.com/Open-Systems-Pharmacology/Alfentanil-Pediatrics/v2.0/Alfentanil-Pediatrics.json
-TRUE,Alprazolam-Model,2.0,Alprazolam-Model,,
-TRUE,Amikacin-Model,2.0,Amikacin-Model,,https://raw.githubusercontent.com/Open-Systems-Pharmacology/Amikacin-Pediatrics/v1.0/Amikacin-Pediatrics.json
-TRUE,Atazanavir-Model,2.0,Atazanavir-Model,,
-TRUE,BAY794620-Model,1.0,BAY794620,,
+Execute,Repository name,Released version,Snapshot name,Folder name,Workflow name,Additional projects
+TRUE,7E3-Model,1.0,7E3,7E3,,
+TRUE,Alfentanil-Model,3.0,Alfentanil-Model,Alfentanil,,https://raw.githubusercontent.com/Open-Systems-Pharmacology/Alfentanil-Pediatrics/v2.0/Alfentanil-Pediatrics.json
+TRUE,Alprazolam-Model,2.0,Alprazolam-Model,Alprazolam,,
+TRUE,Amikacin-Model,2.0,Amikacin-Model,Amikacin,,https://raw.githubusercontent.com/Open-Systems-Pharmacology/Amikacin-Pediatrics/v1.0/Amikacin-Pediatrics.json
+TRUE,Atazanavir-Model,2.0,Atazanavir-Model,Atazanavir,,
+TRUE,BAY794620-Model,1.0,BAY794620,BAY794620,,
