@@ -30,11 +30,18 @@ jobs:
       uses: Open-Systems-Pharmacology/Workflows/.github/actions/get-tools-versions@main
       with:
         tools-path: tools.csv
-        
+
+    - id: install-r
+      name: Setup R
+      uses: r-lib/actions/setup-r@v2
+      with:
+        r-version: 'latest'
+        use-public-rspm: true
+    
     - name: Read and export models as json
       run: |
         Rscript -e '
-        modelsData <- read.csv("models.csv", check.names = FALSE, stringsAsFactors = FALSE, colClasses = c("logical", rep("character", 5)))
+        modelsData <- read.csv("models.csv", check.names = FALSE, stringsAsFactors = FALSE, colClasses = c("logical", rep("character", 6)))
         cat(jsonlite::toJSON(modelsData[modelsData$Execute, ], dataframe = "rows"))
         ' > models.json
       shell: bash
@@ -43,11 +50,13 @@ jobs:
       id: models_data
       run: echo "json=$(cat models.json)" >> $GITHUB_OUTPUT
       shell: bash
+    
     - name: Markdown table for models
       uses: buildingcash/json-to-markdown-table-action@v1 
       id: models_table
       with: 
         json: "${{ steps.models_data.outputs.json }}"
+    
     - name: Set models data as output for matrix run strategy
       id: models
       run: echo "data={\"include\":$(cat models.json)}" >> $GITHUB_OUTPUT
@@ -73,9 +82,9 @@ jobs:
         git fetch origin develop
         git rebase -Xours origin/develop
         git reset HEAD^
-        [ -d "${{ matrix['Snapshot name'] }}" ] && rm -rf ${{ matrix['Snapshot name'] }}/*
-        git add ${{ matrix['Snapshot name'] }} || echo "No file in ${{ matrix['Snapshot name'] }}"
-        git commit -m "Update ${{ matrix['Snapshot name'] }}" || echo "No changes to commit"
+        [ -d "${{ matrix['Folder name'] }}" ] && rm -rf ${{ matrix['Folder name'] }}/*
+        git add ${{ matrix['Folder name'] }} || echo "No file in ${{ matrix['Folder name'] }}"
+        git commit -m "Update ${{ matrix['Folder name'] }}" || echo "No changes to commit"
       shell: bash
 
     - id: qualification-environment
@@ -90,6 +99,7 @@ jobs:
       with:
           model-repo: ${{ matrix['Repository name'] }}
           model-version: ${{ matrix['Released version'] }}
+          folder-name: ${{ matrix['Folder name'] }}
           snapshot: ${{ matrix['Snapshot name'] }}
           evaluation: 'true'
           workflow-script: ${{ matrix['Workflow name'] }}
@@ -132,3 +142,4 @@ jobs:
           ${{ needs.read_inputs.outputs.models_table }}
         assignees: ${{ github.actor }}
         reviewers: ${{ github.actor }}
+
