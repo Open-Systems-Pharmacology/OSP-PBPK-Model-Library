@@ -40,6 +40,7 @@ jobs:
     
     - name: Read and export models as json
       run: |
+        Rscript -e 'install.packages("jsonlite")'
         Rscript -e '
         modelsData <- read.csv("models.csv", check.names = FALSE, stringsAsFactors = FALSE, colClasses = c("logical", rep("character", 6)))
         cat(jsonlite::toJSON(modelsData[modelsData$Execute, ], dataframe = "rows"))
@@ -142,4 +143,5 @@ jobs:
           ${{ needs.read_inputs.outputs.models_table }}
         assignees: ${{ github.actor }}
         reviewers: ${{ github.actor }}
+
 
