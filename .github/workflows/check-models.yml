@@ -11,6 +11,14 @@ on:
       - develop
 
 jobs:
+  check-bom:
+    uses: Open-Systems-Pharmacology/Workflows/.github/workflows/Check_BOM.yml@main
+          
+  utf8check:
+    uses: Open-Systems-Pharmacology/Workflows/.github/workflows/UTF8Check.yml@main
+    with:
+      file-extensions: 'csv'  #File extension(s) to check separated by \| 
+
   check-models-csv:
     runs-on: ubuntu-latest
     env:
@@ -30,14 +38,6 @@ jobs:
             errors+="models.csv contains empty/blank lines at: $blank_lines"$'\n'
           fi
           echo "$errors" > errors_empty_lines.txt
-
-      - name: check-bom
-        uses: Open-Systems-Pharmacology/Workflows/.github/workflows/Check_BOM.yml@main
-          
-      - name: utf8check
-        uses: Open-Systems-Pharmacology/Workflows/.github/workflows/UTF8Check.yml@main
-        with:
-          file-extensions: 'csv'  #File extension(s) to check separated by \| 
 
       - name: Validate Execute column values
         id: execute_col
