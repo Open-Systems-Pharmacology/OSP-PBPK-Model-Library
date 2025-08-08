@@ -1,0 +1,168 @@
+name: Validate models.csv
+
+on:
+  push:
+    branches-ignore:
+      - master
+      - develop
+  pull_request:
+    branches-ignore:
+      - master
+      - develop
+
+jobs:
+  check-models-csv:
+    runs-on: ubuntu-latest
+    env:
+      MODELS_CSV: models.csv
+      REPO_ROOT: ${{ github.repository }}
+      OSP_ORG: Open-Systems-Pharmacology
+    steps:
+      - name: Checkout OSP-PBPK-Model-Library
+        uses: actions/checkout@v4
+
+      - name: Check for empty or blank lines in models.csv
+        id: empty_lines
+        run: |
+          errors=""
+          blank_lines=$(grep -n -E '^\s*$' "$MODELS_CSV" | cut -d: -f1)
+          if [ -n "$blank_lines" ]; then
+            errors+="models.csv contains empty/blank lines at: $blank_lines"$'\n'
+          fi
+          echo "$errors" > errors_empty_lines.txt
+
+      - name: check-bom
+        uses: Open-Systems-Pharmacology/Workflows/.github/workflows/Check_BOM.yml@main
+          
+      - name: utf8check
+        uses: Open-Systems-Pharmacology/Workflows/.github/workflows/UTF8Check.yml@main
+        with:
+          file-extensions: 'csv'  #File extension(s) to check separated by \| 
+
+      - name: Validate Execute column values
+        id: execute_col
+        run: |
+          errors=""
+          col_idx=$(head -1 "$MODELS_CSV" | tr ',' '\n' | grep -nx 'Execute' | cut -d: -f1)
+          awk -F, -v idx="$col_idx" 'NR>1{if($idx!="TRUE" && $idx!="FALSE"){print "Invalid Execute value at line " NR ": " $idx}}' "$MODELS_CSV" > errors_execute.txt || true
+
+      - name: Parse models.csv and perform advanced checks
+        id: advanced_checks
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -e
+          errors=""
+          mapfile -t header < <(head -1 "$MODELS_CSV" | tr ',' '\n')
+          get_col_idx() { for i in "${!header[@]}"; do [ "${header[$i]}" = "$1" ] && echo $((i+1)); done; }
+
+          execute_col=$(get_col_idx "Execute")
+          repo_col=$(get_col_idx "Repository name")
+          version_col=$(get_col_idx "Released version")
+          snap_col=$(get_col_idx "Snapshot name")
+          folder_col=$(get_col_idx "Folder name")
+          workflow_col=$(get_col_idx "Workflow name")
+          addproj_col=$(get_col_idx "Additional projects")
+
+          tail -n +2 "$MODELS_CSV" | while IFS=',' read -r -a row; do
+            repo="${row[$((repo_col-1))]}"
+            version="${row[$((version_col-1))]}"
+            snap="${row[$((snap_col-1))]}"
+            folder="${row[$((folder_col-1))]}"
+            workflow="${row[$((workflow_col-1))]}"
+            addproj="${row[$((addproj_col-1))]}"
+            line_info="Row with Repository name=$repo, Released version=$version"
+
+            # Check release exists
+            rel_api="https://api.github.com/repos/$OSP_ORG/$repo/releases/tags/v$version"
+            status=$(curl -s -o /dev/null -w "%{http_code}" "$rel_api")
+            if [ "$status" != "200" ]; then
+              errors+="There is no release $version in $repo"$'\n'
+            fi
+
+            # Check latest release
+            releases=$(curl -s "https://api.github.com/repos/$OSP_ORG/$repo/releases?per_page=100")
+            latest=$(echo "$releases" | jq -r '.[0].tag_name' | sed 's/^v//')
+            if [ -n "$latest" ] && [ "$latest" != "$version" ]; then
+              errors+="$version has the newest release $latest in $repo"$'\n'
+            fi
+
+            # Check snapshot file exists at tag root
+            snap_url="https://raw.githubusercontent.com/$OSP_ORG/$repo/v$version/$snap.json"
+            snap_status=$(curl -s -o /dev/null -w "%{http_code}" "$snap_url")
+            if [ "$snap_status" != "200" ]; then
+              errors+="Snapshot name $snap is invalid for $repo"$'\n'
+            fi
+
+            # Workflow file checks
+            if [ -z "$workflow" ]; then
+              # Check for Evaluation/workflow.R (case insensitive)
+              eval_url="https://api.github.com/repos/$OSP_ORG/$repo/contents/Evaluation?ref=v$version"
+              eval_files=$(curl -s "$eval_url" | jq -r '.[].name' | grep -i '^workflow\.R$' || true)
+              if [ -z "$eval_files" ]; then
+                errors+="The default workflow file Evaluation/workflow.R not found for $repo"$'\n'
+              fi
+            else
+              # Check for given workflow file (case insensitive, may have subdirs)
+              wf_path="$workflow"
+              wf_dir=$(dirname "$wf_path")
+              wf_file=$(basename "$wf_path")
+              wf_url="https://api.github.com/repos/$OSP_ORG/$repo/contents/$wf_dir?ref=v$version"
+              wf_files=$(curl -s "$wf_url" | jq -r '.[].name' | grep -i "^${wf_file}$" || true)
+              if [ -z "$wf_files" ]; then
+                errors+="The workflow file $workflow not found for $repo"$'\n'
+              fi
+            fi
+
+            # Check Additional projects
+            if [ -n "$addproj" ]; then
+              IFS='|' read -ra projects <<< "$addproj"
+              for proj in "${projects[@]}"; do
+                # 5a: Check URL valid
+                proj_url="https://raw.githubusercontent.com/$OSP_ORG/$proj"
+                status=$(curl -s -o /dev/null -w "%{http_code}" "$proj_url")
+                if [ "$status" != "200" ]; then
+                  errors+="Additional project $proj cannot be fetched (URL invalid)"$'\n'
+                fi
+                # 5b: Check latest release for additional project
+                repo_name=$(echo "$proj" | cut -d/ -f1)
+                branch=$(echo "$proj" | cut -d/ -f2)
+                rel_api="https://api.github.com/repos/$OSP_ORG/$repo_name/releases/tags/$branch"
+                status=$(curl -s -o /dev/null -w "%{http_code}" "$rel_api")
+                if [ "$status" != "200" ]; then
+                  errors+="Additional project $proj does not have release $branch"$'\n'
+                fi
+                releases=$(curl -s "https://api.github.com/repos/$OSP_ORG/$repo_name/releases?per_page=100")
+                latest=$(echo "$releases" | jq -r '.[0].tag_name')
+                if [ -n "$latest" ] && [ "$latest" != "$branch" ]; then
+                  errors+="Additional project $proj has the newest release ${latest/v/}"$'\n'
+                fi
+              done
+            fi
+          done
+          echo "$errors" > errors_advanced.txt
+
+      - name: Check all folders in develop branch are referenced in models.csv
+        id: folder_check
+        run: |
+          errors=""
+          folders=$(git ls-tree -d --name-only origin/develop)
+          found_folders=$(cut -d, -f$(head -1 models.csv | tr ',' '\n' | grep -nx 'Folder name' | cut -d: -f1) models.csv | tail -n +2 | sort | uniq)
+          for folder in $folders; do
+            if ! grep -Fxq "$folder" <<< "$found_folders"; then
+              errors+="Folder $folder is not found"$'\n'
+            fi
+          done
+          echo "$errors" > errors_folders.txt
+
+      - name: Collect and print all errors
+        id: collect_errors
+        run: |
+          cat errors_empty_lines.txt errors_execute.txt errors_advanced.txt errors_folders.txt > all_errors.txt
+          if [ -s all_errors.txt ]; then
+            echo "ERRORS FOUND:"
+            cat all_errors.txt
+            exit 1
+          else
+            echo "All checks passed!"
+          fi
