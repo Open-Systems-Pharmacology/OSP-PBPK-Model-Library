@@ -21,7 +21,6 @@ jobs:
 
   check-models-csv:
     runs-on: ubuntu-latest
-    shell: bash
     env:
       MODELS_CSV: models.csv
       REPO_ROOT: ${{ github.repository }}
@@ -49,6 +48,7 @@ jobs:
 
       - name: Parse models.csv and perform advanced checks
         id: advanced_checks
+        shell: bash
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
