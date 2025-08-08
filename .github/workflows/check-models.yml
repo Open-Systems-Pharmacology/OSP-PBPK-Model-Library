@@ -39,131 +39,266 @@ jobs:
           fi
           echo "$errors" > errors_empty_lines.txt
 
-      - name: Validate Execute column values
-        id: execute_col
-        run: |
-          errors=""
-          col_idx=$(head -1 "$MODELS_CSV" | tr ',' '\n' | grep -nx 'Execute' | cut -d: -f1)
-          awk -F, -v idx="$col_idx" 'NR>1{if($idx!="TRUE" && $idx!="FALSE"){print "Invalid Execute value at line " NR ": " $idx}}' "$MODELS_CSV" > errors_execute.txt || true
-
-      - name: Parse models.csv and perform advanced checks
-        id: advanced_checks
-        shell: bash
+      - name: Validate models.csv
         env:
-          GH_TOKEN: ${{ github.token }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          #!/bin/bash
           set -e
-          errors=""
-          mapfile -t header < <(head -1 "$MODELS_CSV" | tr ',' '\n')
-          get_col_idx() { for i in "${!header[@]}"; do [ "${header[$i]}" = "$1" ] && echo $((i+1)); done; }
-
-          execute_col=$(get_col_idx "Execute")
-          repo_col=$(get_col_idx "Repository name")
-          version_col=$(get_col_idx "Released version")
-          snap_col=$(get_col_idx "Snapshot name")
-          folder_col=$(get_col_idx "Folder name")
-          workflow_col=$(get_col_idx "Workflow name")
-          addproj_col=$(get_col_idx "Additional projects")
-
-          tail -n +2 "$MODELS_CSV" | while IFS=',' read -r -a row; do
-            repo="${row[$((repo_col-1))]}"
-            version="${row[$((version_col-1))]}"
-            snap="${row[$((snap_col-1))]}"
-            folder="${row[$((folder_col-1))]}"
-            workflow="${row[$((workflow_col-1))]}"
-            addproj="${row[$((addproj_col-1))]}"
-            line_info="Row with Repository name=$repo, Released version=$version"
-
-            # Check release exists
-            rel_api="https://api.github.com/repos/$OSP_ORG/$repo/releases/tags/v$version"
-            status=$(curl -s -o /dev/null -w "%{http_code}" "$rel_api")
-            if [ "$status" != "200" ]; then
-              errors+="There is no release $version in $repo"$'\n'
-            fi
-
-            # Check latest release
-            releases=$(curl -s "https://api.github.com/repos/$OSP_ORG/$repo/releases?per_page=100")
-            latest=$(echo "$releases" | jq -r '.[0].tag_name' | sed 's/^v//')
-            if [ -n "$latest" ] && [ "$latest" != "$version" ]; then
-              errors+="$version has the newest release $latest in $repo"$'\n'
-            fi
-
-            # Check snapshot file exists at tag root
-            snap_url="https://raw.githubusercontent.com/$OSP_ORG/$repo/v$version/$snap.json"
-            snap_status=$(curl -s -o /dev/null -w "%{http_code}" "$snap_url")
-            if [ "$snap_status" != "200" ]; then
-              errors+="Snapshot name $snap is invalid for $repo"$'\n'
-            fi
-
-            # Workflow file checks
-            if [ -z "$workflow" ]; then
-              # Check for Evaluation/workflow.R (case insensitive)
-              eval_url="https://api.github.com/repos/$OSP_ORG/$repo/contents/Evaluation?ref=v$version"
-              eval_files=$(curl -s "$eval_url" | jq -r '.[].name' | grep -i '^workflow\.R$' || true)
-              if [ -z "$eval_files" ]; then
-                errors+="The default workflow file Evaluation/workflow.R not found for $repo"$'\n'
+        
+          # Initialize error collection
+          ERROR_FILE=$(mktemp)
+          ERROR_COUNT=0
+        
+          # Function to add error
+          add_error() {
+              echo "$1" >> "$ERROR_FILE"
+              ((ERROR_COUNT++))
+          }
+        
+          # Function to make GitHub API calls
+          github_api() {
+              local url="$1"
+              curl -s -H "Authorization: token $GITHUB_TOKEN" \
+                   -H "Accept: application/vnd.github.v3+json" \
+                   "$url"
+          }
+        
+          # Function to check if URL is valid
+          check_url() {
+              local url="$1"
+              if curl -s --head "$url" | head -n 1 | grep -q "200 OK"; then
+                  return 0
+              else
+                  return 1
               fi
-            else
-              # Check for given workflow file (case insensitive, may have subdirs)
-              wf_path="$workflow"
-              wf_dir=$(dirname "$wf_path")
-              wf_file=$(basename "$wf_path")
-              wf_url="https://api.github.com/repos/$OSP_ORG/$repo/contents/$wf_dir?ref=v$version"
-              wf_files=$(curl -s "$wf_url" | jq -r '.[].name' | grep -i "^${wf_file}$" || true)
-              if [ -z "$wf_files" ]; then
-                errors+="The workflow file $workflow not found for $repo"$'\n'
+          }
+        
+          echo "Starting validation of models.csv..."
+        
+          # Check 1: Empty lines or lines with only blanks
+          echo "Check 1: Validating empty lines..."
+          line_num=1
+          while IFS= read -r line; do
+              if [[ -z "${line// }" ]]; then
+                  add_error "Line $line_num is empty or contains only blanks"
               fi
-            fi
-
-            # Check Additional projects
-            if [ -n "$addproj" ]; then
-              IFS='|' read -ra projects <<< "$addproj"
-              for proj in "${projects[@]}"; do
-                # 5a: Check URL valid
-                proj_url="https://raw.githubusercontent.com/$OSP_ORG/$proj"
-                status=$(curl -s -o /dev/null -w "%{http_code}" "$proj_url")
-                if [ "$status" != "200" ]; then
-                  errors+="Additional project $proj cannot be fetched (URL invalid)"$'\n'
-                fi
-                # 5b: Check latest release for additional project
-                repo_name=$(echo "$proj" | cut -d/ -f1)
-                branch=$(echo "$proj" | cut -d/ -f2)
-                rel_api="https://api.github.com/repos/$OSP_ORG/$repo_name/releases/tags/$branch"
-                status=$(curl -s -o /dev/null -w "%{http_code}" "$rel_api")
-                if [ "$status" != "200" ]; then
-                  errors+="Additional project $proj does not have release $branch"$'\n'
-                fi
-                releases=$(curl -s "https://api.github.com/repos/$OSP_ORG/$repo_name/releases?per_page=100")
-                latest=$(echo "$releases" | jq -r '.[0].tag_name')
-                if [ -n "$latest" ] && [ "$latest" != "$branch" ]; then
-                  errors+="Additional project $proj has the newest release ${latest/v/}"$'\n'
-                fi
+              ((line_num++))
+          done < models.csv
+        
+          # Check 2: Execute column validation
+          echo "Check 2: Validating Execute column..."
+          {
+              read header  # Skip header
+              line_num=2
+              while IFS=, read -r $(echo "$header" | tr ',' ' '); do
+                  # Extract Execute column (assuming it's in the CSV)
+                  execute_val=$(echo "$line" | cut -d',' -f$(echo "$header" | tr ',' '\n' | grep -n "Execute" | cut -d: -f1) | tr -d '"' | tr -d ' ')
+                  if [[ "$execute_val" != "TRUE" && "$execute_val" != "FALSE" ]]; then
+                      add_error "Line $line_num: Execute column value '$execute_val' is not TRUE or FALSE"
+                  fi
+                  ((line_num++))
               done
-            fi
+          } < models.csv
+        
+          # Function to get column index
+          get_column_index() {
+              local column_name="$1"
+              head -n 1 models.csv | tr ',' '\n' | grep -n "^\"*${column_name}\"*$" | cut -d: -f1
+          }
+        
+          # Get column indices
+          REPO_COL=$(get_column_index "Repository name")
+          VERSION_COL=$(get_column_index "Released version")
+          SNAPSHOT_COL=$(get_column_index "Snapshot name")
+          WORKFLOW_COL=$(get_column_index "Workflow name")
+          FOLDER_COL=$(get_column_index "Folder name")
+          ADDITIONAL_COL=$(get_column_index "Additional projects")
+        
+          # Function to extract CSV field
+          extract_field() {
+              local line="$1"
+              local field_num="$2"
+              echo "$line" | cut -d',' -f"$field_num" | sed 's/^"//; s/"$//' | tr -d '\r'
+          }
+        
+          # Function to get releases for a repository
+          get_releases() {
+              local repo_name="$1"
+              github_api "https://api.github.com/repos/Open-Systems-Pharmacology/$repo_name/releases"
+          }
+        
+          # Function to check if release exists
+          check_release_exists() {
+              local repo_name="$1"
+              local version="$2"
+              local response=$(github_api "https://api.github.com/repos/Open-Systems-Pharmacology/$repo_name/releases/tags/v$version")
+              if echo "$response" | jq -e '.tag_name' >/dev/null 2>&1; then
+                  return 0
+              else
+                  return 1
+              fi
+          }
+        
+          # Function to get latest release version
+          get_latest_version() {
+              local repo_name="$1"
+              local releases=$(get_releases "$repo_name")
+              echo "$releases" | jq -r '.[0].tag_name // empty' | sed 's/^v//'
+          }
+        
+          # Function to check if file exists in release (case insensitive)
+          check_file_in_release() {
+              local repo_name="$1"
+              local version="$2"
+              local file_path="$3"
+              local case_insensitive="$4"
+            
+              # First try exact match
+              local response=$(github_api "https://api.github.com/repos/Open-Systems-Pharmacology/$repo_name/contents/$file_path?ref=v$version")
+              if echo "$response" | jq -e '.name' >/dev/null 2>&1; then
+                  return 0
+              fi
+            
+              # If case insensitive and exact match failed, try directory listing
+              if [[ "$case_insensitive" == "true" ]]; then
+                  local dir_path=$(dirname "$file_path")
+                  local file_name=$(basename "$file_path")
+                
+                  if [[ "$dir_path" == "." ]]; then
+                      local dir_response=$(github_api "https://api.github.com/repos/Open-Systems-Pharmacology/$repo_name/contents?ref=v$version")
+                  else
+                      local dir_response=$(github_api "https://api.github.com/repos/Open-Systems-Pharmacology/$repo_name/contents/$dir_path?ref=v$version")
+                  fi
+                
+                  if echo "$dir_response" | jq -e '.[]' >/dev/null 2>&1; then
+                      local found=$(echo "$dir_response" | jq -r '.[].name' | grep -i "^${file_name}$" | head -n1)
+                      if [[ -n "$found" ]]; then
+                          return 0
+                      fi
+                  fi
+              fi
+            
+              return 1
+          }
+        
+          echo "Check 3: Validating releases and files..."
+        
+          # Process each row (skip header)
+          tail -n +2 models.csv | while IFS= read -r line; do
+              line_num=$(($(wc -l < models.csv) - $(tail -n +2 models.csv | wc -l) + 2))
+            
+              repo_name=$(extract_field "$line" "$REPO_COL")
+              version=$(extract_field "$line" "$VERSION_COL")
+              snapshot_name=$(extract_field "$line" "$SNAPSHOT_COL")
+              workflow_name=$(extract_field "$line" "$WORKFLOW_COL")
+            
+              if [[ -z "$repo_name" || -z "$version" ]]; then
+                  continue
+              fi
+            
+              # Check 3a: Release exists
+              if ! check_release_exists "$repo_name" "$version"; then
+                  add_error "There is no release $version in $repo_name"
+                  continue
+              fi
+            
+              # Check 3b: Latest release
+              latest_version=$(get_latest_version "$repo_name")
+              if [[ -n "$latest_version" && "$latest_version" != "$version" ]]; then
+                  add_error "$version has the newest release $latest_version"
+              fi
+            
+              # Check 3c: Snapshot file
+              if [[ -n "$snapshot_name" ]]; then
+                  if ! check_file_in_release "$repo_name" "$version" "$snapshot_name.json" "false"; then
+                      add_error "Snapshot name $snapshot_name is invalid for $repo_name"
+                  fi
+              fi
+            
+              # Check 3d & 3e: Workflow files
+              if [[ -z "$workflow_name" ]]; then
+                  # Check default workflow
+                  if ! check_file_in_release "$repo_name" "$version" "Evaluation/workflow.R" "true"; then
+                      add_error "The default workflow file Evaluation/workflow.R not found for $repo_name"
+                  fi
+              else
+                  # Check specified workflow
+                  if ! check_file_in_release "$repo_name" "$version" "$workflow_name" "true"; then
+                      add_error "The workflow file $workflow_name not found for $repo_name"
+                  fi
+              fi
           done
-          echo "$errors" > errors_advanced.txt
-
-      - name: Check all folders in develop branch are referenced in models.csv
-        id: folder_check
-        run: |
-          errors=""
-          folders=$(git ls-tree -d --name-only origin/develop)
-          found_folders=$(cut -d, -f$(head -1 models.csv | tr ',' '\n' | grep -nx 'Folder name' | cut -d: -f1) models.csv | tail -n +2 | sort | uniq)
-          for folder in $folders; do
-            if ! grep -Fxq "$folder" <<< "$found_folders"; then
-              errors+="Folder $folder is not found"$'\n'
-            fi
+        
+          echo "Check 4: Validating folders..."
+    
+          # Get folders from develop branch
+          develop_folders=$(github_api "https://api.github.com/repos/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/contents?ref=develop" | jq -r '.[] | select(.type == "dir") | .name')
+        
+          # Get folders from CSV
+          csv_folders=$(tail -n +2 models.csv | while IFS= read -r line; do
+              folder_name=$(extract_field "$line" "$FOLDER_COL")
+              if [[ -n "$folder_name" ]]; then
+                  echo "$folder_name"
+              fi
+          done)
+        
+          # Check each develop folder exists in CSV
+          while IFS= read -r folder; do
+              if [[ -n "$folder" ]]; then
+                  if ! echo "$csv_folders" | grep -q "^${folder}$"; then
+                      add_error "Folder $folder is not found"
+                  fi
+              fi
+          done <<< "$develop_folders"
+        
+          echo "Check 5: Validating additional projects..."
+        
+          # Process additional projects
+          tail -n +2 models.csv | while IFS= read -r line; do
+              additional_projects=$(extract_field "$line" "$ADDITIONAL_COL")
+            
+              if [[ -n "$additional_projects" ]]; then
+                  # Split by pipe
+                  IFS='|' read -ra PROJECTS <<< "$additional_projects"
+                  for project in "${PROJECTS[@]}"; do
+                      project=$(echo "$project" | xargs)  # trim whitespace
+                      if [[ -n "$project" ]]; then
+                          # Check 5a: URL validation
+                          url="https://raw.githubusercontent.com/Open-Systems-Pharmacology/$project"
+                          if ! check_url "$url"; then
+                              add_error "URL $url is not valid for additional project $project"
+                          fi
+                        
+                          # Check 5b: Latest release validation
+                          repo_name=$(echo "$project" | cut -d'/' -f1)
+                          branch_name=$(echo "$project" | cut -d'/' -f2)
+                          version=$(echo "$branch_name" | sed 's/^v//')
+                        
+                          if [[ -n "$repo_name" && -n "$version" ]]; then
+                              latest_version=$(get_latest_version "$repo_name")
+                              if [[ -n "$latest_version" && "$latest_version" != "$version" ]]; then
+                                  add_error "Additional project $project has the newest release $latest_version"
+                              fi
+                          fi
+                      fi
+                  done
+              fi
           done
-          echo "$errors" > errors_folders.txt
-
-      - name: Collect and print all errors
-        id: collect_errors
-        run: |
-          cat errors_empty_lines.txt errors_execute.txt errors_advanced.txt errors_folders.txt > all_errors.txt
-          if [ -s all_errors.txt ]; then
-            echo "ERRORS FOUND:"
-            cat all_errors.txt
-            exit 1
+        
+          # Display results
+          echo "Validation completed."
+        
+          if [[ $ERROR_COUNT -gt 0 ]]; then
+              echo "Validation errors found:"
+              while IFS= read -r error; do
+                  echo "❌ $error"
+              done < "$ERROR_FILE"
+              echo ""
+              echo "Total errors: $ERROR_COUNT"
+              rm -f "$ERROR_FILE"
+              exit 1
           else
-            echo "All checks passed!"
+              echo "✅ All validations passed!"
+              rm -f "$ERROR_FILE"
           fi
