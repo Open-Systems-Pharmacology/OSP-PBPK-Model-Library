@@ -1,8 +1,7 @@
 Execute,Repository name,Released version,Snapshot name,Folder name,Workflow name,Additional projects
 TRUE,7E3-Model,1.0,7E3,7E3XX,,
 TRUE,Alfentanil-Model,2.0,Alfentanil-Model,Alfentanil,,Alfentanil-Pediatrics/v1.0/Alfentanil-Pediatrics.json
-TRUE,Alprazolam-Model,2.0,Alprazolam-Model,AlprazolamXX,,
+TRUE,Alprazolam-Model,2.0,Alprazolam-ModelXX,Alprazolam,,
 FASLE,Amikacin-Model,2.0,Amikacin-Model,Amikacin,,Amikacin-Pediatrics/v1.0/Amikacin-PediatricsXX.json
 FALSE,Atazanavir-ModelXX,2.0,Atazanavir-Model,Atazanavir,,
 FALSE,BAY794620-Model,1.0,BAY794620,BAY794620,,
-
