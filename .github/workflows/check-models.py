@@ -97,29 +97,7 @@ class ModelValidator:
             return response.status_code == 200
         except Exception:
             return False
-            
-    def find_file_case_insensitive(self, repo_name: str, version: str, target_file: str) -> bool:
-        """Find file in repository with case-insensitive search"""
-        # For workflow files, check common locations
-        if 'workflow' in target_file.lower():
-            possible_paths = [
-                'Evaluation/workflow.R',
-                'evaluation/workflow.R',
-                'Evaluation/Workflow.R',
-                'evaluation/Workflow.R',
-                'EVALUATION/WORKFLOW.R',
-                target_file,
-                target_file.lower(),
-                target_file.upper()
-            ]
-        else:
-            possible_paths = [target_file, target_file.lower(), target_file.upper()]
-            
-        for path in possible_paths:
-            if self.check_file_in_release(repo_name, version, path):
-                return True
-        return False
-        
+
     def check_repository_validations(self, rows: List[Dict[str, str]]) -> bool:
         """Perform all repository-related validations"""
         valid = True
@@ -155,12 +133,12 @@ class ModelValidator:
             # Check 3d and 3e: Workflow file exists
             if not workflow_name:
                 # Check for default workflow file
-                if not self.find_file_case_insensitive(repo_name, version, "Evaluation/workflow.R"):
+                if not self.check_file_in_release(repo_name, version, "Evaluation/workflow.R"):
                     self.add_error(f"The default workflow file Evaluation/workflow.R not found for {repo_name}")
                     valid = False
             else:
                 # Check for specified workflow file
-                if not self.find_file_case_insensitive(repo_name, version, workflow_name):
+                if not self.check_file_in_release(repo_name, version, workflow_name):
                     self.add_error(f"The workflow file {workflow_name} not found for {repo_name}")
                     valid = False
                     
