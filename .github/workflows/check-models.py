@@ -121,7 +121,7 @@ class ModelValidator:
             releases = self.get_github_releases(repo_name)
             latest_version = self.get_latest_release_version(releases)
             if latest_version and latest_version != version:
-                self.add_error(f"{repo_name} has the newest release {latest_version}")
+                self.add_error(f"{repo_name} has later release {latest_version}")
                 valid = False
                 
             # Check 3c: Snapshot file exists
