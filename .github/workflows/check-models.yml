@@ -22,10 +22,7 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get install -y jq curl
-    
-    - name: Call CSV structure validation workflow
-      uses: Open-Systems-Pharmacology/Workflows/.github/workflows/Check_CSV.yml@main
-    
+
     - name: Validate models.csv
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
