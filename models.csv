@@ -27,13 +27,13 @@ TRUE,Midazolam-Model,2.0,Midazolam-Model,Midazolam,,
 TRUE,Moclobemide-Model,2.0,Moclobemide-Model,Moclobemide,,
 TRUE,Montelukast-Model,2.0,Montelukast,Montelukast,,Montelukast-Pediatrics/v1.0/Montelukast-Pediatrics.json
 TRUE,Omeprazole-Model,2.0,Omeprazole-Model,Omeprazole,,
-TRUE,Propofol-Model,1.0,Propofol-Model,Propofol,,Propofol-Pediatrics/v1.0/Propofol-Pediatrics.json
+TRUE,Propofol-Model,1.0,Propofol,Propofol,,Propofol-Pediatrics/v1.0/Propofol-Pediatrics.json
 TRUE,Raltegravir-Model,2.0,Raltegravir-Model,Raltegravir,,Raltegravir-Pediatrics/v1.0/Raltegravir-Pediatrics.json
 TRUE,Rifampicin-Model,2.0,Rifampicin-Model,Rifampicin,,
 TRUE,S-Mephenytoin-Model,2.0,S_Mephenytoin-Model,S-Mephenytoin,,
 TRUE,Sildenafil-Model,2.0,Sildenafil-Model,Sildenafil,,
-TRUE,Sufentanil,2.0,Sufentanil-Model,Sufentanil,,Sufentanil-Pediatrics/v1.0/Sufentanil-Pediatrics.json
-TRUE,Tefibazumab,1.0,Tefibazumab-Model,Tefibazumab,,
+TRUE,Sufentanil-Model,2.0,Sufentanil,Sufentanil,,Sufentanil-Pediatrics/v1.0/Sufentanil-Pediatrics.json
+TRUE,Tefibazumab-Model,1.0,Tefibazumab,Tefibazumab,,
 TRUE,Tizanidine-Model,2.0,Tizanidine-Model,Tizanidine,,
 TRUE,Triazolam-Model,2.0,Triazolam-Model,Triazolam,,
 TRUE,Vancomycin-Model,2.0,Vancomycin,Vancomycin,,Vancomycin-Pediatrics/v1.0/Vancomycin-Pediatrics.json
