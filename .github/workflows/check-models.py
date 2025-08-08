@@ -167,13 +167,14 @@ class ModelValidator:
         return valid
         
     def get_folders_in_develop(self) -> List[str]:
-        """Get list of folders in develop branch"""
+        """Get list of folders in develop branch, ignoring folders starting with ."""
         url = "https://api.github.com/repos/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/contents?ref=develop"
         try:
             response = requests.get(url, headers=self.headers)
             if response.status_code == 200:
                 contents = response.json()
-                folders = [item['name'] for item in contents if item['type'] == 'dir']
+                folders = [item['name'] for item in contents 
+                          if item['type'] == 'dir' and not item['name'].startswith('.')]
                 return folders
             return []
         except Exception as e:
