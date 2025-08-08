@@ -21,6 +21,7 @@ jobs:
 
   check-models-csv:
     runs-on: ubuntu-latest
+    shell: bash
     env:
       MODELS_CSV: models.csv
       REPO_ROOT: ${{ github.repository }}
