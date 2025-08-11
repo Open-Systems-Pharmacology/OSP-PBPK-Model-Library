@@ -1,4 +1,4 @@
-name: Check Markdown links
+name: Check links/cross-references in reports
 
 on: 
   pull_request:
@@ -6,6 +6,43 @@ on:
       - develop
  
 jobs:
-  markdown-link-check:
-    uses: Open-Systems-Pharmacology/Workflows/.github/workflows/MarkdownLinksCheck.yml@main
+  find-modified-folders:
+    runs-on: ubuntu-latest
+    outputs:
+      folders: ${{ steps.get-folders.outputs.folders }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
+      - name: Get list of modified folders
+        id: get-folders
+        run: |
+          base_sha="${{ github.event.pull_request.base.sha }}"
+          head_sha="${{ github.event.pull_request.head.sha }}"
+          folders=$(git diff --name-only "$base_sha" "$head_sha" | awk -F/ '{print $1}' | grep -v '^\.' | sort -u)
+          folders_json=$(printf '%s\n' $folders | jq -R . | jq -s -c .)
+          echo "folders=$folders_json" >> $GITHUB_OUTPUT
+
+  check_links:
+    needs: find-modified-folders
+    strategy:
+      fail-fast: false
+      matrix:
+        folder: ${{ fromJson(needs.find-modified-folders.outputs.folders) }}
+    
+    uses: Open-Systems-Pharmacology/Workflows/.github/workflows/MarkdownLinksCheck.yml@main
+    with:
+      folder-path: ${{ matrix.folder }}
+
+  check_xrefs:
+    needs: find-modified-folders
+    strategy:
+      fail-fast: false
+      matrix:
+        folder: ${{ fromJson(needs.find-modified-folders.outputs.folders) }}
+    
+    uses: Open-Systems-Pharmacology/Workflows/.github/workflows/MarkdownCrossrefCheck_withAnchors.yml@main
+    with:
+      folder-path: ${{ matrix.folder }}
