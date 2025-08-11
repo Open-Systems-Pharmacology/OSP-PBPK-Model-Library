@@ -141,7 +141,7 @@ jobs:
           ${{ needs.read_inputs.outputs.tools_table }}
           ## All evaluated models
           ${{ needs.read_inputs.outputs.models_table }}
-        assignees: ${{ github.actor }}
         reviewers: ${{ github.actor }}
+
 
 
