@@ -1,8 +1,12 @@
 name: Create evaluation reports and projects
 
-# Workflow manually triggered and suggest available branches in input
 on:
   workflow_dispatch:
+    inputs:
+      commit-message:
+        required: false
+        type: string
+        default: 'VN.N Update N'
 
 permissions:
   contents: write
@@ -130,6 +134,7 @@ jobs:
         token: ${{ secrets.PAT_PR_TRIGGERED_BY_ACTIONS }}
         branch: ${{ github.ref_name }}-${{ matrix['Repository name'] }}
         base: develop
+        commit-message: ${{ inputs.commit-message }}
         add-paths: |
             */images/**
             */*_report.pdf
@@ -142,6 +147,7 @@ jobs:
           ## All evaluated models
           ${{ needs.read_inputs.outputs.models_table }}
         reviewers: ${{ github.actor }}
+
 
 
 
