@@ -1,4 +1,5 @@
-name: Check Tools
+name: Validate tools.csv
+# Checks validity of the tools URLs and Versions
 
 on:
   push:
@@ -11,7 +12,7 @@ on:
       - develop
 
 jobs:
-  check-tools:
+  validate-tools:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -25,4 +26,4 @@ jobs:
         run: pip install requests
 
       - name: Run check-tools.py
-        run: python check-tools.py
+        run: python .github/workflows/check-tools.py
