@@ -1,5 +1,9 @@
 name: Validate tools.csv
-# Checks validity of the tools URLs and Versions
+# Check the validity of the tool URLs and versions.
+# If the URL is not empty or NA, check that it is valid.
+# If the version is X.Y or X.Y.Z, check that the tool repository contains a release tagged v<version>.
+# For other versions, check that the tool repository contains a branch with the same name.
+# The dictionary of tools to check and their corresponding GitHub repositories is saved in check-tools.py.
 
 on:
   push:
