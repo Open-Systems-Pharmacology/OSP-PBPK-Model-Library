@@ -26,4 +26,6 @@ jobs:
         run: pip install requests
 
       - name: Run check-tools.py
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python .github/workflows/check-tools.py
