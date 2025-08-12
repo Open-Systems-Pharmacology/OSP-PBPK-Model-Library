@@ -18,8 +18,10 @@ TOOLS_REPOS = {
 GITHUB_API = "https://api.github.com"
 
 def check_url(url):
+    github_token = os.environ.get('GITHUB_TOKEN')
+    headers = {"Authorization": f"token {github_token}"} if github_token else {}
     try:
-        resp = requests.head(url, allow_redirects=True, timeout=10)
+        resp = requests.head(url, allow_redirects=True, timeout=10, headers=headers)
         if resp.status_code >= 400:
             return False, f"URL '{url}' returned HTTP status code {resp.status_code}"
         return True, ""
