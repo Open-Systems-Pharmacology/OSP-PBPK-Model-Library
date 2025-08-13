@@ -1,0 +1,59 @@
+name: Validate models.csv
+# Performs a number of checks on the models.csv file.
+# - General checks (valid CSV structure, no BOM, UTF-8 encoding, no empty lines).
+# - Ensures that every value in the <Execute> column is either TRUE or FALSE.
+# - Checks that the OSP model release given by the combination of the repository name and released version exists.
+# - The released version is the chronological(!) latest available release in the repository (including pre-releases).
+# - The <Snapshot name>.json exists at the root level of the <Repository name> tagged with v<Release Version>.
+# - The workflow name is valid for the combination of <Repository name> and <Released version>:
+#   - If empty: "Evaluation/workflow.R" must exist in the repository.
+#   - If not empty, the given workflow name must exist in the repository.
+# - For each folder in the develop branch (excl. those starting with "."), there must be an entry in the <Folder name> column.
+# - For each entry in the <Additional projects> column - split by pipe and check that every split entry:
+#   - has a valid URL when prefixed with 'https://raw.githubusercontent.com/Open-Systems-Pharmacology/'
+#   - belongs to the chronologically latest available release in its repository (including pre-releases).
+
+on:
+  workflow_dispatch:
+  push:
+    branches-ignore:
+      - master
+      - develop
+  pull_request:
+    branches-ignore:
+      - master
+      - develop
+
+jobs:
+  check-general-csv-structure:
+    uses: Open-Systems-Pharmacology/Workflows/.github/workflows/Check_CSV.yml@main
+
+  check-bom:
+    uses: Open-Systems-Pharmacology/Workflows/.github/workflows/Check_BOM.yml@main
+          
+  utf8check:
+    uses: Open-Systems-Pharmacology/Workflows/.github/workflows/UTF8Check.yml@main
+    with:
+      file-extensions: 'csv'  #File extension(s) to check separated by \| 
+
+  validate-models:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.x'
+        
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install requests pandas
+
+    - name: Run models.csv validation
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: python .github/workflows/check-models.py

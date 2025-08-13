@@ -1,0 +1,35 @@
+name: Validate tools.csv
+# Check the validity of the tool URLs and versions.
+# If the URL is not empty or NA, check that it is valid.
+# If the version is X.Y or X.Y.Z, check that the tool repository contains a release tagged v<version>.
+# For other versions, check that the tool repository contains a branch with the same name.
+# The dictionary of tools to check and their corresponding GitHub repositories is saved in check-tools.py.
+
+on:
+  push:
+    branches-ignore:
+      - master
+      - develop
+  pull_request:
+    branches-ignore:
+      - master
+      - develop
+
+jobs:
+  validate-tools:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install requests
+        run: pip install requests
+
+      - name: Run check-tools.py
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python .github/workflows/check-tools.py
