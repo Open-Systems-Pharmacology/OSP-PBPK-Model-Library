@@ -1,12 +1,16 @@
+
+
+
+
 # Building and evaluation of a PBPK model for fluvoxamine in healthy adults
 
 
 
 
 
-| Version                                         | 1.2-OSP12.0                                                   |
+| Version                                         | 1.0-OSP12.0                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
-| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Fluvoxamine-Model/releases/tag/v1.2 |
+| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Fluvoxamine-Model/releases/tag/v1.0 |
 | OSP Version                                     | 12.0                                                          |
 | Qualification Framework Version                 | 3.3                                                          |
 
@@ -18,21 +22,31 @@ This evaluation report and the corresponding PK-Sim project file are filed at:
 
 https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/
 
+
+
 # Table of Contents
-  * [1 Introduction](#1-introduction)
-  * [2 Methods](#2-methods)
-    * [2.1 Modeling Strategy](#21-modeling-strategy)
-    * [2.2 Data](#22-data)
-    * [2.3 Model Parameters and Assumptions](#23-model-parameters-and-assumptions)
-  * [3 Results and Discussion](#3-results-and-discussion)
-    * [3.1 Final input parameters](#31-final-input-parameters)
-    * [3.2 Diagnostics Plots](#32-diagnostics-plots)
-    * [3.3 Concentration-Time Profiles](#33-concentration-time-profiles)
-      * [3.3.1 Model Building](#331-model-building)
-      * [3.3.2 Model Verification](#332-model-verification)
-  * [4 Conclusion](#4-conclusion)
-  * [5 References](#5-references)
-# 1 Introduction
+
+ * [1 Introduction](#introduction)
+ * [2 Methods](#methods)
+   * [2.1 Modeling Strategy](#modeling-strategy)
+   * [2.2 Data](#22)
+   * [2.3 Model Parameters and Assumptions](#23)
+ * [3 Results and Discussion](#3)
+   * [3.1 Final input parameters](#final-input-parameters)
+   * [3.2 Diagnostics Plots](#diagnostics-plots)
+   * [3.3 Concentration-Time Profiles](#concentration-time-profiles)
+     * [3.3.1 Model Building](#model-building)
+     * [3.3.2 Model Verification](#model-validation)
+ * [4 Conclusion](#4)
+ * [5 References](#5)
+
+
+
+
+
+# 1 Introduction<a id="introduction"></a>
+
+
 Fluvoxamine is a selective serotonin reuptake inhibitor used to treat major depression and obsessive compulsive disorder ([Perucca 1994](#5-references), [ANI Pharmaceuticals Inc. 2008](#5-references)) . Recommended doses are 50 to 300 mg once daily. The pharmacokinetics of orally administered single doses are linear. Following multiple oral administration, the pharmacokinetics at steady-state become non-linear, due to saturable Michaelis-Menten kinetics of the metabolic pathways ([Spigset 1998](#5-references)). Metabolism of fluvoxamine includes hydroxylation via CYP1A2 and O-demethylation via the very polymorphic CYP2D6 ([Miura 2007](#5-references), [Spigset 2001](#5-references)). Following oral administration fluvoxamine is excreted via the urine as metabolites ([DeBree 1983](#5-references)). The U.S. Food and Drug Administration (FDA) recommends fluvoxamine as strong clinical CYP1A2 and CYP2C19 index inhibitor to evaluate the impact of CYP1A2/CYP2C19 inhibition on CYP1A2/CYP2C19 substrates ([FDA 2017](#5-references)). Furthermore, the FDA lists fluvoxamine as moderate CYP3A4 inhibitor.
 
 The aim of this project was to develop a PBPK model of fluvoxamine, mechanistically describing its metabolism by CYP1A2 and CYP2D6 and its inhibitory effect on CYP1A2 and CYP3A4, that can be used for drug-drug interaction (DDI) predictions.
@@ -40,10 +54,22 @@ The aim of this project was to develop a PBPK model of fluvoxamine, mechanistica
 The presented model was developed and evaluated by Britz et al. ([Britz 2019](#5-references))
 
 
-# 2 Methods
 
 
-## 2.1 Modeling Strategy
+
+
+# 2 Methods<a id="methods"></a>
+
+
+
+
+
+
+
+
+## 2.1 Modeling Strategy<a id="modeling-strategy"></a>
+
+
 The general workflow for building an adult PBPK model has been described by Kuepfer et al. ([Kuepfer 2016](#5-references)). Relevant information on the anthropometry (height, weight) was gathered from the respective clinical study, if reported. Information on physiological parameters (e.g. blood flows, organ volumes, hematocrit) in adults was gathered from the literature and has been incorporated in PK-Sim® as described previously ([Willmann 2007](#5-references)). The  applied activity and variability of plasma proteins and active processes that are integrated into PK-Sim® are described in the publicly available 'PK-Sim® Ontogeny Database Version 7.3' ([PK-Sim Ontogeny Database Version 7.3](#5-references)).
 
 The PBPK model was built based on healthy individuals, using the reported mean values for age, weight, height, and genetic background for each study protocol. If no information on these parameters could be found, a healthy male European individual, 30 years of age, with a body weight of 73 kg and a height of 176 cm was used. To model the specific metabolic clearance,  CYP1A2 and CYP2D6 were implemented in accordance with literature, using the PK-Sim expression database RT-PCR profiles ([Meyer 2012](#5-references)) to define their relative expression in the different organs of the body. Glomerular filtration and enterohepatic cycling were enabled, as they are involved in fluvoxamine excretion.
@@ -61,7 +87,13 @@ Details about input data (physicochemical, *in vitro* and clinical) can be found
 Details about the structural model and its parameters can be found in [Section 2.3](#23-model-parameters-and-assumptions).
 
 
-## 2.2 Data
+
+
+
+
+## 2.2 Data<a id="22"></a>
+
+
 ### 2.2.1	In vitro / physico-chemical Data
 
 A literature search was performed to collect available information on physicochemical properties of fluvoxamine. The obtained information from literature is summarized in the table below. 
@@ -127,7 +159,13 @@ The following studies were used for model verification:
 | [de Bree 1983](#5-references)          | Healthy adults with oral administration of 100 mg as single dose |
 
 
-## 2.3 Model Parameters and Assumptions
+
+
+
+
+## 2.3 Model Parameters and Assumptions<a id="23"></a>
+
+
 ### 2.3.1	Absorption
 
 Since a rapid dissolution and absorption was assumed for tablet as well as capsule formulation, the drug formulation was implemented as solution. 
@@ -171,7 +209,13 @@ This is the result of the final parameter identification.
 | `Specific intestinal permeability`            | 2.74 E-6        | dm/min    |
 
 
-# 3 Results and Discussion
+
+
+
+
+# 3 Results and Discussion<a id="3"></a>
+
+
 The PBPK model for fluvoxamine was developed and verified with clinical pharmacokinetic data.
 
 The model was evaluated covering data from studies including in particular
@@ -191,8 +235,15 @@ The next sections show:
 3. simulated vs. observed concentration-time profiles for the clinical studies used for model building and for model verification: [Section 3.3](#33-concentration-time-profiles).
 
 
-## 3.1 Final input parameters
+
+
+
+
+## 3.1 Final input parameters<a id="final-input-parameters"></a>
+
+
 The compound parameter values of the final PBPK model are illustrated below.
+
 
 
 
@@ -286,98 +337,457 @@ Ki   | 1.6 µmol/l | Publication-In Vitro-Olesen et al. Fluvoxamine-Clozapine dr
 
 
 
+
 ### Formulation: Solution
 
 Type: Dissolved
 
 
-## 3.2 Diagnostics Plots
+
+
+
+
+## 3.2 Diagnostics Plots<a id="diagnostics-plots"></a>
+
+
 Below you find the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data used presented in [Section 2.2.2](#222-clinical-data).
 
 The first plot shows observed versus simulated plasma concentration, the second weighted residuals versus time. 
 
 
-![001_plotGOFMergedPredictedVsObserved.png](images/003_3_Results_and_Discussion/002_3_2_Diagnostics_Plots/001_plotGOFMergedPredictedVsObserved.png)
 
-![002_plotGOFMergedResidualsOverTime.png](images/003_3_Results_and_Discussion/002_3_2_Diagnostics_Plots/002_plotGOFMergedResidualsOverTime.png)
+<a id="table-3-1"></a>
 
-GMFE = 1.398072 
+**Table 3-1: GMFE for Goodness of fit plot for concentration in plasma**
 
-## 3.3 Concentration-Time Profiles
+
+|Group            |GMFE |
+|:----------------|:----|
+|test dataset     |1.62 |
+|training dataset |1.21 |
+|All              |1.40 |
+
+
+<br>
+<br>
+
+
+<a id="figure-3-1"></a>
+
+![](images/006_section_3/008_section_diagnostics-plots/2_gof_plot_predictedVsObserved.png)
+
+
+
+**Figure 3-1: Goodness of fit plot for concentration in plasma**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-2"></a>
+
+![](images/006_section_3/008_section_diagnostics-plots/3_gof_plot_residualsOverTime.png)
+
+
+
+**Figure 3-2: Goodness of fit plot for concentration in plasma**
+
+
+<br>
+<br>
+
+
+
+
+
+## 3.3 Concentration-Time Profiles<a id="concentration-time-profiles"></a>
+
+
 Simulated versus observed concentration-time profiles of all data listed in [Section 2.2.2](#222-clinical-data) are presented below.
 
 
-### 3.3.1 Model Building
+
+
+
+
+### 3.3.1 Model Building<a id="model-building"></a>
 
 
 
 
 
-![001_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_3_3_1_Model_Building/001_plotTimeProfile.png)
-
-![002_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_3_3_1_Model_Building/002_plotTimeProfile.png)
-
-![003_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_3_3_1_Model_Building/003_plotTimeProfile.png)
-
-![004_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_3_3_1_Model_Building/004_plotTimeProfile.png)
-
-![005_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_3_3_1_Model_Building/005_plotTimeProfile.png)
-
-![006_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_3_3_1_Model_Building/006_plotTimeProfile.png)
-
-![007_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_3_3_1_Model_Building/007_plotTimeProfile.png)
-
-![008_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_3_3_1_Model_Building/008_plotTimeProfile.png)
-
-![009_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_3_3_1_Model_Building/009_plotTimeProfile.png)
-
-### 3.3.2 Model Verification
 
 
 
+<a id="figure-3-3"></a>
+
+![](images/006_section_3/009_section_concentration-time-profiles/010_section_model-building/7_time_profile_plot_Fluvoxamine_Model_Japanese_Society_of_Hospital_Pharmacists_2015__30_mg_iv.png)
 
 
-![001_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/001_plotTimeProfile.png)
 
-![002_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/002_plotTimeProfile.png)
+**Figure 3-3: Time Profile Analysis**
 
-![003_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/003_plotTimeProfile.png)
 
-![004_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/004_plotTimeProfile.png)
+<br>
+<br>
 
-![005_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/005_plotTimeProfile.png)
 
-![006_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/006_plotTimeProfile.png)
+<a id="figure-3-4"></a>
 
-![007_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/007_plotTimeProfile.png)
+![](images/006_section_3/009_section_concentration-time-profiles/010_section_model-building/8_time_profile_plot_Fluvoxamine_Model_de_Vries_1992__50_mg_bid.png)
 
-![008_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/008_plotTimeProfile.png)
 
-![009_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/009_plotTimeProfile.png)
 
-![010_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/010_plotTimeProfile.png)
+**Figure 3-4: Time Profile Analysis**
 
-![011_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/011_plotTimeProfile.png)
 
-![012_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/012_plotTimeProfile.png)
+<br>
+<br>
 
-![013_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/013_plotTimeProfile.png)
 
-![014_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/014_plotTimeProfile.png)
+<a id="figure-3-5"></a>
 
-![015_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/015_plotTimeProfile.png)
+![](images/006_section_3/009_section_concentration-time-profiles/010_section_model-building/9_time_profile_plot_Fluvoxamine_Model_Fleishaker_1994__50_100_mg_QD.png)
 
-![016_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/016_plotTimeProfile.png)
 
-![017_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/017_plotTimeProfile.png)
 
-# 4 Conclusion
+**Figure 3-5: Time Profile Analysis**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-6"></a>
+
+![](images/006_section_3/009_section_concentration-time-profiles/010_section_model-building/10_time_profile_plot_Fluvoxamine_Model_Labellarte_2004__150_mg_bid.png)
+
+
+
+**Figure 3-6: Time Profile Analysis**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-7"></a>
+
+![](images/006_section_3/009_section_concentration-time-profiles/010_section_model-building/11_time_profile_plot_Fluvoxamine_Model_Spigset_1998__12_5_25_50_100_mg_bid.png)
+
+
+
+**Figure 3-7: Time Profile Analysis**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-8"></a>
+
+![](images/006_section_3/009_section_concentration-time-profiles/010_section_model-building/14_time_profile_plot_Fluvoxamine_Model_de_Vries_1993__100_mg_SD.png)
+
+
+
+**Figure 3-8: Time Profile Analysis**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-9"></a>
+
+![](images/006_section_3/009_section_concentration-time-profiles/010_section_model-building/15_time_profile_plot_Fluvoxamine_Model_de_Vries_1993__25_mg_SD.png)
+
+
+
+**Figure 3-9: Time Profile Analysis**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-10"></a>
+
+![](images/006_section_3/009_section_concentration-time-profiles/010_section_model-building/16_time_profile_plot_Fluvoxamine_Model_de_Vries_1993__50_mg_SD.png)
+
+
+
+**Figure 3-10: Time Profile Analysis**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-11"></a>
+
+![](images/006_section_3/009_section_concentration-time-profiles/010_section_model-building/23_time_profile_plot_Fluvoxamine_Model_Orlando_2010__50_mg_SD.png)
+
+
+
+**Figure 3-11: Time Profile Analysis**
+
+
+<br>
+<br>
+
+
+
+
+
+### 3.3.2 Model Verification<a id="model-validation"></a>
+
+
+
+
+
+
+
+
+<a id="figure-3-12"></a>
+
+![](images/006_section_3/009_section_concentration-time-profiles/011_section_model-validation/1_time_profile_plot_Fluvoxamine_Model_Christensen_2002__10_mg_bid_EM.png)
+
+
+
+**Figure 3-12: Time Profile Analysis**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-13"></a>
+
+![](images/006_section_3/009_section_concentration-time-profiles/011_section_model-validation/2_time_profile_plot_Fluvoxamine_Model_Christensen_2002__10_mg_QD_PM.png)
+
+
+
+**Figure 3-13: Time Profile Analysis**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-14"></a>
+
+![](images/006_section_3/009_section_concentration-time-profiles/011_section_model-validation/3_time_profile_plot_Fluvoxamine_Model_Christensen_2002__25_mg_bid_EM.png)
+
+
+
+**Figure 3-14: Time Profile Analysis**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-15"></a>
+
+![](images/006_section_3/009_section_concentration-time-profiles/011_section_model-validation/4_time_profile_plot_Fluvoxamine_Model_Christensen_2002__25_mg_QD_PM.png)
+
+
+
+**Figure 3-15: Time Profile Analysis**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-16"></a>
+
+![](images/006_section_3/009_section_concentration-time-profiles/011_section_model-validation/5_time_profile_plot_Fluvoxamine_Model_Spigset_1997__50_mg_SD_EM.png)
+
+
+
+**Figure 3-16: Time Profile Analysis**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-17"></a>
+
+![](images/006_section_3/009_section_concentration-time-profiles/011_section_model-validation/6_time_profile_plot_Fluvoxamine_Model_Spigset_1997__50_mg_SD_PM.png)
+
+
+
+**Figure 3-17: Time Profile Analysis**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-18"></a>
+
+![](images/006_section_3/009_section_concentration-time-profiles/011_section_model-validation/12_time_profile_plot_Fluvoxamine_Model_Bahrami_2007__100_mg_SD.png)
+
+
+
+**Figure 3-18: Time Profile Analysis**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-19"></a>
+
+![](images/006_section_3/009_section_concentration-time-profiles/011_section_model-validation/13_time_profile_plot_Fluvoxamine_Model_de_Bree_1983__100_mg_SD.png)
+
+
+
+**Figure 3-19: Time Profile Analysis**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-20"></a>
+
+![](images/006_section_3/009_section_concentration-time-profiles/011_section_model-validation/17_time_profile_plot_Fluvoxamine_Model_Fukasawa_2006__50_mg_SD_EM.png)
+
+
+
+**Figure 3-20: Time Profile Analysis**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-21"></a>
+
+![](images/006_section_3/009_section_concentration-time-profiles/011_section_model-validation/18_time_profile_plot_Fluvoxamine_Model_Japanese_Society_of_Hospital_Pharmacists_2015__100_mg_SD.png)
+
+
+
+**Figure 3-21: Time Profile Analysis**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-22"></a>
+
+![](images/006_section_3/009_section_concentration-time-profiles/011_section_model-validation/19_time_profile_plot_Fluvoxamine_Model_Japanese_Society_of_Hospital_Pharmacists_2015__200_mg_SD.png)
+
+
+
+**Figure 3-22: Time Profile Analysis**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-23"></a>
+
+![](images/006_section_3/009_section_concentration-time-profiles/011_section_model-validation/20_time_profile_plot_Fluvoxamine_Model_Japanese_Society_of_Hospital_Pharmacists_2015__25_mg_SD.png)
+
+
+
+**Figure 3-23: Time Profile Analysis**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-24"></a>
+
+![](images/006_section_3/009_section_concentration-time-profiles/011_section_model-validation/21_time_profile_plot_Fluvoxamine_Model_Japanese_Society_of_Hospital_Pharmacists_2015__50_mg_SD.png)
+
+
+
+**Figure 3-24: Time Profile Analysis**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-25"></a>
+
+![](images/006_section_3/009_section_concentration-time-profiles/011_section_model-validation/22_time_profile_plot_Fluvoxamine_Model_Kunii_2005__50_mg_SD_EM.png)
+
+
+
+**Figure 3-25: Time Profile Analysis**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-26"></a>
+
+![](images/006_section_3/009_section_concentration-time-profiles/011_section_model-validation/24_time_profile_plot_Fluvoxamine_Model_van_Harten_1991__50_mg_SD.png)
+
+
+
+**Figure 3-26: Time Profile Analysis**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-27"></a>
+
+![](images/006_section_3/009_section_concentration-time-profiles/011_section_model-validation/25_time_profile_plot_Fluvoxamine_Model_Spigset_1995__50_mg_SD_EM_non_smoker.png)
+
+
+
+**Figure 3-27: Time Profile Analysis**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-28"></a>
+
+![](images/006_section_3/009_section_concentration-time-profiles/011_section_model-validation/26_time_profile_plot_Fluvoxamine_Model_Spigset_1995__50_mg_SD_EM_smoker.png)
+
+
+
+**Figure 3-28: Time Profile Analysis**
+
+
+<br>
+<br>
+
+
+
+
+
+# 4 Conclusion<a id="4"></a>
+
+
 The herein presented PBPK model adequately describes the pharmacokinetics of fluvoxamine in adults.
 
 In particular, it applies quantitative metabolism by CYP1A2 and CYP2D6. The inhibition of CYP1A2 and CYP3A4 are implemented and evaluated (shown elsewhere) in the current model as well. Thus, the model is fit for purpose to be applied for the prediction of drug-drug interaction
 
 
-# 5 References
+
+
+
+
+# 5 References<a id="5"></a>
+
+
 **ANI Pharmaceuticals Inc. 2008** ANI Pharmaceuticals Inc. Fluvoxamine maleate - prescribing information. (2008).
 
 **Bahrami 2007** Bahrami, G. & Mohammadi, B. Rapid and sensitive bioanalytical method for measurement of fluvoxamine in human serum using 4-chloro-7-nitrobenzofurazan as pre-column derivatization agent: application to a human pharmacokinetic study. J. Chromatogr. B. Analyt. Technol. Biomed. Life Sci. 857, 322–6 (2007).
@@ -443,5 +853,7 @@ In particular, it applies quantitative metabolism by CYP1A2 and CYP2D6. The inhi
 **Yao 2001** Yao, C. et al. Fluvoxamine-theophylline interaction: gap between in vitro and in vivo inhibition constants toward cytochrome P4501A2. Clin. Pharmacol. Ther. 70, 415–24 (2001).
 
 **Zhou 2009** Zhou, S.F., Yang, L.P., Zhou, Z.W., Liu, Y.H. & Chan, E. Insights into the substrate specificity, inhibitors, regulation, and polymorphisms and the clinical impact of human cytochrome P450 1A2. AAPS J. 11, 481–494 (2009).
+
+
 
 
