@@ -72,7 +72,7 @@ jobs:
     strategy:
       matrix: ${{ fromJSON(needs.read_inputs.outputs.models) }}
       fail-fast: false
-    runs-on: windows-latest
+    runs-on: windows-2022
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
@@ -98,6 +98,12 @@ jobs:
       with:
         tools-path: tools.csv
 
+    - name: Downgrade ggplot2 to 3.5.2
+      run: |
+        Rscript -e 'remove.packages("ggplot2")'
+        Rscript -e 'remotes::install_version("ggplot2", version = "3.5.2", repos = "https://cran.r-project.org")'
+      shell: bash
+    
     - id: evaluate-model
       name: Run evaluation
       uses: Open-Systems-Pharmacology/Workflows/.github/actions/report-evaluation@main
