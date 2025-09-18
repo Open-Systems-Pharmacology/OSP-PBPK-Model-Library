@@ -1,46 +1,41 @@
 # Building and evaluation of a PBPK model for sufentanil in adults
 
-
-
-
-
-| Version                                         | 1.2-OSP12.0                                                   |
+| Version                                         | 1.0-OSP12.0                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
-| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Sufentanil-Model/releases/tag/v1.2 |
+| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Sufentanil-Model/releases/tag/v1.0 |
 | OSP Version                                     | 12.0                                                          |
 | Qualification Framework Version                 | 3.3                                                          |
-
-
-
-
 
 This evaluation report and the corresponding PK-Sim project file are filed at:
 
 https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/
 
 # Table of Contents
-  * [1 Introduction](#1-introduction)
-  * [2 Methods](#2-methods)
-    * [2.1 Modeling strategy](#21-modeling-strategy)
-    * [2.2 Data used](#22-data-used)
-    * [2.3 Model parameters and assumptions](#23-model-parameters-and-assumptions)
-  * [3 Results and Discussion](#3-results-and-discussion)
-    * [3.1 Sufentanil final input parameters](#31-sufentanil-final-input-parameters)
-    * [3.2 Sufentanil Diagnostics Plots](#32-sufentanil-diagnostics-plots)
-    * [3.3 Sufentanil Concentration-Time profiles](#33-sufentanil-concentration-time-profiles)
-  * [4 Conclusion](#4-conclusion)
-  * [5 References](#5-references)
-# 1 Introduction
+
+ * [1 Introduction](#introduction)
+ * [2 Methods](#methods)
+   * [2.1 Modeling strategy](#modeling-strategy)
+   * [2.2 Data used](#data)
+   * [2.3 Model parameters and assumptions](#model-parameters-and-assumptions)
+ * [3 Results and Discussion](#results-and-discussion)
+   * [3.1 Sufentanil final input parameters](#final-input-parameters)
+   * [3.2 Sufentanil Diagnostics Plots](#diagnostics-plots)
+   * [3.3 Sufentanil Concentration-Time profiles](#ct-profiles)
+ * [4 Conclusion](#conclusion)
+ * [5 References](#main-references)
+
+# 1 Introduction<a id="introduction"></a>
+
 The presented model building and evaluation report evaluates the performance of a PBPK model for sufentanil in adults.
 
 Sufentanil is a potent synthetic opioid. It has a high lipid solubility, which accounts for the fast onset when given intravenously. The commercial solution comes as preservative‐free sufentanil citrate, injectable with a pH of 4.5–7.0 (Jansen‐Cilag AB, Sweden). Sufentanil is solely metabolised by CYP3A4. Due to the high hepatic extraction ratio, for the overall clearance of sufentanil both CYP3A4 activity as well as liver blood flow rate play dominant roles in the elimination in adult populations. The final sufentanil model applies metabolism by CYP3A4 and glomerular filtration and adequately described the pharmacokinetics of sufentanil in adults.
 
 The sufentanil model is a whole-body PBPK model, allowing for dynamic translation between individuals. The sufentanil report demonstrates the level of confidence in the sufentanil PBPK model build with the OSP suite with regard to reliable predictions of sufentanil PK in adults during model-informed drug development.
 
-# 2 Methods
+# 2 Methods<a id="methods"></a>
 
+## 2.1 Modeling strategy<a id="modeling-strategy"></a>
 
-## 2.1 Modeling strategy
 The general concept of building a PBPK model has previously been described by Kuepfer et al. ([Kuepfer 2016](#5-references)). Relevant information on anthropometric (height, weight) and physiological parameters (e.g. blood flows, organ volumes, binding protein concentrations, hematocrit, cardiac output) in adults was gathered from the literature and has been previously published ([Schlender 2016](#5-references)). The information was incorporated into PK-Sim® and was used as default values for the simulations in adults.
 
 The  applied activity and variability of plasma proteins and active processes that are integrated into PK-Sim® are described in the publicly available PK-Sim® Ontogeny Database Version 7.3 ([PK-Sim Ontogeny Database Version 7.3](#5-references)) or otherwise referenced for the specific process.
@@ -53,8 +48,8 @@ A final PBPK model was established and simulations were compared to the reported
 
 During model building, uncertainties in data quality, as well as study differences may cause not being able to adequately describe the PK of all reported clinical studies. 
 
+## 2.2 Data used<a id="data"></a>
 
-## 2.2 Data used
 ### 2.2.1 In vitro / physicochemical data
 
 A literature search was performed to collect available information on physicochemical properties of sufentanil. The obtained information from literature is summarized in the table below, and is used for model building.
@@ -83,9 +78,8 @@ The following publications were found in adults for model building and evaluatio
 | [Willsie 2015](#5-references) | Pharmacokinetic properties of single- and repeated-dose sufentanil sublingual tablets in healthy volunteers. |
 | [Taverne 1992](#5-references) | Comparative absorption and distribution pharmacokinetics of intravenous and epidural sufentanil in elective surgical patients, without hepatic or renal dysfunction. |
 
+## 2.3 Model parameters and assumptions<a id="model-parameters-and-assumptions"></a>
 
-
-## 2.3 Model parameters and assumptions
 ### 2.3.1 Absorption
 
 Only intravenous data was available for model building.
@@ -100,8 +94,8 @@ After testing the available organ-plasma partition coefficient and cell permeabi
 
 Sufentanil is solely metabolised by CYP3A4. Due to the high hepatic extraction ratio, for the overall clearance of sufentanil both CYP3A4 values as well as liver blood flow rate play dominant roles in the elimination in adult populations. The final sufentanil model applies metabolism by CYP3A4 and glomerular filtration and adequately described the pharmacokinetics of sufentanil in adults. 
 
+# 3 Results and Discussion<a id="results-and-discussion"></a>
 
-# 3 Results and Discussion
 The PBPK model for sufentanil was developed with clinical pharmacokinetic data covering intravenous administration with a dose range of 15 up to 355.5µg (based on a mean patient body weight of 71.5kg receiving 5µg/kg dose), including single dose (SD) clinical data. 
 
 During the model-fitting, the following parameters were estimated (all other parameters were fixed to reported values):
@@ -113,12 +107,9 @@ The fit resulted in an adequate description of the clinical data. In contrast to
 
 Overall the model results show that the PBPK model of sufentanil adequately described the data for intravenous administration for single dose. 
 
+## 3.1 Sufentanil final input parameters<a id="final-input-parameters"></a>
 
-## 3.1 Sufentanil final input parameters
 The compound parameter values of the final sufentanil PBPK model are illustrated below.
-
-
-
 
 ### Compound: Sufentanil
 
@@ -134,14 +125,12 @@ Is small molecule                          | Yes                  |             
 Molecular weight                           | 386.6 g/mol          | Publication-Zhou et al. 2017                      |                          |        
 Plasma protein binding partner             | α1-acid glycoprotein |                                                   |                          |        
 
-
 #### Calculation methods
 
 Name                    | Value          
 ----------------------- | ---------------
 Partition coefficients  | Schmitt        
 Cellular permeabilities | PK-Sim Standard
-
 
 #### Processes
 
@@ -155,7 +144,6 @@ Name         | Value | Value Origin
 ------------ | -----:| ----------------------------
 GFR fraction |     1 | Publication-Zhou et al. 2017
 
-
 ##### Metabolizing Enzyme: CYP3A4-Zhou et al. 2017
 
 Species: Human
@@ -168,41 +156,105 @@ Name                | Value              | Value Origin
 ------------------- | ------------------ | -------------------------------------------------
 Intrinsic clearance | 9.6138746106 l/min | Parameter Identification-Parameter Identification
 
+## 3.2 Sufentanil Diagnostics Plots<a id="diagnostics-plots"></a>
 
-
-## 3.2 Sufentanil Diagnostics Plots
 Below you find the goodness-of-fit visual diagnostic plots for sufentanil PBPK model performance (Individually simulated versus observed plasma concentration and weighted residuals versus time, including the geometric mean fold error (GMFE)) of all data used for model building.
 
+<a id="table-3-1"></a>
 
-![001_plotGOFMergedPredictedVsObserved.png](images/003_3_Results_and_Discussion/002_3_2_Sufentanil_Diagnostics_Plots/001_plotGOFMergedPredictedVsObserved.png)
+**Table 3-1: GMFE for Goodness of fit plot for concentration in plasma.**
 
-![002_plotGOFMergedResidualsOverTime.png](images/003_3_Results_and_Discussion/002_3_2_Sufentanil_Diagnostics_Plots/002_plotGOFMergedResidualsOverTime.png)
+|Group         |GMFE |
+|:-------------|:----|
+|Sufentanil iv |1.40 |
 
-GMFE = 1.402222 
+<br>
+<br>
 
-## 3.3 Sufentanil Concentration-Time profiles
+<a id="figure-3-1"></a>
+
+![](images/006_section_results-and-discussion/008_section_diagnostics-plots/2_gof_plot_predictedVsObserved.png)
+
+**Figure 3-1: Goodness of fit plot for concentration in plasma.**
+
+<br>
+<br>
+
+<a id="figure-3-2"></a>
+
+![](images/006_section_results-and-discussion/008_section_diagnostics-plots/3_gof_plot_residualsOverTime.png)
+
+**Figure 3-2: Goodness of fit plot for concentration in plasma.**
+
+<br>
+<br>
+
+## 3.3 Sufentanil Concentration-Time profiles<a id="ct-profiles"></a>
+
 Simulated versus observed plasma concentration-time profiles of all data are listed below.
 
+<a id="figure-3-3"></a>
 
-![001_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Sufentanil_Concentration-Time_profiles/001_plotTimeProfile.png)
+![](images/006_section_results-and-discussion/009_section_ct-profiles/1_time_profile_plot_Sufentanil_Bovill_1984.png)
 
-![002_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Sufentanil_Concentration-Time_profiles/002_plotTimeProfile.png)
+**Figure 3-3: Time Profile Analysis**
 
-![003_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Sufentanil_Concentration-Time_profiles/003_plotTimeProfile.png)
+<br>
+<br>
 
-![004_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Sufentanil_Concentration-Time_profiles/004_plotTimeProfile.png)
+<a id="figure-3-4"></a>
 
-![005_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Sufentanil_Concentration-Time_profiles/005_plotTimeProfile.png)
+![](images/006_section_results-and-discussion/009_section_ct-profiles/2_time_profile_plot_Sufentanil_Bovill_1984.png)
 
-![006_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Sufentanil_Concentration-Time_profiles/006_plotTimeProfile.png)
+**Figure 3-4: Time Profile Analysis 1**
 
-# 4 Conclusion
+<br>
+<br>
+
+<a id="figure-3-5"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/3_time_profile_plot_Sufentanil_Willsie_2014_adults_IV.png)
+
+**Figure 3-5: Time Profile Analysis**
+
+<br>
+<br>
+
+<a id="figure-3-6"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/4_time_profile_plot_Sufentanil_Willsie_2014_adults_IV.png)
+
+**Figure 3-6: Time Profile Analysis 1**
+
+<br>
+<br>
+
+<a id="figure-3-7"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/5_time_profile_plot_Sufentanil_Taverne_1992.png)
+
+**Figure 3-7: Time Profile Analysis**
+
+<br>
+<br>
+
+<a id="figure-3-8"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/6_time_profile_plot_Sufentanil_Taverne_1992.png)
+
+**Figure 3-8: Time Profile Analysis 1**
+
+<br>
+<br>
+
+# 4 Conclusion<a id="conclusion"></a>
+
 The final sufentanil PBPK model applies elimination by CYP3A4 and glomerular filtration and adequately describes the pharmacokinetics of sufentanil in adults receiving SD of sufentanil ranging from 15µg to 355.5µg intravenously. 
 
 This model could be applied for the investigation of drug-drug interactions (DDI), and translation to special populations such as pediatrics with regard to CYP3A4 based elimination.
 
+# 5 References<a id="main-references"></a>
 
-# 5 References
 **Bovill 1984** Bovill JG, Sebel PS, Blackburn CL, Oei-Lim V, Heykants JJ. The pharmacokinetics of sufentanil in surgical patients. Anesthesiology. 1984 Nov;61(5):502-6. 
 
 **Drugbank.ca** (https://www.drugbank.ca/drugs/DB00512 )
@@ -222,3 +274,4 @@ This model could be applied for the investigation of drug-drug interactions (DDI
 **Willsie 2015** Willsie SK, Evashenk MA2, Hamel LG, Hwang SS, Chiang YK, Palmer PP. Pharmacokinetic properties of single- and repeated-dose sufentanil sublingual tablets in healthy volunteers. Clin Ther. 2015 Jan 1;37(1):145-55. doi: 10.1016/j.clinthera.2014.11.001. Epub 2014 Dec 24.
 
 **Zhou 2017**  Zhou W, Johnson TN, Bui KH, Cheung SYA, Li J, Xu H, Al-Huniti N, Zhou D. Predictive Performance of Physiologically Based Pharmacokinetic (PBPK) Modeling of Drugs Extensively Metabolized by Major Cytochrome P450s in Children. Clin Pharmacol Ther. 2018 Jul;104(1):188-200. doi: 10.1002/cpt.905. Epub 2017 Nov 20.
+
