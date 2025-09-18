@@ -1,8 +1,12 @@
+
+
+
+
 # Building and evaluation of a PBPK model for Moclobemide in adults
 
 
 
-| Version                                         | 1.1-OSP12.0                                                   |
+| Version                                         | 1.0-OSP12.0                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
 | based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Moclobemide-Model/releases/tag/v1.0 |
 | OSP Version                                     | 12.0                                                         |
@@ -11,22 +15,33 @@
 This evaluation report and the corresponding PK-Sim project file are filed at:
 
 https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/
+
+
+
 # Table of Contents
-  * [1 Introduction](#1-introduction)
-  * [2 Methods](#2-methods)
-    * [2.1 Modeling Strategy](#21-modeling-strategy)
-    * [2.2 Data](#22-data)
-    * [2.3 Model Parameters and Assumptions](#23-model-parameters-and-assumptions)
-  * [3 Results and Discussion](#3-results-and-discussion)
-    * [3.1 Final input parameters](#31-final-input-parameters)
-    * [3.2 Diagnostics Plots](#32-diagnostics-plots)
-    * [3.3 Concentration-Time Profiles](#33-concentration-time-profiles)
-      * [3.3.1 Model Building](#331-model-building)
-      * [3.3.2 Model Verification](#332-model-verification)
-  * [4 Conclusion](#4-conclusion)
-  * [5 References](#5-references)
-  * [6 Glossary](#6-glossary)
-# 1 Introduction
+
+ * [1 Introduction](#introduction)
+ * [2 Methods](#methods)
+   * [2.1 Modeling Strategy](#modeling-strategy)
+   * [2.2 Data](#data)
+   * [2.3 Model Parameters and Assumptions](#model-parameters-and-assumptions)
+ * [3 Results and Discussion](#results-and-discussion)
+   * [3.1 Final input parameters](#final-input-parameters)
+   * [3.2 Diagnostics Plots](#diagnostics-plots)
+   * [3.3 Concentration-Time Profiles](#ct-profiles)
+     * [3.3.1 Model Building](#model-building)
+     * [3.3.2 Model Verification](#model-verification)
+ * [4 Conclusion](#conclusion)
+ * [5 References](#main-references)
+ * [6 Glossary](#glossary)
+
+
+
+
+
+# 1 Introduction<a id="introduction"></a>
+
+
 The presented PBPK model of moclobemide has been developed to be used in a PBPK Drug-Drug-Interactions (DDI) network with moclobemide as a substrate and a moderate inhibitor of CYP2C19.
 
 Moclobemide is a reversible inhibitor of monoamine oxidase A (RIMA), a drug primarily used to treat depression and social anxiety ([Mayersohn 1995](#5-references)). Moclobemide pharmacokinetics is characterized by non-linearity in dose and time. Cmax concentrations decrease with dose for doses above 100 mg. Furthermore, a saturation in clearance at higher doses (200 mg and up) could be seen, as indicated by a longer terminal phase. In addition, multiple doses administration resulted in higher moclobemide concentrations compared to single dose. This could be indicative of the previously reported auto-inhibitory effect ([Nair 1993](#5-references)).
@@ -39,10 +54,22 @@ Moclobemide is a reversible inhibitor of monoamine oxidase A (RIMA), a drug prim
 
 **Excretion**: Less than 1% of a dose is excreted unchanged via the kidneys.
 
-# 2 Methods
 
 
-## 2.1 Modeling Strategy
+
+
+# 2 Methods<a id="methods"></a>
+
+
+
+
+
+
+
+
+## 2.1 Modeling Strategy<a id="modeling-strategy"></a>
+
+
 The general workflow for building an adult PBPK model has been described by Kuepfer et al. ([Kuepfer 2016](#5-references)). Relevant information on the anthropometry (height, weight) was gathered from the respective clinical study, if reported. Information on physiological parameters (e.g. blood flows, organ volumes, hematocrit) in adults was gathered from the literature and has been incorporated in PK-Sim® as described previously ([Willmann 2007](#5-references)). The  applied activity and variability of plasma proteins and active processes that are integrated into PK-Sim® are described in the publicly available 'PK-Sim® Ontogeny Database Version 7.3' ([PK-Sim Ontogeny Database Version 7.3](#5-references)).
 
 In general, the following step-wise workflow was followed:
@@ -67,7 +94,13 @@ Details about input data (physicochemical, *in vitro* and clinical) can be found
 
 Details about the structural model and its parameters can be found in [Section 2.3](#23-model-parameters-and-assumptions).
 
-## 2.2 Data
+
+
+
+
+## 2.2 Data<a id="data"></a>
+
+
 ### 2.2.1 In vitro and physico-chemical data
 
 A literature search was performed to collect available information on physico-chemical properties of moclobemide, see [Table 1](#table-1).
@@ -75,7 +108,7 @@ A literature search was performed to collect available information on physico-ch
 | **Parameter**                   | **Unit**          | **Value**    | Source                                  | **Description**                                              |
 | :------------------------------ | ----------------- | ------------ | --------------------------------------- | ------------------------------------------------------------ |
 | MW<sup>+</sup>                  | g/mol             | 268.74       | [DrugBank DB01171](#5-references)       | Molecular weight                                             |
-| pK<sub>a,base</sub><sup>+</sup> |                   | 6.2          | [IPCS ICHEM](#5-references)             | Acidic dissociation constant                                 |
+| pK<sub>a,base</sub><sup>+</sup> |                   | 6.2          | [IPCS INCHEM](#5-references)             | Acidic dissociation constant                                 |
 | Solubility (pH)<sup>+</sup>     | mg/mL             | 3<br />(6.8) | [Moclobemide, INCHEM](#5-references)    | Aqueous Solubility                                           |
 | logD                            |                   | 1.79         | [Pons 1990](#5-references)              | Distribution coefficient                                     |
 | fu<sup>+</sup>                  | %                 | 50           | [MHRA Label Moclobemide](#5-references) | Fraction unbound in plasma                                   |
@@ -102,7 +135,14 @@ A literature search was performed to collect available clinical data on moclobem
 | [Raaflaub 1984](#5-references)<sup>+</sup> | p.o. & i.v. infusion  | 50 s.d.                         | HV                | 42                        | 4                           | m       | 6     | tablet/ solution |                        |
 
 **Table 2:**<a name="table-2"></a> Literature sources of clinical concentration data of moclobemide used for model development and validation. *-: respective information was not provided in the literature source; \*:single dose unless otherwise specified; EM: extensive metabolizers; PM: poor metabolizers; <sup>+</sup>: Data used for final parameter identification*
-## 2.3 Model Parameters and Assumptions
+
+
+
+
+
+## 2.3 Model Parameters and Assumptions<a id="model-parameters-and-assumptions"></a>
+
+
 ### 2.3.1 Absorption
 
 Particle dissolution for the formulation has been selected.
@@ -136,28 +176,27 @@ Following parameter values were estimated for the base model:
 
 - Kinact<sub>half</sub> CYP2C19 for time-dependent autoinhibition
 
-# 3 Results and Discussion
+
+
+
+
+# 3 Results and Discussion<a id="results-and-discussion"></a>
+
+
 The next sections show:
 
 1. Final model input parameters for the building blocks: [Section 3.1](#31-final-input-parameters).
 2. Overall goodness of fit: [Section 3.2](#32-diagnostics-plots).
 3. Simulated vs. observed concentration-time profiles for the clinical studies used for model building and for model verification: [Section 3.3](#33-concentration-time-profiles).
 
-## 3.1 Final input parameters
+
+
+
+
+## 3.1 Final input parameters<a id="final-input-parameters"></a>
+
+
 The parameter values of the final PBPK model are illustrated below.
-
-### Formulation: Moclobemide tablet
-
-Type: Particle Dissolution
-
-#### Parameters
-
-Name                               | Value        | Value Origin                                                                                                                                                                                                                                                   
----------------------------------- | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Thickness (unstirred water layer)  | 20 µm        | Publication-Willmann S, Thelen K, Becker C, et al. Mechanism-based prediction of particle size-dependent dissolution and absorption: cilostazol pharmacokinetics in dogs. Eur J Pharm Biopharm. 2010 Sep;76(1):83-94 https://doi.org/10.1016/j.ejpb.2010.06.003
-Type of particle size distribution | Monodisperse |                                                                                                                                                                                                                                                                
-Particle radius (mean)             | 10 µm        |                                                                                                                                                                                                                                                                
-
 
 
 ### Compound: Moclobemide
@@ -249,67 +288,354 @@ K_kinact_half | 94.85 µmol/l | Parameter Identification
 
 
 
-## 3.2 Diagnostics Plots
+
+### Formulation: Moclobemide tablet
+
+Type: Particle Dissolution
+
+#### Parameters
+
+Name                               | Value        | Value Origin                                                                                                                                                                                                                                                   
+---------------------------------- | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Thickness (unstirred water layer)  | 20 µm        | Publication-Willmann S, Thelen K, Becker C, et al. Mechanism-based prediction of particle size-dependent dissolution and absorption: cilostazol pharmacokinetics in dogs. Eur J Pharm Biopharm. 2010 Sep;76(1):83-94 https://doi.org/10.1016/j.ejpb.2010.06.003
+Type of particle size distribution | Monodisperse |                                                                                                                                                                                                                                                                
+Particle radius (mean)             | 10 µm        |                                                                                                                                                                                                                                                                
+
+
+
+
+
+
+
+## 3.2 Diagnostics Plots<a id="diagnostics-plots"></a>
+
+
 The following section displays the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data listed in [Section 2.2.2](#222-clinical-data).
 
 The first plot shows observed versus simulated plasma concentration, the second weighted residuals versus time. 
 
-![001_plotGOFMergedPredictedVsObserved.png](images/003_3_Results_and_Discussion/002_3_2_Diagnostics_Plots/001_plotGOFMergedPredictedVsObserved.png)
 
-![002_plotGOFMergedResidualsOverTime.png](images/003_3_Results_and_Discussion/002_3_2_Diagnostics_Plots/002_plotGOFMergedResidualsOverTime.png)
+<a id="table-3-1"></a>
 
-GMFE = 1.455254 
+**Table 3-1: GMFE for Moclobemide concentration in plasma**
 
-## 3.3 Concentration-Time Profiles
+
+|Group                                  |GMFE |
+|:--------------------------------------|:----|
+|iv administration (model building)     |1.29 |
+|Oral administration (model building)   |1.56 |
+|Oral administration (model validation) |1.31 |
+|All                                    |1.46 |
+
+
+<br>
+<br>
+
+
+<a id="figure-3-1"></a>
+
+![](images/006_section_results-and-discussion/008_section_diagnostics-plots/2_gof_plot_predictedVsObserved.png)
+
+
+
+**Figure 3-1: Moclobemide concentration in plasma**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-2"></a>
+
+![](images/006_section_results-and-discussion/008_section_diagnostics-plots/3_gof_plot_residualsOverTime.png)
+
+
+
+**Figure 3-2: Moclobemide concentration in plasma**
+
+
+<br>
+<br>
+
+
+
+
+
+## 3.3 Concentration-Time Profiles<a id="ct-profiles"></a>
+
+
 Simulated versus observed concentration-time profiles of all data listed in [Section 2.2.2](#222-clinical-data) are presented below.
 
-### 3.3.1 Model Building
 
-![001_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_3_3_1_Model_Building/001_plotTimeProfile.png)
 
-![002_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_3_3_1_Model_Building/002_plotTimeProfile.png)
 
-![003_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_3_3_1_Model_Building/003_plotTimeProfile.png)
 
-![004_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_3_3_1_Model_Building/004_plotTimeProfile.png)
+### 3.3.1 Model Building<a id="model-building"></a>
 
-![005_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_3_3_1_Model_Building/005_plotTimeProfile.png)
 
-![006_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_3_3_1_Model_Building/006_plotTimeProfile.png)
 
-![007_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_3_3_1_Model_Building/007_plotTimeProfile.png)
 
-![008_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_3_3_1_Model_Building/008_plotTimeProfile.png)
+<a id="figure-3-3"></a>
 
-![009_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_3_3_1_Model_Building/009_plotTimeProfile.png)
+![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/1_time_profile_plot_Moclobemide_50mg_iv.png)
 
-![010_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_3_3_1_Model_Building/010_plotTimeProfile.png)
 
-![011_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_3_3_1_Model_Building/011_plotTimeProfile.png)
 
-![012_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_3_3_1_Model_Building/012_plotTimeProfile.png)
+**Figure 3-3: 50 mg moclobemide iv**
 
-![013_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_3_3_1_Model_Building/013_plotTimeProfile.png)
 
-### 3.3.2 Model Verification
+<br>
+<br>
 
-![001_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/001_plotTimeProfile.png)
 
-![002_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/002_plotTimeProfile.png)
+<a id="figure-3-4"></a>
 
-![003_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/003_plotTimeProfile.png)
+![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/2_time_profile_plot_Moclobemide_150mg_iv_20min.png)
 
-![004_plotPopulationTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/004_plotPopulationTimeProfile.png)
 
-![005_plotPopulationTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/005_plotPopulationTimeProfile.png)
 
-# 4 Conclusion
+**Figure 3-4: 150 mg moclobemide iv 20min**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-5"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/3_time_profile_plot_Moclobemide_50mg_po.png)
+
+
+
+**Figure 3-5: 50 mg moclobemide po**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-6"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/4_time_profile_plot_Moclobemide_100mg_po.png)
+
+
+
+**Figure 3-6: 100 mg moclobemide po**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-7"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/5_time_profile_plot_Moclobemide_150mg_po.png)
+
+
+
+**Figure 3-7: 150 mg moclobemide po**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-8"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/6_time_profile_plot_Moclobemide_150mg_po_14d.png)
+
+
+
+**Figure 3-8: 150 mg moclobemide po 14d**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-9"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/7_time_profile_plot_Moclobemide_200mg_po.png)
+
+
+
+**Figure 3-9: 200 mg moclobemide po**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-10"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/8_time_profile_plot_Moclobemide_300mg_po.png)
+
+
+
+**Figure 3-10: 300 mg moclobemide po**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-11"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/9_time_profile_plot_Moclobemide_300mg_po_PM.png)
+
+
+
+**Figure 3-11: 300 mg moclobemide po PM**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-12"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/10_time_profile_plot_Moclobemide_300mg_po_asian.png)
+
+
+
+**Figure 3-12: 300 mg moclobemide po asian**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-13"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/11_time_profile_plot_Moclobemide_300mg_po_asian_PM.png)
+
+
+
+**Figure 3-13: 300 mg moclobemide po asian PM**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-14"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/12_time_profile_plot_Moclobemide_300mg_po_7d.png)
+
+
+
+**Figure 3-14: 300 mg moclobemide po 7d**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-15"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/13_time_profile_plot_Moclobemide_300mg_po_PM_7d.png)
+
+
+
+**Figure 3-15: 300 mg moclobemide po PM 7d**
+
+
+<br>
+<br>
+
+
+
+
+
+### 3.3.2 Model Verification<a id="model-verification"></a>
+
+
+
+
+<a id="figure-3-16"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/14_time_profile_plot_Moclobemide_150mg_po_female_28d.png)
+
+
+
+**Figure 3-16: 150 mg moclobemide po female day14**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-17"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/15_time_profile_plot_Moclobemide_150mg_po_female_28d.png)
+
+
+
+**Figure 3-17: 150 mg moclobemide po female day28**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-18"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/16_time_profile_plot_Moclobemide_300mg_po_pred.png)
+
+
+
+**Figure 3-18: 300 mg moclobemide po**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-19"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/17_time_profile_plot_Moclobemide_300mg_po_asian_popSim.png)
+
+
+
+**Figure 3-19: Time Profile Analysis**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-20"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/18_time_profile_plot_Moclobemide_300mg_po_asian_PM_popSim.png)
+
+
+
+**Figure 3-20: Time Profile Analysis**
+
+
+<br>
+<br>
+
+
+
+
+
+# 4 Conclusion<a id="conclusion"></a>
+
+
 The developed PBPK model of moclobemide describes the observed concentration-time courses very well.
 
 As most of the  non-CYP2C19 metabolism is via FMO3 which is mainly expressed in the liver, non-CYP2C19 CL is modeled in the liver only.
 
 Given not enough data to evaluate inhibition of emerging moclobemide metabolites, auto-inhibition of moclobemide appears appropriate approximation. 
-# 5 References
+
+
+
+
+
+# 5 References<a id="main-references"></a>
+
+
 **Dingemanse 1998** Dingemanse J, Wallnöfer A, Gieschke R, Guentert T, Amrein R. Pharmacokinetic and pharmacodynamic interactions between fluoxetine and moclobemide in the investigation of development of the “serotonin syndrome”. Clin Pharmacol Ther. 1998;63(4):403-413.
 
 **DrugBank DB01171** (https://www.drugbank.ca/drugs/DB01171)
@@ -320,7 +646,7 @@ Given not enough data to evaluate inhibition of emerging moclobemide metabolites
 
 **Hoskins 2001** Hoskins J, Shenfield G, Murray M, Gross A. Characterization of moclobemide N -oxidation in human liver microsomes. Xenobiotica. 2001 Jan;31(7):387–97.
 
-**IPCS ICHEM** Website: https://inchem.org/documents/pims/pharm/pim151.htm#SectionTitle:3.3%20%20Physical%20properties
+**IPCS INCHEM** Website: https://inchem.org/documents/pims/pharm/pim151.htm#SectionTitle:3.3%20%20Physical%20properties
 
 **Ignjatovic 2009** Ignjatovic AR, Miljkovic B, Todorovic D, Timotijevic I, Pokrajac M. Moclobemide monotherapy vs. combined therapy with valproic acid or carbamazepine in depressive patients: A pharmacokinetic interaction study. Br J Clin Pharmacol. 2009;67(2):199-208.
 
@@ -352,7 +678,13 @@ Given not enough data to evaluate inhibition of emerging moclobemide metabolites
 
 **Yu 2001** Yu K, Yim DS, Cho J-Y, Park SS. Effect of omeprazole on the pharmacokinetics of moclobemide according to the genetic polymorphism of CYP2C19. Clinical Pharmacology & Therapeutics. 2001 Apr;69(4):266–73.
 
-# 6 Glossary
+
+
+
+
+# 6 Glossary<a id="glossary"></a>
+
+
 | ADME    | Absorption, Distribution, Metabolism,  Excretion             |
 | ------- | ------------------------------------------------------------ |
 | AUC     | Area under the plasma concentration  versus time curve       |
@@ -405,3 +737,6 @@ Given not enough data to evaluate inhibition of emerging moclobemide metabolites
 | t.i.d   | Three times a day (ter in die)                               |
 | UGT     | Uridine  5'-diphospho-glucuronosyltransferase                |
 | UM      | Ultra-rapid metabolizers                                     |
+
+
+
