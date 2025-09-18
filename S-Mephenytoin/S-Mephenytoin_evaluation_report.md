@@ -1,8 +1,6 @@
 # Building and evaluation of a PBPK model for S-Mephenytoin in adults
 
-
-
-| Version                                         | 1.1-OSP12.0                                                   |
+| Version                                         | 1.0-OSP12.0                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
 | based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/S-Mephenytoin-Model/releases/tag/v1.0 |
 | OSP Version                                     | 12.0                                                          |
@@ -11,21 +9,25 @@
 This evaluation report and the corresponding PK-Sim project file are filed at:
 
 https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/
+
 # Table of Contents
-  * [1 Introduction](#1-introduction)
-  * [2 Methods](#2-methods)
-    * [2.1 Modeling Strategy](#21-modeling-strategy)
-    * [2.2 Data](#22-data)
-    * [2.3 Model Parameters and Assumptions](#23-model-parameters-and-assumptions)
-  * [3 Results and Discussion](#3-results-and-discussion)
-    * [3.1 Final input parameters](#31-final-input-parameters)
-    * [3.2 Diagnostics Plots](#32-diagnostics-plots)
-    * [3.3 Concentration-Time Profiles](#33-concentration-time-profiles)
-      * [3.3.1 Model Verification](#331-model-verification)
-  * [4 Conclusion](#4-conclusion)
-  * [5 References](#5-references)
-  * [6 Glossary](#6-glossary)
-# 1 Introduction
+
+ * [1 Introduction](#introduction)
+ * [2 Methods](#methods)
+   * [2.1 Modeling Strategy](#modeling-strategy)
+   * [2.2 Data](#data)
+   * [2.3 Model Parameters and Assumptions](#model-parameters-and-assumptions)
+ * [3 Results and Discussion](#results-and-discussion)
+   * [3.1 Final input parameters](#final-input-parameters)
+   * [3.2 Diagnostics Plots](#diagnostics-plots)
+   * [3.3 Concentration-Time Profiles](#ct-profiles)
+     * [3.3.1 Model Verification](#model-verification)
+ * [4 Conclusion](#conclusion)
+ * [5 References](#main-references)
+ * [6 Glossary](#glossary)
+
+# 1 Introduction<a id="introduction"></a>
+
 The presented PBPK model of S-mephenytoin has been developed to be used in a PBPK Drug-Drug-Interactions (DDI) network with S-mephenytoin as a substrate of CYP2C19.
 
 Mephenytoin is a hydantoin-derivative anticonvulsant used to control various partial seizures and was first used in the 1940s ([Troupin 1979](#5-references)).
@@ -34,10 +36,10 @@ Only limited clinical PK and ADME data are available. Mephenytoin is soluble and
 
 Mephenytoin is the mixture of the two enantiomers S- and R-Mephenytoin. S-Mephenytoin is mainly metabolized via CYP2C19. Only a very minor part is metabolized by CYP2C9. The R-enantiomer is not metabolized by CYP2C19. The clearance of S-Mephenytoin in CYP2C19 EM is 40 to 100-fold higher than in PM.
 
-# 2 Methods
+# 2 Methods<a id="methods"></a>
 
+## 2.1 Modeling Strategy<a id="modeling-strategy"></a>
 
-## 2.1 Modeling Strategy
 The general workflow for building an adult PBPK model has been described by Kuepfer et al. ([Kuepfer 2016](#5-references)). Relevant information on the anthropometry (height, weight) was gathered from the respective clinical study, if reported. Information on physiological parameters (e.g. blood flows, organ volumes, hematocrit) in adults was gathered from the literature and has been incorporated in PK-Sim® as described previously ([Willmann 2007](#5-references)). The  applied activity and variability of plasma proteins and active processes that are integrated into PK-Sim® are described in the publicly available 'PK-Sim® Ontogeny Database Version 7.3' ([PK-Sim Ontogeny Database Version 7.3](#5-references)).
 
 Only the  S-enantiomer of mephenytoin is modeled. The modeling work flow can be summarized as following:
@@ -57,8 +59,8 @@ Details about input data (physicochemical, *in vitro* and clinical) can be found
 
 Details about the structural model and its parameters can be found in [Section 2.3](#23-model-parameters-and-assumptions).
 
+## 2.2 Data<a id="data"></a>
 
-## 2.2 Data
 ### 2.2.1 In vitro and physico-chemical data
 
 A literature search was performed to collect available information on physico-chemical properties of S-mephenytoin ([Table 1](#table-1)).
@@ -87,7 +89,9 @@ A literature search was performed to collect available clinical data on S-mephen
 | [Wedlund 1985](#5-references)  | p.o.      | 100 mg s.d.                  | HV                       | 21-7                        | 54-108                        | male    | 8     | tablet    | 50 g S-mephenytoin simulated                    |
 
 **Table 2:**<a name="table-2"></a> Literature sources of clinical concentration data of S-mephenytoin used for model development and validation. *s.d.: single dose*
-## 2.3 Model Parameters and Assumptions
+
+## 2.3 Model Parameters and Assumptions<a id="model-parameters-and-assumptions"></a>
+
 ### 2.3.1 Absorption
 
 Intestinal permeability is calculated by PK-Sim. No data are available to estimate the parameter.
@@ -109,14 +113,16 @@ Additionally, glomerular filtration was implemented with assumed GFR fraction of
 
 Performing parameter identification on lipophilicity, CYP2C19 intrinsic clearance, and intestinal permeability did not improve the performance of the model. Therefore, no parameters have been estimated.
 
-# 3 Results and Discussion
+# 3 Results and Discussion<a id="results-and-discussion"></a>
+
 The next sections show:
 
 1. Final model input parameters for the building blocks: [Section 3.1](#31-final-input-parameters).
 2. Overall goodness of fit: [Section 3.2](#32-diagnostics-plots).
 3. Simulated vs. observed concentration-time profiles for the clinical studies used for model building and for model verification: [Section 3.3](#33-concentration-time-profiles).
 
-## 3.1 Final input parameters
+## 3.1 Final input parameters<a id="final-input-parameters"></a>
+
 The parameter values of the final PBPK model are illustrated below.
 
 ### Compound: S-Mephenytoin
@@ -133,14 +139,12 @@ Is small molecule                          | Yes            |                   
 Molecular weight                           | 218.52 g/mol   | Database-DrugBank DB00532 |             |        
 Plasma protein binding partner             | Albumin        |                           |             |        
 
-
 #### Calculation methods
 
 Name                    | Value              
 ----------------------- | -------------------
 Partition coefficients  | Rodgers and Rowland
 Cellular permeabilities | PK-Sim Standard    
-
 
 #### Processes
 
@@ -156,7 +160,6 @@ Name                | Value         | Value Origin
 ------------------- | ------------- | -------------------------
 Intrinsic clearance | 1986.9 ml/min | Publication-Adedoyin 1998
 
-
 ##### Metabolizing Enzyme: CYP2C9-Steere2015_Clint_CYP2C9_Table1
 
 Molecule: CYP2C9
@@ -168,7 +171,6 @@ Name                                        | Value                       | Valu
 In vitro CL for liver microsomes            | 0.39 µl/min/mg mic. protein | Publication-Steere2015    
 Content of CYP proteins in liver microsomes | 96 pmol/mg mic. protein     | Publication-Rodrigues 1999
 
-
 ##### Systemic Process: Glomerular Filtration-Assumption
 
 Species: Human
@@ -179,33 +181,77 @@ Name         | Value | Value Origin
 ------------ | -----:| ----------------
 GFR fraction |     1 | Other-Assumption
 
+## 3.2 Diagnostics Plots<a id="diagnostics-plots"></a>
 
-
-## 3.2 Diagnostics Plots
 The following section displays the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data listed in [Section 2.2.2](#222-clinical-data).
 
 The first plot shows observed versus simulated plasma concentration, the second weighted residuals versus time. 
 
-![001_plotGOFMergedPredictedVsObserved.png](images/003_3_Results_and_Discussion/002_3_2_Diagnostics_Plots/001_plotGOFMergedPredictedVsObserved.png)
+<a id="table-3-1"></a>
 
-![002_plotGOFMergedResidualsOverTime.png](images/003_3_Results_and_Discussion/002_3_2_Diagnostics_Plots/002_plotGOFMergedResidualsOverTime.png)
+**Table 3-1: GMFE for S-mephenytoin concentration in plasma after 50 mg oral administration - mean data**
 
-GMFE = 1.648575 
+|Group         |GMFE |
+|:-------------|:----|
+|Adedoyin 1998 |2.13 |
+|Iga 2016      |1.45 |
+|Jacqz 1986    |1.81 |
+|Wedlund 1985  |1.85 |
+|All           |1.65 |
 
-## 3.3 Concentration-Time Profiles
+<br>
+<br>
+
+<a id="figure-3-1"></a>
+
+![](images/006_section_results-and-discussion/008_section_diagnostics-plots/2_gof_plot_predictedVsObserved.png)
+
+**Figure 3-1: S-mephenytoin concentration in plasma after 50 mg oral administration - mean data**
+
+<br>
+<br>
+
+<a id="figure-3-2"></a>
+
+![](images/006_section_results-and-discussion/008_section_diagnostics-plots/3_gof_plot_residualsOverTime.png)
+
+**Figure 3-2: S-mephenytoin concentration in plasma after 50 mg oral administration - mean data**
+
+<br>
+<br>
+
+## 3.3 Concentration-Time Profiles<a id="ct-profiles"></a>
+
 Simulated versus observed concentration-time profiles of all data listed in [Section 2.2.2](#222-clinical-data) are presented below.
 
-### 3.3.1 Model Verification
+### 3.3.1 Model Verification<a id="model-verification"></a>
 
-![001_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_3_3_1_Model_Verification/001_plotTimeProfile.png)
+<a id="figure-3-3"></a>
 
-![002_plotPopulationTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_3_3_1_Model_Verification/002_plotPopulationTimeProfile.png)
+![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-verification/1_time_profile_plot_S_mephenytoin_Adedoyin1998_S_Meph_CL_F_GFR_RR.png)
 
-# 4 Conclusion
+**Figure 3-3: S-Mephenytoin 50 mg p.o.**
+
+<br>
+<br>
+
+<a id="figure-3-4"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-verification/2_time_profile_plot_S_mephenytoin_POP_Adedoyin1998_50_mg_po_CYP2C19_geoSD2_25.png)
+
+**Figure 3-4: Time Profile Analysis**
+
+<br>
+<br>
+
+# 4 Conclusion<a id="conclusion"></a>
+
 A PBPK model describing the limited set of in vivo p.o. data could be established.
 
 Population simulated data had a comparable variability with the observed data when included additional variability for CYP2C19 expression. Moreover, the mean data from other studies ([Jacqz 1986](#5-references), [Wedlund 1985](#5-references)) were in the range of expected variability, confirming the adequacy of the model.
-# 5 References
+
+# 5 References<a id="main-references"></a>
+
 **Adedoyin 1998** Adedoyin A, Arns PA, Richards WO, Wilkinson GR, Branch RA. Selective effect of liver disease on the activities of specific metabolizing enzymes: investigation of cytochromes P450 2C19 and 2D6. *Clin Pharmacol Ther*. 1998;64(1):8-17.
 
 **DrugBank DB00532** (https://www.drugbank.ca/drugs/DB00532)
@@ -229,7 +275,9 @@ Population simulated data had a comparable variability with the observed data wh
 **Willmann 2007** Willmann S, Höhn K, Edginton A, Sevestre M, Solodenko J, Weiss W, Lippert J, Schmitt W. Development of a physiology-based whole-body population model for assessing the influence of individual variability on the pharmacokinetics of drugs. *J Pharmacokinet Pharmacodyn* 2007, 34(3): 401-431.
 
 **Yao 2003** Yao C, Kunze KL, Trager WF, Kharasch ED, Levy RH. Comparison of in vitro and in vivo inhibition potencies of fluvoxamine toward CYP2C19. *Drug Metab Dispos*. 2003;31(5):565-571.
-# 6 Glossary
+
+# 6 Glossary<a id="glossary"></a>
+
 | ADME    | Absorption, Distribution, Metabolism,  Excretion             |
 | ------- | ------------------------------------------------------------ |
 | AUC     | Area under the plasma concentration  versus time curve       |
@@ -282,3 +330,4 @@ Population simulated data had a comparable variability with the observed data wh
 | t.i.d   | Three times a day (ter in die)                               |
 | UGT     | Uridine  5'-diphospho-glucuronosyltransferase                |
 | UM      | Ultra-rapid metabolizers                                     |
+
