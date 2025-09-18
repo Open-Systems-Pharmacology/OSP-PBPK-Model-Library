@@ -1,12 +1,16 @@
+
+
+
+
 # Building and evaluation of a PBPK model for Rifampicin in healthy adults
 
 
 
 
 
-| Version                                         | 1.3-OSP12.0                                                   |
+| Version                                         | 1.0-OSP12.0                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
-| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Rifampicin-Model/releases/tag/v1.3 |
+| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Rifampicin-Model/releases/tag/v1.0 |
 | OSP Version                                     | 12.0                                                          |
 | Qualification Framework Version                 | 3.3                                                          |
 
@@ -17,19 +21,30 @@
 This evaluation report and the corresponding PK-Sim project file are filed at:
 
 https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/
+
+
+
 # Table of Contents
-  * [1 Introduction](#1-introduction)
-  * [2 Methods](#2-methods)
-    * [2.1 Modeling Strategy](#21-modeling-strategy)
-    * [2.2 Data](#22-data)
-    * [2.3 Model Parameters and Assumptions](#23-model-parameters-and-assumptions)
-  * [3 Results and Discussion](#3-results-and-discussion)
-    * [3.1 Final input parameters](#31-final-input-parameters)
-    * [3.2 Diagnostics Plots](#32-diagnostics-plots)
-    * [3.3 Concentration-Time Profiles](#33-concentration-time-profiles)
-  * [4 Conclusion](#4-conclusion)
-  * [5 References](#5-references)
-# 1 Introduction
+
+ * [1 Introduction](#introduction)
+ * [2 Methods](#methods)
+   * [2.1 Modeling Strategy](#modeling-strategy)
+   * [2.2 Data](#data)
+   * [2.3 Model Parameters and Assumptions](#model-parameters-and-assumptions)
+ * [3 Results and Discussion](#results-and-discussion)
+   * [3.1 Final input parameters](#final-input-parameters)
+   * [3.2 Diagnostics Plots](#diagnostics-plots)
+   * [3.3 Concentration-Time Profiles](#ct-profiles)
+ * [4 Conclusion](#conclusion)
+ * [5 References](#main-references)
+
+
+
+
+
+# 1 Introduction<a id="introduction"></a>
+
+
 Rifampicin is an antibiotic used for the treatment of mycobacterium infections, including tuberculosis and leprosy. For the investigation of DDIs, rifampicin is an established potent inducer of multiple drug metabolizing enzymes (CYP3A4, CYP2B6, CYP2C8, CYP2C9, CYP2C19) and transporters (P-gp, MRP2, MRP3, MRP4, OATP1A2). In addition to its inducing capabilities, rifampicin also competitively inhibits enzymes and transporters like CYP3A4, P-gp, OATP1B1 and OATP1B3.
 
 The herein presented model represents the rifampicin model originally published by Hanke *et al.* ([Hanke 2018](#5-references)), and extended in later publications ([Britz 2019](#5-references), [Türk 2019](#5-references), [Hanke 2021](#5-references)). The model was originally established using various clinical studies, covering a dosing range of 300 to 600 mg after intravenous and oral administration of rifampicin. The original model focused specifically on the integration of effects on **CYP3A4** and **P-gp** by rifampicin. Britz *et al.* ([Britz 2019](#5-references)) integrated rifampicin-mediated induction of **CYP1A2** (and CYP2E1), Türk *et al.* ([Türk 2019](#5-references)) extended the model with regard to effects on **CYP2C8** and **OATP1B1**. Later, [Hanke 2021](#5-references) updated **P-gp**, **OATP1B1** and **OATP1B3** interaction and added **CYP2C9**, **BCRP** and **OATP2B1** interaction.
@@ -39,10 +54,22 @@ It is known that for both CYP3A4 and P-gp, rifampicin shows inductive and inhibi
 Integrating and testing processes that were described as vital to the pharmacokinetics of rifampicin itself resulted in a final model that applies transport by OATP1B1, metabolism by arylacetamide deacetylase (AADAC), transport by P-gp and glomerular filtration. Furthermore, auto-induction of OATP1B1, AADAC and P-gp expression has been incorporated.
 
 
-# 2 Methods
 
 
-## 2.1 Modeling Strategy
+
+
+# 2 Methods<a id="methods"></a>
+
+
+
+
+
+
+
+
+## 2.1 Modeling Strategy<a id="modeling-strategy"></a>
+
+
 The general concept of building a PBPK model has previously been described by Kuepfer et al. ([Kuepfer 2016](#5-references)). Relevant information on anthropometric (height, weight) and physiological parameters (e.g. blood flows, organ volumes, binding protein concentrations, hematocrit, cardiac output) in adults was gathered from the literature and has been previously published ([Willmann 2007](#5-references)). The information was incorporated into PK-Sim® and was used as default values for the simulations in adults.
 
 The applied activity and variability of plasma proteins and active processes that are integrated into PK-Sim® are described in the publicly available PK-Sim® Ontogeny Database Version 7.3 ([PK-Sim Ontogeny Database Version 7.3](#5-references)) or otherwise referenced for the specific process.
@@ -58,7 +85,13 @@ Details about the structural model and its parameters can be found in [Section 2
 
 
 
-## 2.2 Data
+
+
+
+
+## 2.2 Data<a id="data"></a>
+
+
 ### 2.2.1 In vitro and physicochemical data
 
 A literature search was performed to collect available information on physicochemical properties of rifampicin. The obtained information from literature is summarized in the table below, and is used for model building.
@@ -113,10 +146,10 @@ The following dosing scenarios were simulated and compared to respective data:
 
 | Route | Dose<br />[mg] | Dosing                    | PK Data                               | Used for [Optimization](#235-automated-parameter-identification) | Reference                                          |
 | ----- | -------------- | ------------------------- | ------------------------------------- | ------------------------------------------------------------ | -------------------------------------------------- |
-| iv    | 300            | SD, 30 min infusion       | Plasma                                | x                                                            | [sanofi-aventis U.S. LLC. 2013](#5-references)     |
+| iv    | 300            | SD, 30 min infusion       | Plasma                                | x                                                            | [Sanofi-Aventis U.S. LLC. 2013](#5-references)     |
 |       |                | SD, 3 h infusion          | Plasma, excretion into urine          | x                                                            | [Nitti 1977](#5-references)                        |
 |       | 450            | SD, 3 h infusion          | Plasma, excretion into urine          | x                                                            | [Nitti 1977](#5-references)                        |
-|       | 600            | SD, 30 min infusion       | Plasma                                | x                                                            | [sanofi-aventis U.S. LLC. 2013](#5-references)     |
+|       | 600            | SD, 30 min infusion       | Plasma                                | x                                                            | [Sanofi-Aventis U.S. LLC. 2013](#5-references)     |
 |       |                | SD, 3 h infusion          | Plasma, excretion into urine          | x                                                            | [Nitti 1977](#5-references)                        |
 |       |                | SD, 3 h infusion          | Plasma, excretion into urine          | x                                                            | [Acocella 1977](#5-references)                     |
 |       |                | OD (7 days), 3 h infusion | Plasma                                | x                                                            | [Acocella 1977](#5-references)                     |
@@ -137,7 +170,13 @@ The following dosing scenarios were simulated and compared to respective data:
 
 
 
-## 2.3 Model Parameters and Assumptions
+
+
+
+
+## 2.3 Model Parameters and Assumptions<a id="model-parameters-and-assumptions"></a>
+
+
 ### 2.3.1 Absorption
 
 Herein, the model parameter `Specific intestinal permeability` was optimized to best match clinical data (see  [Section 2.3.5](#235-automated-parameter-identification)). The results of the optimization can be found in [Section 2.3.5](#235-automated-parameter-identification).
@@ -294,7 +333,13 @@ This is the result of the final parameter identification:
 <sup>*</sup> The value in the model was updated to 5.210 with the release of PK-Sim 10 to account for the updated calculation method of interstitial concentrations (please refer to the respective [release notes of version 10](https://github.com/Open-Systems-Pharmacology/Suite/releases/tag/v10.0)).
 
 
-# 3 Results and Discussion
+
+
+
+
+# 3 Results and Discussion<a id="results-and-discussion"></a>
+
+
 The rifampicin model was built and verified using various clinical studies. Overall, the model shows good performance to describe plasma concentration-time profiles over a dose range of 300 to 600 mg after intravenous and oral administration. 
 
 The next sections show:
@@ -302,8 +347,16 @@ The next sections show:
 1. the final model input parameters for the building blocks: [Section 3.1](#31-final-input-parameters).
 2. the overall goodness of fit: [Section 3.2](#32-diagnostics-plots).
 3. simulated vs. observed concentration-time profiles for the clinical studies used for model building and for model verification: [Section 3.3](#33-concentration-time-profiles).
-## 3.1 Final input parameters
+
+
+
+
+
+## 3.1 Final input parameters<a id="final-input-parameters"></a>
+
+
 The parameter values of the final PBPK model are illustrated below.
+
 
 
 
@@ -560,58 +613,299 @@ Emax | 2.5         | Publication-Assumption-Greiner et al. 1999
 
 
 
-## 3.2 Diagnostics Plots
+
+
+
+
+## 3.2 Diagnostics Plots<a id="diagnostics-plots"></a>
+
+
 Below you find the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data used presented in [Section 2.2.2](#222-clinical-data).
 
 The first plot shows observed versus simulated plasma concentration and the second weighted residuals versus time for itraconazole, hydroxy-itraconazole, keto-itraconazole and N-desalkyl-itraconazole.
 
 
-![001_plotGOFMergedPredictedVsObserved.png](images/003_3_Results_and_Discussion/002_3_2_Diagnostics_Plots/001_plotGOFMergedPredictedVsObserved.png)
 
-![002_plotGOFMergedResidualsOverTime.png](images/003_3_Results_and_Discussion/002_3_2_Diagnostics_Plots/002_plotGOFMergedResidualsOverTime.png)
+<a id="table-3-1"></a>
 
-GMFE = 1.372793 
+**Table 3-1: GMFE for Rifampicin concentration in plasma/serum**
 
-## 3.3 Concentration-Time Profiles
+
+|Group         |GMFE |
+|:-------------|:----|
+|Rifampicin iv |1.47 |
+|Rifampicin po |1.32 |
+|All           |1.37 |
+
+
+<br>
+<br>
+
+
+<a id="figure-3-1"></a>
+
+![](images/006_section_results-and-discussion/008_section_diagnostics-plots/2_gof_plot_predictedVsObserved.png)
+
+
+
+**Figure 3-1: Rifampicin concentration in plasma/serum**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-2"></a>
+
+![](images/006_section_results-and-discussion/008_section_diagnostics-plots/3_gof_plot_residualsOverTime.png)
+
+
+
+**Figure 3-2: Rifampicin concentration in plasma/serum**
+
+
+<br>
+<br>
+
+
+
+
+
+## 3.3 Concentration-Time Profiles<a id="ct-profiles"></a>
+
+
 Simulated versus observed concentration-time profiles of all data listed in [Section 2.2.2](#222-clinical-data) are presented below.
 
 
-![001_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_plotTimeProfile.png)
 
-![002_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_plotTimeProfile.png)
+<a id="figure-3-3"></a>
 
-![003_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/003_plotTimeProfile.png)
+![](images/006_section_results-and-discussion/009_section_ct-profiles/1_time_profile_plot_Rifampicin_Rifampicin_iv_300_mg__0_5_h_.png)
 
-![004_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/004_plotTimeProfile.png)
 
-![005_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/005_plotTimeProfile.png)
 
-![006_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/006_plotTimeProfile.png)
+**Figure 3-3: Rifampicin iv 300 mg (0.5 h)**
 
-![007_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/007_plotTimeProfile.png)
 
-![008_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/008_plotTimeProfile.png)
+<br>
+<br>
 
-![009_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/009_plotTimeProfile.png)
 
-![010_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/010_plotTimeProfile.png)
+<a id="figure-3-4"></a>
 
-![011_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/011_plotTimeProfile.png)
+![](images/006_section_results-and-discussion/009_section_ct-profiles/2_time_profile_plot_Rifampicin_Rifampicin_iv_300_mg__3_h_.png)
 
-![012_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/012_plotTimeProfile.png)
 
-![013_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/013_plotTimeProfile.png)
 
-![014_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/014_plotTimeProfile.png)
+**Figure 3-4: Rifampicin iv 300 mg (3 h)**
 
-![015_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/015_plotTimeProfile.png)
 
-![016_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/016_plotTimeProfile.png)
+<br>
+<br>
 
-![017_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/017_plotTimeProfile.png)
 
-# 4 Conclusion
-The herein presented PBPK model adequately describes the pharmacokinetics of rifampicin in adults. Little is known on the exact mass balance and the full metabolic profile of rifampicin. In this PBPK model, the implemented processes are those that were considered most vital to describe rifampicin's PK and that could be informed either via *in vitro* data or via parameter optimization based on clinical PK data.
+<a id="figure-3-5"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/3_time_profile_plot_Rifampicin_Rifampicin_iv_300_mg__3_h_.png)
+
+
+
+**Figure 3-5: Rifampicin iv 300 mg (3 h) - Urine**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-6"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/4_time_profile_plot_Rifampicin_Rifampicin_iv_450_mg__3_h_.png)
+
+
+
+**Figure 3-6: Rifampicin iv 450 mg (3 h)**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-7"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/5_time_profile_plot_Rifampicin_Rifampicin_iv_450_mg__3_h_.png)
+
+
+
+**Figure 3-7: Rifampicin iv 450 mg (3 h) - Urine**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-8"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/6_time_profile_plot_Rifampicin_Rifampicin_iv_600_mg__0_5_h_.png)
+
+
+
+**Figure 3-8: Rifampicin iv 600 mg (0.5 h)**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-9"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/7_time_profile_plot_Rifampicin_Rifampicin_iv_600_mg__3_h_.png)
+
+
+
+**Figure 3-9: Rifampicin iv 600 mg (3 h)**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-10"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/8_time_profile_plot_Rifampicin_Rifampicin_iv_600_mg__3_h_.png)
+
+
+
+**Figure 3-10: Rifampicin iv 600 mg (3 h) - Urine**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-11"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/9_time_profile_plot_Rifampicin_Rifampicin_iv_600_mg__3_h__MD_OD__7_days_.png)
+
+
+
+**Figure 3-11: Rifampicin iv 600 mg (3 h) MD OD (7 days)**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-12"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/10_time_profile_plot_Rifampicin_Rifampicin_po_300_mg.png)
+
+
+
+**Figure 3-12: Rifampicin po 300 mg**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-13"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/11_time_profile_plot_Rifampicin_Rifampicin_po_450_mg.png)
+
+
+
+**Figure 3-13: Rifampicin po 450 mg**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-14"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/12_time_profile_plot_Rifampicin_Rifampicin_po_450_mg_MD_OD__7_days_.png)
+
+
+
+**Figure 3-14: Rifampicin po 450 mg MD OD (7 days)**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-15"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/13_time_profile_plot_Rifampicin_Rifampicin_po_450_mg_MD_OD__7_days_.png)
+
+
+
+**Figure 3-15: Rifampicin po 450 mg MD OD (7 days) - Urine**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-16"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/14_time_profile_plot_Rifampicin_Rifampicin_po_450_mg_MD_OD__7_days_.png)
+
+
+
+**Figure 3-16: Rifampicin po 450 mg MD OD (7 days) - Bile**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-17"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/15_time_profile_plot_Rifampicin_Rifampicin_po_600_mg.png)
+
+
+
+**Figure 3-17: Rifampicin po 600 mg**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-18"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/16_time_profile_plot_Rifampicin_Rifampicin_po_600_mg.png)
+
+
+
+**Figure 3-18: Rifampicin po 600 mg**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-19"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/17_time_profile_plot_Rifampicin_Rifampicin_po_600_mg_MD_OD__7_days_.png)
+
+
+
+**Figure 3-19: Rifampicin po 600 mg MD OD (7 days)**
+
+
+<br>
+<br>
+
+
+
+
+
+# 4 Conclusion<a id="conclusion"></a>
+
+
+The herein presented PBPK model adequately describes the pharmacokinetics of rifampicin in adults. Little is known on the exact mass balance and the full metabolic profile of rifampicin. In this PBPK model, the implemented processes are those that were considered most vital to describe the pharmacokinetics of rifampicin and that could be informed either via *in vitro* data or via parameter optimization based on clinical PK data.
 
 The herein presented quantification of induction processes of OATP1B1 and AADAC are purely based on parameter optimization to describe auto-induction phenomena of rifampicin. The herein presented induction process of P-gp is based on *in vivo* observed P-gp induction measured in duodenal biopsies ([Greiner 1999](#5-references)). The derived E<sub>max</sub> value was assumed to be applicable for P-gp induction in all tissues expressing P-gp. This needs to be considered when coupling the herein presented rifampicin model to PBPK models of potential victim drugs that are also subject to P-gp-mediated transport.
 
@@ -622,7 +916,13 @@ The model features in particular induction of CYP3A4 based on aggregated *in vit
 
 
 
-# 5 References
+
+
+
+
+# 5 References<a id="main-references"></a>
+
+
 
 
 **Acocella 1972a** Acocella G., Lamarina A., Nicolis F. B., Pagani V., Segre G. Kinetic studies on rifampicin II. Multicompartmental analysis of the serum, urine and bile concentrations in subjects treated for one week Eur J Clin Pharmacol. 1972;5(2):111-115.
@@ -705,7 +1005,7 @@ The model features in particular induction of CYP3A4 based on aggregated *in vit
 
 **OSP Database** [https://github.com/Open-Systems-Pharmacology/Database-for-observed-data](https://github.com/Open-Systems-Pharmacology/Database-for-observed-data)
 
-**Panchagnula 2007** Panchagnula R., Gulati I., Varma M., Raj Y.A. Dissolution methodology for evaluation of rifampicin-containing fixed-dose combinations using biopharmaceutic classification sytem based approach. Clin. Res. Regul. Aff. 24, 61–76 (2007)
+**Panchagnula 2007** Panchagnula R., Gulati I., Varma M., Raj Y.A. Dissolution methodology for evaluation of rifampicin-containing fixed-dose combinations using biopharmaceutic classification system based approach. Clin. Res. Regul. Aff. 24, 61–76 (2007)
 
 **Peloquin 1997** Peloquin CA, Jaresko GS, Yong CL, Keung AC, Bulpitt AE, Jelliffe RW. Population pharmacokinetic modeling of isoniazid, rifampin, and pyrazinamide. Antimicrob Agents Chemother. 1997 Dec;41(12):2670-9.
 
@@ -746,3 +1046,6 @@ The model features in particular induction of CYP3A4 based on aggregated *in vit
 **Williamson 2013** Williamson B, Dooley KE, Zhang Y, Back DJ, Owen A. Induction of influx and efflux transporters and cytochrome P450 3A4 in primary human hepatocytes by rifampin, rifabutin, and rifapentine. Antimicrob Agents Chemother. 2013 Dec;57(12):6366-9.
 
 **Zhang 2012** Zhang Y, Cheng X, Aleksunes L, Klaassen CD. Transcription factor-mediated regulation of carboxylesterase enzymes in livers of mice. Drug Metab Dispos. 2012 Jun;40(6):1191-7.
+
+
+
