@@ -1,8 +1,6 @@
 # Building and evaluation of a PBPK model for tizanidine in adults
 
-
-
-| Version                                         | 1.1-OSP12.0                                                   |
+| Version                                         | 1.0-OSP12.0                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
 | based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Tizanidine-Model/releases/tag/v1.0 |
 | OSP Version                                     | 12.0                                                          |
@@ -11,22 +9,26 @@
 This evaluation report and the corresponding PK-Sim project file are filed at:
 
 https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/
+
 # Table of Contents
-  * [1 Introduction](#1-introduction)
-  * [2 Methods](#2-methods)
-    * [2.1 Modeling Strategy](#21-modeling-strategy)
-    * [2.2 Data](#22-data)
-    * [2.3 Model Parameters and Assumptions](#23-model-parameters-and-assumptions)
-  * [3 Results and Discussion](#3-results-and-discussion)
-    * [3.1 Final input parameters](#31-final-input-parameters)
-    * [3.2 Diagnostics Plots](#32-diagnostics-plots)
-    * [3.3 Concentration-Time Profiles](#33-concentration-time-profiles)
-      * [3.3.1 Model Building](#331-model-building)
-      * [3.3.2 Model Verification](#332-model-verification)
-  * [4 Conclusion](#4-conclusion)
-  * [5 References](#5-references)
-  * [6 Glossary](#6-glossary)
-# 1 Introduction
+
+ * [1 Introduction](#introduction)
+ * [2 Methods](#methods)
+   * [2.1 Modeling Strategy](#modeling-strategy)
+   * [2.2 Data](#data)
+   * [2.3 Model Parameters and Assumptions](#model-parameters-and-assumptions)
+ * [3 Results and Discussion](#results-and-discussion)
+   * [3.1 Final input parameters](#final-input-parameters)
+   * [3.2 Diagnostics Plots](#diagnostics-plots)
+   * [3.3 Concentration-Time Profiles](#ct-profiles)
+     * [3.3.1 Model Building](#model-building)
+     * [3.3.2 Model Verification](#model-verification)
+ * [4 Conclusion](#conclusion)
+ * [5 References](#main-references)
+ * [6 Glossary](#glossary)
+
+# 1 Introduction<a id="introduction"></a>
+
 The presented PBPK model of tizanidine has been developed to be used in a PBPK Drug-Drug-Interactions (DDI) network with tizanidine as a substrate of CYP1A2.
 
 Tizanidine is a centrally acting skeletal muscle relaxant generally used for the symptomatic treatment of acute painful muscle spasms and chronic spasticity resulting from diverse neurologic disorders ([Granfors 2004](#5-references)).
@@ -39,10 +41,10 @@ Tizanidine is a centrally acting skeletal muscle relaxant generally used for the
 
 **Excretion**: Only a minor part of the dose is recovered unchanged in the urine <5%.
 
-# 2 Methods
+# 2 Methods<a id="methods"></a>
 
+## 2.1 Modeling Strategy<a id="modeling-strategy"></a>
 
-## 2.1 Modeling Strategy
 The general workflow for building an adult PBPK model has been described by Kuepfer et al. ([Kuepfer 2016](#5-references)). Relevant information on the anthropometry (height, weight) was gathered from the respective clinical study, if reported. Information on physiological parameters (e.g. blood flows, organ volumes, hematocrit) in adults was gathered from the literature and has been incorporated in PK-Sim® as described previously ([Willmann 2007](#5-references)). The  applied activity and variability of plasma proteins and active processes that are integrated into PK-Sim® are described in the publicly available 'PK-Sim® Ontogeny Database Version 7.3' ([PK-Sim Ontogeny Database Version 7.3](#5-references)).
 
 Since concentration-time profiles following intravenous administration are not publicly available, model building was based on data following oral administration. In general, the following step-wise workflow was followed:
@@ -63,7 +65,8 @@ Details about input data (physicochemical, *in vitro* and clinical) can be found
 
 Details about the structural model and its parameters can be found in [Section 2.3](#23-model-parameters-and-assumptions).
 
-## 2.2 Data
+## 2.2 Data<a id="data"></a>
+
 ### 2.2.1 In vitro and physico-chemical data
 
 A literature search was performed to collect available information on physico-chemical properties of tizanidine ([Table 1](#table-1)).
@@ -97,7 +100,9 @@ A literature search was performed to collect available clinical data on tizanidi
 | [Al-Ghazawi 2013](#5-references)<sup>+</sup> | 4                               | HV       | 28                        | 75                          | m       | 36    | Tablet           | Fasted        | |
 
 **Table 2:**<a name="table-2"></a> Literature sources of clinical concentration data of tizanidine used for model development and validation.  *\*: single dose unless otherwise specified; EM: extensive metabolizers;<sup>+</sup>: Data used for final parameter identification*
-## 2.3 Model Parameters and Assumptions
+
+## 2.3 Model Parameters and Assumptions<a id="model-parameters-and-assumptions"></a>
+
 ### 2.3.1 Absorption
 
 Release of tizanidine from the tablet is modelled using the Weibull-formulation, with parameter values identified by fitting the model to observed concentration profiles after po administration of 4 and 8 mg to healthy volunteers after an overnight fast.
@@ -126,45 +131,17 @@ Following parameter values were estimated for the base model:
 
 - Dissolution time (50% dissolved) (Weibull formulation)
 
-# 3 Results and Discussion
+# 3 Results and Discussion<a id="results-and-discussion"></a>
+
 The next sections show:
 
 1. Final model input parameters for the building blocks: [Section 3.1](#31-final-input-parameters).
 2. Overall goodness of fit: [Section 3.2](#32-diagnostics-plots).
 3. Simulated vs. observed concentration-time profiles for the clinical studies used for model building and for model verification: [Section 3.3](#33-concentration-time-profiles).
 
-## 3.1 Final input parameters
+## 3.1 Final input parameters<a id="final-input-parameters"></a>
+
 The parameter values of the final PBPK model are illustrated below.
-
-### Formulation: Tizanidine tablet fasted
-
-Type: Weibull
-
-#### Parameters
-
-Name                             | Value       | Value Origin            
--------------------------------- | ----------- | ------------------------
-Dissolution time (50% dissolved) | 38.5287 min | Parameter Identification
-Lag time                         | 0 min       |                         
-Dissolution shape                | 0.963       | Parameter Identification
-Use as suspension                | Yes         |                         
-
-
-
-### Formulation: Tizanidine tablet fed
-
-Type: Weibull
-
-#### Parameters
-
-Name                             | Value      | Value Origin            
--------------------------------- | ---------- | ------------------------
-Dissolution time (50% dissolved) | 3.7642 min | Parameter Identification
-Lag time                         | 0 min      |                         
-Dissolution shape                | 0.3881     | Parameter Identification
-Use as suspension                | Yes        |                         
-
-
 
 ### Compound: Tizanidine
 
@@ -181,14 +158,12 @@ Is small molecule                          | Yes           |                    
 Molecular weight                           | 253.711 g/mol | Database-DrugBank DB00697 |             |        
 Plasma protein binding partner             | Albumin       |                           |             |        
 
-
 #### Calculation methods
 
 Name                    | Value          
 ----------------------- | ---------------
 Partition coefficients  | Berezhkovskiy  
 Cellular permeabilities | PK-Sim Standard
-
 
 #### Processes
 
@@ -204,7 +179,6 @@ Name                | Value        | Value Origin
 ------------------- | ------------ | ------------------------
 Intrinsic clearance | 7.2862 l/min | Parameter Identification
 
-
 ##### Systemic Process: Glomerular Filtration-Assumption
 
 Species: Human
@@ -215,49 +189,178 @@ Name         | Value | Value Origin
 ------------ | -----:| ----------------
 GFR fraction |     1 | Other-Assumption
 
+### Formulation: Tizanidine tablet fasted
 
+Type: Weibull
 
-## 3.2 Diagnostics Plots
+#### Parameters
+
+Name                             | Value       | Value Origin            
+-------------------------------- | ----------- | ------------------------
+Dissolution time (50% dissolved) | 38.5287 min | Parameter Identification
+Lag time                         | 0 min       |                         
+Dissolution shape                | 0.963       | Parameter Identification
+Use as suspension                | Yes         |                         
+
+### Formulation: Tizanidine tablet fed
+
+Type: Weibull
+
+#### Parameters
+
+Name                             | Value      | Value Origin            
+-------------------------------- | ---------- | ------------------------
+Dissolution time (50% dissolved) | 3.7642 min | Parameter Identification
+Lag time                         | 0 min      |                         
+Dissolution shape                | 0.3881     | Parameter Identification
+Use as suspension                | Yes        |                         
+
+## 3.2 Diagnostics Plots<a id="diagnostics-plots"></a>
+
 The following section displays the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data listed in [Section 2.2.2](#222-clinical-data).
 
 The first plot shows observed versus simulated plasma concentration, the second weighted residuals versus time. 
 
-![001_plotGOFMergedPredictedVsObserved.png](images/003_3_Results_and_Discussion/002_3_2_Diagnostics_Plots/001_plotGOFMergedPredictedVsObserved.png)
+<a id="table-3-1"></a>
 
-![002_plotGOFMergedResidualsOverTime.png](images/003_3_Results_and_Discussion/002_3_2_Diagnostics_Plots/002_plotGOFMergedResidualsOverTime.png)
+**Table 3-1: GMFE for Tizanidine concentration in plasma**
 
-GMFE = 1.645830 
+|Group                                  |GMFE |
+|:--------------------------------------|:----|
+|Oral administration (model building)   |1.52 |
+|Oral administration (model validation) |1.77 |
+|All                                    |1.65 |
 
-## 3.3 Concentration-Time Profiles
+<br>
+<br>
+
+<a id="figure-3-1"></a>
+
+![](images/006_section_results-and-discussion/008_section_diagnostics-plots/2_gof_plot_predictedVsObserved.png)
+
+**Figure 3-1: Tizanidine concentration in plasma**
+
+<br>
+<br>
+
+<a id="figure-3-2"></a>
+
+![](images/006_section_results-and-discussion/008_section_diagnostics-plots/3_gof_plot_residualsOverTime.png)
+
+**Figure 3-2: Tizanidine concentration in plasma**
+
+<br>
+<br>
+
+## 3.3 Concentration-Time Profiles<a id="ct-profiles"></a>
+
 Simulated versus observed concentration-time profiles of all data listed in [Section 2.2.2](#222-clinical-data) are presented below.
 
-### 3.3.1 Model Building
+### 3.3.1 Model Building<a id="model-building"></a>
 
-![001_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_3_3_1_Model_Building/001_plotTimeProfile.png)
+<a id="figure-3-3"></a>
 
-![002_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_3_3_1_Model_Building/002_plotTimeProfile.png)
+![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/1_time_profile_plot_Tizanidine_Tizanidine_2mg_po_tablet_fed.png)
 
-![003_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_3_3_1_Model_Building/003_plotTimeProfile.png)
+**Figure 3-3: Tizanidine 2mg po tablet fed**
 
-![004_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_3_3_1_Model_Building/004_plotTimeProfile.png)
+<br>
+<br>
 
-### 3.3.2 Model Verification
+<a id="figure-3-4"></a>
 
-![001_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/001_plotTimeProfile.png)
+![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/2_time_profile_plot_Tizanidine_Tizanidine_4mg_po_tablet_fasted.png)
 
-![002_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/002_plotTimeProfile.png)
+**Figure 3-4: Tizanidine 4mg po tablet fasted**
 
-![003_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/003_plotTimeProfile.png)
+<br>
+<br>
 
-![004_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/004_plotTimeProfile.png)
+<a id="figure-3-5"></a>
 
-![005_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/005_plotTimeProfile.png)
+![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/3_time_profile_plot_Tizanidine_Tizanidine_4mg_po_capsule_fed.png)
 
-![006_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/006_plotTimeProfile.png)
+**Figure 3-5: Tizanidine 4mg po capsule fed**
 
-![007_plotPopulationTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/007_plotPopulationTimeProfile.png)
+<br>
+<br>
 
-# 4 Conclusion
+<a id="figure-3-6"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/4_time_profile_plot_Tizanidine_Tizanidine_4mg_po_tablet_fed.png)
+
+**Figure 3-6: Tizanidine 4mg po tablet fed**
+
+<br>
+<br>
+
+### 3.3.2 Model Verification<a id="model-verification"></a>
+
+<a id="figure-3-7"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/5_time_profile_plot_Tizanidine_Tizanidine_4mg_t_i_d__po_tablet_fasted.png)
+
+**Figure 3-7: Tizanidine 4mg tid po tablet fasted**
+
+<br>
+<br>
+
+<a id="figure-3-8"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/6_time_profile_plot_Tizanidine_Tizanidine_6mg_po_capsule_fasted.png)
+
+**Figure 3-8: Tizanidine 6mg po capsule fasted**
+
+<br>
+<br>
+
+<a id="figure-3-9"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/7_time_profile_plot_Tizanidine_Tizanidine_8mg_po_capsule_fasted.png)
+
+**Figure 3-9: Tizanidine 8mg po capsule fasted**
+
+<br>
+<br>
+
+<a id="figure-3-10"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/8_time_profile_plot_Tizanidine_Tizanidine_8mg_po_tablet_fasted.png)
+
+**Figure 3-10: Tizanidine 8mg po tablet fasted**
+
+<br>
+<br>
+
+<a id="figure-3-11"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/9_time_profile_plot_Tizanidine_Tizanidine_8mg_po_capsule_fed.png)
+
+**Figure 3-11: Tizanidine 8mg po capsule fed**
+
+<br>
+<br>
+
+<a id="figure-3-12"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/10_time_profile_plot_Tizanidine_Tizanidine_8mg_po_tablet_fed.png)
+
+**Figure 3-12: Tizanidine 8mg po tablet fed**
+
+<br>
+<br>
+
+<a id="figure-3-13"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/11_time_profile_plot_Tizanidine_Tizanidine_4mg_po_tablet_fasted_population.png)
+
+**Figure 3-13: Time Profile Analysis**
+
+<br>
+<br>
+
+# 4 Conclusion<a id="conclusion"></a>
+
 The PBPK model developed for tizanidine accurately predicts the time-profiles following single and multiple dosing of tizanidine. Population simulations show that predicted PK variability is in accordance with the literature.
 
 The renal elimination is limited to glomerular filtration only. The predicted small fraction eliminated in Urine (~1%) is in line with literature reports (<5%). Given the minor contribution of the renal pathway no further exploration of active secretion was considered as the impact on DDI predictions is likely small.
@@ -266,8 +369,8 @@ Observed data suggests that administration of food accelerates the dissolution o
 
 As the model was developed in non-smoking subjects, it cannot be used to predict tizanidine concentrations in smokers.
 
+# 5 References<a id="main-references"></a>
 
-# 5 References
 **Al-Ghazawi 2013** Al-Ghazawi M, Alzoubi M, Faidi B. Pharmacokinetic comparison of two 4 mg tablet formulations of tizanidine. Int Journal of Clinical Pharmacology and Therapeutics. 2013 Mar 1;51(03):255–63.
 
 **Backman 2006** Backman JT, Granfors MT, Neuvonen PJ. Rifampicin is only a weak inducer of CYP1A2-mediated presystemic and systemic metabolism: Studies with tizanidine and caffeine. Eur J Clin Pharmacol. 2006;62(6):451-461. 
@@ -278,7 +381,7 @@ As the model was developed in non-smoking subjects, it cannot be used to predict
 
 **Granfors 2004** Granfors MT, Backman JT, Laitila J, Neuvonen PJ. Tizanidine is mainly metabolized by cytochrome P450 1A2 in vitro: Tizanidine is mainly metabolized by cytochrome P450 IA2 in vitro. British Journal of Clinical Pharmacology. 2004 Jan 8;57(3):349–53.
 
-**Haezlewood 1983** Heazlewood V, Symoniw P, Maruff P, Eadie M. Tizanidine- Initial pharmacokinetic studies in patients with spasticity. Eur J Clin Pharmacol. 1983; 25:65-67.
+**Heazlewood 1983** Heazlewood V, Symoniw P, Maruff P, Eadie M. Tizanidine- Initial pharmacokinetic studies in patients with spasticity. Eur J Clin Pharmacol. 1983; 25:65-67.
 
 **Henney 2007** Henney HR, Shah J. Relative bioavailability of tizanidine 4-mg capsule and tablet formulations after a standardized high-fat meal: A single-dose, randomized, open-label, crossover study in healthy subjects. Clin Ther. 2007;29(4):661-669.
 
@@ -302,7 +405,8 @@ As the model was developed in non-smoking subjects, it cannot be used to predict
 
 **Willmann 2007** Willmann S, Höhn K, Edginton A, Sevestre M, Solodenko J, Weiss W, Lippert J, Schmitt W. Development of a physiology-based whole-body population model for assessing the influence of individual variability on the pharmacokinetics of drugs. *J Pharmacokinet Pharmacodyn* 2007, 34(3): 401-431.
 
-# 6 Glossary
+# 6 Glossary<a id="glossary"></a>
+
 | ADME    | Absorption, Distribution, Metabolism,  Excretion             |
 | ------- | ------------------------------------------------------------ |
 | AUC     | Area under the plasma concentration  versus time curve       |
@@ -355,3 +459,4 @@ As the model was developed in non-smoking subjects, it cannot be used to predict
 | t.i.d   | Three times a day (ter in die)                               |
 | UGT     | Uridine  5'-diphospho-glucuronosyltransferase                |
 | UM      | Ultra-rapid metabolizers                                     |
+
