@@ -1,12 +1,16 @@
+
+
+
+
 # Building and evaluation of a PBPK model for amikacin in adults
 
 
 
 
 
-| Version                                         | 1.2-OSP12.0                                                   |
+| Version                                         | 1.0-OSP12.0                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
-| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Amikacin-Model/releases/tag/v1.2 |
+| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Amikacin-Model/releases/tag/v1.0 |
 | OSP Version                                     | 12.0                                                          |
 | Qualification Framework Version                 | 3.3                                                          |
 
@@ -19,19 +23,29 @@ This evaluation report and the corresponding PK-Sim project file are filed at:
 https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/
 
 
+
+
 # Table of Contents
-  * [1 Introduction](#1-introduction)
-  * [2 Methods](#2-methods)
-    * [2.1 Modeling Strategy](#21-modeling-strategy)
-    * [2.2 Data](#22-data)
-    * [2.3 Model Parameters and Assumptions](#23-model-parameters-and-assumptions)
-  * [3 Results and Discussion](#3-results-and-discussion)
-    * [3.1 Final input parameters](#31-final-input-parameters)
-    * [3.2 Diagnostics Plots](#32-diagnostics-plots)
-    * [3.3 Concentration-Time Profiles](#33-concentration-time-profiles)
-  * [4 Conclusion](#4-conclusion)
-  * [5 References](#5-references)
-# 1 Introduction
+
+ * [1 Introduction](#introduction)
+ * [2 Methods](#methods)
+   * [2.1 Modeling Strategy](#modeling-strategy)
+   * [2.2 Data](#data)
+   * [2.3 Model Parameters and Assumptions](#model-parameters-and-assumptions)
+ * [3 Results and Discussion](#results-and-discussion)
+   * [3.1 Final input parameters](#final-input-parameters)
+   * [3.2 Diagnostics Plots](#diagnostics-plots)
+   * [3.3 Concentration-Time Profiles](#concentration-time-profiles)
+ * [4 Conclusion](#conclusion)
+ * [5 References](#references)
+
+
+
+
+
+# 1 Introduction<a id="introduction"></a>
+
+
 The presented model building and evaluation report evaluates the performance of a PBPK model for amikacin in adults.
 
 Amikacin is a semi-synthetic aminoglycoside antibiotic used for a number of bacterial infections. Amikacin is administered in several forms, including intravenous or intramuscular injection. The PBPK model for amikacin was previously developed in PK-sim for adults ([Wendl 2011](#5-references)) and preterm neonates ([Claassen 2015](#5-references)). As the latter model was built more recently, this PBPK model was used to evaluate the predictive performance of glomerular filtration rate (GFR) mediated clearance in adults without further changes. In this chapter we show that amikacin adequately described the pharmacokinetics of amikacin in adults, based on the PBPK model build and reported in preterm neonates.
@@ -39,10 +53,22 @@ Amikacin is a semi-synthetic aminoglycoside antibiotic used for a number of bact
 The amikacin model is a whole-body PBPK model, allowing for dynamic translation between individuals with GFR based renal elimination. The amikacin report demonstrates the level of confidence in the amikacin PBPK model build with the OSP suite with regard to reliable predictions of amikacin PK in adults during model-informed drug development.
 
 
-# 2 Methods
 
 
-## 2.1 Modeling Strategy
+
+
+# 2 Methods<a id="methods"></a>
+
+
+
+
+
+
+
+
+## 2.1 Modeling Strategy<a id="modeling-strategy"></a>
+
+
 The general concept of building a PBPK model has previously been described by Kuepfer et al. ([Kuepfer 2016](#5-references)). Relevant information on anthropometric (height, weight) and physiological parameters (e.g. blood flows, organ volumes, binding protein concentrations, hematocrit, cardiac output) in adults was gathered from the literature and has been previously published ([Schlender 2016](#5-references)). The information was incorporated into PK-Sim® and was used as default values for the simulations in adults.
 
 The  applied activity and variability of plasma proteins and active processes that are integrated into PK-Sim® are described in the publicly available PK-Sim® Ontogeny Database Version 7.3 ([PK-Sim Ontogeny Database Version 7.3](#5-references)) or otherwise referenced for the specific process.
@@ -59,7 +85,13 @@ Simulations using this PBPK model were compared to the reported data to evaluate
 During model building, uncertainties in data quality, as well as study differences may cause not being able to adequately describe the PK of all reported clinical studies. 
 
 
-## 2.2 Data
+
+
+
+
+## 2.2 Data<a id="data"></a>
+
+
 ### 2.2.1 In vitro / physicochemical data
 
 A literature search was performed to collect available information on physicochemical properties of amikacin. The obtained information from literature is summarized in the table below, and is used for model building.
@@ -84,7 +116,13 @@ The following publication was found in adults for the evaluation of the reported
 | [Walker 1979](#5-references) | The pharmacokinetics of amikacin and gentamicin in healthy volunteers |
 
 
-## 2.3 Model Parameters and Assumptions
+
+
+
+
+## 2.3 Model Parameters and Assumptions<a id="model-parameters-and-assumptions"></a>
+
+
 ### 2.3.1 Absorption
 
 As amikacin was administered only intravenously, absorption did not play a role in the PK of amikacin. 
@@ -103,7 +141,13 @@ Amikacin is eliminated by the kidneys without metabolism. In adults with normal 
 
 
 
-# 3 Results and Discussion
+
+
+
+
+# 3 Results and Discussion<a id="results-and-discussion"></a>
+
+
 The previously developed PBPK model for amikacin was evaluated with available with clinical pharmacokinetic data in healthy adults after intravenous amikacin administration. 
 
 The fit resulted in an adequate description of the available data. 
@@ -111,8 +155,15 @@ The fit resulted in an adequate description of the available data.
 
 
 
-## 3.1 Final input parameters
+
+
+
+
+## 3.1 Final input parameters<a id="final-input-parameters"></a>
+
+
 The compound parameter values of the final amikacin PBPK model are illustrated below.
+
 
 
 
@@ -154,39 +205,163 @@ GFR fraction |     1 | Publication-Claassen et al 2015
 
 
 
-## 3.2 Diagnostics Plots
+
+
+
+
+## 3.2 Diagnostics Plots<a id="diagnostics-plots"></a>
+
+
 Below you find the goodness-of-fit visual diagnostic plots for amikacin PBPK model performance (Individually simulated versus observed plasma concentration) and residuals versus time of all data used for model building.
 
 
-![001_plotGOFMergedPredictedVsObserved.png](images/003_3_Results_and_Discussion/002_3_2_Diagnostics_Plots/001_plotGOFMergedPredictedVsObserved.png)
 
-![002_plotGOFMergedResidualsOverTime.png](images/003_3_Results_and_Discussion/002_3_2_Diagnostics_Plots/002_plotGOFMergedResidualsOverTime.png)
+<a id="table-3-1"></a>
 
-GMFE = 1.207636 
+**Table 3-1: GMFE for Goodness of fit plot for concentration in plasma.**
 
-## 3.3 Concentration-Time Profiles
+
+|Group       |GMFE |
+|:-----------|:----|
+|Amikacin iv |1.21 |
+
+
+<br>
+<br>
+
+
+<a id="figure-3-1"></a>
+
+![](images/006_section_results-and-discussion/008_section_diagnostics-plots/2_gof_plot_predictedVsObserved.png)
+
+
+
+**Figure 3-1: Goodness of fit plot for concentration in plasma.**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-2"></a>
+
+![](images/006_section_results-and-discussion/008_section_diagnostics-plots/3_gof_plot_residualsOverTime.png)
+
+
+
+**Figure 3-2: Goodness of fit plot for concentration in plasma.**
+
+
+<br>
+<br>
+
+
+
+
+
+## 3.3 Concentration-Time Profiles<a id="concentration-time-profiles"></a>
+
+
 Simulated versus observed plasma concentration-time profiles of all data listed in [Section 2.2.2](#222-clinical-data) are presented below.
 
 
-![001_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_plotTimeProfile.png)
 
-![002_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_plotTimeProfile.png)
+<a id="figure-3-3"></a>
 
-![003_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/003_plotTimeProfile.png)
+![](images/006_section_results-and-discussion/009_section_concentration-time-profiles/1_time_profile_plot_Amikacin_Walker_1979_Volunteer_6.png)
 
-![004_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/004_plotTimeProfile.png)
 
-![005_plotPopulationTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/005_plotPopulationTimeProfile.png)
 
-![006_plotPopulationTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/006_plotPopulationTimeProfile.png)
+**Figure 3-3: Time Profile Analysis**
 
-# 4 Conclusion
+
+<br>
+<br>
+
+
+<a id="figure-3-4"></a>
+
+![](images/006_section_results-and-discussion/009_section_concentration-time-profiles/2_time_profile_plot_Amikacin_Walker_1979_Volunteer_6.png)
+
+
+
+**Figure 3-4: Time Profile Analysis 1**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-5"></a>
+
+![](images/006_section_results-and-discussion/009_section_concentration-time-profiles/3_time_profile_plot_Amikacin_Walker_1979_Volunteer_9.png)
+
+
+
+**Figure 3-5: Time Profile Analysis**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-6"></a>
+
+![](images/006_section_results-and-discussion/009_section_concentration-time-profiles/4_time_profile_plot_Amikacin_Walker_1979_Volunteer_9.png)
+
+
+
+**Figure 3-6: Time Profile Analysis 1**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-7"></a>
+
+![](images/006_section_results-and-discussion/009_section_concentration-time-profiles/5_time_profile_plot_Amikacin_Walker_1979_POP.png)
+
+
+
+**Figure 3-7: Time Profile Analysis**
+
+
+<br>
+<br>
+
+
+<a id="figure-3-8"></a>
+
+![](images/006_section_results-and-discussion/009_section_concentration-time-profiles/6_time_profile_plot_Amikacin_Walker_1979_POP.png)
+
+
+
+**Figure 3-8: Time Profile Analysis 1**
+
+
+<br>
+<br>
+
+
+
+
+
+# 4 Conclusion<a id="conclusion"></a>
+
+
 The amikacin PBPK model applies glomerular filtration and adequately describes the pharmacokinetics of amikacin in adults receiving intravenous administration of amikacin. 
 
 This model could be applied for the translation to special populations such as pediatrics with regard to renal elimination via glomerular filtration.
 
 
-# 5 References
+
+
+
+
+# 5 References<a id="references"></a>
+
+
 **Claassen 2015** Claassen K, Thelen K, Coboeken K, Gaub T, Lippert J, Allegaert K, Willmann S1. Development of a Physiologically-Based Pharmacokinetic Model for Preterm Neonates: Evaluation with In Vivo Data. Curr Pharm Des. 2015;21(39):5688-98.
 
 **DailyMed** (https://dailymed.nlm.nih.gov/dailymed/fda/fdaDrugXsl.cfm?setid=6ec3129b-c53b-4bdb-913d-a2d0060fa140&type=display)
@@ -204,3 +379,6 @@ This model could be applied for the translation to special populations such as p
 **Walker 1979** Walker JM, Wise R, Mitchard M. The pharmacokinetics of amikacin and gentamicin in volunteers: a comparison of individual differences. J Antimicrob Chemother. 1979 Jan;5(1):95-9.
 
 **Wendl 2011** Wendl T, Niederalt C, Becker C, et al. Modeling of renal failure, dialysis, inhalation and mechanical ventilation: Development of a whole-body physiologically-based pharmacokinetic (PBPK) model for ICU patients with and without renal failure receiving inhalatively administered Amikacin via a tracheal tube. Presented at: *The Annual Meeting of the Population Approach Group in Europe* Athens. 2011; Abstr. 2194.
+
+
+
