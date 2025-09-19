@@ -1,26 +1,14 @@
-
-
-
-
 # Building and evaluation of a PBPK model for cimetidine in healthy adults
 
-
-
-
-
-| Version                                         | 1.0-OSP12.0                                                   |
+| Version                                         | 2.0-OSP12.1                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
-| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Cimetidine-Model/releases/tag/v1.0 |
-| OSP Version                                     | 12.0                                                          |
-| Qualification Framework Version                 | 3.3                                                          |
-
-
+| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Cimetidine-Model/releases/tag/v2.0 |
+| OSP Version                                     | 12.1                                                          |
+| Qualification Framework Version                 | 3.4                                                          |
 
 This evaluation report and the corresponding PK-Sim project file are stored at:
 
 https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/
-
-
 
 # Table of Contents
 
@@ -38,12 +26,7 @@ https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/
  * [4 Conclusion](#conclusion)
  * [5 References](#main-references)
 
-
-
-
-
 # 1 Introduction<a id="introduction"></a>
-
 
 Cimetidine is a histamine H2 receptor antagonist that inhibits stomach acid production. It is mainly used as an antacid for the treatment of gastric and duodenal ulcers, Zollinger-Ellison syndrome and esophageal reflux.
 
@@ -57,23 +40,9 @@ as an unspecific hepatic clearance and passive renal glomerular filtration.
 
 The herein presented model building and evaluation report evaluates the performance of the PBPK model for cimetidine in (healthy) adults. 
 
-
-
-
-
-
-
 # 2 Methods<a id="methods"></a>
 
-
-
-
-
-
-
-
 ## 2.1 Modeling Strategy<a id="modeling-strategy"></a>
-
 
 The general concept of building a PBPK model has previously been described by e.g. Kuepfer et al. ([Kuepfer 2016](#5-references)). The relevant anthropometric (height, weight) and physiological information (e.g. blood flows, organ volumes, binding protein concentrations, hematocrit, cardiac output) in adults was gathered from the literature and has been previously published ([Willmann 2007](#5-references)). This information was incorporated into PK-Sim® and was used as default values for the simulations in adults. Variability of plasma proteins and CYP enzymes are integrated into PK-Sim® and described in the publicly available PK-Sim® Ontogeny Database Version 7.3 ([PK-Sim Ontogeny Database Version 7.3](#5-references)) or otherwise referenced for the specific process. 
 
@@ -90,12 +59,7 @@ Details about input data (physicochemical, *in vitro* and clinical) can be found
 
 Details about the structural model and its parameters can be found in [Section 2.3](#23-model-parameters-and-assumptions).
 
-
-
-
-
 ## 2.2 Data<a id="data"></a>
-
 
 ### 2.2.1 In vitro / physico-chemical Data
 
@@ -118,7 +82,6 @@ A literature search was performed to collect available information on physiochem
 | MATE1 K<sub>i</sub> (refitted in PK-Sim V10) | µmol/l | 3.8 (0.65) | [Ito 2012](#5-references) | Inhibition constant for competitive inhibition |
 | CYP3A4 K<sub>i</sub> (refitted in PK-Sim V10) | µmol/l | 268 (30.51266) | [Wrighton 1994](#5-references) | Inhibition constant for competitive inhibition |
 
-
 ### 2.2.2 Clinical Data
 
 A literature search was performed to collect available clinical data on efavirenz in healthy adults.
@@ -134,8 +97,6 @@ The following studies were used for model building:
 | [Bodemar 1979](#5-references)     | Healthy subjects receiving single oral doses of 200 and 400mg (tablet) |
 | [Walkenstein 1978](#5-references) | Healthy subjects receiving a single oral dose of 300mg (solution) |
 | [D'Angio 1986](#5-references)     | Healthy subjects receiving a single oral dose of 300mg (tablet) |
-
-
 
 #### 2.2.2.2 Model verification
 
@@ -176,12 +137,7 @@ As a consequence of updating the cimetidine PBPK model to PK-Sim version 10, the
 
 Similarly, MATE1 K<sub>i</sub> value was adjusted to reproduce the observed inhibition effect on metformin PK (https://github.com/Open-Systems-Pharmacology/Cimetidine-Metformin-DDI).
 
-
-
-
-
 ## 2.3 Model Parameters and Assumptions<a id="model-parameters-and-assumptions"></a>
-
 
 ### 2.3.1 Absorption
 
@@ -194,8 +150,6 @@ Cimetidine is reported to be actively taken up into the liver by OCT1 ([Umehara 
 After testing the available organ-plasma partition coefficient and cell permeability calculation methods built in PK-Sim, observed clinical data was best described by choosing the partition coefficient calculation method by `Rodgers and Rowland` and cellular permeability calculation by `PK-Sim Standard`. 
 
 A `Lipophilicity` of 1.66 was back-calculated from the blood-to-plasma ratio of 0.98 ([Somogyi 1983](#5-references), [Hanke 2020](#5-references)).
-
-
 
 ### 2.3.3 Metabolism, Elimination and Inhibition
 
@@ -223,12 +177,7 @@ As a result of updating the cimetidine PBPK model to PK-Sim V10, the interaction
 | -------------------------- | --------------- | ---- |
 | CYP3A4 K<sub>i</sub>| 30.51266 | µmol/l |
 
-
-
-
-
 # 3 Results and Discussion<a id="results-and-discussion"></a>
-
 
 The PBPK model for cimetidine was developed and evaluated using publicly available clinical pharmacokinetic data from studies listed in [Section 2.2.2](#222-clinical-data).
 
@@ -238,19 +187,9 @@ The next sections show:
 2. the overall goodness of fit: [Section 3.2](#32-diagnostics-plots).
 3. simulated vs. observed concentration-time profiles for the clinical studies used for model building and for model verification: [Section 3.3](#33-concentration-time-profiles).
 
-
-
-
-
-
 ## 3.1 Final input parameters<a id="final-input-parameters"></a>
 
-
 The compound parameter values of the final PBPK model are illustrated below.
-
-
-
-
 
 ### Compound: Cimetidine
 
@@ -267,14 +206,12 @@ Is small molecule                                | Yes                     |    
 Molecular weight                                 | 252.34 g/mol            | Database-Drugbank                                                                                                   |             |        
 Plasma protein binding partner                   | Unknown                 |                                                                                                                     |             |        
 
-
 #### Calculation methods
 
 Name                    | Value              
 ----------------------- | -------------------
 Partition coefficients  | Rodgers and Rowland
 Cellular permeabilities | PK-Sim Standard    
-
 
 #### Processes
 
@@ -291,7 +228,6 @@ Lipophilicity (experiment)    | 1.655 Log Units    |
 Plasma clearance              | 0 ml/min/kg        |                                                                                                                    
 Specific clearance            | 0.1209722937 1/min | Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification' on 2021-09-13 17:00
 
-
 ##### Transport Protein: MATE1-Paper
 
 Molecule: MATE1
@@ -304,7 +240,6 @@ Transporter concentration | 1 µmol/l             |
 Vmax                      | 0 µmol/l/min         |                                                                                                                    
 Km                        | 8 µmol/l             | Parameter Identification                                                                                           
 kcat                      | 159.4749627996 1/min | Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification' on 2021-09-13 17:00
-
 
 ##### Transport Protein: OAT3-Paper
 
@@ -319,7 +254,6 @@ Vmax                      | 0 µmol/l/min       |
 Km                        | 149 µmol/l         | Publication-Tahara 2005                                                                                            
 kcat                      | 2522831.1016 1/min | Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification' on 2021-09-13 17:00
 
-
 ##### Transport Protein: OCT1-Paper
 
 Molecule: OCT1
@@ -333,7 +267,6 @@ Vmax                      | 0 µmol/l/min           |
 Km                        | 2600 µmol/l            | Publication-Umehara 2007                                                                                           
 kcat                      | 14098.3224931732 1/min | Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification' on 2021-09-13 17:00
 
-
 ##### Systemic Process: Glomerular Filtration-GFR
 
 Species: Human
@@ -343,7 +276,6 @@ Species: Human
 Name         | Value | Value Origin
 ------------ | -----:| ------------:
 GFR fraction |     1 |             
-
 
 ##### Inhibition: OCT1-Ito 2012
 
@@ -355,7 +287,6 @@ Name | Value      | Value Origin
 ---- | ---------- | --------------------
 Ki   | 104 µmol/l | Publication-Ito 2012
 
-
 ##### Inhibition: OCT2-Ito 2012
 
 Molecule: OCT2
@@ -365,7 +296,6 @@ Molecule: OCT2
 Name | Value      | Value Origin        
 ---- | ---------- | --------------------
 Ki   | 124 µmol/l | Publication-Ito 2012
-
 
 ##### Inhibition: MATE1-Ito 2012
 
@@ -377,7 +307,6 @@ Name | Value       | Value Origin
 ---- | ----------- | -----------------------------------------------------------------------------------------------------------------------
 Ki   | 0.65 µmol/l | Parameter Identification-Parameter Identification-https://github.com/Open-Systems-Pharmacology/Cimetidine-Metformin-DDI
 
-
 ##### Inhibition: CYP3A4-Wrighton 1994
 
 Molecule: CYP3A4
@@ -387,9 +316,6 @@ Molecule: CYP3A4
 Name | Value           | Value Origin                                                                                                                
 ---- | --------------- | ----------------------------------------------------------------------------------------------------------------------------
 Ki   | 30.51266 µmol/l | Parameter Identification-Parameter Identification-Value adjusted in parameter identification outside of PK-Sim on 2023-11-14
-
-
-
 
 ### Formulation: Tablet
 
@@ -404,25 +330,15 @@ Lag time                         | 0 h   |
 Dissolution shape                | 10    |             
 Use as suspension                | Yes   |             
 
-
-
-
-
-
-
 ## 3.2 Diagnostics Plots<a id="diagnostics-plots"></a>
-
 
 Below you find the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data used presented in [Section 2.2.2](#222-clinical-data).
 
 The first plot shows simulated versus observed plasma concentration, the second weighted residuals versus time. 
 
-
-
 <a id="table-3-1"></a>
 
 **Table 3-1: GMFE for Goodness of fit plot for concentration in plasma**
-
 
 |Group                        |GMFE |
 |:----------------------------|:----|
@@ -431,538 +347,355 @@ The first plot shows simulated versus observed plasma concentration, the second 
 |single oral administration   |1.51 |
 |All                          |1.47 |
 
-
 <br>
 <br>
-
 
 <a id="figure-3-1"></a>
 
 ![](images/006_section_results-and-discussion/008_section_diagnostics-plots/2_gof_plot_predictedVsObserved.png)
 
-
-
 **Figure 3-1: Goodness of fit plot for concentration in plasma**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-2"></a>
 
 ![](images/006_section_results-and-discussion/008_section_diagnostics-plots/3_gof_plot_residualsOverTime.png)
 
-
-
 **Figure 3-2: Goodness of fit plot for concentration in plasma**
 
-
 <br>
 <br>
-
-
-
-
 
 ## 3.3 Concentration-Time Profiles<a id="ct-profiles"></a>
 
-
 Simulated versus observed concentration-time profiles of all data listed in [Section 2.2.2](#222-clinical-data) are presented below.
 
-
-
-
-
-
 ### 3.3.1 Model Building<a id="model-building"></a>
-
-
-
-
-
-
-
 
 <a id="figure-3-3"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/4_time_profile_plot_Cimetidine_iv_200_mg__5_min__Morgan_1983__n_6.png)
 
-
-
 **Figure 3-3: iv 200 mg (5 min),Morgan 1983, n=6**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-4"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/8_time_profile_plot_Cimetidine_iv_200_mg__Bodemar_1981__n_10.png)
 
-
-
 **Figure 3-4: iv 200 mg, Bodemar 1981, n=10**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-5"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/9_time_profile_plot_Cimetidine_iv_200_mg__Bodemar_1981__n_10.png)
 
-
-
 **Figure 3-5: iv 200 mg, Bodemar 1981, n=10, urine**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-6"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/15_time_profile_plot_Cimetidine_po_200_mg__Bodemar_1981__n_10.png)
 
-
-
 **Figure 3-6: po 200 mg, Bodemar 1981, n=10**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-7"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/16_time_profile_plot_Cimetidine_po_200_mg__Bodemar_1981__n_10.png)
 
-
-
 **Figure 3-7: po 200 mg, Bodemar 1981, n=10, urine**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-8"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/22_time_profile_plot_Cimetidine_po_300_mg__sol___Walkenstein_1978__n_24.png)
 
-
-
 **Figure 3-8: po 300 mg (sol), Walkenstein 1978, n=24**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-9"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/23_time_profile_plot_Cimetidine_po_300_mg__sol___Walkenstein_1978__n_24.png)
 
-
-
 **Figure 3-9: po 300 mg (sol), Walkenstein 1978, n=24, urine**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-10"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/24_time_profile_plot_Cimetidine_po_300_mg__tab___D_Angio_1986__n_6.png)
 
-
-
 **Figure 3-10: po 300 mg (tab), D'Angio 1986, n=6**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-11"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/31_time_profile_plot_Cimetidine_po_400_mg__Bodemar_1981__n_9.png)
 
-
-
 **Figure 3-11: po 400 mg, Bodemar 1981, n=9**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-12"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/32_time_profile_plot_Cimetidine_po_400_mg__Bodemar_1981__n_9.png)
 
-
-
 **Figure 3-12: po 400 mg, Bodemar 1981, n=9, urine**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-13"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/34_time_profile_plot_Cimetidine_po_800_mg__Bodemar_1981__n_9.png)
 
-
-
 **Figure 3-13: po 800 mg, Bodemar 1981, n=9**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-14"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/35_time_profile_plot_Cimetidine_po_800_mg__Bodemar_1981__n_9.png)
 
-
-
 **Figure 3-14: po 800 mg, Bodemar 1981, n=9, urine**
 
-
 <br>
 <br>
-
-
-
-
 
 ### 3.3.2 Model Validation<a id="model-validation"></a>
-
-
-
-
-
 
 <a id="figure-3-15"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-validation/1_time_profile_plot_Cimetidine_iv_100_mg__5_min___Grahnen_1979__n_3.png)
 
-
-
 **Figure 3-15: iv 100 mg (5 min), Grahnen 1979, n=3**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-16"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-validation/2_time_profile_plot_Cimetidine_iv_100_mg__5_min___Grahnen_1979__n_3.png)
 
-
-
 **Figure 3-16: iv 100 mg (5 min), Grahnen 1979, n=3, urine**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-17"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-validation/3_time_profile_plot_Cimetidine_iv_200_mg__30_min__Morgan_1983__n_4.png)
 
-
-
 **Figure 3-17: iv 200 mg (30 min),Morgan 1983, n=4**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-18"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-validation/5_time_profile_plot_Cimetidine_iv_200_mg__Larsson_1982__n_9.png)
 
-
-
 **Figure 3-18: iv 200 mg, Larsson 1982, n=9**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-19"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-validation/6_time_profile_plot_Cimetidine_iv_200_mg__Larsson_1982__n_9.png)
 
-
-
 **Figure 3-19: iv 200 mg, Larsson 1982, n=9, urine**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-20"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-validation/7_time_profile_plot_Cimetidine_iv_200_mg__Mihaly_1984__n_6.png)
 
-
-
 **Figure 3-20: iv 200 mg, Mihaly 1984, n=6**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-21"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-validation/10_time_profile_plot_Cimetidine_iv_300_mg__2_min___Lebert_1981__n_1.png)
 
-
-
 **Figure 3-21: iv 300 mg (2 min), Lebert 1981, n=1**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-22"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-validation/11_time_profile_plot_Cimetidine_iv_300_mg__2_min___Walkenstein_1978__n_12.png)
 
-
-
 **Figure 3-22: iv 300 mg (2 min), Walkenstein 1978, n=12**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-23"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-validation/12_time_profile_plot_Cimetidine_iv_300_mg__2_min___Walkenstein_1978__n_12.png)
 
-
-
 **Figure 3-23: iv 300 mg (2 min), Walkenstein 1978, n=12**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-24"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-validation/13_time_profile_plot_Cimetidine_po_200_mg__tab___Bodemar_1979__fasted_.png)
 
-
-
 **Figure 3-24: po 200 mg (tab), Bodemar 1979 (fasted)**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-25"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-validation/14_time_profile_plot_Cimetidine_po_200_mg__tab___Bodemar_1979__fed_.png)
 
-
-
 **Figure 3-25: po 200 mg (tab), Bodemar 1979 (fed)**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-26"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-validation/17_time_profile_plot_Cimetidine_po_200_mg__Burland_1975__caps.png)
 
-
-
 **Figure 3-26: po 200 mg, Burland 1975, caps**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-27"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-validation/18_time_profile_plot_Cimetidine_po_200_mg__Burland_1975__sol.png)
 
-
-
 **Figure 3-27: po 200 mg, Burland 1975, sol**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-28"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-validation/19_time_profile_plot_Cimetidine_po_200_mg__Kanto_1981__n_8.png)
 
-
-
 **Figure 3-28: po 200 mg, Kanto 1981, n=8**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-29"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-validation/20_time_profile_plot_Cimetidine_po_200_mg__Mihaly_1984__n_8.png)
 
-
-
 **Figure 3-29: po 200 mg, Mihaly 1984, n=8**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-30"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-validation/21_time_profile_plot_Cimetidine_po_200_400_mg_QID__Bodemar_1981__fasted_.png)
 
-
-
 **Figure 3-30: po 200/400 mg QID, Bodemar 1981 (fasted)**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-31"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-validation/25_time_profile_plot_Cimetidine_po_300_mg__tabl___Walkenstein_1978__n_12.png)
 
-
-
 **Figure 3-31: po 300 mg (tabl), Walkenstein 1978, n=12**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-32"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-validation/26_time_profile_plot_Cimetidine_po_300_mg_QID__sol___Barbhaiya_1995__n_18.png)
 
-
-
 **Figure 3-32: po 300 mg QID (sol), Barbhaiya 1995, n=18**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-33"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-validation/27_time_profile_plot_Cimetidine_po_400_mg__tab___Bodemar_1979__n_10.png)
 
-
-
 **Figure 3-33: po 400 mg (tab), Bodemar 1979, n=10**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-34"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-validation/28_time_profile_plot_Cimetidine_po_400_mg__tab___Somogyi_1981__n_8.png)
 
-
-
 **Figure 3-34: po 400 mg (tab), Somogyi 1981, n=8**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-35"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-validation/29_time_profile_plot_Cimetidine_po_400_mg__tab__Grahnen_1979__n_3.png)
 
-
-
 **Figure 3-35: po 400 mg (tab),Grahnen 1979, n=3**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-36"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-validation/30_time_profile_plot_Cimetidine_po_400_mg__tab__Grahnen_1979__n_3.png)
 
-
-
 **Figure 3-36: po 400 mg (tab),Grahnen 1979, n=3, urine**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-37"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-validation/33_time_profile_plot_Cimetidine_po_800_mg__tab__qd__Tiseo_1998__n_18.png)
 
-
-
 **Figure 3-37: po 800 mg (tab) qd, Tiseo 1998, n=18**
 
-
 <br>
 <br>
-
-
-
-
 
 # 4 Conclusion<a id="conclusion"></a>
 
-
 The herein presented PBPK model adequately describes the pharmacokinetics of cimetidine after intravenous and oral administration of single and multiple doses to healthy adults and peptic ulcer patients covering a broad dosing range from 100 to 800 mg. The established cimetidine PBPK model is verified for the use as a mild inhibitor of CYP3A4 drug in drug-drug interaction simulations.
 
-
-
-
-
 # 5 References<a id="main-references"></a>
-
 
 **Abernethy 1983**  Abernethy DR,  Greenblatt DJ, Divoll M, Moschitto LJ, Harmatz JS, Shader RI.  Interaction of cimetidine with the triazolobenzodiazepines alprazolam  and triazolam. Psychopharmacology (Berl). 1983;80(3):275-8. doi:  10.1007/BF00436169.
 
@@ -1043,6 +776,4 @@ The herein presented PBPK model adequately describes the pharmacokinetics of cim
 **Wishart 2006** Wishart DS, Knox C, Guo AC, Shrivastava S, Hassanali M, Stothard P,  Chang Z, Woolsey J. DrugBank: a comprehensive resource for in silico  drug discovery and exploration. Nucleic Acids Res. 2006 Jan  1;34(Database issue):D668-72. doi: 10.1093/nar/gkj067. PMID: 16381955;  PMCID: PMC1347430.
 
 **Wrighton 1994** Wrighton SA, Ring  BJ. Inhibition of human CYP3A catalyzed 1'-hydroxy midazolam formation  by ketoconazole, nifedipine, erythromycin, cimetidine, and nizatidine.  Pharm Res. 1994 Jun;11(6):921-4. doi: 10.1023/a:1018906614320. PMID:  7937537.
-
-
 
