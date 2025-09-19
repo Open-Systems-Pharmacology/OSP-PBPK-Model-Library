@@ -1,29 +1,14 @@
-
-
-
-
 # Building and evaluation of a PBPK model for tefibazumab in healthy adults
 
-
-
-
-
-| Version                                         | 1.0-OSP12.0                                                   |
+| Version                                         | 1.0-OSP12.1                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
 | based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Tefibazumab-Model/releases/tag/v1.0 |
-| OSP Version                                     | 12.0                                                          |
-| Qualification Framework Version                 | 3.3                                                          |
-
-
-
-
+| OSP Version                                     | 12.1                                                          |
+| Qualification Framework Version                 | 3.4                                                          |
 
 This evaluation report and the corresponding PK-Sim project file are filed at:
 
 https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/
-
-
-
 
 # Table of Contents
 
@@ -45,12 +30,7 @@ https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/
  * [4 Conclusion](#conclusion)
  * [5 References](#main-references)
 
-
-
-
-
 # 1 Introduction<a id="introduction"></a>
-
 
 Tefibazumab is a humanized monoclonal antibody (IgG1) against the clumping factor A (ClfA) of *Staphylococcus aureus*. Tefibazumab shows a pharmacokinetic (PK) behavior which is typical for an antibody without endogenous target.  
 
@@ -58,21 +38,9 @@ The herein presented evaluation report evaluates the performance of the physiolo
 
 The presented Tefibazumab PBPK model as well as the respective evaluation plan and evaluation report are provided open-source (https://github.com/Open-Systems-Pharmacology/Tefibazumab-Model).
 
-
-
-
-
-
 # 2 Methods<a id="methods"></a>
 
-
-
-
-
 ## 2.1 Modeling Strategy<a id="modeling-strategy"></a>
-
-
-
 
 The development of the large molecule PBPK model in PK-Sim® has previously been described by Niederalt et al. ([Niederalt 2018](#5-references)). In short, the model was built as an extension of the PK-Sim® model for small molecules incorporating (i) the two-pore formalism for drug extravasation from blood plasma to interstitial space, (ii) lymph flow, (iii) endosomal clearance and (iv) protection from endosomal clearance by neonatal Fc receptor (FcRn) mediated recycling. 
 
@@ -86,13 +54,7 @@ Details about input data (physicochemical, *in vitro* and PK) can be found in  [
 
 Details about the structural model and its parameters can be found in  [Section 2.3](#23-model-parameters-and-assumptions).
 
-
-
-
-
-
 ## 2.2 Data<a id="methods-data"></a>
-
 
 ### 2.2.1 In vitro / physico-chemical Data <a id="invitro-and-physico-chemical-data"></a>
 
@@ -112,13 +74,7 @@ Published clinical PK data on tefibazumab in healthy adults were used.
 | :--------------------------- | :----------------------------------------------------------- |
 | [Reilly 2005](#5-references) | The plasma concentration–time profiles after single dose 15 min i.v. infusion of 2, 5, 10, or 20 mg/kg body weight in healthy adults were used. |
 
-
-
-
-
-
 ## 2.3 Model Parameters and Assumptions<a id="model-parameters-and-assumptions"></a>
-
 
 ### 2.3.1 Absorption <a id="model-parameters-and-assumptions-absorption"></a>
 
@@ -140,17 +96,9 @@ The Kd(FcRn) was fitted to the experimental plasma concentrations.
 | --------------- | --------------- | ---- |
 | `Kd(FcRn)`      | 0.85            | µM   |
 
-
-
-
-
-
 # 3 Results and Discussion<a id="results-and-discussion"></a>
 
-
 The PBPK model for tefibazumab was evaluated with clinical PK data.
-
-
 
 The next sections show:
 
@@ -158,19 +106,9 @@ The next sections show:
 2. the overall goodness of fit: [Section 3.2](#diagnostics-plots).
 3. simulated vs. observed concentration-time profiles for the clinical studies used for model building and for model verification: [Section 3.3](#ct-profiles).
 
-
-
-
-
-
 ## 3.1 Final input parameters<a id="final-input-parameters"></a>
 
-
 The compound parameter values of the final PBPK model are illustrated below.
-
-
-
-
 
 ### Compound: Tefibazumab
 
@@ -188,7 +126,6 @@ Plasma protein binding partner             | Unknown      |                     
 Radius (solute)                            | 0.00534 µm   | Publication-Taylor1984                        |             |        
 Kd (FcRn) in endosomal space               | 0.85 µmol/l  | Parameter Identification                      |             |        
 
-
 #### Calculation methods
 
 Name                    | Value          
@@ -196,27 +133,17 @@ Name                    | Value
 Partition coefficients  | PK-Sim Standard
 Cellular permeabilities | PK-Sim Standard
 
-
 #### Processes
 
-
-
-
-
-
 ## 3.2 Diagnostics Plots<a id="diagnostics-plots"></a>
-
 
 Below you find the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data used presented in [Section 2.2.2](#PK-data).
 
 The first plot shows observed versus simulated plasma concentration, the second weighted residuals versus time. 
 
-
-
 <a id="table-3-1"></a>
 
 **Table 3-1: GMFE for Goodness of fit plot for concentration in plasma**
-
 
 |Group         |GMFE |
 |:-------------|:----|
@@ -226,165 +153,108 @@ The first plot shows observed versus simulated plasma concentration, the second 
 |5 mg/kg dose  |1.15 |
 |All           |1.20 |
 
-
 <br>
 <br>
-
 
 <a id="figure-3-1"></a>
 
 ![](images/006_section_results-and-discussion/008_section_diagnostics-plots/2_gof_plot_predictedVsObserved.png)
 
-
-
 **Figure 3-1: Goodness of fit plot for concentration in plasma**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-2"></a>
 
 ![](images/006_section_results-and-discussion/008_section_diagnostics-plots/3_gof_plot_residualsOverTime.png)
 
-
-
 **Figure 3-2: Goodness of fit plot for concentration in plasma**
 
-
 <br>
 <br>
-
-
-
-
 
 ## 3.3 Concentration-Time Profiles<a id="ct-profiles"></a>
 
-
 Simulated versus observed concentration-time profiles of all data listed in [Section 2.2.2](#PK-data) are presented below.
-
-
 
 <a id="figure-3-3"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/1_time_profile_plot_Tefibazumab_Tefibazumab_2mgkg_Kd_fit.png)
 
-
-
 **Figure 3-3: Plasma concentration - 2 mg/kg dose (linear scale)**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-4"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/2_time_profile_plot_Tefibazumab_Tefibazumab_2mgkg_Kd_fit.png)
 
-
-
 **Figure 3-4: Plasma concentration - 2 mg/kg dose (log scale)**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-5"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/3_time_profile_plot_Tefibazumab_Tefibazumab_5mgkg_Kd_fit.png)
 
-
-
 **Figure 3-5: Plasma concentration - 5 mg/kg dose (linear scale)**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-6"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/4_time_profile_plot_Tefibazumab_Tefibazumab_5mgkg_Kd_fit.png)
 
-
-
 **Figure 3-6: Plasma concentration - 5 mg/kg dose (log scale)**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-7"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/5_time_profile_plot_Tefibazumab_Tefibazumab_10mgkg_Kd_fit.png)
 
-
-
 **Figure 3-7: Plasma concentration - 10 mg/kg dose (linear scale)**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-8"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/6_time_profile_plot_Tefibazumab_Tefibazumab_10mgkg_Kd_fit.png)
 
-
-
 **Figure 3-8: Plasma concentration - 10 mg/kg dose (log scale)**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-9"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/7_time_profile_plot_Tefibazumab_Tefibazumab_20mgkg_Kd_fit.png)
 
-
-
 **Figure 3-9: Plasma concentration - 20 mg/kg dose (linear scale)**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-10"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/8_time_profile_plot_Tefibazumab_Tefibazumab_20mgkg_Kd_fit.png)
 
-
-
 **Figure 3-10: Plasma concentration - 20 mg/kg dose (log scale)**
 
-
 <br>
 <br>
-
-
-
-
 
 # 4 Conclusion<a id="conclusion"></a>
 
-
 The herein presented PBPK model adequately describes the pharmacokinetics of tefibazumab in adults after adjusting the affinity to FcRn except for the lowest dose for which the plasma concentrations are underestimated. The initial plasma concentrations are slightly underestimated also for higher doses.
 
-
-
-
-
 # 5 References<a id="main-references"></a>
-
 
 **Dall'Acqua 2006** Dall’Acqua WF, Kiener PA, Wu H. Properties of human IgG1s engineered for enhanced binding to the neonatal Fc receptor (FcRn). J Biol Chem. 2006 Aug; 281(33):23514-23524. doi: 10.1074/jbc.M604292200.
 
@@ -407,6 +277,4 @@ The herein presented PBPK model adequately describes the pharmacokinetics of tef
 **Tsuji 1983** Tsuji A, Yoshikawa T, Nishide K, Minami H, Kimura M, Nakashima E, Terasaki T, Miyamoto E, Nightingale CH, Yamana T. Physiologically based pharmacokinetic model for beta-lactam antibiotics I: tissue distribution and elimination in rats. J Pharm Sci. 1983 Nov;72(11):1239-1252. doi: 10.1002/jps.2600721103.
 
 **Zhou 2003** Zhou J, Johnson JE, Ghetie V, Ober RJ, Ward ES. Generation of mutated variants of the human form of the MHC class I-related receptor, FcRn, with increased affinity for mouse immunoglobulin G. J Mol Biol. 2003 Sep;332(4):901-913. doi: 10.1016/s0022-2836(03)00952-5.
-
-
 
