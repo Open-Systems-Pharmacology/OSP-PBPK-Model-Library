@@ -1,26 +1,14 @@
-
-
-
-
 # Building and Evaluation of a PBPK Model for alfentanil in Adults
 
-
-
-| Version                                         | 1.0-OSP12.0                                                   |
+| Version                                         | 3.0-OSP12.1                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
-| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Alfentanil-Model/releases/tag/v1.0 |
-| OSP Version                                     | 12.0                                                          |
-| Qualification Framework Version                 | 3.3                                                          |
-
-
-
-
+| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Alfentanil-Model/releases/tag/v3.0 |
+| OSP Version                                     | 12.1                                                          |
+| Qualification Framework Version                 | 3.4                                                          |
 
 This evaluation report and the corresponding PK-Sim project file are filed at:
 
 https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/
-
-
 
 # Table of Contents
 
@@ -38,32 +26,15 @@ https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/
  * [4 Conclusion](#conclusion)
  * [5 References](#main-references)
 
-
-
-
-
 # 1 Introduction<a id="introduction"></a>
-
 
 Alfentanil is a potent analgesic synthetic opioid. It is fast but short-acting and used for anesthesia during surgery. Alfentanil is metabolized solely by CYP3A4 ([Phimmasone 2001](#5-references)). Like midazolam, alfentanil is not a substrate for P-gp ([Wandel 2002](#5-references)) and less than 1% of an alfentanil dose is excreted unchanged in urine ([Meuldermans 1988](#5-references)).
 
 Although in clinical use alfentanil is always administered intravenously (iv), some DDI studies published plasma concentration-time profiles of alfentanil following oral ingestion. The presented alfentanil model was established using clinical PK data of 8 publications, covering iv and oral (po) administration and a dosing range from 0.015 to 0.075 mg/kg as well as absolute doses of 1 mg iv and 4 mg po. The established model is based on the model developed by Hanke *et al.* ([Hanke 2018](#5-references)) and applies metabolism by CYP3A4 and glomerular filtration.  
 
-
-
-
-
 # 2 Methods<a id="methods"></a>
 
-
-
-
-
-
-
-
 ## 2.1 Modeling Strategy<a id="modeling-strategy"></a>
-
 
 The general concept of building a PBPK model has previously been described by e.g. Kuepfer et al. ([Kuepfer 2016](#5-references)). The relevant anthropometric (height, weight) and physiological information (e.g. blood flows, organ volumes, binding protein concentrations, hematocrit, cardiac output) in adults was gathered from the literature and has been previously published ([Willmann 2007](#5-references)). This information was incorporated into PK-Sim® and was used as default values for the simulations in adults.
 
@@ -77,13 +48,7 @@ Details about input data (physicochemical, *in vitro* and clinical) can be found
 
 Details about the structural model and its parameters can be found in [Section 2.3](#23-model-parameters-and-assumptions).
 
-
-
-
-
-
 ## 2.2 Data<a id="data"></a>
-
 
 ### 2.2.1 In vitro / physicochemical Data
 
@@ -99,7 +64,6 @@ A literature search was performed to collect available information on physicoche
 | fu              | %        | 8.6        | [Gertz 2010](#5-references)       | Fraction unbound in plasma                                |
 |                 |          | 10.0       | [Edginton 2008](#5-references)    | Fraction unbound in plasma                                |
 |                 |          | 12.0       | [Almond 2016](#5-references)      | Fraction unbound in plasma                                |
-
 
 ### 2.2.2 Clinical Data
 
@@ -120,12 +84,7 @@ The following studies were used for model building:
 | [Meistelman 1987](#5-references) | Healthy subjects with a single iv dose of 0.02 mg/kg         |
 | [Phimmasone 2001](#5-references) | Healthy subjects with a single iv dose of 0.015 mg/kg        |
 
-
-
-
-
 ## 2.3 Model Parameters and Assumptions<a id="model-parameters-and-assumptions"></a>
-
 
 ### 2.3.1 Absorption
 
@@ -153,13 +112,7 @@ This is the result of the final parameter identification:
 | Basolateral mucosa permeability<br />(``P (interstitial->intracellular)``, ``P (intracellular->interstitial)``) | 5.415E-4        | cm/min |
 | `CYP3A4 - 1st order CL - intrinsic clearance` | 0.527           | l/min  |
 
-
-
-
-
-
 # 3 Results and Discussion<a id="results-and-discussion"></a>
-
 
 The PBPK model for alfentanil was developed and evaluated using publically available, clinical pharmacokinetic data from studies listed in [Section 2.2.2](#222-clinical-data).
 
@@ -169,19 +122,9 @@ The next sections show:
 2. the overall goodness of fit: [Section 3.2](#32-diagnostics-plots).
 3. simulated vs. observed concentration-time profiles for the clinical studies used for model building and for model verification: [Section 3.3](#33-concentration-time-profiles).
 
-
-
-
-
-
 ## 3.1 Final input parameters<a id="final-input-parameters"></a>
 
-
 The compound parameter values of the final PBPK model are illustrated below.
-
-
-
-
 
 ### Compound: Alfentanil
 
@@ -199,14 +142,12 @@ Is small molecule                                | Yes                     |    
 Molecular weight                                 | 416.52 g/mol            | Publication-Drugbank                                                                                                  |             |        
 Plasma protein binding partner                   | α1-acid glycoprotein    |                                                                                                                       |             |        
 
-
 #### Calculation methods
 
 Name                    | Value              
 ----------------------- | -------------------
 Partition coefficients  | Rodgers and Rowland
 Cellular permeabilities | PK-Sim Standard    
-
 
 #### Processes
 
@@ -222,7 +163,6 @@ Name                | Value              | Value Origin
 ------------------- | ------------------ | ---------------------------------------------------------------------------------------------------------------------
 Intrinsic clearance | 0.5272297928 l/min | Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 4' on 2019-09-06 11:28
 
-
 ##### Systemic Process: Glomerular Filtration-GFR
 
 Species: Human
@@ -233,31 +173,19 @@ Name         | Value | Value Origin
 ------------ | -----:| ----------------------
 GFR fraction |  0.06 | Publication-Hanke 2018
 
-
-
-
 ### Formulation: Solution
 
 Type: Dissolved
 
-
-
-
-
-
 ## 3.2 Diagnostics Plots<a id="diagnostics-plots"></a>
-
 
 Below you find the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data used presented in [Section 2.2.2](#222-clinical-data).
 
 The first plot shows observed versus simulated plasma concentration, the second weighted residuals versus time. 
 
-
-
 <a id="table-3-1"></a>
 
 **Table 3-1: GMFE for Goodness of fit plot for concentration in plasma**
-
 
 |Group                      |GMFE |
 |:--------------------------|:----|
@@ -265,399 +193,258 @@ The first plot shows observed versus simulated plasma concentration, the second 
 |Oral administration        |1.45 |
 |All                        |1.32 |
 
-
 <br>
 <br>
-
 
 <a id="figure-3-1"></a>
 
 ![](images/006_section_results-and-discussion/008_section_diagnostics-plots/2_gof_plot_predictedVsObserved.png)
 
-
-
 **Figure 3-1: Goodness of fit plot for concentration in plasma**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-2"></a>
 
 ![](images/006_section_results-and-discussion/008_section_diagnostics-plots/3_gof_plot_residualsOverTime.png)
 
-
-
 **Figure 3-2: Goodness of fit plot for concentration in plasma**
 
-
 <br>
 <br>
-
-
-
-
 
 ## 3.3 Concentration-Time Profiles<a id="ct-profiles"></a>
 
-
 Simulated versus observed concentration-time profiles of all data listed in [Section 2.2.2](#222-clinical-data) are presented below.
 
-
-
-
-
-
 ### 3.3.1 Model Building<a id="model-building"></a>
-
-
-
-
-
-
-
 
 <a id="figure-3-3"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/1_time_profile_plot_Alfentanil_Ferrier_1985__Alfentanil_iv_0_05_mg_kg.png)
 
-
-
 **Figure 3-3: Ferrier 1985, Alfentanil iv 0.05 mg/kg - log**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-4"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/2_time_profile_plot_Alfentanil_Ferrier_1985__Alfentanil_iv_0_05_mg_kg.png)
 
-
-
 **Figure 3-4: Ferrier 1985, Alfentanil iv 0.05 mg/kg - linear**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-5"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/3_time_profile_plot_Alfentanil_Kharasch_1997__Alfentanil_iv_0_02_mg_kg.png)
 
-
-
 **Figure 3-5: Kharasch 1997, Alfentanil iv 0.02 mg/kg - log**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-6"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/4_time_profile_plot_Alfentanil_Kharasch_1997__Alfentanil_iv_0_02_mg_kg.png)
 
-
-
 **Figure 3-6: Kharasch 1997, Alfentanil iv 0.02 mg/kg - lin**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-7"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/5_time_profile_plot_Alfentanil_Kharasch_2004__Alfentanil_iv_0_015_mg_kg.png)
 
-
-
 **Figure 3-7: Kharasch 2004, Alfentanil iv 0.015 mg/kg - log**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-8"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/6_time_profile_plot_Alfentanil_Kharasch_2004__Alfentanil_iv_0_015_mg_kg.png)
 
-
-
 **Figure 3-8: Kharasch 2004, Alfentanil iv 0.015 mg/kg - lin**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-9"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/7_time_profile_plot_Alfentanil_Kharasch_2004__Alfentanil_po_0_06_mg_kg.png)
 
-
-
 **Figure 3-9: Kharasch 2004, Alfentanil po 0.06 mg/kg - log**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-10"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/8_time_profile_plot_Alfentanil_Kharasch_2004__Alfentanil_po_0_06_mg_kg.png)
 
-
-
 **Figure 3-10: Kharasch 2004, Alfentanil po 0.06 mg/kg - lin**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-11"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/9_time_profile_plot_Alfentanil_Kharasch_2011__Alfentanil_iv_0_015_mg_kg.png)
 
-
-
 **Figure 3-11: Kharasch 2011, Alfentanil iv 0.015 mg/kg - log**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-12"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/10_time_profile_plot_Alfentanil_Kharasch_2011__Alfentanil_iv_0_015_mg_kg.png)
 
-
-
 **Figure 3-12: Kharasch 2011, Alfentanil iv 0.015 mg/kg - lin**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-13"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/11_time_profile_plot_Alfentanil_Kharasch_2011__Alfentanil_po_0_075_mg_kg.png)
 
-
-
 **Figure 3-13: Kharasch 2011, Alfentanil po 0.075 mg/kg - log**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-14"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/12_time_profile_plot_Alfentanil_Kharasch_2011__Alfentanil_po_0_075_mg_kg.png)
 
-
-
 **Figure 3-14: Kharasch 2011, Alfentanil po 0.075 mg/kg - lin**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-15"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/13_time_profile_plot_Alfentanil_Kharasch_2011b__Alfentanil_IV_1_mg.png)
 
-
-
 **Figure 3-15: Kharasch 2011b, Alfentanil IV 1 mg - log**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-16"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/14_time_profile_plot_Alfentanil_Kharasch_2011b__Alfentanil_IV_1_mg.png)
 
-
-
 **Figure 3-16: Kharasch 2011b, Alfentanil IV 1 mg - lin**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-17"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/15_time_profile_plot_Alfentanil_Kharasch_2011b__Alfentanil_PO_4_mg.png)
 
-
-
 **Figure 3-17: Kharasch 2011b, Alfentanil PO 4 mg - log**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-18"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/16_time_profile_plot_Alfentanil_Kharasch_2011b__Alfentanil_PO_4_mg.png)
 
-
-
 **Figure 3-18: Kharasch 2011b, Alfentanil PO 4 mg - lin**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-19"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/21_time_profile_plot_Alfentanil_Meistelman_1987__20_g_kg__adult_male_individual.png)
 
-
-
 **Figure 3-19: Meistelman 1987, 20µg/kg, adult male individual - log**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-20"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/22_time_profile_plot_Alfentanil_Meistelman_1987__20_g_kg__adult_male_individual.png)
 
-
-
 **Figure 3-20: Meistelman 1987, 20µg/kg, adult male individual - lin**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-21"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/23_time_profile_plot_Alfentanil_Phimmasone_2001__Alfentanil_iv_0_015_mg_kg.png)
 
-
-
 **Figure 3-21: Phimmasone 2001, Alfentanil iv 0.015 mg/kg - log**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-22"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/24_time_profile_plot_Alfentanil_Phimmasone_2001__Alfentanil_iv_0_015_mg_kg.png)
 
-
-
 **Figure 3-22: Phimmasone 2001, Alfentanil iv 0.015 mg/kg - lin**
 
-
 <br>
 <br>
-
-
-
-
 
 ### 3.3.2 Model Verification<a id="model-verification"></a>
-
-
-
-
-
-
-
 
 <a id="figure-3-23"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/17_time_profile_plot_Alfentanil_Kharasch_2012__Alfentanil_iv_0_02_mg_kg.png)
 
-
-
 **Figure 3-23: Kharasch 2012, Alfentanil iv 0.02 mg/kg - log**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-24"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/18_time_profile_plot_Alfentanil_Kharasch_2012__Alfentanil_iv_0_02_mg_kg.png)
 
-
-
 **Figure 3-24: Kharasch 2012, Alfentanil iv 0.02 mg/kg - lin**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-25"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/19_time_profile_plot_Alfentanil_Kharasch_2012__Alfentanil_po_0_043_mg_kg.png)
 
-
-
 **Figure 3-25: Kharasch 2012, Alfentanil po 0.043 mg/kg - log**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-26"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/20_time_profile_plot_Alfentanil_Kharasch_2012__Alfentanil_po_0_043_mg_kg.png)
 
-
-
 **Figure 3-26: Kharasch 2012, Alfentanil po 0.043 mg/kg - lin**
 
-
 <br>
 <br>
-
-
-
-
 
 # 4 Conclusion<a id="conclusion"></a>
-
 
 The herein presented PBPK model adequately describes the pharmacokinetics of alfentanil after iv and oral administration of a variety of doses to healthy adults. Parameters that were optimized during parameter identification are in a close range to the measured or calculated values and, consistent with literature, no additional active processes were needed to describe the PK of alfentanil.
 
 In conclusion, the presented alfentanil PBPK model is well-suited to be applied in drug-drug-interaction scenarios to predict the interaction potential. 
 
-
-
-
-
 # 5 References<a id="main-references"></a>
-
 
 **Almond 2016** Almond, L.M. et al. Prediction of drug-drug interactions arising from CYP3A induction using a physiologically based dynamic model. Drug Metab. Dispos. 44, 821–32 (2016).
 
@@ -702,6 +489,4 @@ In conclusion, the presented alfentanil PBPK model is well-suited to be applied 
 **Wandel 2002** Wandel, C., Kim, R., Wood, M. & Wood, A. Interaction of morphine, fentanyl, sufentanil, alfentanil, and loperamide with the efflux drug transporter P-glycoprotein. Anesthesiology 96, 913–920 (2002).
 
 **Willmann 2007** Willmann S, Höhn K, Edginton A, Sevestre M, Solodenko J, Weiss W, Lippert J, Schmitt W. Development of a physiology-based whole-body population model for assessing the influence of individual variability on the pharmacokinetics of drugs. J Pharmacokinet Pharmacodyn. 2007, 34(3): 401-431.
-
-
 
