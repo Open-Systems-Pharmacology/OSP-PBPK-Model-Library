@@ -1,22 +1,14 @@
-
-
-
-
 # Building and evaluation of a PBPK model for Mexiletine in adults
 
-
-
-| Version                                         | 1.0-OSP12.0                                                   |
+| Version                                         | 2.0-OSP12.1                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
-| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Mexiletine-Model/releases/tag/v1.0 |
-| OSP Version                                     | 12.0                                                          |
-| Qualification Framework Version                 | 3.3                                                          |
+| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Mexiletine-Model/releases/tag/v2.0 |
+| OSP Version                                     | 12.1                                                          |
+| Qualification Framework Version                 | 3.4                                                          |
 
 This evaluation report and the corresponding PK-Sim project file are filed at:
 
 https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/
-
-
 
 # Table of Contents
 
@@ -35,12 +27,7 @@ https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/
  * [5 References](#main-references)
  * [6 Glossary](#glossary)
 
-
-
-
-
 # 1 Introduction<a id="introduction"></a>
-
 
 The presented PBPK model of mexiletine has been developed to be used in a PBPK Drug-Drug-Interactions (DDI) network with mexiletine as a substrate and inhibitor of CYP1A2.
 
@@ -56,22 +43,9 @@ Mexiletine is a non-selective voltage-gated sodium channel blocker which belongs
 
 After i.v. administration, mexiletine shows linear pharmacokinetics in the dose range 167-200 mg (free base) and healthy volunteers and patients show similar profiles. p.o. data appear dose linear in the range of 83-500 mg as free base. The summary of product characteristics (SPC) for mexiletine ([Mexiletine, Drugs.com](#5-references)) reports that absorption rate of mexiletine is reduced in clinical situations such as acute myocardial infarction in which gastric emptying time is increased. For this reason, clinical data from patients after p.o. administration have not been considered during model development.
 
-
-
-
-
-
 # 2 Methods<a id="methods"></a>
 
-
-
-
-
-
-
-
 ## 2.1 Modeling Strategy<a id="modeling-strategy"></a>
-
 
 The general workflow for building an adult PBPK model has been described by Kuepfer et al. ([Kuepfer 2016](#5-references)). Relevant information on the anthropometry (height, weight) was gathered from the respective clinical study, if reported. Information on physiological parameters (e.g. blood flows, organ volumes, hematocrit) in adults was gathered from the literature and has been incorporated in PK-Sim® as described previously ([Willmann 2007](#5-references)). The  applied activity and variability of plasma proteins and active processes that are integrated into PK-Sim® are described in the publicly available 'PK-Sim® Ontogeny Database Version 7.3' ([PK-Sim Ontogeny Database Version 7.3](#5-references)).
 
@@ -91,12 +65,7 @@ Details about input data (physicochemical, *in vitro* and clinical) can be found
 
 Details about the structural model and its parameters can be found in [Section 2.3](#23-model-parameters-and-assumptions).
 
-
-
-
-
 ## 2.2 Data<a id="data"></a>
-
 
 ### 2.2.1 In vitro and physico-chemical data
 
@@ -135,12 +104,7 @@ A literature search was performed to collect available clinical data on mexileti
 
 **Table 2:**<a name="table-2"></a> Literature sources of clinical concentration data of mexiletine used for model development and validation. *\*: single dose unless otherwise specified; EM: extensive metabolizers; PM: poor metabolizers; <sup>+</sup>: Data used for final parameter identification*
 
-
-
-
-
 ## 2.3 Model Parameters and Assumptions<a id="model-parameters-and-assumptions"></a>
-
 
 ### 2.3.1 Absorption
 
@@ -177,12 +141,7 @@ Following parameter values were estimated for the model:
 - `Plasma clearance` of total Liver Plasma Clearance (divided between three processes in final model)
 - `Intestinal permeability (transcellular)`
 
-
-
-
-
 # 3 Results and Discussion<a id="results-and-discussion"></a>
-
 
 The next sections show:
 
@@ -190,15 +149,9 @@ The next sections show:
 2. Overall goodness of fit: [Section 3.2](#32-diagnostics-plots).
 3. Simulated vs. observed concentration-time profiles for the clinical studies used for model building and for model verification: [Section 3.3](#33-concentration-time-profiles).
 
-
-
-
-
 ## 3.1 Final input parameters<a id="final-input-parameters"></a>
 
-
 The parameter values of the final PBPK model are illustrated below.
-
 
 ### Compound: Mexiletine
 
@@ -216,14 +169,12 @@ Is small molecule                                | Yes                     |    
 Molecular weight                                 | 179.26 g/mol            | Database-DrugBank DB00379 |             |        
 Plasma protein binding partner                   | Albumin                 |                           |             |        
 
-
 #### Calculation methods
 
 Name                    | Value              
 ----------------------- | -------------------
 Partition coefficients  | Rodgers and Rowland
 Cellular permeabilities | PK-Sim Standard    
-
 
 #### Processes
 
@@ -240,7 +191,6 @@ Name                | Value            | Value Origin
 Intrinsic clearance | 0 l/min          |                                                                                                         
 Specific clearance  | 0.07944444 1/min | Other-Assumption-28.6% of 0.50 tot hep spec CL - divided by 1.8 µmol/l reference concentration of CYP1A2
 
-
 ##### Metabolizing Enzyme: CYP2D6-Linear fit
 
 Species: Human
@@ -253,7 +203,6 @@ Name                | Value         | Value Origin
 ------------------- | ------------- | --------------------------------------------------------------------------------------------------------
 Intrinsic clearance | 0 l/min       |                                                                                                         
 Specific clearance  | 0.46375 1/min | Other-Assumption-37.1% of 0.50 tot hep spec CL - divided by 0.4 µmol/l reference concentration of CYP2D6
-
 
 ##### Systemic Process: Total Hepatic Clearance-Linear fit
 
@@ -268,7 +217,6 @@ Lipophilicity (experiment)    | 2.3770265519 Log Units |
 Plasma clearance              | 0 ml/min/kg            |                                               
 Specific clearance            | 0.1715 1/min           | Other-Assumption-34.3% of 0.50 tot hep spec CL
 
-
 ##### Systemic Process: Renal Clearances-CLR - Rmex - Labbe2000
 
 Species: Human
@@ -281,7 +229,6 @@ Fraction unbound (experiment) | 0.5                |
 Plasma clearance              | 0 ml/min/kg        |             
 Specific clearance            | 0.1434490274 1/min | Unknown     
 
-
 ##### Inhibition: CYP1A2-Wei 1991
 
 Molecule: CYP1A2
@@ -291,9 +238,6 @@ Molecule: CYP1A2
 Name | Value       | Value Origin        
 ---- | ----------- | --------------------
 Ki   | 0.28 µmol/l | Publication-Wei 1991
-
-
-
 
 ### Formulation: Mexiletine tablet
 
@@ -308,24 +252,15 @@ Lag time                         | 0 min  |
 Dissolution shape                | 0.92   |             
 Use as suspension                | Yes    |             
 
-
-
-
-
-
-
 ## 3.2 Diagnostics Plots<a id="diagnostics-plots"></a>
-
 
 The following section displays the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data listed in [Section 2.2.2](#222-clinical-data).
 
 The first plot shows observed versus simulated plasma concentration, the second weighted residuals versus time. 
 
-
 <a id="table-3-1"></a>
 
 **Table 3-1: GMFE for Mexiletine concentration in plasma**
-
 
 |Group                                       |GMFE |
 |:-------------------------------------------|:----|
@@ -334,247 +269,159 @@ The first plot shows observed versus simulated plasma concentration, the second 
 |Oral administration (model validation)      |1.24 |
 |All                                         |1.28 |
 
-
 <br>
 <br>
-
 
 <a id="figure-3-1"></a>
 
 ![](images/006_section_results-and-discussion/008_section_diagnostics-plots/2_gof_plot_predictedVsObserved.png)
 
-
-
 **Figure 3-1: Mexiletine concentration in plasma**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-2"></a>
 
 ![](images/006_section_results-and-discussion/008_section_diagnostics-plots/3_gof_plot_residualsOverTime.png)
 
-
-
 **Figure 3-2: Mexiletine concentration in plasma**
 
-
 <br>
 <br>
-
-
-
-
 
 ## 3.3 Concentration-Time Profiles<a id="ct-profiles"></a>
 
-
 Simulated versus observed concentration-time profiles of all data listed in [Section 2.2.2](#222-clinical-data) are presented below.
 
-
-
-
-
 ### 3.3.1 Model Building<a id="model-building"></a>
-
-
-
 
 <a id="figure-3-3"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/1_time_profile_plot_Mexiletine_Mexiletine_200_mg_iv_5_min.png)
 
-
-
 **Figure 3-3: Mexiletine 200 mg iv**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-4"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/2_time_profile_plot_Mexiletine_Mexiletine_200_mg_iv_30_min.png)
 
-
-
 **Figure 3-4: Mexiletine 200 mg iv 30 min**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-5"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/3_time_profile_plot_Mexiletine_Mexiletine_HCL_100_mg_po.png)
 
-
-
 **Figure 3-5: Mexiletine HCL 100 mg po**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-6"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/4_time_profile_plot_Mexiletine_Mexiletine_200_mg_po.png)
 
-
-
 **Figure 3-6: Mexiletine 200 mg po**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-7"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/5_time_profile_plot_Mexiletine_Mexiletine_HCL_200_mg_po.png)
 
-
-
 **Figure 3-7: Mexiletine HCL 200 mg po**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-8"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/6_time_profile_plot_Mexiletine_Mexiletine_HCL_200_mg_po_asian.png)
 
-
-
 **Figure 3-8: Mexiletine HCL 200 mg po asian**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-9"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/7_time_profile_plot_Mexiletine_Mexiletine_HCL_300_mg_po.png)
 
-
-
 **Figure 3-9: Mexiletine HCL 300 mg po**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-10"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/8_time_profile_plot_Mexiletine_Mexiletine_HCL_400_mg_po.png)
 
-
-
 **Figure 3-10: Mexiletine HCL 400 mg po**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-11"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/9_time_profile_plot_Mexiletine_Mexiletine_400_mg_po.png)
 
-
-
 **Figure 3-11: Mexiletine 400 mg po**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-12"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/10_time_profile_plot_Mexiletine_Mexiletine_HCL_600_mg_po.png)
 
-
-
 **Figure 3-12: Mexiletine HCL 600 mg po**
 
-
 <br>
 <br>
-
-
-
-
 
 ### 3.3.2 Model Verification<a id="model-verification"></a>
-
-
-
 
 <a id="figure-3-13"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/11_time_profile_plot_Mexiletine_Mexiletine_83_31_mg_po_bid_EM_prediction.png)
 
-
-
 **Figure 3-13: Mexiletine 83.31 mg po bid EM**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-14"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/12_time_profile_plot_Mexiletine_Mexiletine_83_31_mg_po_bid_PM_prediction.png)
 
-
-
 **Figure 3-14: Mexiletine 83.31 mg po bid PM**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-15"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/13_time_profile_plot_Mexiletine_Mexiletine_HCL_100_mg_po_pop.png)
 
-
-
 **Figure 3-15: Time Profile Analysis**
 
-
 <br>
 <br>
-
-
-
-
 
 # 4 Conclusion<a id="conclusion"></a>
-
 
 The PBPK model developed for mexiletine was able to accurately predict the time-profiles following i.v. and p.o. dosing of mexiletine in EM and PM phenotypes. Observed variability was generally larger than the predicted in population simulations. Depending on study population, smoking status or variation in CYP-phenotypes may lead to additional variability which might be not included in the PK-Sim ontogeny factor.
 
 The predicted fraction excreted in urine was similar to the fraction reported in the label (9% vs 10%). The predicted bioavailability was 85%, compared to the observed as per label of 90%.
 
-
-
-
-
 # 5 References<a id="main-references"></a>
-
 
 **Begg 1982** Begg, E., Chinwah, P., Webb, C., Day, R. & Wade, D. Enhanced metabolism of mexiletine after phenytoin administration. *British Journal of Clinical Pharmacology* **14**, 219–223 (1982).
 
@@ -606,12 +453,7 @@ The predicted fraction excreted in urine was similar to the fraction reported in
 
 **Willmann 2007** Willmann S, Höhn K, Edginton A, Sevestre M, Solodenko J, Weiss W, Lippert J, Schmitt W. Development of a physiology-based whole-body population model for assessing the influence of individual variability on the pharmacokinetics of drugs. *J Pharmacokinet Pharmacodyn* 2007, 34(3): 401-431.
 
-
-
-
-
 # 6 Glossary<a id="glossary"></a>
-
 
 | ADME    | Absorption, Distribution, Metabolism,  Excretion             |
 | ------- | ------------------------------------------------------------ |
@@ -665,6 +507,4 @@ The predicted fraction excreted in urine was similar to the fraction reported in
 | t.i.d   | Three times a day (ter in die)                               |
 | UGT     | Uridine  5'-diphospho-glucuronosyltransferase                |
 | UM      | Ultra-rapid metabolizers                                     |
-
-
 
