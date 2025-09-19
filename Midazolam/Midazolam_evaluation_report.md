@@ -1,28 +1,14 @@
-
-
-
-
 # Building and evaluation of a PBPK model for Midazolam in healthy adults
 
-
-
-
-
-| Version                                         | 1.0-OSP12.0                                                   |
+| Version                                         | 2.0-OSP12.1                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
-| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Midazolam-Model/releases/tag/v1.0 |
-| OSP Version                                     | 12.0                                                          |
-| Qualification Framework Version                 | 3.3                                                          |
-
-
-
-
+| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Midazolam-Model/releases/tag/v2.0 |
+| OSP Version                                     | 12.1                                                          |
+| Qualification Framework Version                 | 3.4                                                          |
 
 This evaluation report and the corresponding PK-Sim project file are filed at:
 
 https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/
-
-
 
 # Table of Contents
 
@@ -40,12 +26,7 @@ https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/
  * [4 Conclusion](#conclusion)
  * [5 References](#main-references)
 
-
-
-
-
 # 1 Introduction<a id="introduction"></a>
-
 
 Midazolam is a widely-used sedative, approved as premedication before surgical interventions. It is almost exclusively metabolized by CYP3A4 making it a sensitive probe and victim drug for the investigation of CYP3A4 activity *in vivo*. Midazolam shows substantial first pass metabolism resulting in a bioavailability of under 50%. Less than 1% of a midazolam dose is excreted unchanged in urine.
 
@@ -59,24 +40,9 @@ Model features include:
 - a decrease in the permeability between the intracellular and interstitial space (model parameters `P (intracellular->interstitial)` and `P (interstitial->intracellular)`) in intestinal mucosa to optimize quantitatively the extent of gut wall metabolism
 - and binding to a hypothetical binding partner in the brain to optimize a late redistribution phase in midazolam plasma concentrations.
 
-
-
-
-
-
-
-
 # 2 Methods<a id="methods"></a>
 
-
-
-
-
-
-
-
 ## 2.1 Modeling Strategy<a id="modeling-strategy"></a>
-
 
 The general concept of building a PBPK model has previously been described by Kuepfer et al. ([Kuepfer 2016](#5-references)). Relevant information on anthropometric (height, weight) and physiological parameters (e.g. blood flows, organ volumes, binding protein concentrations, hematocrit, cardiac output) in adults was gathered from the literature and has been previously published ([Willmann 2007](#5-references)). The information was incorporated into PK-Sim® and was used as default values for the simulations in adults.
 
@@ -94,15 +60,7 @@ Details about input data (physicochemical, *in vitro* and clinical) can be found
 
 Details about the structural model and its parameters can be found in [Section 2.3](#23-model-parameters-and-assumptions).
 
-
-
-
-
-
-
-
 ## 2.2 Data<a id="data"></a>
-
 
 ### 2.2.1 In vitro and physicochemical data
 
@@ -150,8 +108,6 @@ The following publications were found in adults for model building:
 | [Saari 2006](#5-references)   | Plasma PK profiles in healthy subjects with single dose administrations of a midazolam 7.5 mg tablet (in the absence of voriconazole) |
 | [Link 2008](#5-references)    | Plasma PK profiles in healthy subjects with single dose administrations of a midazolam 7.5 mg tablet (in the absence of rifampicin) |
 
-
-
 The following table shows the data from the excretion studies ([Thummel 1996](#5-references), [Hyland 2009](#5-references)) used for model building:
 
 | Observer                                                     | Value |
@@ -162,8 +118,6 @@ The following table shows the data from the excretion studies ([Thummel 1996](#5
 | Fraction excreted  to urine of unchanged midazolam after po administration (male) | 0.47% |
 | Fraction metabolized UGT1A4 (to midazolam-*N*-glucuronide) after iv administration | 2.16% |
 | Fraction metabolized UGT1A4 (to midazolam-*N*-glucuronide) after po administration | 1.29% |
-
-
 
 The following dosing scenarios were simulated and compared to respective data for model verification:
 
@@ -226,12 +180,7 @@ The following dosing scenarios were simulated and compared to respective data fo
 |                                                              | [Gurley 2008a](#5-references)         |
 | Mikus 2017<br />(4 mg po solution, followed by 2 mg iv administration 6 hours later) | [Mikus 2017](#5-references)           |
 
-
-
-
-
 ## 2.3 Model Parameters and Assumptions<a id="model-parameters-and-assumptions"></a>
-
 
 ### 2.3.1 Absorption
 
@@ -280,8 +229,6 @@ This is the result of the final parameter identification for the base model:
 
 <sup>*</sup> The value in the model was updated to 1.041 with the release of PK-Sim 10 to account for the updated calculation method of interstitial concentrations (please refer to the respective [release notes of version 10](https://github.com/Open-Systems-Pharmacology/Suite/releases/tag/v10.0)).
 
-
-
 This is the result of the final parameter identification for the dissolution parameters of a midazolam tablet:
 
 | Model Parameter                    | Optimized Value | Unit |
@@ -289,12 +236,7 @@ This is the result of the final parameter identification for the dissolution par
 | `Dissolution time (50% dissolved)` | 0.0107          | min  |
 | `Dissolution shape`                | 4.3803          |      |
 
-
-
-
-
 # 3 Results and Discussion<a id="results-and-discussion"></a>
-
 
 The PBPK model for midazolam was developed and verified with clinical pharmacokinetic data.
 
@@ -311,18 +253,9 @@ The next sections show:
 2. the overall goodness of fit: [Section 3.2](#32-diagnostics-plots).
 3. simulated vs. observed concentration-time profiles for the clinical studies used for model building and for model verification: [Section 3.3](#33-concentration-time-profiles).
 
-
-
-
-
 ## 3.1 Final input parameters<a id="final-input-parameters"></a>
 
-
 The compound parameter values of the final PBPK model are illustrated below.
-
-
-
-
 
 ### Compound: Midazolam
 
@@ -345,14 +278,12 @@ Is small molecule                                | Yes                     |    
 Molecular weight                                 | 325.78 g/mol            |                                                                                                                                                              |                    |        
 Plasma protein binding partner                   | Albumin                 |                                                                                                                                                              |                    |        
 
-
 #### Calculation methods
 
 Name                    | Value              
 ----------------------- | -------------------
 Partition coefficients  | Rodgers and Rowland
 Cellular permeabilities | PK-Sim Standard    
-
 
 #### Processes
 
@@ -367,7 +298,6 @@ Name | Value      | Value Origin
 koff | 1 1/min    | Parameter Identification-Parameter Identification-Value updated from 'PI Hohmann iv+po, Hyland feUr MDZG, Thummel feUr unchanged - Pint' on 2019-04-09 16:10
 Kd   | 1.8 nmol/l |                                                                                                                                                             
 
-
 ##### Systemic Process: Glomerular Filtration-Optimized
 
 Species: Human
@@ -377,7 +307,6 @@ Species: Human
 Name         |        Value | Value Origin                                                                                                                                                
 ------------ | ------------:| ------------------------------------------------------------------------------------------------------------------------------------------------------------
 GFR fraction | 0.6401025724 | Parameter Identification-Parameter Identification-Value updated from 'PI Hohmann iv+po, Hyland feUr MDZG, Thummel feUr unchanged - Pint' on 2019-04-09 16:10
-
 
 ##### Metabolizing Enzyme: CYP3A4-Optimized
 
@@ -390,7 +319,6 @@ Name                               | Value                        | Value Origin
 In vitro Vmax for liver microsomes | 850 pmol/min/mg mic. protein |                                                                                                                                                             
 Km                                 | 4 µmol/l                     | Other-In Vitro-aggregated from literature                                                                                                                   
 kcat                               | 8.7607941215 1/min           | Parameter Identification-Parameter Identification-Value updated from 'PI Hohmann iv+po, Hyland feUr MDZG, Thummel feUr unchanged - Pint' on 2019-04-09 16:10
-
 
 ##### Metabolizing Enzyme: UGT1A4-Optimized
 
@@ -405,9 +333,6 @@ Content of CYP proteins in liver microsomes | 58 pmol/mg mic. protein      | Pub
 Km                                          | 37.8 µmol/l                  | Publication-Klieber 2008                                                                                                                                    
 kcat                                        | 3.5911771641 1/min           | Parameter Identification-Parameter Identification-Value updated from 'PI Hohmann iv+po, Hyland feUr MDZG, Thummel feUr unchanged - Pint' on 2019-04-09 16:10
 
-
-
-
 ### Formulation: Tablet (Dormicum)
 
 Type: Weibull
@@ -421,25 +346,15 @@ Lag time                         | 0 min            |
 Dissolution shape                | 4.3802943225     | Parameter Identification-Parameter Identification-Value updated from 'PI Tablet 7.5 mg' on 2019-04-09 16:30
 Use as suspension                | Yes              |                                                                                                            
 
-
-
-
-
-
-
 ## 3.2 Diagnostics Plots<a id="diagnostics-plots"></a>
-
 
 Below you find the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data used presented in [Section 2.2.2](#222-clinical-data).
 
 The first plot shows observed versus simulated plasma concentration, the second weighted residuals versus time. 
 
-
-
 <a id="table-3-1"></a>
 
 **Table 3-1: GMFE for Midazolam concentration in plasma/blood**
-
 
 |Group                                              |GMFE |
 |:--------------------------------------------------|:----|
@@ -452,605 +367,402 @@ The first plot shows observed versus simulated plasma concentration, the second 
 |Oral administration, tablet (model verification)   |1.68 |
 |All                                                |1.45 |
 
-
 <br>
 <br>
-
 
 <a id="figure-3-1"></a>
 
 ![](images/006_section_results-and-discussion/008_section_diagnostics-plots/2_gof_plot_predictedVsObserved.png)
 
-
-
 **Figure 3-1: Midazolam concentration in plasma/blood**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-2"></a>
 
 ![](images/006_section_results-and-discussion/008_section_diagnostics-plots/3_gof_plot_residualsOverTime.png)
 
-
-
 **Figure 3-2: Midazolam concentration in plasma/blood**
 
-
 <br>
 <br>
-
-
-
-
 
 ## 3.3 Concentration-Time Profiles<a id="ct-profiles"></a>
 
-
 Simulated versus observed concentration-time profiles of all data listed in [Section 2.2.2](#222-clinical-data) are presented below.
 
-
-
-
-
-
 ### 3.3.1 Model Building<a id="model-building"></a>
-
-
-
-
-
-
-
 
 <a id="figure-3-3"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/1_time_profile_plot_Midazolam_iv_0_001_mg__5_min_.png)
 
-
-
 **Figure 3-3: iv 0.001 mg (5 min) - Plasma**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-4"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/2_time_profile_plot_Midazolam_iv_1_mg__5_min_.png)
 
-
-
 **Figure 3-4: iv 1 mg (5 min) - Plasma**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-5"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/3_time_profile_plot_Midazolam_iv_1_mg__5_min_.png)
 
-
-
 **Figure 3-5: iv 1 mg (5 min) - Urine**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-6"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/4_time_profile_plot_Midazolam_iv_1_mg__5_min_.png)
 
-
-
 **Figure 3-6: iv 1 mg (5 min) - fm UGT1A4**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-7"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/5_time_profile_plot_Midazolam_po_0_003_mg__solution_.png)
 
-
-
 **Figure 3-7: po 0.003 mg (solution) - Plasma**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-8"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/6_time_profile_plot_Midazolam_po_3_mg__solution_.png)
 
-
-
 **Figure 3-8: po 3 mg (solution) - Plasma**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-9"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/7_time_profile_plot_Midazolam_po_3_mg__solution_.png)
 
-
-
 **Figure 3-9: po 3 mg (solution) - Urine**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-10"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/8_time_profile_plot_Midazolam_po_3_mg__solution_.png)
 
-
-
 **Figure 3-10: po 3 mg (solution) - fm UGT1A4**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-11"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/9_time_profile_plot_Midazolam_po_7_5_mg__tablet_.png)
 
-
-
 **Figure 3-11: po 7.5 mg (tablet) - Plasma**
 
-
 <br>
 <br>
-
-
-
-
 
 ### 3.3.2 Model Verification<a id="model-verification"></a>
-
-
-
-
 
 <a id="figure-3-12"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/10_time_profile_plot_Midazolam_iv_0_05_mg_kg__2_min_.png)
 
-
-
 **Figure 3-12: iv 0.05 mg/kg (2 min) - Plasma**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-13"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/11_time_profile_plot_Midazolam_iv_0_05_mg_kg__30_min_.png)
 
-
-
 **Figure 3-13: iv 0.05 mg/kg (30 min) - Whole blood**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-14"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/12_time_profile_plot_Midazolam_iv_0_05_mg_kg__bolus_.png)
 
-
-
 **Figure 3-14: iv 0.05 mg/kg (bolus) - Plasma**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-15"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/13_time_profile_plot_Midazolam_iv_0_075_mg_kg__1_min_.png)
 
-
-
 **Figure 3-15: iv 0.075 mg/kg (1 min) - Plasma**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-16"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/14_time_profile_plot_Midazolam_iv_0_15_mg_kg__bolus_.png)
 
-
-
 **Figure 3-16: iv 0.15 mg/kg (bolus) - Plasma**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-17"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/15_time_profile_plot_Midazolam_iv_1_mg__2_min_.png)
 
-
-
 **Figure 3-17: iv 1 mg (2 min) [Korean] - Plasma**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-18"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/16_time_profile_plot_Midazolam_iv_1_mg__bolus_.png)
 
-
-
 **Figure 3-18: iv 1 mg (bolus) - Plasma**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-19"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/17_time_profile_plot_Midazolam_iv_1_mg__bolus_.png)
 
-
-
 **Figure 3-19: iv 1 mg (bolus) - Urine**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-20"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/18_time_profile_plot_Midazolam_iv_1_mg__bolus_.png)
 
-
-
 **Figure 3-20: iv 1 mg (bolus) - fm UGT1A4**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-21"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/19_time_profile_plot_Midazolam_iv_2_mg__2_min_.png)
 
-
-
 **Figure 3-21: iv 2 mg (2 min) - Plasma**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-22"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/20_time_profile_plot_Midazolam_iv_2_mg__bolus_.png)
 
-
-
 **Figure 3-22: iv 2 mg (bolus) - Plasma**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-23"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/21_time_profile_plot_Midazolam_iv_5_mg__30_sec_.png)
 
-
-
 **Figure 3-23: iv 5 mg (30 sec) - Plasma**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-24"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/22_time_profile_plot_Midazolam_iv_5_mg__bolus_.png)
 
-
-
 **Figure 3-24: iv 5 mg (bolus) - Plasma**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-25"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/23_time_profile_plot_Midazolam_Mikus_2017.png)
 
-
-
 **Figure 3-25: Mikus 2017 (4 mg po followed by 2 mg iv)**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-26"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/24_time_profile_plot_Midazolam_po_0_01_mg__solution_.png)
 
-
-
 **Figure 3-26: po 0.01 mg (solution) - Plasma**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-27"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/25_time_profile_plot_Midazolam_po_0_075_mg__solution_.png)
 
-
-
 **Figure 3-27: po 0.075 mg (solution) - Plasma**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-28"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/26_time_profile_plot_Midazolam_po_0_075_mg_kg__syrup_.png)
 
-
-
 **Figure 3-28: po 0.075 mg/kg (syrup) - Plasma**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-29"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/27_time_profile_plot_Midazolam_po_1_mg__solution_.png)
 
-
-
 **Figure 3-29: po 1 mg (solution) - Plasma**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-30"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/28_time_profile_plot_Midazolam_po_10_mg__solution_.png)
 
-
-
 **Figure 3-30: po 10 mg (solution) - Plasma**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-31"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/29_time_profile_plot_Midazolam_po_10_mg__tablet_.png)
 
-
-
 **Figure 3-31: po 10 mg (tablet) - Plasma**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-32"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/30_time_profile_plot_Midazolam_po_15_mg__tablet_.png)
 
-
-
 **Figure 3-32: po 15 mg (tablet) - Plasma**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-33"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/31_time_profile_plot_Midazolam_po_15_mg__tablet____with_1h_after_high_fat_breakfast.png)
 
-
-
 **Figure 3-33: po 15 mg (tablet) - with 1h after high-fat breakfast - Plasma**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-34"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/32_time_profile_plot_Midazolam_po_2_mg__solution_.png)
 
-
-
 **Figure 3-34: po 2 mg (solution) - Plasma**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-35"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/33_time_profile_plot_Midazolam_po_20_mg__tablet_.png)
 
-
-
 **Figure 3-35: po 20 mg (tablet) - Plasma**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-36"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/34_time_profile_plot_Midazolam_po_3_5_mg__solution_.png)
 
-
-
 **Figure 3-36: po 3.5 mg (solution) - Whole blood**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-37"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/35_time_profile_plot_Midazolam_po_4_mg__solution_.png)
 
-
-
 **Figure 3-37: po 4 mg (solution) - Whole blood**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-38"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/36_time_profile_plot_Midazolam_po_40_mg__tablet_.png)
 
-
-
 **Figure 3-38: po 40 mg (tablet) - Plasma**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-39"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/37_time_profile_plot_Midazolam_po_5_mg__solution_.png)
 
-
-
 **Figure 3-39: po 5 mg (solution) - Plasma**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-40"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/38_time_profile_plot_Midazolam_po_6_mg__solution_.png)
 
-
-
 **Figure 3-40: po 6 mg (solution) - Plasma**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-41"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/39_time_profile_plot_Midazolam_po_7_5_mg__solution_.png)
 
-
-
 **Figure 3-41: po 7.5 mg (solution) - Plasma**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-42"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/40_time_profile_plot_Midazolam_po_8_mg__solution_.png)
 
-
-
 **Figure 3-42: po 8 mg (solution) - Plasma**
 
-
 <br>
 <br>
-
-
-
-
 
 # 4 Conclusion<a id="conclusion"></a>
-
 
 The herein presented PBPK model adequately describes the pharmacokinetics of midazolam in adults.
 
 In particular, it applies quantitative metabolism by CYP3A4. Thus, the model is fit for purpose to be applied for the investigation of drug-drug interactions with regard to its CYP3A4 metabolism.
 
-
-
-
-
-
 # 5 References<a id="main-references"></a>
-
 
 **Achour 2014** Achour B, Russell MR, Barber J, Rostami-Hodjegan A. Simultaneous quantification of the abundance of several cytochrome P450 and uridine 5'-diphospho-glucuronosyltransferase enzymes in human liver microsomes using multiplexed targeted proteomics. Drug Metab Dispos. 2014 Apr;42(4):500-10.
 
@@ -1201,7 +913,4 @@ In particular, it applies quantitative metabolism by CYP3A4. Thus, the model is 
 **Yu 2004** Yu KS, Cho JY, Jang IJ, Hong KS, Chung JY, Kim JR, Lim HS, Oh DS, Yi SY, Liu KH, Shin JG, Shin SG. Effect of the CYP3A5 genotype on the pharmacokinetics of intravenous midazolam during inhibited and induced metabolic states. Clin Pharmacol Ther. 2004 Aug;76(2):104-12.
 
 **Zimmermann 1996** Zimmermann T, Yeates RA, Laufen H, Scharpf F, Leitold M, Wildfeuer A. Influence of the antibiotics erythromycin and azithromycin on the pharmacokinetics and pharmacodynamics of midazolam. Arzneimittelforschung. 1996 Feb;46(2):213-7.
-
-
-
 
