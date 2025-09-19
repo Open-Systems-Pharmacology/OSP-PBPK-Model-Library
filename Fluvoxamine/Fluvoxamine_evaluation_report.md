@@ -1,28 +1,14 @@
-
-
-
-
 # Building and evaluation of a PBPK model for fluvoxamine in healthy adults
 
-
-
-
-
-| Version                                         | 1.0-OSP12.0                                                   |
+| Version                                         | 2.0-OSP12.1                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
-| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Fluvoxamine-Model/releases/tag/v1.0 |
-| OSP Version                                     | 12.0                                                          |
-| Qualification Framework Version                 | 3.3                                                          |
-
-
-
-
+| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Fluvoxamine-Model/releases/tag/v2.0 |
+| OSP Version                                     | 12.1                                                          |
+| Qualification Framework Version                 | 3.4                                                          |
 
 This evaluation report and the corresponding PK-Sim project file are filed at:
 
 https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/
-
-
 
 # Table of Contents
 
@@ -40,12 +26,7 @@ https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/
  * [4 Conclusion](#4)
  * [5 References](#5)
 
-
-
-
-
 # 1 Introduction<a id="introduction"></a>
-
 
 Fluvoxamine is a selective serotonin reuptake inhibitor used to treat major depression and obsessive compulsive disorder ([Perucca 1994](#5-references), [ANI Pharmaceuticals Inc. 2008](#5-references)) . Recommended doses are 50 to 300 mg once daily. The pharmacokinetics of orally administered single doses are linear. Following multiple oral administration, the pharmacokinetics at steady-state become non-linear, due to saturable Michaelis-Menten kinetics of the metabolic pathways ([Spigset 1998](#5-references)). Metabolism of fluvoxamine includes hydroxylation via CYP1A2 and O-demethylation via the very polymorphic CYP2D6 ([Miura 2007](#5-references), [Spigset 2001](#5-references)). Following oral administration fluvoxamine is excreted via the urine as metabolites ([DeBree 1983](#5-references)). The U.S. Food and Drug Administration (FDA) recommends fluvoxamine as strong clinical CYP1A2 and CYP2C19 index inhibitor to evaluate the impact of CYP1A2/CYP2C19 inhibition on CYP1A2/CYP2C19 substrates ([FDA 2017](#5-references)). Furthermore, the FDA lists fluvoxamine as moderate CYP3A4 inhibitor.
 
@@ -53,22 +34,9 @@ The aim of this project was to develop a PBPK model of fluvoxamine, mechanistica
 
 The presented model was developed and evaluated by Britz et al. ([Britz 2019](#5-references))
 
-
-
-
-
-
 # 2 Methods<a id="methods"></a>
 
-
-
-
-
-
-
-
 ## 2.1 Modeling Strategy<a id="modeling-strategy"></a>
-
 
 The general workflow for building an adult PBPK model has been described by Kuepfer et al. ([Kuepfer 2016](#5-references)). Relevant information on the anthropometry (height, weight) was gathered from the respective clinical study, if reported. Information on physiological parameters (e.g. blood flows, organ volumes, hematocrit) in adults was gathered from the literature and has been incorporated in PK-Sim® as described previously ([Willmann 2007](#5-references)). The  applied activity and variability of plasma proteins and active processes that are integrated into PK-Sim® are described in the publicly available 'PK-Sim® Ontogeny Database Version 7.3' ([PK-Sim Ontogeny Database Version 7.3](#5-references)).
 
@@ -86,13 +54,7 @@ Details about input data (physicochemical, *in vitro* and clinical) can be found
 
 Details about the structural model and its parameters can be found in [Section 2.3](#23-model-parameters-and-assumptions).
 
-
-
-
-
-
 ## 2.2 Data<a id="22"></a>
-
 
 ### 2.2.1	In vitro / physico-chemical Data
 
@@ -158,13 +120,7 @@ The following studies were used for model verification:
 | [Bahrami 2007](#5-references)          | Healthy adults with oral administration of 100 mg as single dose |
 | [de Bree 1983](#5-references)          | Healthy adults with oral administration of 100 mg as single dose |
 
-
-
-
-
-
 ## 2.3 Model Parameters and Assumptions<a id="23"></a>
-
 
 ### 2.3.1	Absorption
 
@@ -194,7 +150,6 @@ To describe the inhibition of CYP1A2 by fluvoxamine, the reported K<sub>i</sub> 
 
 To describe the inhibition of CYP3A4 by fluvoxamine, the reported K<sub>i</sub> value of 1.6 µmol/L ([Olesen 2000](#5-references)) was included in the model.
 
-
 ### 2.3.5	Automated Parameter Identification
 
 This is the result of the final parameter identification.
@@ -208,13 +163,7 @@ This is the result of the final parameter identification.
 | `kcat` (CYP2D6) *extensive metabolizers (EM)* | 110.56          | 1/min     |
 | `Specific intestinal permeability`            | 2.74 E-6        | dm/min    |
 
-
-
-
-
-
 # 3 Results and Discussion<a id="3"></a>
-
 
 The PBPK model for fluvoxamine was developed and verified with clinical pharmacokinetic data.
 
@@ -234,19 +183,9 @@ The next sections show:
 2. the overall goodness of fit: [Section 3.2](#32-diagnostics-plots).
 3. simulated vs. observed concentration-time profiles for the clinical studies used for model building and for model verification: [Section 3.3](#33-concentration-time-profiles).
 
-
-
-
-
-
 ## 3.1 Final input parameters<a id="final-input-parameters"></a>
 
-
 The compound parameter values of the final PBPK model are illustrated below.
-
-
-
-
 
 ### Compound: Fluvoxamine
 
@@ -264,14 +203,12 @@ Is small molecule                                | Yes                     |    
 Molecular weight                                 | 318.335 g/mol           |                                                                                                                                                   |             |        
 Plasma protein binding partner                   | Unknown                 |                                                                                                                                                   |             |        
 
-
 #### Calculation methods
 
 Name                    | Value          
 ----------------------- | ---------------
 Partition coefficients  | Schmitt        
 Cellular permeabilities | PK-Sim Standard
-
 
 #### Processes
 
@@ -288,7 +225,6 @@ Content of CYP proteins in liver microsomes | 45 pmol/mg mic. protein    | Unkno
 Km                                          | 0.0073460807948 µmol/l     |             
 kcat                                        | 0.0155447966 1/min         | Unknown     
 
-
 ##### Metabolizing Enzyme: CYP2D6-Miura2007
 
 Molecule: CYP2D6
@@ -301,7 +237,6 @@ In vitro Vmax/recombinant enzyme | 0.69 pmol/min/pmol rec. enzyme |
 Km                               | 76.3 µmol/l                    |                         
 kcat                             | 110.5561921693 1/min           | Parameter Identification
 
-
 ##### Systemic Process: Glomerular Filtration-4% Urine
 
 Species: Human
@@ -311,7 +246,6 @@ Species: Human
 Name         | Value | Value Origin
 ------------ | -----:| ------------:
 GFR fraction |     1 |             
-
 
 ##### Inhibition: CYP1A2-Karjalainen2008/Yao2001
 
@@ -324,7 +258,6 @@ Name | Value     | Value Origin
 Ki_c | 10 nmol/l | Publication-In Vitro-Karjalainen et al. In vitro inhibition of CYP1A2 by model inhibitors, anti-inflammatory analgesics and female sex steroids: predictability of in vivo interactions. Basic Clin. Pharmacol. Toxicol. 103, 157–65 (2008) and Yao, C. et al. Fluvoxamine-theophylline interaction: gap between in vitro and in vivo inhibition constants toward cytochrome P4501A2. Clin. Pharmacol. Ther. 70, 415–24 (2001)
 Ki_u | 10 nmol/l | Publication-In Vitro-Karjalainen et al. In vitro inhibition of CYP1A2 by model inhibitors, anti-inflammatory analgesics and female sex steroids: predictability of in vivo interactions. Basic Clin. Pharmacol. Toxicol. 103, 157–65 (2008) and Yao, C. et al. Fluvoxamine-theophylline interaction: gap between in vitro and in vivo inhibition constants toward cytochrome P4501A2. Clin. Pharmacol. Ther. 70, 415–24 (2001)
 
-
 ##### Inhibition: CYP3A4-Olesen2000/Yao2001
 
 Molecule: CYP3A4
@@ -335,31 +268,19 @@ Name | Value      | Value Origin
 ---- | ---------- | -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Ki   | 1.6 µmol/l | Publication-In Vitro-Olesen et al. Fluvoxamine-Clozapine drug interaction: inhibition in vitro of five cytochrome P450 isoforms involved in clozapine metabolism. J. Clin. Psychopharmacol. 20, 35–42 (2000) and Yao, C. et al. Fluvoxamine-theophylline interaction: gap between in vitro and in vivo inhibition constants toward cytochrome P4501A2. Clin. Pharmacol. Ther. 70, 415–24 (2001)
 
-
-
-
 ### Formulation: Solution
 
 Type: Dissolved
 
-
-
-
-
-
 ## 3.2 Diagnostics Plots<a id="diagnostics-plots"></a>
-
 
 Below you find the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data used presented in [Section 2.2.2](#222-clinical-data).
 
 The first plot shows observed versus simulated plasma concentration, the second weighted residuals versus time. 
 
-
-
 <a id="table-3-1"></a>
 
 **Table 3-1: GMFE for Goodness of fit plot for concentration in plasma**
-
 
 |Group            |GMFE |
 |:----------------|:----|
@@ -367,426 +288,276 @@ The first plot shows observed versus simulated plasma concentration, the second 
 |training dataset |1.21 |
 |All              |1.40 |
 
-
 <br>
 <br>
-
 
 <a id="figure-3-1"></a>
 
 ![](images/006_section_3/008_section_diagnostics-plots/2_gof_plot_predictedVsObserved.png)
 
-
-
 **Figure 3-1: Goodness of fit plot for concentration in plasma**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-2"></a>
 
 ![](images/006_section_3/008_section_diagnostics-plots/3_gof_plot_residualsOverTime.png)
 
-
-
 **Figure 3-2: Goodness of fit plot for concentration in plasma**
 
-
 <br>
 <br>
-
-
-
-
 
 ## 3.3 Concentration-Time Profiles<a id="concentration-time-profiles"></a>
 
-
 Simulated versus observed concentration-time profiles of all data listed in [Section 2.2.2](#222-clinical-data) are presented below.
 
-
-
-
-
-
 ### 3.3.1 Model Building<a id="model-building"></a>
-
-
-
-
-
-
-
 
 <a id="figure-3-3"></a>
 
 ![](images/006_section_3/009_section_concentration-time-profiles/010_section_model-building/7_time_profile_plot_Fluvoxamine_Model_Japanese_Society_of_Hospital_Pharmacists_2015__30_mg_iv.png)
 
-
-
 **Figure 3-3: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-4"></a>
 
 ![](images/006_section_3/009_section_concentration-time-profiles/010_section_model-building/8_time_profile_plot_Fluvoxamine_Model_de_Vries_1992__50_mg_bid.png)
 
-
-
 **Figure 3-4: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-5"></a>
 
 ![](images/006_section_3/009_section_concentration-time-profiles/010_section_model-building/9_time_profile_plot_Fluvoxamine_Model_Fleishaker_1994__50_100_mg_QD.png)
 
-
-
 **Figure 3-5: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-6"></a>
 
 ![](images/006_section_3/009_section_concentration-time-profiles/010_section_model-building/10_time_profile_plot_Fluvoxamine_Model_Labellarte_2004__150_mg_bid.png)
 
-
-
 **Figure 3-6: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-7"></a>
 
 ![](images/006_section_3/009_section_concentration-time-profiles/010_section_model-building/11_time_profile_plot_Fluvoxamine_Model_Spigset_1998__12_5_25_50_100_mg_bid.png)
 
-
-
 **Figure 3-7: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-8"></a>
 
 ![](images/006_section_3/009_section_concentration-time-profiles/010_section_model-building/14_time_profile_plot_Fluvoxamine_Model_de_Vries_1993__100_mg_SD.png)
 
-
-
 **Figure 3-8: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-9"></a>
 
 ![](images/006_section_3/009_section_concentration-time-profiles/010_section_model-building/15_time_profile_plot_Fluvoxamine_Model_de_Vries_1993__25_mg_SD.png)
 
-
-
 **Figure 3-9: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-10"></a>
 
 ![](images/006_section_3/009_section_concentration-time-profiles/010_section_model-building/16_time_profile_plot_Fluvoxamine_Model_de_Vries_1993__50_mg_SD.png)
 
-
-
 **Figure 3-10: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-11"></a>
 
 ![](images/006_section_3/009_section_concentration-time-profiles/010_section_model-building/23_time_profile_plot_Fluvoxamine_Model_Orlando_2010__50_mg_SD.png)
 
-
-
 **Figure 3-11: Time Profile Analysis**
 
-
 <br>
 <br>
-
-
-
-
 
 ### 3.3.2 Model Verification<a id="model-validation"></a>
-
-
-
-
-
-
-
 
 <a id="figure-3-12"></a>
 
 ![](images/006_section_3/009_section_concentration-time-profiles/011_section_model-validation/1_time_profile_plot_Fluvoxamine_Model_Christensen_2002__10_mg_bid_EM.png)
 
-
-
 **Figure 3-12: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-13"></a>
 
 ![](images/006_section_3/009_section_concentration-time-profiles/011_section_model-validation/2_time_profile_plot_Fluvoxamine_Model_Christensen_2002__10_mg_QD_PM.png)
 
-
-
 **Figure 3-13: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-14"></a>
 
 ![](images/006_section_3/009_section_concentration-time-profiles/011_section_model-validation/3_time_profile_plot_Fluvoxamine_Model_Christensen_2002__25_mg_bid_EM.png)
 
-
-
 **Figure 3-14: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-15"></a>
 
 ![](images/006_section_3/009_section_concentration-time-profiles/011_section_model-validation/4_time_profile_plot_Fluvoxamine_Model_Christensen_2002__25_mg_QD_PM.png)
 
-
-
 **Figure 3-15: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-16"></a>
 
 ![](images/006_section_3/009_section_concentration-time-profiles/011_section_model-validation/5_time_profile_plot_Fluvoxamine_Model_Spigset_1997__50_mg_SD_EM.png)
 
-
-
 **Figure 3-16: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-17"></a>
 
 ![](images/006_section_3/009_section_concentration-time-profiles/011_section_model-validation/6_time_profile_plot_Fluvoxamine_Model_Spigset_1997__50_mg_SD_PM.png)
 
-
-
 **Figure 3-17: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-18"></a>
 
 ![](images/006_section_3/009_section_concentration-time-profiles/011_section_model-validation/12_time_profile_plot_Fluvoxamine_Model_Bahrami_2007__100_mg_SD.png)
 
-
-
 **Figure 3-18: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-19"></a>
 
 ![](images/006_section_3/009_section_concentration-time-profiles/011_section_model-validation/13_time_profile_plot_Fluvoxamine_Model_de_Bree_1983__100_mg_SD.png)
 
-
-
 **Figure 3-19: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-20"></a>
 
 ![](images/006_section_3/009_section_concentration-time-profiles/011_section_model-validation/17_time_profile_plot_Fluvoxamine_Model_Fukasawa_2006__50_mg_SD_EM.png)
 
-
-
 **Figure 3-20: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-21"></a>
 
 ![](images/006_section_3/009_section_concentration-time-profiles/011_section_model-validation/18_time_profile_plot_Fluvoxamine_Model_Japanese_Society_of_Hospital_Pharmacists_2015__100_mg_SD.png)
 
-
-
 **Figure 3-21: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-22"></a>
 
 ![](images/006_section_3/009_section_concentration-time-profiles/011_section_model-validation/19_time_profile_plot_Fluvoxamine_Model_Japanese_Society_of_Hospital_Pharmacists_2015__200_mg_SD.png)
 
-
-
 **Figure 3-22: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-23"></a>
 
 ![](images/006_section_3/009_section_concentration-time-profiles/011_section_model-validation/20_time_profile_plot_Fluvoxamine_Model_Japanese_Society_of_Hospital_Pharmacists_2015__25_mg_SD.png)
 
-
-
 **Figure 3-23: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-24"></a>
 
 ![](images/006_section_3/009_section_concentration-time-profiles/011_section_model-validation/21_time_profile_plot_Fluvoxamine_Model_Japanese_Society_of_Hospital_Pharmacists_2015__50_mg_SD.png)
 
-
-
 **Figure 3-24: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-25"></a>
 
 ![](images/006_section_3/009_section_concentration-time-profiles/011_section_model-validation/22_time_profile_plot_Fluvoxamine_Model_Kunii_2005__50_mg_SD_EM.png)
 
-
-
 **Figure 3-25: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-26"></a>
 
 ![](images/006_section_3/009_section_concentration-time-profiles/011_section_model-validation/24_time_profile_plot_Fluvoxamine_Model_van_Harten_1991__50_mg_SD.png)
 
-
-
 **Figure 3-26: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-27"></a>
 
 ![](images/006_section_3/009_section_concentration-time-profiles/011_section_model-validation/25_time_profile_plot_Fluvoxamine_Model_Spigset_1995__50_mg_SD_EM_non_smoker.png)
 
-
-
 **Figure 3-27: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-28"></a>
 
 ![](images/006_section_3/009_section_concentration-time-profiles/011_section_model-validation/26_time_profile_plot_Fluvoxamine_Model_Spigset_1995__50_mg_SD_EM_smoker.png)
 
-
-
 **Figure 3-28: Time Profile Analysis**
 
-
 <br>
 <br>
-
-
-
-
 
 # 4 Conclusion<a id="4"></a>
-
 
 The herein presented PBPK model adequately describes the pharmacokinetics of fluvoxamine in adults.
 
 In particular, it applies quantitative metabolism by CYP1A2 and CYP2D6. The inhibition of CYP1A2 and CYP3A4 are implemented and evaluated (shown elsewhere) in the current model as well. Thus, the model is fit for purpose to be applied for the prediction of drug-drug interaction
 
-
-
-
-
-
 # 5 References<a id="5"></a>
-
 
 **ANI Pharmaceuticals Inc. 2008** ANI Pharmaceuticals Inc. Fluvoxamine maleate - prescribing information. (2008).
 
@@ -853,7 +624,4 @@ In particular, it applies quantitative metabolism by CYP1A2 and CYP2D6. The inhi
 **Yao 2001** Yao, C. et al. Fluvoxamine-theophylline interaction: gap between in vitro and in vivo inhibition constants toward cytochrome P4501A2. Clin. Pharmacol. Ther. 70, 415–24 (2001).
 
 **Zhou 2009** Zhou, S.F., Yang, L.P., Zhou, Z.W., Liu, Y.H. & Chan, E. Insights into the substrate specificity, inhibitors, regulation, and polymorphisms and the clinical impact of human cytochrome P450 1A2. AAPS J. 11, 481–494 (2009).
-
-
-
 
