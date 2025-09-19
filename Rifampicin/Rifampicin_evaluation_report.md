@@ -1,28 +1,14 @@
-
-
-
-
 # Building and evaluation of a PBPK model for Rifampicin in healthy adults
 
-
-
-
-
-| Version                                         | 1.0-OSP12.0                                                   |
+| Version                                         | 2.0-OSP12.1                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
-| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Rifampicin-Model/releases/tag/v1.0 |
-| OSP Version                                     | 12.0                                                          |
-| Qualification Framework Version                 | 3.3                                                          |
-
-
-
-
+| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Rifampicin-Model/releases/tag/v2.0 |
+| OSP Version                                     | 12.1                                                          |
+| Qualification Framework Version                 | 3.4                                                          |
 
 This evaluation report and the corresponding PK-Sim project file are filed at:
 
 https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/
-
-
 
 # Table of Contents
 
@@ -38,14 +24,9 @@ https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/
  * [4 Conclusion](#conclusion)
  * [5 References](#main-references)
 
-
-
-
-
 # 1 Introduction<a id="introduction"></a>
 
-
-Rifampicin is an antibiotic used for the treatment of mycobacterium infections, including tuberculosis and leprosy. For the investigation of DDIs, rifampicin is an established potent inducer of multiple drug metabolizing enzymes (CYP3A4, CYP2B6, CYP2C8, CYP2C9, CYP2C19) and transporters (P-gp, MRP2, MRP3, MRP4, OATP1A2). In addition to its inducing capabilities, rifampicin also competitively inhibits enzymes and transporters like CYP3A4, P-gp, OATP1B1 and OATP1B3.
+Rifampicin is an antibiotic used for the treatment of mycobacterium infections, including tuberculosis and leprosy. For the investigation of drug-drug interactions (DDIs), rifampicin is an established potent inducer of multiple drug metabolizing enzymes (CYP3A4, CYP2B6, CYP2C8, CYP2C9, CYP2C19) and transporters (P-gp, MRP2, MRP3, MRP4, OATP1A2). In addition to its inducing capabilities, rifampicin also competitively inhibits enzymes and transporters like CYP3A4, P-gp, OATP1B1 and OATP1B3.
 
 The herein presented model represents the rifampicin model originally published by Hanke *et al.* ([Hanke 2018](#5-references)), and extended in later publications ([Britz 2019](#5-references), [Türk 2019](#5-references), [Hanke 2021](#5-references)). The model was originally established using various clinical studies, covering a dosing range of 300 to 600 mg after intravenous and oral administration of rifampicin. The original model focused specifically on the integration of effects on **CYP3A4** and **P-gp** by rifampicin. Britz *et al.* ([Britz 2019](#5-references)) integrated rifampicin-mediated induction of **CYP1A2** (and CYP2E1), Türk *et al.* ([Türk 2019](#5-references)) extended the model with regard to effects on **CYP2C8** and **OATP1B1**. Later, [Hanke 2021](#5-references) updated **P-gp**, **OATP1B1** and **OATP1B3** interaction and added **CYP2C9**, **BCRP** and **OATP2B1** interaction.
 
@@ -53,22 +34,9 @@ It is known that for both CYP3A4 and P-gp, rifampicin shows inductive and inhibi
 
 Integrating and testing processes that were described as vital to the pharmacokinetics of rifampicin itself resulted in a final model that applies transport by OATP1B1, metabolism by arylacetamide deacetylase (AADAC), transport by P-gp and glomerular filtration. Furthermore, auto-induction of OATP1B1, AADAC and P-gp expression has been incorporated.
 
-
-
-
-
-
 # 2 Methods<a id="methods"></a>
 
-
-
-
-
-
-
-
 ## 2.1 Modeling Strategy<a id="modeling-strategy"></a>
-
 
 The general concept of building a PBPK model has previously been described by Kuepfer et al. ([Kuepfer 2016](#5-references)). Relevant information on anthropometric (height, weight) and physiological parameters (e.g. blood flows, organ volumes, binding protein concentrations, hematocrit, cardiac output) in adults was gathered from the literature and has been previously published ([Willmann 2007](#5-references)). The information was incorporated into PK-Sim® and was used as default values for the simulations in adults.
 
@@ -82,27 +50,17 @@ Details about input data (physicochemical, *in vitro* and clinical) can be found
 
 Details about the structural model and its parameters can be found in [Section 2.3](#23-model-parameters-and-assumptions).
 
-
-
-
-
-
-
-
 ## 2.2 Data<a id="data"></a>
-
 
 ### 2.2.1 In vitro and physicochemical data
 
 A literature search was performed to collect available information on physicochemical properties of rifampicin. The obtained information from literature is summarized in the table below, and is used for model building.
 
-
-
 | **Parameter**                           | **Unit**                           | **Value**        | Source                            | **Description**                                              |
 | :-------------------------------------- | ---------------------------------- | ---------------- | --------------------------------- | ------------------------------------------------------------ |
 | MW                                      | g/mol                              | 822.940          | [DrugBank DB01045](#5-references) | Molecular weight                                             |
-| pK<sub>a,base</sub>                     |                                    | 7.9              | [The Merck Index](#5-references)  | Basic dissociation constant                                  |
-| pK<sub>a,acid</sub>                     |                                    | 1.7              | [The Merck Index](#5-references)  | Acid dissociation constant                                   |
+| pK<sub>a,base</sub>                     |                                    | 7.9              | [Maggi 1966](#5-references)       | Basic dissociation constant                                  |
+| pK<sub>a,acid</sub>                     |                                    | 1.7              | [Maggi 1966](#5-references)       | Acid dissociation constant                                   |
 | Solubility (pH)                         | mg/L                               | 1100<br />(6.5)  | [Baneyx 2014](#5-references)      | Solubility                                                   |
 |                                         |                                    | 1400<br />(6.8)  | [Panchagnula 2006](#5-references) | Solubility                                                   |
 |                                         |                                    | 990<br />(4)     | [Agrawal 2005](#5-references)     | Solubility                                                   |
@@ -124,9 +82,9 @@ A literature search was performed to collect available information on physicoche
 | K<sub>i</sub> CYP3A4                    | µmol/L                             | 18.5             | [Kajosaari 2005](#5-references)    | CYP3A4 inhibition constant                                   |
 | E<sub>max</sub> P-gp                    | *dimensionless*                    | 2.5              | [Greiner 1999](#5-references)     | P-gp induction parameter based on an increased intestinal P-gp content in duodenal biopsies of 3.5 after rifampicin treatment |
 | K<sub>i</sub> P-gp                      | µmol/L                             | 9.1 (169.0)  | [Hanke 2021](#5-references) ([Reitman 2011](#5-references)) | P-gp inhibition constant                                     |
-| K<sub>i</sub> BCRP                      | µmol/L                             | 14 | [Hanke 2021](#5-references), [Prueksaritanont 2014](#5-references)) | BCRP inhibition constant                                  |
-| K<sub>i</sub> OATP1B1                   | µmol/L                             | 0.29 (0.477)     | [Hanke 2021](#5-references), ([Hirano 2006](#5-references)) | OATP1B1 inhibition constant (based on OATP1B1-mediated pitavastatin uptake) |
-| K<sub>i</sub> OATP1B3                   | µmol/L                             | 0.5 (0.9)        | [Hanke 2021](#5-references), ([Annaert 2010](#5-references)) | OATP1B3 inhibition constant                                  |
+| K<sub>i</sub> BCRP                      | µmol/L                             | 14 | [Hanke 2021](#5-references), [Prueksaritanont 2014](#5-references) | BCRP inhibition constant                                  |
+| K<sub>i</sub> OATP1B1                   | µmol/L                             | 0.29 (0.477)     | [Hanke 2021](#5-references) ([Hirano 2006](#5-references)) | OATP1B1 inhibition constant (based on OATP1B1-mediated pitavastatin uptake) |
+| K<sub>i</sub> OATP1B3                   | µmol/L                             | 0.5 (0.9)        | [Hanke 2021](#5-references) ([Annaert 2010](#5-references)) | OATP1B3 inhibition constant                                  |
 | K<sub>i</sub> OATP2B1                   | µmol/L                             | 78.2           | [Hanke 2021](#5-references), [Zhang 2019](#5-references) | OATP2B1 inhibition constant                                  |
 | E<sub>max</sub> CYP2C8                  | *dimensionless*                    | 3.2              | [Buckley 2014](#5-references)      | CYP2C8 E<sub>max</sub> in primary human hepatocytes (based on activity) |
 | K<sub>i</sub> CYP2C8                    | µmol/L                             | 30.2             | [Kajosaari 2005](#5-references)    | CYP2C8 inhibition constant                                   |
@@ -135,8 +93,6 @@ A literature search was performed to collect available information on physicoche
 | E<sub>max</sub> CYP2E1                  | *dimensionless*                    | 0.8              | [Rae 2001](#5-references)          | CYP2E1 fold induction of 1.8 calculated as the normalized ratio of expression in rifampin-treated versus vehicle control-treated cells |
 
 *AADAC* arylacetamide deacetylase
-
-
 
 ### 2.2.2 Clinical data
 
@@ -165,17 +121,7 @@ The following dosing scenarios were simulated and compared to respective data:
 |       |                |                           | Plasma, excretion into urine          | x                                                            | [Eon Labs Manufacturing, Inc. 1997](#5-references) |
 |       |                | OD (7 days)               | Plasma                                | x                                                            | [Baneyx 2014](#5-references)                       |
 
-
-
-
-
-
-
-
-
-
 ## 2.3 Model Parameters and Assumptions<a id="model-parameters-and-assumptions"></a>
-
 
 ### 2.3.1 Absorption
 
@@ -209,7 +155,7 @@ It was assumed that the mRNA concentration is proportional to the respective pro
 
 The kinetic parameters describing the rifampicin metabolism by AADAC and transport by P-gp and OATP1B1 were imputed in the model as follows: while Michaelis-Menten constants (K<sub>m</sub> values) of AADAC-catalyzed metabolism and the two transport processes were taken from reported in vitro experiments, enzymatic and transport turnover values (k<sub>cat</sub>) were optimized based on *in vivo* PK data (see [Section 2.3.5](#235-automated-parameter-identification)).
 
-Multiple dose studies that measured PK profiles of rifampicin at different days of a 600 mg po once daily regimen indicate that rifampicin exposure decreases over time due to auto-induction processes ([Baneyx 2014](#5-references)), ([Smythe 2012](#5-references)). *In-vitro* studies in human hepatocytes suggest that rifampicin induces P-gp ([Collett 2004](#5-references), [Dixit 2007](#5-references), [Williamson 2013](#5-references)) and OATP1B1 ([Dixit 2007](#5-references), [Williamson 2013](#5-references)). It has further been shown in DDI studies with prototypical substrates of these transporters (pravastatin and digoxin, respectively) that the induction of these transporters can also be observed *in vivo* ([Kyrklund 2000](#5-references), [Greiner 1999](#5-references)). As in the case of CYP3A4 induction, both induction processes are mediated via pregnane X receptor (PXR) ([Geick 2001](#5-references)). Furthermore, it has been demonstrated that B-esterases are inducible by rifampicin via PXR ([Smythe 2012](#5-references), [Staudinger 2010](#5-references)) and that AADAC, the enzyme catalyzing the main metabolic pathway of rifampicin, is regulated by PXR ([Zhang 2012](#5-references)). Therefore, (auto-)induction of P-gp, OATP1B1 and AADAC expression was assumed and implemented in the rifampicin model. Modelling induction of an endogenously expressed protein requires three parameters, in particular **EC<sub>50</sub>** (concentration at which induction is half maximum), **E<sub>max</sub>** (maximum induction effect on endogenous synthesis rate) and the endogenous **protein turnover (half-life)**. Little is known about these values *in vivo* for AADAC, P-gp and OATP1B1 induction. 
+Multiple dose studies that measured PK profiles of rifampicin at different days of a 600 mg po once daily regimen indicate that rifampicin exposure decreases over time due to auto-induction processes ([Baneyx 2014](#5-references), [Smythe 2012](#5-references)). *In-vitro* studies in human hepatocytes suggest that rifampicin induces P-gp ([Collett 2004](#5-references), [Dixit 2007](#5-references), [Williamson 2013](#5-references)) and OATP1B1 ([Dixit 2007](#5-references), [Williamson 2013](#5-references)). It has further been shown in DDI studies with prototypical substrates of these transporters (pravastatin and digoxin, respectively) that the induction of these transporters can also be observed *in vivo* ([Kyrklund 2000](#5-references), [Greiner 1999](#5-references)). As in the case of CYP3A4 induction, both induction processes are mediated via pregnane X receptor (PXR) ([Geick 2001](#5-references)). Furthermore, it has been demonstrated that B-esterases are inducible by rifampicin via PXR ([Smythe 2012](#5-references), [Staudinger 2010](#5-references)) and that AADAC, the enzyme catalyzing the main metabolic pathway of rifampicin, is regulated by PXR ([Zhang 2012](#5-references)). Therefore, (auto-)induction of P-gp, OATP1B1 and AADAC expression was assumed and implemented in the rifampicin model. Modelling induction of an endogenously expressed protein requires three parameters, in particular **EC<sub>50</sub>** (concentration at which induction is half maximum), **E<sub>max</sub>** (maximum induction effect on endogenous synthesis rate) and the endogenous **protein turnover (half-life)**. Little is known about these values *in vivo* for AADAC, P-gp and OATP1B1 induction. 
 
 #### (Auto-) Induction Processes: AADAC, P-gp and OATP1B1
 
@@ -293,8 +239,6 @@ An *in vitro* determined K<sub>i</sub> value for rifampicin ([Annaert 2010](#5-r
 
 Competitive inhibition of CYP2C9 by rifampicin was included using a dissociation (inhibition) constant (**K<sub>i</sub>**) of 78.2 µmol/L ([Zhang 2019](#5-references), [Hanke 2021](#5-references)).
 
-
-
 #### Summary DDI Parameters
 
 | Protein | K<sub>i</sub><br />[µmol/L] | E<sub>max</sub><br />                                | EC<sub>50,u</sub><br />[µmol/L] | Half-life<br />liver [h] | Half-life<br />intestine [h] |
@@ -310,8 +254,6 @@ Competitive inhibition of CYP2C9 by rifampicin was included using a dissociation
 | OATP1B1 | 0.477                       | [optimized](#235-automated-parameter-identification) | 0.34                            | 36 (assumed)             | 23 (assumed)                 |
 | OATP1B3 | 0.9                         | assumed to be equal to OATP1B1                       | 0.34                            | 36 (assumed)             | 23 (assumed)                 |
 | OATP2B1 | 78.2                        | -                                                    | -                               | -                        | -                            |
-
-
 
 ### 2.3.5 Automated Parameter Identification
 
@@ -332,13 +274,7 @@ This is the result of the final parameter identification:
 
 <sup>*</sup> The value in the model was updated to 5.210 with the release of PK-Sim 10 to account for the updated calculation method of interstitial concentrations (please refer to the respective [release notes of version 10](https://github.com/Open-Systems-Pharmacology/Suite/releases/tag/v10.0)).
 
-
-
-
-
-
 # 3 Results and Discussion<a id="results-and-discussion"></a>
-
 
 The rifampicin model was built and verified using various clinical studies. Overall, the model shows good performance to describe plasma concentration-time profiles over a dose range of 300 to 600 mg after intravenous and oral administration. 
 
@@ -348,18 +284,9 @@ The next sections show:
 2. the overall goodness of fit: [Section 3.2](#32-diagnostics-plots).
 3. simulated vs. observed concentration-time profiles for the clinical studies used for model building and for model verification: [Section 3.3](#33-concentration-time-profiles).
 
-
-
-
-
 ## 3.1 Final input parameters<a id="final-input-parameters"></a>
 
-
 The parameter values of the final PBPK model are illustrated below.
-
-
-
-
 
 ### Compound: Rifampicin
 
@@ -376,14 +303,12 @@ Is small molecule                                | Yes             |            
 Molecular weight                                 | 822.94 g/mol    |                                                            |                    |        
 Plasma protein binding partner                   | Albumin         |                                                            |                    |        
 
-
 #### Calculation methods
 
 Name                    | Value              
 ----------------------- | -------------------
 Partition coefficients  | Rodgers and Rowland
 Cellular permeabilities | PK-Sim Standard    
-
 
 #### Processes
 
@@ -400,7 +325,6 @@ Vmax                 | 6.5 µmol/l/min |
 Km                   | 195.1 µmol/l   |                                                       
 kcat                 | 9.865 1/min    | Publication-Parameter Identification-Hanke et al. 2018
 
-
 ##### Transport Protein: P-gp-Collett 2004
 
 Molecule: P-gp
@@ -413,7 +337,6 @@ Transporter concentration | 60 nmol/l       |
 Vmax                      | 2.87 µmol/l/min |                                                       
 Km                        | 55 µmol/l       |                                                       
 kcat                      | 0.6088 1/min    | Publication-Parameter Identification-Hanke et al. 2018
-
 
 ##### Transport Protein: OATP1B1-Tirona 2003
 
@@ -428,7 +351,6 @@ Vmax                      | 0.372 µmol/l/min |
 Km                        | 1.5 µmol/l       |                                                       
 kcat                      | 5.21004653 1/min | Publication-Parameter Identification-Hanke et al. 2018
 
-
 ##### Systemic Process: Glomerular Filtration-GFR
 
 Species: Human
@@ -438,7 +360,6 @@ Species: Human
 Name         | Value | Value Origin                            
 ------------ | -----:| ----------------------------------------
 GFR fraction |     1 | Publication-Assumption-Hanke et al. 2018
-
 
 ##### Inhibition: CYP2C8-Kajosaari 2005
 
@@ -450,7 +371,6 @@ Name | Value       | Value Origin
 ---- | ----------- | ---------------------------------
 Ki   | 30.2 µmol/l | Publication-Kajosaari et al. 2005
 
-
 ##### Inhibition: CYP2C9-Hanke 2021
 
 Molecule: CYP2C9
@@ -460,7 +380,6 @@ Molecule: CYP2C9
 Name | Value      | Value Origin            
 ---- | ---------- | ------------------------
 Ki   | 150 µmol/l | Publication-Yoshida 2012
-
 
 ##### Inhibition: CYP3A4-Kajosaari 2005
 
@@ -472,7 +391,6 @@ Name | Value       | Value Origin
 ---- | ----------- | ---------------------------------
 Ki   | 18.5 µmol/l | Publication-Kajosaari et al. 2005
 
-
 ##### Inhibition: BCRP-Hanke 2021
 
 Molecule: BCRP
@@ -482,7 +400,6 @@ Molecule: BCRP
 Name | Value     | Value Origin                    
 ---- | --------- | --------------------------------
 Ki   | 14 µmol/l | Publication-Prueksaritanont 2014
-
 
 ##### Inhibition: OATP1B1-Hanke 2021
 
@@ -494,7 +411,6 @@ Name | Value       | Value Origin
 ---- | ----------- | ----------------------------
 Ki   | 0.29 µmol/l | Publication-In Vitro-Bi 2019
 
-
 ##### Inhibition: OATP1B3-Hanke 2021
 
 Molecule: OATP1B3
@@ -504,7 +420,6 @@ Molecule: OATP1B3
 Name | Value      | Value Origin                
 ---- | ---------- | ----------------------------
 Ki   | 0.5 µmol/l | Publication-In Vitro-Bi 2019
-
 
 ##### Inhibition: OATP2B1-Hanke 2021
 
@@ -516,7 +431,6 @@ Name | Value       | Value Origin
 ---- | ----------- | -------------------------------
 Ki   | 78.2 µmol/l | Publication-In Vitro-Zhang 2019
 
-
 ##### Inhibition: P-gp-Hanke 2021
 
 Molecule: P-gp
@@ -526,7 +440,6 @@ Molecule: P-gp
 Name | Value      | Value Origin      
 ---- | ---------- | ------------------
 Ki   | 9.1 µmol/l | Other-In Vitro-NBI
-
 
 ##### Induction: CYP1A2-Chen 2010
 
@@ -539,7 +452,6 @@ Name | Value       | Value Origin
 EC50 | 0.34 µmol/l |             
 Emax | 0.65        |             
 
-
 ##### Induction: CYP2C8-Buckley 2014
 
 Molecule: CYP2C8
@@ -550,7 +462,6 @@ Name | Value       | Value Origin
 ---- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 EC50 | 0.34 µmol/l | Publication-Templeton IE, Houston JB, Galetin A. Predictive utility of in vitro rifampin induction data generated in fresh and cryopreserved human hepatocytes, Fa2N-4, and HepaRG cells. Drug Metab Dispos. 2011;39:1921–9; Shou M, Hayashi M, Pan Y, Xu Y, Morrissey K, Xu L, et al. Modeling, prediction, and in vitro in vivo correlation of CYP3A4 induction. Drug Metab Dispos. 2008;36:2355–70.
 Emax | 3.2         | Publication-Buckley DB, Wiegand CM, Prentiss PL, Fahmi OA. Time-course of cytochrome P450 (CYP450) induction in cultured human hepatocytes: Evaluation of activity and mRNA expression profiles for six inducible CYP450 enzymes. ISSX. 2013                                                                                                                                                          
-
 
 ##### Induction: CYP2E1-Rae 2001
 
@@ -563,7 +474,6 @@ Name | Value       | Value Origin
 EC50 | 0.34 µmol/l |             
 Emax | 0.8         |             
 
-
 ##### Induction: CYP3A4-Templeton 2011
 
 Molecule: CYP3A4
@@ -574,7 +484,6 @@ Name | Value       | Value Origin
 ---- | ----------- | --------------------------------------------------
 EC50 | 0.34 µmol/l | Publication-Templeton 2011 (weighted mean for FHH)
 Emax | 9           | Publication-Templeton 2011 (weighted mean for FHH)
-
 
 ##### Induction: AADAC-Assumed
 
@@ -587,7 +496,6 @@ Name | Value       | Value Origin
 EC50 | 0.34 µmol/l | Publication-Assumption-Hanke et al. 2018              
 Emax | 0.985       | Publication-Parameter Identification-Hanke et al. 2018
 
-
 ##### Induction: OATP1B1-Dixit 2007
 
 Molecule: OATP1B1
@@ -598,7 +506,6 @@ Name | Value       | Value Origin
 ---- | ----------- | ------------------------------------------------------
 EC50 | 0.34 µmol/l | Publication-Assumption-Hanke et al. 2018              
 Emax | 0.383       | Publication-Parameter Identification-Hanke et al. 2018
-
 
 ##### Induction: P-gp-Greiner 1999
 
@@ -611,25 +518,15 @@ Name | Value       | Value Origin
 EC50 | 0.34 µmol/l | Publication-Assumption-Hanke et al. 2018  
 Emax | 2.5         | Publication-Assumption-Greiner et al. 1999
 
-
-
-
-
-
-
 ## 3.2 Diagnostics Plots<a id="diagnostics-plots"></a>
-
 
 Below you find the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data used presented in [Section 2.2.2](#222-clinical-data).
 
 The first plot shows observed versus simulated plasma concentration and the second weighted residuals versus time for itraconazole, hydroxy-itraconazole, keto-itraconazole and N-desalkyl-itraconazole.
 
-
-
 <a id="table-3-1"></a>
 
 **Table 3-1: GMFE for Rifampicin concentration in plasma/serum**
-
 
 |Group         |GMFE |
 |:-------------|:----|
@@ -637,273 +534,185 @@ The first plot shows observed versus simulated plasma concentration and the seco
 |Rifampicin po |1.32 |
 |All           |1.37 |
 
-
 <br>
 <br>
-
 
 <a id="figure-3-1"></a>
 
 ![](images/006_section_results-and-discussion/008_section_diagnostics-plots/2_gof_plot_predictedVsObserved.png)
 
-
-
 **Figure 3-1: Rifampicin concentration in plasma/serum**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-2"></a>
 
 ![](images/006_section_results-and-discussion/008_section_diagnostics-plots/3_gof_plot_residualsOverTime.png)
 
-
-
 **Figure 3-2: Rifampicin concentration in plasma/serum**
 
-
 <br>
 <br>
-
-
-
-
 
 ## 3.3 Concentration-Time Profiles<a id="ct-profiles"></a>
 
-
 Simulated versus observed concentration-time profiles of all data listed in [Section 2.2.2](#222-clinical-data) are presented below.
-
-
 
 <a id="figure-3-3"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/1_time_profile_plot_Rifampicin_Rifampicin_iv_300_mg__0_5_h_.png)
 
-
-
 **Figure 3-3: Rifampicin iv 300 mg (0.5 h)**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-4"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/2_time_profile_plot_Rifampicin_Rifampicin_iv_300_mg__3_h_.png)
 
-
-
 **Figure 3-4: Rifampicin iv 300 mg (3 h)**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-5"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/3_time_profile_plot_Rifampicin_Rifampicin_iv_300_mg__3_h_.png)
 
-
-
 **Figure 3-5: Rifampicin iv 300 mg (3 h) - Urine**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-6"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/4_time_profile_plot_Rifampicin_Rifampicin_iv_450_mg__3_h_.png)
 
-
-
 **Figure 3-6: Rifampicin iv 450 mg (3 h)**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-7"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/5_time_profile_plot_Rifampicin_Rifampicin_iv_450_mg__3_h_.png)
 
-
-
 **Figure 3-7: Rifampicin iv 450 mg (3 h) - Urine**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-8"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/6_time_profile_plot_Rifampicin_Rifampicin_iv_600_mg__0_5_h_.png)
 
-
-
 **Figure 3-8: Rifampicin iv 600 mg (0.5 h)**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-9"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/7_time_profile_plot_Rifampicin_Rifampicin_iv_600_mg__3_h_.png)
 
-
-
 **Figure 3-9: Rifampicin iv 600 mg (3 h)**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-10"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/8_time_profile_plot_Rifampicin_Rifampicin_iv_600_mg__3_h_.png)
 
-
-
 **Figure 3-10: Rifampicin iv 600 mg (3 h) - Urine**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-11"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/9_time_profile_plot_Rifampicin_Rifampicin_iv_600_mg__3_h__MD_OD__7_days_.png)
 
-
-
 **Figure 3-11: Rifampicin iv 600 mg (3 h) MD OD (7 days)**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-12"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/10_time_profile_plot_Rifampicin_Rifampicin_po_300_mg.png)
 
-
-
 **Figure 3-12: Rifampicin po 300 mg**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-13"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/11_time_profile_plot_Rifampicin_Rifampicin_po_450_mg.png)
 
-
-
 **Figure 3-13: Rifampicin po 450 mg**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-14"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/12_time_profile_plot_Rifampicin_Rifampicin_po_450_mg_MD_OD__7_days_.png)
 
-
-
 **Figure 3-14: Rifampicin po 450 mg MD OD (7 days)**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-15"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/13_time_profile_plot_Rifampicin_Rifampicin_po_450_mg_MD_OD__7_days_.png)
 
-
-
 **Figure 3-15: Rifampicin po 450 mg MD OD (7 days) - Urine**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-16"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/14_time_profile_plot_Rifampicin_Rifampicin_po_450_mg_MD_OD__7_days_.png)
 
-
-
 **Figure 3-16: Rifampicin po 450 mg MD OD (7 days) - Bile**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-17"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/15_time_profile_plot_Rifampicin_Rifampicin_po_600_mg.png)
 
-
-
 **Figure 3-17: Rifampicin po 600 mg**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-18"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/16_time_profile_plot_Rifampicin_Rifampicin_po_600_mg.png)
 
-
-
 **Figure 3-18: Rifampicin po 600 mg**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-19"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/17_time_profile_plot_Rifampicin_Rifampicin_po_600_mg_MD_OD__7_days_.png)
 
-
-
 **Figure 3-19: Rifampicin po 600 mg MD OD (7 days)**
 
-
 <br>
 <br>
-
-
-
-
 
 # 4 Conclusion<a id="conclusion"></a>
-
 
 The herein presented PBPK model adequately describes the pharmacokinetics of rifampicin in adults. Little is known on the exact mass balance and the full metabolic profile of rifampicin. In this PBPK model, the implemented processes are those that were considered most vital to describe the pharmacokinetics of rifampicin and that could be informed either via *in vitro* data or via parameter optimization based on clinical PK data.
 
@@ -913,17 +722,7 @@ Endogenous protein half-lives of OATP1B1, AADAC, and P-gp are not known. Thus, v
 
 The model features in particular induction of CYP3A4 based on aggregated *in vitro* CYP3A4 activity data in primary human hepatocytes ([Templeton 2011](#5-references)). The model also accounts for competitive inhibition of CYP3A4.
 
-
-
-
-
-
-
-
 # 5 References<a id="main-references"></a>
-
-
-
 
 **Acocella 1972a** Acocella G., Lamarina A., Nicolis F. B., Pagani V., Segre G. Kinetic studies on rifampicin II. Multicompartmental analysis of the serum, urine and bile concentrations in subjects treated for one week Eur J Clin Pharmacol. 1972;5(2):111-115.
 
@@ -989,6 +788,8 @@ The model features in particular induction of CYP3A4 based on aggregated *in vit
 
 **Loos 1985** Loos U, Musch E, Jensen JC, Mikus G, Schwabe HK, Eichelbaum M. Pharmacokinetics of oral and intravenous rifampicin during chronic administration. Klin Wochenschr. 1985 Dec 2;63(23):1205-11.
 
+**Maggi 1966** Maggi N, Pasqualucci CR, Ballotta R, Sensi P. Rifampicin: a new orally active rifamycin. Chemotherapy. 1966;11(5):285-92. doi: 10.1159/000220462.
+
 **Meyer 2012** Meyer M, Schneckener S, Ludewig B, Kuepfer L, Lippert J. Using expression data for quantification of active processes in physiologically based pharmacokinetic modeling. Drug Metab Dispos. 2012 May;40(5):892-901.
 
 **Mills 2004** Mills JB, Rose KA, Sadagopan N, Sahi J, de Morais SM. Induction of drug metabolism enzymes and MDR1 using a novel human hepatocyte cell line. J Pharmacol Exp Ther. 2004 Apr;309(1):303-9.
@@ -1035,8 +836,6 @@ The model features in particular induction of CYP3A4 based on aggregated *in vit
 
 **Templeton 2011** Templeton IE, Houston JB, Galetin A. Predictive utility of in vitro rifampin induction data generated in fresh and cryopreserved human hepatocytes, Fa2N-4, and HepaRG cells. Drug Metab Dispos. 2011 Oct;39(10):1921-9.
 
-**The Merck Index** The Merck Index Online: Rifampin (https://www.rsc.org/Merck-Index/monograph/m9611/rifampin) 
-
 **Tirona 2003** Tirona RG, Leake BF, Wolkoff AW, Kim RB. Human organic anion transporting polypeptide-C (SLC21A6) is a major determinant of rifampin-mediated pregnane X receptor activation. J Pharmacol Exp Ther. 2003 Jan;304(1):223-8.
 
 **Türk 2019** Türk D, Hanke N, Wolf S, Frechen S, Eissing T, Wendl T, Schwab M, Lehr T. Physiologically Based Pharmacokinetic Models for Prediction of Complex CYP2C8 and OATP1B1 (SLCO1B1) Drug-Drug-Gene Interactions: A Modeling Network of Gemfibrozil, Repaglinide, Pioglitazone, Rifampicin, Clarithromycin and Itraconazole. Clin Pharmacokinet. 2019 Dec;58(12):1595-1607.
@@ -1046,6 +845,4 @@ The model features in particular induction of CYP3A4 based on aggregated *in vit
 **Williamson 2013** Williamson B, Dooley KE, Zhang Y, Back DJ, Owen A. Induction of influx and efflux transporters and cytochrome P450 3A4 in primary human hepatocytes by rifampin, rifabutin, and rifapentine. Antimicrob Agents Chemother. 2013 Dec;57(12):6366-9.
 
 **Zhang 2012** Zhang Y, Cheng X, Aleksunes L, Klaassen CD. Transcription factor-mediated regulation of carboxylesterase enzymes in livers of mice. Drug Metab Dispos. 2012 Jun;40(6):1191-7.
-
-
 
