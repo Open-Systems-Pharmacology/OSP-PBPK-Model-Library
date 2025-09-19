@@ -1,26 +1,14 @@
-
-
-
-
 # Building and evaluation of a PBPK model for clarithromycin in healthy adults
 
-
-
-
-
-| Version                                         | 1.0-OSP12.0                                                   |
+| Version                                         | 2.0-OSP12.1                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
-| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Clarithromycin-Model/releases/tag/v1.0 |
-| OSP Version                                     | 12.0                                                          |
-| Qualification Framework Version                 | 3.3                                                          |
-
-
+| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Clarithromycin-Model/releases/tag/v2.0 |
+| OSP Version                                     | 12.1                                                          |
+| Qualification Framework Version                 | 3.4                                                          |
 
 This evaluation report and the corresponding PK-Sim project file are filed at:
 
 https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/
-
-
 
 # Table of Contents
 
@@ -38,14 +26,7 @@ https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/
  * [4 Conclusion](#conclusion)
  * [5 References](#references)
 
-
-
-
-
 # 1 Introduction<a id="introduction"></a>
-
-
-
 
 Clarithromycin is a widely prescribed macrolide antibiotic and a substrate and mechanism-based inactivator of CYP3A4. Furthermore, clarithromycin is a substrate and inhibitor of P-gp and an inhibitor of OATP1B1 and OATP1B3 ([Eberl 2007](#5-references), [Seithel 2007](#5-references)). Clarithromycin has been proposed as one of the best alternative CYP3A4 inhibitors for clinical DDI studies to avoid further use of ketoconazole.
 
@@ -53,22 +34,9 @@ Objectives were to develop a fully mechanistic PBPK model for clarithromycin, de
 
 The presented clarithromycin model was developed by Moj et al. ([Moj 2017](#5-references)) and revised by Hanke et al. ([Hanke 2018](#5-references)).
 
-
-
-
-
-
 # 2 Methods<a id="methods"></a>
 
-
-
-
-
-
-
-
 ## 2.1 Modeling Strategy<a id="modeling-strategy"></a>
-
 
 The general workflow for building an adult PBPK model has been described by Kuepfer et al. ([Kuepfer 2016](#5-references)). Relevant information on the anthropometry (height, weight) was gathered from the respective clinical study, if reported. Information on physiological parameters (e.g. blood flows, organ volumes, hematocrit) in adults was gathered from the literature and has been incorporated in PK-Sim® as described previously ([Willmann 2007](#5-references)). The  applied activity and variability of plasma proteins and active processes that are integrated into PK-Sim® are described in the publicly available 'PK-Sim® Ontogeny Database Version 7.3' ([PK-Sim Ontogeny Database Version 7.3](#5-references)).
 
@@ -82,13 +50,7 @@ Details about input data (physicochemical, *in vitro* and clinical) can be found
 
 Details about the structural model and its parameters can be found in [Section 2.3](#23-model-parameters-and-assumptions).
 
-
-
-
-
-
 ## 2.2 Data<a id="data"></a>
-
 
 ### 2.2.1	In vitro / physicochemical Data
 
@@ -110,7 +72,7 @@ A literature search was performed to collect available information on physiochem
 |                          | µmol/L   | 41.4                    | [Ito 2003](#5-references)       | Conc. for half-maximal inactivation measured in human liver microsomes for α-hydroxylation of midazolam |
 |                          | µmol/L   | 37.0                    | [Ito 2003](#5-references)       | Conc. for half-maximal inactivation measured in human liver microsomes for 4-hydroxylation of midazolam |
 |                          | µmol/L   | 5.49                    | [Mayhew 2000](#5-references)    | Conc. for half-maximal inactivation measured in human liver microsomes |
-| CYP3A4 k<sub>inact</sub> | 1/min    | 0.04                    | [Polasek 2006](#5-references),  | Maximum inactivation rate measured in recombinant CYP3A4     |
+| CYP3A4 k<sub>inact</sub> | 1/min    | 0.04                    | [Polasek 2006](#5-references)   | Maximum inactivation rate measured in recombinant CYP3A4     |
 |                          | 1/min    | 0.05                    | [Polasek 2006](#5-references)   | Maximum inactivation rate measured in human liver microsomes |
 |                          | 1/min    | 0.0423                  | [Ito 2003](#5-references)       | Maximum inactivation rate measured in human liver microsomes for α-hydroxylation of midazolam |
 |                          | 1/min    | 0.0459                  | [Ito 2003](#5-references)       | Maximum inactivation rate measured in human liver microsomes for 4-hydroxylation of midazolam |
@@ -122,8 +84,6 @@ A literature search was performed to collect available information on physiochem
 <sup>a</sup> denotes range of reported values
 
 <sup>b</sup> denotes mean ± standard error of the mean of the measurements (two assays, each performed in triplicate)
-
-
 
 ### 2.2.2 Clinical Data
 
@@ -149,13 +109,7 @@ The following studies were used for model verification (test data):
 | [Rengelshausen 2003](#5-references) | Oral administration of 250 mg twice a day for 1.5 days       |
 | [Abduljalil 2009](#5-references)   | Oral administration of 500 mg twice a day for 3.5 days       |
 
-
-
-
-
-
 ## 2.3 Model Parameters and Assumptions<a id="model-parameters-and-assumptions"></a>
-
 
 ### 2.3.1	Absorption
 
@@ -191,13 +145,7 @@ This is the result of the final parameter identification.
 | `K_kinact_half` (K<sub>I</sub>)                 | 6.04            | µmol/L |
 | `kinact` (k<sub>inact</sub>)                    | 0.04            | 1/min  |
 
-
-
-
-
-
 # 3 Results and Discussion<a id="results-and-discussion"></a>
-
 
 The PBPK model for clarithromycin was developed and verified with clinical pharmacokinetic data. 
 
@@ -215,19 +163,9 @@ The next sections show:
 2. the overall goodness of fit: [Section 3.2](#32-diagnostics-plots).
 3. simulated vs. observed concentration-time profiles for the clinical studies used for model building and for model verification: [Section 3.3](#33-concentration-time-profiles).
 
-
-
-
-
-
 ## 3.1 Final input parameters<a id="final-input-parameters"></a>
 
-
 The compound parameter values of the final PBPK model are illustrated below.
-
-
-
-
 
 ### Compound: Clarithromycin
 
@@ -244,14 +182,12 @@ Is small molecule                                | Yes             |            
 Molecular weight                                 | 747.9534 g/mol  |                                    |             |        
 Plasma protein binding partner                   | Albumin         |                                    |             |        
 
-
 #### Calculation methods
 
 Name                    | Value              
 ----------------------- | -------------------
 Partition coefficients  | Rodgers and Rowland
 Cellular permeabilities | PK-Sim Standard    
-
 
 #### Processes
 
@@ -267,7 +203,6 @@ In vitro Vmax for liver microsomes | 0 pmol/min/mg mic. protein |
 Km                                 | 48.7 µmol/l                | Publication-Rodrigues 1997
 kcat                               | 76.5 1/min                 | Parameter Identification  
 
-
 ##### Systemic Process: Renal Clearances-fitted
 
 Species: Human
@@ -281,7 +216,6 @@ Blood flow rate (kidney)      | 1.31 l/min     | Unknown
 Fraction unbound (experiment) | 0.4            |             
 Plasma clearance              | 1.75 ml/min/kg |             
 
-
 ##### Inhibition: P-gp-Eberl (2007)
 
 Molecule: P-gp
@@ -291,7 +225,6 @@ Molecule: P-gp
 Name | Value      | Value Origin          
 ---- | ---------- | ----------------------
 Ki   | 4.1 µmol/l | Publication-Eberl 2007
-
 
 ##### Inhibition: CYP3A4-fitted
 
@@ -304,7 +237,6 @@ Name          | Value       | Value Origin
 kinact        | 0.04 1/min  |             
 K_kinact_half | 6.04 µmol/l |             
 
-
 ##### Inhibition: OATP1B1-Vermeer 2016
 
 Molecule: OATP1B1
@@ -315,7 +247,6 @@ Name | Value      | Value Origin
 ---- | ---------- | ------------------------
 Ki   | 5.3 µmol/l | Publication-Vermeer 2016
 
-
 ##### Inhibition: OATP1B3-Vermeer 2016
 
 Molecule: OATP1B3
@@ -325,9 +256,6 @@ Molecule: OATP1B3
 Name | Value     | Value Origin            
 ---- | --------- | ------------------------
 Ki   | 14 µmol/l | Publication-Vermeer 2016
-
-
-
 
 ### Formulation: Tablet Clarithromycin
 
@@ -342,25 +270,15 @@ Lag time                         | 0 min |
 Dissolution shape                | 2.9   |             
 Use as suspension                | No    |             
 
-
-
-
-
-
-
 ## 3.2 Diagnostics Plots<a id="diagnostics-plots"></a>
-
 
 Below you find the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data used presented in [Section 2.2.2](#222-clinical-data).
 
 The first plot shows simulated versus observed plasma concentrations, the second weighted residuals versus time. 
 
-
-
 <a id="table-3-1"></a>
 
 **Table 3-1: GMFE for Goodness of fit plot for concentration in plasma**
-
 
 |Group            |GMFE |
 |:----------------|:----|
@@ -368,528 +286,346 @@ The first plot shows simulated versus observed plasma concentrations, the second
 |model evaluation |1.62 |
 |All              |1.58 |
 
-
 <br>
 <br>
-
 
 <a id="figure-3-1"></a>
 
 ![](images/006_section_results-and-discussion/008_section_diagnostics-plots/2_gof_plot_predictedVsObserved.png)
 
-
-
 **Figure 3-1: Goodness of fit plot for concentration in plasma**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-2"></a>
 
 ![](images/006_section_results-and-discussion/008_section_diagnostics-plots/3_gof_plot_residualsOverTime.png)
 
-
-
 **Figure 3-2: Goodness of fit plot for concentration in plasma**
 
-
 <br>
 <br>
-
-
-
-
 
 ## 3.3 Concentration-Time Profiles<a id="ct-profiles"></a>
 
-
 Simulated versus observed concentration-time profiles of all data listed in [Section 2.2.2](#222-clinical-data) are presented below.
 
-
-
-
-
-
 ### 3.3.1 Model Building<a id="model-building"></a>
-
-
-
-
-
-
-
 
 <a id="figure-3-3"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/1_time_profile_plot_Clarithromycin_Model_Clarithromycin_iv__Chu_1992__250_mg__0_75_h.png)
 
-
-
 **Figure 3-3: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-4"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/2_time_profile_plot_Clarithromycin_Model_Clarithromycin_iv__Chu_1992__250_mg__0_75_h.png)
 
-
-
 **Figure 3-4: Time Profile Analysis 1**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-5"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/17_time_profile_plot_Clarithromycin_Model_Clarithromycin_po__Chu_1993__250_mg.png)
 
-
-
 **Figure 3-5: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-6"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/18_time_profile_plot_Clarithromycin_Model_Clarithromycin_po__Chu_1993__250_mg.png)
 
-
-
 **Figure 3-6: Time Profile Analysis 1**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-7"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/19_time_profile_plot_Clarithromycin_Model_Clarithromycin_po__Chu_1993__250_mg__MD__3_5_d.png)
 
-
-
 **Figure 3-7: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-8"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/20_time_profile_plot_Clarithromycin_Model_Clarithromycin_po__Chu_1993__250_mg__MD__3_5_d.png)
 
-
-
 **Figure 3-8: Time Profile Analysis 1**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-9"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/21_time_profile_plot_Clarithromycin_Model_Clarithromycin_po__Chu_1993__500_mg.png)
 
-
-
 **Figure 3-9: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-10"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/22_time_profile_plot_Clarithromycin_Model_Clarithromycin_po__Chu_1993__500_mg.png)
 
-
-
 **Figure 3-10: Time Profile Analysis 1**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-11"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/23_time_profile_plot_Clarithromycin_Model_Clarithromycin_po__Chu_1993__500_mg__MD__3_5_d.png)
 
-
-
 **Figure 3-11: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-12"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/24_time_profile_plot_Clarithromycin_Model_Clarithromycin_po__Chu_1993__500_mg__MD__3_5_d.png)
 
-
-
 **Figure 3-12: Time Profile Analysis 1**
 
-
 <br>
 <br>
-
-
-
-
 
 ### 3.3.2 Model Verification<a id="model-verification"></a>
-
-
-
-
-
-
-
 
 <a id="figure-3-13"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/3_time_profile_plot_Clarithromycin_Model_Clarithromycin_po__Abduljalil_2009__500_mg__MD__3_5_d.png)
 
-
-
 **Figure 3-13: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-14"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/4_time_profile_plot_Clarithromycin_Model_Clarithromycin_po__Abduljalil_2009__500_mg__MD__3_5_d.png)
 
-
-
 **Figure 3-14: Time Profile Analysis 1**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-15"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/5_time_profile_plot_Clarithromycin_Model_Clarithromycin_po__Chu_1992__100_mg.png)
 
-
-
 **Figure 3-15: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-16"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/6_time_profile_plot_Clarithromycin_Model_Clarithromycin_po__Chu_1992__100_mg.png)
 
-
-
 **Figure 3-16: Time Profile Analysis 1**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-17"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/7_time_profile_plot_Clarithromycin_Model_Clarithromycin_po__Chu_1992__1200_mg.png)
 
-
-
 **Figure 3-17: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-18"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/8_time_profile_plot_Clarithromycin_Model_Clarithromycin_po__Chu_1992__1200_mg.png)
 
-
-
 **Figure 3-18: Time Profile Analysis 1**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-19"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/9_time_profile_plot_Clarithromycin_Model_Clarithromycin_po__Chu_1992__200_mg.png)
 
-
-
 **Figure 3-19: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-20"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/10_time_profile_plot_Clarithromycin_Model_Clarithromycin_po__Chu_1992__200_mg.png)
 
-
-
 **Figure 3-20: Time Profile Analysis 1**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-21"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/11_time_profile_plot_Clarithromycin_Model_Clarithromycin_po__Chu_1992__400_mg.png)
 
-
-
 **Figure 3-21: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-22"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/12_time_profile_plot_Clarithromycin_Model_Clarithromycin_po__Chu_1992__400_mg.png)
 
-
-
 **Figure 3-22: Time Profile Analysis 1**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-23"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/13_time_profile_plot_Clarithromycin_Model_Clarithromycin_po__Chu_1992__600_mg.png)
 
-
-
 **Figure 3-23: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-24"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/14_time_profile_plot_Clarithromycin_Model_Clarithromycin_po__Chu_1992__600_mg.png)
 
-
-
 **Figure 3-24: Time Profile Analysis 1**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-25"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/15_time_profile_plot_Clarithromycin_Model_Clarithromycin_po__Chu_1992__800_mg.png)
 
-
-
 **Figure 3-25: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-26"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/16_time_profile_plot_Clarithromycin_Model_Clarithromycin_po__Chu_1992__800_mg.png)
 
-
-
 **Figure 3-26: Time Profile Analysis 1**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-27"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/25_time_profile_plot_Clarithromycin_Model_Clarithromycin_po__Kees_1995__250_mg.png)
 
-
-
 **Figure 3-27: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-28"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/26_time_profile_plot_Clarithromycin_Model_Clarithromycin_po__Kees_1995__250_mg.png)
 
-
-
 **Figure 3-28: Time Profile Analysis 1**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-29"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/27_time_profile_plot_Clarithromycin_Model_Clarithromycin_po__Kees_1995__250_mg__MD__5_d.png)
 
-
-
 **Figure 3-29: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-30"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/28_time_profile_plot_Clarithromycin_Model_Clarithromycin_po__Kees_1995__250_mg__MD__5_d.png)
 
-
-
 **Figure 3-30: Time Profile Analysis 1**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-31"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/29_time_profile_plot_Clarithromycin_Model_Clarithromycin_po__Kees_1995__500_mg.png)
 
-
-
 **Figure 3-31: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-32"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/30_time_profile_plot_Clarithromycin_Model_Clarithromycin_po__Kees_1995__500_mg.png)
 
-
-
 **Figure 3-32: Time Profile Analysis 1**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-33"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/31_time_profile_plot_Clarithromycin_Model_Clarithromycin_po__Kees_1995__500_mg__MD__5_d.png)
 
-
-
 **Figure 3-33: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-34"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/32_time_profile_plot_Clarithromycin_Model_Clarithromycin_po__Kees_1995__500_mg__MD__5_d.png)
 
-
-
 **Figure 3-34: Time Profile Analysis 1**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-35"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/33_time_profile_plot_Clarithromycin_Model_Clarithromycin_po__Rengels_2003__250_mg__MD__1_5_d.png)
 
-
-
 **Figure 3-35: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-36"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/34_time_profile_plot_Clarithromycin_Model_Clarithromycin_po__Rengels_2003__250_mg__MD__1_5_d.png)
 
-
-
 **Figure 3-36: Time Profile Analysis 1**
 
-
 <br>
 <br>
-
-
-
-
 
 # 4 Conclusion<a id="conclusion"></a>
 
-
 The herein presented PBPK model adequately describes the pharmacokinetics of clarithromycin in adults. In particular, it applies increased transfer and accumulation in red blood cells, metabolism by CYP3A4, renal clearance as unchanged drug and mechanism-based inactivation of CYP3A4. Thus, the model is fit for purpose to be applied for the investigation of drug-drug interactions with regard to inhibition of CYP3A4 and P-gp.
 
-
-
-
-
-
 # 5 References<a id="references"></a>
-
 
 **Abduljalil 2009** Abduljalil, K. et al. Modeling the autoinhibition of clarithromycin metabolism during repeated oral administration. Antimicrob. Agents Chemother. 53, 2892–901 (2009).
 
@@ -944,6 +680,4 @@ The herein presented PBPK model adequately describes the pharmacokinetics of cla
 **Seithel 2007** Seithel, A. et al. The influence of macrolide antibiotics on the uptake of organic anions and drugs mediated by OATP1B1 and OATP1B3. Drug Metab. Dispos. 35, 779–86 (2007).
 
 **Vermeer 2016** Vermeer, L. M., Isringhausen, C. D., Ogilvie, B. W., & Buckley, D. B. Evaluation of ketoconazole and its alternative clinical CYP3A4/5 inhibitors as inhibitors of drug transporters: the in vitro effects of ketoconazole, ritonavir, clarithromycin, and itraconazole on 13 clinically-relevant drug transporters. Drug Metab. Dispos. 44, 453–459 (2016).
-
-
 
