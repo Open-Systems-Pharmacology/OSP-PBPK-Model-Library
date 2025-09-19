@@ -1,28 +1,14 @@
-
-
-
-
 # Building and evaluation of a PBPK model for raltegravir in adults
 
-
-
-
-
-| Version                                         | 1.0-OSP12.0                                                   |
+| Version                                         | 2.0-OSP12.1                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
-| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Raltegravir-Model/releases/tag/v1.0 |
-| OSP Version                                     | 12.0                                                          |
-| Qualification Framework Version                 | 3.3                                                          |
-
-
-
-
+| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Raltegravir-Model/releases/tag/v2.0 |
+| OSP Version                                     | 12.1                                                          |
+| Qualification Framework Version                 | 3.4                                                          |
 
 This evaluation report and the corresponding PK-Sim project file are filed at:
 
 https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/
-
-
 
 # Table of Contents
 
@@ -38,12 +24,7 @@ https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/
  * [4 Conclusion](#conclusion)
  * [5 References](#main-references)
 
-
-
-
-
 # 1 Introduction<a id="introduction"></a>
-
 
 The presented model building and evaluation report evaluates the performance of a PBPK model for raltegravir in adults.
 
@@ -51,22 +32,9 @@ Raltegravir, sold under the brand name Isentress, is an antiretroviral medicatio
 
 The raltegravir model is a whole-body PBPK model, allowing for dynamic translation between individuals with organs expressing UGT1A1. The raltegravir report demonstrates the level of confidence in the raltegravir PBPK model build with the OSP suite with regard to reliable predictions of raltegravir PK adults during model-informed drug development.
 
-
-
-
-
-
 # 2 Methods<a id="methods"></a>
 
-
-
-
-
-
-
-
 ## 2.1 Modeling strategy<a id="modeling-strategy"></a>
-
 
 The general concept of building a PBPK model has previously been described by Kuepfer et al. ([Kuepfer 2016](#5-references)). Relevant information on anthropometric (height, weight) and physiological parameters (e.g. blood flows, organ volumes, binding protein concentrations, hematocrit, cardiac output) in adults was gathered from the literature and has been previously published ([PK-Sim Ontogeny Database Version 7.3](#5-references)). The information was incorporated into PK-Sim® and was used as default values for the simulations in adults.
 
@@ -80,13 +48,7 @@ A final PBPK model was established and simulations were compared to the reported
 
 During model building, uncertainties in data quality, as well as study differences may cause not being able to adequately describe the PK of all reported clinical studies. 
 
-
-
-
-
-
 ## 2.2 Data used<a id="data"></a>
-
 
 ### 2.2.1 In vitro / physico-chemical data
 
@@ -119,13 +81,7 @@ The following publications were found in adults for model building and evaluatio
 | [Rhee 2014](#5-references)     | Pediatric formulation study in healthy adults                |
 | [Wenning 2009](#5-references)  | Effect of rifampin on the pharmacokinetics of raltegravir    |
 
-
-
-
-
-
 ## 2.3 Model parameters and assumptions<a id="model-parameters-and-assumptions"></a>
-
 
 ### 2.3.1 Absorption
 
@@ -167,12 +123,7 @@ Note that the estimated scaling factor f<sub>UGT</sub> will be directly implemen
 
 Finally, as ~9% of the dose is excreted in human urine as unchanged parent compound, GFR is introduced in the raltegravir PBPK model.
 
-
-
-
-
 # 3 Results and Discussion<a id="results-and-discussion"></a>
-
 
 The PBPK model **raltegravir** was developed with clinical pharmacokinetic data covering 4 different oral formulation and a dose range of 10-1600mg, including single dose (SD) as well as multiple dose (MD) clinical data. 
 
@@ -186,19 +137,9 @@ The fit resulted in an adequate description of all data. As there is no iv data 
 
 As a second step, clinical study data for all other formulations summarised in [section 2.2.2](#222-clinical-data) were included for model fitting, including film-coated tablets (100-400mg MD, 200-400mg SD), chewable tablets (400mg fasted + fed) and oral granules in suspension (400mg). In this step, only the Weibull functions were estimated with all other parameters fixed based on the first step. Finally, as the parameters of the Weibull functions were highly correlated (as expected), only dissolution shape was estimated as a last step. The model results show that the PBPK model of raltegravir adequately described the date for all formulations and doses available.
 
-
-
-
-
-
 ## 3.1 Raltegravir final input parameters<a id="final-input-parameters"></a>
 
-
 The compound parameter values of the final raltegravir PBPK model are illustrated below.
-
-
-
-
 
 ### Compound: Raltegravir
 
@@ -215,14 +156,12 @@ Is small molecule                                | Yes                   |      
 Molecular weight                                 | 444.4163 g/mol        | Publication-Other-Drugbank.ca          |             |        
 Plasma protein binding partner                   | Albumin               |                                        |             |        
 
-
 #### Calculation methods
 
 Name                    | Value              
 ----------------------- | -------------------
 Partition coefficients  | Rodgers and Rowland
 Cellular permeabilities | PK-Sim Standard    
-
 
 #### Processes
 
@@ -236,7 +175,6 @@ Name         | Value | Value Origin
 ------------ | -----:| ----------------------------------
 GFR fraction |     1 | Publication-In Vitro-Kassahun 2007
 
-
 ##### Metabolizing Enzyme: UGT1A1-Kassahun 2007
 
 Molecule: UGT1A1
@@ -248,7 +186,6 @@ Name                               | Value                                 | Val
 In vitro Vmax for liver microsomes | 2.7351231632 nmol/min/mg mic. protein | Parameter Identification          
 Km                                 | 99 µM                                 | Publication-In Vitro-Kassahun 2007
 
-
 ##### Metabolizing Enzyme: UGT1A9-Kassahun 2007
 
 Molecule: UGT1A9
@@ -259,9 +196,6 @@ Name                               | Value                                 | Val
 ---------------------------------- | ------------------------------------- | ----------------------------------
 In vitro Vmax for liver microsomes | 1.6287812095 nmol/min/mg mic. protein | Parameter Identification          
 Km                                 | 296 µM                                | Publication-In Vitro-Kassahun 2007
-
-
-
 
 ### Formulation: filmcoated tablet (original Merck formulation)
 
@@ -276,9 +210,6 @@ Lag time                         | 0 min      |
 Dissolution shape                | 0.03536656 | Parameter Identification
 Use as suspension                | Yes        |                         
 
-
-
-
 ### Formulation: chewable tablet
 
 Type: Weibull
@@ -291,9 +222,6 @@ Dissolution time (50% dissolved) | 1.0000049774E-05 min | Parameter Identificati
 Lag time                         | 0 min                |                         
 Dissolution shape                | 0.050078869          | Parameter Identification
 Use as suspension                | Yes                  |                         
-
-
-
 
 ### Formulation: Weibull (lactose formulation)
 
@@ -308,9 +236,6 @@ Lag time                         | 0 min              |
 Dissolution shape                | 0.0389537131       | Parameter Identification
 Use as suspension                | Yes                |                         
 
-
-
-
 ### Formulation: Weibull (granules)
 
 Type: Weibull
@@ -324,23 +249,13 @@ Lag time                         | 0 min                |
 Dissolution shape                | 0.0654456264         | Parameter Identification
 Use as suspension                | Yes                  |                         
 
-
-
-
-
-
-
 ## 3.2 Raltegravir Diagnostics Plots<a id="diagnostics-plots"></a>
 
-
 Below you find the goodness-of-fit visual diagnostic plots for raltegravir PBPK model performance (observed versus individually simulated plasma concentration and weighted residuals versus time, including the geometric mean fold error (GMFE)) of all data used for model building.
-
-
 
 <a id="table-3-1"></a>
 
 **Table 3-1: GMFE for Goodness of fit plot for concentration in plasma.**
-
 
 |Group                              |GMFE |
 |:----------------------------------|:----|
@@ -350,480 +265,326 @@ Below you find the goodness-of-fit visual diagnostic plots for raltegravir PBPK 
 |Raltegravir lactose formulation    |1.48 |
 |All                                |1.49 |
 
-
 <br>
 <br>
-
 
 <a id="figure-3-1"></a>
 
 ![](images/006_section_results-and-discussion/008_section_diagnostics-plots/2_gof_plot_predictedVsObserved.png)
 
-
-
 **Figure 3-1: Goodness of fit plot for concentration in plasma.**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-2"></a>
 
 ![](images/006_section_results-and-discussion/008_section_diagnostics-plots/3_gof_plot_residualsOverTime.png)
 
-
-
 **Figure 3-2: Goodness of fit plot for concentration in plasma.**
 
-
 <br>
 <br>
-
-
-
-
 
 ## 3.3 Raltegravir Concentration-Time profiles<a id="ct-profiles"></a>
 
-
 Simulated versus observed plasma concentration-time profiles of all data are listed below.
-
-
 
 <a id="figure-3-3"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/1_time_profile_plot_Raltegravir_Raltegravir_400mg_chewable_fasted.png)
 
-
-
 **Figure 3-3: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-4"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/2_time_profile_plot_Raltegravir_Raltegravir_400mg_chewable_fasted.png)
 
-
-
 **Figure 3-4: Time Profile Analysis 1**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-5"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/3_time_profile_plot_Raltegravir_Raltegravir_400mg_chewable_fed.png)
 
-
-
 **Figure 3-5: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-6"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/4_time_profile_plot_Raltegravir_Raltegravir_400mg_chewable_fed.png)
 
-
-
 **Figure 3-6: Time Profile Analysis 1**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-7"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/5_time_profile_plot_Raltegravir_Raltegravir_100_mg_filmcoated_tablet_md.png)
 
-
-
 **Figure 3-7: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-8"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/6_time_profile_plot_Raltegravir_Raltegravir_100_mg_filmcoated_tablet_md.png)
 
-
-
 **Figure 3-8: Time Profile Analysis 1**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-9"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/7_time_profile_plot_Raltegravir_Raltegravir_200_mg_filmcoated_tablet_md.png)
 
-
-
 **Figure 3-9: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-10"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/8_time_profile_plot_Raltegravir_Raltegravir_200_mg_filmcoated_tablet_md.png)
 
-
-
 **Figure 3-10: Time Profile Analysis 1**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-11"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/9_time_profile_plot_Raltegravir_Raltegravir_400_mg_filmcoated_tablet_md.png)
 
-
-
 **Figure 3-11: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-12"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/10_time_profile_plot_Raltegravir_Raltegravir_400_mg_filmcoated_tablet_md.png)
 
-
-
 **Figure 3-12: Time Profile Analysis 1**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-13"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/11_time_profile_plot_Raltegravir_Raltegravir_400mg_filmcoated_tablet.png)
 
-
-
 **Figure 3-13: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-14"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/12_time_profile_plot_Raltegravir_Raltegravir_400mg_filmcoated_tablet.png)
 
-
-
 **Figure 3-14: Time Profile Analysis 1**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-15"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/13_time_profile_plot_Raltegravir_Raltegravir_400mg__granules_in_suspension_.png)
 
-
-
 **Figure 3-15: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-16"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/14_time_profile_plot_Raltegravir_Raltegravir_400mg__granules_in_suspension_.png)
 
-
-
 **Figure 3-16: Time Profile Analysis 1**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-17"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/15_time_profile_plot_Raltegravir_Raltegravir_10_mg____lactose_formulation_.png)
 
-
-
 **Figure 3-17: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-18"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/16_time_profile_plot_Raltegravir_Raltegravir_10_mg____lactose_formulation_.png)
 
-
-
 **Figure 3-18: Time Profile Analysis 1**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-19"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/17_time_profile_plot_Raltegravir_Raltegravir_100_mg___lactose_formulation_.png)
 
-
-
 **Figure 3-19: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-20"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/18_time_profile_plot_Raltegravir_Raltegravir_100_mg___lactose_formulation_.png)
 
-
-
 **Figure 3-20: Time Profile Analysis 1**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-21"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/19_time_profile_plot_Raltegravir_Raltegravir_1200_mg____lactose_formulation_.png)
 
-
-
 **Figure 3-21: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-22"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/20_time_profile_plot_Raltegravir_Raltegravir_1200_mg____lactose_formulation_.png)
 
-
-
 **Figure 3-22: Time Profile Analysis 1**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-23"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/21_time_profile_plot_Raltegravir_Raltegravir_1600_mg___lactose_formulation_.png)
 
-
-
 **Figure 3-23: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-24"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/22_time_profile_plot_Raltegravir_Raltegravir_1600_mg___lactose_formulation_.png)
 
-
-
 **Figure 3-24: Time Profile Analysis 1**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-25"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/23_time_profile_plot_Raltegravir_Raltegravir_200_mg____lactose_formulation_.png)
 
-
-
 **Figure 3-25: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-26"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/24_time_profile_plot_Raltegravir_Raltegravir_200_mg____lactose_formulation_.png)
 
-
-
 **Figure 3-26: Time Profile Analysis 1**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-27"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/25_time_profile_plot_Raltegravir_Raltegravir_25_mg___lactose_formulation_.png)
 
-
-
 **Figure 3-27: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-28"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/26_time_profile_plot_Raltegravir_Raltegravir_25_mg___lactose_formulation_.png)
 
-
-
 **Figure 3-28: Time Profile Analysis 1**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-29"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/27_time_profile_plot_Raltegravir_Raltegravir_400mg__lactose_formulation_.png)
 
-
-
 **Figure 3-29: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-30"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/28_time_profile_plot_Raltegravir_Raltegravir_400mg__lactose_formulation_.png)
 
-
-
 **Figure 3-30: Time Profile Analysis 1**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-31"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/29_time_profile_plot_Raltegravir_Raltegravir_50_mg___lactose_formulation_.png)
 
-
-
 **Figure 3-31: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-32"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/30_time_profile_plot_Raltegravir_Raltegravir_50_mg___lactose_formulation_.png)
 
-
-
 **Figure 3-32: Time Profile Analysis 1**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-33"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/31_time_profile_plot_Raltegravir_Raltegravir_800_mg___lactose_formulation_.png)
 
-
-
 **Figure 3-33: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-34"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/32_time_profile_plot_Raltegravir_Raltegravir_800_mg___lactose_formulation_.png)
 
-
-
 **Figure 3-34: Time Profile Analysis 1**
 
-
 <br>
 <br>
-
-
-
-
 
 # 4 Conclusion<a id="conclusion"></a>
-
 
 The final raltegravir PBPK model applies metabolism by UGT1A1,  UGT1A9 and glomerular filtration and adequately describes the pharmacokinetics of raltegravir in adults receiving SD, MD of Raltegravir ranging from 10mg to 1600mg, including four different oral formulations. 
 
 This model could be applied for the investigation of drug-drug interactions (DDI), and translation to special populations such as pediatrics with regard to UGT1A1 and 1A9 metabolism.
 
-
-
-
-
-
 # 5 References<a id="main-references"></a>
-
 
 **Barau 2013** Caroline Barau, Valérie Furlan, Yazdan Yazdanpanah, Catherine Fagard, Jean-Michel Molina, Anne-Marie Taburet, and Aurélie Barrail-Tran. Characterization of Binding of Raltegravir to Plasma Proteins. Antimicrob Agents Chemother. 2013 Oct; 57(10): 5147–5150.
 doi: 10.1128/AAC.00625-13.
@@ -861,6 +622,4 @@ doi: 10.1128/AAC.00625-13.
 **Thelen 2011** Thelen K, Coboeken K, Willmann S, Burghaus R, Dressman JB, Lippert J. Evolution of a detailed physiological model to simulate the gastrointestinal transit and absorption process in humans, part 1: oral solutions. J Pharm Sci. 2011 Dec;100(12):5324-45. doi: 10.1002/jps.22726. Epub 2011 Oct 12
 
 **Wenning 2009** Larissa A. Wenning,, William D. Hanley, Diana M. Brainard, Amelia S. Petry, Kalyan Ghosh, Bo Jin, Eric Mangin, Thomas C. Marbury, Jolene K. Berg, Jeffrey A. Chodakewitz, Julie A. Stone,1 Keith M. Gottesdiener, John A. Wagner, and Marian Iwamoto. Effect of Rifampin, a Potent Inducer of Drug-Metabolizing Enzymes, on the Pharmacokinetics of Raltegravir. Antimicrob Agents Chemother. 2009 Jul; 53(7): 2852–2856.
-
-
 
