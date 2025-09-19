@@ -1,10 +1,10 @@
 # Building and evaluation of a PBPK model for vancomycin in adults
 
-| Version                                         | 1.0-OSP12.0                                                   |
+| Version                                         | 2.0-OSP12.1                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
-| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Vancomycin-Model/releases/tag/v1.0 |
-| OSP Version                                     | 12.0                                                          |
-| Qualification Framework Version                 | 3.3                                                          |
+| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Vancomycin-Model/releases/tag/v2.0 |
+| OSP Version                                     | 12.1                                                          |
+| Qualification Framework Version                 | 3.4                                                          |
 
 This evaluation report and the corresponding PK-Sim project file are filed at:
 
@@ -28,7 +28,7 @@ https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/
 
 The presented model building and evaluation report evaluates the performance of a PBPK model for vancomycin in adults.
 
-Vancomycin is a glycopeptide antibiotic related to ristocetin that inhibits bacterial cell wall assembly and is used to treat a number of bacterial infections. It can be administered intravenously, as well as orally in case of diarrhea therapy. Vancomycin is mainly eliminated via glomerular filtration (GF). A previous PBPK model for vancomycin using PK-Sim was reported by Radke et al. ([Radke 2017](#5-references)), with the dose fraction excreted unchanged into urine in adults being 90% with 10% hepatic elimination. Our final vancomycin model was rebuild that applies only GFR mediated clearance that adequately described the pharmacokinetics in adults. No further improvement of vancomycin pharmacokinetics could be determined after introducing hepatic clearance.
+Vancomycin is a glycopeptide antibiotic related to ristocetin that inhibits bacterial cell wall assembly and is used to treat a number of bacterial infections. It can be administered intravenously, as well as orally in case of diarrhea therapy. Vancomycin is mainly eliminated via glomerular filtration (GF). A previous PBPK model for vancomycin using PK-Sim was reported by Radke et al. ([Radke 2017](#5-references)), with the dose fraction excreted unchanged into urine in adults being 90% with 10% hepatic elimination. Our final vancomycin model was rebuilt that applies only GFR mediated clearance that adequately described the pharmacokinetics in adults. No further improvement of vancomycin pharmacokinetics could be determined after introducing hepatic clearance.
 
 The vancomycin model is a whole-body PBPK model, allowing for dynamic translation between individuals. The vancomycin report demonstrates the level of confidence in the vancomycin  PBPK model built with the OSP suite with regard to reliable predictions of vancomycin PK in adults during model-informed drug development.
 
