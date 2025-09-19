@@ -1,29 +1,14 @@
-
-
-
-
 # Building and evaluation of a PBPK model for antibody MEDI-524 in cynomolgus monkeys
 
-
-
-
-
-| Version                                         | 1.0-OSP12.0                                                   |
+| Version                                         | 1.0-OSP12.1                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
 | based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/MEDI524-Model/releases/tag/v1.0 |
-| OSP Version                                     | 12.0                                                          |
-| Qualification Framework Version                 | 3.3                                                          |
-
-
-
-
+| OSP Version                                     | 12.1                                                          |
+| Qualification Framework Version                 | 3.4                                                          |
 
 This evaluation report and the corresponding PK-Sim project file are filed at:
 
 https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/
-
-
-
 
 # Table of Contents
 
@@ -45,12 +30,7 @@ https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/
  * [4 Conclusion](#conclusion)
  * [5 References](#main-references)
 
-
-
-
-
 # 1 Introduction<a id="introduction"></a>
-
 
 MEDI-524 is a humanized monoclonal antibody (IgG1) against the respiratory syncytial virus (RSV) ([Dall’Acqua2006](#5-references)).
 
@@ -60,21 +40,9 @@ The herein presented evaluation report evaluates the performance of the PBPK mod
 
 The presented MEDI-524 PBPK model as well as the respective evaluation plan and evaluation report are provided open-source (https://github.com/Open-Systems-Pharmacology/MEDI524-Model).
 
-
-
-
-
-
 # 2 Methods<a id="methods"></a>
 
-
-
-
-
 ## 2.1 Modeling Strategy<a id="modeling-strategy"></a>
-
-
-
 
 The development of the large molecule PBPK model in PK-Sim® has previously been described by Niederalt et al. ([Niederalt 2018](#5-references)). In short, the model was built as an extension of the PK-Sim® model for small molecules incorporating (i) the two-pore formalism for drug extravasation from blood plasma to interstitial space, (ii) lymph flow, (iii) endosomal clearance and (iv) protection from endosomal clearance by neonatal Fc receptor (FcRn) mediated recycling. 
 
@@ -88,13 +56,7 @@ Details about input data (physicochemical, *in vitro* and PK) can be found in  [
 
 Details about the structural model and its parameters can be found in  [Section 2.3](#23-model-parameters-and-assumptions).
 
-
-
-
-
-
 ## 2.2 Data<a id="methods-data"></a>
-
 
 ### 2.2.1 In vitro / physico-chemical Data <a id="invitro-and-physico-chemical-data"></a>
 
@@ -114,13 +76,7 @@ Published PK data on MEDI-524 in cynomolgus monkeys were used.
 | :------------------------------- | :----------------------------------------------------------- |
 | [Dall'Acqua 2006](#5-references) | The plasma concentration–time profiles after single i.v. infusion of 30 mg/kg MEDI-524 in in cynomolgus monkeys were used. |
 
-
-
-
-
-
 ## 2.3 Model Parameters and Assumptions<a id="model-parameters-and-assumptions"></a>
-
 
 ### 2.3.1 Absorption <a id="model-parameters-and-assumptions-absorption"></a>
 
@@ -138,19 +94,11 @@ The FcRn mediated clearance present in the standard PK-Sim model was  used as on
 
 No drug specific parameters were fitted. MEDI-524, among other compounds, has been used to develop the model for proteins and large molecules in PK-Sim ([Niederalt 2018](#5-references)).
 
-
-
-
-
-
 # 3 Results and Discussion<a id="results-and-discussion"></a>
-
 
 The PBPK model for MEDI-524 was evaluated with PK data in cynomolgus monkeys.
 
 These PK data have been used together with PK data from 5 other compounds to simultaneously identify parameters during the development of the generic model for proteins and large molecules in PK-Sim ([Niederalt 2018](#5-references)).
-
-
 
 The next sections show:
 
@@ -158,19 +106,9 @@ The next sections show:
 2. the overall goodness of fit: [Section 3.2](#diagnostics-plots).
 3. simulated vs. observed concentration-time profiles for the clinical studies used for model building and for model verification: [Section 3.3](#ct-profiles).
 
-
-
-
-
-
 ## 3.1 Final input parameters<a id="final-input-parameters"></a>
 
-
 The compound parameter values of the final PBPK model are illustrated below.
-
-
-
-
 
 ### Compound: MEDI524
 
@@ -188,7 +126,6 @@ Plasma protein binding partner             | Unknown      |                     
 Radius (solute)                            | 0.00534 µm   | Publication-Taylor1984                        |             |        
 Kd (FcRn) in endosomal space               | 1.196 µmol/l | Publication-Dall'Acqua2006                    |             |        
 
-
 #### Calculation methods
 
 Name                    | Value          
@@ -196,114 +133,70 @@ Name                    | Value
 Partition coefficients  | PK-Sim Standard
 Cellular permeabilities | PK-Sim Standard
 
-
 #### Processes
 
-
-
-
-
-
 ## 3.2 Diagnostics Plots<a id="diagnostics-plots"></a>
-
 
 Below you find the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data used presented in [Section 2.2.2](#PK-data).
 
 The first plot shows observed versus simulated plasma concentration, the second weighted residuals versus time. 
 
-
-
 <a id="table-3-1"></a>
 
 **Table 3-1: GMFE for Goodness of fit plot for concentration in plasma**
-
 
 |Group                      |GMFE |
 |:--------------------------|:----|
 |Intravenous administration |1.14 |
 
-
 <br>
 <br>
-
 
 <a id="figure-3-1"></a>
 
 ![](images/006_section_results-and-discussion/008_section_diagnostics-plots/2_gof_plot_predictedVsObserved.png)
 
-
-
 **Figure 3-1: Goodness of fit plot for concentration in plasma**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-2"></a>
 
 ![](images/006_section_results-and-discussion/008_section_diagnostics-plots/3_gof_plot_residualsOverTime.png)
 
-
-
 **Figure 3-2: Goodness of fit plot for concentration in plasma**
 
-
 <br>
 <br>
-
-
-
-
 
 ## 3.3 Concentration-Time Profiles<a id="ct-profiles"></a>
 
-
 Simulated versus observed concentration-time profiles of all data listed in [Section 2.2.2](#PK-data) are presented below.
-
-
 
 <a id="figure-3-3"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/1_time_profile_plot_MEDI524_Sim_MEDI524.png)
 
-
-
 **Figure 3-3: Plasma concentration (linear scale)**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-4"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/2_time_profile_plot_MEDI524_Sim_MEDI524.png)
 
-
-
 **Figure 3-4: Plasma concentration (log scale)**
 
-
 <br>
 <br>
-
-
-
-
 
 # 4 Conclusion<a id="conclusion"></a>
 
-
 The herein presented PBPK model adequately describes the pharmacokinetics of MEDI-524 in monkeys. The PK data had been used during the development of the generic large molecule PBPK model in PK-Sim ([Niederalt 2018](#5-references)) together with PK data from 5 other compounds (7E3, BAY 79-4620, CDA1, dAb2 & MEDI-524-YTE). 
 
-
-
-
-
-
 # 5 References<a id="main-references"></a>
-
 
 **Dall'Acqua 2006** Dall’Acqua WF, Kiener PA, Wu H. Properties of human IgG1s engineered for enhanced binding to the neonatal Fc receptor (FcRn). J Biol Chem. 2006 Aug; 281(33):23514-23524. doi: 10.1074/jbc.M604292200.
 
@@ -324,6 +217,4 @@ The herein presented PBPK model adequately describes the pharmacokinetics of MED
 **Taylor 2008** Taylor CP, Tummala S, Molrine D, Davidson L, Farrell RJ, Lembo A, Hibberd PL, Lowy I, Kelly CP. Open-label, dose escalation phase I study in healthy volunteers to evaluate the safety and pharmacokinetics of a human monoclonal antibody to Clostridium difficile toxin A. Vaccine. 2008 Jun;26(27-28):3404–3409. doi: 10.1016/j.vaccine.2008.04.042.
 
 **Tsuji 1983** Tsuji A, Yoshikawa T, Nishide K, Minami H, Kimura M, Nakashima E, Terasaki T, Miyamoto E, Nightingale CH, Yamana T. Physiologically based pharmacokinetic model for beta-lactam antibiotics I: tissue distribution and elimination in rats. J Pharm Sci. 1983 Nov;72(11):1239-1252. doi: 10.1002/jps.2600721103.
-
-
 
