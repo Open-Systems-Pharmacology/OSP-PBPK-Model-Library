@@ -1,28 +1,14 @@
-
-
-
-
 # Building and evaluation of a PBPK model for erythromycin in healthy adults
 
-
-
-
-
-| Version                                         | 1.0-OSP12.0                                                   |
+| Version                                         | 2.0-OSP12.1                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
-| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Erythromycin-Model/releases/tag/v1.0 |
-| OSP Version                                     | 12.0                                                          |
-| Qualification Framework Version                 | 3.3                                                          |
-
-
-
-
+| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Erythromycin-Model/releases/tag/v2.0 |
+| OSP Version                                     | 12.1                                                          |
+| Qualification Framework Version                 | 3.4                                                          |
 
 This evaluation report and the corresponding PK-Sim project file are filed at:
 
 https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/
-
-
 
 # Table of Contents
 
@@ -40,12 +26,7 @@ https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/
  * [4 Conclusion](#conclusion)
  * [5 References](#main-references)
 
-
-
-
-
 # 1 Introduction<a id="introduction"></a>
-
 
 The presented model building and evaluation report evaluates the performance of a PBPK model for erythromycin in healthy adults.
 
@@ -58,23 +39,9 @@ Erythromycin a macrolide antibiotic used for the treatment of a number of bacter
 
 In its free form as base, erythromycin is easily hydrolyzed in acidic aqueous solution ([Mordi 2000](#5-references)). Therefore, orally administered erythromycin is given in the form of enteric-coated formulations or as more acid-stable salts or esters of erythromycin (e.g. erythromycin ethylsuccinate). Once in the small intestine, erythromycin is rapidly absorbed displaying a highly variable bioavailability ([Chun 1977](#5-references), [Mather 1981](#5-references)). Erythromycin diffuses in most tissues and accumulates in leukocytes and phagocytes ([Miller 1984](#5-references), [Carlier 1987](#5-references)). About 70% of erythromycin is bound to plasma proteins ([Barre 1987](#5-references)). Erythromycin has been shown to be a substrate for various transporters including P-gp and OATP1B1. The latter has been shown to critically affect erythromycin disposition ([Lancaster 2012](#5-references)). Erythromycin is extensively metabolized through N-demethylation catalyzed by CYP3A. Metabolism via CYP4F11 has also been suggested ([Kalsotra 2004](#5-references)). Biliary excretion also appears to play an important role in erythromycin clearance ([Acocella 1968](#5-references), [Chelvan 1979](#5-references)), but its contribution to total elimination remains unknown. The dose fraction excreted unchanged in urine is minimal and highly variable; reported fractions after IV administration range from 0.018 ± 0.005 to 0.171 ± 0.11 (mean ± SD) ([Pasic 1987](#5-references), [Austin 1980](#5-references)). There is abundant evidence from *in vitro* studies that erythromycin irreversibly inhibits CYP3A (e.g. [Larrey 1983](#5-references)) and the FDA lists erythromycin as moderate index inhibitor for CYP3A. Findings from *in vivo* studies investigating the dose linearity of erythromycin pharmacokinetics are not fully conclusive, but some studies observed a slight dose dependency ([Austin 1980](#5-references), [Josefsson 1982](#5-references)).
 
-
-
-
-
-
-
-
 # 2 Methods<a id="methods"></a>
 
-
-
-
-
-
-
 ## 2.1 Modeling Strategy<a id="modeling-strategy"></a>
-
 
 The general workflow for building an adult PBPK model has been described by Kuepfer et al. ([Kuepfer 2016](#5-references)). Relevant information on the anthropometry (height, weight) was gathered from the respective clinical study, if reported. Information on physiological parameters (e.g. blood flows, organ volumes, hematocrit) in adults was gathered from the literature and has been incorporated in PK-Sim® as described previously ([Willmann 2007](#5-references)). The  applied activity and variability of plasma proteins and active processes that are integrated into PK-Sim® are described in the publicly available 'PK-Sim® Ontogeny Database Version 7.3' ([PK-Sim Ontogeny Database Version 7.3](#5-references)).
 
@@ -105,17 +72,7 @@ Details about input data (physicochemical, *in vitro* and clinical) can be found
 
 Details about the structural model and its parameters can be found in [Section 2.3](#23-model-parameters-and-assumptions).
 
-
-
-
-
-
-
-
-
-
 ## 2.2 Data<a id="data"></a>
-
 
 ### 2.2.1	In vitro / physicochemical data
 
@@ -233,13 +190,7 @@ A literature search was carried out to collect available PK data on erythromycin
 | [Yakatan 1979](#5-references)    | PO administration of 250 mg as film-coated tablet containing erythromycin stearate; single dose |
 | [Yakatan 1980](#5-references)    | PO administration of 250 mg as film-coated tablet containing erythromycin stearate and as enteric-coated tablet containing erythromycin base; single and multiple dose |
 
-
-
-
-
-
 ## 2.3 Model Parameters and Assumptions<a id="model-parameters-and-assumptions"></a>
-
 
 ### 2.3.1	Dissolution and absorption
 
@@ -262,8 +213,6 @@ Relatively few PK data were available for enteric-coated tablets containing eryt
 #### 2.3.1.3	Enteric-coated capsule containing pellets of erythromycin as free base
 
 Comparison of the reported erythromycin PK following administration of different doses of enteric-coated capsules containing pellets of erythromycin base showed large variability in C<sub>max</sub> and t<sub>max</sub> both within and between different doses (dose range: 250 mg - 1000 mg). Here, dissolution kinetics was also described by the Weibull function with relevant parameters (`Dissolution shape`, `Dissolution time (50% dissolved)` and `lag time`) being optimized to better describe clinical data. However, optimizing solubility did not result in a better description of the observed PK profiles. Consequently, solubility of erythromycin in this formulation type was fixed to a high value (500 mg/L) to avoid any solubility-related limitations in dissolution and absorption.
-
-
 
 For all three formulations, the same `Specific intestinal permeability (transcellular)` was used in the PBPK model. This parameter was also optimized to better describe the clinical PK data.
 
@@ -327,12 +276,7 @@ This is the result of the final parameter identification:
 
 <sup>*</sup> The value in the model was updated to 1.350032201 with the release of PK-Sim 10 to account for the updated calculation method of interstitial concentrations (please refer to the respective [release notes of version 10](https://github.com/Open-Systems-Pharmacology/Suite/releases/tag/v10.0)).
 
-
-
-
-
 # 3 Results and Discussion<a id="results-and-discussion"></a>
-
 
 The PBPK model for erythromycin was developed and verified with clinical pharmacokinetic data.
 
@@ -342,17 +286,9 @@ The next sections show:
 2. the overall goodness of fit: [Section 3.2](#32-diagnostics-plots).
 3. simulated vs. observed concentration-time profiles for the clinical studies used for model building and for model verification: [Section 3.3](#33-concentration-time-profiles).
 
-
-
-
-
-
 ## 3.1 Final input parameters<a id="final-input-parameters"></a>
 
-
 The compound parameter values of the final PBPK model are illustrated below. 
-
-
 
 ### Compound: Erythromycin
 
@@ -375,14 +311,12 @@ Is small molecule                                | Yes                     |    
 Molecular weight                                 | 733.927 g/mol           | Internet-drugbank.ca                                                                                                                   |                                          |        
 Plasma protein binding partner                   | Unknown                 |                                                                                                                                        |                                          |        
 
-
 #### Calculation methods
 
 Name                    | Value                   
 ----------------------- | ------------------------
 Partition coefficients  | Rodgers and Rowland     
 Cellular permeabilities | Charge dependent Schmitt
-
 
 #### Processes
 
@@ -397,7 +331,6 @@ Name                               | Value                              | Value 
 In vitro Vmax for liver microsomes | 918.33333 pmol/min/mg mic. protein | Publication-In Vitro-PMID: 9566442                                                                 
 Km                                 | 70 µM                              | Publication-In Vitro-Average of reported values in the literature (PMID: 9107550 and PMID: 9566442)
 
-
 ##### Systemic Process: Glomerular Filtration-fitted
 
 Species: Human
@@ -407,7 +340,6 @@ Species: Human
 Name         |        Value | Value Origin                                                                                                         
 ------------ | ------------:| ---------------------------------------------------------------------------------------------------------------------
 GFR fraction | 1.1591081815 | Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 1' on 2020-01-13 15:01
-
 
 ##### Inhibition: CYP3A4-MBI
 
@@ -419,7 +351,6 @@ Name          | Value               | Value Origin
 ------------- | ------------------- | ---------------------------------------------------------------------------------------------------------------------
 kinact        | 0.0296261146 1/min  | Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 1' on 2020-01-13 15:01
 K_kinact_half | 7.6007360452 µmol/l | Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 1' on 2020-01-13 15:01
-
 
 ##### Transport Protein: OATP1B1-fitted
 
@@ -434,7 +365,6 @@ Vmax                      | 11.66 pmol/ml/min  | Publication-In Vitro-PMID: 2299
 Km                        | 0.735836485 µmol/l | Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 1' on 2020-01-13 15:01
 kcat                      | 1.350032201 1/min  | Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 1' on 2020-01-13 15:01
 
-
 ##### Systemic Process: Total Hepatic Clearance-fitted
 
 Species: Human
@@ -448,7 +378,6 @@ Lipophilicity (experiment)    | 2.48 Log Units     |
 Plasma clearance              | 0 ml/min/kg        |                                                                                                                      
 Specific clearance            | 4.1462183378 1/min | Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 1' on 2020-01-13 15:01
 
-
 ##### Inhibition: P-gp-Eberl2007
 
 Molecule: P-gp
@@ -458,9 +387,6 @@ Molecule: P-gp
 Name | Value       | Value Origin                                                                                                                                                                                                                                                                                                                                                                                   
 ---- | ----------- | -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Ki   | 22.7 µmol/l | Publication-Eberl S, Renner B, Neubert A, Reisig M, Bachmakov I, König J, Dörje F, Mürdter TE, Ackermann A, Dormann H, Gassmann KG, Hahn EG, Zierhut S, Brune K, Fromm MF. Role of p-glycoprotein inhibition for drug interactions: evidence from in vitro and pharmacoepidemiological studies. Clin Pharmacokinet. 2007;46(12):1039-49. doi: 10.2165/00003088-200746120-00004. PMID: 18027988.
-
-
-
 
 ### Formulation: Erythromycin_Weibull_enteric-coated-pellets
 
@@ -475,9 +401,6 @@ Lag time                         | 54.3490442506 min | Parameter Identification-
 Dissolution shape                | 1.0564916105      | Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 1' on 2020-01-13 15:01
 Use as suspension                | Yes               |                                                                                                                      
 
-
-
-
 ### Formulation: Erythromycin_Weibull_enteric-coated-tablet
 
 Type: Weibull
@@ -490,9 +413,6 @@ Dissolution time (50% dissolved) | 79.6337524677 min | Parameter Identification-
 Lag time                         | 78.7967495765 min | Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 1' on 2020-01-13 15:01
 Dissolution shape                | 1.0838799888      | Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 1' on 2020-01-13 15:01
 Use as suspension                | Yes               |                                                                                                                      
-
-
-
 
 ### Formulation: Erythromycin_Weibull_filmtablet
 
@@ -507,25 +427,15 @@ Lag time                         | 0 min            | Other-Assumption
 Dissolution shape                | 1.0960212213     | Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 1' on 2020-01-13 15:01
 Use as suspension                | Yes              |                                                                                                                      
 
-
-
-
-
-
-
 ## 3.2 Diagnostics Plots<a id="diagnostics-plots"></a>
-
 
 Below you find the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data used presented in [Section 2.2.3](#223-clinical-data).
 
 The first plot shows simulated versus observed plasma concentration, the second weighted residuals versus time. 
 
-
-
 <a id="table-3-1"></a>
 
 **Table 3-1: GMFE for Goodness of fit plot for concentration in plasma**
-
 
 |Group                                                    |GMFE |
 |:--------------------------------------------------------|:----|
@@ -539,1100 +449,742 @@ The first plot shows simulated versus observed plasma concentration, the second 
 |PO film-coated tablet, stearate (model building)         |1.38 |
 |All                                                      |1.58 |
 
-
 <br>
 <br>
-
 
 <a id="figure-3-1"></a>
 
 ![](images/006_section_results-and-discussion/008_section_diagnostics-plots/2_gof_plot_predictedVsObserved.png)
 
-
-
 **Figure 3-1: Goodness of fit plot for concentration in plasma**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-2"></a>
 
 ![](images/006_section_results-and-discussion/008_section_diagnostics-plots/3_gof_plot_residualsOverTime.png)
 
-
-
 **Figure 3-2: Goodness of fit plot for concentration in plasma**
 
-
 <br>
 <br>
-
-
-
-
 
 ## 3.3 Concentration-Time Profiles<a id="ct-profiles"></a>
 
-
 Simulated versus observed concentration-time profiles of all data listed in [Section 2.2.3](#223-clinical-data) are presented below.
 
-
-
-
-
-
 ### 3.3.1 Model Building<a id="model-building"></a>
-
-
-
-
-
-
-
 
 <a id="figure-3-3"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/4_time_profile_plot_Erythromycin_IV_125mg_Sun2010.png)
 
-
-
 **Figure 3-3: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-4"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/5_time_profile_plot_Erythromycin_IV_125mg_Sun2010.png)
 
-
-
 **Figure 3-4: Time Profile Analysis 1**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-5"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/6_time_profile_plot_Erythromycin_IV_250mg_3min_Austin1980.png)
 
-
-
 **Figure 3-5: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-6"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/9_time_profile_plot_Erythromycin_IV_300mg_Pasic1987.png)
 
-
-
 **Figure 3-6: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-7"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/10_time_profile_plot_Erythromycin_IV_300mg_Pasic1987.png)
 
-
-
 **Figure 3-7: Time Profile Analysis 1**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-8"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/13_time_profile_plot_Erythromycin_IV_500mg_Barre1987.png)
 
-
-
 **Figure 3-8: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-9"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/14_time_profile_plot_Erythromycin_IV_500mg_Barre1987.png)
 
-
-
 **Figure 3-9: Time Profile Analysis 1**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-10"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/28_time_profile_plot_Erythromycin_500mg_Kivisto1997_pellets_MD.png)
 
-
-
 **Figure 3-10: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-11"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/29_time_profile_plot_Erythromycin_500mg_Kivisto1997_pellets_MD.png)
 
-
-
 **Figure 3-11: Time Profile Analysis 1**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-12"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/34_time_profile_plot_Erythromycin_500mg_DiSanto1981.png)
 
-
-
 **Figure 3-12: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-13"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/35_time_profile_plot_Erythromycin_500mg_DiSanto1981.png)
 
-
-
 **Figure 3-13: Time Profile Analysis 1**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-14"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/38_time_profile_plot_Erythromycin_500mg_Posti1982_E.png)
 
-
-
 **Figure 3-14: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-15"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/39_time_profile_plot_Erythromycin_500mg_Posti1982_E.png)
 
-
-
 **Figure 3-15: Time Profile Analysis 1**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-16"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/40_time_profile_plot_Erythromycin_1000mg_Miglioli1990_MD.png)
 
-
-
 **Figure 3-16: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-17"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/41_time_profile_plot_Erythromycin_1000mg_Miglioli1990_MD.png)
 
-
-
 **Figure 3-17: Time Profile Analysis 1**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-18"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/42_time_profile_plot_Erythromycin_1000mg_Miglioli1990_MD.png)
 
-
-
 **Figure 3-18: Time Profile Analysis 2**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-19"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/43_time_profile_plot_Erythromycin_1000mg_Miglioli1990_MD.png)
 
-
-
 **Figure 3-19: Time Profile Analysis 3**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-20"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/48_time_profile_plot_Erythromycin_250mg_Yakatan1980_stearate.png)
 
-
-
 **Figure 3-20: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-21"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/49_time_profile_plot_Erythromycin_250mg_Yakatan1980_stearate.png)
 
-
-
 **Figure 3-21: Time Profile Analysis 1**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-22"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/50_time_profile_plot_Erythromycin_250mg_Yakatan1980_stearate_MD.png)
 
-
-
 **Figure 3-22: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-23"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/51_time_profile_plot_Erythromycin_250mg_Yakatan1980_stearate_MD.png)
 
-
-
 **Figure 3-23: Time Profile Analysis 1**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-24"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/64_time_profile_plot_Erythromycin_500mg_Malmborg1978_MD.png)
 
-
-
 **Figure 3-24: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-25"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/65_time_profile_plot_Erythromycin_500mg_Malmborg1978_MD.png)
 
-
-
 **Figure 3-25: Time Profile Analysis 1**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-26"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/66_time_profile_plot_Erythromycin_500mg_Malmborg1978_MD.png)
 
-
-
 **Figure 3-26: Time Profile Analysis 2**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-27"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/67_time_profile_plot_Erythromycin_500mg_Malmborg1978_MD.png)
 
-
-
 **Figure 3-27: Time Profile Analysis 3**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-28"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/71_time_profile_plot_Erythromycin_500mg_Posti1983_A1.png)
 
-
-
 **Figure 3-28: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-29"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/72_time_profile_plot_Erythromycin_500mg_Posti1983_A1.png)
 
-
-
 **Figure 3-29: Time Profile Analysis 1**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-30"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/73_time_profile_plot_Erythromycin_500mg_Posti1983_A2_RN.png)
 
-
-
 **Figure 3-30: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-31"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/74_time_profile_plot_Erythromycin_500mg_Posti1983_A2_RN.png)
 
-
-
 **Figure 3-31: Time Profile Analysis 1**
 
-
 <br>
 <br>
-
-
-
-
 
 ### 3.3.2 Model Verification<a id="model-verification"></a>
-
-
-
-
-
-
-
 
 <a id="figure-3-32"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/1_time_profile_plot_Erythromycin_IV_1000mg_Huppertz2011.png)
 
-
-
 **Figure 3-32: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-33"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/2_time_profile_plot_Erythromycin_IV_125mg_Austin1980.png)
 
-
-
 **Figure 3-33: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-34"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/3_time_profile_plot_Erythromycin_IV_125mg_Austin1980.png)
 
-
-
 **Figure 3-34: Time Profile Analysis 1**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-35"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/7_time_profile_plot_Erythromycin_IV_250mg_Austin1980.png)
 
-
-
 **Figure 3-35: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-36"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/8_time_profile_plot_Erythromycin_IV_250mg_Austin1980.png)
 
-
-
 **Figure 3-36: Time Profile Analysis 1**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-37"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/11_time_profile_plot_Erythromycin_IV_500mg_Austin1980.png)
 
-
-
 **Figure 3-37: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-38"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/12_time_profile_plot_Erythromycin_IV_500mg_Austin1980.png)
 
-
-
 **Figure 3-38: Time Profile Analysis 1**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-39"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/15_time_profile_plot_Erythromycin_IV_500mg_Simon1980.png)
 
-
-
 **Figure 3-39: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-40"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/16_time_profile_plot_Erythromycin_IV_900mg_Austin1980.png)
 
-
-
 **Figure 3-40: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-41"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/17_time_profile_plot_Erythromycin_IV_900mg_Austin1980.png)
 
-
-
 **Figure 3-41: Time Profile Analysis 1**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-42"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/18_time_profile_plot_Erythromycin_1000mg_Josefsson1982a_pellets.png)
 
-
-
 **Figure 3-42: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-43"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/19_time_profile_plot_Erythromycin_1000mg_Josefsson1982a_pellets.png)
 
-
-
 **Figure 3-43: Time Profile Analysis 1**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-44"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/20_time_profile_plot_Erythromycin_250mg_Birkett1990_SD.png)
 
-
-
 **Figure 3-44: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-45"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/21_time_profile_plot_Erythromycin_250mg_Birkett1990_SD.png)
 
-
-
 **Figure 3-45: Time Profile Analysis 1**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-46"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/22_time_profile_plot_Erythromycin_250mg_Birkett1990_MD.png)
 
-
-
 **Figure 3-46: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-47"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/23_time_profile_plot_Erythromycin_250mg_Birkett1990_MD.png)
 
-
-
 **Figure 3-47: Time Profile Analysis 1**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-48"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/24_time_profile_plot_Erythromycin_250mg_Josefsson1982a_pellets.png)
 
-
-
 **Figure 3-48: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-49"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/25_time_profile_plot_Erythromycin_250mg_Josefsson1982a_pellets.png)
 
-
-
 **Figure 3-49: Time Profile Analysis 1**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-50"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/26_time_profile_plot_Erythromycin_500mg_Josefsson1982a_pellets.png)
 
-
-
 **Figure 3-50: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-51"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/27_time_profile_plot_Erythromycin_500mg_Josefsson1982a_pellets.png)
 
-
-
 **Figure 3-51: Time Profile Analysis 1**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-52"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/30_time_profile_plot_Erythromycin_500mg_Schreiner1984_pellets.png)
 
-
-
 **Figure 3-52: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-53"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/31_time_profile_plot_Erythromycin_500mg_Schreiner1984_pellets.png)
 
-
-
 **Figure 3-53: Time Profile Analysis 1**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-54"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/32_time_profile_plot_Erythromycin_250mg_Yakatan1980_base_MD.png)
 
-
-
 **Figure 3-54: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-55"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/33_time_profile_plot_Erythromycin_250mg_Yakatan1980_base_MD.png)
 
-
-
 **Figure 3-55: Time Profile Analysis 1**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-56"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/36_time_profile_plot_Erythromycin_500mg_Kroboth1982.png)
 
-
-
 **Figure 3-56: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-57"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/37_time_profile_plot_Erythromycin_500mg_Kroboth1982.png)
 
-
-
 **Figure 3-57: Time Profile Analysis 1**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-58"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/44_time_profile_plot_Erythromycin_1500mg_Shanson1984.png)
 
-
-
 **Figure 3-58: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-59"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/45_time_profile_plot_Erythromycin_1500mg_Shanson1984.png)
 
-
-
 **Figure 3-59: Time Profile Analysis 1**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-60"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/46_time_profile_plot_Erythromycin_250mg_Yakatan1979.png)
 
-
-
 **Figure 3-60: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-61"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/47_time_profile_plot_Erythromycin_250mg_Yakatan1979.png)
 
-
-
 **Figure 3-61: Time Profile Analysis 1**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-62"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/52_time_profile_plot_Erythromycin_500mg_Berend1979_MD.png)
 
-
-
 **Figure 3-62: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-63"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/53_time_profile_plot_Erythromycin_500mg_Berend1979_MD.png)
 
-
-
 **Figure 3-63: Time Profile Analysis 1**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-64"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/54_time_profile_plot_Erythromycin_500mg_Brannan1995_MD.png)
 
-
-
 **Figure 3-64: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-65"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/55_time_profile_plot_Erythromycin_500mg_Brannan1995_MD.png)
 
-
-
 **Figure 3-65: Time Profile Analysis 1**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-66"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/56_time_profile_plot_Erythromycin_500mg_Henry1980.png)
 
-
-
 **Figure 3-66: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-67"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/57_time_profile_plot_Erythromycin_500mg_Henry1980.png)
 
-
-
 **Figure 3-67: Time Profile Analysis 1**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-68"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/58_time_profile_plot_Erythromycin_500mg_Iliopoulou1982_MD.png)
 
-
-
 **Figure 3-68: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-69"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/59_time_profile_plot_Erythromycin_500mg_Iliopoulou1982_MD.png)
 
-
-
 **Figure 3-69: Time Profile Analysis 1**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-70"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/60_time_profile_plot_Erythromycin_500mg_Josefsson1982a.png)
 
-
-
 **Figure 3-70: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-71"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/61_time_profile_plot_Erythromycin_500mg_Josefsson1982a.png)
 
-
-
 **Figure 3-71: Time Profile Analysis 1**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-72"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/62_time_profile_plot_Erythromycin_500mg_Kavi1988.png)
 
-
-
 **Figure 3-72: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-73"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/63_time_profile_plot_Erythromycin_500mg_Kavi1988.png)
 
-
-
 **Figure 3-73: Time Profile Analysis 1**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-74"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/68_time_profile_plot_Erythromycin_500mg_Parsons1977.png)
 
-
-
 **Figure 3-74: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-75"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/69_time_profile_plot_Erythromycin_500mg_Parsons1977.png)
 
-
-
 **Figure 3-75: Time Profile Analysis 1**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-76"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/70_time_profile_plot_Erythromycin_500mg_Parsons1977.png)
 
-
-
 **Figure 3-76: Time Profile Analysis 2**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-77"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/75_time_profile_plot_Erythromycin_500mg_Schreiner1984_stearate.png)
 
-
-
 **Figure 3-77: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-78"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/76_time_profile_plot_Erythromycin_500mg_Schreiner1984_stearate.png)
 
-
-
 **Figure 3-78: Time Profile Analysis 1**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-79"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/77_time_profile_plot_Erythromycin_500mg_Simon1980.png)
 
-
-
 **Figure 3-79: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-80"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/78_time_profile_plot_Erythromycin_500mg_Simon1980.png)
 
-
-
 **Figure 3-80: Time Profile Analysis 1**
 
-
 <br>
 <br>
-
-
-
-
 
 # 4 Conclusion<a id="conclusion"></a>
 
-
 The final erythromycin PBPK model applies metabolism by CYP3A4, glomerular filtration, and a dummy clearance technically implemented as hepatic plasma clearance accounting for additional clearance pathways, as well as mechanism-based inhibition of CYP3A4. Overall, the model adequately describes the oral pharmacokinetics of erythromycin in healthy adults receiving different single or multiple doses of several oral dosage forms and is considered verified for the use as a perpetrator drug in drug-drug interaction simulations.
 
-
-
-
-
-
 # 5 References<a id="main-references"></a>
-
 
 **Acocella 1968** Acocella G, Mattiussi R, Nicolis FB, Pallanza R, Tenconi LT. Biliary excretion of antibiotics in man. *Gut* 1968, 9(5): 536-545.
 
@@ -1785,6 +1337,4 @@ The final erythromycin PBPK model applies metabolism by CYP3A4, glomerular filtr
 **Zhang 2009** Zhang X, Jones DR, Hall SD. Prediction of the effect of erythromycin, diltiazem, and their metabolites, alone and in combination, on CYP3A4 inhibition. *Drug Metab Dispos* 2009, 37(1):150-160.
 
 **Zimmerlin 2011** Zimmerlin A, Trunzer M, Faller B. CYP3A time-dependent inhibition risk assessment validated with 400 reference drugs. *Drug Metab Dispos* 2011, 39(6): 1039-1046.
-
-
 
