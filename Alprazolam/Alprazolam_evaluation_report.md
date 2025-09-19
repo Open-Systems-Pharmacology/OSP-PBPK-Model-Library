@@ -1,28 +1,14 @@
-
-
-
-
 # Building and evaluation of a PBPK model for alprazolam in healthy adults
 
-
-
-
-
-| Version                                         | 2.0-OSP12.0                                                   |
+| Version                                         | 2.0-OSP12.1                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
 | based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Alprazolam-Model/releases/tag/v2.0 |
-| OSP Version                                     | 12.0                                                          |
-| Qualification Framework Version                 | 3.3                                                          |
-
-
-
-
+| OSP Version                                     | 12.1                                                          |
+| Qualification Framework Version                 | 3.4                                                          |
 
 This evaluation report and the corresponding PK-Sim project file are filed at:
 
 [https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library](https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library)
-
-
 
 # Table of Contents
 
@@ -38,12 +24,7 @@ This evaluation report and the corresponding PK-Sim project file are filed at:
  * [4 Conclusion](#4)
  * [5 References](#5)
 
-
-
-
-
 # 1 Introduction<a id="introduction"></a>
-
 
 The presented model building and evaluation report evaluates the performance of a PBPK model for alprazolam in healthy adults.
 
@@ -53,23 +34,9 @@ Following oral administration, alprazolam is rapidly absorbed with an absolute b
 
 The presented alprazolam PBPK model was developed for intravenous (IV) administration and oral (PO) administration of the immediate release tablet (Xanax) or extended-release formulation (Solanax) given in fasted state in healthy, non-obese adults; administration in fed state was not addressed here.
 
-
-
-
-
-
-
-
 # 2 Methods<a id="methods"></a>
 
-
-
-
-
-
-
 ## 2.1 Modeling Strategy<a id="modeling-strategy"></a>
-
 
 The general workflow for building an adult PBPK model has been described by Kuepfer et al. ([Kuepfer 2016](#5-references)). Relevant information on the anthropometry (height, weight) was gathered from the respective clinical study, if reported. Information on physiological parameters (e.g. blood flows, organ volumes, hematocrit) in adults was gathered from the literature and has been incorporated in PK-Sim<sup>®</sup>) as described previously ([Willmann 2007](#5-references)). The  applied activity and variability of plasma proteins and active processes that are integrated into PK-Sim® are described in the publicly available 'PK-Sim<sup>®</sup> Ontogeny Database Version 7.3' ([PK-Sim Ontogeny Database Version 7.3](#5-references)).
 
@@ -104,17 +71,7 @@ Details about input data (physicochemical, *in vitro* and clinical) can be found
 
 Details about the structural model and its parameters can be found in [Section 2.3](#23-model-parameters-and-assumptions).
 
-
-
-
-
-
-
-
-
-
 ## 2.2 Data<a id="data"></a>
-
 
 ### 2.2.1 In vitro / physicochemical data
 
@@ -170,13 +127,7 @@ The following publications were found and used for model building and evaluation
 | [Yasui 1998](#5-references)           | PO single dose administration of 0.8 mg (Control phase)      |
 | [Yasui 2000](#5-references)           | PO single dose administration of 0.8 mg (Control phase)      |
 
-
-
-
-
-
 ## 2.3 Model Parameters and Assumptions<a id="model-parameters-and-assumptions"></a>
-
 
 ### 2.3.1 Dissolution and absorption
 
@@ -192,12 +143,7 @@ Alprazolam is extensively metabolized via CYP3A to give two major metabolites, �
 
 Following oral administration of <sup>14</sup>C-alprazolam, 20% of the dose have been recovered unchanged in urine ([Eberts 1980](#5-references)). This information was accounted for in the model by implementing a glomerular filtration process and optimizing the `GFR fraction` to match the observed dose fraction excreted unchanged in urine. 
 
-
-
-
-
 # 3 Results and Discussion<a id="3"></a>
-
 
 The PBPK model for alprazolam was developed and verified with clinical pharmacokinetic data.
 
@@ -207,17 +153,9 @@ The next sections show:
 2. the overall goodness of fit: [Section 3.2](#32-diagnostics-plots).
 3. simulated vs. observed concentration-time profiles for the clinical studies used for model building: [Section 3.3](#33-concentration-time-profiles).
 
-
-
-
-
-
 ## 3.1 Final input parameters<a id="final-input-parameters"></a>
 
-
 The compound parameter values of the final PBPK model are illustrated below. 
-
-
 
 ### Compound: Alprazolam
 
@@ -235,14 +173,12 @@ Is small molecule                                | Yes                    |     
 Molecular weight                                 | 308.765 g/mol          |                                                                                                                         |             |        
 Plasma protein binding partner                   | Unknown                |                                                                                                                         |             |        
 
-
 #### Calculation methods
 
 Name                    | Value              
 ----------------------- | -------------------
 Partition coefficients  | Rodgers and Rowland
 Cellular permeabilities | PK-Sim Standard    
-
 
 #### Processes
 
@@ -258,7 +194,6 @@ In vitro Vmax for liver microsomes | 0.131 nmol/min/mg mic. protein | Publicatio
 Km                                 | 269 µmol/l                     | Publication-In Vitro-PMID: 11745908                                                                                    
 kcat                               | 0.8066945978 1/min             | Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 3.4' on 2020-03-25 13:19
 
-
 ##### Systemic Process: Glomerular Filtration-GFR
 
 Species: Human
@@ -268,7 +203,6 @@ Species: Human
 Name         |        Value | Value Origin                                                                                                           
 ------------ | ------------:| -----------------------------------------------------------------------------------------------------------------------
 GFR fraction | 0.5461456402 | Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 3.4' on 2020-03-25 13:19
-
 
 ##### Metabolizing Enzyme: CYP3A4-4-OH pathway
 
@@ -281,9 +215,6 @@ Name                               | Value                         | Value Origi
 In vitro Vmax for liver microsomes | 2.23 nmol/min/mg mic. protein | Publication-In Vitro-PMID: 11745908                                                                                    
 Km                                 | 704 µmol/l                    | Publication-In Vitro-PMID: 11745908                                                                                    
 kcat                               | 13.7322820855 1/min           | Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 3.4' on 2020-03-25 13:19
-
-
-
 
 ### Formulation: Xanax_IR
 
@@ -298,9 +229,6 @@ Lag time                         | 0 min             |
 Dissolution shape                | 0.92              | Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 3.4' on 2020-03-25 13:19
 Use as suspension                | Yes               |                                                                                                                        
 
-
-
-
 ### Formulation: Solanax
 
 Type: Weibull
@@ -314,25 +242,15 @@ Lag time                         | 0 min             |
 Dissolution shape                | 0.92              | Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 3.4' on 2020-03-25 13:19
 Use as suspension                | Yes               |                                                                                                                        
 
-
-
-
-
-
-
 ## 3.2 Diagnostics Plots<a id="diagnostics-plots"></a>
-
 
 Below you find the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data used presented in [Section 2.2.2](#222-clinical-data).
 
 The first plot shows observed versus simulated plasma concentration, the second weighted residuals versus time. 
 
-
-
 <a id="table-3-1"></a>
 
 **Table 3-1: GMFE for Goodness of fit plot for concentration in plasma**
-
 
 |Group |GMFE |
 |:-----|:----|
@@ -340,337 +258,225 @@ The first plot shows observed versus simulated plasma concentration, the second 
 |PO    |1.18 |
 |All   |1.18 |
 
-
 <br>
 <br>
-
 
 <a id="figure-3-1"></a>
 
 ![](images/006_section_3/008_section_diagnostics-plots/2_gof_plot_predictedVsObserved.png)
 
-
-
 **Figure 3-1: Goodness of fit plot for concentration in plasma**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-2"></a>
 
 ![](images/006_section_3/008_section_diagnostics-plots/3_gof_plot_residualsOverTime.png)
 
-
-
 **Figure 3-2: Goodness of fit plot for concentration in plasma**
 
-
 <br>
 <br>
-
-
-
-
 
 ## 3.3 Concentration-Time Profiles<a id="ct-profiles"></a>
 
-
 Simulated versus observed concentration-time profiles of all data listed in [Section 2.2.2](#222-clinical-data) are presented below.
-
-
 
 <a id="figure-3-3"></a>
 
 ![](images/006_section_3/009_section_ct-profiles/1_time_profile_plot_Alprazolam_Adams1984_IV_0_25mg.png)
 
-
-
 **Figure 3-3: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-4"></a>
 
 ![](images/006_section_3/009_section_ct-profiles/2_time_profile_plot_Alprazolam_Adams1984_IV_4mg.png)
 
-
-
 **Figure 3-4: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-5"></a>
 
 ![](images/006_section_3/009_section_ct-profiles/3_time_profile_plot_Alprazolam_Bertz1997_IV_2mg.png)
 
-
-
 **Figure 3-5: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-6"></a>
 
 ![](images/006_section_3/009_section_ct-profiles/4_time_profile_plot_Alprazolam_Fleishaker1989_IV_1mg.png)
 
-
-
 **Figure 3-6: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-7"></a>
 
 ![](images/006_section_3/009_section_ct-profiles/5_time_profile_plot_Alprazolam_Kroboth1988_IV_0_5mg.png)
 
-
-
 **Figure 3-7: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-8"></a>
 
 ![](images/006_section_3/009_section_ct-profiles/6_time_profile_plot_Alprazolam_Kroboth1988_IV_1mg_0_576mg_over8h.png)
 
-
-
 **Figure 3-8: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-9"></a>
 
 ![](images/006_section_3/009_section_ct-profiles/7_time_profile_plot_Alprazolam_Kroboth1988_IV_2mg.png)
 
-
-
 **Figure 3-9: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-10"></a>
 
 ![](images/006_section_3/009_section_ct-profiles/8_time_profile_plot_Alprazolam_Lin1988_IV_0_5mg.png)
 
-
-
 **Figure 3-10: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-11"></a>
 
 ![](images/006_section_3/009_section_ct-profiles/9_time_profile_plot_Alprazolam_Smith1984_IV_1mg.png)
 
-
-
 **Figure 3-11: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-12"></a>
 
 ![](images/006_section_3/009_section_ct-profiles/10_time_profile_plot_Alprazolam_Venkatakrishnan2005_IV_1mg.png)
 
-
-
 **Figure 3-12: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-13"></a>
 
 ![](images/006_section_3/009_section_ct-profiles/11_time_profile_plot_Alprazolam_PO_0_5mg.png)
 
-
-
 **Figure 3-13: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-14"></a>
 
 ![](images/006_section_3/009_section_ct-profiles/12_time_profile_plot_Alprazolam_PO_0_5mg.png)
 
-
-
 **Figure 3-14: Time Profile Analysis 1**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-15"></a>
 
 ![](images/006_section_3/009_section_ct-profiles/13_time_profile_plot_Alprazolam_PO_0_8mg.png)
 
-
-
 **Figure 3-15: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-16"></a>
 
 ![](images/006_section_3/009_section_ct-profiles/14_time_profile_plot_Alprazolam_PO_0_8mg.png)
 
-
-
 **Figure 3-16: Time Profile Analysis 1**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-17"></a>
 
 ![](images/006_section_3/009_section_ct-profiles/15_time_profile_plot_Alprazolam_PO_1mg.png)
 
-
-
 **Figure 3-17: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-18"></a>
 
 ![](images/006_section_3/009_section_ct-profiles/16_time_profile_plot_Alprazolam_PO_1mg.png)
 
-
-
 **Figure 3-18: Time Profile Analysis 1**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-19"></a>
 
 ![](images/006_section_3/009_section_ct-profiles/17_time_profile_plot_Alprazolam_PO_2mg.png)
 
-
-
 **Figure 3-19: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-20"></a>
 
 ![](images/006_section_3/009_section_ct-profiles/18_time_profile_plot_Alprazolam_PO_2mg.png)
 
-
-
 **Figure 3-20: Time Profile Analysis 1**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-21"></a>
 
 ![](images/006_section_3/009_section_ct-profiles/19_time_profile_plot_Alprazolam_PO_2mg.png)
 
-
-
 **Figure 3-21: Time Profile Analysis 2**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-22"></a>
 
 ![](images/006_section_3/009_section_ct-profiles/20_time_profile_plot_Alprazolam_PO_Fleishaker1994.png)
 
-
-
 **Figure 3-22: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-23"></a>
 
 ![](images/006_section_3/009_section_ct-profiles/21_time_profile_plot_Alprazolam_PO_Fleishaker1994.png)
 
-
-
 **Figure 3-23: Time Profile Analysis 1**
 
-
 <br>
 <br>
-
-
-
-
 
 # 4 Conclusion<a id="4"></a>
 
-
 The final alprazolam PBPK model applies metabolism by CYP3A4, modelled as two separate pathways catalyzed by the same enzyme yielding α-hydroxy-alprazolam and 4-hydroxy-alprazolam as metabolites, and glomerular filtration. Overall, the model adequately describes the pharmacokinetics of alprazolam in healthy, non-obese adults receiving different single doses of alprazolam via the IV route or oral route as immediate release tablet in the fasted state.
 
-
-
-
-
-
-
-
 # 5 References<a id="5"></a>
-
 
 **Abernethy 1983** Abernethy DR, Greenblatt DJ, Divoll M, Moschitto LJ, Harmatz JS, Shader RI. Interaction of cimetidine with the triazolobenzodiazepines alprazolam and triazolam. *Psychopharmacology (Berl)* 1983, 80(3): 275-278.
 
@@ -757,6 +563,4 @@ The final alprazolam PBPK model applies metabolism by CYP3A4, modelled as two se
 **Yasui 1998** Yasui N, Kondo T, Otani K, Furukori H, Kaneko S, Ohkubo T, Nagasaki T, Sugawara K. Effect of itraconazole on the single oral dose pharmacokinetics and pharmacodynamics of alprazolam. *Psychopharmacology* 1998, 139(3): 269-273.
 
 **Yasui 2000** Yasui N, Kondo T, Furukori H, Kaneko S, Ohkubo T, Uno T, Osanai T, Sugawara K, Otani K. Effects of repeated ingestion of grapefruit juice on the single and multiple oral-dose pharmacokinetics and pharmacodynamics of alprazolam. *Psychopharmacology* 2000, 150(2): 185-190.
-
-
 
