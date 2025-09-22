@@ -1,32 +1,34 @@
 # Building and evaluation of a PBPK model for Omeprazole in adults
 
-
-
-| Version                                         | 1.1-OSP12.0                                                   |
+| Version                                         | 2.0-OSP12.1                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
-| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Omeprazole-Model/releases/tag/v1.0 |
-| OSP Version                                     | 12.0                                                          |
-| Qualification Framework Version                 | 3.3                                                          |
+| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Omeprazole-Model/releases/tag/v2.0 |
+| OSP Version                                     | 12.1                                                          |
+| Qualification Framework Version                 | 3.4                                                          |
 
 This evaluation report and the corresponding PK-Sim project file are filed at:
 
 https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/
+
 # Table of Contents
-  * [1 Introduction](#1-introduction)
-  * [2 Methods](#2-methods)
-    * [2.1 Modeling Strategy](#21-modeling-strategy)
-    * [2.2 Data](#22-data)
-    * [2.3 Model Parameters and Assumptions](#23-model-parameters-and-assumptions)
-  * [3 Results and Discussion](#3-results-and-discussion)
-    * [3.1 Final input parameters](#31-final-input-parameters)
-    * [3.2 Diagnostics Plots](#32-diagnostics-plots)
-    * [3.3 Concentration-Time Profiles](#33-concentration-time-profiles)
-      * [3.3.1 Model Building](#331-model-building)
-      * [3.3.2 Model Verification](#332-model-verification)
-  * [4 Conclusion](#4-conclusion)
-  * [5 References](#5-references)
-  * [6 Glossary](#6-glossary)
-# 1 Introduction
+
+ * [1 Introduction](#introduction)
+ * [2 Methods](#methods)
+   * [2.1 Modeling Strategy](#modeling-strategy)
+   * [2.2 Data](#data)
+   * [2.3 Model Parameters and Assumptions](#model-parameters-and-assumptions)
+ * [3 Results and Discussion](#results-and-discussion)
+   * [3.1 Final input parameters](#final-input-parameters)
+   * [3.2 Diagnostics Plots](#diagnostics-plots)
+   * [3.3 Concentration-Time Profiles](#ct-profiles)
+     * [3.3.1 Model Building](#model-building)
+     * [3.3.2 Model Verification](#model-verification)
+ * [4 Conclusion](#conclusion)
+ * [5 References](#references)
+ * [6 Glossary](#glossary)
+
+# 1 Introduction<a id="introduction"></a>
+
 The presented PBPK model of omeprazole has been developed to be used in a PBPK Drug-Drug-Interactions (DDI) network with omeprazole as a substrate of CYP2C19 and CYP3A4 and an inhibitor of CYP2C19.
 
 Omeprazole is a proton pump inhibitor (PPI) for the treatment of gastric acid related diseases. Omeprazole is administered as a racemic mixture of its two enantiomers, S-omeprazole and R-omeprazole.
@@ -45,10 +47,10 @@ The following ADME characteristics for (R-/S-) omeprazole were taken from omepra
 
 **Stereoselectivity:** Because both enantiomers are substrates and inhibitors of CYP2C19, the PK profile of each enantiomer is expected to differ when the racemic mixture is administered as compared to as a single agent because of mutual inhibition between the enantiomers ([Äbelö 2000](#5-references)). The Ki for R-omeprazole is 2-5 higher compared to S-omeprazole ([Liu 2005](#5-references), [Wu 2014](#5-references)).
 
-# 2 Methods
+# 2 Methods<a id="methods"></a>
 
+## 2.1 Modeling Strategy<a id="modeling-strategy"></a>
 
-## 2.1 Modeling Strategy
 The general workflow for building an adult PBPK model has been described by Kuepfer et al. ([Kuepfer 2016](#5-references)). Relevant information on the anthropometry (height, weight) was gathered from the respective clinical study, if reported. Information on physiological parameters (e.g. blood flows, organ volumes, hematocrit) in adults was gathered from the literature and has been incorporated in PK-Sim® as described previously ([Willmann 2007](#5-references)). The  applied activity and variability of plasma proteins and active processes that are integrated into PK-Sim® are described in the publicly available 'PK-Sim® Ontogeny Database Version 7.3' ([PK-Sim Ontogeny Database Version 7.3](#5-references)).
 
 The model includes distinct molecules for S- and R-omeprazole, the racemic omeprazole is represented by an observer that sums up the concentrations of S- and R-omeprazole. It was assumed that both isomers correspond to the half of the racemic omeprazole dose.
@@ -91,7 +93,8 @@ Details about the structural model and its parameters can be found in [Section 2
 
 Population simulations of single and multiple i.v. or p.o. administration over a wide range of dose levels were conducted to visually compare the predicted concentration-time profile to the observed concentrations reported in the literature, in terms of mean and variability. The simulated populations matched the race (European or Asian) and the age-weight ranges reported in the respective clinical studies. A total of 1000 individuals were generated for studies in males only, while 2000 were generated for mixed gender populations. The concentration time profile was simulated for each virtual subject and summarized as geometric mean and 95% CI. The simulations were performed for extensive and poor CYP2C19 metabolizers.
 
-## 2.2 Data
+## 2.2 Data<a id="data"></a>
+
 ### 2.2.1 In vitro and physico-chemical data
 
 A literature search was performed to collect available information on physico-chemical properties of S- and R-omeprazole and summarized in [Table 1](#table-1) and [Table 2](#table-2), respectively.
@@ -110,8 +113,6 @@ A literature search was performed to collect available information on physico-ch
 | Renal Elimination<sup>+</sup>                              | l/h      | 0.037         | [Wu 2014](#5-references)                        | Assumed same as omeprazole                                   |
 
 **Table 1:**<a name="table-1"></a> Physico-chemical and *in-vitro* metabolization properties of S-omeprazole extracted from literature. *<sup>+</sup>: Value used in final model*
-
-
 
 | **Parameter**                                              | **Unit** | **Value**     | Source                            | **Description**                                              |
 | :--------------------------------------------------------- | -------- | ------------- | --------------------------------- | ------------------------------------------------------------ |
@@ -179,7 +180,9 @@ A literature search was performed to collect available clinical data on omeprazo
 | [Hassan-Alin 2005](#5-references)<sup>+</sup> | p.o.      | 20 - 40 q.d.                    | HV       | -       | -     | oral solution |             |
 
 **Table 5:**<a name="table-5"></a> Literature sources of clinical concentration data of R-omeprazole used for model development and validation. *e.c.: enteric coated; -: respective information was not provided in the literature source; \*:single dose unless otherwise specified; EM: extensive metabolizers; PM: poor metabolizers; <sup>+</sup>: Data used for final parameter identification*
-## 2.3 Model Parameters and Assumptions
+
+## 2.3 Model Parameters and Assumptions<a id="model-parameters-and-assumptions"></a>
+
 ### 2.3.1 Absorption
 
 The model parameter `Specific intestinal permeability`  for S-omeprazole was optimized to best match clinical data (see  [Section 2.3.4](#235-automated-parameter-identification)). The same parameter value was assumed for R-omeprazole.
@@ -207,7 +210,7 @@ Competitive inhibition of CYP2C19 by both isomers was implemented in addition to
 
 Simulation results suggested that the expression of CYP2C19 isoenzymes in the GI tract as provided by the RT-PCR PK-Sim database is significantly preventing R-omeprazole from entering the circulation. This was less apparent for S-omeprazole. To note, while the absolute mean CYP3A4 abundance in liver (1.03e7 pmol per liver) and the intestinal/liver CYP3A4 ratio in PK-Sim default individual are similar to values used in other models, the relative intestinal CYP2C19 and CYP2D6 abundances differ ([Table 6](#table-6)). The relative expression of CYP2C19 in gut was therefore reduced according to [Olivares-Morales 2016](#5-references) for the final model.
 
-| **Ratio**                                | **[Olivares-Morales 2016](#5-references)**<sup>1</sup> | **[Galetin and Houston 2006](#5-references)**<sup>2</sup> | **Gastroplus** | **RT-PCR PK-Sim** | **Comment**                                                  |
+| **Ratio**                                | **[Olivares-Morales 2016](#5-references)**<sup>1</sup> | **[Galetin and Houston 2006](#5-references)**<sup>2</sup> | **GastroPlus** | **RT-PCR PK-Sim** | **Comment**                                                  |
 | ---------------------------------------- | ------------------------------------------------------ | --------------------------------------------------------- | -------------- | ---------------- | ------------------------------------------------------------ |
 | CYP3A4/2C19 relative abundance liver     | 9.8                                                    | 11.1                                                      | 8.1            | 5.68             | CYP2C19 abundance in liver 1.8-fold higher than  other literature sources |
 | CYP3A4/2C19 relative abundance intestine | 43.8                                                   | 43.0                                                      | -              | 1.28             | CYP2C19 abundance in intestine 22-fold higher  than other literature sources |
@@ -243,14 +246,17 @@ Following parameter values were estimated for the base model:
 | Specific CL_2C19                                 | R-Omeprazole |
 | Specific CL_3A4                                  | S-Omeprazole |
 | Specific CL_3A4                                  | R-Omeprazole |
-# 3 Results and Discussion
+
+# 3 Results and Discussion<a id="results-and-discussion"></a>
+
 The next sections show:
 
 1. Final model input parameters for the building blocks: [Section 3.1](#31-final-input-parameters).
 2. Overall goodness of fit: [Section 3.2](#32-diagnostics-plots).
 3. Simulated vs. observed concentration-time profiles for the clinical studies used for model building and for model verification: [Section 3.3](#33-concentration-time-profiles).
 
-## 3.1 Final input parameters
+## 3.1 Final input parameters<a id="final-input-parameters"></a>
+
 The parameter values of the final PBPK model are illustrated below.
 
 ### Compound: Esomeprazole
@@ -268,14 +274,12 @@ Is small molecule                                | Yes                    |     
 Molecular weight                                 | 345.416 g/mol          | Database-DrugBank DB00338                         |             |        
 Plasma protein binding partner                   | Albumin                |                                                   |             |        
 
-
 #### Calculation methods
 
 Name                    | Value              
 ----------------------- | -------------------
 Partition coefficients  | Rodgers and Rowland
 Cellular permeabilities | PK-Sim Standard    
-
 
 #### Processes
 
@@ -292,7 +296,6 @@ Name                | Value       | Value Origin
 Intrinsic clearance | 0 l/min     |                                                  
 Specific clearance  | 13.98 1/min | Parameter Identification-Parameter Identification
 
-
 ##### Metabolizing Enzyme: CYP3A4-3A4 Linear Fit
 
 Species: Human
@@ -306,7 +309,6 @@ Name                | Value              | Value Origin
 Intrinsic clearance | 0 l/min            |                                                  
 Specific clearance  | 0.3707655759 1/min | Parameter Identification-Parameter Identification
 
-
 ##### Systemic Process: Renal Clearances-Wu2014 - Table1 - CLr
 
 Species: Human
@@ -318,7 +320,6 @@ Name                          | Value           | Value Origin
 Fraction unbound (experiment) | 0.05            |                      
 Plasma clearance              | 0.000507 l/h/kg | Unknown-0.037l/h/73kg
 
-
 ##### Inhibition: CYP2C19-Liu 2005 - Ki in vivo unbound
 
 Molecule: CYP2C19
@@ -328,7 +329,6 @@ Molecule: CYP2C19
 Name | Value      | Value Origin        
 ---- | ---------- | --------------------
 Ki   | 3.1 µmol/l | Publication-Liu 2005
-
 
 ##### Inhibition: CYP2C19-Wu2014 - Table1 - TDI
 
@@ -340,23 +340,6 @@ Name          | Value      | Value Origin
 ------------- | ---------- | -------------------
 kinact        | 5 1/h      | Publication-Wu 2014
 K_kinact_half | 0.3 µmol/l |                    
-
-
-
-### Formulation: Omeprazole capsule
-
-Type: Weibull
-
-#### Parameters
-
-Name                             | Value     | Value Origin                                     
--------------------------------- | --------- | -------------------------------------------------
-Dissolution time (50% dissolved) | 41.65 min | Parameter Identification-Parameter Identification
-Lag time                         | 30 min    | Other-Assumption-Gastric emptying                
-Dissolution shape                | 1.02      | Parameter Identification-Parameter Identification
-Use as suspension                | Yes       |                                                  
-
-
 
 ### Compound: R-omeprazole
 
@@ -373,14 +356,12 @@ Is small molecule                                | Yes                    |     
 Molecular weight                                 | 345.416 g/mol          | Database-DrugBank DB00338                      |             |        
 Plasma protein binding partner                   | Albumin                |                                                |             |        
 
-
 #### Calculation methods
 
 Name                    | Value              
 ----------------------- | -------------------
 Partition coefficients  | Rodgers and Rowland
 Cellular permeabilities | PK-Sim Standard    
-
 
 #### Processes
 
@@ -392,11 +373,10 @@ Molecule: CYP2C19
 
 ###### Parameters
 
-Name                | Value    | Value Origin                                                           
-------------------- | -------- | -----------------------------------------------------------------------
-Intrinsic clearance | 0 l/min  |                                                                        
-Specific clearance  | 50 1/min | Parameter Identification-Parameter Identification-Uppder bound lilmited
-
+Name                | Value    | Value Origin                                                         
+------------------- | -------- | ---------------------------------------------------------------------
+Intrinsic clearance | 0 l/min  |                                                                      
+Specific clearance  | 50 1/min | Parameter Identification-Parameter Identification-Upper bound limited
 
 ##### Metabolizing Enzyme: CYP3A4-3A4 Linear Fit
 
@@ -411,7 +391,6 @@ Name                | Value             | Value Origin
 Intrinsic clearance | 0 l/min           |                                                  
 Specific clearance  | 0.161397262 1/min | Parameter Identification-Parameter Identification
 
-
 ##### Systemic Process: Renal Clearances-Wu2014 - Table1 - CLr
 
 Species: Human
@@ -424,7 +403,6 @@ Fraction unbound (experiment) | 0.03               |
 Plasma clearance              | 0 ml/min/kg        |                    
 Specific clearance            | 0.0282095334 1/min | Publication-Wu 2014
 
-
 ##### Inhibition: CYP2C19-Liu 2005 - Ki in vivo unbound
 
 Molecule: CYP2C19
@@ -434,7 +412,6 @@ Molecule: CYP2C19
 Name | Value      | Value Origin        
 ---- | ---------- | --------------------
 Ki   | 5.3 µmol/l | Publication-Liu 2005
-
 
 ##### Inhibition: CYP2C19-Wu2014 - Table1 - TDI
 
@@ -447,111 +424,453 @@ Name          | Value      | Value Origin
 kinact        | 4 1/h      | Publication-Wu 2014
 K_kinact_half | 1.6 µmol/l |                    
 
+### Formulation: Omeprazole capsule
 
+Type: Weibull
 
-## 3.2 Diagnostics Plots
+#### Parameters
+
+Name                             | Value     | Value Origin                                     
+-------------------------------- | --------- | -------------------------------------------------
+Dissolution time (50% dissolved) | 41.65 min | Parameter Identification-Parameter Identification
+Lag time                         | 30 min    | Other-Assumption-Gastric emptying                
+Dissolution shape                | 1.02      | Parameter Identification-Parameter Identification
+Use as suspension                | Yes       |                                                  
+
+## 3.2 Diagnostics Plots<a id="diagnostics-plots"></a>
+
 The following section displays the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data listed in [Section 2.2.2](#222-clinical-data).
 
 The first plot shows observed versus simulated plasma concentration, the second weighted residuals versus time. 
 
-![001_plotGOFMergedPredictedVsObserved.png](images/003_3_Results_and_Discussion/002_3_2_Diagnostics_Plots/001_plotGOFMergedPredictedVsObserved.png)
+<a id="table-3-1"></a>
 
-![002_plotGOFMergedResidualsOverTime.png](images/003_3_Results_and_Discussion/002_3_2_Diagnostics_Plots/002_plotGOFMergedResidualsOverTime.png)
+**Table 3-1: GMFE for S-omeprazole concentration in plasma - mean data**
 
-GMFE = 1.503352 
+|Group                                  |GMFE |
+|:--------------------------------------|:----|
+|iv administration (model building)     |1.39 |
+|Oral administration (model building)   |1.43 |
+|Oral administration (model validation) |1.72 |
+|All                                    |1.50 |
 
-![004_plotGOFMergedPredictedVsObserved.png](images/003_3_Results_and_Discussion/002_3_2_Diagnostics_Plots/004_plotGOFMergedPredictedVsObserved.png)
+<br>
+<br>
 
-![005_plotGOFMergedResidualsOverTime.png](images/003_3_Results_and_Discussion/002_3_2_Diagnostics_Plots/005_plotGOFMergedResidualsOverTime.png)
+<a id="figure-3-1"></a>
 
-GMFE = 2.395866 
+![](images/006_section_results-and-discussion/008_section_diagnostics-plots/2_gof_plot_predictedVsObserved.png)
 
-![007_plotGOFMergedPredictedVsObserved.png](images/003_3_Results_and_Discussion/002_3_2_Diagnostics_Plots/007_plotGOFMergedPredictedVsObserved.png)
+**Figure 3-1: S-omeprazole concentration in plasma - mean data**
 
-![008_plotGOFMergedResidualsOverTime.png](images/003_3_Results_and_Discussion/002_3_2_Diagnostics_Plots/008_plotGOFMergedResidualsOverTime.png)
+<br>
+<br>
 
-GMFE = 2.094026 
+<a id="figure-3-2"></a>
 
-## 3.3 Concentration-Time Profiles
+![](images/006_section_results-and-discussion/008_section_diagnostics-plots/3_gof_plot_residualsOverTime.png)
+
+**Figure 3-2: S-omeprazole concentration in plasma - mean data**
+
+<br>
+<br>
+
+<a id="table-3-2"></a>
+
+**Table 3-2: GMFE for R-omeprazole concentration in plasma - mean data**
+
+|Group                                |GMFE |
+|:------------------------------------|:----|
+|Oral administration (model building) |2.40 |
+
+<br>
+<br>
+
+<a id="figure-3-3"></a>
+
+![](images/006_section_results-and-discussion/008_section_diagnostics-plots/5_gof_plot_predictedVsObserved.png)
+
+**Figure 3-3: R-omeprazole concentration in plasma - mean data**
+
+<br>
+<br>
+
+<a id="figure-3-4"></a>
+
+![](images/006_section_results-and-discussion/008_section_diagnostics-plots/6_gof_plot_residualsOverTime.png)
+
+**Figure 3-4: R-omeprazole concentration in plasma - mean data**
+
+<br>
+<br>
+
+<a id="table-3-3"></a>
+
+**Table 3-3: GMFE for Omeprazole concentration in plasma - mean data**
+
+|Group                                  |GMFE |
+|:--------------------------------------|:----|
+|iv administration (model building)     |1.70 |
+|iv administration (model validation)   |1.30 |
+|Oral administration (model building)   |1.30 |
+|Oral administration (model validation) |2.45 |
+|All                                    |2.09 |
+
+<br>
+<br>
+
+<a id="figure-3-5"></a>
+
+![](images/006_section_results-and-discussion/008_section_diagnostics-plots/8_gof_plot_predictedVsObserved.png)
+
+**Figure 3-5: Omeprazole concentration in plasma - mean data**
+
+<br>
+<br>
+
+<a id="figure-3-6"></a>
+
+![](images/006_section_results-and-discussion/008_section_diagnostics-plots/9_gof_plot_residualsOverTime.png)
+
+**Figure 3-6: Omeprazole concentration in plasma - mean data**
+
+<br>
+<br>
+
+## 3.3 Concentration-Time Profiles<a id="ct-profiles"></a>
+
 Simulated versus observed concentration-time profiles of all data listed in [Section 2.2.2](#222-clinical-data) are presented below.
 
-### 3.3.1 Model Building
+### 3.3.1 Model Building<a id="model-building"></a>
 
-![001_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_3_3_1_Model_Building/001_plotTimeProfile.png)
+<a id="figure-3-7"></a>
 
-![002_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_3_3_1_Model_Building/002_plotTimeProfile.png)
+![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/1_time_profile_plot_Omeprazole_E_1_Esomeprazole_IV_20_mg___5d_QD__Hassan_Alin2000_.png)
 
-![003_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_3_3_1_Model_Building/003_plotTimeProfile.png)
+**Figure 3-7: 20 mg S-omeprazole iv infusion**
 
-![004_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_3_3_1_Model_Building/004_plotTimeProfile.png)
+<br>
+<br>
 
-![005_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_3_3_1_Model_Building/005_plotTimeProfile.png)
+<a id="figure-3-8"></a>
 
-![006_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_3_3_1_Model_Building/006_plotTimeProfile.png)
+![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/2_time_profile_plot_Omeprazole_E_2__Esomeprazole_IV_40_mg___5d_QD__Hassan_Alin2000__Wilder_Smith2005_.png)
 
-![007_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_3_3_1_Model_Building/007_plotTimeProfile.png)
+**Figure 3-8: 40 mg S-omeprazole iv infusion**
 
-![008_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_3_3_1_Model_Building/008_plotTimeProfile.png)
+<br>
+<br>
 
-![009_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_3_3_1_Model_Building/009_plotTimeProfile.png)
+<a id="figure-3-9"></a>
 
-![010_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_3_3_1_Model_Building/010_plotTimeProfile.png)
+![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/3_time_profile_plot_Omeprazole_E_4__Esomeprazole_IV_80mg_30min__4mg_h___SD__Rohss2007_.png)
 
-![011_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_3_3_1_Model_Building/011_plotTimeProfile.png)
+**Figure 3-9: 80 mg 30 min + 4 mg/h iv**
 
-![012_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_3_3_1_Model_Building/012_plotTimeProfile.png)
+<br>
+<br>
 
-![013_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_3_3_1_Model_Building/013_plotTimeProfile.png)
+<a id="figure-3-10"></a>
 
-![014_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_3_3_1_Model_Building/014_plotTimeProfile.png)
+![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/4_time_profile_plot_Omeprazole_E_3__Esomeprazole_IV_40mg_30min__8mg_h____Rohss2007_.png)
 
-![015_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_3_3_1_Model_Building/015_plotTimeProfile.png)
+**Figure 3-10: 40 mg 30 min + 8 mg/h iv S-omeprazole**
 
-![016_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_3_3_1_Model_Building/016_plotTimeProfile.png)
+<br>
+<br>
 
-![017_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_3_3_1_Model_Building/017_plotTimeProfile.png)
+<a id="figure-3-11"></a>
 
-![018_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_3_3_1_Model_Building/018_plotTimeProfile.png)
+![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/5_time_profile_plot_Omeprazole_E_5__Esomeprazole_IV_80mg_30min__8mg_h___SD__Rohss2007____pred.png)
 
-![019_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_3_3_1_Model_Building/019_plotTimeProfile.png)
+**Figure 3-11: 80 mg 30 min + 8 mg/h iv S-omeprazole**
 
-![020_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_3_3_1_Model_Building/020_plotTimeProfile.png)
+<br>
+<br>
 
-![021_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_3_3_1_Model_Building/021_plotTimeProfile.png)
+<a id="figure-3-12"></a>
 
-### 3.3.2 Model Verification
+![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/6_time_profile_plot_Omeprazole_E_6__Esomeprazole_IV_120mg_30min__8mg_h___SD__Rohss2007_.png)
 
-![001_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/001_plotTimeProfile.png)
+**Figure 3-12: 120 mg 30 min + 8 mg/h iv S-omeprazole**
 
-![002_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/002_plotTimeProfile.png)
+<br>
+<br>
 
-![003_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/003_plotTimeProfile.png)
+<a id="figure-3-13"></a>
 
-![004_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/004_plotTimeProfile.png)
+![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/7_time_profile_plot_Omeprazole_E_7__Esomeprazole_IV_120mg_2h__8mg_h___SD__Rohss2007__.png)
 
-![005_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/005_plotTimeProfile.png)
+**Figure 3-13: 120 mg 2h + 8 mg/h iv S-omeprazole**
 
-![006_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/006_plotTimeProfile.png)
+<br>
+<br>
 
-![007_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/007_plotTimeProfile.png)
+<a id="figure-3-14"></a>
 
-![008_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/008_plotTimeProfile.png)
+![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/9_time_profile_plot_Omeprazole_E_8___Esomeprazole_PO_20_mg_oral_solution__5d_QD__Hassan_Alin2005__.png)
 
-![009_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/009_plotTimeProfile.png)
+**Figure 3-14: 20 mg S-omeprazole oral solution**
 
-![010_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/010_plotTimeProfile.png)
+<br>
+<br>
 
-![011_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/011_plotTimeProfile.png)
+<a id="figure-3-15"></a>
 
-![012_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/012_plotTimeProfile.png)
+![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/10_time_profile_plot_Omeprazole_E_9___Esomeprazole_PO_40_mg_oral_solution__5d_QD__Hassan_Alin2005_.png)
 
-![013_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/013_plotTimeProfile.png)
+**Figure 3-15: 40 mg S-omeprazole oral solution**
 
-![014_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/014_plotTimeProfile.png)
+<br>
+<br>
 
-![015_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/015_plotTimeProfile.png)
+<a id="figure-3-16"></a>
 
-# 4 Conclusion
+![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/12_time_profile_plot_Omeprazole_Esomeprazole_PO_40_mg_capsule___5d_QD__Wilder_Smith2005___with_Fit_formulation.png)
+
+**Figure 3-16: 40 mg S-omeprazole oral capsule**
+
+<br>
+<br>
+
+<a id="figure-3-17"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/14_time_profile_plot_Omeprazole_R_3___R_omeprazole_po_15_mg___7d_QD__Andersson2000____EM.png)
+
+**Figure 3-17: 15 mg R-omeprazole oral solution day 6**
+
+<br>
+<br>
+
+<a id="figure-3-18"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/15_time_profile_plot_Omeprazole_R_1___R_omeprazole_po_20_mg___5d_QD__Hassan_Alin2005_.png)
+
+**Figure 3-18: 20 mg R-omeprazole oral solution**
+
+<br>
+<br>
+
+<a id="figure-3-19"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/16_time_profile_plot_Omeprazole_R_2___R_omeprazole_po_40_mg___5d_QD__Hassan_Alin2005_.png)
+
+**Figure 3-19: 40 mg R-omeprazole oral solution**
+
+<br>
+<br>
+
+<a id="figure-3-20"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/17_time_profile_plot_Omeprazole_R_4___R_omeprazole_po_60_mg___7d_QD__Andersson2000____PM___CL_Fit.png)
+
+**Figure 3-20: 60 mg R-omeprazole oral solution EM day 6**
+
+<br>
+<br>
+
+<a id="figure-3-21"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/18_time_profile_plot_Omeprazole_O5__Omeprazole_iv_10mg.png)
+
+**Figure 3-21: 10 mg omeprazole iv**
+
+<br>
+<br>
+
+<a id="figure-3-22"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/19_time_profile_plot_Omeprazole_O1__Omeprazole_iv_10_mg___SD__Regardh1990____PM.png)
+
+**Figure 3-22: 10 mg omeprazole iv PM**
+
+<br>
+<br>
+
+<a id="figure-3-23"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/20_time_profile_plot_Omeprazole_O4__Omeprazole_iv_20_mg___SD.png)
+
+**Figure 3-23: 20 mg omeprazole iv**
+
+<br>
+<br>
+
+<a id="figure-3-24"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/21_time_profile_plot_Omeprazole_O2__Omeprazole_iv_20_mg___SD_in_PM__Uno2007_.png)
+
+**Figure 3-24: 20 mg omeprazole iv PM**
+
+<br>
+<br>
+
+<a id="figure-3-25"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/22_time_profile_plot_Omeprazole_O3__Omeprazole_iv_40_mg___SD.png)
+
+**Figure 3-25: 40 mg omeprazole iv**
+
+<br>
+<br>
+
+<a id="figure-3-26"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/23_time_profile_plot_Omeprazole_O6__Omeprazole_iv_80mg.png)
+
+**Figure 3-26: 80 mg omeprazole iv**
+
+<br>
+<br>
+
+<a id="figure-3-27"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/34_time_profile_plot_Omeprazole_O92__Omeprazole_po_60_mg___oral_solution___MD_in_PM.png)
+
+**Figure 3-27: 60 mg omeprazole oral solution PM day 6**
+
+<br>
+<br>
+
+### 3.3.2 Model Verification<a id="model-verification"></a>
+
+<a id="figure-3-28"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/8_time_profile_plot_Omeprazole_E_13___MD_in_EM___Esomeprazole_PO_15_mg_solution__Andersson2000_.png)
+
+**Figure 3-28: 15 mg S-omeprazole oral solution**
+
+<br>
+<br>
+
+<a id="figure-3-29"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/11_time_profile_plot_Omeprazole_E_11___SD_in_EM___Esomeprazole_PO_40_mg__FDA___same_schema_as_E_9.png)
+
+**Figure 3-29: 40 mg S-omeprazole oral solution**
+
+<br>
+<br>
+
+<a id="figure-3-30"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/13_time_profile_plot_Omeprazole_E_14___MD_in_PM__no_2C19CL____Esomeprazole_PO_60_mg_solution__Andersson2000_.png)
+
+**Figure 3-30: 60 mg S-omeprazole oral solution PM**
+
+<br>
+<br>
+
+<a id="figure-3-31"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/24_time_profile_plot_Omeprazole_O9__Omeprazole_po_15_mg___oral_solution____Andersson2000____MD_in_EM.png)
+
+**Figure 3-31: 15 mg omeprazole oral solution day 6**
+
+<br>
+<br>
+
+<a id="figure-3-32"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/25_time_profile_plot_Omeprazole_O8__Omeprazole_po_20_mg___oral_solution___SD_and_MD.png)
+
+**Figure 3-32: 20 mg po solution - day 1**
+
+<br>
+<br>
+
+<a id="figure-3-33"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/26_time_profile_plot_Omeprazole_O8__Omeprazole_po_20_mg___oral_solution___SD_and_MD.png)
+
+**Figure 3-33: 20 mg omeprazole oral solution - day 4**
+
+<br>
+<br>
+
+<a id="figure-3-34"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/27_time_profile_plot_Omeprazole_O8__Omeprazole_po_20_mg___5d_QD___capsule.png)
+
+**Figure 3-34: 20 mg po capsule - day 1**
+
+<br>
+<br>
+
+<a id="figure-3-35"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/28_time_profile_plot_Omeprazole_O8__Omeprazole_po_20_mg___5d_QD___capsule.png)
+
+**Figure 3-35: 20 mg po capsule - day 5**
+
+<br>
+<br>
+
+<a id="figure-3-36"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/29_time_profile_plot_Omeprazole_O8__Omeprazole_po_20_mg___5d_QD___capsule___PM.png)
+
+**Figure 3-36: 20 mg omeprazole oral capsule PM**
+
+<br>
+<br>
+
+<a id="figure-3-37"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/30_time_profile_plot_Omeprazole_O7__Omeprazole_po_40mg___oral_solution__SD_and_MD.png)
+
+**Figure 3-37: 40 mg omeprazole oral solution**
+
+<br>
+<br>
+
+<a id="figure-3-38"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/31_time_profile_plot_Omeprazole_O_1__pop___Omeprazole_po_20_mg___DDI_without_moclobemide____Cho2002_.png)
+
+**Figure 3-38: 40 mg omeprazole oral capsule**
+
+<br>
+<br>
+
+<a id="figure-3-39"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/32_time_profile_plot_Omeprazole_O_1__pop___Omeprazole_po_20_mg___DDI_without_moclobemide____Cho2002__pm.png)
+
+**Figure 3-39: 40 mg omeprazole oral capsule PM**
+
+<br>
+<br>
+
+<a id="figure-3-40"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/33_time_profile_plot_Omeprazole_O7__Omeprazole_po_40_mg___5d_QD_japanese___capsule___EM.png)
+
+**Figure 3-40: 40 mg omeprazole oral capsule Japanese**
+
+<br>
+<br>
+
+<a id="figure-3-41"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/35_time_profile_plot_Omeprazole_O91__Omeprazole_po_80_mg___oral_solution___SD.png)
+
+**Figure 3-41: 80 mg omeprazole oral solution**
+
+<br>
+<br>
+
+<a id="figure-3-42"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/36_time_profile_plot_Omeprazole_O_9__Omeprazole_DDI_without_fluvoxamine.png)
+
+**Figure 3-42: 40 mg omeprazole oral capsule**
+
+<br>
+<br>
+
+# 4 Conclusion<a id="conclusion"></a>
+
 The developed PBPK model of omeprazole describes the PK data of S-, R-, and racemat omeprazole in CYP2C19 extensive and poor metabolizers after administrations of single as well as multiple p.o. doses very well.
 
 The assumption for the same distribution model and lipophilicity for R-/S-omeprazole is reasonable, as no i.v. data were available for R-omeprazole.
@@ -559,14 +878,16 @@ The assumption for the same distribution model and lipophilicity for R-/S-omepra
 CYP2C19 expression in gut was reduced according to [Olivares-Morales 2016](#5-references) to better describe R-omeprazole. As CYP2C19 CL and expression are obviously inter-dependent, caution should be used when extrapolating such findings to other CYP2C19 substrates. The impact of the reduced expression of CYP2C19 in gut was therefore investigated for its impact on omeprazole levels.
 
 Comparison of population simulation results with observed data show that the observations were generally within the simulated ranges, both after i.v. and p.o. dosing and for either CYP2C19 EM and PM.
-# 5 References
+
+# 5 References<a id="references"></a>
+
 **Andersson 1990** Andersson T, Regårdh CG. Pharmacokinetics of Omeprazole and Metabolites Following Single Intravenous and Oral Doses of 40 and 80mg. *Drug Investig*. 1990;2(4):255-263.
 
 **Andersson 1991** Andersson T, Cederberg C, Heggelund A, Lundborg P. The Pharmacokinetics of Single and Repeated Once-Daily Doses of 10, 20 and 40mg Omeprazole as Enteric-Coated Granules. *Drug Investig*. 1991;3(1):45-52.
 
 **Andersson 1998** Andersson T, Holmberg J, Röhss K, Walan A. Pharmacokinetics and effect on caffeine metabolism of the proton pump inhibitors, omeprazole, lansoprazole, and pantoprazole. *Br J Clin Pharmacol*. 1998;45(4):369-375.
 
-**Andersson 2000** Andersson T, Rohss K, Hassan-alin M, et al. Pharmacokinetics (PK) and effect on pentagastrin stimulated peak acid output (PAO) of omeprazole (O) and its 2 optical isomers, S-omeprazole/esomeprazole (E) and R-omeprazole (R-O). *Gastroenterology*. 118(4):A1210
+**Andersson 2000** Andersson T, Rohss K, Hassan-Alin M, et al. Pharmacokinetics (PK) and effect on pentagastrin stimulated peak acid output (PAO) of omeprazole (O) and its 2 optical isomers, S-omeprazole/esomeprazole (E) and R-omeprazole (R-O). *Gastroenterology*. 118(4):A1210
 
 **Äbelö 2000** Äbelö A, Andersson TB, Antonsson M, Naudot AK, Skanberg I, Weidolf L. Stereoselective metabolism of omeprazole by human cytochrome P450 enzymes. *Drug Metab Dispos*. 2000;28(8):966-972.
 
@@ -578,7 +899,7 @@ Comparison of population simulation results with observed data show that the obs
 
 **FDA Nexium Review** FDA – Clinical Pharmacology and Biopharmaceutics Review – Nexium delayed-Release Capsules – Esomeprazole sodium – Application number 21-153/21-154
 
-**FDA SPC** FDA_ClinPharmReview LuvoxCR, NDA 22-033, FDADrug_42.pdf, website: https://scholararchive.ohsu.edu/downloads/6m311p63g?locale=en
+**FDA SPC** FDA_ClinPharmReview LuvoxCR, NDA 22-033, FDADrug_42.pdf, website: https://www.accessdata.fda.gov/drugsatfda_docs/nda/2008/022033s000_ClinPharmR.pdf
 
 **Galetin and Houston 2006** Galetin A, Houston JB. Intestinal and hepatic metabolic activity of five cytochrome P450 enzymes: impact on prediction of first-pass metabolism. *J Pharmacol Exp Ther*. 2006;318(3):1220-1229. 
 
@@ -615,7 +936,9 @@ Comparison of population simulation results with observed data show that the obs
 **Wu 2016** Wu, J., Gießmann, T., Lang, B., Elgadi, M. & Huang, F. Investigation of the effect of food and omeprazole on the relative bioavailability of a single oral dose of 240 mg faldaprevir, a selective inhibitor of HCV NS3/4 protease, in an open-label, randomized, three-way cross-over trial in healthy participants. *J Pharm Pharmacol* **68**, 459–466 (2016).
 
 **Yasui-Furukori 2004** Yasui-Furukori N, Takahata T, Nakagami T, et al. Different inhibitory effect of fluvoxamine on omeprazole metabolism between CYP2C19 genotypes. *Br J Clin Pharmacol*. 2004;57(4):487-494.
-# 6 Glossary
+
+# 6 Glossary<a id="glossary"></a>
+
 | ADME    | Absorption, Distribution, Metabolism,  Excretion             |
 | ------- | ------------------------------------------------------------ |
 | AUC     | Area under the plasma concentration  versus time curve       |
@@ -668,3 +991,4 @@ Comparison of population simulation results with observed data show that the obs
 | t.i.d   | Three times a day (ter in die)                               |
 | UGT     | Uridine  5'-diphospho-glucuronosyltransferase                |
 | UM      | Ultra-rapid metabolizers                                     |
+

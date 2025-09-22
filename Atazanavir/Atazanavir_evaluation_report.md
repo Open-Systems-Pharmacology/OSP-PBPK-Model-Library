@@ -1,47 +1,41 @@
 # Building and evaluation of a PBPK model for atazanavir in healthy adults
 
-
-
-
-
-| Version                                         | 1.2-OSP12.0                                                   |
+| Version                                         | 2.0-OSP12.1                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
-| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Atazanavir-Model/releases/tag/v1.2 |
-| OSP Version                                     | 12.0                                                          |
-| Qualification Framework Version                 | 3.3                                                          |
-
-
-
-
+| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Atazanavir-Model/releases/tag/v2.0 |
+| OSP Version                                     | 12.1                                                          |
+| Qualification Framework Version                 | 3.4                                                          |
 
 This evaluation report and the corresponding PK-Sim project file are filed at:
 
-https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/
-
+[https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library](https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library)
 
 # Table of Contents
-  * [1 Introduction](#1-introduction)
-  * [2 Methods](#2-methods)
-    * [2.1 Modeling Strategy](#21-modeling-strategy)
-    * [2.2 Data](#22-data)
-    * [2.3 Model Parameters and Assumptions](#23-model-parameters-and-assumptions)
-  * [3 Results and Discussion](#3-results-and-discussion)
-    * [3.1 Final input parameters](#31-final-input-parameters)
-    * [3.2 Diagnostics Plots](#32-diagnostics-plots)
-    * [3.3 Concentration-Time Profiles](#33-concentration-time-profiles)
-  * [4 Conclusion](#4-conclusion)
-  * [5 References](#5-references)
-# 1 Introduction
+
+ * [1 Introduction](#introduction)
+ * [2 Methods](#methods)
+   * [2.1 Modeling Strategy](#modeling-strategy)
+   * [2.2 Data](#data)
+   * [2.3 Model Parameters and Assumptions](#model-parameters-and-assumptions)
+ * [3 Results and Discussion](#results-and-discussion)
+   * [3.1 Final input parameters](#final-input-parameters)
+   * [3.2 Diagnostics Plots](#diagnostics-plots)
+   * [3.3 Concentration-Time Profiles](#ct-profiles)
+ * [4 Conclusion](#conclusion)
+ * [5 References](#references)
+
+# 1 Introduction<a id="introduction"></a>
+
 The presented model building and evaluation report evaluates the performance of a PBPK model for atazanavir in healthy adults.
 
 Atazanavir, sold under the trade name Reyataz among others, is an azapeptide protease inhibitor and used as antiretroviral medication to treat and prevent HIV/AIDS. It is taken orally once a day at a dose of 300 mg, if co-administered with ritonavir 100 mg orally once a day, and 400 mg, if administered without ritonavir. 
 
 After oral administration, atazanavir is rapidly absorbed. A positive food effect has been observed, atazanavir is recommended to be taken with food. Protein binding is relatively high (86%) and independent of the concentration of serum proteins ([US Food and Drug Administration 2002](#5-references)). Atazanavir undergoes extensive metabolism by CYP3A isoenzymes with a dose fraction excreted unchanged in urine of approximately 7% ([US Food and Drug Administration 2002](#5-references), [Le Tiec 2005](#5-references)). Previous in vitro studies suggest that atazanavir is a mechanism-based inhibitor of CYP3A ([US Food and Drug Administration 2002](#5-references), [Perloff 2005](#5-references)) as well as a competitive inhibitor of CYP1A2, CYP2C9 and UGT1A1 ([US Food and Drug Administration 2002](#5-references), [Zhang 2005](#5-references)).
 
+# 2 Methods<a id="methods"></a>
 
-# 2 Methods
+## 2.1 Modeling Strategy<a id="modeling-strategy"></a>
 
-## 2.1 Modeling Strategy
 The general workflow for building an adult PBPK model has been described by Kuepfer et al. ([Kuepfer 2016](#5-references)). Relevant information on the anthropometry (height, weight) was gathered from the respective clinical study, if reported. Information on physiological parameters (e.g. blood flows, organ volumes, hematocrit) in adults was gathered from the literature and has been incorporated in PK-Sim® as described previously ([Willmann 2007](#5-references)). The  applied activity and variability of plasma proteins and active processes that are integrated into PK-Sim® are described in the publicly available ‘PK-Sim® Ontogeny Database Version 7.3' ([PK-Sim Ontogeny Database Version 7.3](#5-references)).
 
 The PBPK model was developed based on clinical data of healthy adult subjects obtained from the literature, covering available dosing ranges for oral administration. Plasma concentration-time profiles following multiple-dose application and mass balance information on the urinary excretion of unchanged atazanavir were included in model development. 
@@ -66,12 +60,8 @@ Details about input data (physicochemical, *in vitro* and clinical) can be found
 
 Details about the structural model and its parameters can be found in [Section 2.3](#23-model-parameters-and-assumptions).
 
+## 2.2 Data<a id="data"></a>
 
-
-
-
-
-## 2.2 Data
 ### 2.2.1 In vitro / physicochemical data
 
 A literature search was carried out to collect available information on physicochemical properties of atazanavir. The obtained information from the literature is summarized in the table below and is used for model building.
@@ -91,7 +81,7 @@ With regard to UGT1A1 inhibition, atazanavir inhibited 17β-Estradiol glucuronid
 | :--------------- | -------- | --------- | ------------------------------ | ------------------------------------ |
 | K<sub>i</sub>    | µmol/L   | 0.22      | [Jungmann 2019](#5-references) | Inhibition constant                  |
 | Alpha            |          | 4.5       | [Jungmann 2019](#5-references) | Alpha value in mixed-type inhibition |
-| fu<sub>mic</sub> | %        | 0.863     | [Fricke 2020](#5-references)   | determined *in vitro* at 0.22 µmol/L |
+| fu<sub>mic</sub> |          | 0.863     | [Fricke 2020](#5-references)   | determined *in vitro* at 0.22 µmol/L |
 
 ### 2.2.2 Clinical data
 
@@ -110,8 +100,8 @@ The following publications were found and used for model building and evaluation
 | [Zhu 2011](#5-references)                             | 400 mg atazanavir QD, 400 mg QPM and QAM                     |
 | [US Food and Drug Administration 2002](#5-references) | Study AI424-004 (p. 94): 400 mg atazanavir single dose (treatment A);<br />Study AI424-014 (p. 77): 400 mg atazanavir single dose (young females & males);<br />Study AI424-015 (p. 81): 400 mg atazanavir single dose (normal subjects);<br />Study AI424-028 (p. 128): 200, 400, and 800 mg atazanavir QD (A-D Day6);<br />Study AI424-029 (p. 47): 400 mg [<sup>14</sup>C]atazanavir single dose;<br />Study AI424-040 (p. 64): 200, 400, and 800 mg atazanavir QD;<br />Study AI424-056 (p. 134): 300 mg atazanavir QD (without ritonavir, Day 10);<br />Study AI424-076 (p. 178): 400 and 800 mg atazanavir QD |
 
+## 2.3 Model Parameters and Assumptions<a id="model-parameters-and-assumptions"></a>
 
-## 2.3 Model Parameters and Assumptions
 ### 2.3.1 Dissolution and absorption
 
 No PK data were available following intravenous administration of atazanavir allowing informing distribution and systemic clearance independently of dissolution and absorption. Consequently, only PK data following oral administration of atazanavir as capsule were used for model building. It was assumed that solubility is not a critical parameter for dissolution of atazanavir capsules in the GI tract; in the models, solubility was therefore fixed to a very high value (50 mg/mL) to prevent solubility being a limiting factor of dissolution. Although the equilibrium solubility of atazanavir in the biorelevant media FaSSIF and FeSSIF has been observed to be rather low (2.74 µg/mL and 4.13 µg/mL in FaSSIF and FeSSIF, respectively), dissolution of atazanavir capsules in these media yields concentrations that are considerably higher than this threshold during the complete measurement period of at least 3 h ([Berlin 2015](#5-references)). In the model, dissolution was described by a Weibull function and the two Weibull parameters, `dissolution shape` and `dissolution time (50% dissolved)`, were fitted together with the `specific intestinal permeability (transcellular)` to observed PK data as described in [Section 2.1](#21-modeling-strategy).  
@@ -134,8 +124,8 @@ Findings from in vitro studies indicate that atazanavir irreversibly inhibits CY
 
 Of note, since neither *in vitro* data on the mechanism-based inhibition of CYP3A nor *in vivo* pharmacokinetic data on drug-drug-interactions (DDI) with a CYP3A index substrate and atazanavir as CYP3A-perpetrator were available, the model should **not** be used to predict CYP3A DDI studies unless it has been verified for this purpose.
 
+# 3 Results and Discussion<a id="results-and-discussion"></a>
 
-# 3 Results and Discussion
 The PBPK model for dapagliflozin was developed and verified with clinical pharmacokinetic data.
 
 The next sections show:
@@ -144,10 +134,9 @@ The next sections show:
 2. the overall goodness of fit: [Section 3.2](#32-diagnostics-plots).
 3. simulated vs. observed concentration-time profiles for the clinical studies used for model building and for model verification: [Section 3.3](#33-concentration-time-profiles).
 
+## 3.1 Final input parameters<a id="final-input-parameters"></a>
 
-## 3.1 Final input parameters
 The compound parameter values of the final PBPK model are illustrated below.
-
 
 ### Compound: Atazanavir
 
@@ -164,14 +153,12 @@ Is small molecule                                | Yes                     |    
 Molecular weight                                 | 704.8555 g/mol          | Internet-drugbank.ca                    |             |        
 Plasma protein binding partner                   | Unknown                 |                                         |             |        
 
-
 #### Calculation methods
 
 Name                    | Value              
 ----------------------- | -------------------
 Partition coefficients  | Rodgers and Rowland
 Cellular permeabilities | PK-Sim Standard    
-
 
 #### Processes
 
@@ -187,7 +174,6 @@ Enzyme concentration | 1 µmol/l                |
 Specific clearance   | 0 1/min                 |                         
 CLspec/[Enzyme]      | 1.0383524966 l/µmol/min | Parameter Identification
 
-
 ##### Systemic Process: Glomerular Filtration-Clinical Pharmacology Review
 
 Species: Human
@@ -197,7 +183,6 @@ Species: Human
 Name         |       Value | Value Origin            
 ------------ | -----------:| ------------------------
 GFR fraction | 2.014495446 | Parameter Identification
-
 
 ##### Inhibition: CYP3A4-Perloff2005
 
@@ -210,7 +195,6 @@ Name          | Value                 | Value Origin
 kinact        | 0.0033009852632 1/min | Parameter Identification
 K_kinact_half | 0.1292581489 µmol/l   | Parameter Identification
 
-
 ##### Inhibition: UGT1A1-PH-41095
 
 Molecule: UGT1A1
@@ -221,8 +205,6 @@ Name | Value          | Value Origin
 ---- | -------------- | ------------------------------------------------------
 Ki_c | 0.18986 µmol/l | In Vitro-Calculated from reported Ki and fu,mic       
 Ki_u | 0.85437 µmol/l | In Vitro-Calculated from reported Ki, fu,mic and alpha
-
-
 
 ### Formulation: Reyataz capsule
 
@@ -237,115 +219,410 @@ Lag time                         | 0 min             |
 Dissolution shape                | 1.5566465018      | Parameter Identification
 Use as suspension                | Yes               | Other                   
 
+## 3.2 Diagnostics Plots<a id="diagnostics-plots"></a>
 
-
-## 3.2 Diagnostics Plots
 Below you find the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data used presented in [Section 2.2.2](#222-clinical-data).
 
 The first plot shows observed versus simulated plasma concentration, the second weighted residuals versus time. 
 
+<a id="table-3-1"></a>
 
-![001_plotGOFMergedPredictedVsObserved.png](images/003_3_Results_and_Discussion/002_3_2_Diagnostics_Plots/001_plotGOFMergedPredictedVsObserved.png)
+**Table 3-1: GMFE for Goodness of fit plot for concentration in plasma**
 
-![002_plotGOFMergedResidualsOverTime.png](images/003_3_Results_and_Discussion/002_3_2_Diagnostics_Plots/002_plotGOFMergedResidualsOverTime.png)
+|Group                            |GMFE |
+|:--------------------------------|:----|
+|Atazanavir plasma concentrations |1.50 |
 
-GMFE = 1.500687 
+<br>
+<br>
 
-## 3.3 Concentration-Time Profiles
+<a id="figure-3-1"></a>
+
+![](images/006_section_results-and-discussion/008_section_diagnostics-plots/2_gof_plot_predictedVsObserved.png)
+
+**Figure 3-1: Goodness of fit plot for concentration in plasma**
+
+<br>
+<br>
+
+<a id="figure-3-2"></a>
+
+![](images/006_section_results-and-discussion/008_section_diagnostics-plots/3_gof_plot_residualsOverTime.png)
+
+**Figure 3-2: Goodness of fit plot for concentration in plasma**
+
+<br>
+<br>
+
+## 3.3 Concentration-Time Profiles<a id="ct-profiles"></a>
+
 Simulated versus observed concentration-time profiles of all data listed in [Section 2.2.2](#222-clinical-data) are presented below.
 
+<a id="figure-3-3"></a>
 
-![001_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_plotTimeProfile.png)
+![](images/006_section_results-and-discussion/009_section_ct-profiles/1_time_profile_plot_Atazanavir_FDA_ClinPharmReview_AI424_004_400mg_TreatmentA.png)
 
-![002_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_plotTimeProfile.png)
+**Figure 3-3: Time Profile Analysis**
 
-![003_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/003_plotTimeProfile.png)
+<br>
+<br>
 
-![004_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/004_plotTimeProfile.png)
+<a id="figure-3-4"></a>
 
-![005_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/005_plotTimeProfile.png)
+![](images/006_section_results-and-discussion/009_section_ct-profiles/2_time_profile_plot_Atazanavir_FDA_ClinPharmReview_AI424_004_400mg_TreatmentA.png)
 
-![006_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/006_plotTimeProfile.png)
+**Figure 3-4: Time Profile Analysis 1**
 
-![007_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/007_plotTimeProfile.png)
+<br>
+<br>
 
-![008_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/008_plotTimeProfile.png)
+<a id="figure-3-5"></a>
 
-![009_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/009_plotTimeProfile.png)
+![](images/006_section_results-and-discussion/009_section_ct-profiles/3_time_profile_plot_Atazanavir_FDA_ClinPharmReview_AI424_014_400mg_YoungFemales.png)
 
-![010_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/010_plotTimeProfile.png)
+**Figure 3-5: Time Profile Analysis**
 
-![011_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/011_plotTimeProfile.png)
+<br>
+<br>
 
-![012_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/012_plotTimeProfile.png)
+<a id="figure-3-6"></a>
 
-![013_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/013_plotTimeProfile.png)
+![](images/006_section_results-and-discussion/009_section_ct-profiles/4_time_profile_plot_Atazanavir_FDA_ClinPharmReview_AI424_014_400mg_YoungFemales.png)
 
-![014_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/014_plotTimeProfile.png)
+**Figure 3-6: Time Profile Analysis 1**
 
-![015_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/015_plotTimeProfile.png)
+<br>
+<br>
 
-![016_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/016_plotTimeProfile.png)
+<a id="figure-3-7"></a>
 
-![017_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/017_plotTimeProfile.png)
+![](images/006_section_results-and-discussion/009_section_ct-profiles/5_time_profile_plot_Atazanavir_FDA_ClinPharmReview_AI424_014_400mg_YoungMales.png)
 
-![018_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/018_plotTimeProfile.png)
+**Figure 3-7: Time Profile Analysis**
 
-![019_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/019_plotTimeProfile.png)
+<br>
+<br>
 
-![020_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/020_plotTimeProfile.png)
+<a id="figure-3-8"></a>
 
-![021_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/021_plotTimeProfile.png)
+![](images/006_section_results-and-discussion/009_section_ct-profiles/6_time_profile_plot_Atazanavir_FDA_ClinPharmReview_AI424_014_400mg_YoungMales.png)
 
-![022_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/022_plotTimeProfile.png)
+**Figure 3-8: Time Profile Analysis 1**
 
-![023_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/023_plotTimeProfile.png)
+<br>
+<br>
 
-![024_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/024_plotTimeProfile.png)
+<a id="figure-3-9"></a>
 
-![025_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/025_plotTimeProfile.png)
+![](images/006_section_results-and-discussion/009_section_ct-profiles/7_time_profile_plot_Atazanavir_FDA_ClinPharmReview_AI424_014_400mg_YoungMales.png)
 
-![026_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/026_plotTimeProfile.png)
+**Figure 3-9: Time Profile Analysis 2**
 
-![027_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/027_plotTimeProfile.png)
+<br>
+<br>
 
-![028_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/028_plotTimeProfile.png)
+<a id="figure-3-10"></a>
 
-![029_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/029_plotTimeProfile.png)
+![](images/006_section_results-and-discussion/009_section_ct-profiles/8_time_profile_plot_Atazanavir_FDA_ClinPharmReview_AI424_015_400mg_NormalSubjects.png)
 
-![030_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/030_plotTimeProfile.png)
+**Figure 3-10: Time Profile Analysis**
 
-![031_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/031_plotTimeProfile.png)
+<br>
+<br>
 
-![032_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/032_plotTimeProfile.png)
+<a id="figure-3-11"></a>
 
-![033_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/033_plotTimeProfile.png)
+![](images/006_section_results-and-discussion/009_section_ct-profiles/9_time_profile_plot_Atazanavir_FDA_ClinPharmReview_AI424_015_400mg_NormalSubjects.png)
 
-![034_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/034_plotTimeProfile.png)
+**Figure 3-11: Time Profile Analysis 1**
 
-![035_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/035_plotTimeProfile.png)
+<br>
+<br>
 
-![036_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/036_plotTimeProfile.png)
+<a id="figure-3-12"></a>
 
-![037_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/037_plotTimeProfile.png)
+![](images/006_section_results-and-discussion/009_section_ct-profiles/10_time_profile_plot_Atazanavir_FDA_ClinPharmReview_AI424_028_200mg.png)
 
-![038_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/038_plotTimeProfile.png)
+**Figure 3-12: Time Profile Analysis**
 
-![039_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/039_plotTimeProfile.png)
+<br>
+<br>
 
-# 4 Conclusion
+<a id="figure-3-13"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/11_time_profile_plot_Atazanavir_FDA_ClinPharmReview_AI424_028_200mg.png)
+
+**Figure 3-13: Time Profile Analysis 1**
+
+<br>
+<br>
+
+<a id="figure-3-14"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/12_time_profile_plot_Atazanavir_FDA_ClinPharmReview_AI424_040_200mg.png)
+
+**Figure 3-14: Time Profile Analysis**
+
+<br>
+<br>
+
+<a id="figure-3-15"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/13_time_profile_plot_Atazanavir_FDA_ClinPharmReview_AI424_040_200mg.png)
+
+**Figure 3-15: Time Profile Analysis 1**
+
+<br>
+<br>
+
+<a id="figure-3-16"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/14_time_profile_plot_Atazanavir_Acosta2007_300mg.png)
+
+**Figure 3-16: Time Profile Analysis**
+
+<br>
+<br>
+
+<a id="figure-3-17"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/15_time_profile_plot_Atazanavir_Acosta2007_300mg.png)
+
+**Figure 3-17: Time Profile Analysis 1**
+
+<br>
+<br>
+
+<a id="figure-3-18"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/16_time_profile_plot_Atazanavir_FDA_ClinPharmReview_AI424_056_300mg.png)
+
+**Figure 3-18: Time Profile Analysis**
+
+<br>
+<br>
+
+<a id="figure-3-19"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/17_time_profile_plot_Atazanavir_FDA_ClinPharmReview_AI424_056_300mg.png)
+
+**Figure 3-19: Time Profile Analysis 1**
+
+<br>
+<br>
+
+<a id="figure-3-20"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/18_time_profile_plot_Atazanavir_Zhu2010_300mg_Atazanavir.png)
+
+**Figure 3-20: Time Profile Analysis**
+
+<br>
+<br>
+
+<a id="figure-3-21"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/19_time_profile_plot_Atazanavir_Zhu2010_300mg_Atazanavir.png)
+
+**Figure 3-21: Time Profile Analysis 1**
+
+<br>
+<br>
+
+<a id="figure-3-22"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/20_time_profile_plot_Atazanavir_Agarwala2003_400mg.png)
+
+**Figure 3-22: Time Profile Analysis**
+
+<br>
+<br>
+
+<a id="figure-3-23"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/21_time_profile_plot_Atazanavir_Agarwala2003_400mg.png)
+
+**Figure 3-23: Time Profile Analysis 1**
+
+<br>
+<br>
+
+<a id="figure-3-24"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/22_time_profile_plot_Atazanavir_Agarwala2005a_400mg.png)
+
+**Figure 3-24: Time Profile Analysis**
+
+<br>
+<br>
+
+<a id="figure-3-25"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/23_time_profile_plot_Atazanavir_Agarwala2005a_400mg.png)
+
+**Figure 3-25: Time Profile Analysis 1**
+
+<br>
+<br>
+
+<a id="figure-3-26"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/24_time_profile_plot_Atazanavir_Agarwala2005b_400mg.png)
+
+**Figure 3-26: Time Profile Analysis**
+
+<br>
+<br>
+
+<a id="figure-3-27"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/25_time_profile_plot_Atazanavir_Agarwala2005b_400mg.png)
+
+**Figure 3-27: Time Profile Analysis 1**
+
+<br>
+<br>
+
+<a id="figure-3-28"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/26_time_profile_plot_Atazanavir_FDA_ClinPharmReview_AI424_028_400mg.png)
+
+**Figure 3-28: Time Profile Analysis**
+
+<br>
+<br>
+
+<a id="figure-3-29"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/27_time_profile_plot_Atazanavir_FDA_ClinPharmReview_AI424_028_400mg.png)
+
+**Figure 3-29: Time Profile Analysis 1**
+
+<br>
+<br>
+
+<a id="figure-3-30"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/28_time_profile_plot_Atazanavir_FDA_ClinPharmReview_AI424_040_400mg.png)
+
+**Figure 3-30: Time Profile Analysis**
+
+<br>
+<br>
+
+<a id="figure-3-31"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/29_time_profile_plot_Atazanavir_FDA_ClinPharmReview_AI424_040_400mg.png)
+
+**Figure 3-31: Time Profile Analysis 1**
+
+<br>
+<br>
+
+<a id="figure-3-32"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/30_time_profile_plot_Atazanavir_FDA_ClinPharmReview_AI424_076_400mg.png)
+
+**Figure 3-32: Time Profile Analysis**
+
+<br>
+<br>
+
+<a id="figure-3-33"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/31_time_profile_plot_Atazanavir_FDA_ClinPharmReview_AI424_076_400mg.png)
+
+**Figure 3-33: Time Profile Analysis 1**
+
+<br>
+<br>
+
+<a id="figure-3-34"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/32_time_profile_plot_Atazanavir_Martin2008_400mg.png)
+
+**Figure 3-34: Time Profile Analysis**
+
+<br>
+<br>
+
+<a id="figure-3-35"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/33_time_profile_plot_Atazanavir_Martin2008_400mg.png)
+
+**Figure 3-35: Time Profile Analysis 1**
+
+<br>
+<br>
+
+<a id="figure-3-36"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/34_time_profile_plot_Atazanavir_Zhu2011_400mg.png)
+
+**Figure 3-36: Time Profile Analysis**
+
+<br>
+<br>
+
+<a id="figure-3-37"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/35_time_profile_plot_Atazanavir_Zhu2011_400mg.png)
+
+**Figure 3-37: Time Profile Analysis 1**
+
+<br>
+<br>
+
+<a id="figure-3-38"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/36_time_profile_plot_Atazanavir_FDA_ClinPharmReview_AI424_040_800mg.png)
+
+**Figure 3-38: Time Profile Analysis**
+
+<br>
+<br>
+
+<a id="figure-3-39"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/37_time_profile_plot_Atazanavir_FDA_ClinPharmReview_AI424_040_800mg.png)
+
+**Figure 3-39: Time Profile Analysis 1**
+
+<br>
+<br>
+
+<a id="figure-3-40"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/38_time_profile_plot_Atazanavir_FDA_ClinPharmReview_AI424_076_800mg.png)
+
+**Figure 3-40: Time Profile Analysis**
+
+<br>
+<br>
+
+<a id="figure-3-41"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/39_time_profile_plot_Atazanavir_FDA_ClinPharmReview_AI424_076_800mg.png)
+
+**Figure 3-41: Time Profile Analysis 1**
+
+<br>
+<br>
+
+# 4 Conclusion<a id="conclusion"></a>
+
 The  final atazanavir PBPK model applies metabolism by CYP3A4, glomerular filtration and mechanism-based inhibition of CYP3A4. While the latter process has not been evaluated using another victim compound, it should only be regarded preliminary and further work is needed before this model can be applied to predict CYP3A4 DDIs. Overall, the model adequately describes the oral pharmacokinetics of  atazanavir in healthy adults receiving approved atazanavir doses of 300 mg and 400 mg. It is therefore deemed fit for purpose to be applied for the investigation of DDIs involving UGT1A1 inhibition.
 
+# 5 References<a id="references"></a>
 
-# 5 References
 **Acosta 2007** Acosta EP, Kendall MA, Gerber JG, Alston-Smith B, Koletar SL, Zolopa AR, et al. Effect of concomitantly administered rifampin on the pharmacokinetics and safety of atazanavir administered twice daily. *Antimicrob Agents Chemother* 2007, 51(9): 3104-3110.
 
 **Agarwala 2003** Agarwala S, Grasela D, Child M, Geraldes M, Geiger M, O’Mara E. Characterization of the steady-state pharmacokinetic (PK) profile of atazanavir (ATV) beyond the 24-hour 
-dosing interval. Poster presented at *2nd International AIDS Society Conference on HIV Pathogenesis and Treatment*, Paris, 2003. (http://www.medadvocates.org/resources/conferences/iasconfpath/ias2003/atv%20pk%20past%2024%20hour%20interval.pdf), accessed on 07-30-2019.
+dosing interval. Poster presented at *2nd International AIDS Society Conference on HIV Pathogenesis and Treatment*, Paris, 2003.
 
-**Agarwala 2005a** Agarwala S, Eley T, Child M, Wang Y, Hughes E, Grasela D. Pharmacokinetic effects of coadministration of atazanavir and tenofovir at steady state. Poster presented at *3rd International AIDS Society Conference on HIV Pathogenesis and Treatment*, Rio de Janeiro, 2005a. (http://www.medadvocates.org/resources/conferences/3rd%20_ias/05-156a_agarwala_086.pdf), accessed on 07-30-2019.
+**Agarwala 2005a** Agarwala S, Eley T, Child M, Wang Y, Hughes E, Grasela D. Pharmacokinetic effects of coadministration of atazanavir and tenofovir at steady state. Poster presented at *3rd International AIDS Society Conference on HIV Pathogenesis and Treatment*, Rio de Janeiro, 2005a.
 
-**Agarwala 2005b** Agarwala S, Gray K, Eley T, Wang Y, Hughes E, Grasela D. Pharmacokinetic interaction between atazanavir and omeprazole in healthy subjects. Poster presented at *3rd International AIDS Society Conference on HIV Pathogenesis and Treatment*, Rio de Janeiro, 2005b. (http://www.medadvocates.org/resources/conferences/3rd%20_ias/05-156b_agarwala_109.pdf), accessed on 07-30-2019
+**Agarwala 2005b** Agarwala S, Gray K, Eley T, Wang Y, Hughes E, Grasela D. Pharmacokinetic interaction between atazanavir and omeprazole in healthy subjects. Poster presented at *3rd International AIDS Society Conference on HIV Pathogenesis and Treatment*, Rio de Janeiro, 2005b.
 
 **Berlin 2015** Berlin M, Ruff A, Kesisoglou F, Xu W, Wang MH, Dressman JB. Advances and challenges in PBPK modeling–analysis of factors contributing to the oral absorption of atazanavir, a poorly soluble weak base. *Eur J Pharm Biopharm* 2015, 93: 267-280.
 
@@ -384,3 +661,4 @@ efficacy and tolerability of atazanavir. *Clin Pharmacokinet.* 2005, 44(10): 103
 **Zhu 2010** Zhu L, Butterton J, Persson A, Stonier M, Comisar W, Panebianco D, et al. Pharmacokinetics and safety of twice-daily atazanavir 300 mg and raltegravir 400 mg in healthy individuals. *Antivir Ther* 2010, 15(8): 1107-1114.
 
 **Zhu 2011** Zhu L, Persson A, Mahnke L, Eley T, Li T, Xu X, et al. Effect of low‐dose omeprazole (20 mg Daily) on the pharmacokinetics of multiple‐dose atazanavir with ritonavir in healthy subjects. *J Clin Pharmacol* 2011, 51(3): 368-377.
+

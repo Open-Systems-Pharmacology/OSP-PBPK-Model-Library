@@ -1,26 +1,14 @@
-
-
-
-
 # Building and Evaluation of a PBPK Model for Verapamil in Adults
 
-
-
-| Version                                         | 2.1-OSP12.0                                                   |
+| Version                                         | 2.1-OSP12.1                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
 | based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Verapamil-Model/releases/tag/v2.1 |
-| OSP Version                                     | 12.0                                                          |
-| Qualification Framework Version                 | 3.3                                                          |
-
-
-
-
+| OSP Version                                     | 12.1                                                          |
+| Qualification Framework Version                 | 3.4                                                          |
 
 This evaluation report and the corresponding PK-Sim project file are filed at:
 
 https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/
-
-
 
 # Table of Contents
 
@@ -36,12 +24,7 @@ https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/
  * [4 Conclusion](#conclusion)
  * [5 References](#main-references)
 
-
-
-
-
 # 1 Introduction<a id="introduction"></a>
-
 
 Verapamil is used for the treatment of high blood pressure, angina (chest pain from not enough blood flow to the heart), and supraventricular tachycardia.
 
@@ -52,22 +35,9 @@ The model building and application has been published by Hanke *et al.* 2020 ([H
 
 The herein presented model building and evaluation report evaluates the performance of the PBPK model for verapamil in (healthy) adults. 
 
-
-
-
-
-
 # 2 Methods<a id="methods"></a>
 
-
-
-
-
-
-
-
 ## 2.1 Modeling Strategy<a id="modeling-strategy"></a>
-
 
 The general concept of building a PBPK model has previously been described by e.g. Kuepfer et al. ([Kuepfer 2016](#5-references)). The relevant anthropometric (height, weight) and physiological information (e.g. blood flows, organ volumes, binding protein concentrations, hematocrit, cardiac output) in adults was gathered from the literature and has been previously published ([Schlender 2016](#5-references)). This information was incorporated into PK-Sim® and was used as default values for the simulations in adults.
 
@@ -81,13 +51,7 @@ Details about input data (physicochemical, *in vitro* and clinical) can be found
 
 Details about the structural model and its parameters can be found in [Section 2.3](#23-model-parameters-and-assumptions).
 
-
-
-
-
-
 ## 2.2 Data<a id="methods-data"></a>
-
 
 ### In vitro / physico-chemical Data
 
@@ -151,9 +115,6 @@ A literature search was performed to collect available information on physiochem
 | CYP3A4 MBI kinact		  | 1/min | 0.080 | [Wang 2013](#5-references) | Maximum inactivation rate    |
 | Pgp non-competitive Ki		  | µmol/L | 0.30 | [Pauli-Magnus 2000](#5-references) | Conc. for half-maximal inactivation    |
 
-
-
-
 ### Clinical Data
 
 A literature search was performed to collect available clinical data on verapamil in healthy adults.
@@ -162,7 +123,6 @@ A literature search was performed to collect available clinical data on verapami
 
 The following studies were used for model building and parameterization of CYP3A4 interaction:
 If not stated otherwise, the drug was given as a 1:1 racemat of S- and R-verapamil.
-
 
 | Publication                      | Arm / Treatment / Information used for model building        |
 | :------------------------------- | :----------------------------------------------------------- |
@@ -210,12 +170,7 @@ The following studies were used for model verification:
 | [Shand 1981](#5-references)     | Healthy subjects receiving multiple oral doses of 120 mg TID |
 | [Karim 1995](#5-references)     | Healthy subjects receiving single oral doses of 240 mg |
 
-
-
-
-
 ## 2.3 Model Parameters and Assumptions<a id="model-parameters-and-assumptions"></a>
-
 
 ### Absorption
 
@@ -231,13 +186,11 @@ Verapamil is metabolized by CYP3A4 and transported by P-gp. The model includes e
 
 Mechanism-based inactivation of CYP3A4 and non-competitive inhibition of P-gp by all four entities (S-verapamil, R-verapamil, S-norverapamil and R-norverapamil) was taken into account. The CYP3A4 MBI KI and kinact values were taken from literature, the KI values for P-gp inhibition were optimized.
 
-
 ### Automated Parameter Identification
 
 The parameter identification tool in PK-Sim has been used to estimate selected model parameters by adjusting to PK data of the clinical studies that were used in the model building process. 
 
 The result of the final parameter identification is shown in the tables below:
-
 
 #### R-verapamil
 
@@ -253,7 +206,6 @@ The result of the final parameter identification is shown in the tables below:
 | SR tablet Weibull time        |  155.24	|min|
 | SR tablet Weibull shape       |  2.37		| |
 
-
 #### S-verapamil
 
 | Model Parameter            | Optimized Value | Unit |
@@ -268,7 +220,6 @@ The result of the final parameter identification is shown in the tables below:
 | SR tablet Weibull time        |  155.24	|min|
 | SR tablet Weibull shape       |  2.37		| |
 
-
 #### R-norverapamil
 
 | Model Parameter            | Optimized Value | Unit |
@@ -279,8 +230,6 @@ The result of the final parameter identification is shown in the tables below:
 | Pgp non-competitive Ki        |  0.038	|µmol/L|
 | Cellular permeability         |  9.94E-02	|cm/min|
 | Intestinal permeability       |  3.54E-06	|cm/min|
-
-
 
 #### S-norverapamil
 
@@ -293,14 +242,7 @@ The result of the final parameter identification is shown in the tables below:
 | Cellular permeability         |  9.94E-02	|cm/min|
 | Intestinal permeability       |  3.54E-06	|cm/min|
 
-
-
-
-
-
-
 # 3 Results and Discussion<a id="results-and-discussion"></a>
-
 
 The PBPK model for verapamil was developed and evaluated using publically available, clinical pharmacokinetic data from studies listed in [Section 2.2](#clinical-data).
 
@@ -310,19 +252,9 @@ The next sections show:
 2. the overall goodness of fit: [Section 3.2](#32-diagnostics-plots).
 3. simulated vs. observed concentration-time profiles for the clinical studies used for model building and for model verification: [Section 3.3](#33-concentration-time-profiles).
 
-
-
-
-
-
 ## 3.1 Final input parameters<a id="final-input-parameters"></a>
 
-
 The compound parameter values of the final PBPK model are illustrated below.
-
-
-
-
 
 ### Compound: R-Verapamil
 
@@ -340,14 +272,12 @@ Is small molecule                                | Yes                     |    
 Molecular weight                                 | 454.611 g/mol           |                                                                                                        |             |        
 Plasma protein binding partner                   | Unknown                 |                                                                                                        |             |        
 
-
 #### Calculation methods
 
 Name                    | Value              
 ----------------------- | -------------------
 Partition coefficients  | Rodgers and Rowland
 Cellular permeabilities | PK-Sim Standard    
-
 
 #### Processes
 
@@ -361,7 +291,6 @@ Name         | Value | Value Origin
 ------------ | -----:| ------------:
 GFR fraction |     1 |             
 
-
 ##### Transport Protein: P-gp-Paper
 
 Molecule: P-gp
@@ -374,7 +303,6 @@ In vitro Vmax/transporter | 0.00057724 pmol/min/pmol transporter |
 Km                        | 1.01 µmol/l                          |                                                                                                       
 kcat                      | 12.5970868779 1/min                  | Parameter Identification-Parameter Identification-Value updated from '30b - final' on 2019-12-30 13:23
 
-
 ##### Inhibition: P-gp-Non-competitive
 
 Molecule: P-gp
@@ -384,7 +312,6 @@ Molecule: P-gp
 Name | Value               | Value Origin                                                                                          
 ---- | ------------------- | ------------------------------------------------------------------------------------------------------
 Ki   | 0.0383697779 µmol/l | Parameter Identification-Parameter Identification-Value updated from '30b - final' on 2019-12-30 13:23
-
 
 ##### Inhibition: CYP3A4-MBI
 
@@ -396,7 +323,6 @@ Name          | Value        | Value Origin
 ------------- | ------------ | ------------:
 kinact        | 0.038 1/min  |             
 K_kinact_half | 27.63 µmol/l |             
-
 
 ##### Metabolizing Enzyme: CYP3A4-Norverapamil
 
@@ -412,7 +338,6 @@ In vitro Vmax for liver microsomes | 1.27 nmol/min/mg mic. protein |
 Km                                 | 19.59 µmol/l                  |                                                                                                       
 kcat                               | 34.9352466212 1/min           | Parameter Identification-Parameter Identification-Value updated from '30b - final' on 2019-12-30 13:23
 
-
 ##### Metabolizing Enzyme: CYP3A4-D617
 
 Molecule: CYP3A4
@@ -424,9 +349,6 @@ Name                               | Value                         | Value Origi
 In vitro Vmax for liver microsomes | 1.17 nmol/min/mg mic. protein |                                                                                                       
 Km                                 | 35.34 µmol/l                  |                                                                                                       
 kcat                               | 43.9812289146 1/min           | Parameter Identification-Parameter Identification-Value updated from '30b - final' on 2019-12-30 13:23
-
-
-
 
 ### Compound: S-Verapamil
 
@@ -444,14 +366,12 @@ Is small molecule                                | Yes                     |    
 Molecular weight                                 | 454.611 g/mol           |                                                                                                        |             |        
 Plasma protein binding partner                   | Unknown                 |                                                                                                        |             |        
 
-
 #### Calculation methods
 
 Name                    | Value              
 ----------------------- | -------------------
 Partition coefficients  | Rodgers and Rowland
 Cellular permeabilities | PK-Sim Standard    
-
 
 #### Processes
 
@@ -465,7 +385,6 @@ Name         | Value | Value Origin
 ------------ | -----:| ------------:
 GFR fraction |     1 |             
 
-
 ##### Transport Protein: P-gp-Paper
 
 Molecule: P-gp
@@ -478,7 +397,6 @@ In vitro Vmax/transporter | 0.00057724 pmol/min/pmol transporter |
 Km                        | 1.01 µmol/l                          |                                                                                                       
 kcat                      | 12.5970868779 1/min                  | Parameter Identification-Parameter Identification-Value updated from '30b - final' on 2019-12-30 13:23
 
-
 ##### Inhibition: P-gp-Non-competitive
 
 Molecule: P-gp
@@ -488,7 +406,6 @@ Molecule: P-gp
 Name | Value               | Value Origin                                                                                          
 ---- | ------------------- | ------------------------------------------------------------------------------------------------------
 Ki   | 0.0383697779 µmol/l | Parameter Identification-Parameter Identification-Value updated from '30b - final' on 2019-12-30 13:23
-
 
 ##### Inhibition: CYP3A4-MBI
 
@@ -500,7 +417,6 @@ Name          | Value       | Value Origin
 ------------- | ----------- | ------------:
 kinact        | 0.034 1/min |             
 K_kinact_half | 3.85 µmol/l |             
-
 
 ##### Metabolizing Enzyme: CYP3A4-Norverapamil
 
@@ -516,7 +432,6 @@ In vitro Vmax for liver microsomes | 1.02 nmol/min/mg mic. protein |
 Km                                 | 9.72 µmol/l                   |                                                                                                       
 kcat                               | 26.1743386639 1/min           | Parameter Identification-Parameter Identification-Value updated from '30b - final' on 2019-12-30 13:23
 
-
 ##### Metabolizing Enzyme: CYP3A4-D617
 
 Molecule: CYP3A4
@@ -528,9 +443,6 @@ Name                               | Value                         | Value Origi
 In vitro Vmax for liver microsomes | 0.86 nmol/min/mg mic. protein |                                                                                                       
 Km                                 | 23.64 µmol/l                  |                                                                                                       
 kcat                               | 56.4245798193 1/min           | Parameter Identification-Parameter Identification-Value updated from '30b - final' on 2019-12-30 13:23
-
-
-
 
 ### Compound: R-Norverapamil
 
@@ -548,14 +460,12 @@ Is small molecule                                | Yes                     |    
 Molecular weight                                 | 440.584 g/mol           |                                                                                                        |             |        
 Plasma protein binding partner                   | Unknown                 |                                                                                                        |             |        
 
-
 #### Calculation methods
 
 Name                    | Value              
 ----------------------- | -------------------
 Partition coefficients  | Rodgers and Rowland
 Cellular permeabilities | PK-Sim Standard    
-
 
 #### Processes
 
@@ -571,7 +481,6 @@ In vitro Vmax/recombinant enzyme | 9 pmol/min/pmol rec. enzyme |
 Km                               | 144 µmol/l                  |                                                                                                       
 kcat                             | 145.6385399671 1/min        | Parameter Identification-Parameter Identification-Value updated from '30b - final' on 2019-12-30 13:23
 
-
 ##### Systemic Process: Glomerular Filtration-GFR
 
 Species: Human
@@ -581,7 +490,6 @@ Species: Human
 Name         | Value | Value Origin
 ------------ | -----:| ------------:
 GFR fraction |     1 |             
-
 
 ##### Transport Protein: P-gp-Paper
 
@@ -595,7 +503,6 @@ In vitro Vmax/transporter | 0.00057724 pmol/min/pmol transporter |
 Km                        | 1.01 µmol/l                          |                                                                                                       
 kcat                      | 3.3916609583 1/min                   | Parameter Identification-Parameter Identification-Value updated from '30b - final' on 2019-12-30 13:23
 
-
 ##### Inhibition: P-gp-Non-competitive
 
 Molecule: P-gp
@@ -605,7 +512,6 @@ Molecule: P-gp
 Name | Value               | Value Origin                                                                                          
 ---- | ------------------- | ------------------------------------------------------------------------------------------------------
 Ki   | 0.0383697779 µmol/l | Parameter Identification-Parameter Identification-Value updated from '30b - final' on 2019-12-30 13:23
-
 
 ##### Inhibition: CYP3A4-MBI
 
@@ -617,9 +523,6 @@ Name          | Value       | Value Origin
 ------------- | ----------- | ------------:
 kinact        | 0.048 1/min |             
 K_kinact_half | 6.1 µmol/l  |             
-
-
-
 
 ### Compound: S-Norverapamil
 
@@ -637,14 +540,12 @@ Is small molecule                                | Yes                     |    
 Molecular weight                                 | 440.584 g/mol           |                                                                                                        |             |        
 Plasma protein binding partner                   | Unknown                 |                                                                                                        |             |        
 
-
 #### Calculation methods
 
 Name                    | Value              
 ----------------------- | -------------------
 Partition coefficients  | Rodgers and Rowland
 Cellular permeabilities | PK-Sim Standard    
-
 
 #### Processes
 
@@ -660,7 +561,6 @@ In vitro Vmax/recombinant enzyme | 6.5 pmol/min/pmol rec. enzyme |
 Km                               | 36 µmol/l                     |                                                                                                       
 kcat                             | 41.0994047535 1/min           | Parameter Identification-Parameter Identification-Value updated from '30b - final' on 2019-12-30 13:23
 
-
 ##### Systemic Process: Glomerular Filtration-GFR
 
 Species: Human
@@ -670,7 +570,6 @@ Species: Human
 Name         | Value | Value Origin
 ------------ | -----:| ------------:
 GFR fraction |     1 |             
-
 
 ##### Transport Protein: P-gp-Paper
 
@@ -684,7 +583,6 @@ In vitro Vmax/transporter | 0.00057724 pmol/min/pmol transporter |
 Km                        | 1.01 µmol/l                          |                                                                                                       
 kcat                      | 3.3916609583 1/min                   | Parameter Identification-Parameter Identification-Value updated from '30b - final' on 2019-12-30 13:23
 
-
 ##### Inhibition: P-gp-Non-competitive
 
 Molecule: P-gp
@@ -694,7 +592,6 @@ Molecule: P-gp
 Name | Value               | Value Origin                                                                                          
 ---- | ------------------- | ------------------------------------------------------------------------------------------------------
 Ki   | 0.0383697779 µmol/l | Parameter Identification-Parameter Identification-Value updated from '30b - final' on 2019-12-30 13:23
-
 
 ##### Inhibition: CYP3A4-MBI
 
@@ -707,14 +604,9 @@ Name          | Value      | Value Origin
 kinact        | 0.08 1/min |             
 K_kinact_half | 2.9 µmol/l |             
 
-
-
-
 ### Formulation: Solution
 
 Type: Dissolved
-
-
 
 ### Formulation: Retard Tablet Verapamil (Knoll)
 
@@ -729,25 +621,15 @@ Lag time                         | 0 min              |
 Dissolution shape                | 2.3662989419       | Parameter Identification-Parameter Identification-Value updated from '240 mg retard (Isoptin RR) QD vs Verabeta 240 RR' on 2019-12-31 11:13
 Use as suspension                | Yes                |                                                                                                                                            
 
-
-
-
-
-
-
 ## 3.2 Diagnostics Plots<a id="diagnostics-plots"></a>
-
 
 Below you find the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data used presented in [Section 2.2](#clinical-data).
 
 The first plot shows observed versus simulated plasma concentration, the second weighted residuals versus time. 
 
-
-
 <a id="table-3-1"></a>
 
 **Table 3-1: GMFE for Goodness of fit plot for concentration in plasma**
-
 
 |Group                                     |GMFE |
 |:-----------------------------------------|:----|
@@ -763,737 +645,504 @@ The first plot shows observed versus simulated plasma concentration, the second 
 |Oral administration - verapamil           |1.42 |
 |All                                       |1.36 |
 
-
 <br>
 <br>
-
 
 <a id="figure-3-1"></a>
 
 ![](images/006_section_results-and-discussion/008_section_diagnostics-plots/2_gof_plot_predictedVsObserved.png)
 
-
-
 **Figure 3-1: Goodness of fit plot for concentration in plasma**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-2"></a>
 
 ![](images/006_section_results-and-discussion/008_section_diagnostics-plots/3_gof_plot_residualsOverTime.png)
 
-
-
 **Figure 3-2: Goodness of fit plot for concentration in plasma**
 
-
 <br>
 <br>
-
-
-
-
 
 ## 3.3 Concentration-Time Profiles<a id="ct-profiles"></a>
 
-
 Simulated versus observed concentration-time profiles of all data listed in [Section 2.2](#clinical-data) are presented below.
-
-
 
 <a id="figure-3-3"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/1_time_profile_plot_Verapamil_iv_R_Verapamil_50_mg__5_min___Eichelbaum_1984__n_1.png)
 
-
-
 **Figure 3-3: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-4"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/2_time_profile_plot_Verapamil_po_Verapamil_120_mg_SD__IR___Haertter_2012__n_19.png)
 
-
-
 **Figure 3-4: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-5"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/3_time_profile_plot_Verapamil_po_Verapamil_16_mg_SD__sol___Maeda_2011__n_8.png)
 
-
-
 **Figure 3-5: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-6"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/4_time_profile_plot_Verapamil_po_Verapamil_240_mg_QD__SR___Blume__Mutschler_1994__n_24.png)
 
-
-
 **Figure 3-6: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-7"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/5_time_profile_plot_Verapamil_iv_Verapamil_10_mg__bol___Smith_1984__n_8.png)
 
-
-
 **Figure 3-7: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-8"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/6_time_profile_plot_Verapamil_iv_Verapamil_3_mg_SD__5min___Mooy_1985__n_5.png)
 
-
-
 **Figure 3-8: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-9"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/7_time_profile_plot_Verapamil_po_Verapamil_80_mg_SD__Mooy_1985__n_6.png)
 
-
-
 **Figure 3-9: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-10"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/8_time_profile_plot_Verapamil_iv_Verapamil_5_mg_SD__5min___Streit_2005__n_10.png)
 
-
-
 **Figure 3-10: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-11"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/9_time_profile_plot_Verapamil_iv_Verapamil_0_1_mg_kg_SD__5min___Johnston_1981__n_6.png)
 
-
-
 **Figure 3-11: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-12"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/10_time_profile_plot_Verapamil_po_Verapamil_120_mg_SD__Johnston_1981__n_6.png)
 
-
-
 **Figure 3-12: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-13"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/11_time_profile_plot_Verapamil_iv_Verapamil_10mg_SD__10min___Abernethy_1985__n_1.png)
 
-
-
 **Figure 3-13: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-14"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/12_time_profile_plot_Verapamil_po_Verapamil_120mg_SD__Abernethy_1985__n_1.png)
 
-
-
 **Figure 3-14: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-15"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/13_time_profile_plot_Verapamil_iv_Verapamil_10mg_SD__10min___Barbarash_1988__n_6.png)
 
-
-
 **Figure 3-15: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-16"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/14_time_profile_plot_Verapamil_po_Verapamil_120_mg_SD__Barbarash_1988__n_6.png)
 
-
-
 **Figure 3-16: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-17"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/15_time_profile_plot_Verapamil_iv_Verapamil_10mg_SD__10min___Wing_1985__n_1.png)
 
-
-
 **Figure 3-17: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-18"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/16_time_profile_plot_Verapamil_po_Verapamil_80mg_SD__Wing_1985__n_1.png)
 
-
-
 **Figure 3-18: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-19"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/17_time_profile_plot_Verapamil_iv_Verapamil_10mg_SD__5min___McAllister__Kirsten_1982__n_20.png)
 
-
-
 **Figure 3-19: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-20"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/18_time_profile_plot_Verapamil_po_Verapamil_120_mg_SD__Smith_1984__n_8.png)
 
-
-
 **Figure 3-20: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-21"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/19_time_profile_plot_Verapamil_iv_Verapamil_13_1_mg_SD__13min___Freedman_1981__n_1.png)
 
-
-
 **Figure 3-21: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-22"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/20_time_profile_plot_Verapamil_iv_Verapamil_20mg_SD__30min___Abernethy_1993__n_1.png)
 
-
-
 **Figure 3-22: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-23"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/21_time_profile_plot_Verapamil_po_R_Verapamil_250mg_SD__Vogelgesang_1984__n_1.png)
 
-
-
 **Figure 3-23: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-24"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/22_time_profile_plot_Verapamil_po_Verapamil_0_1_mg_SD__sol___Maeda_2011__n_8.png)
 
-
-
 **Figure 3-24: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-25"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/23_time_profile_plot_Verapamil_po_Verapamil_3_mg_SD__sol___Maeda_2011__n_8.png)
 
-
-
 **Figure 3-25: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-26"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/24_time_profile_plot_Verapamil_po_Verapamil_80_mg_SD__sol___Maeda_2011__n_8.png)
 
-
-
 **Figure 3-26: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-27"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/25_time_profile_plot_Verapamil_po_Verapamil_40_mg_SD__John_1992__n_6.png)
 
-
-
 **Figure 3-27: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-28"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/26_time_profile_plot_Verapamil_po_Verapamil_40_mg_SD__Sawicki__Janicki_2002__n_12.png)
 
-
-
 **Figure 3-28: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-29"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/27_time_profile_plot_Verapamil_po_Verapamil_60_mg_SD__Choi_2008__n_12.png)
 
-
-
 **Figure 3-29: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-30"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/28_time_profile_plot_Verapamil_po_Verapamil_80_mg_SD__Ratiopharm_1988__n_16.png)
 
-
-
 **Figure 3-30: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-31"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/29_time_profile_plot_Verapamil_po_Verapamil_80_mg__2_40mg_tab__SD__Ratiopharm_1989__n_16.png)
 
-
-
 **Figure 3-31: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-32"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/30_time_profile_plot_Verapamil_po_Verapamil_80_mg_tid_7rep__Johnson_2001__n_12.png)
 
-
-
 **Figure 3-32: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-33"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/31_time_profile_plot_Verapamil_po_Verapamil_120_mg__IR_tab__SD__Boehringer_2018__n_12.png)
 
-
-
 **Figure 3-33: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-34"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/32_time_profile_plot_Verapamil_po_Verapamil_120_mg__IR__bid_3days__Haertter_2012__n_20.png)
 
-
-
 **Figure 3-34: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-35"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/33_time_profile_plot_Verapamil_po_Verapamil_120_mg_SD__Hla_1987__n_10.png)
 
-
-
 **Figure 3-35: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-36"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/34_time_profile_plot_Verapamil_po_Verapamil_160_mg_SD__Mikus_1990__n_1.png)
 
-
-
 **Figure 3-36: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-37"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/35_time_profile_plot_Verapamil_po_Verapamil_180mg_PO_BID_3days_van_Haarst_2009__n_10.png)
 
-
-
 **Figure 3-37: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-38"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/36_time_profile_plot_Verapamil_po_Verapamil_80_mg_SD__Blume__Mutschler_1989__n_18.png)
 
-
-
 **Figure 3-38: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-39"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/37_time_profile_plot_Verapamil_po_Verapamil_120_mg_SD__Blume__Mutschler_1987__n_12.png)
 
-
-
 **Figure 3-39: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-40"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/38_time_profile_plot_Verapamil_po_Verapamil_40_mg_SD__Blume__Mutschler_1990__n_24.png)
 
-
-
 **Figure 3-40: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-41"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/39_time_profile_plot_Verapamil_po_Verapamil_40_mg_SD__Blume__Mutschler_1983__n_12.png)
 
-
-
 **Figure 3-41: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-42"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/40_time_profile_plot_Verapamil_iv_R_Verapamil_5_mg__5_min___Eichelbaum_1984__n_1.png)
 
-
-
 **Figure 3-42: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-43"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/41_time_profile_plot_Verapamil_iv_R_Verapamil_25_mg__5_min___Eichelbaum_1984__n_1.png)
 
-
-
 **Figure 3-43: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-44"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/42_time_profile_plot_Verapamil_iv_S_Verapamil_5_mg_SD__5min___Eichelbaum_1984__n_1.png)
 
-
-
 **Figure 3-44: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-45"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/43_time_profile_plot_Verapamil_iv_S_Verapamil_7_5_mg_SD__5min___Eichelbaum_1984__n_1.png)
 
-
-
 **Figure 3-45: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-46"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/44_time_profile_plot_Verapamil_iv_S_Verapamil_10_mg_SD__5min___Eichelbaum_1984__n_1.png)
 
-
-
 **Figure 3-46: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-47"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/45_time_profile_plot_Verapamil_po_Verapamil_80mg_PO_TID_5rep__Backman_1994__n_9.png)
 
-
-
 **Figure 3-47: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-48"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/46_time_profile_plot_Verapamil_po_Verapamil_80mg_SD__McAllister__Kirsten_1982__n_20.png)
 
-
-
 **Figure 3-48: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-49"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/47_time_profile_plot_Verapamil_po_Verapamil_120mg_SD__McAllister__Kirsten_1982__n_20.png)
 
-
-
 **Figure 3-49: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-50"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/48_time_profile_plot_Verapamil_po_Verapamil_160mg_SD__McAllister__Kirsten_1982__n_20.png)
 
-
-
 **Figure 3-50: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-51"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/49_time_profile_plot_Verapamil_po_Verapamil_120mg_PO_BID_8days__Jorgensen_1988__n_12.png)
 
-
-
 **Figure 3-51: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-52"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/50_time_profile_plot_Verapamil_po_Verapamil_240mg_PO_OD_8days_sustained_realese__Jorgensen_1988__n_12.png)
 
-
-
 **Figure 3-52: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-53"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/51_time_profile_plot_Verapamil_po_Verapamil_240_mg_SD__Karim_1995__n_12.png)
 
-
-
 **Figure 3-53: Time Profile Analysis**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-54"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/52_time_profile_plot_Verapamil_po_Verapamil_120mg_PO_TID_7rep__Shand_1981__n_6.png)
 
-
-
 **Figure 3-54: Time Profile Analysis**
 
-
 <br>
 <br>
-
-
-
-
 
 # 4 Conclusion<a id="conclusion"></a>
 
-
 The herein presented PBPK model adequately describes the pharmacokinetics of R-verapamil, S-verapamil, R-norverapamil and S-norverapamil after single and multiple administration of a variety of doses to healthy adults.  Furthermore, mechanism-based CYP3A4 (auto-) inactivation on verapamil itself can be described well with the optimized parameterization. 
 
-
-
-
-
 # 5 References<a id="main-references"></a>
-
 
 **Abernethy 1985** Abernethy DR, Schwartz JB, Todd EL. Lack of interaction between verapamil and cimetidine. Clin Pharmacol Ther. 1985 Sep;38(3):342-9. doi: 10.1038/clpt.1985.183. PMID: 4028631.
 
@@ -1598,6 +1247,4 @@ The herein presented PBPK model adequately describes the pharmacokinetics of R-v
 **Wing 1985** Wing LM, Miners JO, Lillywhite KJ (1985) Verapamil disposition–effects of sulphinpyrazone and cimetidine. British journal of clinical pharmacology 19(3):385–91
 
 **Wishart 2006** Wishart DS, Knox C, Guo AC, Shrivastava S, Hassanali M, Stothard P, Chang Z, Woolsey J. DrugBank: a comprehensive resource for in silico drug discovery and exploration. Nucleic Acids Res. 2006 Jan 1;34(Database issue):D668-72. doi: 10.1093/nar/gkj067. PMID: 16381955; PMCID: PMC1347430.
-
-
 

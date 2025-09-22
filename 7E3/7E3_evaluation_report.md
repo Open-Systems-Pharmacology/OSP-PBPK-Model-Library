@@ -1,29 +1,14 @@
-
-
-
-
 # Building and evaluation of a PBPK model for antibody 7E3 in wild-type and FcRn knockout mice
 
-
-
-
-
-| Version                                         | 1.0-OSP12.0                                                   |
+| Version                                         | 1.0-OSP12.1                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
 | based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/7E3-Model/releases/tag/v1.0 |
-| OSP Version                                     | 12.0                                                          |
-| Qualification Framework Version                 | 3.3                                                          |
-
-
-
-
+| OSP Version                                     | 12.1                                                          |
+| Qualification Framework Version                 | 3.4                                                          |
 
 This evaluation report and the corresponding PK-Sim project file are filed at:
 
 https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/
-
-
-
 
 # Table of Contents
 
@@ -46,12 +31,7 @@ https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/
  * [4 Conclusion](#conclusion)
  * [5 References](#main-references)
 
-
-
-
-
 # 1 Introduction<a id="introduction"></a>
-
 
 7E3 is a murine IgG1 antibody directed against human platelet glycoprotein IIb/IIIa. 
 
@@ -61,23 +41,9 @@ The herein presented evaluation report evaluates the performance of a PBPK model
 
 The presented 7E3 PBPK model as well as the respective evaluation plan and evaluation report are provided open-source (https://github.com/Open-Systems-Pharmacology/7E3-Model).
 
-
-
-
-
-
-
-
 # 2 Methods<a id="methods"></a>
 
-
-
-
-
 ## 2.1 Modeling Strategy<a id="modeling-strategy"></a>
-
-
-
 
 The development of the large molecule PBPK model in PK-Sim® has previously been described by Niederalt et al. ([Niederalt 2018](#5-references)). In short, the model was built as an extension of the PK-Sim® model for small molecules incorporating (i) the two-pore formalism for drug extravasation from blood plasma to interstitial space, (ii) lymph flow, (iii) endosomal clearance and (iv) protection from endosomal clearance by neonatal Fc receptor (FcRn) mediated recycling. 
 
@@ -91,13 +57,7 @@ Details about input data (physicochemical, *in vitro* and PK) can be found in  [
 
 Details about the structural model and its parameters can be found in  [Section 2.3](#23-model-parameters-and-assumptions).
 
-
-
-
-
-
 ## 2.2 Data<a id="methods-data"></a>
-
 
 ### 2.2.1 In vitro / physico-chemical Data <a id="invitro-and-physico-chemical-data"></a>
 
@@ -118,13 +78,7 @@ Published plasma and tissue PK data on 7E3 in wild-type and FcRn knockout mice w
 | [Garg2007](#5-references) | Experimental plasma and tissue concentrations after single 8 mg/kg IV bolus injection. Tissue concentrations of 125I-labeled 7E3 were determined from blotted dried tissues after sacrificing 3 mice per time point. |
 | [Garg2009](#5-references) | Experimental plasma and brain concentrations after single 8 mg/kg IV bolus injection. Brain concentrations were corrected for residual blood. |
 
-
-
-
-
-
 ## 2.3 Model Parameters and Assumptions<a id="model-parameters-and-assumptions"></a>
-
 
 ### 2.3.1 Absorption <a id="model-parameters-and-assumptions-absorption"></a>
 
@@ -153,17 +107,7 @@ The table shows the tissue observer parameter that was specified in the model ba
 | ------------------------------------------------------------ | --------------- | ---- |
 | `Fraction of blood for sampling` (all organs) - for comparison with tissue dissection data. | 0.18            |      |
 
-
-
-
-
-
-
-
-
-
 # 3 Results and Discussion<a id="results-and-discussion"></a>
-
 
 The PBPK model for 7E3 was evaluated with plasma and tissue PK data in wild-type and FcRn knockout mice. 
 
@@ -175,19 +119,9 @@ The next sections show:
 2. the overall goodness of fit: [Section 3.2](#diagnostics-plots).
 3. simulated vs. observed concentration-time profiles for the clinical studies used for model building and for model verification: [Section 3.3](#ct-profiles).
 
-
-
-
-
-
 ## 3.1 Final input parameters<a id="final-input-parameters"></a>
 
-
 The compound parameter values of the final PBPK model are illustrated below.
-
-
-
-
 
 ### Compound: 7E3
 
@@ -205,7 +139,6 @@ Plasma protein binding partner             | Unknown      |                     
 Radius (solute)                            | 0.00534 µm   | Publication-Taylor1984                          |             |        
 Kd (FcRn) in endosomal space               | 0.75 µmol/l  | Publication-Zhou2003                            |             |        
 
-
 #### Calculation methods
 
 Name                    | Value          
@@ -213,27 +146,17 @@ Name                    | Value
 Partition coefficients  | PK-Sim Standard
 Cellular permeabilities | PK-Sim Standard
 
-
 #### Processes
 
-
-
-
-
-
 ## 3.2 Diagnostics Plots<a id="diagnostics-plots"></a>
-
 
 Below you find the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data used presented in [Section 2.2.2](#PK-data).
 
 The first plot shows observed versus simulated plasma concentration, the second weighted residuals versus time. 
 
-
-
 <a id="table-3-1"></a>
 
 **Table 3-1: GMFE for Goodness of fit plot for concentration in plasma and tissues**
-
 
 |Group           |GMFE |
 |:---------------|:----|
@@ -241,337 +164,227 @@ The first plot shows observed versus simulated plasma concentration, the second 
 |Wild-type mouse |1.29 |
 |All             |1.39 |
 
-
 <br>
 <br>
-
 
 <a id="figure-3-1"></a>
 
 ![](images/006_section_results-and-discussion/008_section_diagnostics-plots/2_gof_plot_predictedVsObserved.png)
 
-
-
 **Figure 3-1: Goodness of fit plot for concentration in plasma and tissues**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-2"></a>
 
 ![](images/006_section_results-and-discussion/008_section_diagnostics-plots/3_gof_plot_residualsOverTime.png)
 
-
-
 **Figure 3-2: Goodness of fit plot for concentration in plasma and tissues**
 
-
 <br>
 <br>
-
-
-
-
 
 ## 3.3 Concentration-Time Profiles<a id="ct-profiles"></a>
 
-
 Simulated versus observed concentration-time profiles of all data listed in [Section 2.2.2](#PK-data) are presented below.
-
-
 
 <a id="figure-3-3"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/1_time_profile_plot_7E3_7E3_WildTypeMouse_Plasma.png)
 
-
-
 **Figure 3-3: Plasma - lin scale  (wild-type mice)**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-4"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/2_time_profile_plot_7E3_7E3_WildTypeMouse_Plasma.png)
 
-
-
 **Figure 3-4: Plasma - log scale (wild-type mice)**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-5"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/3_time_profile_plot_7E3_7E3_WildTypeMouse.png)
 
-
-
 **Figure 3-5: Lung (wild-type mice)**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-6"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/4_time_profile_plot_7E3_7E3_WildTypeMouse.png)
 
-
-
 **Figure 3-6: Kidney (wild-type mice)**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-7"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/5_time_profile_plot_7E3_7E3_WildTypeMouse.png)
 
-
-
 **Figure 3-7: Skin (wild-type mice)**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-8"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/6_time_profile_plot_7E3_7E3_WildTypeMouse.png)
 
-
-
 **Figure 3-8: Muscle (wild-type mice)**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-9"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/7_time_profile_plot_7E3_7E3_WildTypeMouse.png)
 
-
-
 **Figure 3-9: Spleen (wild-type mice)**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-10"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/8_time_profile_plot_7E3_7E3_WildTypeMouse.png)
 
-
-
 **Figure 3-10: Liver (wild-type mice)**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-11"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/9_time_profile_plot_7E3_7E3_WildTypeMouse.png)
 
-
-
 **Figure 3-11: Heart (wild-type mice)**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-12"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/10_time_profile_plot_7E3_7E3_WildTypeMouse.png)
 
-
-
 **Figure 3-12: Gut (wild-type mice)**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-13"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/11_time_profile_plot_7E3_7E3_WildTypeMouse.png)
 
-
-
 **Figure 3-13: Brain (wild-type mice)**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-14"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/12_time_profile_plot_7E3_7E3_FcRn_KO_Mouse.png)
 
-
-
 **Figure 3-14: Plasma (FcRn KO mice)**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-15"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/13_time_profile_plot_7E3_7E3_FcRn_KO_Mouse.png)
 
-
-
 **Figure 3-15: Lung (FcRn KO mice)**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-16"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/14_time_profile_plot_7E3_7E3_FcRn_KO_Mouse.png)
 
-
-
 **Figure 3-16: Kidney (FcRn KO mice)**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-17"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/15_time_profile_plot_7E3_7E3_FcRn_KO_Mouse.png)
 
-
-
 **Figure 3-17: Skin (FcRn KO mice)**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-18"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/16_time_profile_plot_7E3_7E3_FcRn_KO_Mouse.png)
 
-
-
 **Figure 3-18: Muscle (FcRn KO mice)**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-19"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/17_time_profile_plot_7E3_7E3_FcRn_KO_Mouse.png)
 
-
-
 **Figure 3-19: Spleen (FcRn KO mice)**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-20"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/18_time_profile_plot_7E3_7E3_FcRn_KO_Mouse.png)
 
-
-
 **Figure 3-20: Liver (FcRn KO mice)**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-21"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/19_time_profile_plot_7E3_7E3_FcRn_KO_Mouse.png)
 
-
-
 **Figure 3-21: Heart (FcRn KO mice)**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-22"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/20_time_profile_plot_7E3_7E3_FcRn_KO_Mouse.png)
 
-
-
 **Figure 3-22: Gut (FcRn KO mice)**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-23"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/21_time_profile_plot_7E3_7E3_FcRn_KO_Mouse.png)
 
-
-
 **Figure 3-23: Brain (FcRn KO mice)**
 
-
 <br>
 <br>
-
-
-
-
 
 # 4 Conclusion<a id="conclusion"></a>
-
 
 The herein presented PBPK model overall adequately describes the pharmacokinetics of 7E3 in mice. The higher antibody clearance in the FcRn KO mice compared to the clearance in the wild-type mice is well described by the model. The largest deviations between measured and simulated concentration time profiles were observed for skin concentrations in the FcRn KO mice and spleen concentrations in the wild-type mice which were overestimated by the model and for brain concentrations in the FcRn KO mice which were underestimated. The initial concentrations in muscle, especially for the FcRn KO mice, as well as in kidney and gut for the wild-type mice were underestimated.  
 
 The PK data had been used during the development of the generic large molecule PBPK model in PK-Sim ([Niederalt 2018](#5-references)) together with PK data from 5 other compounds (BAY 79-4620, CDA1, dAb2, MEDI-524 & MEDI-524-YTE). 
 
-
-
-
-
-
 # 5 References<a id="main-references"></a>
-
 
 **Dall'Acqua 2006** Dall’Acqua WF, Kiener PA, Wu H. Properties of human IgG1s engineered for enhanced binding to the neonatal Fc receptor (FcRn). J Biol Chem. 2006 Aug; 281(33):23514-23524. doi: 10.1074/jbc.M604292200.
 
@@ -594,6 +407,4 @@ The PK data had been used during the development of the generic large molecule P
 **Tsuji 1983** Tsuji A, Yoshikawa T, Nishide K, Minami H, Kimura M, Nakashima E, Terasaki T, Miyamoto E, Nightingale CH, Yamana T. Physiologically based pharmacokinetic model for beta-lactam antibiotics I: tissue distribution and elimination in rats. J Pharm Sci. 1983 Nov;72(11):1239-1252. doi: 10.1002/jps.2600721103.
 
 **Zhou 2003** Zhou J, Johnson JE, Ghetie V, Ober RJ, Ward ES. Generation of mutated variants of the human form of the MHC class I-related receptor, FcRn, with increased affinity for mouse immunoglobulin G. J Mol Biol. 2003 Sep;332(4):901-913. doi: 10.1016/s0022-2836(03)00952-5.
-
-
 

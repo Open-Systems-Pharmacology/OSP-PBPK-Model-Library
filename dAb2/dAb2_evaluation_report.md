@@ -1,29 +1,14 @@
-
-
-
-
 # Building and evaluation of a PBPK model for domain antibody dAb2 in mice
 
-
-
-
-
-| Version                                         | 1.0-OSP12.0                                                   |
+| Version                                         | 1.0-OSP12.1                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
 | based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/dAb2-Model/releases/tag/v1.0 |
-| OSP Version                                     | 12.0                                                          |
-| Qualification Framework Version                 | 3.3                                                          |
-
-
-
-
+| OSP Version                                     | 12.1                                                          |
+| Qualification Framework Version                 | 3.4                                                          |
 
 This evaluation report and the corresponding PK-Sim project file are filed at:
 
 https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/
-
-
-
 
 # Table of Contents
 
@@ -46,12 +31,7 @@ https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/
  * [4 Conclusion](#conclusion)
  * [5 References](#main-references)
 
-
-
-
-
 # 1 Introduction<a id="introduction"></a>
-
 
 The dAb2 domain antibody is a fusion protein consisting of a VH (heavy chain) and a Vk (light chain) antibody fragment without known binding affinity which was used to a develop a PBPK model  ([Sepp2015](#5-references)). 
 
@@ -61,20 +41,9 @@ The herein presented evaluation report evaluates the performance of the PBPK mod
 
 The presented dAb2 PBPK model as well as the respective evaluation plan and evaluation report are provided open-source (https://github.com/Open-Systems-Pharmacology/dAb2-Model)
 
-
-
-
-
 # 2 Methods<a id="methods"></a>
 
-
-
-
-
 ## 2.1 Modeling Strategy<a id="modeling-strategy"></a>
-
-
-
 
 The development of the large molecule PBPK model in PK-Sim® has previously been described by Niederalt et al. ([Niederalt 2018](#5-references)). In short, the model was built as an extension of the PK-Sim® model for small molecules incorporating (i) the two-pore formalism for drug extravasation from blood plasma to interstitial space, (ii) lymph flow, (iii) endosomal clearance and (iv) protection from endosomal clearance by neonatal Fc receptor (FcRn) mediated recycling. 
 
@@ -88,13 +57,7 @@ Details about input data (physicochemical, *in vitro* and PK) can be found in  [
 
 Details about the structural model and its parameters can be found in  [Section 2.3](#23-model-parameters-and-assumptions).
 
-
-
-
-
-
 ## 2.2 Data<a id="methods-data"></a>
-
 
 ### 2.2.1 In vitro / physico-chemical Data <a id="invitro-and-physico-chemical-data"></a>
 
@@ -114,13 +77,7 @@ Published plasma and tissue PK data on dAb2 in mice were used.
 | :------------------------ | :----------------------------------------------------------- |
 | [Sepp2015](#5-references) | Plasma and tissue PK data after an intravenous dose of dose of 10 mg/kg in mice. Tissue concentrations were analyzed using quantitative whole-body autoradiography. The concentrations were reported as percentage of injected dose / g tissue. These values were converted to concentrations in µg/ml assuming a density of 1 g/ml for all tissues except for bone for which a density of 1.5 g/ml was assumed (as in Ref. [Baxter 1994](#5-references)). Furthermore, a body weight of 29 g (i.e. a dose of  290 µg) was assumed for unit conversion of the experimental concentrations (body weight range reported: 26-33 g). |
 
-
-
-
-
-
 ## 2.3 Model Parameters and Assumptions<a id="model-parameters-and-assumptions"></a>
-
 
 ### 2.3.1 Absorption <a id="model-parameters-and-assumptions-absorption"></a>
 
@@ -149,13 +106,7 @@ The table shows the parameter values that were specified in the model based on t
 | `GFR fraction` (glomerular filtration rate fraction)         | 0.24            | -    |
 | `Fraction of blood for sampling` (all organs) - for comparison with autoradiography data | 0.42            |      |
 
-
-
-
-
-
 # 3 Results and Discussion<a id="results-and-discussion"></a>
-
 
 The PBPK model for dAb2 was evaluated with blood and tissue PK data in mice.
 
@@ -169,19 +120,9 @@ The next sections show:
 2. the overall goodness of fit: [Section 3.2](#diagnostics-plots).
 3. simulated vs. observed concentration-time profiles for the clinical studies used for model building and for model verification: [Section 3.3](#ct-profiles).
 
-
-
-
-
-
 ## 3.1 Final input parameters<a id="final-input-parameters"></a>
 
-
 The compound parameter values of the final PBPK model are illustrated below.
-
-
-
-
 
 ### Compound: dAb2
 
@@ -197,14 +138,12 @@ Is small molecule                          | No           |                     
 Molecular weight                           | 25600 g/mol  | Publication-Sepp2015                          |             |        
 Plasma protein binding partner             | Unknown      |                                               |             |        
 
-
 #### Calculation methods
 
 Name                    | Value          
 ----------------------- | ---------------
 Partition coefficients  | PK-Sim Standard
 Cellular permeabilities | PK-Sim Standard
-
 
 #### Processes
 
@@ -218,25 +157,15 @@ Name         | Value | Value Origin
 ------------ | -----:| ------------------------
 GFR fraction |  0.24 | Parameter Identification
 
-
-
-
-
-
-
 ## 3.2 Diagnostics Plots<a id="diagnostics-plots"></a>
-
 
 Below you find the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data used presented in [Section 2.2.2](#PK-data).
 
 The first plot shows observed versus simulated plasma concentration, the second weighted residuals versus time. 
 
-
-
 <a id="table-3-1"></a>
 
 **Table 3-1: GMFE for Goodness of fit plot for concentration in blood and tissues**
-
 
 |Group                                           |GMFE  |
 |:-----------------------------------------------|:-----|
@@ -244,230 +173,146 @@ The first plot shows observed versus simulated plasma concentration, the second 
 |Kidney tissue concentrations                    |23.23 |
 |All                                             |2.29  |
 
-
 <br>
 <br>
-
 
 <a id="figure-3-1"></a>
 
 ![](images/006_section_results-and-discussion/008_section_diagnostics-plots/2_gof_plot_predictedVsObserved.png)
 
-
-
 **Figure 3-1: Goodness of fit plot for concentration in blood and tissues**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-2"></a>
 
 ![](images/006_section_results-and-discussion/008_section_diagnostics-plots/3_gof_plot_residualsOverTime.png)
 
-
-
 **Figure 3-2: Goodness of fit plot for concentration in blood and tissues**
 
-
 <br>
 <br>
-
-
-
-
 
 ## 3.3 Concentration-Time Profiles<a id="ct-profiles"></a>
 
-
 Simulated versus observed concentration-time profiles of all data listed in [Section 2.2.2](#PK-data) are presented below.
-
-
 
 <a id="figure-3-3"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/1_time_profile_plot_dAb2_dAb2_Sim.png)
 
-
-
 **Figure 3-3: Blood - lin scale**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-4"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/2_time_profile_plot_dAb2_dAb2_Sim.png)
 
-
-
 **Figure 3-4: Blood - log scale**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-5"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/3_time_profile_plot_dAb2_dAb2_Sim.png)
 
-
-
 **Figure 3-5: Lung**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-6"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/4_time_profile_plot_dAb2_dAb2_Sim.png)
 
-
-
 **Figure 3-6: Skin**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-7"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/5_time_profile_plot_dAb2_dAb2_Sim.png)
 
-
-
 **Figure 3-7: Muscle**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-8"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/6_time_profile_plot_dAb2_dAb2_Sim.png)
 
-
-
 **Figure 3-8: Spleen**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-9"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/7_time_profile_plot_dAb2_dAb2_Sim.png)
 
-
-
 **Figure 3-9: Liver**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-10"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/8_time_profile_plot_dAb2_dAb2_Sim.png)
 
-
-
 **Figure 3-10: Heart**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-11"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/9_time_profile_plot_dAb2_dAb2_Sim.png)
 
-
-
 **Figure 3-11: Bone**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-12"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/10_time_profile_plot_dAb2_dAb2_Sim.png)
 
-
-
 **Figure 3-12: Intestine**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-13"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/11_time_profile_plot_dAb2_dAb2_Sim.png)
 
-
-
 **Figure 3-13: Brain**
 
-
 <br>
 <br>
-
 
 <a id="figure-3-14"></a>
 
 ![](images/006_section_results-and-discussion/009_section_ct-profiles/12_time_profile_plot_dAb2_dAb2_Sim_Kidney.png)
 
-
-
 **Figure 3-14: Kidney - log scale**
 
-
 <br>
 <br>
-
-
-
-
 
 # 4 Conclusion<a id="conclusion"></a>
 
-
 The herein presented PBPK model overall adequately describes the pharmacokinetics of a domain antibody dAb2  in mice - except for kidney concentrations. Total kidney concentrations cannot be described by the standard kidney representation of PK-Sim for renally excreted biologics, since drug within the tubular fluid is not represented in the organ concentration. Apart from kidney, the largest deviations between measured and simulated concentration-time profiles are observed for spleen for which the initial concentrations are overestimated by the model and bone for which the initial concentrations are underestimated. 
-
-
 
 The PK data of dAb2 (except kidney concentrations) had been used during the development of the generic large molecule PBPK model in PK-Sim ([Niederalt 2018](#5-references)) together with PK data from 5 other compounds (7E3, BAY 79-4620, CDA1, MEDI-524 & MEDI-524-YTE). 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 # 5 References<a id="main-references"></a>
-
 
 **Dall'Acqua 2006** Dall’Acqua WF, Kiener PA, Wu H. Properties of human IgG1s engineered for enhanced binding to the neonatal Fc receptor (FcRn). J Biol Chem. 2006 Aug; 281(33):23514-23524. doi: 10.1074/jbc.M604292200.
 
@@ -488,6 +333,4 @@ The PK data of dAb2 (except kidney concentrations) had been used during the deve
 **Taylor 2008** Taylor CP, Tummala S, Molrine D, Davidson L, Farrell RJ, Lembo A, Hibberd PL, Lowy I, Kelly CP. Open-label, dose escalation phase I study in healthy volunteers to evaluate the safety and pharmacokinetics of a human monoclonal antibody to Clostridium difficile toxin A. Vaccine. 2008 Jun;26(27-28):3404–3409. doi: 10.1016/j.vaccine.2008.04.042.
 
 **Tsuji 1983** Tsuji A, Yoshikawa T, Nishide K, Minami H, Kimura M, Nakashima E, Terasaki T, Miyamoto E, Nightingale CH, Yamana T. Physiologically based pharmacokinetic model for beta-lactam antibiotics I: tissue distribution and elimination in rats. J Pharm Sci. 1983 Nov;72(11):1239-1252. doi: 10.1002/jps.2600721103.
-
-
 

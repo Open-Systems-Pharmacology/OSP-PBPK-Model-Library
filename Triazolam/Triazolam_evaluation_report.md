@@ -1,30 +1,31 @@
 # Building and evaluation of a PBPK model for triazolam in healthy adults
 
-
-| Version                                         | 1.1-OSP12.0                                                   |
+| Version                                         | 2.0-OSP12.1                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
-| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Triazolam-Model/releases/tag/v1.1 |
-| OSP Version                                     | 12.0                                                          |
-| Qualification Framework Version                 | 3.3                                                          |
-
+| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Triazolam-Model/releases/tag/v2.0 |
+| OSP Version                                     | 12.1                                                          |
+| Qualification Framework Version                 | 3.4                                                          |
 
 This evaluation report and the corresponding PK-Sim project file are filed at:
 
 https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/
 
 # Table of Contents
-  * [1 Introduction](#1-introduction)
-  * [2 Methods](#2-methods)
-    * [2.1 Modeling Strategy](#21-modeling-strategy)
-    * [2.2 Data](#22-data)
-    * [2.3 Model Parameters and Assumptions](#23-model-parameters-and-assumptions)
-  * [3 Results and Discussion](#3-results-and-discussion)
-    * [3.1 Final input parameters](#31-final-input-parameters)
-    * [3.2 Diagnostics Plots](#32-diagnostics-plots)
-    * [3.3 Concentration-Time Profiles](#33-concentration-time-profiles)
-  * [4 Conclusion](#4-conclusion)
-  * [5 References](#5-references)
-# 1 Introduction
+
+ * [1 Introduction](#introduction)
+ * [2 Methods](#methods)
+   * [2.1 Modeling Strategy](#modeling-strategy)
+   * [2.2 Data](#data)
+   * [2.3 Model Parameters and Assumptions](#model-parameters-and-assumptions)
+ * [3 Results and Discussion](#results-and-discussion)
+   * [3.1 Final input parameters](#final-input-parameters)
+   * [3.2 Diagnostics Plots](#diagnostics-plots)
+   * [3.3 Concentration-Time Profiles](#ct-profiles)
+ * [4 Conclusion](#conclusion)
+ * [5 References](#main-references)
+
+# 1 Introduction<a id="introduction"></a>
+
 The presented model building and evaluation report evaluates the performance of a PBPK model for triazolam in healthy adults.
 
 Triazolam, sold under the trade name Halcion, among others, belongs to the group of benzodiazepines and is used for short-term treatment of insomnia and circadian rhythm sleep disorders. It is generally administered orally as immediate release tablet, but other forms of administrations, e.g. intravenously or as sublingual tablet, exist as well.
@@ -33,11 +34,12 @@ Following oral administration, triazolam is rapidly absorbed with an absolute bi
 
 The presented triazolam PBPK model was developed for intravenous (IV) administration and oral (PO) administration of the immediate release tablet given in fasted state in healthy, non-obese adults. 
 
+# 2 Methods<a id="methods"></a>
 
-
-# 2 Methods
  
-## 2.1 Modeling Strategy
+
+## 2.1 Modeling Strategy<a id="modeling-strategy"></a>
+
 The general workflow for building an adult PBPK model has been described by Kuepfer et al. ([Kuepfer 2016](#5-references)). Relevant information on the anthropometry (height, weight) was gathered from the respective clinical study, if reported. Information on physiological parameters (e.g. blood flows, organ volumes, hematocrit) in adults was gathered from the literature and has been incorporated in PK-Sim<sup>®</sup>) as described previously ([Willmann 2007](#5-references)). The  applied activity and variability of plasma proteins and active processes that are integrated into PK-Sim® are described in the publicly available 'PK-Sim<sup>®</sup> Ontogeny Database Version 7.3' ([PK-Sim Ontogeny Database Version 7.3](#5-references)).
 
 The PBPK model was developed based on clinical data of healthy, non-obese, adult subjects obtained from the literature, covering different single doses of triazolam administered intravenously or orally as immediate release tablet in the fasted state. 
@@ -60,9 +62,8 @@ Details about input data (physicochemical, *in vitro* and clinical) can be found
 
 Details about the structural model and its parameters can be found in [Section 2.3](#23-model-parameters-and-assumptions).
 
+## 2.2 Data<a id="data"></a>
 
-
-## 2.2 Data
 ### 2.2.1 In vitro / physicochemical data
 
 A literature search was carried out to collect available information on physicochemical properties of triazolam. The obtained information from the literature is summarized in the table below and is used for model building.
@@ -111,8 +112,8 @@ The following publications were found and used for model building and evaluation
 | [Villikka 1998](#5-references)        | PO single dose administration of 0.5 mg                      |
 | [von Moltke 1996](#5-references)      | PO single dose administration of 0.125 mg                    |
 
+## 2.3 Model Parameters and Assumptions<a id="model-parameters-and-assumptions"></a>
 
-## 2.3 Model Parameters and Assumptions
 ### 2.3.1	Dissolution and absorption
 
 Dissolution of the immediate release tablet of triazolam was described by a Weibull function with the two parameters `Dissolution shape` and `Dissolution time (50% dissolved)` being fitted, together with the other parameters listed in [Section 2.1](#21-modeling-strategy), to observed PK data to better match the observations. `Specific intestinal permeability (transcellular)` was also optimized together with the parameters listed in [Section 2.1](#21-modeling-strategy).
@@ -124,9 +125,8 @@ In the model, the `fraction unbound (plasma, reference value)` was set to 0.174 
 
 Triazolam is extensively metabolized via CYP3A to the two metabolites α-hydroxy-triazolam and 4-hydroxy-triazolam. In the model, these two biotransformation pathways were separately described via Michaelis-Menten kinetics. The `Km` values for each pathway were fixed to reported literature values, namely 74.2 µmol/L for the α-OH pathway and 305 µmol/L for the 4-OH pathway ([von Moltke 1996](#5-references)). Together with the other parameters listed in [Section 2.1](#21-modeling-strategy), the `kcat` values were optimized while keeping the ratio between both values constant (by selecting the option `Use as Factor`). The gene expression profile of CYP3A4 was loaded from the internal PK-Sim<sup>®</sup> database using the expression data quantified by RT-PCR ([Open Systems Pharmacology Documentation](#5-references)).
 
+# 3 Results and Discussion<a id="results-and-discussion"></a>
 
-
-# 3 Results and Discussion
 The PBPK model for triazolam was developed and verified with clinical PK data.
 
 The next sections show:
@@ -135,25 +135,9 @@ The next sections show:
 2. the overall goodness of fit: [Section 3.2](#32-diagnostics-plots).
 3. simulated vs. observed concentration-time profiles for the clinical studies used for model building: [Section 3.3](#33-concentration-time-profiles).
 
+## 3.1 Final input parameters<a id="final-input-parameters"></a>
 
-## 3.1 Final input parameters
 The compound parameter values of the final PBPK model are illustrated below. 
-
-
-### Formulation: Halcion
-
-Type: Weibull
-
-#### Parameters
-
-Name                             | Value            | Value Origin                                                                                        
--------------------------------- | ---------------- | ----------------------------------------------------------------------------------------------------
-Dissolution time (50% dissolved) | 1.7958147418 min | Parameter Identification-Parameter Identification-Value updated from 'IV + Oral' on 2018-11-13 16:52
-Lag time                         | 0 min            |                                                                                                     
-Dissolution shape                | 2.5169993312     | Parameter Identification-Parameter Identification-Value updated from 'IV + Oral' on 2018-11-13 16:52
-Use as suspension                | Yes              |                                                                                                     
-
-
 
 ### Compound: Triazolam
 
@@ -171,14 +155,12 @@ Is small molecule                                | Yes                     |    
 Molecular weight                                 | 343.21 g/mol            |                                                                                                      |             |        
 Plasma protein binding partner                   | Unknown                 |                                                                                                      |             |        
 
-
 #### Calculation methods
 
 Name                    | Value              
 ----------------------- | -------------------
 Partition coefficients  | Rodgers and Rowland
 Cellular permeabilities | PK-Sim Standard    
-
 
 #### Processes
 
@@ -194,7 +176,6 @@ In vitro Vmax for liver microsomes | 2.36 nmol/min/mg mic. protein | Publication
 Km                                 | 74.2 µmol/l                   | Publication-In Vitro-PMID: 8632299                                                                  
 kcat                               | 4.0317206142 1/min            | Parameter Identification-Parameter Identification-Value updated from 'IV + Oral' on 2018-11-13 16:52
 
-
 ##### Metabolizing Enzyme: CYP3A4-4-OH pathway
 
 Molecule: CYP3A4
@@ -207,52 +188,174 @@ In vitro Vmax for liver microsomes | 10.27 nmol/min/mg mic. protein | Publicatio
 Km                                 | 305 µmol/l                     | Publication-In Vitro-PMID: 8632299                                                                  
 kcat                               | 17.5448180963 1/min            | Parameter Identification-Parameter Identification-Value updated from 'IV + Oral' on 2018-11-13 16:52
 
+### Formulation: Halcion
 
+Type: Weibull
 
-## 3.2 Diagnostics Plots
+#### Parameters
+
+Name                             | Value            | Value Origin                                                                                        
+-------------------------------- | ---------------- | ----------------------------------------------------------------------------------------------------
+Dissolution time (50% dissolved) | 1.7958147418 min | Parameter Identification-Parameter Identification-Value updated from 'IV + Oral' on 2018-11-13 16:52
+Lag time                         | 0 min            |                                                                                                     
+Dissolution shape                | 2.5169993312     | Parameter Identification-Parameter Identification-Value updated from 'IV + Oral' on 2018-11-13 16:52
+Use as suspension                | Yes              |                                                                                                     
+
+## 3.2 Diagnostics Plots<a id="diagnostics-plots"></a>
+
 Below you find the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data used presented in [Section 2.2.2](#222-clinical-data).
 
 The first plot shows observed versus simulated plasma concentration, the second weighted residuals versus time. 
 
+<a id="table-3-1"></a>
 
-![001_plotGOFMergedPredictedVsObserved.png](images/003_3_Results_and_Discussion/002_3_2_Diagnostics_Plots/001_plotGOFMergedPredictedVsObserved.png)
+**Table 3-1: GMFE for Goodness of fit plot for concentration in plasma**
 
-![002_plotGOFMergedResidualsOverTime.png](images/003_3_Results_and_Discussion/002_3_2_Diagnostics_Plots/002_plotGOFMergedResidualsOverTime.png)
+|Group |GMFE |
+|:-----|:----|
+|IV    |1.24 |
+|PO    |1.28 |
+|All   |1.27 |
 
-GMFE = 1.272637 
+<br>
+<br>
 
-## 3.3 Concentration-Time Profiles
+<a id="figure-3-1"></a>
+
+![](images/006_section_results-and-discussion/008_section_diagnostics-plots/2_gof_plot_predictedVsObserved.png)
+
+**Figure 3-1: Goodness of fit plot for concentration in plasma**
+
+<br>
+<br>
+
+<a id="figure-3-2"></a>
+
+![](images/006_section_results-and-discussion/008_section_diagnostics-plots/3_gof_plot_residualsOverTime.png)
+
+**Figure 3-2: Goodness of fit plot for concentration in plasma**
+
+<br>
+<br>
+
+## 3.3 Concentration-Time Profiles<a id="ct-profiles"></a>
+
 Simulated versus observed concentration-time profiles of all data listed in [Section 2.2.2](#222-clinical-data) are presented below.
 
+<a id="figure-3-3"></a>
 
-![001_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_plotTimeProfile.png)
+![](images/006_section_results-and-discussion/009_section_ct-profiles/1_time_profile_plot_Triazolam_Kroboth1995_0_25mg_iv.png)
 
-![002_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_plotTimeProfile.png)
+**Figure 3-3: Time Profile Analysis**
 
-![003_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/003_plotTimeProfile.png)
+<br>
+<br>
 
-![004_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/004_plotTimeProfile.png)
+<a id="figure-3-4"></a>
 
-![005_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/005_plotTimeProfile.png)
+![](images/006_section_results-and-discussion/009_section_ct-profiles/2_time_profile_plot_Triazolam_Smith1987_0_125mg.png)
 
-![006_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/006_plotTimeProfile.png)
+**Figure 3-4: Time Profile Analysis**
 
-![007_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/007_plotTimeProfile.png)
+<br>
+<br>
 
-![008_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/008_plotTimeProfile.png)
+<a id="figure-3-5"></a>
 
-![009_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/009_plotTimeProfile.png)
+![](images/006_section_results-and-discussion/009_section_ct-profiles/3_time_profile_plot_Triazolam_Smith1987_0_25mg.png)
 
-![010_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/010_plotTimeProfile.png)
+**Figure 3-5: Time Profile Analysis**
 
-![011_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/011_plotTimeProfile.png)
+<br>
+<br>
 
-![012_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/012_plotTimeProfile.png)
+<a id="figure-3-6"></a>
 
-# 4 Conclusion
+![](images/006_section_results-and-discussion/009_section_ct-profiles/4_time_profile_plot_Triazolam_Smith1987_0_5mg.png)
+
+**Figure 3-6: Time Profile Analysis**
+
+<br>
+<br>
+
+<a id="figure-3-7"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/5_time_profile_plot_Triazolam_Smith1987_0_75mg.png)
+
+**Figure 3-7: Time Profile Analysis**
+
+<br>
+<br>
+
+<a id="figure-3-8"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/6_time_profile_plot_Triazolam_Smith1987_1mg.png)
+
+**Figure 3-8: Time Profile Analysis**
+
+<br>
+<br>
+
+<a id="figure-3-9"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/7_time_profile_plot_Triazolam_PO_0_125mg.png)
+
+**Figure 3-9: Time Profile Analysis**
+
+<br>
+<br>
+
+<a id="figure-3-10"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/8_time_profile_plot_Triazolam_PO_0_125mg.png)
+
+**Figure 3-10: Time Profile Analysis 1**
+
+<br>
+<br>
+
+<a id="figure-3-11"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/9_time_profile_plot_Triazolam_PO_0_25mg.png)
+
+**Figure 3-11: Time Profile Analysis**
+
+<br>
+<br>
+
+<a id="figure-3-12"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/10_time_profile_plot_Triazolam_PO_0_25mg.png)
+
+**Figure 3-12: Time Profile Analysis 1**
+
+<br>
+<br>
+
+<a id="figure-3-13"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/11_time_profile_plot_Triazolam_PO_0_5mg.png)
+
+**Figure 3-13: Time Profile Analysis**
+
+<br>
+<br>
+
+<a id="figure-3-14"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/12_time_profile_plot_Triazolam_PO_0_5mg.png)
+
+**Figure 3-14: Time Profile Analysis 1**
+
+<br>
+<br>
+
+# 4 Conclusion<a id="conclusion"></a>
+
 The final triazolam PBPK model applies metabolism by CYP3A4, modelled as two separate pathways yielding α-hydroxy-triazolam and 4-hydroxy-triazolam as metabolites. Overall, the model adequately describes the observed PK of triazolam in healthy, non-obese adults receiving different single IV or PO doses of triazolam. The model is deemed fit for purpose to be applied as victim drug for the investigation of CYP3A4 drug-drug interactions.
 
-# 5 References
+# 5 References<a id="main-references"></a>
+
 **drugbank.ca**. (https://www.drugbank.ca/drugs/DB00897), accessed on 11-19-2019.
 
 **Eberts  1981** Eberts FS Jr, Philopoulos Y, Reineke LM, Vliek RW. Triazolam disposition. *Clin Pharmacol Ther* 1981, 29(1): 81-93.
@@ -316,3 +419,4 @@ The final triazolam PBPK model applies metabolism by CYP3A4, modelled as two sep
 **von Moltke 1996** von Moltke LL, Greenblatt DJ, Harmatz JS, Duan SX, Harrel LM, Cotreau-Bibbo MM, Pritchard GA, Wright CE, Shader RI. Triazolam biotransformation by human liver microsomes in vitro: effects of metabolic inhibitors and clinical confirmation of a predicted interaction with ketoconazole. *J Pharmacol Exp Ther* 1996, 276(2): 370-379.
 
 **Willmann 2007** Willmann S, Höhn K, Edginton A, Sevestre M, Solodenko J, Weiss W, Lippert J, Schmitt W. Development of a physiology-based whole-body population model for assessing the influence of individual variability on the pharmacokinetics of drugs. *J Pharmacokinet Pharmacodyn* 2007, 34(3): 401-431.
+

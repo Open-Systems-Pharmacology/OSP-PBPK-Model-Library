@@ -1,33 +1,33 @@
 # Building and evaluation of a PBPK model for efavirenz in healthy adults
 
-
-
-| Version     | 1.1-OSP12.0            |
+| Version     | 2.0-OSP12.1            |
 | ----------- | --------------------- |
-| Based on Model Snapshot and Evaluation Plan | https://github.com/Open-Systems-Pharmacology/Efavirenz-Model/releases/tag/v1.1 |
-| OSP Version | 12.0                   |
-| Qualification Framework Version | 3.3                   |
-
-
+| Based on Model Snapshot and Evaluation Plan | https://github.com/Open-Systems-Pharmacology/Efavirenz-Model/releases/tag/v2.0 |
+| OSP Version | 12.1                   |
+| Qualification Framework Version | 3.4                   |
 
 This evaluation report and the corresponding PK-Sim project file are stored at:
 
 https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/
+
 # Table of Contents
-  * [1 Introduction](#1-introduction)
-  * [2 Methods](#2-methods)
-    * [2.1 Modeling Strategy](#21-modeling-strategy)
-    * [2.2 Data](#22-data)
-    * [2.3 Model Parameters and Assumptions](#23-model-parameters-and-assumptions)
-  * [3 Results and Discussion](#3-results-and-discussion)
-    * [3.1 Final input parameters](#31-final-input-parameters)
-    * [3.2 Diagnostics Plots](#32-diagnostics-plots)
-    * [3.3: Concentration-Time Profiles](#33-concentration-time-profiles)
-      * [3.3.1 Model Building](#331-model-building)
-      * [3.3.2 Fitted interaction with Midazolam](#332-fitted-interaction-with-midazolam)
-  * [4 Conclusion](#4-conclusion)
-  * [5 References](#5-references)
-# 1 Introduction
+
+ * [1 Introduction](#introduction)
+ * [2 Methods](#methods)
+   * [2.1 Modeling Strategy](#modeling-strategy)
+   * [2.2 Data](#data)
+   * [2.3 Model Parameters and Assumptions](#model-parameters-and-assumptions)
+ * [3 Results and Discussion](#results-and-discussion)
+   * [3.1 Final input parameters](#final-input-parameters)
+   * [3.2 Diagnostics Plots](#diagnostics-plots)
+   * [3.3 Concentration-Time Profiles](#ct-profiles)
+     * [3.3.1 Model Building](#model-building)
+     * [3.3.2 Fitted interaction with Midazolam](#fitted-interaction-with-midazolam)
+ * [4 Conclusion](#conclusion)
+ * [5 References](#main-references)
+
+# 1 Introduction<a id="introduction"></a>
+
 Efavirenz is a non-nucleoside reverse transcriptase inhibitor (NNRTI) and is an antiretroviral drug to treat HIV.
 
 Its major metabolizing enzyme is CYP2B6, but CYP3A4, CYP3A5, CYP1A2 and CYP2A6 also play a role ([Ward 2003](#5-references), [Ogburn 2010](#5-references)). CYP2B6 polymorphism is a major determinant of clinical efavirenz disposition and dose adjustment. Efavirenz activates the pregnane X receptor (PXR) and induces its target gene expression. As a consequence, some cytochrome P450 genes are upregulated, and, e.g. higher CYP3A4  ([Shou 2008](#5-references)) and CYP2B6 ([Ke 2016](#5-references)) activity levels can be measured.
@@ -40,10 +40,10 @@ The herein presented model building and evaluation report evaluates the performa
 
 The established efavirenz PBPK model is verified for the use as a perpetrator drug in drug-drug interaction simulations.
 
-# 2 Methods
+# 2 Methods<a id="methods"></a>
 
+## 2.1 Modeling Strategy<a id="modeling-strategy"></a>
 
-## 2.1 Modeling Strategy
 The general concept of building a PBPK model has previously been described by e.g. Kuepfer et al. ([Kuepfer 2016](#5-references)). The relevant anthropometric (height, weight) and physiological information (e.g. blood flows, organ volumes, binding protein concentrations, hematocrit, cardiac output) in adults was gathered from the literature and has been previously published ([Willmann 2007](#5-references)). This information was incorporated into PK-Sim® and was used as default values for the simulations in adults.
 
 Variability of plasma proteins and CYP enzymes are integrated into PK-Sim® and described in the publicly available PK-Sim® Ontogeny Database Version 7.3 ([PK-Sim Ontogeny Database Version 7.3](#5-references)) or otherwise referenced for the specific process.
@@ -52,14 +52,14 @@ First, a base mean model was built using clinical data including single and mult
 
 Unknown parameters (see below) were identified using the Parameter Identification module provided in PK-Sim®. Structural model selection was mainly guided by visual inspection of the resulting description of data and biological plausibility.
 
-CYP3A4 plays only a minor role in efavirenz metabolism, and, therefore, auto-induction of CYP3A4 plays a minor role for efavirenz pharmacokinetics. Hence, to parameterize CYP3A4 induction, midazolam was used as victim substance to identify the respective model parameter `Emax` and `EC50` for induction. The respective parmater identification (please refer to [Section 2.3.4](#234-automated-parameter-identification)) was performed using the midazolam model [version 1.0](https://github.com/Open-Systems-Pharmacology/Midazolam-Model/releases/tag/v1.0). 
+CYP3A4 plays only a minor role in efavirenz metabolism, and, therefore, auto-induction of CYP3A4 plays a minor role for efavirenz pharmacokinetics. Hence, to parameterize CYP3A4 induction, midazolam was used as victim substance to identify the respective model parameter `Emax` and `EC50` for induction. The respective parameter identification (please refer to [Section 2.3.4](#234-automated-parameter-identification)) was performed using the midazolam model [version 1.0](https://github.com/Open-Systems-Pharmacology/Midazolam-Model/releases/tag/v1.0). 
 
 Details about input data (physicochemical, *in vitro* and clinical) can be found in  [Section 2.2](#22-data).
 
 Details about the structural model and its parameters can be found in [Section 2.3](#23-model-parameters-and-assumptions).
 
+## 2.2 Data<a id="data"></a>
 
-## 2.2 Data
 ### 2.2.1 In vitro / physico-chemical Data
 
 A literature search was performed to collect available information on physiochemical properties of efavirenz. The obtained information from literature is summarized in the table below. 
@@ -76,7 +76,6 @@ A literature search was performed to collect available information on physiochem
 | EC50 (CYP3A4) | µmol/l | 12.5, 2.18 (average 7.34) | [Shou 2008](#5-references) | Concentration at half maximum induction |
 | Emax (CYP2B6) |          | 5.1       | [Ke 2016](#5-references) | Maximum induction effect |
 | EC50 (CYP2B6) | µmol/l | 5.1       | [Ke 2016](#5-references) | Concentration at half maximum induction |
-
 
 ### 2.2.2 Clinical Data
 
@@ -95,8 +94,6 @@ The following studies were used for model building:
 | [Garg 2013](#5-references)   | Healthy subjects receiving multiple doses of 600 mg          |
 | [Huang 2012](#5-references)  | Healthy subjects receiving multiple doses of 600 mg          |
 
-
-
 #### 2.2.2.2 Midazolam interaction studies used to parameterize CYP3A4 interaction
 
 The following studies were used for parameterization of CYP3A4 interaction:
@@ -106,7 +103,8 @@ The following studies were used for parameterization of CYP3A4 interaction:
 | [Mikus 2017](#5-references)       | Healthy subjects receiving a single oral dose of  400 mg Efavirenz at t=0h, 4 mg midazolam at t=12h and a single intravenous dose of 2 mg midazolam at t=18h. |
 | [Katzenmaier 2010](#5-references) | Healthy subjects receiving multiple oral doses of 400 mg efavirenz QD. On day 14, subjects receive a single oral midazolam dose of 3 mg. |
 
-## 2.3 Model Parameters and Assumptions
+## 2.3 Model Parameters and Assumptions<a id="model-parameters-and-assumptions"></a>
+
 ### 2.3.1 Absorption
 
 Absorption observed in clinical studies can be fully explained by passive absorption.
@@ -143,8 +141,8 @@ The is result of the final parameter identification is shown in the table below:
 | Dissolution time (50% dissolved) | 60 | min  |
 | Dissolution shape | 0.272 |   |
 
+# 3 Results and Discussion<a id="results-and-discussion"></a>
 
-# 3 Results and Discussion
 The PBPK model for efavirenz was developed and evaluated using publicly available clinical pharmacokinetic data from studies listed in [Section 2.2.2](#222-clinical-data).
 
 The next sections show:
@@ -153,12 +151,9 @@ The next sections show:
 2. the overall goodness of fit: [Section 3.2](#32-diagnostics-plots).
 3. simulated vs. observed concentration-time profiles for the clinical studies used for model building and for model verification: [Section 3.3](#33-concentration-time-profiles).
 
+## 3.1 Final input parameters<a id="final-input-parameters"></a>
 
-## 3.1 Final input parameters
 The compound parameter values of the final PBPK model are illustrated below.
-
-
-
 
 ### Compound: Efavirenz
 
@@ -177,14 +172,12 @@ Is small molecule                                | Yes                     |    
 Molecular weight                                 | 315.675 g/mol           |                                                                                                                              |             |        
 Plasma protein binding partner                   | Albumin                 |                                                                                                                              |             |        
 
-
 #### Calculation methods
 
 Name                    | Value          
 ----------------------- | ---------------
 Partition coefficients  | Schmitt        
 Cellular permeabilities | PK-Sim Standard
-
 
 #### Processes
 
@@ -202,7 +195,6 @@ In vitro Vmax/recombinant enzyme | 3.5 pmol/min/pmol rec. enzyme |
 Km                               | 6.4 µmol/l                    |                                                                                                                             
 kcat                             | 1.601451904 1/min             | Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 7 (Mida)' on 2019-10-11 09:02
 
-
 ##### Metabolizing Enzyme: CYP1A2-Ward2003
 
 Molecule: CYP1A2
@@ -216,7 +208,6 @@ Name                             | Value                         | Value Origin
 In vitro Vmax/recombinant enzyme | 0.6 pmol/min/pmol rec. enzyme |                                                                                                                             
 Km                               | 8.3 µmol/l                    |                                                                                                                             
 kcat                             | 0.1910198104 1/min            | Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 7 (Mida)' on 2019-10-11 09:02
-
 
 ##### Metabolizing Enzyme: CYP3A4-Ward2003
 
@@ -232,7 +223,6 @@ In vitro Vmax/recombinant enzyme | 0.16 pmol/min/pmol rec. enzyme |
 Km                               | 23.5 µmol/l                    |                                                                                                                             
 kcat                             | 0.0509386161 1/min             | Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 7 (Mida)' on 2019-10-11 09:02
 
-
 ##### Metabolizing Enzyme: CYP3A5-Ward2003
 
 Molecule: CYP3A5
@@ -246,7 +236,6 @@ Name                             | Value                         | Value Origin
 In vitro Vmax/recombinant enzyme | 0.6 pmol/min/pmol rec. enzyme |                                                                                                                             
 Km                               | 19.1 µmol/l                   |                                                                                                                             
 kcat                             | 0.1910198104 1/min            | Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 7 (Mida)' on 2019-10-11 09:02
-
 
 ##### Metabolizing Enzyme: CYP2A6-Ogburn2010
 
@@ -262,7 +251,6 @@ In vitro Vmax/recombinant enzyme | 1 pmol/min/pmol rec. enzyme |
 Km                               | 7.7 µmol/l                  |                                                                                                                             
 kcat                             | 0.3183663507 1/min          | Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 7 (Mida)' on 2019-10-11 09:02
 
-
 ##### Metabolizing Enzyme: CYP2B6-CYP2B6*1/*6
 
 Molecule: CYP2B6
@@ -275,7 +263,6 @@ Name                             | Value                              | Value Or
 -------------------------------- | ---------------------------------- | ------------:
 In vitro Vmax/recombinant enzyme | 2.268966 pmol/min/pmol rec. enzyme |             
 Km                               | 6.4 µmol/l                         |             
-
 
 ##### Metabolizing Enzyme: CYP2B6-CYP2B6*6/*6
 
@@ -290,7 +277,6 @@ Name                             | Value                              | Value Or
 In vitro Vmax/recombinant enzyme | 1.448276 pmol/min/pmol rec. enzyme |             
 Km                               | 6.4 µmol/l                         |             
 
-
 ##### Induction: CYP3A4-Shou2008
 
 Molecule: CYP3A4
@@ -301,7 +287,6 @@ Name | Value              | Value Origin
 ---- | ------------------ | ----------------------------------------------------------------------------------------------------------------------------
 EC50 | 0.071279975 µmol/l | Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 7 (Mida)' on 2019-10-11 09:02
 Emax | 5.21               | Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 7 (Mida)' on 2019-10-11 09:02
-
 
 ##### Induction: CYP2B6-Ke2016
 
@@ -314,7 +299,6 @@ Name | Value               | Value Origin
 EC50 | 0.0116534019 µmol/l | Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 7 (Mida)' on 2019-10-11 09:02
 Emax | 5.2                 | Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 7 (Mida)' on 2019-10-11 09:02
 
-
 ##### Systemic Process: Glomerular Filtration-GFR
 
 Species: Human
@@ -324,8 +308,6 @@ Species: Human
 Name         | Value | Value Origin
 ------------ | -----:| ------------:
 GFR fraction |     1 |             
-
-
 
 ### Formulation: Sustiva
 
@@ -340,82 +322,241 @@ Lag time                         | 0 min        |
 Dissolution shape                | 0.2720936819 | Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 7 (Mida)' on 2019-10-11 09:02
 Use as suspension                | Yes          |                                                                                                                             
 
+## 3.2 Diagnostics Plots<a id="diagnostics-plots"></a>
 
-
-## 3.2 Diagnostics Plots
 Below you find the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data used presented in [Section 2.2.2](#222-clinical-data).
 
 The first plot shows simulated versus observed plasma concentration, the second weighted residuals versus time. 
 
+<a id="table-3-1"></a>
 
-![001_plotGOFMergedPredictedVsObserved.png](images/003_3_Results_and_Discussion/002_3_2_Diagnostics_Plots/001_plotGOFMergedPredictedVsObserved.png)
+**Table 3-1: GMFE for Goodness of fit plot for concentration in plasma**
 
-![002_plotGOFMergedResidualsOverTime.png](images/003_3_Results_and_Discussion/002_3_2_Diagnostics_Plots/002_plotGOFMergedResidualsOverTime.png)
+|Group                        |GMFE |
+|:----------------------------|:----|
+|First dose administration    |1.47 |
+|Multiple dose administration |1.40 |
+|All                          |1.45 |
 
-GMFE = 1.445150 
+<br>
+<br>
 
-## 3.3: Concentration-Time Profiles
+<a id="figure-3-1"></a>
+
+![](images/006_section_results-and-discussion/008_section_diagnostics-plots/2_gof_plot_predictedVsObserved.png)
+
+**Figure 3-1: Goodness of fit plot for concentration in plasma**
+
+<br>
+<br>
+
+<a id="figure-3-2"></a>
+
+![](images/006_section_results-and-discussion/008_section_diagnostics-plots/3_gof_plot_residualsOverTime.png)
+
+**Figure 3-2: Goodness of fit plot for concentration in plasma**
+
+<br>
+<br>
+
+## 3.3 Concentration-Time Profiles<a id="ct-profiles"></a>
+
 Simulated versus observed concentration-time profiles of all data listed in [Section 2.2.2](#222-clinical-data) are presented below.
 
+### 3.3.1 Model Building<a id="model-building"></a>
 
-### 3.3.1 Model Building
+<a id="figure-3-3"></a>
 
+![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/1_time_profile_plot_Efavirenz_Ogburn_2010__600mg_SD.png)
 
+**Figure 3-3: Ogburn 2010, 600mg SD**
 
+<br>
+<br>
 
+<a id="figure-3-4"></a>
 
-![001_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3__Concentration-Time_Profiles/001_3_3_1_Model_Building/001_plotTimeProfile.png)
+![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/2_time_profile_plot_Efavirenz_Xu_2013__600mg_SD_EM.png)
 
-![002_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3__Concentration-Time_Profiles/001_3_3_1_Model_Building/002_plotTimeProfile.png)
+**Figure 3-4: Xu 2013, 600mg SD EM**
 
-![003_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3__Concentration-Time_Profiles/001_3_3_1_Model_Building/003_plotTimeProfile.png)
+<br>
+<br>
 
-![004_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3__Concentration-Time_Profiles/001_3_3_1_Model_Building/004_plotTimeProfile.png)
+<a id="figure-3-5"></a>
 
-![005_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3__Concentration-Time_Profiles/001_3_3_1_Model_Building/005_plotTimeProfile.png)
+![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/3_time_profile_plot_Efavirenz_Xu_2013__600mg_SD_IM.png)
 
-![006_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3__Concentration-Time_Profiles/001_3_3_1_Model_Building/006_plotTimeProfile.png)
+**Figure 3-5: Xu 2013, 600mg SD IM**
 
-![007_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3__Concentration-Time_Profiles/001_3_3_1_Model_Building/007_plotTimeProfile.png)
+<br>
+<br>
 
-![008_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3__Concentration-Time_Profiles/001_3_3_1_Model_Building/008_plotTimeProfile.png)
+<a id="figure-3-6"></a>
 
-![009_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3__Concentration-Time_Profiles/001_3_3_1_Model_Building/009_plotTimeProfile.png)
+![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/4_time_profile_plot_Efavirenz_Xu_2013__600mg_SD_PM.png)
 
-![010_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3__Concentration-Time_Profiles/001_3_3_1_Model_Building/010_plotTimeProfile.png)
+**Figure 3-6: Xu 2013, 600mg SD PM**
 
-![011_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3__Concentration-Time_Profiles/001_3_3_1_Model_Building/011_plotTimeProfile.png)
+<br>
+<br>
 
-![012_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3__Concentration-Time_Profiles/001_3_3_1_Model_Building/012_plotTimeProfile.png)
+<a id="figure-3-7"></a>
 
-![013_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3__Concentration-Time_Profiles/001_3_3_1_Model_Building/013_plotTimeProfile.png)
+![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/5_time_profile_plot_Efavirenz_Mouly_2002__200mg_MD.png)
 
-![014_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3__Concentration-Time_Profiles/001_3_3_1_Model_Building/014_plotTimeProfile.png)
+**Figure 3-7: Mouly 2002, 200mg MD**
 
-![015_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3__Concentration-Time_Profiles/001_3_3_1_Model_Building/015_plotTimeProfile.png)
+<br>
+<br>
 
-### 3.3.2 Fitted interaction with Midazolam
+<a id="figure-3-8"></a>
 
+![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/6_time_profile_plot_Efavirenz_Mouly_2002__400mg_MD.png)
 
+**Figure 3-8: Mouly 2002, 400mg MD**
 
+<br>
+<br>
 
+<a id="figure-3-9"></a>
 
-![001_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3__Concentration-Time_Profiles/002_3_3_2_Fitted_interaction_with_Midazolam/001_plotTimeProfile.png)
+![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/7_time_profile_plot_Efavirenz_Liu_2008__400_mg_PO_OD.png)
 
-![002_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3__Concentration-Time_Profiles/002_3_3_2_Fitted_interaction_with_Midazolam/002_plotTimeProfile.png)
+**Figure 3-9: Liu 2008, 400 mg PO OD**
 
-![003_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3__Concentration-Time_Profiles/002_3_3_2_Fitted_interaction_with_Midazolam/003_plotTimeProfile.png)
+<br>
+<br>
 
-![004_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3__Concentration-Time_Profiles/002_3_3_2_Fitted_interaction_with_Midazolam/004_plotTimeProfile.png)
+<a id="figure-3-10"></a>
 
-# 4 Conclusion
+![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/8_time_profile_plot_Efavirenz_Dooley_2012__600mg_MD_EM.png)
+
+**Figure 3-10: Dooley 2012, 600mg MD EM**
+
+<br>
+<br>
+
+<a id="figure-3-11"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/9_time_profile_plot_Efavirenz_Dooley_2012__600mg_MD_EM.png)
+
+**Figure 3-11: Dooley 2012, 600mg MD EM**
+
+<br>
+<br>
+
+<a id="figure-3-12"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/10_time_profile_plot_Efavirenz_Dooley_2012__600mg_MD_IM.png)
+
+**Figure 3-12: Dooley 2012, 600mg MD IM**
+
+<br>
+<br>
+
+<a id="figure-3-13"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/11_time_profile_plot_Efavirenz_Dooley_2012__600mg_MD_PM.png)
+
+**Figure 3-13: Dooley 2012, 600mg MD PM**
+
+<br>
+<br>
+
+<a id="figure-3-14"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/12_time_profile_plot_Efavirenz_Huang_2012__600mg_MD.png)
+
+**Figure 3-14: Huang 2012, 600mg MD**
+
+<br>
+<br>
+
+<a id="figure-3-15"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/13_time_profile_plot_Efavirenz_Garg_2013__600mg_MD.png)
+
+**Figure 3-15: Garg 2013, 600mg MD**
+
+<br>
+<br>
+
+<a id="figure-3-16"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/14_time_profile_plot_Efavirenz_Malvestutto_2014__600mg_PO_OD.png)
+
+**Figure 3-16: Malvestutto 2014, 600mg PO OD**
+
+<br>
+<br>
+
+<a id="figure-3-17"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/15_time_profile_plot_Efavirenz_Damle_2008__600_mg_PO_OD.png)
+
+**Figure 3-17: Damle 2008, 600 mg PO OD**
+
+<br>
+<br>
+
+<a id="figure-3-18"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/16_time_profile_plot_Efavirenz_Soon_2010__600mg_MD_over_28_days.png)
+
+**Figure 3-18: Soon 2010, 600mg MD over 28 days**
+
+<br>
+<br>
+
+### 3.3.2 Fitted interaction with Midazolam<a id="fitted-interaction-with-midazolam"></a>
+
+<a id="figure-3-19"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_fitted-interaction-with-midazolam/17_time_profile_plot_Efavirenz_Mikus_2017__Midazolam_alone.png)
+
+**Figure 3-19: Mikus 2017, Midazolam alone**
+
+<br>
+<br>
+
+<a id="figure-3-20"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_fitted-interaction-with-midazolam/18_time_profile_plot_Efavirenz_Mikus_2017__Midazolam___Efavirenz_400mg_SD.png)
+
+**Figure 3-20: Mikus 2017, Midazolam + Efavirenz 400mg SD**
+
+<br>
+<br>
+
+<a id="figure-3-21"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_fitted-interaction-with-midazolam/19_time_profile_plot_Efavirenz_Katzenmaier_2010__Midazolam_alone.png)
+
+**Figure 3-21: Katzenmaier 2010, Midazolam alone**
+
+<br>
+<br>
+
+<a id="figure-3-22"></a>
+
+![](images/006_section_results-and-discussion/009_section_ct-profiles/011_section_fitted-interaction-with-midazolam/20_time_profile_plot_Efavirenz_Katzenmaier_2010__Midazolam____Efavirenz_400mg_MD.png)
+
+**Figure 3-22: Katzenmaier 2010, Midazolam +  Efavirenz 400mg MD**
+
+<br>
+<br>
+
+# 4 Conclusion<a id="conclusion"></a>
+
 The herein presented PBPK model adequately describes the pharmacokinetics of efavirenz after single and multiple oral administration of various doses to healthy adults. 
 
 Apart from drug-drug interaction parameters, all optimized parameters are in a close range to the measured or calculated values. EC50 values for CYP3A4 and CYP2B6 were reduced approximately 100-fold in order to reach a relevant induction.
 
 In conclusion, the presented efavirenz PBPK model is well-suited to be applied in drug-drug-interaction scenarios.
 
-# 5 References
+# 5 References<a id="main-references"></a>
+
 **Almond 2005** Almond LM, Hoggard PG, Edirisinghe D, Khoo SH, Back DJ. Intracellular and plasma pharmacokinetics of efavirenz in HIV-infected individuals. J Antimicrob Chemother. 2005 Oct;56(4):738-44. Epub 2005 Sep 1. PubMed PMID: 16141277.
 
 **Cristofoletti 2013** Cristofoletti R, Nair A, Abrahamsson B, Groot DW, Kopp S, Langguth P, Polli JE, Shah VP, Dressman JB. Biowaiver monographs for immediate release solid oral dosage forms: efavirenz. J Pharm Sci. 2013 Feb;102(2):318-29. doi: 10.1002/jps.23380. Epub 2012 Nov 22. Review. PubMed PMID: 23175470.
@@ -462,3 +603,4 @@ In conclusion, the presented efavirenz PBPK model is well-suited to be applied i
 **Willmann 2007** Willmann S, Höhn K, Edginton A, Sevestre M, Solodenko J, Weiss W, Lippert J, Schmitt W. Development of a physiology-based whole-body population model for assessing the influence of individual variability on the pharmacokinetics of drugs. J Pharmacokinet Pharmacodyn. 2007, 34(3): 401-431.
 
 **Xu 2013** Xu C, Quinney SK, Guo Y, Hall SD, Li L, Desta Z. CYP2B6 pharmacogenetics-based in vitro-in vivo extrapolation of efavirenz clearance by physiologically based pharmacokinetic modeling. Drug Metab Dispos. 2013 Dec;41(12):2004-11. doi: 10.1124/dmd.113.051755. Epub 2013 Jul 11. PubMed PMID: 23846872; PubMed Central PMCID: PMC3834132.
+

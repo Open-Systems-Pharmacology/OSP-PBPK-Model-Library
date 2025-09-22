@@ -1,32 +1,34 @@
 # Building and evaluation of a PBPK model for Ethinylestradiol in adults
 
-
-
-| Version                                         | 1.1-OSP12.0                                                   |
+| Version                                         | 2.0-OSP12.1                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
-| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Ethinylestradiol-Model/releases/tag/v1.1 |
-| OSP Version                                     | 12.0                                                          |
-| Qualification Framework Version                 | 3.3                                                          |
+| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Ethinylestradiol-Model/releases/tag/v2.0 |
+| OSP Version                                     | 12.1                                                          |
+| Qualification Framework Version                 | 3.4                                                          |
 
 This evaluation report and the corresponding PK-Sim project file are filed at:
 
 https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/
+
 # Table of Contents
-  * [1 Introduction](#1-introduction)
-  * [2 Methods](#2-methods)
-    * [2.1 Modeling Strategy](#21-modeling-strategy)
-    * [2.2 Data](#22-data)
-    * [2.3 Model Parameters and Assumptions](#23-model-parameters-and-assumptions)
-  * [3 Results and Discussion](#3-results-and-discussion)
-    * [3.1 Final input parameters](#31-final-input-parameters)
-    * [3.2 Diagnostics Plots](#32-diagnostics-plots)
-    * [3.3 Concentration-Time Profiles](#33-concentration-time-profiles)
-      * [3.3.1 Model Building](#331-model-building)
-      * [3.3.2 Model Verification](#332-model-verification)
-  * [4 Conclusion](#4-conclusion)
-  * [5 References](#5-references)
-  * [6 Glossary](#6-glossary)
-# 1 Introduction
+
+ * [1 Introduction](#introduction)
+ * [2 Methods](#methods)
+   * [2.1 Modeling Strategy](#modeling-strategy)
+   * [2.2 Data](#data)
+   * [2.3 Model Parameters and Assumptions](#model-parameters-and-assumptions)
+ * [3 Results and Discussion](#results-and-discussion)
+   * [3.1 Final input parameters](#final-input-parameters)
+   * [3.2 Diagnostics Plots](#diagnostics-plots)
+   * [3.3 Concentration-Time Profiles](#concentration-time-profiles)
+     * [3.3.1 Model Building](#model-building)
+     * [3.3.2 Model Verification](#model-validation)
+ * [4 Conclusion](#conclusion)
+ * [5 References](#references)
+ * [6 Glossary](#glossary)
+
+# 1 Introduction<a id="introduction"></a>
+
 The presented PBPK model of ethinylestradiol (EE) has been developed to be used in a PBPK Drug-Drug-Interactions (DDI) network with ethinylestradiol as perpetrator of CYP1A2.
 
 Ethinylestradiol is an estrogen medication which is used widely as a birth control pills in combination with progestins. The following ADME properties characterize ethinylestradiol ([SmPC Namuscla](#5-references), [FDA. QUARTETTE](#5-references)):
@@ -43,10 +45,10 @@ After i.v. administration, ethinylestradiol displays approximately linear dose r
 
 After p.o. single dose, ethinylestradiol shows linear dose relationship in the dose range 30-3000 µg. Secondary peaks can be observed in individual data, compatible with enterohepatic re-circulation. However, mean data do not display such feature as a result of such peak being averaged out. Therefore, enterohepatic re-circulation was not taken into account in the model.
 
-# 2 Methods
+# 2 Methods<a id="methods"></a>
 
+## 2.1 Modeling Strategy<a id="modeling-strategy"></a>
 
-## 2.1 Modeling Strategy
 The general workflow for building an adult PBPK model has been described by Kuepfer et al. ([Kuepfer 2016](#5-references)). Relevant information on the anthropometry (height, weight) was gathered from the respective clinical study, if reported. Information on physiological parameters (e.g. blood flows, organ volumes, hematocrit) in adults was gathered from the literature and has been incorporated in PK-Sim® as described previously ([Willmann 2007](#5-references)). The  applied activity and variability of plasma proteins and active processes that are integrated into PK-Sim® are described in the publicly available 'PK-Sim® Ontogeny Database Version 7.3' ([PK-Sim Ontogeny Database Version 7.3](#5-references)).
 
 The following steps were undertaken in model development:
@@ -63,7 +65,8 @@ Details about the structural model and its parameters can be found in [Section 2
 
 A standard female subject was created based on the European (ICRP,2002) PK-Sim database (age = 30 y, weight = 60 kg, height = 163 cm, BMI = 22,58 kg/m2) and used for simulations, until stated otherwise. Expression of the enzymes CYP3A4, CYP2C9, CYP1A2, CYP2C8, and UGT1A1 from RT PCR database were added.
 
-## 2.2 Data
+## 2.2 Data<a id="data"></a>
+
 ### 2.2.1 In vitro and physico-chemical data
 
 A literature search was performed to collect available information on physico-chemical properties of ethinylestradiol, see [Table 1](#table-1).
@@ -111,7 +114,9 @@ A literature search was performed to collect available clinical data on ethinyle
 | [Timmer 2000](#5-references)<sup>+</sup>        | p.o.  | 0.03                            | HV       | F       | -     | tablet              |
 
 **Table 2:**<a name="table-2"></a> Literature sources of clinical concentration data of ethinylestradiol used for model development and validation. *\*: single dose unless otherwise specified;<sup>+</sup>: Data used for final parameter identification*
-## 2.3 Model Parameters and Assumptions
+
+## 2.3 Model Parameters and Assumptions<a id="model-parameters-and-assumptions"></a>
+
 ### 2.3.1 Absorption
 
 Intestinal permeability was fitted to po data. Formulation of ethinylestradiol tablet was modeled with Weibull-function and parameters `Dissolution time (50% dissolved)` and `Lag time` fitted to po data.
@@ -150,30 +155,17 @@ Following parameter values were estimated for the model:
 - `Kinact` (CYP1A2 TDI)
 - `K_kinact_half` (CYP1A2 TDI)
 
-# 3 Results and Discussion
+# 3 Results and Discussion<a id="results-and-discussion"></a>
+
 The next sections show:
 
 1. Final model input parameters for the building blocks: [Section 3.1](#31-final-input-parameters).
 2. Overall goodness of fit: [Section 3.2](#32-diagnostics-plots).
 3. Simulated vs. observed concentration-time profiles for the clinical studies used for model building and for model verification: [Section 3.3](#33-concentration-time-profiles).
 
-## 3.1 Final input parameters
+## 3.1 Final input parameters<a id="final-input-parameters"></a>
+
 The parameter values of the final PBPK model are illustrated below.
-
-### Formulation: Ethinylestradiol tablet
-
-Type: Weibull
-
-#### Parameters
-
-Name                             | Value             | Value Origin            
--------------------------------- | ----------------- | ------------------------
-Dissolution time (50% dissolved) | 36.5087007601 min | Parameter Identification
-Lag time                         | 6.7747764588 min  | Parameter Identification
-Dissolution shape                | 0.92              |                         
-Use as suspension                | Yes               |                         
-
-
 
 ### Compound: Ethinylestradiol
 
@@ -190,14 +182,12 @@ Is small molecule                                | Yes                    |     
 Molecular weight                                 | 296.4 g/mol            | Database-DrugBank DB00977 |             |        
 Plasma protein binding partner                   | Albumin                |                           |             |        
 
-
 #### Calculation methods
 
 Name                    | Value          
 ----------------------- | ---------------
 Partition coefficients  | Berezhkovskiy  
 Cellular permeabilities | PK-Sim Standard
-
 
 #### Processes
 
@@ -211,7 +201,6 @@ Name                           | Value                        | Value Origin
 ------------------------------ | ---------------------------- | -------------------------
 In vitro CL/recombinant enzyme | 0.51 µl/min/pmol rec. enzyme | Publication-Ezuruike 2018
 
-
 ##### Metabolizing Enzyme: CYP2C8-Ezuruike_2018
 
 Molecule: CYP2C8
@@ -221,7 +210,6 @@ Molecule: CYP2C8
 Name                           | Value                        | Value Origin             
 ------------------------------ | ---------------------------- | -------------------------
 In vitro CL/recombinant enzyme | 0.13 µl/min/pmol rec. enzyme | Publication-Ezuruike 2018
-
 
 ##### Metabolizing Enzyme: CYP2C9-Ezuruike_2018
 
@@ -233,7 +221,6 @@ Name                           | Value                        | Value Origin
 ------------------------------ | ---------------------------- | -------------------------
 In vitro CL/recombinant enzyme | 0.51 µl/min/pmol rec. enzyme | Publication-Ezuruike 2018
 
-
 ##### Metabolizing Enzyme: CYP3A4-Ezuruike_2018
 
 Molecule: CYP3A4
@@ -243,7 +230,6 @@ Molecule: CYP3A4
 Name                           | Value                       | Value Origin             
 ------------------------------ | --------------------------- | -------------------------
 In vitro CL/recombinant enzyme | 0.5 µl/min/pmol rec. enzyme | Publication-Ezuruike 2018
-
 
 ##### Metabolizing Enzyme: UGT1A1-Ezuruike_2018
 
@@ -257,7 +243,6 @@ In vitro Vmax for liver microsomes          | 408.5 pmol/min/mg mic. protein | P
 Content of CYP proteins in liver microsomes | 33.6 pmol/mg mic. protein      | Publication-Ezuruike 2018
 Km                                          | 19.22 µmol/l                   | Publication-Ezuruike 2018
 
-
 ##### Systemic Process: Renal Clearances-Stanczyk_2013
 
 Species: Human
@@ -268,7 +253,6 @@ Name                          | Value         | Value Origin
 ----------------------------- | ------------- | ------------------------------------
 Fraction unbound (experiment) | 0.03          |                                     
 Plasma clearance              | 0.0285 l/h/kg | Publication-Stanczyk_2013; 2.079/73=
-
 
 ##### Systemic Process: Total Hepatic Clearance-Ezuruike_2018
 
@@ -283,7 +267,6 @@ Lipophilicity (experiment)    | 3.4805414593 Log Units |
 Plasma clearance              | 0 ml/min/kg            |                                                                                                               
 Specific clearance            | 1.1002777778 1/min     | Publication-Ezuruike 2018 - Calculated from 118.83 µl/min/mg mic. protein divided by 108 pmol/mg/ mic. protein
 
-
 ##### Inhibition: CYP1A2-Fit
 
 Molecule: CYP1A2
@@ -295,49 +278,155 @@ Name          | Value               | Value Origin
 kinact        | 200 1/min           | Parameter Identification
 K_kinact_half | 0.4833013314 µmol/l | Parameter Identification
 
+### Formulation: Ethinylestradiol tablet
 
+Type: Weibull
 
-## 3.2 Diagnostics Plots
+#### Parameters
+
+Name                             | Value             | Value Origin            
+-------------------------------- | ----------------- | ------------------------
+Dissolution time (50% dissolved) | 36.5087007601 min | Parameter Identification
+Lag time                         | 6.7747764588 min  | Parameter Identification
+Dissolution shape                | 0.92              |                         
+Use as suspension                | Yes               |                         
+
+## 3.2 Diagnostics Plots<a id="diagnostics-plots"></a>
+
 The following section displays the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data listed in [Section 2.2.2](#222-clinical-data).
 
 The first plot shows observed versus simulated plasma concentration, the second weighted residuals versus time. 
 
-![001_plotGOFMergedPredictedVsObserved.png](images/003_3_Results_and_Discussion/002_3_2_Diagnostics_Plots/001_plotGOFMergedPredictedVsObserved.png)
+<a id="table-3-1"></a>
 
-![002_plotGOFMergedResidualsOverTime.png](images/003_3_Results_and_Discussion/002_3_2_Diagnostics_Plots/002_plotGOFMergedResidualsOverTime.png)
+**Table 3-1: GMFE for Ethinylestradiol concentration in plasma**
 
-GMFE = 1.411114 
+|Group                                  |GMFE |
+|:--------------------------------------|:----|
+|iv administration (model building)     |1.45 |
+|iv administration (model validation)   |1.27 |
+|Oral administration (model building)   |1.46 |
+|Oral administration (model validation) |1.26 |
+|All                                    |1.41 |
 
-## 3.3 Concentration-Time Profiles
+<br>
+<br>
+
+<a id="figure-3-1"></a>
+
+![](images/006_section_results-and-discussion/008_section_diagnostics-plots/2_gof_plot_predictedVsObserved.png)
+
+**Figure 3-1: Ethinylestradiol concentration in plasma**
+
+<br>
+<br>
+
+<a id="figure-3-2"></a>
+
+![](images/006_section_results-and-discussion/008_section_diagnostics-plots/3_gof_plot_residualsOverTime.png)
+
+**Figure 3-2: Ethinylestradiol concentration in plasma**
+
+<br>
+<br>
+
+## 3.3 Concentration-Time Profiles<a id="concentration-time-profiles"></a>
+
 Simulated versus observed concentration-time profiles of all data listed in [Section 2.2.2](#222-clinical-data) are presented below.
 
-### 3.3.1 Model Building
+### 3.3.1 Model Building<a id="model-building"></a>
 
-![001_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_3_3_1_Model_Building/001_plotTimeProfile.png)
+<a id="figure-3-3"></a>
 
-![002_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_3_3_1_Model_Building/002_plotTimeProfile.png)
+![](images/006_section_results-and-discussion/009_section_concentration-time-profiles/010_section_model-building/1_time_profile_plot_Ethinylestradiol_Ethinylestradiol_0_03_mg_iv.png)
 
-![003_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_3_3_1_Model_Building/003_plotTimeProfile.png)
+**Figure 3-3: Ethinylestradiol 0.03 mg iv**
 
-![004_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_3_3_1_Model_Building/004_plotTimeProfile.png)
+<br>
+<br>
 
-![005_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_3_3_1_Model_Building/005_plotTimeProfile.png)
+<a id="figure-3-4"></a>
 
-![006_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/001_3_3_1_Model_Building/006_plotTimeProfile.png)
+![](images/006_section_results-and-discussion/009_section_concentration-time-profiles/010_section_model-building/2_time_profile_plot_Ethinylestradiol_Ethinylestradiol_0_05_mg_iv.png)
 
-### 3.3.2 Model Verification
+**Figure 3-4: Ethinylestradiol 0.05 mg iv**
 
-![001_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/001_plotTimeProfile.png)
+<br>
+<br>
 
-![002_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/002_plotTimeProfile.png)
+<a id="figure-3-5"></a>
 
-![003_plotTimeProfile.png](images/003_3_Results_and_Discussion/003_3_3_Concentration-Time_Profiles/002_3_3_2_Model_Verification/003_plotTimeProfile.png)
+![](images/006_section_results-and-discussion/009_section_concentration-time-profiles/010_section_model-building/3_time_profile_plot_Ethinylestradiol_Ethinylestradiol_0_03_mg_po.png)
 
-# 4 Conclusion
+**Figure 3-5: Ethinylestradiol 0.03 mg po**
+
+<br>
+<br>
+
+<a id="figure-3-6"></a>
+
+![](images/006_section_results-and-discussion/009_section_concentration-time-profiles/010_section_model-building/4_time_profile_plot_Ethinylestradiol_Ethinylestradiol_0_03_mg_po_28d.png)
+
+**Figure 3-6: Ethinylestradiol 0.03 mg po 28d**
+
+<br>
+<br>
+
+<a id="figure-3-7"></a>
+
+![](images/006_section_results-and-discussion/009_section_concentration-time-profiles/010_section_model-building/5_time_profile_plot_Ethinylestradiol_Ethinylestradiol_0_05_mg_po.png)
+
+**Figure 3-7: Ethinylestradiol 0.05 mg po**
+
+<br>
+<br>
+
+<a id="figure-3-8"></a>
+
+![](images/006_section_results-and-discussion/009_section_concentration-time-profiles/010_section_model-building/6_time_profile_plot_Ethinylestradiol_Ethinylestradiol_0_12_mg_po.png)
+
+**Figure 3-8: Ethinylestradiol 0.12 mg po**
+
+<br>
+<br>
+
+### 3.3.2 Model Verification<a id="model-validation"></a>
+
+<a id="figure-3-9"></a>
+
+![](images/006_section_results-and-discussion/009_section_concentration-time-profiles/011_section_model-validation/7_time_profile_plot_Ethinylestradiol_Ethinylestradiol_0_06_mg_iv.png)
+
+**Figure 3-9: Ethinylestradiol 0.06 mg iv**
+
+<br>
+<br>
+
+<a id="figure-3-10"></a>
+
+![](images/006_section_results-and-discussion/009_section_concentration-time-profiles/011_section_model-validation/8_time_profile_plot_Ethinylestradiol_Ethinylestradiol_0_03_mg_po_28d_pred.png)
+
+**Figure 3-10: Ethinylestradiol 0.03 mg po 28d pred**
+
+<br>
+<br>
+
+<a id="figure-3-11"></a>
+
+![](images/006_section_results-and-discussion/009_section_concentration-time-profiles/011_section_model-validation/9_time_profile_plot_Ethinylestradiol_Ethinylestradiol_0_05_mg_po_28d.png)
+
+**Figure 3-11: Ethinylestradiol 0.05 mg po 28d**
+
+<br>
+<br>
+
+# 4 Conclusion<a id="conclusion"></a>
+
 The developed PBPK model of ethinylestradiol is able to predict the time-profiles following single and multiple dosing of ethinylestradiol accurately.
 
 The implemented TDI mechanism for ethinylestradiol was not evident in literature ([Zanaflex prescribing information](#5-references), [Karjalainen 2008](#5-references)). The substantial and prolonged inhibition may result from CYP1A2 inhibition by EE-metabolites having a different half-life from the parent. [Chang 2009](#5-references) for example found that the EE-2hydroxy and EE-2methoxy IC50s toward rCYP1A1 and rCYP1A2 are comparable to that of the parent. However, not having the possibility to model EE-metabolites contribution, a time-dependent inhibition function on CYP1A2 was used instead to account for this effect.
-# 5 References
+
+# 5 References<a id="references"></a>
+
 **Back 1979** Back DJ, Breckenridge AM, Crawford FE, et al. An investigation of the pharmacokinetics of ethynylestradiol in women using radioimmunoassay. *Contraception*. 1979;20(3):263-273.
 
 **Back 1981** Back DJ, Bates M, Breckenridge AM, et al. The pharmacokinetics of levonorgestrel and ethynylestradiol in women - studies with Ovran and Ovranette. *Contraception*. 1981;23(3):229-239.
@@ -395,7 +484,9 @@ The implemented TDI mechanism for ethinylestradiol was not evident in literature
 **Zanaflex prescribing information**  Zanaflex prescribing information. Website: https://www.accessdata.fda.gov/drugsatfda_docs/label/2006/020397s021,021447s002lbl.pdf , 2006, Acorda Therapeutics Inc
 
 **Zhang 2017** Zhang C, Li H, Xiong X, et al. An open-label, two-period comparative study on pharmacokinetics and safety of a combined ethinylestradiol/gestodene transdermal contraceptive patch. *Drug Des Devel Ther*. 2017;11:725-731.
-# 6 Glossary
+
+# 6 Glossary<a id="glossary"></a>
+
 | ADME    | Absorption, Distribution, Metabolism,  Excretion             |
 | ------- | ------------------------------------------------------------ |
 | AUC     | Area under the plasma concentration  versus time curve       |
@@ -448,3 +539,4 @@ The implemented TDI mechanism for ethinylestradiol was not evident in literature
 | t.i.d   | Three times a day (ter in die)                               |
 | UGT     | Uridine  5'-diphospho-glucuronosyltransferase                |
 | UM      | Ultra-rapid metabolizers                                     |
+
