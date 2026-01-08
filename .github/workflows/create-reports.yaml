@@ -35,12 +35,12 @@ jobs:
       with:
         tools-path: tools.csv
 
-    - id: install-r
-      name: Setup R
-      uses: r-lib/actions/setup-r@v2
-      with:
-        r-version: 'latest'
-        use-public-rspm: true
+#    - id: install-r
+#      name: Setup R
+#      uses: r-lib/actions/setup-r@v2
+#      with:
+#        r-version: 'latest'
+#        use-public-rspm: true
     
     - name: Read and export models as json
       run: |
@@ -86,7 +86,11 @@ jobs:
         git push -u origin ${{ github.ref_name }}-${{ matrix['Repository name'] }}
         git fetch origin develop
         git rebase -Xours origin/develop
-        git reset HEAD^
+        if git rev-parse HEAD^ >/dev/null 2>&1; then
+          git reset HEAD^
+        else
+          echo "No parent commit for HEAD. Skipping reset."
+        fi
         [ -d "${{ matrix['Folder name'] }}" ] && rm -rf ${{ matrix['Folder name'] }}/*
         git add ${{ matrix['Folder name'] }} || echo "No file in ${{ matrix['Folder name'] }}"
         git commit -m "Update ${{ matrix['Folder name'] }}" || echo "No changes to commit"
