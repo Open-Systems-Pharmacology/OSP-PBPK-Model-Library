@@ -18,7 +18,7 @@ env:
 
 jobs:
   read_inputs:
-    runs-on: ubuntu-22
+    runs-on: ubuntu-22.04
     outputs:
       tools_table: ${{ steps.tools_table.outputs.tools-table }}
       pk_sim_version: ${{ steps.tools_table.outputs.pk-sim }}
