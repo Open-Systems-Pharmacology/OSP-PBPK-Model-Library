@@ -6,6 +6,6 @@ RUtils,1.7.0,NA
 TLF,1.6.0,NA
 rClr,NA,NA
 rSharp,1.1.2,NA
-Qualification Runner,12.1.116,NA
-Qualification Framework,3.4,NA
-PK-Sim,12.1.222,https://github.com/Open-Systems-Pharmacology/PK-Sim/releases/download/v12.1.222/pk-sim-portable-setup.12.1.222.zip
+Qualification Runner,12.2.232,https://github.com/Open-Systems-Pharmacology/QualificationRunner/releases/download/v12.2.232/Qualification-Runner.12.2.232.zip
+Qualification Framework,3.5,NA
+PK-Sim,12.2.112,https://github.com/Open-Systems-Pharmacology/PK-Sim/releases/download/v12.2.112/PKSim-Portable.12.2.112.zip
