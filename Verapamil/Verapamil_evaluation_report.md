@@ -1,8 +1,8 @@
 # Building and Evaluation of a PBPK Model for Verapamil in Adults
 
-| Version                                         | 2.1-OSP12.2                                                   |
+| Version                                         | 2.2-OSP12.2                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
-| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Verapamil-Model/releases/tag/v2.1 |
+| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Verapamil-Model/releases/tag/v2.2 |
 | OSP Version                                     | 12.2                                                          |
 | Qualification Framework Version                 | 3.5                                                          |
 
@@ -115,6 +115,12 @@ A literature search was performed to collect available information on physiochem
 | CYP3A4 MBI kinact		  | 1/min | 0.080 | [Wang 2013](#5-references) | Maximum inactivation rate    |
 | Pgp non-competitive Ki		  | µmol/L | 0.30 | [Pauli-Magnus 2000](#5-references) | Conc. for half-maximal inactivation    |
 
+#### Individual
+
+| **Parameter**   | **Unit** | **Value**       | Source                                                       | **Description**                                 |
+| :-------------- | -------- | --------------- | ------------------------------------------------------------ | ----------------------------------------------- |
+| EHC continuous fraction           |    | 1    | Assumption                                | EHC continuous fraction                             |
+
 ### Clinical Data
 
 A literature search was performed to collect available clinical data on verapamil in healthy adults.
@@ -182,7 +188,7 @@ After testing the available organ-plasma partition coefficient and cell permeabi
 
 ### Metabolism, Elimination and Inhibition
 
-Verapamil is metabolized by CYP3A4 and transported by P-gp. The model includes enantioselective metabolism by CYP3A4, non-stereospecific P-gp transport. Additionally passive glomerular filtration was integrated. 
+Verapamil is metabolized by CYP3A4 and transported by P-gp. The model includes enantioselective metabolism by CYP3A4, non-stereospecific P-gp transport. Additionally passive glomerular filtration was integrated. For biliary excretion, an EHC continuous fraction of 1 was assumed. 
 
 Mechanism-based inactivation of CYP3A4 and non-competitive inhibition of P-gp by all four entities (S-verapamil, R-verapamil, S-norverapamil and R-norverapamil) was taken into account. The CYP3A4 MBI KI and kinact values were taken from literature, the KI values for P-gp inhibition were optimized.
 
@@ -241,6 +247,12 @@ The result of the final parameter identification is shown in the tables below:
 | Pgp non-competitive Ki        |  0.038	|µmol/L|
 | Cellular permeability         |  9.94E-02	|cm/min|
 | Intestinal permeability       |  3.54E-06	|cm/min|
+
+#### Individual
+
+| Model Parameter            | Optimized Value | Unit |
+| -------------------------- | --------------- | ---- |
+| EHC continuous fraction           		|  1 	||
 
 # 3 Results and Discussion<a id="results-and-discussion"></a>
 
@@ -636,14 +648,14 @@ The first plot shows observed versus simulated plasma concentration, the second 
 |Intravenous administration - norverapamil |1.66 |
 |Intravenous administration - R-verapamil  |1.25 |
 |Intravenous administration - S-verapamil  |1.31 |
-|Intravenous administration - verapamil    |1.45 |
+|Intravenous administration - verapamil    |1.44 |
 |Oral administration - norverapamil        |1.29 |
 |Oral administration - R-norverapamil      |1.14 |
 |Oral administration - R-verapamil         |1.33 |
 |Oral administration - S-norverapamil      |1.16 |
 |Oral administration - S-verapamil         |1.31 |
 |Oral administration - verapamil           |1.42 |
-|All                                       |1.36 |
+|All                                       |1.35 |
 
 <br>
 <br>
