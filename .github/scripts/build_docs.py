@@ -194,15 +194,16 @@ def process_folder(folder_path: str, folder_name: str) -> dict:
     pdf_basenames   = sorted(os.path.basename(p) for p in pdf_files)
     pksim_basenames = sorted(os.path.basename(p) for p in pksim_files)
 
-    download_block = make_download_buttons(pdf_basenames, pksim_basenames)
+    has_assets = bool(pdf_basenames or pksim_basenames)
+    download_block = make_download_buttons(pdf_basenames, pksim_basenames) if has_assets else ""
 
     # Write index.md (report content + download section)
     dest_md = os.path.join(dest, "index.md")
     if md_files:
-        with open(md_files[0], "r", encoding="utf-8") as fh:
+        with open(sorted(md_files)[0], "r", encoding="utf-8") as fh:
             content = fh.read()
         with open(dest_md, "w", encoding="utf-8") as fh:
-            fh.write(content + "\n" + download_block)
+            fh.write(content + ("\n" + download_block if has_assets else ""))
     else:
         with open(dest_md, "w", encoding="utf-8") as fh:
             fh.write(f"# {folder_name}\n" + download_block)
@@ -228,8 +229,8 @@ def generate_index_md(chapters_data: list, docs_dir: str) -> None:
         "",
         "## Available Reports",
         "",
-        "| Compound | PDF Report | PBPK Model File(s) |",
-        "|----------|:----------:|:------------------:|",
+        "| Compound (HTML Report) | PDF Report | PK-Sim Project File(s) |",
+        "|------------------------|:----------:|:----------------------:|",
     ]
 
     for ch in sorted(chapters_data, key=lambda x: x["name"].lower()):
