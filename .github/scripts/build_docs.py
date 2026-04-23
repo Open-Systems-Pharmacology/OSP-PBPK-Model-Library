@@ -131,35 +131,6 @@ def is_compound_folder(path: str) -> bool:
             return True
     return False
 
-
-def make_download_buttons(pdf_files: list, pksim_files: list) -> str:
-    """Return a Markdown block with download buttons for all assets."""
-    lines = [
-        "",
-        '<div class="download-section" markdown="1">',
-        "",
-        "## Downloads",
-        "",
-    ]
-    for pdf in sorted(pdf_files):
-        label = os.path.basename(pdf)
-        lines.append(
-            f'[:material-file-pdf-box: Download PDF Report]({label})'
-            f'{{: .md-button download="{label}" }}'
-        )
-        lines.append("")
-    for pksim in sorted(pksim_files):
-        label = os.path.basename(pksim)
-        lines.append(
-            f'[:material-download: Download PBPK Model ({label})]({label})'
-            f'{{: .md-button .md-button--primary download="{label}" }}'
-        )
-        lines.append("")
-    lines.append("</div>")
-    lines.append("")
-    return "\n".join(lines)
-
-
 # ──────────────────────────────────────────────────────────────────────────────
 # Per-compound processing
 # ──────────────────────────────────────────────────────────────────────────────
@@ -194,20 +165,6 @@ def process_folder(folder_path: str, folder_name: str) -> dict:
     pdf_basenames   = sorted(os.path.basename(p) for p in pdf_files)
     pksim_basenames = sorted(os.path.basename(p) for p in pksim_files)
 
-    has_assets = bool(pdf_basenames or pksim_basenames)
-    download_block = make_download_buttons(pdf_basenames, pksim_basenames) if has_assets else ""
-
-    # Write index.md (report content + download section)
-    dest_md = os.path.join(dest, "index.md")
-    if md_files:
-        with open(sorted(md_files)[0], "r", encoding="utf-8") as fh:
-            content = fh.read()
-        with open(dest_md, "w", encoding="utf-8") as fh:
-            fh.write(content + ("\n" + download_block if has_assets else ""))
-    else:
-        with open(dest_md, "w", encoding="utf-8") as fh:
-            fh.write(f"# {folder_name}\n" + download_block)
-
     return {
         "name":        folder_name,
         "pdf_files":   pdf_basenames,
@@ -222,7 +179,7 @@ def process_folder(folder_path: str, folder_name: str) -> dict:
 def generate_index_md(chapters_data: list, docs_dir: str) -> None:
     """Generate docs/index.md listing all compounds with download links."""
     lines = [
-        "# OSP PBPK Model Library",
+        "# Open Systems Pharmacology PBPK Model Library",
         "",
         "Library of released PBPK substance models and evaluation reports from the"
         " [Open Systems Pharmacology](https://www.open-systems-pharmacology.org/) project.",
