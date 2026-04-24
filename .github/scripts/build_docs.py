@@ -165,16 +165,16 @@ def process_folder(folder_path: str, folder_name: str) -> dict:
     pdf_basenames   = sorted(os.path.basename(p) for p in pdf_files)
     pksim_basenames = sorted(os.path.basename(p) for p in pksim_files)
 
-     # Write index.md from the evaluation report
-     dest_md = os.path.join(dest, "index.md")
-     if md_files:
-         with open(sorted(md_files)[0], "r", encoding="utf-8") as fh:
-             content = fh.read()
-         with open(dest_md, "w", encoding="utf-8") as fh:
-             fh.write(content)
-     else:
-         with open(dest_md, "w", encoding="utf-8") as fh:
-             fh.write(f"# {folder_name}\n")
+    # Write index.md from the evaluation report
+    dest_md = os.path.join(dest, "index.md")
+    if md_files:
+        with open(sorted(md_files)[0], "r", encoding="utf-8") as fh:
+            content = fh.read()
+        with open(dest_md, "w", encoding="utf-8") as fh:
+            fh.write(content)
+    else:
+        with open(dest_md, "w", encoding="utf-8") as fh:
+            fh.write(f"# {folder_name}\n")
 
     return {
         "name":        folder_name,
