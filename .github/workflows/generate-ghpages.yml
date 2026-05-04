@@ -1,5 +1,25 @@
 name: Generate GitHub Pages
 
+#The repo publishes a documentation site via GitHub Pages using MkDocs Material.
+#
+# Build the docs locally
+#
+# pip install mkdocs mkdocs-material pymdown-extensions mkdocs-meta-descriptions-plugin pyyaml
+# python .github/scripts/build_docs.py --tag-or-branch develop --repository-name "Open-Systems-Pharmacology/OSP-PBPK-Model-Library"
+# python -m mkdocs build --strict
+# python -m mkdocs serve   # local preview
+#
+# How build_docs.py works:
+#
+#  The script (`.github/scripts/build_docs.py`) performs a two-pass build:
+#
+#  1. **First pass**: Scans all compound folders, reads the first 4000 chars of each evaluation report to auto-categorize compounds into groups (Antibiotics, Antivirals, Sedatives, etc.) via keyword matching.
+#  2. **Second pass**: Copies each compound's markdown and images into `docs/<Compound>/index.md`, injects SEO frontmatter, appends "Related Models" cross-links, and generates download links.
+#  3. **Generates**: `docs/index.md` (home page with categorized table), `mkdocs.yml`, custom CSS, SEO overrides (`overrides/main.html`), `robots.txt`, and copies favicon.
+#
+#  Key detail: PDF and `.pksim5` files are **not** copied into `docs/` — download links use `raw.githubusercontent.com` URLs parameterized by `--tag-or-branch` and `--repository-name`.
+
+
 on:
   workflow_dispatch:
     inputs:
