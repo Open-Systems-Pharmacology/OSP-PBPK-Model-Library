@@ -5,9 +5,9 @@ name: Generate GitHub Pages
 # Build the docs locally
 #
 # pip install mkdocs mkdocs-material pymdown-extensions mkdocs-meta-descriptions-plugin pyyaml
-# python .github/scripts/build_docs.py --tag-or-branch develop --repository-name "Open-Systems-Pharmacology/OSP-PBPK-Model-Library"
+# python .github/scripts/build_docs.py --tag-or-branch develop --repository-name "Open-Systems-Pharmacology/OSP-PBPK-Model-Library" --release-title "Version 1.2.3"
 # python -m mkdocs build --strict
-# python -m mkdocs serve   # local preview
+# python -m mkdocs serve --strict  # local preview
 #
 # How build_docs.py works:
 #
@@ -69,11 +69,11 @@ jobs:
       - name: Install MkDocs and dependencies
         run: |
           pip install \
-            mkdocs \
-            mkdocs-material \
-            pymdown-extensions \
-            mkdocs-meta-descriptions-plugin \
-            pyyaml
+            mkdocs==1.6.1 \
+            mkdocs-material==9.7.6 \
+            pymdown-extensions==10.21.2 \
+            mkdocs-meta-descriptions-plugin==4.1.0 \
+            pyyaml==6.0.3
 
       - name: Build docs structure
         env:
