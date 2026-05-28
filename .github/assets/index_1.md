@@ -8,7 +8,7 @@ keywords: PBPK, Physiologically based pharmacokinetic modelling, PBPK model, Qua
 
 ## Physiologically Based Pharmacokinetic (PBPK) and Quantitative Systems Pharmacology (QSP) Modeling Platform
 
-This comprehensive library provides **validated PBPK (Physiologically Based Pharmacokinetic) models** and detailed model evaluation reports from the [Open Systems Pharmacology](https://www.open-systems-pharmacology.org/) project. Our PBPK and QSP modeling and simulation software (including PK-Sim® and MoBi®) enables **whole-body physiologically based pharmacokinetic modeling** for pharmaceutical research, drug development, and systems biology applications.
+This comprehensive library provides **PBPK (Physiologically Based Pharmacokinetic) models** and detailed model evaluation reports from the [Open Systems Pharmacology](https://www.open-systems-pharmacology.org/) project. Our PBPK and QSP modeling and simulation software (including PK-Sim® and MoBi®) enables **whole-body physiologically based pharmacokinetic modeling** for pharmaceutical research, drug development, and systems biology applications.
 
 ### How to Use These Models
 
@@ -18,12 +18,10 @@ Each PBPK model in this library includes:
 - **PDF Report**: Downloadable model evaluation report for offline reference and regulatory submissions
 - **PK-Sim Project Files** (`.pksim5`): Ready-to-use model files that can be opened directly in [PK-Sim®](https://www.open-systems-pharmacology.org/)
 
-These models are built using the Open Systems Pharmacology Suite and are suitable for:
+These models are built using the Open Systems Pharmacology Suite and can be used for e.g.:
 
 - Drug-drug interaction (DDI) predictions
 - Dose optimization and scaling across populations
 - Pediatric and special population modeling
-- Regulatory submissions and scientific publications
-- Academic research and education in pharmacometrics
 
 ## Available PBPK Models and Evaluation Reports
