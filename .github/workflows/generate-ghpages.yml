@@ -1,0 +1,100 @@
+name: Generate GitHub Pages
+
+#The repo publishes a documentation site via GitHub Pages using MkDocs Material.
+#
+# Build the docs locally
+#
+# pip install mkdocs mkdocs-material pymdown-extensions mkdocs-meta-descriptions-plugin pyyaml
+# python .github/scripts/build_docs.py --tag-or-branch develop --repository-name "Open-Systems-Pharmacology/OSP-PBPK-Model-Library" --release-title "Version 1.2.3"
+# python -m mkdocs build --strict
+# python -m mkdocs serve --strict  # local preview
+#
+# How build_docs.py works:
+#
+#  The script (`.github/scripts/build_docs.py`) performs a two-pass build:
+#
+#  1. **First pass**: Scans all compound folders, reads the first 4000 chars of each evaluation report to auto-categorize compounds into groups (Antibiotics, Antivirals, Sedatives, etc.) via keyword matching.
+#  2. **Second pass**: Copies each compound's markdown and images into `docs/<Compound>/index.md`, injects SEO frontmatter, appends "Related Models" cross-links, and generates download links.
+#  3. **Generates**: `docs/index.md` (home page with categorized table), `mkdocs.yml`, custom CSS, SEO overrides (`overrides/main.html`), `robots.txt`, and copies favicon.
+#
+#  Key detail: PDF and `.pksim5` files are **not** copied into `docs/` — download links use `raw.githubusercontent.com` URLs parameterized by `--tag-or-branch` and `--repository-name`.
+
+
+on:
+  workflow_dispatch:
+    inputs:
+      release_title:
+        description: 'Release title for the documentation'
+        required: false
+        type: string
+        default: ''
+  release:
+    types: [released]
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Set environment variables
+        id: set-vars
+        run: |
+          # Set RELEASE_TITLE based on trigger type
+          if [ "${{ github.event_name }}" = "release" ]; then
+            echo "RELEASE_TITLE=${{ github.event.release.name }}" >> $GITHUB_ENV
+            echo "TAG_OR_BRANCH=${{ github.event.release.tag_name }}" >> $GITHUB_ENV
+          elif [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            TRIMMED_TITLE=$(echo "${{ inputs.release_title }}" | xargs)
+            if [ -z "$TRIMMED_TITLE" ]; then
+              echo "Error: release_title input is required when manually triggering the workflow"
+              exit 1
+            fi
+            echo "RELEASE_TITLE=$TRIMMED_TITLE" >> $GITHUB_ENV
+            echo "TAG_OR_BRANCH=${{ github.ref_name }}" >> $GITHUB_ENV
+          fi
+
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          ref: ${{ github.event_name == 'release' && github.event.release.tag_name || '' }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+
+      - name: Install MkDocs and dependencies
+        run: |
+          pip install \
+            mkdocs==1.6.1 \
+            mkdocs-material==9.7.6 \
+            pymdown-extensions==10.21.2 \
+            mkdocs-meta-descriptions-plugin==4.1.0 \
+            pyyaml==6.0.3
+
+      - name: Build docs structure
+        env:
+          RELEASE_TITLE: ${{ env.RELEASE_TITLE }}
+          TAG_OR_BRANCH: ${{ env.TAG_OR_BRANCH }}
+        run: |
+          python .github/scripts/build_docs.py \
+            --release-title "$RELEASE_TITLE" \
+            --tag-or-branch "$TAG_OR_BRANCH" \
+            --repository-name "${{ github.repository }}"
+
+      - name: Build MkDocs site
+        run: mkdocs build --strict
+
+      - name: Deploy to gh-pages branch
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./site
+          publish_branch: gh-pages
+          force_orphan: true
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
+          commit_message: 'Deploy OSP PBPK Model Library docs'

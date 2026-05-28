@@ -1,0 +1,9 @@
+# MkDocs generated files (created by the generate-ghpages workflow)
+docs/
+site/
+mkdocs.yml
+overrides/
+
+# Python cache
+__pycache__/
+*.pyc
