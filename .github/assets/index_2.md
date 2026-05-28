@@ -10,11 +10,7 @@ A **Physiologically Based Pharmacokinetic (PBPK) model** is a mathematical model
 
 ### Are these models validated?
 
-Yes, all models in this library have undergone comprehensive qualification and validation. Each model includes detailed evaluation reports documenting the validation against clinical pharmacokinetic data, including goodness-of-fit assessments and predictive performance metrics.
-
-### Can I use these models for regulatory submissions?
-
-Yes, these PBPK models are developed following regulatory guidelines and best practices. The detailed evaluation reports provided with each model are suitable for inclusion in regulatory submissions to agencies such as the FDA and EMA. However, you should ensure the model is appropriate for your specific use case.
+Yes, all models in this library have undergone comprehensive evaluation. Each model includes detailed evaluation reports documenting the validation against clinical pharmacokinetic data, including goodness-of-fit assessments and predictive performance metrics.
 
 ### How can I cite these models?
 
