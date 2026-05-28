@@ -15,7 +15,7 @@ This comprehensive library provides **PBPK (Physiologically Based Pharmacokineti
 Each PBPK model in this library includes:
 
 - **HTML Report**: Comprehensive evaluation report with pharmacokinetic modeling details, validation data, and simulation results
-- **PDF Report**: Downloadable model evaluation report for offline reference and regulatory submissions
+- **PDF Report**: Downloadable model evaluation report for offline reference
 - **PK-Sim Project Files** (`.pksim5`): Ready-to-use model files that can be opened directly in [PK-Sim®](https://www.open-systems-pharmacology.org/)
 
 These models are built using the Open Systems Pharmacology Suite and can be used for e.g.:
