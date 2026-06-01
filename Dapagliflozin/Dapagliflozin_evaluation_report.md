@@ -1,10 +1,10 @@
 # Building and Evaluation of a PBPK Model for Dapagliflozin in Adults
 
-| Version                                         | 2.0-OSP12.2                                                   |
+| Version                                         | 2.0-OSP12.3                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
 | based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Dapagliflozin-Model/releases/tag/v2.0 |
-| OSP Version                                     | 12.2                                                          |
-| Qualification Framework Version                 | 3.5                                                          |
+| OSP Version                                     | 12.3                                                          |
+| Qualification Framework Version                 | 3.6                                                          |
 
 This evaluation report and the corresponding PK-Sim project file are filed at:
 
