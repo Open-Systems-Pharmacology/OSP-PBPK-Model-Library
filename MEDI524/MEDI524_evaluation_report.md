@@ -1,10 +1,10 @@
 # Building and evaluation of a PBPK model for antibody MEDI-524 in cynomolgus monkeys
 
-| Version                                         | 1.0-OSP12.2                                                   |
+| Version                                         | 1.0-OSP12.3                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
 | based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/MEDI524-Model/releases/tag/v1.0 |
-| OSP Version                                     | 12.2                                                          |
-| Qualification Framework Version                 | 3.5                                                          |
+| OSP Version                                     | 12.3                                                          |
+| Qualification Framework Version                 | 3.6                                                          |
 
 This evaluation report and the corresponding PK-Sim project file are filed at:
 
