@@ -27,7 +27,7 @@ jobs:
       models: ${{steps.models.outputs.data}}
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v4
+      uses: actions/checkout@v6
     
     - id: tools_table
       name: Get tools table
@@ -74,8 +74,41 @@ jobs:
       fail-fast: false
     runs-on: windows-2022
     steps:
+
+    - name: Install MS-MPI (runtime + SDK)
+      shell: pwsh
+      run: |
+        $ErrorActionPreference = 'Stop'
+        $runtime = Join-Path $env:RUNNER_TEMP 'MSMpiSetup.exe'
+        $sdk     = Join-Path $env:RUNNER_TEMP 'MSMpiSdk.msi'
+
+        Invoke-WebRequest -Uri 'https://download.microsoft.com/download/a/5/2/a5207ca5-1203-491a-8fb8-906fd68ae623/MSMpiSetup.exe' -OutFile $runtime
+        Invoke-WebRequest -Uri 'https://download.microsoft.com/download/a/5/2/a5207ca5-1203-491a-8fb8-906fd68ae623/msmpisdk.msi'   -OutFile $sdk
+
+        Start-Process -FilePath $runtime -ArgumentList '-unattend' -Wait
+        Start-Process -FilePath 'msiexec.exe' -ArgumentList "/i `"$sdk`" /quiet /norestart" -Wait
+
+    - name: Expose MS-MPI on PATH and env
+      shell: pwsh
+      run: |
+        $bin   = "$env:ProgramFiles\Microsoft MPI\Bin"
+        $inc   = "${env:ProgramFiles(x86)}\Microsoft SDKs\MPI\Include"
+        $lib64 = "${env:ProgramFiles(x86)}\Microsoft SDKs\MPI\Lib\x64"
+
+        Add-Content $env:GITHUB_PATH $bin
+        Add-Content $env:GITHUB_ENV  "MSMPI_BIN=$bin"
+        Add-Content $env:GITHUB_ENV  "MSMPI_INC=$inc"
+        Add-Content $env:GITHUB_ENV  "MSMPI_LIB64=$lib64"
+
+    - name: Verify MS-MPI installation
+      shell: pwsh
+      run: |
+        mpiexec -help | Select-Object -First 3
+        Test-Path "$env:MSMPI_INC\mpi.h"
+        Test-Path "$env:MSMPI_LIB64\msmpi.lib"
+    
     - name: Checkout repository
-      uses: actions/checkout@v4
+      uses: actions/checkout@v6
     
     - name: Rebase from develop
       run: |
