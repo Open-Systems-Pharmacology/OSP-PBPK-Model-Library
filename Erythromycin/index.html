@@ -1,0 +1,3607 @@
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="PBPK (Physiologically Based Pharmacokinetic) model evaluation report for Erythromycin. Detailed pharmacokinetic modeling and simulation results using Open Systems Pharmacology platform.">
+      
+      
+        <meta name="author" content="Open Systems Pharmacology Community">
+      
+      
+        <link rel="canonical" href="https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/Erythromycin/">
+      
+      
+        <link rel="prev" href="../Efavirenz/">
+      
+      
+        <link rel="next" href="../Ethinylestradiol/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Erythromycin PBPK Model - Physiologically Based Pharmacokinetic Evaluation Report - OSP PBPK Model Library (Version 12.3)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/Erythromycin/">
+  <meta property="og:title" content="Erythromycin">
+  <meta property="og:description" content="PBPK (Physiologically Based Pharmacokinetic) model evaluation report for Erythromycin. Detailed pharmacokinetic modeling and simulation results using Open Systems Pharmacology platform.">
+  <meta property="og:site_name" content="OSP PBPK Model Library (Version 12.3)">
+  <meta property="og:image" content="https://www.open-systems-pharmacology.org/assets/images/logo.png">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/Erythromycin/">
+  <meta name="twitter:title" content="Erythromycin">
+  <meta name="twitter:description" content="PBPK (Physiologically Based Pharmacokinetic) model evaluation report for Erythromycin. Detailed pharmacokinetic modeling and simulation results using Open Systems Pharmacology platform.">
+  <meta name="twitter:image" content="https://www.open-systems-pharmacology.org/assets/images/logo.png">
+
+  <!-- Structured Data (JSON-LD) for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "OSP PBPK Model Library (Version 12.3)",
+    "description": "Comprehensive library of validated PBPK (Physiologically Based Pharmacokinetic) models and qualification reports for drug development. Open-source whole-body PBPK modeling and simulation software for systems biology and multiscale physiological modeling.",
+    "url": "https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Open Systems Pharmacology",
+      "url": "https://www.open-systems-pharmacology.org/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.open-systems-pharmacology.org/assets/images/logo.png"
+      }
+    },
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
+  <!-- Dataset Schema for PBPK Model Library -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    "name": "Open Systems Pharmacology PBPK Model Library",
+    "description": "Comprehensive library of validated PBPK (Physiologically Based Pharmacokinetic) models for drug development and pharmaceutical research",
+    "url": "https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/",
+    "keywords": ["PBPK", "pharmacokinetic modeling", "drug development", "PK-Sim", "MoBi", "systems pharmacology", "ADME"],
+    "license": "https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library#license",
+    "creator": {
+      "@type": "Organization",
+      "name": "Open Systems Pharmacology",
+      "url": "https://www.open-systems-pharmacology.org/"
+    },
+    "distribution": {
+      "@type": "DataDownload",
+      "encodingFormat": "application/zip",
+      "contentUrl": "https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library"
+    }
+  }
+  </script>
+
+  <!-- SoftwareApplication Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "PK-Sim PBPK Models",
+    "applicationCategory": "ScientificApplication",
+    "operatingSystem": "Windows",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "description": "Validated PBPK models for use with PK-Sim and MoBi software for pharmaceutical research and drug development",
+    "url": "https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Open Systems Pharmacology"
+    }
+  }
+  </script>
+
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "Erythromycin PBPK Model - Physiologically Based Pharmacokinetic Evaluation Report",
+    "description": "PBPK (Physiologically Based Pharmacokinetic) model evaluation report for Erythromycin. Detailed pharmacokinetic modeling and simulation results using Open Systems Pharmacology platform.",
+    "author": {
+      "@type": "Organization",
+      "name": "Open Systems Pharmacology"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Open Systems Pharmacology",
+      "url": "https://www.open-systems-pharmacology.org/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.open-systems-pharmacology.org/assets/images/logo.png"
+      }
+    },
+    "url": "https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/Erythromycin/",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/Erythromycin/"
+    },
+    "keywords": "Erythromycin, PBPK model, physiologically based pharmacokinetic model, Erythromycin pharmacokinetics, drug modeling, PK-Sim"
+  }
+  </script>
+  
+
+  
+  <meta name="keywords" content="Erythromycin, PBPK model, physiologically based pharmacokinetic model, Erythromycin pharmacokinetics, drug modeling, PK-Sim">
+  
+
+  
+  <link rel="canonical" href="https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/Erythromycin/">
+  
+
+  <!-- Language -->
+  <meta http-equiv="content-language" content="en">
+  <meta name="language" content="English">
+
+
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#building-and-evaluation-of-a-pbpk-model-for-erythromycin-in-healthy-adults" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="OSP PBPK Model Library (Version 12.3)" class="md-header__button md-logo" aria-label="OSP PBPK Model Library (Version 12.3)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OSP PBPK Model Library (Version 12.3)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Erythromycin PBPK Model - Physiologically Based Pharmacokinetic Evaluation Report
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    OSP-PBPK-Model-Library
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="OSP PBPK Model Library (Version 12.3)" class="md-nav__button md-logo" aria-label="OSP PBPK Model Library (Version 12.3)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    OSP PBPK Model Library (Version 12.3)
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    OSP-PBPK-Model-Library
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7E3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7E3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Alfentanil/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Alfentanil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Alprazolam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Alprazolam
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Amikacin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amikacin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Atazanavir/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Atazanavir
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BAY794620/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BAY794620
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CDA1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CDA1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Carbamazepine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Carbamazepine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Cimetidine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cimetidine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Clarithromycin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Clarithromycin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Dapagliflozin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dapagliflozin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Digoxin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Digoxin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Efavirenz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Efavirenz
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Erythromycin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ethinylestradiol/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ethinylestradiol
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Felodipine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Felodipine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Fluconazole/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fluconazole
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Fluvoxamine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fluvoxamine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Inulin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inulin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Itraconazole/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Itraconazole
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MEDI524/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MEDI524
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MEDI524YTE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MEDI524YTE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mefenamic_acid/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mefenamic_acid
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mexiletine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mexiletine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Midazolam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Midazolam
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Moclobemide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Moclobemide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Montelukast/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Montelukast
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Omeprazole/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Omeprazole
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Propofol/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Propofol
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Raltegravir/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Raltegravir
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Rifampicin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rifampicin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S-Mephenytoin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S-Mephenytoin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Sildenafil/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sildenafil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Sufentanil/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sufentanil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tefibazumab/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tefibazumab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tizanidine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tizanidine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Triazolam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Triazolam
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Vancomycin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vancomycin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Verapamil/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Verapamil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dAb2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    dAb2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="building-and-evaluation-of-a-pbpk-model-for-erythromycin-in-healthy-adults">Building and evaluation of a PBPK model for erythromycin in healthy adults<a class="headerlink" href="#building-and-evaluation-of-a-pbpk-model-for-erythromycin-in-healthy-adults" title="Anchor link to this section for reference">&para;</a></h1>
+<table>
+<thead>
+<tr>
+<th>Version</th>
+<th>2.0-OSP12.3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>based on <em>Model Snapshot</em> and <em>Evaluation Plan</em></td>
+<td>https://github.com/Open-Systems-Pharmacology/Erythromycin-Model/releases/tag/v2.0</td>
+</tr>
+<tr>
+<td>OSP Version</td>
+<td>12.3</td>
+</tr>
+<tr>
+<td>Qualification Framework Version</td>
+<td>3.6</td>
+</tr>
+</tbody>
+</table>
+<p>This evaluation report and the corresponding PK-Sim project file are filed at:</p>
+<p>https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/</p>
+<h1 id="table-of-contents">Table of Contents<a class="headerlink" href="#table-of-contents" title="Anchor link to this section for reference">&para;</a></h1>
+<ul>
+<li><a href="#introduction">1 Introduction</a></li>
+<li><a href="#methods">2 Methods</a></li>
+<li><a href="#modeling-strategy">2.1 Modeling Strategy</a></li>
+<li><a href="#data">2.2 Data</a></li>
+<li><a href="#model-parameters-and-assumptions">2.3 Model Parameters and Assumptions</a></li>
+<li><a href="#results-and-discussion">3 Results and Discussion</a></li>
+<li><a href="#final-input-parameters">3.1 Final input parameters</a></li>
+<li><a href="#diagnostics-plots">3.2 Diagnostics Plots</a></li>
+<li><a href="#ct-profiles">3.3 Concentration-Time Profiles</a><ul>
+<li><a href="#model-building">3.3.1 Model Building</a></li>
+<li><a href="#model-verification">3.3.2 Model Verification</a></li>
+</ul>
+</li>
+<li><a href="#conclusion">4 Conclusion</a></li>
+<li><a href="#main-references">5 References</a></li>
+</ul>
+<h1 id="1-introduction">1 Introduction<a id="introduction"></a><a class="headerlink" href="#1-introduction" title="Anchor link to this section for reference">&para;</a></h1>
+<p>The presented model building and evaluation report evaluates the performance of a PBPK model for erythromycin in healthy adults.</p>
+<p>Erythromycin a macrolide antibiotic used for the treatment of a number of bacterial infections, including respiratory tract infections, skin infections, chlamydia infections, and others. Erythromycin is available in the form of various salts and formulations, for example as: </p>
+<ul>
+<li>erythromycin lactobionate for intravenous injection</li>
+<li>erythromycin base in enteric-coated capsules or tablets for oral administration</li>
+<li>erythromycin stearate in filmcoated tablets for oral administration</li>
+<li>erythromycin ethylsuccinate in suspension or in filmcoated tablets for oral administration</li>
+</ul>
+<p>In its free form as base, erythromycin is easily hydrolyzed in acidic aqueous solution (<a href="#5-references">Mordi 2000</a>). Therefore, orally administered erythromycin is given in the form of enteric-coated formulations or as more acid-stable salts or esters of erythromycin (e.g. erythromycin ethylsuccinate). Once in the small intestine, erythromycin is rapidly absorbed displaying a highly variable bioavailability (<a href="#5-references">Chun 1977</a>, <a href="#5-references">Mather 1981</a>). Erythromycin diffuses in most tissues and accumulates in leukocytes and phagocytes (<a href="#5-references">Miller 1984</a>, <a href="#5-references">Carlier 1987</a>). About 70% of erythromycin is bound to plasma proteins (<a href="#5-references">Barre 1987</a>). Erythromycin has been shown to be a substrate for various transporters including P-gp and OATP1B1. The latter has been shown to critically affect erythromycin disposition (<a href="#5-references">Lancaster 2012</a>). Erythromycin is extensively metabolized through N-demethylation catalyzed by CYP3A. Metabolism via CYP4F11 has also been suggested (<a href="#5-references">Kalsotra 2004</a>). Biliary excretion also appears to play an important role in erythromycin clearance (<a href="#5-references">Acocella 1968</a>, <a href="#5-references">Chelvan 1979</a>), but its contribution to total elimination remains unknown. The dose fraction excreted unchanged in urine is minimal and highly variable; reported fractions after IV administration range from 0.018 ± 0.005 to 0.171 ± 0.11 (mean ± SD) (<a href="#5-references">Pasic 1987</a>, <a href="#5-references">Austin 1980</a>). There is abundant evidence from <em>in vitro</em> studies that erythromycin irreversibly inhibits CYP3A (e.g. <a href="#5-references">Larrey 1983</a>) and the FDA lists erythromycin as moderate index inhibitor for CYP3A. Findings from <em>in vivo</em> studies investigating the dose linearity of erythromycin pharmacokinetics are not fully conclusive, but some studies observed a slight dose dependency (<a href="#5-references">Austin 1980</a>, <a href="#5-references">Josefsson 1982</a>).</p>
+<h1 id="2-methods">2 Methods<a id="methods"></a><a class="headerlink" href="#2-methods" title="Anchor link to this section for reference">&para;</a></h1>
+<h2 id="21-modeling-strategy">2.1 Modeling Strategy<a id="modeling-strategy"></a><a class="headerlink" href="#21-modeling-strategy" title="Anchor link to this section for reference">&para;</a></h2>
+<p>The general workflow for building an adult PBPK model has been described by Kuepfer et al. (<a href="#5-references">Kuepfer 2016</a>). Relevant information on the anthropometry (height, weight) was gathered from the respective clinical study, if reported. Information on physiological parameters (e.g. blood flows, organ volumes, hematocrit) in adults was gathered from the literature and has been incorporated in PK-Sim® as described previously (<a href="#5-references">Willmann 2007</a>). The  applied activity and variability of plasma proteins and active processes that are integrated into PK-Sim® are described in the publicly available 'PK-Sim® Ontogeny Database Version 7.3' (<a href="#5-references">PK-Sim Ontogeny Database Version 7.3</a>).</p>
+<p>The PBPK model was developed based on clinical data of healthy adult subjects obtained from the literature, covering different formulation types and erythromycin salts. Multiple doses and dosing schedules following intravenous (IV) and oral (PO) administration were included in model building. Mass balance information on urinary excretion of unchanged erythromycin after IV administration was also accounted for during the model building process.</p>
+<p>Unknown parameters were simultaneously optimized using all available PK data, in particular:</p>
+<ul>
+<li>4 data sets following single IV administration of 4 different doses of erythromycin (125 mg, 250 mg, 300 mg, 500 mg) as erythromycin lactobionate</li>
+<li>6 data sets following single and multiple PO administration of 3 different doses of erythromycin (250 mg, 500 mg, 1000 mg) as film-coated tablets containing erythromycin stearate</li>
+<li>2 data sets following single PO administration of 500 mg erythromycin as enteric-coated tablets containing erythromycin as base</li>
+<li>2 data sets following single and multiple PO administration of 2 different doses of erythromycin (250 mg, 500 mg) as enteric-coated capsules containing pellets of erythromycin as base</li>
+</ul>
+<p>Structural model selection was mainly guided by visual inspection of the resulting description of data and biological plausibility. The following parameters were identified using the Parameter Identification module provided in PK-Sim® and MoBi® (<a href="#5-references">Open Systems Pharmacology Documentation</a>):</p>
+<ul>
+<li><code>Specific intestinal permeability (transcellular)</code></li>
+<li><code>Transport Protein - OATP1B1 - kcat</code></li>
+<li><code>Metabolizing Enzyme - CYP3A4 - kcat</code></li>
+<li><code>Total Hepatic Clearance - Specific clearance</code></li>
+<li><code>GFR fraction</code></li>
+<li><code>K_kinact_half</code> </li>
+<li><code>kinact</code> </li>
+<li><code>Dissolution shape</code> (separately for the film-coated tablet containing erythromycin stearate, the enteric-coated tablet containing erythromycin as base, and the enteric-coated capsule containing pellets of erythromycin as base)</li>
+<li><code>Dissolution time (50% dissolved)</code> (separately for the film-coated tablet containing erythromycin stearate, the enteric-coated tablet containing erythromycin as base, and the enteric-coated capsule containing pellets of erythromycin as base)</li>
+<li><code>Dissolution lag time</code> (separately for the enteric-coated tablet containing erythromycin as base and the enteric-coated capsule containing pellets of erythromycin as base)</li>
+<li><code>Solubility at reference pH</code> (only for the enteric-coated tablet containing erythromycin as base)</li>
+</ul>
+<p>Details about input data (physicochemical, <em>in vitro</em> and clinical) can be found in <a href="#22-data">Section 2.2</a>.</p>
+<p>Details about the structural model and its parameters can be found in <a href="#23-model-parameters-and-assumptions">Section 2.3</a>.</p>
+<h2 id="22-data">2.2 Data<a id="data"></a><a class="headerlink" href="#22-data" title="Anchor link to this section for reference">&para;</a></h2>
+<h3 id="221-in-vitro-physicochemical-data">2.2.1   In vitro / physicochemical data<a class="headerlink" href="#221-in-vitro-physicochemical-data" title="Anchor link to this section for reference">&para;</a></h3>
+<p>A literature search was carried out to collect available information on physicochemical properties of erythromycin. The obtained information from the literature is summarized in the table below and is used for model building.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Parameter</strong></th>
+<th><strong>Unit</strong></th>
+<th><strong>Literature</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Molecular weight</td>
+<td>g/mol</td>
+<td>733.9 (<a href="#5-references">drugbank.ca</a>)</td>
+<td>Molecular weight</td>
+</tr>
+<tr>
+<td style="text-align: left;">pK<sub>a</sub> (basic)</td>
+<td></td>
+<td>8.8 (<a href="#5-references">Lien 1974</a>); 8.88 (<a href="#5-references">McFarland 1997</a>)</td>
+<td>Acid dissociation constant</td>
+</tr>
+<tr>
+<td style="text-align: left;">logP</td>
+<td></td>
+<td>2.48 (<a href="#5-references">Lien 1974</a>); 2.92 (<a href="#5-references">Capobianco 1994</a>); 3.06 (<a href="#5-references">McFarland 1997</a>)</td>
+<td>Partition coefficient between octanol and water</td>
+</tr>
+<tr>
+<td style="text-align: left;">f<sub>u</sub></td>
+<td></td>
+<td>0.27 ± 0.05<sup>a</sup> (<a href="#5-references">Sun 2010</a>); 0.28 ± 0.04<sup>a</sup> (<a href="#5-references">Iliopoulou 1982</a>); 0.305 ± 0.028<sup>a</sup> (<a href="#5-references">Barre 1987</a>); 0.326 (<a href="#5-references">Xu 2009</a>)</td>
+<td>Fraction unbound in human plasma</td>
+</tr>
+<tr>
+<td style="text-align: left;">Water solubility (erythromycin lactobionate)</td>
+<td>mg/L</td>
+<td>200000 (<a href="#5-references">U.S. Patent 2,761,859</a>)</td>
+<td>Solubility of erythromycin lactobionate in water</td>
+</tr>
+<tr>
+<td style="text-align: left;">Water solubility (erythromycin stearate)</td>
+<td>mg/L</td>
+<td>182 (<a href="#5-references">Jones 1969</a>)</td>
+<td>Solubility of erythromycin stearate in water</td>
+</tr>
+<tr>
+<td style="text-align: left;">Water solubility (erythromycin base)</td>
+<td>mg/L</td>
+<td>2100 (<a href="#5-references">Manna 1998</a>)</td>
+<td>Solubility of free erythromycin as base in water</td>
+</tr>
+</tbody>
+</table>
+<p><sup>a</sup> mean ± SD</p>
+<h3 id="222-in-vitro-data-on-mechanism-based-inhibition-of-cyp3a">2.2.2   In vitro data on mechanism-based inhibition of CYP3A<a class="headerlink" href="#222-in-vitro-data-on-mechanism-based-inhibition-of-cyp3a" title="Anchor link to this section for reference">&para;</a></h3>
+<p>A literature search was carried out to collect quantitative information the kinetic parameters describing the mechanism-based inhibition of CYP3A by erythromycin, K<sub>I</sub> and k<sub>inact</sub>. Ample data was collected from the literature and is summarized in the table below.</p>
+<table>
+<thead>
+<tr>
+<th>Victim   compound</th>
+<th>In   vitro system</th>
+<th>Enzyme</th>
+<th>K<sub>I</sub>   [µM]</th>
+<th>k<sub>inact</sub>   [min<sup>-1</sup>]</th>
+<th>Concentration   range of erythromycin [µM]</th>
+<th>Concentration   of victim compound [µM]</th>
+<th>Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>testosterone</td>
+<td>rec cDNA CYP3A4</td>
+<td>CYP3A4</td>
+<td>1.04</td>
+<td>0.0293</td>
+<td>0 - 20</td>
+<td>100</td>
+<td><a href="#5-references">Akiyoshi 2013</a></td>
+</tr>
+<tr>
+<td>testosterone</td>
+<td>rec cDNA CYP3A4</td>
+<td>CYP3A4</td>
+<td>1.21</td>
+<td>0.0164</td>
+<td>0 - 20</td>
+<td>100</td>
+<td><a href="#5-references">Akiyoshi 2013</a></td>
+</tr>
+<tr>
+<td>testosterone</td>
+<td>rec cDNA CYP3A4</td>
+<td>CYP3A4</td>
+<td>0.415</td>
+<td>0.0159</td>
+<td>0 - 20</td>
+<td>100</td>
+<td><a href="#5-references">Akiyoshi 2013</a></td>
+</tr>
+<tr>
+<td>testosterone</td>
+<td>rec cDNA CYP3A4</td>
+<td>CYP3A4</td>
+<td>2.24</td>
+<td>0.0293</td>
+<td>0 - 20</td>
+<td>100</td>
+<td><a href="#5-references">Akiyoshi 2013</a></td>
+</tr>
+<tr>
+<td>testosterone</td>
+<td>rec cDNA CYP3A4</td>
+<td>CYP3A4</td>
+<td>0.753</td>
+<td>0.0248</td>
+<td>0 - 20</td>
+<td>100</td>
+<td><a href="#5-references">Akiyoshi 2013</a></td>
+</tr>
+<tr>
+<td>midazolam</td>
+<td>rec cDNA CYP3A4</td>
+<td>CYP3A</td>
+<td>9.5</td>
+<td>0.16</td>
+<td>50-fold range</td>
+<td>10</td>
+<td><a href="#5-references">Atkinson 2005</a></td>
+</tr>
+<tr>
+<td>midazolam</td>
+<td>rec cDNA CYP3A4</td>
+<td>CYP3A</td>
+<td>8.82</td>
+<td>0.12</td>
+<td>50-fold range</td>
+<td>10</td>
+<td><a href="#5-references">Atkinson 2005</a></td>
+</tr>
+<tr>
+<td>midazolam</td>
+<td>rec cDNA CYP3A4</td>
+<td>CYP3A</td>
+<td>8.3</td>
+<td>0.09</td>
+<td>50-fold range</td>
+<td>10</td>
+<td><a href="#5-references">Atkinson 2005</a></td>
+</tr>
+<tr>
+<td>testosterone</td>
+<td>rec cDNA CYP3A4</td>
+<td>CYP3A</td>
+<td>9.5</td>
+<td>0.06</td>
+<td>4 - 200</td>
+<td>16.7</td>
+<td><a href="#5-references">Atkinson 2005</a></td>
+</tr>
+<tr>
+<td>triazolam</td>
+<td>HLM</td>
+<td>CYP3A</td>
+<td>5.4</td>
+<td>0.069</td>
+<td></td>
+<td>400</td>
+<td><a href="#5-references">Aueviriyavit 2010</a></td>
+</tr>
+<tr>
+<td>testosterone</td>
+<td>rec cDNA CYP3A4</td>
+<td>CYP3A4</td>
+<td>5.3</td>
+<td>0.12</td>
+<td>5 - 20</td>
+<td>200</td>
+<td><a href="#5-references">Chan 2000</a></td>
+</tr>
+<tr>
+<td>midazolam</td>
+<td>cryopreserved HEP</td>
+<td>CYP3A</td>
+<td>60</td>
+<td>0.081</td>
+<td>3 - 300</td>
+<td>30</td>
+<td><a href="#5-references">Chen 2011</a></td>
+</tr>
+<tr>
+<td>midazolam</td>
+<td>cryopreserved HEP</td>
+<td>CYP3A</td>
+<td>67.9</td>
+<td>0.079</td>
+<td>3 - 300</td>
+<td>30</td>
+<td><a href="#5-references">Chen 2011</a></td>
+</tr>
+<tr>
+<td>midazolam</td>
+<td>rec cDNA CYP3A4</td>
+<td>CYP3A4</td>
+<td>0.762</td>
+<td>0.0648</td>
+<td>0.1 - 30</td>
+<td>4</td>
+<td><a href="#5-references">Ishikawa 2017</a></td>
+</tr>
+<tr>
+<td>testosterone</td>
+<td>rec cDNA CYP3A4</td>
+<td>CYP3A4</td>
+<td>1.00</td>
+<td>0.0604</td>
+<td>0.1 - 30</td>
+<td>150</td>
+<td><a href="#5-references">Ishikawa 2017</a></td>
+</tr>
+<tr>
+<td>nifedipine</td>
+<td>rec cDNA CYP3A4</td>
+<td>CYP3A4</td>
+<td>0.794</td>
+<td>0.0766</td>
+<td>0.1 - 30</td>
+<td>6</td>
+<td><a href="#5-references">Ishikawa 2017</a></td>
+</tr>
+<tr>
+<td>triazolam</td>
+<td>HLM</td>
+<td>CYP3A4</td>
+<td>15.9</td>
+<td>0.062</td>
+<td>3 - 100</td>
+<td>300</td>
+<td><a href="#5-references">Kanamitsu 2000</a></td>
+</tr>
+<tr>
+<td>triazolam</td>
+<td>HLM</td>
+<td>CYP3A4</td>
+<td>17.4</td>
+<td>0.055</td>
+<td>3 - 100</td>
+<td>300</td>
+<td><a href="#5-references">Kanamitsu 2000</a></td>
+</tr>
+<tr>
+<td>triazolam</td>
+<td>rec cDNA CYP3A4</td>
+<td>CYP3A4</td>
+<td>19.1</td>
+<td>0.173</td>
+<td>3 - 100</td>
+<td>300</td>
+<td><a href="#5-references">Kanamitsu 2000</a></td>
+</tr>
+<tr>
+<td>triazolam</td>
+<td>rec cDNA CYP3A4</td>
+<td>CYP3A4</td>
+<td>18.9</td>
+<td>0.097</td>
+<td>3 - 100</td>
+<td>300</td>
+<td><a href="#5-references">Kanamitsu 2000</a></td>
+</tr>
+<tr>
+<td>testosterone</td>
+<td>HLM</td>
+<td>CYP3A4</td>
+<td>29.4</td>
+<td>0.0271</td>
+<td></td>
+<td>250</td>
+<td><a href="#5-references">Kosaka 2017</a></td>
+</tr>
+<tr>
+<td>testosterone</td>
+<td>HLM</td>
+<td>CYP3A4</td>
+<td>30</td>
+<td>0.040</td>
+<td>0.3 - 300</td>
+<td></td>
+<td><a href="#5-references">Kozakai 2013</a></td>
+</tr>
+<tr>
+<td>midazolam</td>
+<td>HLM</td>
+<td>CYP3A4</td>
+<td>12</td>
+<td>0.035</td>
+<td>0.3 - 300</td>
+<td></td>
+<td><a href="#5-references">Kozakai 2013</a></td>
+</tr>
+<tr>
+<td>midazolam</td>
+<td>HLM</td>
+<td>CYP3A4</td>
+<td>20</td>
+<td>0.033</td>
+<td>0.3 - 300</td>
+<td></td>
+<td><a href="#5-references">Kozakai 2013</a></td>
+</tr>
+<tr>
+<td>midazolam</td>
+<td>cryopreserved HEP</td>
+<td>CYP3A</td>
+<td>25.15</td>
+<td>0.08</td>
+<td>0.13 - 100</td>
+<td>30</td>
+<td><a href="#5-references">Mao 2011</a></td>
+</tr>
+<tr>
+<td>midazolam</td>
+<td>HLM</td>
+<td>CYP3A</td>
+<td>10.8</td>
+<td>0.032</td>
+<td></td>
+<td></td>
+<td><a href="#5-references">Mao 2016</a></td>
+</tr>
+<tr>
+<td>midazolam</td>
+<td>cryopreserved HEP</td>
+<td>CYP3A</td>
+<td>30.7</td>
+<td>0.05</td>
+<td>0 - 300</td>
+<td>20</td>
+<td><a href="#5-references">Mao 2016</a></td>
+</tr>
+<tr>
+<td>midazolam</td>
+<td>cryopreserved HEP</td>
+<td>CYP3A</td>
+<td>59.2</td>
+<td>0.062</td>
+<td>0 - 100</td>
+<td>5</td>
+<td><a href="#5-references">Mao 2016</a></td>
+</tr>
+<tr>
+<td>midazolam</td>
+<td>cryopreserved HEP</td>
+<td>CYP3A</td>
+<td>80.3</td>
+<td>0.052</td>
+<td>0 - 100</td>
+<td>20</td>
+<td><a href="#5-references">Mao 2016</a></td>
+</tr>
+<tr>
+<td>midazolam</td>
+<td>rec cDNA CYP3A4</td>
+<td>CYP3A4</td>
+<td>7.47</td>
+<td>0.042</td>
+<td>2 - 50</td>
+<td>8</td>
+<td><a href="#5-references">McConn 2004</a></td>
+</tr>
+<tr>
+<td>midazolam</td>
+<td>HLM</td>
+<td>CYP3A4</td>
+<td>10.9</td>
+<td>0.046</td>
+<td>2 - 100</td>
+<td>8</td>
+<td><a href="#5-references">McConn 2004</a></td>
+</tr>
+<tr>
+<td>midazolam</td>
+<td>primary HEP</td>
+<td>CYP3A</td>
+<td>11</td>
+<td>0.07</td>
+<td>0.1 - 10</td>
+<td>3</td>
+<td><a href="#5-references">McGinnity 2006</a></td>
+</tr>
+<tr>
+<td>midazolam</td>
+<td>HLM</td>
+<td>CYP3A4</td>
+<td>10</td>
+<td>0.036</td>
+<td>0 - 25</td>
+<td></td>
+<td><a href="#5-references">Obach 2007</a></td>
+</tr>
+<tr>
+<td>testosterone</td>
+<td>HLM</td>
+<td>CYP3A4</td>
+<td>9.8</td>
+<td>0.039</td>
+<td>0 - 25</td>
+<td>500</td>
+<td><a href="#5-references">Obach 2007</a></td>
+</tr>
+<tr>
+<td>testosterone</td>
+<td>rec cDNA CYP3A4</td>
+<td>CYP3A4</td>
+<td>0.92</td>
+<td>0.058</td>
+<td>5 - 100</td>
+<td>250</td>
+<td><a href="#5-references">Polasek 2006</a></td>
+</tr>
+<tr>
+<td>testosterone</td>
+<td>HLM</td>
+<td>CYP3A4</td>
+<td>12.8</td>
+<td>0.037</td>
+<td>5 - 100</td>
+<td>250</td>
+<td><a href="#5-references">Polasek 2006</a></td>
+</tr>
+<tr>
+<td>midazolam</td>
+<td>rec cDNA CYP3A4</td>
+<td>CYP3A4</td>
+<td>5.1</td>
+<td>0.30</td>
+<td>0.5 - 50</td>
+<td>100</td>
+<td><a href="#5-references">Ring 2005</a></td>
+</tr>
+<tr>
+<td>testosterone</td>
+<td>rec cDNA CYP3A4</td>
+<td>CYP3A4</td>
+<td>0.92</td>
+<td>0.058</td>
+<td></td>
+<td></td>
+<td><a href="#5-references">Teng 2010</a></td>
+</tr>
+<tr>
+<td>testosterone</td>
+<td>HLM</td>
+<td>CYP3A4</td>
+<td>4.579</td>
+<td>0.0115</td>
+<td></td>
+<td></td>
+<td><a href="#5-references">Teng 2010</a></td>
+</tr>
+<tr>
+<td>domperidone</td>
+<td>HLM</td>
+<td>CYP3A4</td>
+<td>18.4</td>
+<td>0.022</td>
+<td>2.5 - 200</td>
+<td>500</td>
+<td><a href="#5-references">Ung 2009</a></td>
+</tr>
+<tr>
+<td>domperidone</td>
+<td>rec cDNA CYP3A4</td>
+<td>CYP3A4</td>
+<td>4.1</td>
+<td>0.026</td>
+<td>2.5 - 200</td>
+<td>500</td>
+<td><a href="#5-references">Ung 2009</a></td>
+</tr>
+<tr>
+<td>midazolam</td>
+<td>HLM</td>
+<td>CYP3A4</td>
+<td>12.1</td>
+<td>0.0215</td>
+<td>0 - 100</td>
+<td>25</td>
+<td><a href="#5-references">Watanabe 2007</a></td>
+</tr>
+<tr>
+<td>nifedipine</td>
+<td>HLM</td>
+<td>CYP3A4</td>
+<td>11.3</td>
+<td>0.0295</td>
+<td>0 - 100</td>
+<td>50</td>
+<td><a href="#5-references">Watanabe 2007</a></td>
+</tr>
+<tr>
+<td>testosterone</td>
+<td>HLM</td>
+<td>CYP3A4</td>
+<td>10.9</td>
+<td>0.0352</td>
+<td>0 - 100</td>
+<td>200</td>
+<td><a href="#5-references">Watanabe 2007</a></td>
+</tr>
+<tr>
+<td>midazolam</td>
+<td>HLM</td>
+<td>CYP3A</td>
+<td>1.48</td>
+<td>0.017</td>
+<td>0.5 - 500</td>
+<td>20</td>
+<td><a href="#5-references">Xu 2009</a></td>
+</tr>
+<tr>
+<td>midazolam</td>
+<td>cryopreserved HEP</td>
+<td>CYP3A</td>
+<td>20.0</td>
+<td>0.016</td>
+<td>0.5 - 500</td>
+<td>20</td>
+<td><a href="#5-references">Xu 2009</a></td>
+</tr>
+<tr>
+<td>midazolam</td>
+<td>cryopreserved HEP</td>
+<td>CYP3A</td>
+<td>109</td>
+<td>0.055</td>
+<td>0.5 - 500</td>
+<td>20</td>
+<td><a href="#5-references">Xu 2009</a></td>
+</tr>
+<tr>
+<td>midazolam</td>
+<td>HLM</td>
+<td>CYP3A</td>
+<td>81.8</td>
+<td>0.0665</td>
+<td>20 - 400</td>
+<td>10</td>
+<td><a href="#5-references">Yamano 2001</a></td>
+</tr>
+<tr>
+<td>midazolam</td>
+<td>HLM</td>
+<td>CYP3A</td>
+<td>15.7</td>
+<td>0.1</td>
+<td></td>
+<td></td>
+<td><a href="#5-references">Zhang 2006</a></td>
+</tr>
+<tr>
+<td>testosterone</td>
+<td>rec cDNA CYP3A4</td>
+<td>CYP3A4</td>
+<td>5</td>
+<td>0.34</td>
+<td>1 - 50</td>
+<td>200</td>
+<td><a href="#5-references">Zhang 2009</a></td>
+</tr>
+<tr>
+<td>testosterone</td>
+<td>HLM</td>
+<td>CYP3A4</td>
+<td>15.7</td>
+<td>0.09</td>
+<td>1 - 50</td>
+<td>200</td>
+<td><a href="#5-references">Zhang 2009</a></td>
+</tr>
+<tr>
+<td>midazolam</td>
+<td>HLM</td>
+<td>CYP3A4</td>
+<td>26.5</td>
+<td>0.041</td>
+<td>2.5 - 50</td>
+<td>10</td>
+<td><a href="#5-references">Zimmerlin 2011</a></td>
+</tr>
+</tbody>
+</table>
+<p><em>Note:</em> Abbreviations: HEP: human hepatocytes; HLM: human liver microsomes; rec cDNA CYP3A4: human recombinant c-DNA CYP3A4 enzymes (e.g. supersomes, baculovirus-insect cell system, E. coli transfected cells)</p>
+<p>The data listed in the Table above can be statistically summarized as follows:</p>
+<table>
+<thead>
+<tr>
+<th>Parameter [unit]</th>
+<th>Min</th>
+<th>Q1</th>
+<th>Geometric mean</th>
+<th>Median</th>
+<th>Arithmetic mean</th>
+<th>Q3</th>
+<th>Max</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>K<sub>I</sub> [µM]</td>
+<td>0.420</td>
+<td>4.89</td>
+<td>8.71</td>
+<td>10.9</td>
+<td>18.4</td>
+<td>19.3</td>
+<td>109</td>
+</tr>
+<tr>
+<td>k<sub>inact</sub> [min<sup>-1</sup>]</td>
+<td>0.0115</td>
+<td>0.0314</td>
+<td>0.0504</td>
+<td>0.0535</td>
+<td>0.0664</td>
+<td>0.0772</td>
+<td>0.340</td>
+</tr>
+</tbody>
+</table>
+<h3 id="223-clinical-data">2.2.3 Clinical data<a class="headerlink" href="#223-clinical-data" title="Anchor link to this section for reference">&para;</a></h3>
+<p>A literature search was carried out to collect available PK data on erythromycin in healthy adults. The following data from the publications listed below were used for model building and evaluation:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Publication</th>
+<th style="text-align: left;">Study description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Austin 1980</a></td>
+<td style="text-align: left;">IV administration of 125 mg, 250 mg, 500 mg, and 900 mg as erythromycin lactobionate; single dose</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Barre 1987</a></td>
+<td style="text-align: left;">IV administration of 500 mg as erythromycin lactobionate; single dose</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Berend 1979</a></td>
+<td style="text-align: left;">PO administration of 500 mg erythromycin stearate; multiple dose</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Birkett 1990</a></td>
+<td style="text-align: left;">PO administration of 250 mg as enteric-coated capsules containing pellets of erythromycin base; single and multiple dose</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Brannan 1995</a></td>
+<td style="text-align: left;">PO administration of 500 mg erythromycin stearate; multiple dose</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">DiSanto 1981</a></td>
+<td style="text-align: left;">PO administration of 500 mg as unprotected tablets containing erythromycin base, as film-coated tablets containing erythromycin base, as enteric-coated tablets containing erythromycin base and as film-coated tablets containing erythromycin stearate; single and multiple dose</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Henry 1980</a></td>
+<td style="text-align: left;">PO administration of 500 mg erythromycin stearate; single dose</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Huppertz 2011</a></td>
+<td style="text-align: left;">IV administration of 1000 mg as erythromycin lactobionate; single dose</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Iliopoulou 1982</a></td>
+<td style="text-align: left;">PO administration of 500 mg as film-coated tablet containing erythromycin stearate; multiple dose</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Josefsson 1982</a></td>
+<td style="text-align: left;">PO administration of 500 mg as film-coated tablet containing erythromycin stearate and 250 mg, 500 mg, 1000 mg as enteric coated capsules containing pellets of erythromycin base; single dose</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Kavi 1988</a></td>
+<td style="text-align: left;">PO administration of 500 mg as film-coated tablet containing erythromycin stearate; single dose</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Kivistö 1997</a></td>
+<td style="text-align: left;">PO administration of 500 mg as enteric-coated capsules containing erythromycin base; multiple dose</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Kroboth 1982</a></td>
+<td style="text-align: left;">PO administration of 500 mg as enteric-coated tablets containing erythromycin base; single dose</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Malmborg 1978</a></td>
+<td style="text-align: left;">PO administration of 500 mg as film-coated tablet containing erythromycin stearate; multiple dose</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Miglioli 1990</a></td>
+<td style="text-align: left;">PO administration of 1000 mg erythromycin stearate; multiple dose</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Olkkola 1993</a></td>
+<td style="text-align: left;">Midazolam-erythromycin interaction study; PO administration of 500 mg as enteric-coated tablet containing erythromycin base; multiple dose</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Parsons 1977</a></td>
+<td style="text-align: left;">PO administration of 500 mg erythromycin stearate; single dose</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Pasic 1987</a></td>
+<td style="text-align: left;">IV administration of 300 mg as erythromycin lactobionate; single dose</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Posti 1983</a></td>
+<td style="text-align: left;">PO administration of 500 mg as film-coated tablets containing erythromycin stearate, as enteric-coated tablets containing erythromycin base, and as enteric-coated tablets containing erythromycin stearate; single dose</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Schreiner 1984</a></td>
+<td style="text-align: left;">PO administration of 500 mg as film-coated tablets containing erythromycin stearate and as enteric-coated capsule containing pellets of erythromycin base; single dose</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Shanson 1984</a></td>
+<td style="text-align: left;">PO administration of 1500 mg erythromycin stearate; single dose</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Simon 1980</a></td>
+<td style="text-align: left;">IV administration of 500 mg erythromycin lactobionate and PO administration of 500 mg erythromycin stearate; single dose</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Sun 2010</a></td>
+<td style="text-align: left;">IV administration of 125 mg and PO administration of 250 mg (salt and formulation type not specified); single dose</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Yakatan 1979</a></td>
+<td style="text-align: left;">PO administration of 250 mg as film-coated tablet containing erythromycin stearate; single dose</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Yakatan 1980</a></td>
+<td style="text-align: left;">PO administration of 250 mg as film-coated tablet containing erythromycin stearate and as enteric-coated tablet containing erythromycin base; single and multiple dose</td>
+</tr>
+</tbody>
+</table>
+<h2 id="23-model-parameters-and-assumptions">2.3 Model Parameters and Assumptions<a id="model-parameters-and-assumptions"></a><a class="headerlink" href="#23-model-parameters-and-assumptions" title="Anchor link to this section for reference">&para;</a></h2>
+<h3 id="231-dissolution-and-absorption">2.3.1   Dissolution and absorption<a class="headerlink" href="#231-dissolution-and-absorption" title="Anchor link to this section for reference">&para;</a></h3>
+<p>Development of an adequate absorption model for erythromycin was complicated by the large intersubject variability in the absorption kinetics of erythromycin (<a href="#5-references">Chun 1977</a>, <a href="#5-references">Mather 1981</a>). Additionally, multiple formulation types are available entailing different dissolution and absorption kinetics (<a href="#5-references">Chun 1977</a>, <a href="#5-references">Yakatan 1980</a>, <a href="#5-references">Mather 1981</a>). The herein presented model was developed for the following oral dosage forms:</p>
+<ul>
+<li>film-coated tablets containing erythromycin stearate</li>
+<li>enteric-coated tablets containing erythromycin as free base</li>
+<li>enteric-coated capsules containing pellets of erythromycin as free base</li>
+</ul>
+<p>The following sections briefly address how each of these formulations was modeled in presented PBPK models.</p>
+<h4 id="2311-film-coated-tablet-containing-erythromycin-stearate">2.3.1.1    Film-coated tablet containing erythromycin stearate<a class="headerlink" href="#2311-film-coated-tablet-containing-erythromycin-stearate" title="Anchor link to this section for reference">&para;</a></h4>
+<p>Comparison of the reported erythromycin PK following administration of different doses of film-coated tablets containing the stearate salt indicated that the lowest dose (250 mg) yields a larger t<sub>max</sub> than the higher doses (500, 1000 and 1500 mg). Different dissolution kinetics were therefore used for this formulation type; relatively slow dissolution kinetics was used for the 250 mg dose, whereas dissolution of the higher doses (500, 1000 and 1500 mg) was described by immediate-release kinetics. Both types of dissolution kinetics were described by the Weibull function. The parameters <code>Dissolution shape</code> and <code>Dissolution time (50% dissolved)</code> were optimized to optimally describe the clinical data. Additionally, solubility was also optimized as it was found during model building that solubility-limited absorption of the high doses captured the observed PK profiles better. </p>
+<h4 id="2312-enteric-coated-tablet-containing-erythromycin-as-free-base">2.3.1.2    Enteric-coated tablet containing erythromycin as free base<a class="headerlink" href="#2312-enteric-coated-tablet-containing-erythromycin-as-free-base" title="Anchor link to this section for reference">&para;</a></h4>
+<p>Relatively few PK data were available for enteric-coated tablets containing erythromycin as free base. For this formulation type, PK profiles were only available for the 250 mg and 500 mg dose. For these two doses, dissolution was described by the Weibull function. To account for the enteric coating (protecting the tablet from dissolving in the stomach), a <code>lag time</code> &gt; 0 min was applied in the model. To optimally describe the clinical data, relevant parameters of the Weibull function were optimized, namely the <code>Dissolution shape</code>, <code>Dissolution time (50% dissolved)</code> and <code>lag time</code>. Similar to the film-coated tablet containing the stearate salt, it was found that the observed PK profiles of the enteric-coated tablet containing erythromycin as free base could be better described when optimizing solubility. </p>
+<h4 id="2313-enteric-coated-capsule-containing-pellets-of-erythromycin-as-free-base">2.3.1.3    Enteric-coated capsule containing pellets of erythromycin as free base<a class="headerlink" href="#2313-enteric-coated-capsule-containing-pellets-of-erythromycin-as-free-base" title="Anchor link to this section for reference">&para;</a></h4>
+<p>Comparison of the reported erythromycin PK following administration of different doses of enteric-coated capsules containing pellets of erythromycin base showed large variability in C<sub>max</sub> and t<sub>max</sub> both within and between different doses (dose range: 250 mg - 1000 mg). Here, dissolution kinetics was also described by the Weibull function with relevant parameters (<code>Dissolution shape</code>, <code>Dissolution time (50% dissolved)</code> and <code>lag time</code>) being optimized to better describe clinical data. However, optimizing solubility did not result in a better description of the observed PK profiles. Consequently, solubility of erythromycin in this formulation type was fixed to a high value (500 mg/L) to avoid any solubility-related limitations in dissolution and absorption.</p>
+<p>For all three formulations, the same <code>Specific intestinal permeability (transcellular)</code> was used in the PBPK model. This parameter was also optimized to better describe the clinical PK data.</p>
+<h3 id="232-distribution">2.3.2   Distribution<a class="headerlink" href="#232-distribution" title="Anchor link to this section for reference">&para;</a></h3>
+<p>With an average fraction unbound in human plasma of approximately 0.30, erythromycin is moderately protein-bound. In the developed model, the <code>fraction unbound (plasma, reference value)</code> was set to 0.305 which is the value reported by Barre et al. (<a href="#5-references">Barre 1987</a>). <code>Lipophilicity</code> was fixed to a value of 2.82 which is the average of three experimentally measured values reported in the literature (<a href="#5-references">Lien 1974</a>, <a href="#5-references">Capobianco 1994</a>, <a href="#5-references">McFarland 1997</a>). The observed PK data were found to be best described using the model for estimating intracellular-to-plasma partition coefficients according to the method by <code>Rodgers and Rowland</code> (<a href="#5-references">Rodgers 2005</a>, <a href="#5-references">Rodgers 2006</a>). Cellular permeabilities were automatically calculated using the method <code>Charge dependent Schmitt</code>  (<a href="#5-references">Open Systems Pharmacology Documentation</a>). Active transfer of erythromycin by OATP1B1 was modeled as Michaelis-Menten kinetics using an <code>Influx</code> transporter type; the <code>Km</code> value of 13.2 µM was taken from the literature (<a href="#5-references">Lancaster 2012</a>) and <code>kcat</code> was optimized to best match observed clinical data. The gene expression profile of OATP1B1 (default symbol for the gene: LST-3TM12) was loaded from the internal PK-Sim® database using the expression data quantified by RT-PCR (<a href="#5-references">Open Systems Pharmacology Documentation</a>). </p>
+<h3 id="233-elimination">2.3.3   Elimination<a class="headerlink" href="#233-elimination" title="Anchor link to this section for reference">&para;</a></h3>
+<p>Erythromycin is extensively metabolized via N-demethylation catalyzed by CYP3A. Kinetics of this biotransformation was described by a Michaelis-Menten process. The following kinetic parameters erythromycin N-demethylation have been measured in human liver microsomes (HLM) and reported in the literature (mean ± standard error):</p>
+<table>
+<thead>
+<tr>
+<th>Vmax [nmol/min/mg mic protein]</th>
+<th>Km [µM]</th>
+<th>Microsomal preparation</th>
+<th>Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2 ± 0.09</td>
+<td>78 ± 9</td>
+<td>HLM from donor HL 3926</td>
+<td><a href="#5-references">Wang 1997</a></td>
+</tr>
+<tr>
+<td>0.41 ± 0.02</td>
+<td>44 ± 7</td>
+<td>HLM from donor HL 24493</td>
+<td><a href="#5-references">Wang 1997</a></td>
+</tr>
+<tr>
+<td>0.345 ± 0.013</td>
+<td>88 ± 10</td>
+<td>mixed HLM pool</td>
+<td><a href="#5-references">Riley 1997</a></td>
+</tr>
+</tbody>
+</table>
+<p>In the PBPK model, <code>Vmax</code> and <code>Km</code> were fixed to the mean of the values tabulated above (70 µM and 0.918 nmol/min/mg mic protein). The gene expression profile of CYP3A4 was loaded from the internal PK-Sim® database using the expression data quantified by RT-PCR (<a href="#5-references">Open Systems Pharmacology Documentation</a>).</p>
+<p>Although it has also been observed that erythromycin is metabolized via CYP4F11 <em>in vitro</em> (<a href="#5-references">Kalsotra 2004</a>), this elimination pathway was not accounted for in the model because its contribution to overall elimination was assumed to be low. In humans, CYP4F11 is mainly expressed in the liver and to a much lesser extent in the kidney (<a href="#5-references">Cui 2000</a>) and the CYP4F family makes up approximately 15% of all hepatic CYP enzymes (<a href="#5-references">Michaels 2014</a>). The K<sub>m</sub> and V<sub>max</sub> values for the CYP4F11-mediated biotransformation reported by <a href="#5-references">Kalsotra 2004</a> are similar to those measured for CYP3A4 (<a href="#5-references">Riley 1997</a>, <a href="#5-references">Wang 1997</a>), suggesting that the relative mass balance of these two metabolism pathways mainly depends on the absolute amount of each enzyme in the liver. While no information on total CYP4F11 in the human liver could be found in the literature, CYP4F11 expression in the liver of cynomolgus monkeys was observed to be approximately 6-fold lower than that of CYP3A4 (<a href="#5-references">Uehara 2015</a>). Hence, it was assumed that CYP4F11-mediated metabolism of erythromycin can be neglected in humans.</p>
+<p>Additional elimination pathways suggested for erythromycin are acid-catalyzed degradation (hydrolysis) the acidic milieu of the stomach (<a href="#5-references">Mordi 2000</a>) and biliary excretion (<a href="#5-references">Acocella 1968</a>, <a href="#5-references">Chelvan 1979</a>), but no quantitative information on the mass balance of these pathways could be found in the literature. Additionally, mechanism-based inhibition of CYP3A4 by erythromycin might constitute another clearance process which was neither considered in the model. However, a <code>total hepatic clearance</code> process was implemented in the model which could at least partly account for other elimination pathways not explicitly accounted for in the model. Of note, despite the name <code>total hepatic clearance</code>, this clearance pathway was implemented as dummy clearance accounting for additional elimination processes that are not covered by CYP3A-mediated clearance and unchanged renal excretion and it should hence rather be regarded as a partial than a total clearance. </p>
+<p>The reported dose fractions of erythromycin undergoing unchanged renal excretion after IV administration range from 0.018 ± 0.005 to 0.171 ± 0.11 (mean ± SD) (<a href="#5-references">Pasic 1987</a>, <a href="#5-references">Austin 1980</a>). This information was accounted for in the model by implementing a glomerular filtration process and optimizing the <code>GFR fraction</code> to match the observed dose fractions excreted unchanged in urine.</p>
+<h3 id="234-autoinhibition-via-cyp3a4">2.3.4 Autoinhibition via CYP3A4<a class="headerlink" href="#234-autoinhibition-via-cyp3a4" title="Anchor link to this section for reference">&para;</a></h3>
+<p>In the scientific literature, large ranges have been reported for K<sub>I</sub> and k<sub>inact</sub> (<a href="#222-in-vitro-data-on-mechanism-based-inhibition-of-cyp3a">Section 2.2.2</a>). Since the exact values are unknown,  <code>K_kinact_half</code> and <code>kinact</code> were both optimized within the observed range (see <a href="#222-in-vitro-data-on-mechanism-based-inhibition-of-cyp3a">Section 2.2.2</a>) during model building to best match the observed clinical data. </p>
+<p>To better inform optimization of these two parameters, clinical data of a midazolam-erythromycin interaction study conducted by Olkkola et al. (<a href="#5-references">Olkkola 1993</a>) were included in the parameter optimization during model building. Therefore, the midazolam PBPK model v0.9 available on OSP GitHub (https://github.com/Open-Systems-Pharmacology/Midazolam-Model/releases/tag/0.9) was loaded in the PK-Sim® erythromycin file and the study by Olkkola et al. (<a href="#5-references">Olkkola 1993</a>) was simulated. However, instead of using the reported midazolam plasma concentrations as observed data in the parameter identification, the AUC of midazolam was used. More specifically, a midazolam target AUC after IV and oral administration was calculated by multiplying the simulated midazolam AUC (24.3 and 54.0 µmol min/L and after IV and oral administration, respectively) with the observed geometric mean AUC ratio (1.96 and 4.07 after IV and PO administration, respectively) (<a href="#5-references">Olkkola 1993</a>) resulting in target AUCs of 47.4 and 220 µmol min/L after IV and oral administration of midazolam, respectively. These values were included as observed data values in the parameter identification during model building. Since the AUC is not a default output that can directly be used in the parameter identification, the PBPK model structure was modified prior to running the parameter identification as described in the following. After exporting the model to MoBi®, an artificial reaction of a dummy molecule was created. The reaction rate was defined as the simulated peripheral venous blood plasma concentration of midazolam, hence yielding the AUC at any specific time point. Thereafter, the model was imported in PK-Sim® and included in the parameter identification. After being used in the parameter identification during model building, the model was not used any further. </p>
+<h3 id="235-inhibition-of-p-gp">2.3.5 Inhibition of P-gp<a class="headerlink" href="#235-inhibition-of-p-gp" title="Anchor link to this section for reference">&para;</a></h3>
+<p>The model also includes competitive inhibition of P-gp with a K<sub>i</sub> of 22.7 µmol/L (<a href="#5-references">Eberl 2007</a>).</p>
+<h3 id="236-automated-parameter-identification">2.3.6 Automated Parameter Identification<a class="headerlink" href="#236-automated-parameter-identification" title="Anchor link to this section for reference">&para;</a></h3>
+<p>This is the result of the final parameter identification:</p>
+<table>
+<thead>
+<tr>
+<th>Model Parameter</th>
+<th>Formulation type/salt form</th>
+<th>Optimized Value</th>
+<th>Unit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Dissolution shape</code></td>
+<td>Enteric coated pellets</td>
+<td>1.0564916105</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Dissolution shape</code></td>
+<td>Enteric coated tablet</td>
+<td>1.0838799888</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Dissolution shape</code></td>
+<td>Filmcoated tablet (except 250 mg dose)</td>
+<td>1.0960212213</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Dissolution shape</code></td>
+<td>Filmcoated tablet, 250 mg</td>
+<td>3.2811974117</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Dissolution time (50% dissolved)</code></td>
+<td>Enteric coated pellets</td>
+<td>1.7462743767</td>
+<td>min</td>
+</tr>
+<tr>
+<td><code>Dissolution time (50% dissolved)</code></td>
+<td>Enteric coated tablet</td>
+<td>79.6337524677</td>
+<td>min</td>
+</tr>
+<tr>
+<td><code>Dissolution time (50% dissolved)</code></td>
+<td>Filmcoated tablet (except 250 mg dose)</td>
+<td>1.7038947098</td>
+<td>min</td>
+</tr>
+<tr>
+<td><code>Dissolution time (50% dissolved)</code></td>
+<td>Filmcoated tablet, 250 mg</td>
+<td>83.6562552486</td>
+<td>min</td>
+</tr>
+<tr>
+<td><code>GFR fraction</code></td>
+<td></td>
+<td>1.1591081815</td>
+<td></td>
+</tr>
+<tr>
+<td><code>K_kinact_half</code> (CYP3A4)</td>
+<td></td>
+<td>7.6007360452</td>
+<td>µmol/L</td>
+</tr>
+<tr>
+<td><code>kcat</code> (OATP1B1)</td>
+<td></td>
+<td>2.0201069202<sup>*</sup></td>
+<td>1/min</td>
+</tr>
+<tr>
+<td><code>kinact</code> (CYP3A4)</td>
+<td></td>
+<td>0.0296261146</td>
+<td>1/min</td>
+</tr>
+<tr>
+<td><code>Km</code> (OATP1B1)</td>
+<td></td>
+<td>0.735836485</td>
+<td>µmol/L</td>
+</tr>
+<tr>
+<td><code>Lag time</code></td>
+<td>Enteric coated pellets</td>
+<td>54.3490442506</td>
+<td>min</td>
+</tr>
+<tr>
+<td><code>Lag time</code></td>
+<td>Enteric coated tablet</td>
+<td>78.7967495765</td>
+<td>min</td>
+</tr>
+<tr>
+<td><code>Solubility at ref pH</code></td>
+<td>Enteric coated tablet, erythromycin base</td>
+<td>8.3990771997</td>
+<td>mg/L</td>
+</tr>
+<tr>
+<td><code>Solubility at ref pH</code></td>
+<td>Filmcoated tablet, erythromycin stearate</td>
+<td>28.0708790976</td>
+<td>mg/L</td>
+</tr>
+<tr>
+<td><code>Specific clearance</code></td>
+<td></td>
+<td>4.1462183378</td>
+<td>1/min</td>
+</tr>
+<tr>
+<td><code>Specific intestinal permeability</code></td>
+<td></td>
+<td>0.00038668371665</td>
+<td>cm/min</td>
+</tr>
+</tbody>
+</table>
+<p><sup>*</sup> The value in the model was updated to 1.350032201 with the release of PK-Sim 10 to account for the updated calculation method of interstitial concentrations (please refer to the respective <a href="https://github.com/Open-Systems-Pharmacology/Suite/releases/tag/v10.0">release notes of version 10</a>).</p>
+<h1 id="3-results-and-discussion">3 Results and Discussion<a id="results-and-discussion"></a><a class="headerlink" href="#3-results-and-discussion" title="Anchor link to this section for reference">&para;</a></h1>
+<p>The PBPK model for erythromycin was developed and verified with clinical pharmacokinetic data.</p>
+<p>The next sections show:</p>
+<ol>
+<li>the final model parameters for the building blocks: <a href="#31-final-input-parameters">Section 3.1</a>.</li>
+<li>the overall goodness of fit: <a href="#32-diagnostics-plots">Section 3.2</a>.</li>
+<li>simulated vs. observed concentration-time profiles for the clinical studies used for model building and for model verification: <a href="#33-concentration-time-profiles">Section 3.3</a>.</li>
+</ol>
+<h2 id="31-final-input-parameters">3.1 Final input parameters<a id="final-input-parameters"></a><a class="headerlink" href="#31-final-input-parameters" title="Anchor link to this section for reference">&para;</a></h2>
+<p>The compound parameter values of the final PBPK model are illustrated below. </p>
+<h3 id="compound-erythromycin">Compound: Erythromycin<a class="headerlink" href="#compound-erythromycin" title="Anchor link to this section for reference">&para;</a></h3>
+<h4 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Anchor link to this section for reference">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+<th>Alternative</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Solubility at reference pH</td>
+<td>28.0708790976 mg/l</td>
+<td>Parameter Identification-Parameter Identification-Value updated from '003 - BP conc ratio FIX' on 2019-11-14 14:43</td>
+<td>Erythromycin stearate film-coated tablet</td>
+<td>True</td>
+</tr>
+<tr>
+<td>Reference pH</td>
+<td>7</td>
+<td>Parameter Identification-Parameter Identification-Value updated from '001' on 2019-10-01 13:46</td>
+<td>Erythromycin stearate film-coated tablet</td>
+<td>True</td>
+</tr>
+<tr>
+<td>Solubility at reference pH</td>
+<td>500 mg/l</td>
+<td>Parameter Identification-Parameter Identification-Value updated from '001' on 2019-10-01 13:46</td>
+<td>Erythromycin base enteric coated pellets</td>
+<td>False</td>
+</tr>
+<tr>
+<td>Reference pH</td>
+<td>7</td>
+<td>Parameter Identification-Parameter Identification-Value updated from '001' on 2019-10-01 13:46</td>
+<td>Erythromycin base enteric coated pellets</td>
+<td>False</td>
+</tr>
+<tr>
+<td>Solubility at reference pH</td>
+<td>200 mg/ml</td>
+<td>Publication-In Vitro-Hoffhine, Jr Charles E. "Aqueous soluble salts of erythromycin." U.S. Patent 2,761,859, issued September 4, 1956.</td>
+<td>Erythromycin lactobionate</td>
+<td>False</td>
+</tr>
+<tr>
+<td>Reference pH</td>
+<td>7</td>
+<td>Publication-In Vitro-Hoffhine, Jr Charles E. "Aqueous soluble salts of erythromycin." U.S. Patent 2,761,859, issued September 4, 1956.</td>
+<td>Erythromycin lactobionate</td>
+<td>False</td>
+</tr>
+<tr>
+<td>Solubility at reference pH</td>
+<td>8.3990771997 mg/l</td>
+<td>Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 1' on 2020-01-13 15:01</td>
+<td>Erythromycin base enteric coated tablet</td>
+<td>False</td>
+</tr>
+<tr>
+<td>Reference pH</td>
+<td>7</td>
+<td></td>
+<td>Erythromycin base enteric coated tablet</td>
+<td>False</td>
+</tr>
+<tr>
+<td>Lipophilicity</td>
+<td>2.82 Log Units</td>
+<td>Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 1' on 2020-01-13 15:01</td>
+<td>Literature (average value)</td>
+<td>True</td>
+</tr>
+<tr>
+<td>Fraction unbound (plasma, reference value)</td>
+<td>0.305</td>
+<td>Publication-In Vivo-PMID: 3606934</td>
+<td>Barre 1987</td>
+<td>True</td>
+</tr>
+<tr>
+<td>Specific intestinal permeability (transcellular)</td>
+<td>0.00038668371665 cm/min</td>
+<td>Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 1' on 2020-01-13 15:01</td>
+<td>Fitted</td>
+<td>True</td>
+</tr>
+<tr>
+<td>Is small molecule</td>
+<td>Yes</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Molecular weight</td>
+<td>733.927 g/mol</td>
+<td>Internet-drugbank.ca</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Plasma protein binding partner</td>
+<td>Unknown</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="calculation-methods">Calculation methods<a class="headerlink" href="#calculation-methods" title="Anchor link to this section for reference">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Partition coefficients</td>
+<td>Rodgers and Rowland</td>
+</tr>
+<tr>
+<td>Cellular permeabilities</td>
+<td>Charge dependent Schmitt</td>
+</tr>
+</tbody>
+</table>
+<h4 id="processes">Processes<a class="headerlink" href="#processes" title="Anchor link to this section for reference">&para;</a></h4>
+<h5 id="metabolizing-enzyme-cyp3a4-biotransformation_fitted">Metabolizing Enzyme: CYP3A4-Biotransformation_fitted<a class="headerlink" href="#metabolizing-enzyme-cyp3a4-biotransformation_fitted" title="Anchor link to this section for reference">&para;</a></h5>
+<p>Molecule: CYP3A4</p>
+<h6 id="parameters_1">Parameters<a class="headerlink" href="#parameters_1" title="Anchor link to this section for reference">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>In vitro Vmax for liver microsomes</td>
+<td>918.33333 pmol/min/mg mic. protein</td>
+<td>Publication-In Vitro-PMID: 9566442</td>
+</tr>
+<tr>
+<td>Km</td>
+<td>70 µM</td>
+<td>Publication-In Vitro-Average of reported values in the literature (PMID: 9107550 and PMID: 9566442)</td>
+</tr>
+</tbody>
+</table>
+<h5 id="systemic-process-glomerular-filtration-fitted">Systemic Process: Glomerular Filtration-fitted<a class="headerlink" href="#systemic-process-glomerular-filtration-fitted" title="Anchor link to this section for reference">&para;</a></h5>
+<p>Species: Human</p>
+<h6 id="parameters_2">Parameters<a class="headerlink" href="#parameters_2" title="Anchor link to this section for reference">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align: right;">Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GFR fraction</td>
+<td style="text-align: right;">1.1591081815</td>
+<td>Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 1' on 2020-01-13 15:01</td>
+</tr>
+</tbody>
+</table>
+<h5 id="inhibition-cyp3a4-mbi">Inhibition: CYP3A4-MBI<a class="headerlink" href="#inhibition-cyp3a4-mbi" title="Anchor link to this section for reference">&para;</a></h5>
+<p>Molecule: CYP3A4</p>
+<h6 id="parameters_3">Parameters<a class="headerlink" href="#parameters_3" title="Anchor link to this section for reference">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>kinact</td>
+<td>0.0296261146 1/min</td>
+<td>Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 1' on 2020-01-13 15:01</td>
+</tr>
+<tr>
+<td>K_kinact_half</td>
+<td>7.6007360452 µmol/l</td>
+<td>Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 1' on 2020-01-13 15:01</td>
+</tr>
+</tbody>
+</table>
+<h5 id="transport-protein-oatp1b1-fitted">Transport Protein: OATP1B1-fitted<a class="headerlink" href="#transport-protein-oatp1b1-fitted" title="Anchor link to this section for reference">&para;</a></h5>
+<p>Molecule: OATP1B1</p>
+<h6 id="parameters_4">Parameters<a class="headerlink" href="#parameters_4" title="Anchor link to this section for reference">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Transporter concentration</td>
+<td>1 µmol/l</td>
+<td></td>
+</tr>
+<tr>
+<td>Vmax</td>
+<td>11.66 pmol/ml/min</td>
+<td>Publication-In Vitro-PMID: 22990751</td>
+</tr>
+<tr>
+<td>Km</td>
+<td>0.735836485 µmol/l</td>
+<td>Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 1' on 2020-01-13 15:01</td>
+</tr>
+<tr>
+<td>kcat</td>
+<td>1.350032201 1/min</td>
+<td>Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 1' on 2020-01-13 15:01</td>
+</tr>
+</tbody>
+</table>
+<h5 id="systemic-process-total-hepatic-clearance-fitted">Systemic Process: Total Hepatic Clearance-fitted<a class="headerlink" href="#systemic-process-total-hepatic-clearance-fitted" title="Anchor link to this section for reference">&para;</a></h5>
+<p>Species: Human</p>
+<h6 id="parameters_5">Parameters<a class="headerlink" href="#parameters_5" title="Anchor link to this section for reference">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fraction unbound (experiment)</td>
+<td>0.305</td>
+<td></td>
+</tr>
+<tr>
+<td>Lipophilicity (experiment)</td>
+<td>2.48 Log Units</td>
+<td></td>
+</tr>
+<tr>
+<td>Plasma clearance</td>
+<td>0 ml/min/kg</td>
+<td></td>
+</tr>
+<tr>
+<td>Specific clearance</td>
+<td>4.1462183378 1/min</td>
+<td>Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 1' on 2020-01-13 15:01</td>
+</tr>
+</tbody>
+</table>
+<h5 id="inhibition-p-gp-eberl2007">Inhibition: P-gp-Eberl2007<a class="headerlink" href="#inhibition-p-gp-eberl2007" title="Anchor link to this section for reference">&para;</a></h5>
+<p>Molecule: P-gp</p>
+<h6 id="parameters_6">Parameters<a class="headerlink" href="#parameters_6" title="Anchor link to this section for reference">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ki</td>
+<td>22.7 µmol/l</td>
+<td>Publication-Eberl S, Renner B, Neubert A, Reisig M, Bachmakov I, König J, Dörje F, Mürdter TE, Ackermann A, Dormann H, Gassmann KG, Hahn EG, Zierhut S, Brune K, Fromm MF. Role of p-glycoprotein inhibition for drug interactions: evidence from in vitro and pharmacoepidemiological studies. Clin Pharmacokinet. 2007;46(12):1039-49. doi: 10.2165/00003088-200746120-00004. PMID: 18027988.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="formulation-erythromycin_weibull_enteric-coated-pellets">Formulation: Erythromycin_Weibull_enteric-coated-pellets<a class="headerlink" href="#formulation-erythromycin_weibull_enteric-coated-pellets" title="Anchor link to this section for reference">&para;</a></h3>
+<p>Type: Weibull</p>
+<h4 id="parameters_7">Parameters<a class="headerlink" href="#parameters_7" title="Anchor link to this section for reference">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dissolution time (50% dissolved)</td>
+<td>1.7462743767 min</td>
+<td>Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 1' on 2020-01-13 15:01</td>
+</tr>
+<tr>
+<td>Lag time</td>
+<td>54.3490442506 min</td>
+<td>Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 1' on 2020-01-13 15:01</td>
+</tr>
+<tr>
+<td>Dissolution shape</td>
+<td>1.0564916105</td>
+<td>Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 1' on 2020-01-13 15:01</td>
+</tr>
+<tr>
+<td>Use as suspension</td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="formulation-erythromycin_weibull_enteric-coated-tablet">Formulation: Erythromycin_Weibull_enteric-coated-tablet<a class="headerlink" href="#formulation-erythromycin_weibull_enteric-coated-tablet" title="Anchor link to this section for reference">&para;</a></h3>
+<p>Type: Weibull</p>
+<h4 id="parameters_8">Parameters<a class="headerlink" href="#parameters_8" title="Anchor link to this section for reference">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dissolution time (50% dissolved)</td>
+<td>79.6337524677 min</td>
+<td>Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 1' on 2020-01-13 15:01</td>
+</tr>
+<tr>
+<td>Lag time</td>
+<td>78.7967495765 min</td>
+<td>Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 1' on 2020-01-13 15:01</td>
+</tr>
+<tr>
+<td>Dissolution shape</td>
+<td>1.0838799888</td>
+<td>Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 1' on 2020-01-13 15:01</td>
+</tr>
+<tr>
+<td>Use as suspension</td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="formulation-erythromycin_weibull_filmtablet">Formulation: Erythromycin_Weibull_filmtablet<a class="headerlink" href="#formulation-erythromycin_weibull_filmtablet" title="Anchor link to this section for reference">&para;</a></h3>
+<p>Type: Weibull</p>
+<h4 id="parameters_9">Parameters<a class="headerlink" href="#parameters_9" title="Anchor link to this section for reference">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dissolution time (50% dissolved)</td>
+<td>1.7038947098 min</td>
+<td>Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 1' on 2020-01-13 15:01</td>
+</tr>
+<tr>
+<td>Lag time</td>
+<td>0 min</td>
+<td>Other-Assumption</td>
+</tr>
+<tr>
+<td>Dissolution shape</td>
+<td>1.0960212213</td>
+<td>Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 1' on 2020-01-13 15:01</td>
+</tr>
+<tr>
+<td>Use as suspension</td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="32-diagnostics-plots">3.2 Diagnostics Plots<a id="diagnostics-plots"></a><a class="headerlink" href="#32-diagnostics-plots" title="Anchor link to this section for reference">&para;</a></h2>
+<p>Below you find the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data used presented in <a href="#223-clinical-data">Section 2.2.3</a>.</p>
+<p>The first plot shows simulated versus observed plasma concentration, the second weighted residuals versus time. </p>
+<p><a id="table-3-1"></a></p>
+<p><strong>Table 3-1: GMFE for Goodness of fit plot for concentration in plasma</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Group</th>
+<th style="text-align: left;">GMFE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">IV</td>
+<td style="text-align: left;">1.57</td>
+</tr>
+<tr>
+<td style="text-align: left;">IV (model building)</td>
+<td style="text-align: left;">1.46</td>
+</tr>
+<tr>
+<td style="text-align: left;">PO enteric coated capsule, base pellets</td>
+<td style="text-align: left;">1.82</td>
+</tr>
+<tr>
+<td style="text-align: left;">PO enteric coated capsule, base pellets (model building)</td>
+<td style="text-align: left;">1.24</td>
+</tr>
+<tr>
+<td style="text-align: left;">PO enteric coated tablet, base (model building)</td>
+<td style="text-align: left;">1.35</td>
+</tr>
+<tr>
+<td style="text-align: left;">PO film-coated tablet, base</td>
+<td style="text-align: left;">1.90</td>
+</tr>
+<tr>
+<td style="text-align: left;">PO film-coated tablet, stearate</td>
+<td style="text-align: left;">1.78</td>
+</tr>
+<tr>
+<td style="text-align: left;">PO film-coated tablet, stearate (model building)</td>
+<td style="text-align: left;">1.38</td>
+</tr>
+<tr>
+<td style="text-align: left;">All</td>
+<td style="text-align: left;">1.58</td>
+</tr>
+</tbody>
+</table>
+<p><br>
+<br></p>
+<p><a id="figure-3-1"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/008_section_diagnostics-plots/2_gof_plot_predictedVsObserved.png" /></p>
+<p><strong>Figure 3-1: Goodness of fit plot for concentration in plasma</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-2"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/008_section_diagnostics-plots/3_gof_plot_residualsOverTime.png" /></p>
+<p><strong>Figure 3-2: Goodness of fit plot for concentration in plasma</strong></p>
+<p><br>
+<br></p>
+<h2 id="33-concentration-time-profiles">3.3 Concentration-Time Profiles<a id="ct-profiles"></a><a class="headerlink" href="#33-concentration-time-profiles" title="Anchor link to this section for reference">&para;</a></h2>
+<p>Simulated versus observed concentration-time profiles of all data listed in <a href="#223-clinical-data">Section 2.2.3</a> are presented below.</p>
+<h3 id="331-model-building">3.3.1 Model Building<a id="model-building"></a><a class="headerlink" href="#331-model-building" title="Anchor link to this section for reference">&para;</a></h3>
+<p><a id="figure-3-3"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/4_time_profile_plot_Erythromycin_IV_125mg_Sun2010.png" /></p>
+<p><strong>Figure 3-3: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-4"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/5_time_profile_plot_Erythromycin_IV_125mg_Sun2010.png" /></p>
+<p><strong>Figure 3-4: Time Profile Analysis 1</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-5"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/6_time_profile_plot_Erythromycin_IV_250mg_3min_Austin1980.png" /></p>
+<p><strong>Figure 3-5: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-6"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/9_time_profile_plot_Erythromycin_IV_300mg_Pasic1987.png" /></p>
+<p><strong>Figure 3-6: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-7"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/10_time_profile_plot_Erythromycin_IV_300mg_Pasic1987.png" /></p>
+<p><strong>Figure 3-7: Time Profile Analysis 1</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-8"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/13_time_profile_plot_Erythromycin_IV_500mg_Barre1987.png" /></p>
+<p><strong>Figure 3-8: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-9"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/14_time_profile_plot_Erythromycin_IV_500mg_Barre1987.png" /></p>
+<p><strong>Figure 3-9: Time Profile Analysis 1</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-10"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/28_time_profile_plot_Erythromycin_500mg_Kivisto1997_pellets_MD.png" /></p>
+<p><strong>Figure 3-10: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-11"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/29_time_profile_plot_Erythromycin_500mg_Kivisto1997_pellets_MD.png" /></p>
+<p><strong>Figure 3-11: Time Profile Analysis 1</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-12"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/34_time_profile_plot_Erythromycin_500mg_DiSanto1981.png" /></p>
+<p><strong>Figure 3-12: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-13"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/35_time_profile_plot_Erythromycin_500mg_DiSanto1981.png" /></p>
+<p><strong>Figure 3-13: Time Profile Analysis 1</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-14"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/38_time_profile_plot_Erythromycin_500mg_Posti1982_E.png" /></p>
+<p><strong>Figure 3-14: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-15"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/39_time_profile_plot_Erythromycin_500mg_Posti1982_E.png" /></p>
+<p><strong>Figure 3-15: Time Profile Analysis 1</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-16"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/40_time_profile_plot_Erythromycin_1000mg_Miglioli1990_MD.png" /></p>
+<p><strong>Figure 3-16: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-17"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/41_time_profile_plot_Erythromycin_1000mg_Miglioli1990_MD.png" /></p>
+<p><strong>Figure 3-17: Time Profile Analysis 1</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-18"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/42_time_profile_plot_Erythromycin_1000mg_Miglioli1990_MD.png" /></p>
+<p><strong>Figure 3-18: Time Profile Analysis 2</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-19"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/43_time_profile_plot_Erythromycin_1000mg_Miglioli1990_MD.png" /></p>
+<p><strong>Figure 3-19: Time Profile Analysis 3</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-20"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/48_time_profile_plot_Erythromycin_250mg_Yakatan1980_stearate.png" /></p>
+<p><strong>Figure 3-20: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-21"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/49_time_profile_plot_Erythromycin_250mg_Yakatan1980_stearate.png" /></p>
+<p><strong>Figure 3-21: Time Profile Analysis 1</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-22"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/50_time_profile_plot_Erythromycin_250mg_Yakatan1980_stearate_MD.png" /></p>
+<p><strong>Figure 3-22: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-23"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/51_time_profile_plot_Erythromycin_250mg_Yakatan1980_stearate_MD.png" /></p>
+<p><strong>Figure 3-23: Time Profile Analysis 1</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-24"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/64_time_profile_plot_Erythromycin_500mg_Malmborg1978_MD.png" /></p>
+<p><strong>Figure 3-24: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-25"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/65_time_profile_plot_Erythromycin_500mg_Malmborg1978_MD.png" /></p>
+<p><strong>Figure 3-25: Time Profile Analysis 1</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-26"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/66_time_profile_plot_Erythromycin_500mg_Malmborg1978_MD.png" /></p>
+<p><strong>Figure 3-26: Time Profile Analysis 2</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-27"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/67_time_profile_plot_Erythromycin_500mg_Malmborg1978_MD.png" /></p>
+<p><strong>Figure 3-27: Time Profile Analysis 3</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-28"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/71_time_profile_plot_Erythromycin_500mg_Posti1983_A1.png" /></p>
+<p><strong>Figure 3-28: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-29"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/72_time_profile_plot_Erythromycin_500mg_Posti1983_A1.png" /></p>
+<p><strong>Figure 3-29: Time Profile Analysis 1</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-30"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/73_time_profile_plot_Erythromycin_500mg_Posti1983_A2_RN.png" /></p>
+<p><strong>Figure 3-30: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-31"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/74_time_profile_plot_Erythromycin_500mg_Posti1983_A2_RN.png" /></p>
+<p><strong>Figure 3-31: Time Profile Analysis 1</strong></p>
+<p><br>
+<br></p>
+<h3 id="332-model-verification">3.3.2 Model Verification<a id="model-verification"></a><a class="headerlink" href="#332-model-verification" title="Anchor link to this section for reference">&para;</a></h3>
+<p><a id="figure-3-32"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/1_time_profile_plot_Erythromycin_IV_1000mg_Huppertz2011.png" /></p>
+<p><strong>Figure 3-32: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-33"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/2_time_profile_plot_Erythromycin_IV_125mg_Austin1980.png" /></p>
+<p><strong>Figure 3-33: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-34"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/3_time_profile_plot_Erythromycin_IV_125mg_Austin1980.png" /></p>
+<p><strong>Figure 3-34: Time Profile Analysis 1</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-35"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/7_time_profile_plot_Erythromycin_IV_250mg_Austin1980.png" /></p>
+<p><strong>Figure 3-35: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-36"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/8_time_profile_plot_Erythromycin_IV_250mg_Austin1980.png" /></p>
+<p><strong>Figure 3-36: Time Profile Analysis 1</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-37"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/11_time_profile_plot_Erythromycin_IV_500mg_Austin1980.png" /></p>
+<p><strong>Figure 3-37: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-38"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/12_time_profile_plot_Erythromycin_IV_500mg_Austin1980.png" /></p>
+<p><strong>Figure 3-38: Time Profile Analysis 1</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-39"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/15_time_profile_plot_Erythromycin_IV_500mg_Simon1980.png" /></p>
+<p><strong>Figure 3-39: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-40"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/16_time_profile_plot_Erythromycin_IV_900mg_Austin1980.png" /></p>
+<p><strong>Figure 3-40: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-41"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/17_time_profile_plot_Erythromycin_IV_900mg_Austin1980.png" /></p>
+<p><strong>Figure 3-41: Time Profile Analysis 1</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-42"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/18_time_profile_plot_Erythromycin_1000mg_Josefsson1982a_pellets.png" /></p>
+<p><strong>Figure 3-42: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-43"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/19_time_profile_plot_Erythromycin_1000mg_Josefsson1982a_pellets.png" /></p>
+<p><strong>Figure 3-43: Time Profile Analysis 1</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-44"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/20_time_profile_plot_Erythromycin_250mg_Birkett1990_SD.png" /></p>
+<p><strong>Figure 3-44: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-45"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/21_time_profile_plot_Erythromycin_250mg_Birkett1990_SD.png" /></p>
+<p><strong>Figure 3-45: Time Profile Analysis 1</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-46"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/22_time_profile_plot_Erythromycin_250mg_Birkett1990_MD.png" /></p>
+<p><strong>Figure 3-46: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-47"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/23_time_profile_plot_Erythromycin_250mg_Birkett1990_MD.png" /></p>
+<p><strong>Figure 3-47: Time Profile Analysis 1</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-48"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/24_time_profile_plot_Erythromycin_250mg_Josefsson1982a_pellets.png" /></p>
+<p><strong>Figure 3-48: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-49"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/25_time_profile_plot_Erythromycin_250mg_Josefsson1982a_pellets.png" /></p>
+<p><strong>Figure 3-49: Time Profile Analysis 1</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-50"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/26_time_profile_plot_Erythromycin_500mg_Josefsson1982a_pellets.png" /></p>
+<p><strong>Figure 3-50: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-51"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/27_time_profile_plot_Erythromycin_500mg_Josefsson1982a_pellets.png" /></p>
+<p><strong>Figure 3-51: Time Profile Analysis 1</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-52"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/30_time_profile_plot_Erythromycin_500mg_Schreiner1984_pellets.png" /></p>
+<p><strong>Figure 3-52: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-53"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/31_time_profile_plot_Erythromycin_500mg_Schreiner1984_pellets.png" /></p>
+<p><strong>Figure 3-53: Time Profile Analysis 1</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-54"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/32_time_profile_plot_Erythromycin_250mg_Yakatan1980_base_MD.png" /></p>
+<p><strong>Figure 3-54: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-55"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/33_time_profile_plot_Erythromycin_250mg_Yakatan1980_base_MD.png" /></p>
+<p><strong>Figure 3-55: Time Profile Analysis 1</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-56"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/36_time_profile_plot_Erythromycin_500mg_Kroboth1982.png" /></p>
+<p><strong>Figure 3-56: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-57"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/37_time_profile_plot_Erythromycin_500mg_Kroboth1982.png" /></p>
+<p><strong>Figure 3-57: Time Profile Analysis 1</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-58"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/44_time_profile_plot_Erythromycin_1500mg_Shanson1984.png" /></p>
+<p><strong>Figure 3-58: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-59"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/45_time_profile_plot_Erythromycin_1500mg_Shanson1984.png" /></p>
+<p><strong>Figure 3-59: Time Profile Analysis 1</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-60"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/46_time_profile_plot_Erythromycin_250mg_Yakatan1979.png" /></p>
+<p><strong>Figure 3-60: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-61"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/47_time_profile_plot_Erythromycin_250mg_Yakatan1979.png" /></p>
+<p><strong>Figure 3-61: Time Profile Analysis 1</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-62"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/52_time_profile_plot_Erythromycin_500mg_Berend1979_MD.png" /></p>
+<p><strong>Figure 3-62: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-63"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/53_time_profile_plot_Erythromycin_500mg_Berend1979_MD.png" /></p>
+<p><strong>Figure 3-63: Time Profile Analysis 1</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-64"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/54_time_profile_plot_Erythromycin_500mg_Brannan1995_MD.png" /></p>
+<p><strong>Figure 3-64: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-65"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/55_time_profile_plot_Erythromycin_500mg_Brannan1995_MD.png" /></p>
+<p><strong>Figure 3-65: Time Profile Analysis 1</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-66"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/56_time_profile_plot_Erythromycin_500mg_Henry1980.png" /></p>
+<p><strong>Figure 3-66: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-67"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/57_time_profile_plot_Erythromycin_500mg_Henry1980.png" /></p>
+<p><strong>Figure 3-67: Time Profile Analysis 1</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-68"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/58_time_profile_plot_Erythromycin_500mg_Iliopoulou1982_MD.png" /></p>
+<p><strong>Figure 3-68: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-69"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/59_time_profile_plot_Erythromycin_500mg_Iliopoulou1982_MD.png" /></p>
+<p><strong>Figure 3-69: Time Profile Analysis 1</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-70"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/60_time_profile_plot_Erythromycin_500mg_Josefsson1982a.png" /></p>
+<p><strong>Figure 3-70: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-71"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/61_time_profile_plot_Erythromycin_500mg_Josefsson1982a.png" /></p>
+<p><strong>Figure 3-71: Time Profile Analysis 1</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-72"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/62_time_profile_plot_Erythromycin_500mg_Kavi1988.png" /></p>
+<p><strong>Figure 3-72: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-73"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/63_time_profile_plot_Erythromycin_500mg_Kavi1988.png" /></p>
+<p><strong>Figure 3-73: Time Profile Analysis 1</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-74"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/68_time_profile_plot_Erythromycin_500mg_Parsons1977.png" /></p>
+<p><strong>Figure 3-74: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-75"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/69_time_profile_plot_Erythromycin_500mg_Parsons1977.png" /></p>
+<p><strong>Figure 3-75: Time Profile Analysis 1</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-76"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/70_time_profile_plot_Erythromycin_500mg_Parsons1977.png" /></p>
+<p><strong>Figure 3-76: Time Profile Analysis 2</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-77"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/75_time_profile_plot_Erythromycin_500mg_Schreiner1984_stearate.png" /></p>
+<p><strong>Figure 3-77: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-78"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/76_time_profile_plot_Erythromycin_500mg_Schreiner1984_stearate.png" /></p>
+<p><strong>Figure 3-78: Time Profile Analysis 1</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-79"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/77_time_profile_plot_Erythromycin_500mg_Simon1980.png" /></p>
+<p><strong>Figure 3-79: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-80"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/78_time_profile_plot_Erythromycin_500mg_Simon1980.png" /></p>
+<p><strong>Figure 3-80: Time Profile Analysis 1</strong></p>
+<p><br>
+<br></p>
+<h1 id="4-conclusion">4 Conclusion<a id="conclusion"></a><a class="headerlink" href="#4-conclusion" title="Anchor link to this section for reference">&para;</a></h1>
+<p>The final erythromycin PBPK model applies metabolism by CYP3A4, glomerular filtration, and a dummy clearance technically implemented as hepatic plasma clearance accounting for additional clearance pathways, as well as mechanism-based inhibition of CYP3A4. Overall, the model adequately describes the oral pharmacokinetics of erythromycin in healthy adults receiving different single or multiple doses of several oral dosage forms and is considered verified for the use as a perpetrator drug in drug-drug interaction simulations.</p>
+<h1 id="5-references">5 References<a id="main-references"></a><a class="headerlink" href="#5-references" title="Anchor link to this section for reference">&para;</a></h1>
+<p><strong>Acocella 1968</strong> Acocella G, Mattiussi R, Nicolis FB, Pallanza R, Tenconi LT. Biliary excretion of antibiotics in man. <em>Gut</em> 1968, 9(5): 536-545.</p>
+<p><strong>Akiyoshi 2013</strong> Akiyoshi T, Ito M, Murase S, Miyazaki M, Guengerich FP, Nakamura K, Yamamoto K, Ohtani H. Mechanism-based inhibition profiles of erythromycin and clarithromycin with cytochrome P450 3A4 genetic variants. <em>Drug Metab Pharmacokinet</em> 2013, 28(5): 411-415.</p>
+<p><strong>Atkinson 2005</strong> Atkinson A, Kenny JR, Grime K. Automated Assessment of Time-Dependent Inhibition of Human CYP Enzymes using LC-MS-MS Analysis. <em>Drug Metab Dispos</em> 2005, 33(11): 1637-1347.</p>
+<p><strong>Aueviriyavit 2010</strong> Aueviriyavit S, Kobayashi K, Chiba K. Species differences in mechanism-based inactivation of CYP3A in humans, rats and mice. <em>Drug Metab Pharmacokinet</em> 2010, 25(1): 93-100.</p>
+<p><strong>Austin 1980</strong> Austin KL, Mather LE, Philpot CR, McDonald PJ. Intersubject and dose-related variability after intravenous administration of erythromycin. <em>Br J Clin Pharmacol</em> 1980, 10(3): 273-379.</p>
+<p><strong>Barre 1987</strong> Barre J, Mallat A, Rosenbaum J, Deforges L, Houin G, Dhumeaux D, Tillement JP. Pharmacokinetics of erythromycin in patients with severe cirrhosis. Respective influence of decreased serum binding and impaired liver metabolic capacity. <em>Br J Clin Pharmacol</em> 1987, 23(6): 753-757.</p>
+<p><strong>Berend 1979</strong> Berend N, Rutland J, Marlin GE. Plasma and saliva concentrations for a new formulation of erythromycin stearate. <em>Curr Med Res Opin</em> 1979, 6(2): 118-123.</p>
+<p><strong>Birkett 1990</strong> Birkett DJ, Robson RA, Grgurinovich N, Tonkin A. Single oral dose pharmacokinetics of erythromycin and roxithromycin and the effects of chronic dosing. <em>Ther Drug Monit</em> 1990, 12(1): 65-71.</p>
+<p><strong>Brannan 1995</strong> Brannan MD, Reidenberg P, Radwanski E, Shneyer L, Lin CC, Cayen MN, Affrime MB. Loratadine administered concomitantly with erythromycin: pharmacokinetic and electrocardiographic evaluations. <em>Clin Pharmacol Ther</em> 1995, 58(3): 269-278.</p>
+<p><strong>Capobianco 1994</strong> Capobianco JO, Goldman RC. Macrolide transport in Escherichia coli strains having normal and altered OmpC and/or OmpF porins. <em>Int J Antimicrob Agents</em> 1994, 4(3): 183-189.</p>
+<p><strong>Carlier 1987</strong> Carlier MB, Zenebergh A, Tulkens PM. Cellular uptake and subcellular distribution of roxithromycin and erythromycin in phagocytic cells. <em>J Antimicrob Chemother</em> 1987, 20 Suppl B, 47-56.</p>
+<p><strong>Chan 2000</strong> Chan WK, Delucchi AB. Resveratrol, a red wine constituent, is a mechanism-based inactivator of cytochrome P450 3A4. <em>Life Sci</em> 2000, 67(25): 3103-3112.</p>
+<p><strong>Chelvan 1979</strong> Chelvan P, Hamilton-Miller JM, Brumfitt W. Biliary excretion of erythromycin after parenteral administration. <em>Br J Clin Pharmacol</em> 1979, 8(3): 233-235.</p>
+<p><strong>Chen 2011</strong> Chen Y, Liu L, Monshouwer M, Fretland AJ. Determination of time-dependent inactivation of CYP3A4 in cryopreserved human hepatocytes and assessment of human drug-drug interactions. <em>Drug Metab Dispos</em> 2011, 39(11): 2085-2092.</p>
+<p><strong>Chun 1977</strong> Chun AHC, Seitz JA. Pharmacokinetics and biological availability of erythromycin. <em>Infection</em> 1977, 5(1): 14-22.</p>
+<p><strong>Cui 2000</strong> Cui X, Nelson DR, Strobel HW. A novel human cytochrome P450 4F isoform (CYP4F11): cDNA cloning, expression, and genomic structural characterization. <em>Genomics</em> 2000, 68(2): 161-166.</p>
+<p><strong>DiSanto 1981</strong> DiSanto AR, Chodos DJ. Influence of study design in assessing food effects on absorption of erythromycin base and erythromycin stearate. <em>Antimicrob Agents Chemother</em> 1981, 20(2): 190-196.</p>
+<p><strong>drugbank</strong> (https://www.drugbank.ca/drugs/DB00199), accessed on 05-14-2018.</p>
+<p><strong>Eberl 2007</strong> Eberl S, Renner B, Neubert A, Reisig M, Bachmakov I, König J, Dörje F, Mürdter TE, Ackermann A, Dormann H, Gassmann KG, Hahn EG, Zierhut S, Brune K, Fromm MF. Role of p-glycoprotein inhibition for drug interactions: evidence from in vitro and pharmacoepidemiological studies. <em>Clin Pharmacokinet</em> 2007, 46(12): 1039-1049.</p>
+<p><strong>Henry 1980</strong> Henry J, Turner P, Garland M, Esmieu F. Plasma and salivary concentrations of erythromycin after administration of three different formulations. <em>Postgrad Med J</em> 1980, 56(660): 707-710.</p>
+<p><strong>Huppertz 2011</strong> Huppertz A, Breuer J, Fels LM, Schultze‐Mosgau M, Sutter G, Klein S, et al. Evaluation of possible drug–drug interaction between gadoxetic acid and erythromycin as an inhibitor of organic anion transporting peptides (OATP). <em>J Magn Reson Imaging</em> 2011, 33(2): 409-416.</p>
+<p><strong>Iliopoulou 1982</strong> Iliopoulou A, Aldhous ME, Johnston A, Turner P. Pharmacokinetic interaction between theophylline and erythromycin. <em>Br J Clin Pharmacol</em> 1982, 14(4): 495-499.</p>
+<p><strong>Ishikawa 2017</strong> Ishikawa Y, Akiyoshi T, Imaoka A, Ohtani H. Inactivation kinetics and residual activity of CYP3A4 after treatment with erythromycin. <em>Biopharm Drug Dispos</em> 2017, 38(7): 420-425.</p>
+<p><strong>Jones 1969</strong> Jones PH, Rowley EK, Weiss AL, Bishop DL, Chun AH. (1969). Insoluble erythromycin salts. <em>J Pharm Sci</em> 1969, 58(3): 337-339.</p>
+<p><strong>Josefsson 1982</strong> Josefsson K, Bergan T, Magni L. Dose-related pharmacokinetics after oral administration of a new formulation of erythromycin base. <em>Br J Clin Pharmacol</em> 1982, 13(5): 685-691.</p>
+<p><strong>Kalsotra 2004</strong> Kalsotra A, Turman CM, Kikuta Y, Strobel HW. Expression and characterization of human cytochrome P450 4F11: Putative role in the metabolism of therapeutic drugs and eicosanoids. <em>Toxicol Appl Pharmacol</em> 2004, 199(3): 295-304.</p>
+<p><strong>Kanamitsu 2000</strong> Kanamitsu SI, Ito K, Green CE, Tyson CA, Shimada N, Sugiyama Y. Prediction of in vivo interaction between triazolam and erythromycin based on in vitro studies using human liver microsomes and recombinant human CYP3A4. <em>Pharm Res</em> 2000, 17(4): 419-426.</p>
+<p><strong>Kavi 1988</strong> Kavi J, Webberley JM, Andrews JM, Wise R. A comparison of the pharmacokinetics and tissue penetration of spiramycin and erythromycin. <em>J Antimicrob Chemother</em> 1988, 22 Suppl B: 105-110.</p>
+<p><strong>Kivistö 1997</strong> Kivistö KT, Lamberg TS, Kantola T, Neuvonen PJ. Plasma buspirone concentrations are greatly increased by erythromycin and itraconazole. <em>Clin Pharmacol Ther</em> 1997, 62(3): 348-354.</p>
+<p><strong>Kosaka 2017</strong> Kosaka M, Kosugi Y, Hirabayashi H. Risk assessment using cytochrome P450 time-dependent inhibition assays at single time and concentration in the early stage of drug discovery. <em>J Pharm Sci</em> 2017, 106(9): 2839-2846.</p>
+<p><strong>Kozakai 2013</strong> Kozakai K, Yamada Y, Oshikata M, Kawase T, Suzuki E, Haramaki Y, Taniguchi H. Cocktail-substrate approach-based high-throughput assay for evaluation of direct and time-dependent inhibition of multiple cytochrome P450 isoforms. <em>Drug Metab Pharmacokinet</em> 2013, 29(2): 198-207.</p>
+<p><strong>Kroboth 1982</strong> Kroboth PD, Brown A, Lyon JA, Kroboth FJ, Juhl RP. Pharmacokinetics of single-dose erythromycin in normal and alcoholic liver disease subjects. <em>Antimicrob Agents Chemother</em> 1982, 21(1): 135-140.</p>
+<p><strong>Kuepfer 2016</strong> Kuepfer L, Niederalt C, Wendl T, Schlender JF, Willmann S, Lippert J, Block M, Eissing T, Teutonico D. Applied concepts in PBPK modeling: how to build a PBPK/PD model. <em>CPT Pharmacometrics Syst Pharmacol</em> 2016, 5(10): 516-531.</p>
+<p><strong>Lancaster  2012</strong> Lancaster CS, Bruun GH, Peer CJ, Mikkelsen TS, Corydon TJ, Gibson AA, Hu S, Orwick SJ, Mathijssen RH, Figg WD, Baker SD, Sparreboom A. OATP1B1 polymorphism as a determinant of erythromycin disposition. <em>Clin Pharmacol Ther</em> 2012, 92(5): 642-650.</p>
+<p><strong>Larrey 1983</strong> Larrey D, Tinel M, and Pessayre D. Formation of inactive cytochrome P-450 Fe(II)-metabolite complexes with several erythromycin derivatives but not with josamycin and midecamycin in rats. <em>Biochem Pharmacol</em> 1983, 32(9): 1487-1493.</p>
+<p><strong>Lien 1974</strong> Lien EJ, Kuwahara J, Koda RT. Diffusion of drugs into prostatic fluid and milk. <em>Drug Intelligence &amp; Clinical Pharmacy</em> 1974, 8(8): 470-475.</p>
+<p><strong>Malmborg 1978</strong> Malmborg AS. Absorption of erythromycin stearate after oral administration. <em>Curr Med Res Opin</em> 1978, 5 Sup 2: 15-18.</p>
+<p><strong>Manna 1998</strong> Manna PK, Basu SK. Preparation and Evaluation of Erythromycin Fumarate-a New Derivative of Erythromycin. <em>Drug Dev Ind Pharm</em> 1998, 24(9): 879-882.</p>
+<p><strong>Mather 1981</strong> Mather LE, Austin KL, Philpot CR, McDonald PJ. Absorption and bioavailability of oral erythromycin. <em>Br J Clin Pharmacol</em> 1981, 12(2): 131-140.</p>
+<p><strong>Mao 2011</strong> Mao J, Mohutsky MA, Harrelson JP, Wrighton SA, Hall SD. Prediction of CYP3A-mediated drug-drug interactions using human hepatocytes suspended in human plasma. <em>Drug Metab Dispos</em> 2011, 39(4): 591-602.</p>
+<p><strong>Mao 2016</strong> Mao J, Tay S, Khojasteh CS, Chen Y, Hop CE, Kenny JR. Evaluation of time dependent inhibition assays for marketed oncology drugs: comparison of human hepatocytes and liver microsomes in the presence and absence of human plasma. <em>Pharm Res</em> 2016, 33(5): 1204-1219.</p>
+<p><strong>McConn 2004</strong> McConn DJ, Lin YS, Allen K, Kunze KL, Thummel KE. Differences in the inhibition of cytochromes P450 3A4 and 3A5 by metabolite-inhibitor complex-forming drugs. <em>Drug Metab Dispos</em> 2004, 32(10): 1083-1091.</p>
+<p><strong>McFarland 1997</strong> McFarland JW, Berger CM, Froshauer SA, Hayashi SF, Hecker SJ, Jaynes BH, et al. Quantitative structure− activity relationships among macrolide antibacterial agents: in vitro and in vivo potency against Pasteurella multocida. <em>J Med Chem</em> 1997, 40(9): 1340-1346.</p>
+<p><strong>McGinnity 2006</strong> McGinnity DF, Berry AJ, Kenny JR, Grime K, Riley RJ. Evaluation of time-dependent cytochrome P450 inhibition using cultured human hepatocytes. <em>Drug Metab Dispos</em> 2006, 34(8): 1291-1300.</p>
+<p><strong>Michaels 2014</strong> Michaels S, Wang MZ. The revised human liver cytochrome P450 "Pie": absolute protein quantification of CYP4F and CYP3A enzymes using targeted quantitative proteomics. <em>Drug Metab Dispos</em> 2014, 42(8): 1241-1251.</p>
+<p><strong>Miglioli 1990</strong> Miglioli PA, Pivetta P, Strazzabosco M, Orlando R, Okolicsanyi L, Palatini P. Effect of age on single- and multiple-dose pharmacokinetics of erythromycin. <em>Eur J Clin Pharmacol</em> 1990, 39(2): 161-164.</p>
+<p><strong>Miller 1984</strong> Miller MF, Martin JR, Johnson P, Ulrich JT, Rdzok EJ, Billing P. Erythromycin uptake and accumulation by human polymorphonuclear leukocytes and efficacy of erythromycin in killing ingested Legionella pneumophila. <em>J Infect Dis</em> 1984, 149(5): 714-718.</p>
+<p><strong>Mordi 2000</strong> Mordi MN, Pelta MD, Boote V, Morris GA, Barber J. Acid-catalyzed degradation of clarithromycin and erythromycin B: a comparative study using NMR spectroscopy. <em>J Med Chem</em> 2000, 43(3): 467-474.</p>
+<p><strong>Obach 2007</strong> Obach RS, Walsky RL, Venkatakrishnan K. Mechanism-based inactivation of human cytochrome p450 enzymes and the prediction of drug-drug interactions. <em>Drug Metab Dispos</em> 2007, 35(2): 246-255.</p>
+<p><strong>Olkkola 1993</strong> Olkkola KT, Aranko K, Luurila H, Hiller A, Saarnivaara L, Himberg JJ, Neuvonen PJ. A potentially hazardous interaction between erythromycin and midazolam. <em>Clin Pharmacol Ther</em> 1993, 53(3): 298-305.</p>
+<p><strong>Open Systems Pharmacology Documentation</strong>. (https://docs.open-systems-pharmacology.org/), accessed on 07-30-2019.</p>
+<p><strong>Parsons 1977</strong> Parsons RL, Paddock M, Hossack A. Particular aspects of the pharmacokinetics of erythromycin. <em>Infection</em> 1977, 5(1): 23-28.</p>
+<p><strong>Pasic 1987</strong> Pasic J, Jackson SH, Johnston A, Peverel-Cooper CA, Turner P, Downey K, Chaput de Saintonge DM. The interaction between chronic oral slow-release theophylline and single-dose intravenous erythromycin. <em>Xenobiotica</em> 1987, 17(4):493-497.</p>
+<p><strong>PK-Sim Ontogeny Database Version 7.3</strong>. (https://github.com/Open-Systems-Pharmacology/OSPSuite.Documentation/blob/38cf71b384cfc25cfa0ce4d2f3addfd32757e13b/PK-Sim%20Ontogeny%20Database%20Version%207.3.pdf), accessed on 07-30-2019.</p>
+<p><strong>Polasek 2006</strong> Polasek TM, Miners JO. Quantitative prediction of macrolide drug-drug interaction potential from in vitro studies using testosterone as the human cytochrome P4503A substrate. <em>Eur J Clin Pharmacol</em> 2006, 62(3): 203-208.</p>
+<p><strong>Posti 1983</strong> Posti J, Salonen M. Effect of formulation factors and food intake on the bioavailability of erythromycin stearate tablets. <em>Int J Pharm</em> 1983, 17(2-3): 225-235.</p>
+<p><strong>Riley 1997</strong> Riley RJ, Howbrook D. In vitro analysis of the activity of the major human hepatic CYP enzyme (CYP3A4) using [N-methyl-14C]-erythromycin. <em>J Pharmacol Toxicol Methods</em> 1997, 38(4): 189-193.</p>
+<p><strong>Ring 2005</strong> Ring BJ, Patterson BE, Mitchell MI, Vandenbranden M, Gillespie J, Bedding AW, Jewell H, Payne CD, Forgue ST, Eckstein J, Wrighton SA, Phillips DL. Effect of tadalafil on cytochrome P450 3A4-mediated clearance: studies in vitro and in vivo. <em>Clin Pharmacol Ther</em> 2005, 77(1): 63-75.</p>
+<p><strong>Schreiner 1984</strong> Schreiner A, Digranes A. Absorption of erythromycin stearate and enteric-coated erythromycin base after a single oral dose immediately before breakfast. <em>Infection</em> 1984, 12(5): 345-348.</p>
+<p><strong>Shanson 1984</strong> Shanson DC, Tidbury P, McNabb WR, Tadayon M. The pharmacokinetics and tolerance of oral erythromycin stearate compared with erythromycin ethylsuccinate: implications for preventing endocarditis. <em>J Antimicrob Chemother</em> 1984, 14(2): 157-163.</p>
+<p><strong>Simon 1980</strong> Simon C. Pharmacokinetics of erythromycin in healthy adults and in adults with respiratory infections. <em>Curr Med Res Opin</em> 1980, 6(sup8): 17-22.</p>
+<p><strong>Sun 2010</strong> Sun H, Frassetto LA, Huang Y, Benet LZ. Hepatic clearance, but not gut availability, of erythromycin is altered in patients with end-stage renal disease. <em>Clin Pharmacol Ther</em> 2010, 87(4): 465-472.</p>
+<p><strong>Teng 2010</strong> Teng WC, Oh JW, New LS, Wahlin MD, Nelson SD, Ho HK, Chan EC. Mechanism-based inactivation of cytochrome P450 3A4 by lapatinib. <em>Mol Pharmacol</em> 2010, 78(4): 693-703.</p>
+<p><strong>Uehara 2015</strong> Uehara S, Murayama N, Nakanishi Y, Nakamura C, Hashizume T, Zeldin DC, Yamazaki H, Uno Y. Immunochemical quantification of cynomolgus CYP2J2, CYP4A and CYP4F enzymes in liver and small intestine. <em>Xenobiotica</em> 2015, 45(2): 124-130. </p>
+<p><strong>Ung 2009</strong> Ung D, Parkman HP, Nagar S. Metabolic interactions between prokinetic agents domperidone and erythromycin: an in vitro analysis. <em>Xenobiotica</em> 2009, 39(10): 749-756.</p>
+<p><strong>U.S. Patent 2,761,859</strong>. Aqueous soluble salts of erythromycin. Issued September 4, 1956. https://patents.google.com/patent/US2761859A/en, accessed on 07-17-2018. </p>
+<p><strong>Wang 1997</strong> Wang RW, Newton DJ, Scheri TD, Lu AY. Human cytochrome P450 3A4-catalyzed testosterone 6 beta-hydroxylation and erythromycin N-demethylation. Competition during catalysis. <em>Drug Metab Dispos</em> 1997, 25(4): 502-507.</p>
+<p><strong>Watanabe 2007</strong> Watanabe A, Nakamura K, Okudaira N, Okazaki O, Sudo K. Risk assessment for drug-drug interaction caused by metabolism-based inhibition of CYP3A using automated in vitro assay systems and its application in the early drug discovery process. <em>Drug Metab Dispos</em> 2007, 35(7): 1232-1238.</p>
+<p><strong>Willmann 2007</strong> Willmann S, Höhn K, Edginton A, Sevestre M, Solodenko J, Weiss W, Lippert J, Schmitt W. Development of a physiology-based whole-body population model for assessing the influence of individual variability on the pharmacokinetics of drugs. <em>J Pharmacokinet Pharmacodyn</em> 2007, 34(3): 401-431.</p>
+<p><strong>Xu 2009</strong> Xu L, Chen Y, Pan Y, Skiles GL, Shou M. Prediction of human drug-drug interactions from time-dependent inactivation of CYP3A4 in primary hepatocytes using a population-based simulator. <em>Drug Metab Dispos</em> 2009, 37(12): 2330-2339.</p>
+<p><strong>Yakatan 1979</strong> Yakatan GJ, Poynor WJ, Harris RG, Martin A, Leonard RG, Briggs AH, Doluisio JT. Single-dose fasting bioequivalence assessment of erythromycin stearate tablets in man. <em>J Pharmacokinet Biopharm</em> 1979, 7(4): 355-368.</p>
+<p><strong>Yakatan 1980</strong> Yakatan GJ, Poynor WJ, Breeding SA, Lankford CE, Dighe SV, Martin AN, Doluisio JT. Single- and multiple-dose bioequivalence of erythromycin pharmaceutical alternatives. <em>J Clin Pharmacol</em> 1980, 20(11): 625-638.</p>
+<p><strong>Yamano 2001</strong> Yamano K, Yamamoto K, Katashima M, Kotaki H, Takedomi S, Matsuo H, Ohtani H, Sawada Y, Iga T. Prediction of midazolam-CYP3A inhibitors interaction in the human liver from in vivo/in vitro absorption, distribution, and metabolism data. <em>Drug Metab Dispos</em> 2001, 29(4 Pt 1): 443-452.</p>
+<p><strong>Zhang 2006</strong> Zhang X, Gorski J, Lucksiri A, Chien J, Quinney S, Jones D, Hall S. OIV‐B‐4; Physiologically-based pharmacokinetic models for the inhibition of midazolam clearance by erythromycin and diltiazem. <em>Clin Pharmacol Ther</em> 2006, 79: P34-P34.</p>
+<p><strong>Zhang 2009</strong> Zhang X, Jones DR, Hall SD. Prediction of the effect of erythromycin, diltiazem, and their metabolites, alone and in combination, on CYP3A4 inhibition. <em>Drug Metab Dispos</em> 2009, 37(1):150-160.</p>
+<p><strong>Zimmerlin 2011</strong> Zimmerlin A, Trunzer M, Faller B. CYP3A time-dependent inhibition risk assessment validated with 400 reference drugs. <em>Drug Metab Dispos</em> 2011, 39(6): 1039-1046.</p>
+<hr />
+<h2 id="related-models">Related Models<a class="headerlink" href="#related-models" title="Anchor link to this section for reference">&para;</a></h2>
+<p>Explore other Antibiotics models in this library:</p>
+<ul>
+<li><a href="../Amikacin/">Amikacin</a> - PBPK model and evaluation report</li>
+<li><a href="../Clarithromycin/">Clarithromycin</a> - PBPK model and evaluation report</li>
+<li><a href="../Ethinylestradiol/">Ethinylestradiol</a> - PBPK model and evaluation report</li>
+<li><a href="../Rifampicin/">Rifampicin</a> - PBPK model and evaluation report</li>
+<li><a href="../Vancomycin/">Vancomycin</a> - PBPK model and evaluation report</li>
+</ul>
+<p><a href="../#antibiotics">View all Antibiotics →</a></p>
+<p><a href="../">← Back to Model Library Home</a></p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; Open Systems Pharmacology Community
+    </div>
+  
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/Open-Systems-Pharmacology" target="_blank" rel="noopener" title="Open Systems Pharmacology on GitHub" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://www.open-systems-pharmacology.org/" target="_blank" rel="noopener" title="Open Systems Pharmacology Website" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M351.9 280H161c2.9 64.5 17.2 123.9 37.5 167.4 11.4 24.5 23.7 41.8 35.1 52.4 11.2 10.5 18.9 12.2 22.9 12.2s11.7-1.7 22.9-12.2c11.4-10.6 23.7-28 35.1-52.4 20.3-43.5 34.6-102.9 37.5-167.4zm-191-48h190.9c-2.8-64.5-17.1-123.9-37.4-167.4-11.4-24.4-23.7-41.8-35.1-52.4C268.1 1.7 260.4 0 256.4 0s-11.7 1.7-22.9 12.2c-11.4 10.6-23.7 28-35.1 52.4-20.3 43.5-34.6 102.9-37.5 167.4m-48 0c3.5-85.6 25.6-165.1 57.9-217.3C78.7 47.3 10.9 131.2 1.5 232zM1.5 280c9.4 100.8 77.2 184.7 169.3 217.3-32.3-52.2-54.4-131.7-57.9-217.3zm398.4 0c-3.5 85.6-25.6 165.1-57.9 217.3 92.1-32.7 159.9-116.5 169.3-217.3zm111.4-48C501.9 131.2 434.1 47.3 342 14.7c32.3 52.2 54.4 131.7 57.9 217.3z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.top", "navigation.tabs.sticky", "navigation.indexes", "navigation.path", "toc.follow", "search.highlight", "search.suggest", "search.share", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

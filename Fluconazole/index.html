@@ -1,0 +1,2472 @@
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="PBPK (Physiologically Based Pharmacokinetic) model evaluation report for Fluconazole. Detailed pharmacokinetic modeling and simulation results using Open Systems Pharmacology platform.">
+      
+      
+        <meta name="author" content="Open Systems Pharmacology Community">
+      
+      
+        <link rel="canonical" href="https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/Fluconazole/">
+      
+      
+        <link rel="prev" href="../Felodipine/">
+      
+      
+        <link rel="next" href="../Fluvoxamine/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Fluconazole PBPK Model - Physiologically Based Pharmacokinetic Evaluation Report - OSP PBPK Model Library (Version 12.3)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/Fluconazole/">
+  <meta property="og:title" content="Fluconazole">
+  <meta property="og:description" content="PBPK (Physiologically Based Pharmacokinetic) model evaluation report for Fluconazole. Detailed pharmacokinetic modeling and simulation results using Open Systems Pharmacology platform.">
+  <meta property="og:site_name" content="OSP PBPK Model Library (Version 12.3)">
+  <meta property="og:image" content="https://www.open-systems-pharmacology.org/assets/images/logo.png">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/Fluconazole/">
+  <meta name="twitter:title" content="Fluconazole">
+  <meta name="twitter:description" content="PBPK (Physiologically Based Pharmacokinetic) model evaluation report for Fluconazole. Detailed pharmacokinetic modeling and simulation results using Open Systems Pharmacology platform.">
+  <meta name="twitter:image" content="https://www.open-systems-pharmacology.org/assets/images/logo.png">
+
+  <!-- Structured Data (JSON-LD) for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "OSP PBPK Model Library (Version 12.3)",
+    "description": "Comprehensive library of validated PBPK (Physiologically Based Pharmacokinetic) models and qualification reports for drug development. Open-source whole-body PBPK modeling and simulation software for systems biology and multiscale physiological modeling.",
+    "url": "https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Open Systems Pharmacology",
+      "url": "https://www.open-systems-pharmacology.org/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.open-systems-pharmacology.org/assets/images/logo.png"
+      }
+    },
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
+  <!-- Dataset Schema for PBPK Model Library -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    "name": "Open Systems Pharmacology PBPK Model Library",
+    "description": "Comprehensive library of validated PBPK (Physiologically Based Pharmacokinetic) models for drug development and pharmaceutical research",
+    "url": "https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/",
+    "keywords": ["PBPK", "pharmacokinetic modeling", "drug development", "PK-Sim", "MoBi", "systems pharmacology", "ADME"],
+    "license": "https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library#license",
+    "creator": {
+      "@type": "Organization",
+      "name": "Open Systems Pharmacology",
+      "url": "https://www.open-systems-pharmacology.org/"
+    },
+    "distribution": {
+      "@type": "DataDownload",
+      "encodingFormat": "application/zip",
+      "contentUrl": "https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library"
+    }
+  }
+  </script>
+
+  <!-- SoftwareApplication Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "PK-Sim PBPK Models",
+    "applicationCategory": "ScientificApplication",
+    "operatingSystem": "Windows",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "description": "Validated PBPK models for use with PK-Sim and MoBi software for pharmaceutical research and drug development",
+    "url": "https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Open Systems Pharmacology"
+    }
+  }
+  </script>
+
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "Fluconazole PBPK Model - Physiologically Based Pharmacokinetic Evaluation Report",
+    "description": "PBPK (Physiologically Based Pharmacokinetic) model evaluation report for Fluconazole. Detailed pharmacokinetic modeling and simulation results using Open Systems Pharmacology platform.",
+    "author": {
+      "@type": "Organization",
+      "name": "Open Systems Pharmacology"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Open Systems Pharmacology",
+      "url": "https://www.open-systems-pharmacology.org/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.open-systems-pharmacology.org/assets/images/logo.png"
+      }
+    },
+    "url": "https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/Fluconazole/",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/Fluconazole/"
+    },
+    "keywords": "Fluconazole, PBPK model, physiologically based pharmacokinetic model, Fluconazole pharmacokinetics, drug modeling, PK-Sim"
+  }
+  </script>
+  
+
+  
+  <meta name="keywords" content="Fluconazole, PBPK model, physiologically based pharmacokinetic model, Fluconazole pharmacokinetics, drug modeling, PK-Sim">
+  
+
+  
+  <link rel="canonical" href="https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/Fluconazole/">
+  
+
+  <!-- Language -->
+  <meta http-equiv="content-language" content="en">
+  <meta name="language" content="English">
+
+
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#building-and-evaluation-of-a-pbpk-model-for-fluconazole-in-healthy-adults" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="OSP PBPK Model Library (Version 12.3)" class="md-header__button md-logo" aria-label="OSP PBPK Model Library (Version 12.3)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OSP PBPK Model Library (Version 12.3)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Fluconazole PBPK Model - Physiologically Based Pharmacokinetic Evaluation Report
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    OSP-PBPK-Model-Library
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="OSP PBPK Model Library (Version 12.3)" class="md-nav__button md-logo" aria-label="OSP PBPK Model Library (Version 12.3)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    OSP PBPK Model Library (Version 12.3)
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    OSP-PBPK-Model-Library
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7E3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7E3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Alfentanil/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Alfentanil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Alprazolam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Alprazolam
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Amikacin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amikacin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Atazanavir/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Atazanavir
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BAY794620/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BAY794620
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CDA1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CDA1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Carbamazepine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Carbamazepine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Cimetidine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cimetidine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Clarithromycin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Clarithromycin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Dapagliflozin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dapagliflozin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Digoxin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Digoxin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Efavirenz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Efavirenz
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Erythromycin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Erythromycin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ethinylestradiol/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ethinylestradiol
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Felodipine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Felodipine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fluconazole
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Fluvoxamine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fluvoxamine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Inulin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inulin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Itraconazole/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Itraconazole
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MEDI524/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MEDI524
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MEDI524YTE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MEDI524YTE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mefenamic_acid/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mefenamic_acid
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mexiletine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mexiletine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Midazolam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Midazolam
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Moclobemide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Moclobemide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Montelukast/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Montelukast
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Omeprazole/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Omeprazole
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Propofol/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Propofol
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Raltegravir/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Raltegravir
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Rifampicin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rifampicin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S-Mephenytoin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S-Mephenytoin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Sildenafil/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sildenafil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Sufentanil/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sufentanil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tefibazumab/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tefibazumab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tizanidine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tizanidine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Triazolam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Triazolam
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Vancomycin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vancomycin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Verapamil/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Verapamil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dAb2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    dAb2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="building-and-evaluation-of-a-pbpk-model-for-fluconazole-in-healthy-adults">Building and evaluation of a PBPK model for Fluconazole in healthy adults<a class="headerlink" href="#building-and-evaluation-of-a-pbpk-model-for-fluconazole-in-healthy-adults" title="Anchor link to this section for reference">&para;</a></h1>
+<table>
+<thead>
+<tr>
+<th>Version</th>
+<th>2.0-OSP12.3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>based on <em>Model Snapshot</em> and <em>Evaluation Plan</em></td>
+<td>https://github.com/Open-Systems-Pharmacology/Fluconazole-Model/releases/tag/v2.0</td>
+</tr>
+<tr>
+<td>OSP Version</td>
+<td>12.3</td>
+</tr>
+<tr>
+<td>Qualification Framework Version</td>
+<td>3.6</td>
+</tr>
+</tbody>
+</table>
+<p>This evaluation report and the corresponding PK-Sim project file are filed at:</p>
+<p>https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/</p>
+<h1 id="table-of-contents">Table of Contents<a class="headerlink" href="#table-of-contents" title="Anchor link to this section for reference">&para;</a></h1>
+<ul>
+<li><a href="#introduction">1 Introduction</a></li>
+<li><a href="#methods">2 Methods</a></li>
+<li><a href="#modeling-strategy">2.1 Modeling strategy</a></li>
+<li><a href="#data-used">2.2 Data used</a></li>
+<li><a href="#model-parameters-and-assumptions">2.3 Model parameters and assumptions</a></li>
+<li><a href="#results-and-discussion">3 Results and Discussion</a></li>
+<li><a href="#fluconazole-final-input-parameters">3.1 Fluconazole final input parameters</a></li>
+<li><a href="#fluconazole-diagnostics-plots">3.2 Fluconazole Diagnostics Plots</a></li>
+<li><a href="#ct-profiles">3.3 Concentration-Time Profiles</a><ul>
+<li><a href="#model-building">3.3.1 Model Building</a></li>
+<li><a href="#model-verification">3.3.2 Model Verification</a></li>
+</ul>
+</li>
+<li><a href="#conclusion">4 Conclusion</a></li>
+<li><a href="#main-references">5 References</a></li>
+</ul>
+<h1 id="1-introduction">1 Introduction<a id="introduction"></a><a class="headerlink" href="#1-introduction" title="Anchor link to this section for reference">&para;</a></h1>
+<p>Fluconazole is an antifungal medication for the treatment of a number of different fungal infections. It is metabolized by UGT2B7 and renally excreted by glomerular filtration. About 70% of fluconazole is excreted unchanged in urine during 120 hours.  Fluconazole is a moderate inhibitor of CYP3A4 and can therefore serve as a perpetrator for CYP3A4 in DDI studies. </p>
+<p>The herein presented PBPK model of fluconazole has been developed using published pharmacokinetic clinical data by Palkama et al. (<a href="#5-references">Palkama 1998</a>), Ripa et al. (<a href="#5-references">Ripa 1993</a>), Shiba et al. (<a href="#5-references">Shiba 1990</a>), Ahonen et al. (<a href="#5-references">Ahonen 1997</a>), Brammer et al. (<a href="#5-references">Brammer 1990</a>), Brammer et al. (<a href="#5-references">Brammer 1991</a>), Thorpe et al. (<a href="#5-references">Thorpe 1990</a> and Varhe et al. (<a href="#5-references">Varhe 1996</a>). 
+The model has then been evaluated by comparing observed data to simulations of both intravenously and orally administered fluconazole covering a dose range of 25 mg to 400 mg. Both single dose and multiple dose administration are represented in the development and evaluation data sets. </p>
+<p>The presented model includes the following features:</p>
+<ul>
+<li>metabolism by UGT2B7,</li>
+<li>inhibition of CYP3A4,</li>
+<li>renal clearance by glomerular filtration,</li>
+<li>oral absorption with dissolution rate assigned to the Weibull function for low, medium and high doses.</li>
+</ul>
+<h1 id="2-methods">2 Methods<a id="methods"></a><a class="headerlink" href="#2-methods" title="Anchor link to this section for reference">&para;</a></h1>
+<h2 id="21-modeling-strategy">2.1 Modeling strategy<a id="modeling-strategy"></a><a class="headerlink" href="#21-modeling-strategy" title="Anchor link to this section for reference">&para;</a></h2>
+<p>The general concept of building a PBPK model has previously been described by Kuepfer et al. (<a href="#5-references">Kuepfer 2016</a>). Relevant information on anthropometric (height, weight) and physiological parameters (e.g. blood flows, organ volumes, binding protein concentrations, hematocrit, cardiac output) in adults was gathered from the literature and has been previously published (<a href="#5-references">Willmann 2007</a>). The information was incorporated into PK-Sim® and was used as default values for the simulations in adults.</p>
+<p>The applied activity and variability of plasma proteins and active processes that are integrated into PK-Sim® are described in the publicly available PK-Sim® Ontogeny Database Version 7.3 (<a href="#5-references">PK-Sim Ontogeny Database Version 7.3</a>) or otherwise referenced for the specific process.</p>
+<p>A mean model was built based on clinical data from studies with intravenous administration of fluconazole by Palkama et al. 1998 (<a href="#5-references">Palkama 1998</a>), Ripa et al. 1993 (<a href="#5-references">Ripa 1993</a>) and Shiba et al. 1990 (<a href="#5-references">Shiba 1990</a>). The studies conducted by Palkama et al. and Ripa et al. reported plasma concentrations of fluconazole and the study by Shiba reported fraction of unchanged fluconazole excreted to urine in addition to plasma concentrations.  The mean PBPK model was developed using a typical male European individual. The relative tissue-specific expressions of enzymes predominantly being involved in the metabolism of fluconazole (UGT2B7) were considered (<a href="#5-references">Meyer 2012</a>).</p>
+<p>A specific set of parameters (see below) was optimized to describe the distribution of fluconazole after intravenous administration using the Parameter Identification module provided in PK-Sim®. Structural model selection was mainly guided by visual inspection and total error of the resulting description of data, 95% confidence interval of the identified parameter values and biological plausibility.</p>
+<p>Once the appropriate structural model was identified for the intravenous administration, the model was verified by simulating other clinical studies reporting pharmacokinetic concentration-time profiles after intravenous administration of fluconazole. </p>
+<p>Thereafter additional parameters for oral administration of non-dissolved formulations (i.e. capsules) were identified. Administered doses of fluconazole were ranging from single dose of 25 mg to multiple dosing of 400 mg, why the applied Weibull function to describe the dissolution of fluconazole were divided into low, medium and high dose. The dissolution shape were kept between the doses while the dissolution time were separated. </p>
+<p>The model was then verified by simulating further clinical studies reporting pharmacokinetic concentration-time profiles after oral administration of fluconazole.</p>
+<p>Details about input data (physicochemical, <em>in vitro</em> and clinical) can be found in <a href="#22-data-used">Section 2.2</a>.</p>
+<p>Details about the structural model and its parameters can be found in <a href="#23-model-parameters-and-assumptions">Section 2.3</a>.</p>
+<h2 id="22-data-used">2.2 Data used<a id="data-used"></a><a class="headerlink" href="#22-data-used" title="Anchor link to this section for reference">&para;</a></h2>
+<h3 id="221-in-vitro-and-physicochemical-data">2.2.1 In vitro and physicochemical data<a class="headerlink" href="#221-in-vitro-and-physicochemical-data" title="Anchor link to this section for reference">&para;</a></h3>
+<p>A literature search was performed to collect available information on physicochemical properties of fluconazole. The obtained information from literature is summarized in the table below, and is used for model building.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Parameter</strong></th>
+<th><strong>Unit</strong></th>
+<th><strong>Value</strong></th>
+<th>Source</th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">MW</td>
+<td>g/mol</td>
+<td>306.28</td>
+<td><a href="#5-references">Debruyne 1993</a></td>
+<td>Molecular weight</td>
+</tr>
+<tr>
+<td style="text-align: left;">pK<sub>a</sub></td>
+<td></td>
+<td>2.03</td>
+<td><a href="#5-references">Charoo 2014</a></td>
+<td>acid dissociation constant of conjugate acid; compound type: weak base</td>
+</tr>
+<tr>
+<td style="text-align: left;">Solubility (pH)</td>
+<td>mg/mL</td>
+<td>6.9 (7.4)</td>
+<td><a href="#5-references">Charoo 2014</a></td>
+<td>Aqueous Solubility</td>
+</tr>
+<tr>
+<td style="text-align: left;">logP</td>
+<td></td>
+<td>0.5</td>
+<td><a href="#5-references">Christofoletti 2016</a></td>
+<td>Partition coefficient between octanol and water</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td></td>
+<td>0.5</td>
+<td><a href="#5-references">Charoo 2014</a></td>
+<td>Partition coefficient between octanol and water</td>
+</tr>
+<tr>
+<td style="text-align: left;">fu</td>
+<td>%</td>
+<td>89</td>
+<td>Pfizer</td>
+<td>Fraction unbound in plasma</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td>%</td>
+<td>88</td>
+<td><a href="#5-references">Christofoletti 2016</a></td>
+<td>Fraction unbound in plasma</td>
+</tr>
+<tr>
+<td style="text-align: left;">CL<sub>int</sub> UGT2B7</td>
+<td>1/min</td>
+<td>0.005</td>
+<td><a href="#5-references">Watt 2018</a></td>
+<td>First order intrinsic clearance UGT2B7</td>
+</tr>
+<tr>
+<td style="text-align: left;">P<sub>eff</sub></td>
+<td>cm/s</td>
+<td>0.000213</td>
+<td>GastroPlus</td>
+<td>Specific intestinal permeability</td>
+</tr>
+<tr>
+<td style="text-align: left;">Ki CYP3A4</td>
+<td>µmol/L</td>
+<td>13.1</td>
+<td><a href="#5-references">Sakaeda 2005</a></td>
+<td>Non-competitive inhibition of CYP3A4</td>
+</tr>
+<tr>
+<td style="text-align: left;">GFR fraction</td>
+<td></td>
+<td>0.17</td>
+<td><a href="#5-references">Watt 2018</a></td>
+<td>glomerular filtration fraction</td>
+</tr>
+</tbody>
+</table>
+<h3 id="222-clinical-data">2.2.2 Clinical data<a class="headerlink" href="#222-clinical-data" title="Anchor link to this section for reference">&para;</a></h3>
+<p>A literature search was performed to collect available clinical data on fluconazole in adults. </p>
+<p>The following publications were found in adults for model building:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Publication</th>
+<th style="text-align: left;">Arm / Treatment / Information used for model building</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Ahonen 1997</a></td>
+<td style="text-align: left;">Plasma PK profiles in healthy subjects after single dose oral administration of 400 mg fluconazole</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Brammer 1990</a></td>
+<td style="text-align: left;">Plasma PK profiles in healthy subjects after multiple oral administration of 200, 300 and 400 mg fluconazole</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Brammer 1991</a></td>
+<td style="text-align: left;">Plasma PK profiles in healthy subjects after single dose oral administration of 50 mg fluconazole</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Shiba 1990</a></td>
+<td style="text-align: left;">Plasma PK profiles and urine data in healthy subjects after single iv and oral administration of 25 and 50 mg fluconazole and single oral dose of 100 mg fluconazole</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Palkama 1998</a></td>
+<td style="text-align: left;">Plasma PK profiles in healthy subjects after single dose iv and oral administration of 400 mg fluconazole</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Ripa 1993</a></td>
+<td style="text-align: left;">Plasma PK profiles in healthy subjects after single dose iv administration of 100 mg fluconazole</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Thorpe 1990</a></td>
+<td style="text-align: left;">Plasma PK profiles in healthy subjects after single dose oral administration of 100 mg fluconazole</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Varhe 1996</a></td>
+<td style="text-align: left;">Plasma PK profiles in healthy subjects after multiple oral administration of 100 and 200 mg fluconazole</td>
+</tr>
+</tbody>
+</table>
+<p>The following table shows the data from the excretion studies (<a href="#5-references">Shiba 1990</a>) used for model building:</p>
+<table>
+<thead>
+<tr>
+<th>Observer</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fraction excreted  to urine of unchanged fluconazole after iv administration 25 mg</td>
+<td>74%</td>
+</tr>
+<tr>
+<td>Fraction excreted  to urine of unchanged fluconazole after iv administration 25 mg</td>
+<td>72%</td>
+</tr>
+<tr>
+<td>Fraction excreted  to urine of unchanged fluconazole after oral administration 25 mg</td>
+<td>69%</td>
+</tr>
+<tr>
+<td>Fraction excreted  to urine of unchanged fluconazole after oral administration 50 mg</td>
+<td>67%</td>
+</tr>
+<tr>
+<td>Fraction excreted  to urine of unchanged fluconazole after oral administration 100 mg</td>
+<td>75%</td>
+</tr>
+</tbody>
+</table>
+<p>The following dosing scenarios were simulated and compared to respective data for model verification:</p>
+<table>
+<thead>
+<tr>
+<th>Scenario</th>
+<th>Data reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>iv 400 mg (60 min)</td>
+<td><a href="#5-references">Ahonen 1997</a></td>
+</tr>
+<tr>
+<td>iv 50 mg (2 min)</td>
+<td><a href="#5-references">Brammer 1990</a></td>
+</tr>
+<tr>
+<td>iv 25 mg (1 min)</td>
+<td><a href="#5-references">Shiba 1990</a></td>
+</tr>
+<tr>
+<td>iv 800 mg (240 min) once daily for 14 days</td>
+<td><a href="#5-references">Sobue 2004</a></td>
+</tr>
+<tr>
+<td>iv 100 mg (20 min)</td>
+<td><a href="#5-references">Yeates 1994</a></td>
+</tr>
+<tr>
+<td>po 400 mg</td>
+<td><a href="#5-references">Palkama 1998</a></td>
+</tr>
+<tr>
+<td>po 100 mg</td>
+<td><a href="#5-references">Shiba 1990</a></td>
+</tr>
+<tr>
+<td>po 50 mg once daily for 4 days</td>
+<td><a href="#5-references">Varhe 1996</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="23-model-parameters-and-assumptions">2.3 Model parameters and assumptions<a id="model-parameters-and-assumptions"></a><a class="headerlink" href="#23-model-parameters-and-assumptions" title="Anchor link to this section for reference">&para;</a></h2>
+<h3 id="231-absorption">2.3.1 Absorption<a class="headerlink" href="#231-absorption" title="Anchor link to this section for reference">&para;</a></h3>
+<p>The parameter value for  <code>Specific intestinal permeability</code>  was used as in GastroPlus. Although, the permeability didn't seem to be the rate-limiting step  in oral absorption as this parameter could not be identified when attempting to estimate a value using Parameter Identification. The default solubility was assumed to be the measured value in phosphate buffer (see <a href="#221-in-vitro-and-physicochemical-data">Section 2.2.1</a>)</p>
+<p>The dissolution of capsules/tablets (not always specified in the literature which formulation for oral administration was used) were implemented via empirical Weibull dissolution. A different Weibull function was used for different dose categories, low, medium high and high dose to distinguish the dissolution time across the dose range; see results of optimization in <a href="#234-automated-parameter-identification">Section 2.3.4</a>.</p>
+<h3 id="232-distribution">2.3.2 Distribution<a class="headerlink" href="#232-distribution" title="Anchor link to this section for reference">&para;</a></h3>
+<p>Fluconazole has a low protein bound (approx. 11 %) fraction in plasma (see <a href="#221-in-vitro-and-physicochemical-data">Section 2.2.1</a>). A value of 89% was used in this PBPK model for <code>Fraction unbound (plasma, reference value)</code>. The major binding partner was set to alpha1- acid glycoprotein(see <a href="#221-in-vitro-and-physicochemical-data">Section 2.2.1</a>).</p>
+<p>An important parameter influencing the resulting volume of distribution is lipophilicity. The reported experimental logP values are in the range of 0.5-1.0 (see <a href="#221-in-vitro-and-physicochemical-data">Section 2.2.1</a>) which served as a starting value. Finally, the model parameters <code>Lipophilicity</code> was optimized to match best clinical data (see also <a href="#234-automated-parameter-identification">Section 2.3.4</a>).</p>
+<p>After testing the available organ-plasma partition coefficient and cell permeability calculation methods built in PK-Sim, observed clinical data was best described by choosing the partition coefficient calculation by <code>Rodgers and Rowland</code> and cellular permeability calculation by <code>PK-Sim Standard</code>.</p>
+<h3 id="233-metabolism-and-elimination">2.3.3 Metabolism and Elimination<a class="headerlink" href="#233-metabolism-and-elimination" title="Anchor link to this section for reference">&para;</a></h3>
+<p>One metabolic pathway was implement into the model via first order kinetics </p>
+<ul>
+<li>UGT2B7</li>
+</ul>
+<p>The UGT2B7 expression profiles is based on high-sensitive real-time RT-PCR (<a href="#5-references">Nishimura 2003</a>). Absolute tissue-specific expressions were obtained by considering the respective absolute concentration in the liver. The <code>Specific clearance</code> of fluconazole accounted by UGT2B7 was identified to best describe observed clinical data after intravenous administration (see <a href="#234-automated-parameter-identification">Section 2.3.4</a>).</p>
+<p>Additionally, renal clearance (which is the main elimination process for fluconazole) assumed to be mainly driven by glomerular filtration was implemented. The <code>GFR fraction</code> was identified to best describe the observed fraction of unchanged fluconazole that was renally excreted (see <a href="#234-automated-parameter-identification">Section 2.3.4</a>).</p>
+<h3 id="234-automated-parameter-identification">2.3.4 Automated Parameter Identification<a class="headerlink" href="#234-automated-parameter-identification" title="Anchor link to this section for reference">&para;</a></h3>
+<p>This is the result of the final parameter identification for the intravenous model:</p>
+<table>
+<thead>
+<tr>
+<th>Model Parameter</th>
+<th>Optimized Value</th>
+<th>Unit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Lipophilicity</code></td>
+<td>0.83</td>
+<td>Log Units</td>
+</tr>
+<tr>
+<td><code>GFR fraction</code></td>
+<td>0.14</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Specific clearance</code> (UGT2B7)</td>
+<td>1.85E-3</td>
+<td>1/min</td>
+</tr>
+</tbody>
+</table>
+<p>This is the result of the final parameter identification for the dissolution parameters of a oral administered fluconazole:</p>
+<table>
+<thead>
+<tr>
+<th>Model Parameter</th>
+<th>Optimized Value</th>
+<th>Unit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Dissolution time (50% dissolved) high dose</code></td>
+<td>105.81</td>
+<td>min</td>
+</tr>
+<tr>
+<td><code>Dissolution time (50% dissolved) medium high dose</code></td>
+<td>75.14</td>
+<td>min</td>
+</tr>
+<tr>
+<td><code>Dissolution time (50% dissolved) low dose</code></td>
+<td>33.40</td>
+<td>min</td>
+</tr>
+<tr>
+<td><code>Dissolution shape</code></td>
+<td>2.14</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="3-results-and-discussion">3 Results and Discussion<a id="results-and-discussion"></a><a class="headerlink" href="#3-results-and-discussion" title="Anchor link to this section for reference">&para;</a></h1>
+<p>The PBPK model for fluconazole was developed and verified with clinical pharmacokinetic data.</p>
+<p>The model was built and evaluated covering data from studies including in particular</p>
+<ul>
+<li>intravenous infusions and oral administrations (capsules).</li>
+<li>a dose range of 25 to 800 mg.</li>
+</ul>
+<p>The model quantifies excretion via urine (glomerular filtration) and metabolism via UGT2B7.</p>
+<p>The next sections show:</p>
+<ol>
+<li>the final model input parameters for the building blocks: <a href="#31-fluconazole-final-input-parameters">Section 3.1</a>.</li>
+<li>the overall goodness of fit: <a href="#32-fluconazole-diagnostics-plots">Section 3.2</a>.</li>
+<li>simulated vs. observed concentration-time profiles for the clinical studies used for model building and for model verification: <a href="#33-concentration-time-profiles">Section 3.3</a>.</li>
+</ol>
+<h2 id="31-fluconazole-final-input-parameters">3.1 Fluconazole final input parameters<a id="fluconazole-final-input-parameters"></a><a class="headerlink" href="#31-fluconazole-final-input-parameters" title="Anchor link to this section for reference">&para;</a></h2>
+<p>The compound parameter values of the final PBPK model are illustrated below.</p>
+<h3 id="compound-fluconazole">Compound: Fluconazole<a class="headerlink" href="#compound-fluconazole" title="Anchor link to this section for reference">&para;</a></h3>
+<h4 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Anchor link to this section for reference">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+<th>Alternative</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Solubility at reference pH</td>
+<td>6.9 mg/ml</td>
+<td></td>
+<td>Measurement_Solubility_Charoo2014</td>
+<td>True</td>
+</tr>
+<tr>
+<td>Reference pH</td>
+<td>7</td>
+<td></td>
+<td>Measurement_Solubility_Charoo2014</td>
+<td>True</td>
+</tr>
+<tr>
+<td>Lipophilicity</td>
+<td>0.8302390226 Log Units</td>
+<td>Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 1' on 2021-07-13 15:29</td>
+<td>Optimized_Lipophilicity</td>
+<td>True</td>
+</tr>
+<tr>
+<td>Fraction unbound (plasma, reference value)</td>
+<td>89 %</td>
+<td></td>
+<td>Measurement_Fraction_Unbound_Pfizer</td>
+<td>True</td>
+</tr>
+<tr>
+<td>Specific intestinal permeability (transcellular)</td>
+<td>0.000213 cm/s</td>
+<td></td>
+<td>Measurement_Specific_Intestinal_Permeability_GastroPlus</td>
+<td>True</td>
+</tr>
+<tr>
+<td>F</td>
+<td>2</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Is small molecule</td>
+<td>Yes</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Molecular weight</td>
+<td>306.328 g/mol</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Plasma protein binding partner</td>
+<td>α1-acid glycoprotein</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="calculation-methods">Calculation methods<a class="headerlink" href="#calculation-methods" title="Anchor link to this section for reference">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Partition coefficients</td>
+<td>Rodgers and Rowland</td>
+</tr>
+<tr>
+<td>Cellular permeabilities</td>
+<td>PK-Sim Standard</td>
+</tr>
+</tbody>
+</table>
+<h4 id="processes">Processes<a class="headerlink" href="#processes" title="Anchor link to this section for reference">&para;</a></h4>
+<h5 id="metabolizing-enzyme-ugt2b7-watt2018">Metabolizing Enzyme: UGT2B7-Watt2018<a class="headerlink" href="#metabolizing-enzyme-ugt2b7-watt2018" title="Anchor link to this section for reference">&para;</a></h5>
+<p>Species: Human</p>
+<p>Molecule: UGT2B7</p>
+<h6 id="parameters_1">Parameters<a class="headerlink" href="#parameters_1" title="Anchor link to this section for reference">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Intrinsic clearance</td>
+<td>0.008 l/min</td>
+<td></td>
+</tr>
+<tr>
+<td>Specific clearance</td>
+<td>0.0018460294654 1/min</td>
+<td>Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 1' on 2021-07-13 15:29</td>
+</tr>
+</tbody>
+</table>
+<h5 id="systemic-process-glomerular-filtration-watt2018">Systemic Process: Glomerular Filtration-Watt2018<a class="headerlink" href="#systemic-process-glomerular-filtration-watt2018" title="Anchor link to this section for reference">&para;</a></h5>
+<p>Species: Human</p>
+<h6 id="parameters_2">Parameters<a class="headerlink" href="#parameters_2" title="Anchor link to this section for reference">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align: right;">Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GFR fraction</td>
+<td style="text-align: right;">0.1433240785</td>
+<td>Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 1' on 2021-07-13 15:29</td>
+</tr>
+</tbody>
+</table>
+<h5 id="inhibition-cyp3a4-sakaeda2005">Inhibition: CYP3A4-Sakaeda2005<a class="headerlink" href="#inhibition-cyp3a4-sakaeda2005" title="Anchor link to this section for reference">&para;</a></h5>
+<p>Molecule: CYP3A4</p>
+<h6 id="parameters_3">Parameters<a class="headerlink" href="#parameters_3" title="Anchor link to this section for reference">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th style="text-align: right;">Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ki</td>
+<td>13.1 µmol/l</td>
+<td style="text-align: right;"></td>
+</tr>
+</tbody>
+</table>
+<h3 id="formulation-fluconazole_weibull_high-dose">Formulation: Fluconazole_Weibull_high dose<a class="headerlink" href="#formulation-fluconazole_weibull_high-dose" title="Anchor link to this section for reference">&para;</a></h3>
+<p>Type: Weibull</p>
+<h4 id="parameters_4">Parameters<a class="headerlink" href="#parameters_4" title="Anchor link to this section for reference">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dissolution time (50% dissolved)</td>
+<td>105.8071997888 min</td>
+<td>Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 2' on 2021-07-13 18:01</td>
+</tr>
+<tr>
+<td>Lag time</td>
+<td>0 min</td>
+<td></td>
+</tr>
+<tr>
+<td>Dissolution shape</td>
+<td>2.1410681544</td>
+<td>Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 2' on 2021-07-13 18:01</td>
+</tr>
+<tr>
+<td>Use as suspension</td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="formulation-fluconazole_weibull_low-dose">Formulation: Fluconazole_Weibull_low dose<a class="headerlink" href="#formulation-fluconazole_weibull_low-dose" title="Anchor link to this section for reference">&para;</a></h3>
+<p>Type: Weibull</p>
+<h4 id="parameters_5">Parameters<a class="headerlink" href="#parameters_5" title="Anchor link to this section for reference">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dissolution time (50% dissolved)</td>
+<td>33.3965005792 min</td>
+<td>Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 2' on 2021-07-13 18:01</td>
+</tr>
+<tr>
+<td>Lag time</td>
+<td>0 min</td>
+<td></td>
+</tr>
+<tr>
+<td>Dissolution shape</td>
+<td>2.1410681544</td>
+<td>Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 2' on 2021-07-13 18:01</td>
+</tr>
+<tr>
+<td>Use as suspension</td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="formulation-fluconazole_weibull_medium-high-dose">Formulation: Fluconazole_Weibull_medium high dose<a class="headerlink" href="#formulation-fluconazole_weibull_medium-high-dose" title="Anchor link to this section for reference">&para;</a></h3>
+<p>Type: Weibull</p>
+<h4 id="parameters_6">Parameters<a class="headerlink" href="#parameters_6" title="Anchor link to this section for reference">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dissolution time (50% dissolved)</td>
+<td>75.1395611322 min</td>
+<td>Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 2' on 2021-07-13 18:01</td>
+</tr>
+<tr>
+<td>Lag time</td>
+<td>0 min</td>
+<td></td>
+</tr>
+<tr>
+<td>Dissolution shape</td>
+<td>2.1410681544</td>
+<td>Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 2' on 2021-07-13 18:01</td>
+</tr>
+<tr>
+<td>Use as suspension</td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="32-fluconazole-diagnostics-plots">3.2 Fluconazole Diagnostics Plots<a id="fluconazole-diagnostics-plots"></a><a class="headerlink" href="#32-fluconazole-diagnostics-plots" title="Anchor link to this section for reference">&para;</a></h2>
+<p>Below you find the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data used presented in <a href="#222-clinical-data">Section 2.2.2</a>.</p>
+<p>The first plot shows observed versus simulated plasma concentration, the second weighted residuals versus time. </p>
+<p><a id="table-3-1"></a></p>
+<p><strong>Table 3-1: GMFE for Goodness of fit plot for concentration in plasma.</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Group</th>
+<th style="text-align: left;">GMFE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Fluconazole iv (model building)</td>
+<td style="text-align: left;">1.09</td>
+</tr>
+<tr>
+<td style="text-align: left;">Fluconazole iv (model verification)</td>
+<td style="text-align: left;">1.14</td>
+</tr>
+<tr>
+<td style="text-align: left;">Fluconazole oral administration (model building)</td>
+<td style="text-align: left;">1.20</td>
+</tr>
+<tr>
+<td style="text-align: left;">Fluconazole oral administration (model verification)</td>
+<td style="text-align: left;">1.26</td>
+</tr>
+<tr>
+<td style="text-align: left;">All</td>
+<td style="text-align: left;">1.18</td>
+</tr>
+</tbody>
+</table>
+<p><br>
+<br></p>
+<p><a id="figure-3-1"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/008_section_fluconazole-diagnostics-plots/2_gof_plot_predictedVsObserved.png" /></p>
+<p><strong>Figure 3-1: Goodness of fit plot for concentration in plasma.</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-2"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/008_section_fluconazole-diagnostics-plots/3_gof_plot_residualsOverTime.png" /></p>
+<p><strong>Figure 3-2: Goodness of fit plot for concentration in plasma.</strong></p>
+<p><br>
+<br></p>
+<h2 id="33-concentration-time-profiles">3.3 Concentration-Time Profiles<a id="ct-profiles"></a><a class="headerlink" href="#33-concentration-time-profiles" title="Anchor link to this section for reference">&para;</a></h2>
+<p>Simulated versus observed concentration-time profiles of all data listed in <a href="#222-clinical-data">Section 2.2.2</a> are presented below.</p>
+<h3 id="331-model-building">3.3.1 Model Building<a id="model-building"></a><a class="headerlink" href="#331-model-building" title="Anchor link to this section for reference">&para;</a></h3>
+<p><a id="figure-3-3"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/9_time_profile_plot_Fluconazole_Palkama_1998_fluconazole_400mg_iv_train.png" /></p>
+<p><strong>Figure 3-3: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-4"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/10_time_profile_plot_Fluconazole_Ripa_1993_fluconazole_100mg_iv_train.png" /></p>
+<p><strong>Figure 3-4: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-5"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/11_time_profile_plot_Fluconazole_Shiba_1990_fluconazole_50mg_iv_train.png" /></p>
+<p><strong>Figure 3-5: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-6"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/12_time_profile_plot_Fluconazole_Ahonen_1997_fluconazole_400mg_po_train.png" /></p>
+<p><strong>Figure 3-6: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-7"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/13_time_profile_plot_Fluconazole_Brammer_1990_fluconazole_200mg_po_train.png" /></p>
+<p><strong>Figure 3-7: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-8"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/14_time_profile_plot_Fluconazole_Brammer_1990_fluconazole_300mg_po_train.png" /></p>
+<p><strong>Figure 3-8: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-9"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/15_time_profile_plot_Fluconazole_Brammer_1990_fluconazole_400mg_po_train.png" /></p>
+<p><strong>Figure 3-9: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-10"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/16_time_profile_plot_Fluconazole_Brammer_1990_fluconazole_50mg_po_train.png" /></p>
+<p><strong>Figure 3-10: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-11"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/17_time_profile_plot_Fluconazole_Brammer_1991_fluconazole_50mg_po_train.png" /></p>
+<p><strong>Figure 3-11: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-12"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/18_time_profile_plot_Fluconazole_Shiba_1990_fluconazole_25mg_po_train.png" /></p>
+<p><strong>Figure 3-12: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-13"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/19_time_profile_plot_Fluconazole_Shiba_1990_fluconazole_50mg_po_train.png" /></p>
+<p><strong>Figure 3-13: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-14"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/20_time_profile_plot_Fluconazole_Thorpe_1990_fluconazole_100mg_po_train.png" /></p>
+<p><strong>Figure 3-14: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-15"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/21_time_profile_plot_Fluconazole_Varhe_1996_fluconazole_100mg_po_train.png" /></p>
+<p><strong>Figure 3-15: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-16"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/22_time_profile_plot_Fluconazole_Varhe_1996_fluconazole_200mg_po_train.png" /></p>
+<p><strong>Figure 3-16: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<h3 id="332-model-verification">3.3.2 Model Verification<a id="model-verification"></a><a class="headerlink" href="#332-model-verification" title="Anchor link to this section for reference">&para;</a></h3>
+<p><a id="figure-3-17"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/1_time_profile_plot_Fluconazole_Ahonen_1997_fluconazole_400mg_iv_test.png" /></p>
+<p><strong>Figure 3-17: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-18"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/2_time_profile_plot_Fluconazole_Brammer_1990_fluconazole_50mg_iv_test.png" /></p>
+<p><strong>Figure 3-18: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-19"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/3_time_profile_plot_Fluconazole_Shiba_1990_fluconazole_25mg_iv_test.png" /></p>
+<p><strong>Figure 3-19: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-20"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/4_time_profile_plot_Fluconazole_Sobue_2004_fluconazole_800mg_iv_test.png" /></p>
+<p><strong>Figure 3-20: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-21"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/5_time_profile_plot_Fluconazole_Yeates_1994_fluconazole_100mg_iv_test.png" /></p>
+<p><strong>Figure 3-21: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-22"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/6_time_profile_plot_Fluconazole_Palkama_1998_fluconazole_400mg_po_test.png" /></p>
+<p><strong>Figure 3-22: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-23"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/7_time_profile_plot_Fluconazole_Shiba_1990_fluconazole_100mg_po_test.png" /></p>
+<p><strong>Figure 3-23: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-24"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/8_time_profile_plot_Fluconazole_Varhe_1996_fluconazole_50mg_po_test.png" /></p>
+<p><strong>Figure 3-24: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<h1 id="4-conclusion">4 Conclusion<a id="conclusion"></a><a class="headerlink" href="#4-conclusion" title="Anchor link to this section for reference">&para;</a></h1>
+<p>The presented PBPK model adequately describes the intravenous and oral pharmacokinetics of fluconazole in adults.</p>
+<h1 id="5-references">5 References<a id="main-references"></a><a class="headerlink" href="#5-references" title="Anchor link to this section for reference">&para;</a></h1>
+<p><strong>Ahonen 1997</strong> Ahonen, Jouni, Klaus T. Olkkola, and Pertti J. Neuvonen.  (1997). Effect of route of administration of fluconazole on the interaction between fluconazole and midazolam. <em>European journal of clinical pharmacology</em> 51.5, 415-419.</p>
+<p><strong>Brammer 1990</strong> Brammer, K. W., P. R. Farrow, and J. K. Faulkner.  (1990). Pharmacokinetics and tissue penetration of fluconazole in humans. <em>Reviews of infectious diseases</em> 12.Supplement_3, S318-S326.</p>
+<p><strong>Brammer 1991</strong> Brammer, K. W., Coakley, A. J., Jezequel, S. G., &amp; Tarbit, M. H.  (1991). The disposition and metabolism of [14C] fluconazole in humans. <em>Drug metabolism and disposition</em> 19.4, 764-767.</p>
+<p><strong>Charoo 2014</strong> Charoo, N., Cristofoletti, R., Graham, A., Lartey, P., Abrahamsson, B., Groot, D. W., ... &amp; Dressman, J. (2014). Biowaiver monograph for immediate-release solid oral dosage forms: fluconazole. <em>Journal of pharmaceutical sciences</em>, <em>103</em>(12), 3843-3858.</p>
+<p><strong>Cristofoletti 2016</strong> Cristofoletti, R., Charoo, N. A., &amp; Dressman, J. B. (2016). Exploratory investigation of the limiting steps of oral absorption of fluconazole and ketoconazole in children using an in silico pediatric absorption model. <em>Journal of pharmaceutical sciences</em>, <em>105</em>(9), 2794-2803.</p>
+<p><strong>Debruyne 1993</strong> Debruyne, D., &amp; Ryckelynck, J. P. (1993). Clinical pharmacokinetics of fluconazole. <em>Clinical pharmacokinetics</em>, <em>24</em>(1), 10-27.</p>
+<p><strong>Kuepfer 2016</strong> Kuepfer L, Niederalt C, Wendl T, Schlender JF, Willmann S, Lippert J, Block M, Eissing T, Teutonico D. (2016). Applied Concepts in PBPK Modeling: How to Build a PBPK/PD Model. <em>CPT Pharmacometrics Syst Pharmacol</em>. Oct;5(10), 516-531.</p>
+<p><strong>Meyer 2012</strong> Meyer M, Schneckener S, Ludewig B, Kuepfer L, Lippert J. (2012). Using expression data for quantification of active processes in physiologically based pharmacokinetic modeling. <em>Drug Metab Dispos</em>. May;40(5), 892-901.</p>
+<p><strong>Nishimura 2003</strong> Nishimura M, Yaguti H, Yoshitsugu H, Naito S, Satoh T. (2003). Tissue distribution of mRNA expression of human cytochrome P450 isoforms assessed by high-sensitivity real-time reverse transcription PCR. <em>Yakugaku Zasshi.</em> May;123(5), 369-75.</p>
+<p><strong>Palkama 1998</strong> Palkama, V. J., Isohanni, M. H., Neuvonen, P. J., &amp; Olkkola, K. T. (1998). The effect of intravenous and oral fluconazole on the pharmacokinetics and pharmacodynamics of intravenous alfentanil. <em>Anesthesia &amp; Analgesia</em>, <em>87</em>(1), 190-194.</p>
+<p><strong>Ripa 1993</strong> Ripa, S., Ferrante, L., &amp; Prenna, M. (1993). Pharmacokinetics of fluconazole in normal volunteers. <em>Chemotherapy</em>, <em>39</em>(1), 6-12.</p>
+<p><strong>Sakaeda 2005</strong> Sakaeda, T., Iwaki, K., Kakumoto, M., Nishikawa, M., Niwa, T., Jin, J. (2005). Effect of micafungin on cytochrome P450 3A4 and multidrug resistance protein 1 activities, and its comparison with azole antifungal drugs. <em>J Pharm Pharmacol</em>, <em>57</em>, 759-764.</p>
+<p><strong>Shiba 1990</strong> Shiba, K., Saito, A., &amp; Miyahara, T. (1990). Safety and pharmacokinetics of single oral and intravenous doses of fluconazole in healthy subjects. <em>Clinical therapeutics</em>, <em>12</em>(3), 206-215.</p>
+<p><strong>Sobue 2004</strong> Sobue, S., Tan, K., Layton, G., Eve, M., &amp; Sanderson, J. B. (2004). Pharmacokinetics of fosfluconazole and fluconazole following multiple intravenous administration of fosfluconazole in healthy male volunteers. <em>British journal of clinical pharmacology</em>, <em>58</em>(1), 20-25.</p>
+<p><strong>Thorpe 1990</strong> Thorpe, J. E., Baker, N., &amp; Bromet-Petit, M. (1990). Effect of oral antacid administration on the pharmacokinetics of oral fluconazole. <em>Antimicrobial agents and chemotherapy</em>, <em>34</em>(10), 2032-2033.</p>
+<p><strong>Varhe 1996</strong> Varhe, A., Olkkola, K. T., &amp; Neuvonen, P. J. (1996). Effect of fluconazole dose on the extent of fluconazole‐triazolam interaction. <em>British journal of clinical pharmacology</em>, <em>42</em>(4), 465-470.</p>
+<p><strong>Watt 2018</strong> Watt, K. M., Cohen‐Wolkowiez, M., Barrett, J. S., Sevestre, M., Zhao, P., Brouwer, K. L., &amp; Edginton, A. N. (2018). Physiologically based pharmacokinetic approach to determine dosing on extracorporeal life support: fluconazole in children on ECMO. <em>CPT: pharmacometrics &amp; systems pharmacology</em>, <em>7</em>(10), 629-637.</p>
+<p><strong>Willmann 2007</strong> Willmann S, Höhn K, Edginton A, Sevestre M, Solodenko J, Weiss W, Lippert J, Schmitt W. (2007). Development of a physiology-based whole-body population model for assessing the influence of individual variability on the pharmacokinetics of drugs. <em>J Pharmacokinet Pharmacodyn.</em> 34(3), 401-431.</p>
+<p><strong>Yeates 1994</strong> Yeates, R. A., Ruhnke, M., Pfaff, G., Hartmann, A., Trautmann, M., &amp; Sarnow, E. (1994). The pharmacokinetics of fluconazole after a single intravenous dose in AIDS patients. <em>British journal of clinical pharmacology</em>, <em>38</em>(1), 77-79.</p>
+<hr />
+<h2 id="related-models">Related Models<a class="headerlink" href="#related-models" title="Anchor link to this section for reference">&para;</a></h2>
+<p>Explore other Cardiovascular Agents models in this library:</p>
+<ul>
+<li><a href="../Cimetidine/">Cimetidine</a> - PBPK model and evaluation report</li>
+<li><a href="../Dapagliflozin/">Dapagliflozin</a> - PBPK model and evaluation report</li>
+<li><a href="../Digoxin/">Digoxin</a> - PBPK model and evaluation report</li>
+<li><a href="../Felodipine/">Felodipine</a> - PBPK model and evaluation report</li>
+<li><a href="../Itraconazole/">Itraconazole</a> - PBPK model and evaluation report</li>
+</ul>
+<p><a href="../#cardiovascular-agents">View all Cardiovascular Agents →</a></p>
+<p><a href="../">← Back to Model Library Home</a></p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; Open Systems Pharmacology Community
+    </div>
+  
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/Open-Systems-Pharmacology" target="_blank" rel="noopener" title="Open Systems Pharmacology on GitHub" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://www.open-systems-pharmacology.org/" target="_blank" rel="noopener" title="Open Systems Pharmacology Website" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M351.9 280H161c2.9 64.5 17.2 123.9 37.5 167.4 11.4 24.5 23.7 41.8 35.1 52.4 11.2 10.5 18.9 12.2 22.9 12.2s11.7-1.7 22.9-12.2c11.4-10.6 23.7-28 35.1-52.4 20.3-43.5 34.6-102.9 37.5-167.4zm-191-48h190.9c-2.8-64.5-17.1-123.9-37.4-167.4-11.4-24.4-23.7-41.8-35.1-52.4C268.1 1.7 260.4 0 256.4 0s-11.7 1.7-22.9 12.2c-11.4 10.6-23.7 28-35.1 52.4-20.3 43.5-34.6 102.9-37.5 167.4m-48 0c3.5-85.6 25.6-165.1 57.9-217.3C78.7 47.3 10.9 131.2 1.5 232zM1.5 280c9.4 100.8 77.2 184.7 169.3 217.3-32.3-52.2-54.4-131.7-57.9-217.3zm398.4 0c-3.5 85.6-25.6 165.1-57.9 217.3 92.1-32.7 159.9-116.5 169.3-217.3zm111.4-48C501.9 131.2 434.1 47.3 342 14.7c32.3 52.2 54.4 131.7 57.9 217.3z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.top", "navigation.tabs.sticky", "navigation.indexes", "navigation.path", "toc.follow", "search.highlight", "search.suggest", "search.share", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,3568 @@
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="PBPK (Physiologically Based Pharmacokinetic) model evaluation report for Itraconazole. Detailed pharmacokinetic modeling and simulation results using Open Systems Pharmacology platform.">
+      
+      
+        <meta name="author" content="Open Systems Pharmacology Community">
+      
+      
+        <link rel="canonical" href="https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/Itraconazole/">
+      
+      
+        <link rel="prev" href="../Inulin/">
+      
+      
+        <link rel="next" href="../MEDI524/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Itraconazole PBPK Model - Physiologically Based Pharmacokinetic Evaluation Report - OSP PBPK Model Library (Version 12.3)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/Itraconazole/">
+  <meta property="og:title" content="Itraconazole">
+  <meta property="og:description" content="PBPK (Physiologically Based Pharmacokinetic) model evaluation report for Itraconazole. Detailed pharmacokinetic modeling and simulation results using Open Systems Pharmacology platform.">
+  <meta property="og:site_name" content="OSP PBPK Model Library (Version 12.3)">
+  <meta property="og:image" content="https://www.open-systems-pharmacology.org/assets/images/logo.png">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/Itraconazole/">
+  <meta name="twitter:title" content="Itraconazole">
+  <meta name="twitter:description" content="PBPK (Physiologically Based Pharmacokinetic) model evaluation report for Itraconazole. Detailed pharmacokinetic modeling and simulation results using Open Systems Pharmacology platform.">
+  <meta name="twitter:image" content="https://www.open-systems-pharmacology.org/assets/images/logo.png">
+
+  <!-- Structured Data (JSON-LD) for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "OSP PBPK Model Library (Version 12.3)",
+    "description": "Comprehensive library of validated PBPK (Physiologically Based Pharmacokinetic) models and qualification reports for drug development. Open-source whole-body PBPK modeling and simulation software for systems biology and multiscale physiological modeling.",
+    "url": "https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Open Systems Pharmacology",
+      "url": "https://www.open-systems-pharmacology.org/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.open-systems-pharmacology.org/assets/images/logo.png"
+      }
+    },
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
+  <!-- Dataset Schema for PBPK Model Library -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    "name": "Open Systems Pharmacology PBPK Model Library",
+    "description": "Comprehensive library of validated PBPK (Physiologically Based Pharmacokinetic) models for drug development and pharmaceutical research",
+    "url": "https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/",
+    "keywords": ["PBPK", "pharmacokinetic modeling", "drug development", "PK-Sim", "MoBi", "systems pharmacology", "ADME"],
+    "license": "https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library#license",
+    "creator": {
+      "@type": "Organization",
+      "name": "Open Systems Pharmacology",
+      "url": "https://www.open-systems-pharmacology.org/"
+    },
+    "distribution": {
+      "@type": "DataDownload",
+      "encodingFormat": "application/zip",
+      "contentUrl": "https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library"
+    }
+  }
+  </script>
+
+  <!-- SoftwareApplication Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "PK-Sim PBPK Models",
+    "applicationCategory": "ScientificApplication",
+    "operatingSystem": "Windows",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "description": "Validated PBPK models for use with PK-Sim and MoBi software for pharmaceutical research and drug development",
+    "url": "https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Open Systems Pharmacology"
+    }
+  }
+  </script>
+
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "Itraconazole PBPK Model - Physiologically Based Pharmacokinetic Evaluation Report",
+    "description": "PBPK (Physiologically Based Pharmacokinetic) model evaluation report for Itraconazole. Detailed pharmacokinetic modeling and simulation results using Open Systems Pharmacology platform.",
+    "author": {
+      "@type": "Organization",
+      "name": "Open Systems Pharmacology"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Open Systems Pharmacology",
+      "url": "https://www.open-systems-pharmacology.org/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.open-systems-pharmacology.org/assets/images/logo.png"
+      }
+    },
+    "url": "https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/Itraconazole/",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/Itraconazole/"
+    },
+    "keywords": "Itraconazole, PBPK model, physiologically based pharmacokinetic model, Itraconazole pharmacokinetics, drug modeling, PK-Sim"
+  }
+  </script>
+  
+
+  
+  <meta name="keywords" content="Itraconazole, PBPK model, physiologically based pharmacokinetic model, Itraconazole pharmacokinetics, drug modeling, PK-Sim">
+  
+
+  
+  <link rel="canonical" href="https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/Itraconazole/">
+  
+
+  <!-- Language -->
+  <meta http-equiv="content-language" content="en">
+  <meta name="language" content="English">
+
+
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#building-and-evaluation-of-a-pbpk-model-for-itraconazole-in-healthy-adults" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="OSP PBPK Model Library (Version 12.3)" class="md-header__button md-logo" aria-label="OSP PBPK Model Library (Version 12.3)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OSP PBPK Model Library (Version 12.3)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Itraconazole PBPK Model - Physiologically Based Pharmacokinetic Evaluation Report
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    OSP-PBPK-Model-Library
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="OSP PBPK Model Library (Version 12.3)" class="md-nav__button md-logo" aria-label="OSP PBPK Model Library (Version 12.3)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    OSP PBPK Model Library (Version 12.3)
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    OSP-PBPK-Model-Library
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7E3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7E3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Alfentanil/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Alfentanil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Alprazolam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Alprazolam
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Amikacin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amikacin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Atazanavir/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Atazanavir
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BAY794620/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BAY794620
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CDA1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CDA1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Carbamazepine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Carbamazepine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Cimetidine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cimetidine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Clarithromycin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Clarithromycin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Dapagliflozin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dapagliflozin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Digoxin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Digoxin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Efavirenz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Efavirenz
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Erythromycin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Erythromycin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ethinylestradiol/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ethinylestradiol
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Felodipine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Felodipine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Fluconazole/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fluconazole
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Fluvoxamine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fluvoxamine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Inulin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inulin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Itraconazole
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MEDI524/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MEDI524
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MEDI524YTE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MEDI524YTE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mefenamic_acid/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mefenamic_acid
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mexiletine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mexiletine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Midazolam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Midazolam
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Moclobemide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Moclobemide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Montelukast/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Montelukast
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Omeprazole/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Omeprazole
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Propofol/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Propofol
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Raltegravir/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Raltegravir
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Rifampicin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rifampicin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S-Mephenytoin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S-Mephenytoin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Sildenafil/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sildenafil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Sufentanil/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sufentanil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tefibazumab/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tefibazumab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tizanidine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tizanidine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Triazolam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Triazolam
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Vancomycin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vancomycin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Verapamil/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Verapamil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dAb2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    dAb2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="building-and-evaluation-of-a-pbpk-model-for-itraconazole-in-healthy-adults">Building and evaluation of a PBPK model for Itraconazole in healthy adults<a class="headerlink" href="#building-and-evaluation-of-a-pbpk-model-for-itraconazole-in-healthy-adults" title="Anchor link to this section for reference">&para;</a></h1>
+<table>
+<thead>
+<tr>
+<th>Version</th>
+<th>2.0-OSP12.3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>based on <em>Model Snapshot</em> and <em>Evaluation Plan</em></td>
+<td>https://github.com/Open-Systems-Pharmacology/Itraconazole-Model/releases/tag/v2.0</td>
+</tr>
+<tr>
+<td>OSP Version</td>
+<td>12.3</td>
+</tr>
+<tr>
+<td>Qualification Framework Version</td>
+<td>3.6</td>
+</tr>
+</tbody>
+</table>
+<p>This evaluation report and the corresponding PK-Sim project file are filed at:</p>
+<p>https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/</p>
+<h1 id="table-of-contents">Table of Contents<a class="headerlink" href="#table-of-contents" title="Anchor link to this section for reference">&para;</a></h1>
+<ul>
+<li><a href="#introduction">1 Introduction</a></li>
+<li><a href="#methods">2 Methods</a></li>
+<li><a href="#modeling-strategy">2.1 Modeling Strategy</a></li>
+<li><a href="#data">2.2 Data</a></li>
+<li><a href="#model-parameters-and-assumptions">2.3 Model Parameters and Assumptions</a></li>
+<li><a href="#results-and-discussion">3 Results and Discussion</a></li>
+<li><a href="#final-input-parameters">3.1 Final input parameters</a></li>
+<li><a href="#diagnostics-plots">3.2 Diagnostics Plots</a></li>
+<li><a href="#concentration-time-profiles">3.3 Concentration-Time Profiles</a></li>
+<li><a href="#conclusion">4 Conclusion</a></li>
+<li><a href="#references">5 References</a></li>
+</ul>
+<h1 id="1-introduction">1 Introduction<a id="introduction"></a><a class="headerlink" href="#1-introduction" title="Anchor link to this section for reference">&para;</a></h1>
+<p>Itraconazole is a triazole agent prescribed for the treatment of fungal infections. It is predominantly metabolized by CYP3A4, resulting in the sequential formation of several metabolites, starting with the major metabolite hydroxy-itraconazole, followed by keto-itraconazole and N-desalkyl-itraconazole. All three metabolites are further metabolized by CYP3A4 and parent and metabolites are reported to competitively inhibit CYP3A4 (<a href="#5-references">Isoherranen 2004</a>). Therefore, the metabolites inhibit their own formation and itraconazole inhibits further conversion of its metabolites by CYP3A4. Itraconazole has been proposed as one of the most appropriate CYP3A4 inhibitors for clinical DDI studies, to replace the currently no longer recommended CYP3A4 inhibitor drug ketoconazole.</p>
+<p>The herein presented model represents an update of the itraconazole model publisdhed by Hanke <em>et al.</em> (<a href="#5-references">Hanke 2018</a>). The model was originally established using various clinical studies, covering a dosing range from 100 to 200 mg in different formulations (solution and capsules), administered under fasted conditions or together with food. Although the plasma concentrations of keto-itraconazole and N-desalkyl-itraconazole are lower than those of itraconazole and hydroxy-itraconazole, N-desalkyl-itraconazole is reported to be a very potent inhibitor <em>in vitro</em>, and integration of the two further metabolites into the model with their inhibitory effects enabled the description the strong non-linearity and plasma accumulation of itraconazole. The model applies sequential metabolism of itraconazole to hydroxy-itraconazole to keto-itraconazole to N-desalkyl-itraconazole by CYP3A4, including competitive inhibition of CYP3A4 by the parent drug and all three metabolites, and glomerular filtration. Competitive inhibition of P-gp was included for itracaonazole.</p>
+<p>In comparison to the published version by Hanke <em>et al.</em> 2018 (<a href="#5-references">Hanke 2018</a>), the dissolution and solubility has been optimized and updated for the administration of itraconazole capsules in fasted state (by integrating additional data (<a href="#5-references">Jalava 1997</a>) into the optimization routine).</p>
+<h1 id="2-methods">2 Methods<a id="methods"></a><a class="headerlink" href="#2-methods" title="Anchor link to this section for reference">&para;</a></h1>
+<h2 id="21-modeling-strategy">2.1 Modeling Strategy<a id="modeling-strategy"></a><a class="headerlink" href="#21-modeling-strategy" title="Anchor link to this section for reference">&para;</a></h2>
+<p>The general concept of building a PBPK model has previously been described by Kuepfer et al. (<a href="#5-references">Kuepfer 2016</a>). Relevant information on anthropometric (height, weight) and physiological parameters (e.g. blood flows, organ volumes, binding protein concentrations, hematocrit, cardiac output) in adults was gathered from the literature and has been previously published (<a href="#5-references">Willmann 2007</a>). The information was incorporated into PK-Sim® and was used as default values for the simulations in adults.</p>
+<p>The  applied activity and variability of plasma proteins and active processes that are integrated into PK-Sim® are described in the publicly available PK-Sim® Ontogeny Database Version 7.3 (<a href="#5-references">PK-Sim Ontogeny Database Version 7.3</a>) or otherwise referenced for the specific process.</p>
+<p>First, a mean model including sequential metabolism of itraconazole to hydroxy-itraconazole to keto-itraconazole to N-desalkyl-itraconazole by CYP3A4 was built using clinical data from single dose and multiple dose studies with intravenous and oral administration (solution, fasted state) of itraconazole. Hereby, competitive inhibition of CYP3A4 was considered for all four compounds. The mean PBPK model was developed using a typical European individual. The relative tissue-specific expressions of enzymes predominantly being involved in the metabolism of midazolam (CYP3A4) were considered. </p>
+<p>A specific set of parameters (see below) was optimized using the Parameter Identification module provided in PK-Sim®. Structural model selection was mainly guided by visual inspection of the resulting description of data and biological plausibility.</p>
+<p>Once the appropriate structural model was identified, additional parameters for different administration states (<em>solution fed</em>, <em>capsule fasted</em> and <em>capsule fed</em> versus the reference state <em>solution fasted</em>) were empirically optimized. Clinical data suggest that the bioavailability of itraconazole is enhanced when an oral solution is given in the fasted state compared to fed state (<a href="#5-references">Van de Welde 1996</a>, <a href="#5-references">Barone 1998a</a>). In contrast, a meal significantly enhances the amount of itraconazole absorbed after administrations of capsules (in comparison to fasted state administrations of capsules) (<a href="#5-references">Barone 1993a</a>). To reflect these observations, relevant parameters, in particular solubility and those describing dissolution kinetics (of capsules), were assumed to be variable between these four scenarios and were independently identified using the Parameter Identification module provided in PK-Sim®.</p>
+<p>Details about compound properties (physicochemical, <em>in vitro</em> and clinical) can be found in <a href="#22-data">Section 2.2</a>.</p>
+<p>Details about the structural model and its parameters can be found in <a href="#23-model-parameters-and-assumptions">Section 2.3</a>.</p>
+<h2 id="22-data">2.2 Data<a id="data"></a><a class="headerlink" href="#22-data" title="Anchor link to this section for reference">&para;</a></h2>
+<h3 id="221-in-vitro-and-physicochemical-data">2.2.1 In vitro and physicochemical data<a class="headerlink" href="#221-in-vitro-and-physicochemical-data" title="Anchor link to this section for reference">&para;</a></h3>
+<p>A literature search was performed to collect available information on physicochemical properties of itraconazole and metabolites. The obtained information from literature is summarized in the table below and was used for model building. Note that not all parameters were used in the final model. A list of final model parameters is provided below in later sections. </p>
+<h4 id="itraconazole">Itraconazole<a class="headerlink" href="#itraconazole" title="Anchor link to this section for reference">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Parameter</strong></th>
+<th><strong>Unit</strong></th>
+<th><strong>Value</strong></th>
+<th>Source</th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">MW</td>
+<td>g/mol</td>
+<td>705.633</td>
+<td><a href="#5-references">DrugBank DB01167</a></td>
+<td>Molecular weight</td>
+</tr>
+<tr>
+<td style="text-align: left;">pK<sub>a,base</sub></td>
+<td></td>
+<td>3.7</td>
+<td><a href="#5-references">Heykants 1989</a></td>
+<td>acid dissociation constant of conjugate acid; compound type: base</td>
+</tr>
+<tr>
+<td style="text-align: left;">Solubility (pH)</td>
+<td>mg/L</td>
+<td>8.0<br />(6.5)</td>
+<td><a href="#5-references">Taupitz 2013</a></td>
+<td>Solubility in FaSSIF (fasted state simulated intestinal fluid)</td>
+</tr>
+<tr>
+<td style="text-align: left;">logP</td>
+<td></td>
+<td>5.66</td>
+<td><a href="#5-references">Heykants 1989</a></td>
+<td>Partition coefficient between octanol and water</td>
+</tr>
+<tr>
+<td style="text-align: left;">fu</td>
+<td>%</td>
+<td>0.2</td>
+<td><a href="#5-references">Heykants 1989</a></td>
+<td>Fraction unbound in plasma</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td>%</td>
+<td>0.2</td>
+<td><a href="#5-references">Riccardi 2015</a></td>
+<td>Fraction unbound in plasma</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td>%</td>
+<td>1.58</td>
+<td><a href="#5-references">Ishigam 2001</a></td>
+<td>Fraction unbound in plasma</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td>%</td>
+<td>3.6</td>
+<td><a href="#5-references">Templeton 2008</a></td>
+<td>Fraction unbound in plasma</td>
+</tr>
+<tr>
+<td style="text-align: left;">V<sub>max</sub>, K<sub>m</sub> CYP3A4</td>
+<td>pmol/min/nmol,<br />nmol/L</td>
+<td>270<br />3.9</td>
+<td><a href="#5-references">Isoherranen 2004</a></td>
+<td>CYP3A4 supersomes Michaelis-Menten kinetics</td>
+</tr>
+<tr>
+<td style="text-align: left;">K<sub>i</sub> CYP3A4</td>
+<td>nmol/L</td>
+<td>1.3</td>
+<td><a href="#5-references">Isoherranen 2004</a></td>
+<td>CYP3A4 inhibition constant</td>
+</tr>
+<tr>
+<td style="text-align: left;">K<sub>i</sub> P-gp</td>
+<td>nmol/L</td>
+<td>8.0</td>
+<td><a href="#5-references">Shityakov 2014</a></td>
+<td>P-gp inhibition constant</td>
+</tr>
+</tbody>
+</table>
+<h4 id="hydroxy-itraconazole">Hydroxy-itraconazole<a class="headerlink" href="#hydroxy-itraconazole" title="Anchor link to this section for reference">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Parameter</strong></th>
+<th><strong>Unit</strong></th>
+<th><strong>Value</strong></th>
+<th>Source</th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">MW</td>
+<td>g/mol</td>
+<td>721.633</td>
+<td><a href="#5-references">DrugBank DBMET00374</a></td>
+<td>Molecular weight</td>
+</tr>
+<tr>
+<td style="text-align: left;">logP</td>
+<td></td>
+<td>4.5</td>
+<td><a href="#5-references">PubChem CID 108222</a></td>
+<td>Partition coefficient between octanol and water, computed by XLogP3 3.0</td>
+</tr>
+<tr>
+<td style="text-align: left;">fu</td>
+<td>%</td>
+<td>0.5</td>
+<td><a href="#5-references">Templeton 2008</a></td>
+<td>Fraction unbound in plasma</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td>%</td>
+<td>1.7</td>
+<td><a href="#5-references">Riccardi 2015</a></td>
+<td>Fraction unbound in plasma</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td>%</td>
+<td>2.12</td>
+<td><a href="#5-references">Chen 2016</a></td>
+<td>Fraction unbound in plasma</td>
+</tr>
+<tr>
+<td style="text-align: left;">V<sub>max</sub>, K<sub>m</sub> CYP3A4</td>
+<td>pmol/min/nmol,<br />nmol/L</td>
+<td>543<br />27</td>
+<td><a href="#5-references">Isoherranen 2004</a></td>
+<td>CYP3A4 supersomes Michaelis-Menten kinetics</td>
+</tr>
+<tr>
+<td style="text-align: left;">K<sub>i</sub> CYP3A4</td>
+<td>nmol/L</td>
+<td>14.4</td>
+<td><a href="#5-references">Isoherranen 2004</a></td>
+<td>CYP3A4 inhibition constant</td>
+</tr>
+</tbody>
+</table>
+<h4 id="keto-itraconazole">Keto-itraconazole<a class="headerlink" href="#keto-itraconazole" title="Anchor link to this section for reference">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Parameter</strong></th>
+<th><strong>Unit</strong></th>
+<th><strong>Value</strong></th>
+<th>Source</th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">MW</td>
+<td>g/mol</td>
+<td>719.617</td>
+<td><a href="#5-references">PubChem CID 53865186</a></td>
+<td>Molecular weight</td>
+</tr>
+<tr>
+<td style="text-align: left;">logP</td>
+<td></td>
+<td>4.5</td>
+<td><a href="#5-references">PubChem CID 53865186</a></td>
+<td>Partition coefficient between octanol and water, computed by XLogP3 3.0</td>
+</tr>
+<tr>
+<td style="text-align: left;">fu</td>
+<td>%</td>
+<td>1.0</td>
+<td><a href="#5-references">Riccardi 2015</a></td>
+<td>Fraction unbound in plasma</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td>%</td>
+<td>5.3</td>
+<td><a href="#5-references">Templeton 2008</a></td>
+<td>Fraction unbound in plasma</td>
+</tr>
+<tr>
+<td style="text-align: left;">V<sub>max</sub>, K<sub>m</sub> CYP3A4</td>
+<td>pmol/min/nmol,<br />nmol/L</td>
+<td>86.9<br />1.4</td>
+<td><a href="#5-references">Isoherranen 2004</a></td>
+<td>CYP3A4 supersomes Michaelis-Menten kinetics</td>
+</tr>
+<tr>
+<td style="text-align: left;">IC<sub>50</sub> CYP3A4<sup>†</sup></td>
+<td>nmol/L</td>
+<td>7.0</td>
+<td><a href="#5-references">Isoherranen 2004</a></td>
+<td>CYP3A4 inhibition constant for half maximal inhibitory concentration at constant substrate concentration</td>
+</tr>
+</tbody>
+</table>
+<p><sup>†</sup> The IC<sub>50</sub> values was converted to a K<sub>i</sub> value via Cheng-Prusoff equation (<a href="#5-references">Chen 1973</a>) with a substrate (<em>midazolam</em>) concentration of 1 µmol/L and an assumed substrate (<em>midazolam</em>) K<sub>m</sub> value of 2.73 µmol/L: <strong>5.12 nmol/L</strong></p>
+<h4 id="n-desalkyl-itraconazole">N-Desalkyl-itraconazole<a class="headerlink" href="#n-desalkyl-itraconazole" title="Anchor link to this section for reference">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Parameter</strong></th>
+<th><strong>Unit</strong></th>
+<th><strong>Value</strong></th>
+<th>Source</th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">MW</td>
+<td>g/mol</td>
+<td>649.527</td>
+<td><a href="#5-references">PubChem CID 53789808</a></td>
+<td>Molecular weight</td>
+</tr>
+<tr>
+<td style="text-align: left;">logP</td>
+<td></td>
+<td>4.2</td>
+<td><a href="#5-references">PubChem CID 53789808</a></td>
+<td>Partition coefficient between octanol and water, computed by XLogP3 3.0</td>
+</tr>
+<tr>
+<td style="text-align: left;">fu</td>
+<td>%</td>
+<td>1.1</td>
+<td><a href="#5-references">Riccardi 2015</a></td>
+<td>Fraction unbound in plasma</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td>%</td>
+<td>1.2</td>
+<td><a href="#5-references">Templeton 2008</a></td>
+<td>Fraction unbound in plasma</td>
+</tr>
+<tr>
+<td style="text-align: left;">IC<sub>50</sub> CYP3A4<sup>†</sup></td>
+<td>nmol/L</td>
+<td>0.44</td>
+<td><a href="#5-references">Isoherranen 2004</a></td>
+<td>CYP3A4 inhibition constant for half maximal inhibitory concentration at constant substrate concentration</td>
+</tr>
+</tbody>
+</table>
+<p><sup>†</sup> The IC<sub>50</sub> values was converted to a K<sub>i</sub> value via Cheng-Prusoff equation (<a href="#5-references">Chen 1973</a>) with a substrate (<em>midazolam</em>) concentration of 1 µmol/L and an assumed substrate (<em>midazolam</em>) K<sub>m</sub> value of 2.73 µmol/L: <strong>0.32 nmol/L</strong></p>
+<h3 id="222-clinical-data">2.2.2 Clinical data<a class="headerlink" href="#222-clinical-data" title="Anchor link to this section for reference">&para;</a></h3>
+<p>A literature search was performed to collect available clinical data on itraconazole and its metabolites in adults. The itraconazole model was built and verified using various clinical studies, covering a dosing range of 100 to 200 mg with different formulations (solution <em>vs.</em> capsule), administered under fasting conditions or together with food.</p>
+<p>The following dosing senarios were simulated and compared to respective data:</p>
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Formulation</th>
+<th>Food state</th>
+<th>Dose<br />[mg]</th>
+<th>Dosing</th>
+<th>PK Data</th>
+<th>Used for<sup>†</sup></th>
+<th>Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>iv</td>
+<td>-</td>
+<td>-</td>
+<td>100</td>
+<td>SD</td>
+<td>Itraconazole</td>
+<td>mv</td>
+<td><a href="#5-references">Heykants 1989</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>200</td>
+<td>OD</td>
+<td>Itraconazole<br />Hydroxy-Itr.</td>
+<td>mbb</td>
+<td><a href="#5-references">Mouton 2006</a></td>
+</tr>
+<tr>
+<td>po</td>
+<td>solution</td>
+<td>fasted</td>
+<td>100</td>
+<td>SD</td>
+<td>Itraconazole</td>
+<td>mbb</td>
+<td><a href="#5-references">Van de Velde 1996</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>Itraconazole<br />Hydroxy-Itr.</td>
+<td>mbb</td>
+<td><a href="#5-references">Van Peer 1989</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>OD</td>
+<td>Itraconazole<br />Hydroxy-Itr.<br />Keto-Itr.<br />N-Desalkyl-Itr.</td>
+<td>mbb</td>
+<td><a href="#5-references">Templeton 2008</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>200</td>
+<td>OD</td>
+<td>Itraconazole<br />Hydroxy-Itr.</td>
+<td>mbb</td>
+<td><a href="#5-references">Barone 1998a</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>fed</td>
+<td>100</td>
+<td>SD</td>
+<td>Itraconazole<br />Hydroxy-Itr.</td>
+<td>mbe</td>
+<td><a href="#5-references">Van de Velde 1996</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>Itraconazole</td>
+<td>mbe</td>
+<td><a href="#5-references">Heykants 1989</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>200</td>
+<td>SD</td>
+<td>Itraconazole<br />Hydroxy-Itr.</td>
+<td>mbe</td>
+<td><a href="#5-references">Barone 1998b</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>OD</td>
+<td>Itraconazole<br />Hydroxy-Itr.</td>
+<td>mbe</td>
+<td><a href="#5-references">Barone 1998a</a></td>
+</tr>
+<tr>
+<td></td>
+<td>capsule</td>
+<td>fasted</td>
+<td>100</td>
+<td>SD</td>
+<td>Itraconazole</td>
+<td>mbe</td>
+<td><a href="#5-references">Van Peer 1989</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>BID</td>
+<td>Itraconazole</td>
+<td>mv</td>
+<td><a href="#5-references">Kivistö 1997</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>200</td>
+<td>SD</td>
+<td>Itraconazole<br />Hydroxy-Itr.</td>
+<td>mbe</td>
+<td><a href="#5-references">Barone 1993</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>Itraconazole</td>
+<td>mv</td>
+<td><a href="#5-references">Neuvonen 1996</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>OD</td>
+<td>Itraconazole</td>
+<td>mbe</td>
+<td><a href="#5-references">Jalava 1997</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>Itraconazole</td>
+<td>mbe</td>
+<td><a href="#5-references">Olkkola 1994</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>Itraconazole</td>
+<td>mv</td>
+<td><a href="#5-references">Varhe 1994</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>fed</td>
+<td>100</td>
+<td>SD</td>
+<td>Itraconazole</td>
+<td>mbe</td>
+<td><a href="#5-references">Van Peer 1989</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>OD</td>
+<td>Itraconazole</td>
+<td>mbe</td>
+<td><a href="#5-references">Van Peer 1989</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>Itraconazole</td>
+<td>mv</td>
+<td><a href="#5-references">Hardin 1988</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>200</td>
+<td>SD</td>
+<td>Itraconazole<br />Hydroxy-Itr.</td>
+<td>mbe</td>
+<td><a href="#5-references">Barone 1993</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>Itraconazole<br />Hydroxy-Itr.</td>
+<td>mbe</td>
+<td><a href="#5-references">Barone 1998b</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>Itraconazole</td>
+<td>mv</td>
+<td><a href="#5-references">Neuvonen 1996</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>200</td>
+<td>OD</td>
+<td>Itraconazole</td>
+<td>mv</td>
+<td><a href="#5-references">Hardin 1988</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>BID</td>
+<td>Itraconazole</td>
+<td>mbe</td>
+<td><a href="#5-references">Barone 1993</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>Itraconazole<br />Hydroxy-Itr.</td>
+<td>mv</td>
+<td><a href="#5-references">Hardin 1988</a></td>
+</tr>
+</tbody>
+</table>
+<p><sup>†</sup> <em>mbb</em> model building basic: used to inform the basic model parameters (see <a href="#235-automated-parameter-identification">Section 2.3.5</a>); <em>mbe</em> model building extended: used to inform solubility and, if applicable, formulation-depenendent parameters only (see <a href="#235-automated-parameter-identification">Section 2.3.5</a>); <em>mv</em> model verification only</p>
+<h2 id="23-model-parameters-and-assumptions">2.3 Model Parameters and Assumptions<a id="model-parameters-and-assumptions"></a><a class="headerlink" href="#23-model-parameters-and-assumptions" title="Anchor link to this section for reference">&para;</a></h2>
+<h3 id="231-absorption">2.3.1 Absorption<a class="headerlink" href="#231-absorption" title="Anchor link to this section for reference">&para;</a></h3>
+<p>Clinical data suggest that the bioavailability of itraconazole is enhanced when an oral solution is given in the fasted state compared to fed state (<a href="#5-references">Van de Welde 1996</a>, <a href="#5-references">Barone 1998a</a>). In contrast, a meal significantly enhances the amount of itraconazole absorbed after administrations of capsules (in comparison to fasted state administrations of capsules) (<a href="#5-references">Barone 1993a</a>). Thus, four different scenarios can be identified:  <em>solution fasted</em>, <em>solution fed</em>, <em>capsule fasted</em> and <em>capsule fed</em>. The <em>solution fasted</em> scenario was considered to be the reference scenario.</p>
+<p>Herein, the model parameter <code>Specific intestinal permeability</code> was optimized to best match clinical data (see <a href="#235-automated-parameter-identification">Section 2.3.5</a>). The default solubility was assumed to be the measured value in FaSSIF (fasted state simulated intestinal fluid; see <a href="#221-in-vitro-and-physicochemical-data">Section 2.2.1</a>).</p>
+<p>In a next step, the solubility was optimized for the <em>solution fed</em> scenario (in comparison to <em>solution fasted</em>).</p>
+<p>Then, for the scenarios <em>capsule fasted</em> and <em>capsule fed</em>, solubility and the dissolution rate of the capsules (implemented via an empirical Weibull dissolution) were optimized. </p>
+<p>The results of the optimization can be found in <a href="#235-automated-parameter-identification">Section 2.3.5</a>.</p>
+<h3 id="232-distribution">2.3.2 Distribution<a class="headerlink" href="#232-distribution" title="Anchor link to this section for reference">&para;</a></h3>
+<p>Various values for the fraction unbound of itraconazole have been reported in literature, ranging from 0.2 to 3.6% (see <a href="#221-in-vitro-and-physicochemical-data">Section 2.2.1</a>). For this model, the final value was optimized within this range to best match observed clinical data (see <a href="#235-automated-parameter-identification">Section 2.3.5</a>). For the metabolites, the measured values reported by Riccardi <em>et al.</em> (<a href="#5-references">Riccardi 2015</a>) were incorporated into the model. It was assumed that the major binding partner is albumin.</p>
+<p>No pK<sub>a</sub> values were reported for the three metabolites. Here, it was assumed that the metabolites are similar to the parent drug and the reported basic pK<sub>a</sub> value of 3.7 was applied (see also <a href="#221-in-vitro-and-physicochemical-data">Section 2.2.1</a>)</p>
+<p>An important parameter influencing the resulting volume of distribution is lipophilicty. The reported experimental or predicted logP values served as starting values for the four compounds. Finally, the model parameters <code>Lipophilicity</code> were optimized to match best clinical data (see also <a href="#235-automated-parameter-identification">Section 2.3.5</a>).</p>
+<p>After testing the available organ-plasma partition coefficient and cell permeability calculation methods built in PK-Sim®, observed clinical data was best described by choosing the partition coefficient calculation by <code>Rodgers and Rowland</code> and cellular permeability calculation by <code>PK-Sim Standard</code> for itraconazole and its metabolites.</p>
+<h3 id="233-metabolism-and-elimination">2.3.3 Metabolism and Elimination<a class="headerlink" href="#233-metabolism-and-elimination" title="Anchor link to this section for reference">&para;</a></h3>
+<p>Metabolic pathways via CYP3A4 were implemented in the model via Michaelis-Menten kinetics for all four compounds. If available, <em>in vitro</em> determined unbound K<sub>m</sub> values (<a href="#5-references">Isoherranen 2004</a>) served as starting values. Respective k<sub>cat</sub> values were optimized to best match clinical data (see also <a href="#235-automated-parameter-identification">Section 2.3.5</a>).</p>
+<p>The CYP3A4 expression profile is based on high-sensitivity real-time RT-PCR (<a href="#5-references">Nishimura 2013</a>). Absolute tissue-specific concentrations were obtained by considering the respective absolute concentration in the liver. The PK-Sim® Ontogeny Database Version 7.3 provides a default value for CYP3A4 reference concentration in the liver (compare <a href="#5-references">Rodrigues 1999</a> and assume 40 mg protein per gram liver). </p>
+<p>Additionally, for all four compounds a renal clearance (assumed to be driven by glomerular filtration) was implemented.</p>
+<h3 id="234-ddi-parameters">2.3.4 DDI Parameters<a class="headerlink" href="#234-ddi-parameters" title="Anchor link to this section for reference">&para;</a></h3>
+<p>The following subsections describe the model input for DDI-related parameters, i.e. inhibition of certain enzymes and transporters, for which itraconazole may act in a perpetrator role. Verification of these model parameters and linked processes in combination with sensitive CYP3A4 / P-gp substrates is not evaluated in this report. Applications are assessed in specific use cases and reported elsewhere. Note, however, that the competitive CYP3A4 inhibition of the four compounds results in inhibition of metabolite formation (of hydroxy-itraconazole, keto-itraconazole, N-desalkyl-itraconazole) and the metabolism of N-desalkyl-itraconazole. This effectively contributes to the PK non-linearity of itraconazole and its metabolites, especially after multiple doses.</p>
+<h4 id="cyp3a4-inhibition">CYP3A4 inhibition<a class="headerlink" href="#cyp3a4-inhibition" title="Anchor link to this section for reference">&para;</a></h4>
+<p><em>In vitro</em> determined unbound K<sub>i</sub> values for itraconazole and hydroxy-itraconazole (<a href="#5-references">Isoherranen 2004</a>) served directly as model input (see <a href="#221-in-vitro-and-physicochemical-data">Section 2.2.1</a>).</p>
+<p><em>In vitro</em> determined unbound IC<sub>50</sub> values for keto-itraconazole and N-desalkyl-itraconazol (<a href="#5-references">Isoherranen 2004</a>) were converted to K<sub>i</sub>  values via the Cheng-Prusoff equation (<a href="#5-references">Chen 1973</a>) with a substrate (<em>midazolam</em>) concentration of 1 µmol/L and an assumed substrate (<em>midazolam</em>) K<sub>m</sub> value of 2.73 µmol/L (see <a href="#221-in-vitro-and-physicochemical-data">Section 2.2.1</a>).</p>
+<h4 id="p-gp-inhibition">P-gp inhibition<a class="headerlink" href="#p-gp-inhibition" title="Anchor link to this section for reference">&para;</a></h4>
+<p>An <em>in vitro</em> determined K<sub>i</sub> values for itraconazole (<a href="#5-references">Shityakov 2014</a>) served directly as model input (see <a href="#221-in-vitro-and-physicochemical-data">Section 2.2.1</a>).</p>
+<h3 id="235-automated-parameter-identification">2.3.5 Automated Parameter Identification<a class="headerlink" href="#235-automated-parameter-identification" title="Anchor link to this section for reference">&para;</a></h3>
+<p>This is the result of the final parameter identification for the basic model:</p>
+<table>
+<thead>
+<tr>
+<th>Compound</th>
+<th>Model Parameter</th>
+<th>Optimized Value</th>
+<th>Unit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Itraconazole</td>
+<td><code>Lipophilicity</code></td>
+<td>4.62</td>
+<td>Log Units</td>
+</tr>
+<tr>
+<td></td>
+<td><code>Specific intestinal permeability</code></td>
+<td>5.33E-05</td>
+<td>dm/min</td>
+</tr>
+<tr>
+<td></td>
+<td><code>Fraction unbound (plasma, reference value)</code></td>
+<td>0.6</td>
+<td>%</td>
+</tr>
+<tr>
+<td></td>
+<td><code>Km</code> (CYP3A4)</td>
+<td>2.07</td>
+<td>nmol/L</td>
+</tr>
+<tr>
+<td></td>
+<td><code>kcat</code> (CYP3A4)</td>
+<td>0.040</td>
+<td>1/min</td>
+</tr>
+<tr>
+<td>Hydroxy-Itr.</td>
+<td><code>Lipophilicity</code></td>
+<td>3.72</td>
+<td>Log Units</td>
+</tr>
+<tr>
+<td></td>
+<td><code>Fraction unbound (plasma, reference value)</code></td>
+<td>1.7 FIXED (see <a href="#221-in-vitro-and-physicochemical-data">Section 2.2.1</a>)</td>
+<td>%</td>
+</tr>
+<tr>
+<td></td>
+<td><code>Km</code> (CYP3A4)</td>
+<td>4.17</td>
+<td>nmol/L</td>
+</tr>
+<tr>
+<td></td>
+<td><code>kcat</code> (CYP3A4)</td>
+<td>0.020</td>
+<td>1/min</td>
+</tr>
+<tr>
+<td>Keto-Itr.</td>
+<td><code>Lipophilicity</code></td>
+<td>4.21</td>
+<td>Log Units</td>
+</tr>
+<tr>
+<td></td>
+<td><code>Fraction unbound (plasma, reference value)</code></td>
+<td>1.0 FIXED (see <a href="#221-in-vitro-and-physicochemical-data">Section 2.2.1</a>)</td>
+<td>%</td>
+</tr>
+<tr>
+<td></td>
+<td><code>Km</code> (CYP3A4)</td>
+<td>2.22</td>
+<td>nmol/L</td>
+</tr>
+<tr>
+<td></td>
+<td><code>kcat</code> (CYP3A4)</td>
+<td>0.393</td>
+<td>1/min</td>
+</tr>
+<tr>
+<td>N-Desalkyl-Itr.</td>
+<td><code>Lipophilicity</code></td>
+<td>5.18</td>
+<td>Log Units</td>
+</tr>
+<tr>
+<td></td>
+<td><code>Fraction unbound (plasma, reference value)</code></td>
+<td>1.1 FIXED (see <a href="#221-in-vitro-and-physicochemical-data">Section 2.2.1</a>)</td>
+<td>%</td>
+</tr>
+<tr>
+<td></td>
+<td><code>Km</code> (CYP3A4)</td>
+<td>0.63</td>
+<td>nmol/L</td>
+</tr>
+<tr>
+<td></td>
+<td><code>kcat</code> (CYP3A4)</td>
+<td>0.061</td>
+<td>1/min</td>
+</tr>
+</tbody>
+</table>
+<p>This is the result of the final parameter identification for the solubility and, in case of capsule administrations, the dissolution parameters of an empirical Weibull function according to the different administration scenarios of itraconazole:</p>
+<table>
+<thead>
+<tr>
+<th>Scenario</th>
+<th>Model Parameter</th>
+<th>Optimized Value</th>
+<th>Unit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Solution fasted</td>
+<td><code>Solubility at reference pH</code></td>
+<td>8.0 FIXED (see <a href="#221-in-vitro-and-physicochemical-data">Section 2.2.1</a>)</td>
+<td>mg/L</td>
+</tr>
+<tr>
+<td>Solution fed</td>
+<td><code>Solubility at reference pH</code></td>
+<td>1.58</td>
+<td>mg/L</td>
+</tr>
+<tr>
+<td>Capsule fasted</td>
+<td><code>Solubility at reference pH</code></td>
+<td>0.97</td>
+<td>mg/L</td>
+</tr>
+<tr>
+<td></td>
+<td><code>Dissolution time (50% dissolved)</code></td>
+<td>406</td>
+<td>min</td>
+</tr>
+<tr>
+<td></td>
+<td><code>Dissolution shape</code></td>
+<td>1.43</td>
+<td></td>
+</tr>
+<tr>
+<td>Capsule fed</td>
+<td><code>Solubility at reference pH</code></td>
+<td>0.70</td>
+<td>mg/L</td>
+</tr>
+<tr>
+<td></td>
+<td><code>Dissolution time (50% dissolved)</code></td>
+<td>139</td>
+<td>min</td>
+</tr>
+<tr>
+<td></td>
+<td><code>Dissolution shape</code></td>
+<td>0.82</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="3-results-and-discussion">3 Results and Discussion<a id="results-and-discussion"></a><a class="headerlink" href="#3-results-and-discussion" title="Anchor link to this section for reference">&para;</a></h1>
+<p>The PBPK model for itraconazole was developed and verified with clinical pharmacokinetic data.</p>
+<p>The model was built and evaluated covering data from various clinical studies, covering a dosing range of 100 to 200 mg in different formulations (solution <em>vs.</em> capsule), administered under fasting conditions or together with food.</p>
+<p>The model quantifies metabolism via CYP3A4 and inhibition of CYP3A4.</p>
+<p>The next sections show:</p>
+<ol>
+<li>the final model input parameters for the building blocks: <a href="#31-final-input-parameters">Section 3.1</a>.</li>
+<li>the overall goodness of fit: <a href="#32-diagnostics-plots">Section 3.2</a>.</li>
+<li>simulated vs. observed concentration-time profiles for the clinical studies used for model building and for model verification: <a href="#33-concentration-time-profiles">Section 3.3</a>.</li>
+</ol>
+<h2 id="31-final-input-parameters">3.1 Final input parameters<a id="final-input-parameters"></a><a class="headerlink" href="#31-final-input-parameters" title="Anchor link to this section for reference">&para;</a></h2>
+<p>The compound parameter values of the final PBPK model are illustrated below.</p>
+<h3 id="compound-itraconazole">Compound: Itraconazole<a class="headerlink" href="#compound-itraconazole" title="Anchor link to this section for reference">&para;</a></h3>
+<h4 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Anchor link to this section for reference">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+<th>Alternative</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Solubility at reference pH</td>
+<td>8 mg/l</td>
+<td>Publication-Taupitz et al. 2013</td>
+<td>Solution fasted (Taupitz et al. 2013)</td>
+<td>True</td>
+</tr>
+<tr>
+<td>Reference pH</td>
+<td>6.5</td>
+<td>Publication-Taupitz et al. 2013</td>
+<td>Solution fasted (Taupitz et al. 2013)</td>
+<td>True</td>
+</tr>
+<tr>
+<td>Solubility at reference pH</td>
+<td>1.58 mg/l</td>
+<td></td>
+<td>Solution fed</td>
+<td>False</td>
+</tr>
+<tr>
+<td>Reference pH</td>
+<td>6.5</td>
+<td></td>
+<td>Solution fed</td>
+<td>False</td>
+</tr>
+<tr>
+<td>Solubility at reference pH</td>
+<td>0.9728307177 mg/l</td>
+<td>Parameter Identification-Parameter Identification-Value updated from 'Capsule fasted' on 2019-05-15 12:25</td>
+<td>Capsule fasted</td>
+<td>False</td>
+</tr>
+<tr>
+<td>Reference pH</td>
+<td>6.5</td>
+<td></td>
+<td>Capsule fasted</td>
+<td>False</td>
+</tr>
+<tr>
+<td>Solubility at reference pH</td>
+<td>0.7 mg/l</td>
+<td></td>
+<td>Capsule fed</td>
+<td>False</td>
+</tr>
+<tr>
+<td>Reference pH</td>
+<td>6.5</td>
+<td></td>
+<td>Capsule fed</td>
+<td>False</td>
+</tr>
+<tr>
+<td>Lipophilicity</td>
+<td>4.624 Log Units</td>
+<td>Parameter Identification-Fit</td>
+<td>Fit</td>
+<td>True</td>
+</tr>
+<tr>
+<td>Fraction unbound (plasma, reference value)</td>
+<td>0.6016197247 %</td>
+<td></td>
+<td>Templeton, 2008</td>
+<td>True</td>
+</tr>
+<tr>
+<td>Specific intestinal permeability (transcellular)</td>
+<td>5.3261558344E-05 dm/min</td>
+<td>Parameter Identification-Fit</td>
+<td>Fit</td>
+<td>True</td>
+</tr>
+<tr>
+<td>Cl</td>
+<td>2</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Is small molecule</td>
+<td>Yes</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Molecular weight</td>
+<td>705.633 g/mol</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Plasma protein binding partner</td>
+<td>Albumin</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="calculation-methods">Calculation methods<a class="headerlink" href="#calculation-methods" title="Anchor link to this section for reference">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Partition coefficients</td>
+<td>Rodgers and Rowland</td>
+</tr>
+<tr>
+<td>Cellular permeabilities</td>
+<td>PK-Sim Standard</td>
+</tr>
+</tbody>
+</table>
+<h4 id="processes">Processes<a class="headerlink" href="#processes" title="Anchor link to this section for reference">&para;</a></h4>
+<h5 id="metabolizing-enzyme-cyp3a4-isoherranen-2004">Metabolizing Enzyme: CYP3A4-Isoherranen 2004<a class="headerlink" href="#metabolizing-enzyme-cyp3a4-isoherranen-2004" title="Anchor link to this section for reference">&para;</a></h5>
+<p>Molecule: CYP3A4</p>
+<p>Metabolite: Hydroxy-Itraconazole</p>
+<h6 id="parameters_1">Parameters<a class="headerlink" href="#parameters_1" title="Anchor link to this section for reference">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>In vitro Vmax/recombinant enzyme</td>
+<td>0.27 pmol/min/pmol rec. enzyme</td>
+<td>Publication-Isoherranen 2004</td>
+</tr>
+<tr>
+<td>Km</td>
+<td>2.0688492598 nmol/l</td>
+<td>Publication-Isoherranen 2004</td>
+</tr>
+<tr>
+<td>kcat</td>
+<td>0.0402937875 1/min</td>
+<td>Unknown</td>
+</tr>
+</tbody>
+</table>
+<h5 id="systemic-process-glomerular-filtration-gfr">Systemic Process: Glomerular Filtration-GFR<a class="headerlink" href="#systemic-process-glomerular-filtration-gfr" title="Anchor link to this section for reference">&para;</a></h5>
+<p>Species: Human</p>
+<h6 id="parameters_2">Parameters<a class="headerlink" href="#parameters_2" title="Anchor link to this section for reference">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align: right;">Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GFR fraction</td>
+<td style="text-align: right;">1</td>
+<td>Publication-Isoherranen 2004</td>
+</tr>
+</tbody>
+</table>
+<h5 id="inhibition-cyp3a4-isoherranen-2004">Inhibition: CYP3A4-Isoherranen, 2004<a class="headerlink" href="#inhibition-cyp3a4-isoherranen-2004" title="Anchor link to this section for reference">&para;</a></h5>
+<p>Molecule: CYP3A4</p>
+<h6 id="parameters_3">Parameters<a class="headerlink" href="#parameters_3" title="Anchor link to this section for reference">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ki</td>
+<td>1.3 nmol/l</td>
+<td>Parameter Identification-Isoherranen, 2004</td>
+</tr>
+</tbody>
+</table>
+<h5 id="inhibition-abcb1-shityakov-2014">Inhibition: ABCB1-Shityakov 2014<a class="headerlink" href="#inhibition-abcb1-shityakov-2014" title="Anchor link to this section for reference">&para;</a></h5>
+<p>Molecule: ABCB1</p>
+<h6 id="parameters_4">Parameters<a class="headerlink" href="#parameters_4" title="Anchor link to this section for reference">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ki</td>
+<td>0.008 µmol/l</td>
+<td>Publication-Shityakov 2014</td>
+</tr>
+</tbody>
+</table>
+<h3 id="compound-hydroxy-itraconazole">Compound: Hydroxy-Itraconazole<a class="headerlink" href="#compound-hydroxy-itraconazole" title="Anchor link to this section for reference">&para;</a></h3>
+<h4 id="parameters_5">Parameters<a class="headerlink" href="#parameters_5" title="Anchor link to this section for reference">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+<th>Alternative</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Solubility at reference pH</td>
+<td>1 mg/l</td>
+<td></td>
+<td>No value available</td>
+<td>True</td>
+</tr>
+<tr>
+<td>Reference pH</td>
+<td>7</td>
+<td></td>
+<td>No value available</td>
+<td>True</td>
+</tr>
+<tr>
+<td>Lipophilicity</td>
+<td>3.718 Log Units</td>
+<td></td>
+<td>Fit</td>
+<td>True</td>
+</tr>
+<tr>
+<td>Fraction unbound (plasma, reference value)</td>
+<td>1.7 %</td>
+<td>Publication-Templeton, 2008</td>
+<td>Templeton, 2008</td>
+<td>True</td>
+</tr>
+<tr>
+<td>Cl</td>
+<td>2</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Is small molecule</td>
+<td>Yes</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Molecular weight</td>
+<td>721.633 g/mol</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Plasma protein binding partner</td>
+<td>Albumin</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="calculation-methods_1">Calculation methods<a class="headerlink" href="#calculation-methods_1" title="Anchor link to this section for reference">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Partition coefficients</td>
+<td>Rodgers and Rowland</td>
+</tr>
+<tr>
+<td>Cellular permeabilities</td>
+<td>PK-Sim Standard</td>
+</tr>
+</tbody>
+</table>
+<h4 id="processes_1">Processes<a class="headerlink" href="#processes_1" title="Anchor link to this section for reference">&para;</a></h4>
+<h5 id="metabolizing-enzyme-cyp3a4-isoherranen-2004_1">Metabolizing Enzyme: CYP3A4-Isoherranen 2004<a class="headerlink" href="#metabolizing-enzyme-cyp3a4-isoherranen-2004_1" title="Anchor link to this section for reference">&para;</a></h5>
+<p>Molecule: CYP3A4</p>
+<p>Metabolite: Keto-Itraconazole</p>
+<h6 id="parameters_6">Parameters<a class="headerlink" href="#parameters_6" title="Anchor link to this section for reference">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>In vitro Vmax/recombinant enzyme</td>
+<td>0.543 nmol/min/pmol rec. enzyme</td>
+<td>Publication-Isoherranen 2004</td>
+</tr>
+<tr>
+<td>Km</td>
+<td>4.1716224833 nmol/l</td>
+<td>Publication-Isoherranen 2004</td>
+</tr>
+<tr>
+<td>kcat</td>
+<td>0.0203370845 1/min</td>
+<td>Unknown</td>
+</tr>
+</tbody>
+</table>
+<h5 id="systemic-process-glomerular-filtration-gfr_1">Systemic Process: Glomerular Filtration-GFR<a class="headerlink" href="#systemic-process-glomerular-filtration-gfr_1" title="Anchor link to this section for reference">&para;</a></h5>
+<p>Species: Human</p>
+<h6 id="parameters_7">Parameters<a class="headerlink" href="#parameters_7" title="Anchor link to this section for reference">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align: right;">Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GFR fraction</td>
+<td style="text-align: right;">1</td>
+<td>Publication-Isoherranen, 2004</td>
+</tr>
+</tbody>
+</table>
+<h5 id="inhibition-cyp3a4-isoherranen-2004_1">Inhibition: CYP3A4-Isoherranen, 2004<a class="headerlink" href="#inhibition-cyp3a4-isoherranen-2004_1" title="Anchor link to this section for reference">&para;</a></h5>
+<p>Molecule: CYP3A4</p>
+<h6 id="parameters_8">Parameters<a class="headerlink" href="#parameters_8" title="Anchor link to this section for reference">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ki</td>
+<td>14.4 nmol/l</td>
+<td>Publication-Isoherranen, 2004</td>
+</tr>
+</tbody>
+</table>
+<h5 id="inhibition-oatp1b1-tuerk-2019">Inhibition: OATP1B1-Tuerk 2019<a class="headerlink" href="#inhibition-oatp1b1-tuerk-2019" title="Anchor link to this section for reference">&para;</a></h5>
+<p>Molecule: OATP1B1</p>
+<h6 id="parameters_9">Parameters<a class="headerlink" href="#parameters_9" title="Anchor link to this section for reference">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ki</td>
+<td>0.0177818488 µmol/l</td>
+<td>Parameter Identification-Parameter Identification</td>
+</tr>
+</tbody>
+</table>
+<h5 id="inhibition-oatp1b3-tuerk-2019">Inhibition: OATP1B3-Tuerk 2019<a class="headerlink" href="#inhibition-oatp1b3-tuerk-2019" title="Anchor link to this section for reference">&para;</a></h5>
+<p>Molecule: OATP1B3</p>
+<h6 id="parameters_10">Parameters<a class="headerlink" href="#parameters_10" title="Anchor link to this section for reference">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ki</td>
+<td>0.0111606334 µmol/l</td>
+<td>Parameter Identification-Parameter Identification</td>
+</tr>
+</tbody>
+</table>
+<h3 id="compound-keto-itraconazole">Compound: Keto-Itraconazole<a class="headerlink" href="#compound-keto-itraconazole" title="Anchor link to this section for reference">&para;</a></h3>
+<h4 id="parameters_11">Parameters<a class="headerlink" href="#parameters_11" title="Anchor link to this section for reference">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+<th>Alternative</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Solubility at reference pH</td>
+<td>1 mg/l</td>
+<td></td>
+<td>No value available</td>
+<td>True</td>
+</tr>
+<tr>
+<td>Reference pH</td>
+<td>7</td>
+<td></td>
+<td>No value available</td>
+<td>True</td>
+</tr>
+<tr>
+<td>Lipophilicity</td>
+<td>4.2109086248 Log Units</td>
+<td></td>
+<td>Fit</td>
+<td>True</td>
+</tr>
+<tr>
+<td>Fraction unbound (plasma, reference value)</td>
+<td>1 %</td>
+<td>Publication-Templeton, 2008</td>
+<td>Templeton, 2008</td>
+<td>True</td>
+</tr>
+<tr>
+<td>Cl</td>
+<td>2</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Is small molecule</td>
+<td>Yes</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Molecular weight</td>
+<td>719.617 g/mol</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Plasma protein binding partner</td>
+<td>Albumin</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="calculation-methods_2">Calculation methods<a class="headerlink" href="#calculation-methods_2" title="Anchor link to this section for reference">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Partition coefficients</td>
+<td>Rodgers and Rowland</td>
+</tr>
+<tr>
+<td>Cellular permeabilities</td>
+<td>PK-Sim Standard</td>
+</tr>
+</tbody>
+</table>
+<h4 id="processes_2">Processes<a class="headerlink" href="#processes_2" title="Anchor link to this section for reference">&para;</a></h4>
+<h5 id="metabolizing-enzyme-cyp3a4-isoherranen-2004_2">Metabolizing Enzyme: CYP3A4-Isoherranen 2004<a class="headerlink" href="#metabolizing-enzyme-cyp3a4-isoherranen-2004_2" title="Anchor link to this section for reference">&para;</a></h5>
+<p>Molecule: CYP3A4</p>
+<p>Metabolite: N-desalkyl-Itraconazole</p>
+<h6 id="parameters_12">Parameters<a class="headerlink" href="#parameters_12" title="Anchor link to this section for reference">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>In vitro Vmax/recombinant enzyme</td>
+<td>0.0869 pmol/min/pmol rec. enzyme</td>
+<td>Publication-Isoherranen 2004</td>
+</tr>
+<tr>
+<td>Km</td>
+<td>2.2214874285 nmol/l</td>
+<td>Publication-Isoherranen 2004</td>
+</tr>
+<tr>
+<td>kcat</td>
+<td>0.3933927416 1/min</td>
+<td>Unknown</td>
+</tr>
+</tbody>
+</table>
+<h5 id="systemic-process-glomerular-filtration-gfr_2">Systemic Process: Glomerular Filtration-GFR<a class="headerlink" href="#systemic-process-glomerular-filtration-gfr_2" title="Anchor link to this section for reference">&para;</a></h5>
+<p>Species: Human</p>
+<h6 id="parameters_13">Parameters<a class="headerlink" href="#parameters_13" title="Anchor link to this section for reference">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align: right;">Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GFR fraction</td>
+<td style="text-align: right;">1</td>
+<td>Publication-Isoherranen 2004</td>
+</tr>
+</tbody>
+</table>
+<h5 id="inhibition-cyp3a4-isoherranen-2004_2">Inhibition: CYP3A4-Isoherranen, 2004<a class="headerlink" href="#inhibition-cyp3a4-isoherranen-2004_2" title="Anchor link to this section for reference">&para;</a></h5>
+<p>Molecule: CYP3A4</p>
+<h6 id="parameters_14">Parameters<a class="headerlink" href="#parameters_14" title="Anchor link to this section for reference">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ki</td>
+<td>5.12 nmol/l</td>
+<td>Publication-Isoherranen 2004</td>
+</tr>
+</tbody>
+</table>
+<h3 id="compound-n-desalkyl-itraconazole">Compound: N-desalkyl-Itraconazole<a class="headerlink" href="#compound-n-desalkyl-itraconazole" title="Anchor link to this section for reference">&para;</a></h3>
+<h4 id="parameters_15">Parameters<a class="headerlink" href="#parameters_15" title="Anchor link to this section for reference">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+<th>Alternative</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Solubility at reference pH</td>
+<td>1 mg/l</td>
+<td></td>
+<td>No value available</td>
+<td>True</td>
+</tr>
+<tr>
+<td>Reference pH</td>
+<td>7</td>
+<td></td>
+<td>No value available</td>
+<td>True</td>
+</tr>
+<tr>
+<td>Lipophilicity</td>
+<td>5.1837535822 Log Units</td>
+<td></td>
+<td>Fit</td>
+<td>True</td>
+</tr>
+<tr>
+<td>Fraction unbound (plasma, reference value)</td>
+<td>1.1 %</td>
+<td>Publication-Templeton, 2008</td>
+<td>Templeton, 2008</td>
+<td>True</td>
+</tr>
+<tr>
+<td>Cl</td>
+<td>2</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Is small molecule</td>
+<td>Yes</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Molecular weight</td>
+<td>649.527 g/mol</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Plasma protein binding partner</td>
+<td>Albumin</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="calculation-methods_3">Calculation methods<a class="headerlink" href="#calculation-methods_3" title="Anchor link to this section for reference">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Partition coefficients</td>
+<td>Rodgers and Rowland</td>
+</tr>
+<tr>
+<td>Cellular permeabilities</td>
+<td>PK-Sim Standard</td>
+</tr>
+</tbody>
+</table>
+<h4 id="processes_3">Processes<a class="headerlink" href="#processes_3" title="Anchor link to this section for reference">&para;</a></h4>
+<h5 id="metabolizing-enzyme-cyp3a4-isoherranen-2004_3">Metabolizing Enzyme: CYP3A4-Isoherranen 2004<a class="headerlink" href="#metabolizing-enzyme-cyp3a4-isoherranen-2004_3" title="Anchor link to this section for reference">&para;</a></h5>
+<p>Molecule: CYP3A4</p>
+<h6 id="parameters_16">Parameters<a class="headerlink" href="#parameters_16" title="Anchor link to this section for reference">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>In vitro Vmax/recombinant enzyme</td>
+<td>0 nmol/min/pmol rec. enzyme</td>
+<td></td>
+</tr>
+<tr>
+<td>Km</td>
+<td>0.6284266369 nmol/l</td>
+<td>Publication-Isoherranen 2004</td>
+</tr>
+<tr>
+<td>kcat</td>
+<td>0.0605873508 1/min</td>
+<td>Unknown</td>
+</tr>
+</tbody>
+</table>
+<h5 id="systemic-process-glomerular-filtration-gfr_3">Systemic Process: Glomerular Filtration-GFR<a class="headerlink" href="#systemic-process-glomerular-filtration-gfr_3" title="Anchor link to this section for reference">&para;</a></h5>
+<p>Species: Human</p>
+<h6 id="parameters_17">Parameters<a class="headerlink" href="#parameters_17" title="Anchor link to this section for reference">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align: right;">Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GFR fraction</td>
+<td style="text-align: right;">1</td>
+<td>Publication-Isoherranen 2004</td>
+</tr>
+</tbody>
+</table>
+<h5 id="inhibition-cyp3a4-isoherranen-2004_3">Inhibition: CYP3A4-Isoherranen, 2004<a class="headerlink" href="#inhibition-cyp3a4-isoherranen-2004_3" title="Anchor link to this section for reference">&para;</a></h5>
+<p>Molecule: CYP3A4</p>
+<h6 id="parameters_18">Parameters<a class="headerlink" href="#parameters_18" title="Anchor link to this section for reference">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ki</td>
+<td>0.32 nmol/l</td>
+<td>Publication-Isoherranen, 2004</td>
+</tr>
+</tbody>
+</table>
+<h3 id="formulation-capsule-fasted">Formulation: Capsule fasted<a class="headerlink" href="#formulation-capsule-fasted" title="Anchor link to this section for reference">&para;</a></h3>
+<p>Type: Weibull</p>
+<h4 id="parameters_19">Parameters<a class="headerlink" href="#parameters_19" title="Anchor link to this section for reference">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dissolution time (50% dissolved)</td>
+<td>406.3001802552 min</td>
+<td>Parameter Identification-Parameter Identification-Value updated from 'Capsule fasted' on 2019-05-15 12:25</td>
+</tr>
+<tr>
+<td>Lag time</td>
+<td>0 min</td>
+<td></td>
+</tr>
+<tr>
+<td>Dissolution shape</td>
+<td>1.4297720052</td>
+<td>Parameter Identification-Parameter Identification-Value updated from 'Capsule fasted' on 2019-05-15 12:25</td>
+</tr>
+<tr>
+<td>Use as suspension</td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="formulation-capsule-fed">Formulation: Capsule fed<a class="headerlink" href="#formulation-capsule-fed" title="Anchor link to this section for reference">&para;</a></h3>
+<p>Type: Weibull</p>
+<h4 id="parameters_20">Parameters<a class="headerlink" href="#parameters_20" title="Anchor link to this section for reference">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th style="text-align: right;">Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dissolution time (50% dissolved)</td>
+<td>138.95 min</td>
+<td style="text-align: right;"></td>
+</tr>
+<tr>
+<td>Lag time</td>
+<td>0 min</td>
+<td style="text-align: right;"></td>
+</tr>
+<tr>
+<td>Dissolution shape</td>
+<td>0.82</td>
+<td style="text-align: right;"></td>
+</tr>
+<tr>
+<td>Use as suspension</td>
+<td>Yes</td>
+<td style="text-align: right;"></td>
+</tr>
+</tbody>
+</table>
+<h2 id="32-diagnostics-plots">3.2 Diagnostics Plots<a id="diagnostics-plots"></a><a class="headerlink" href="#32-diagnostics-plots" title="Anchor link to this section for reference">&para;</a></h2>
+<p>Below you find the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data used presented in <a href="#222-clinical-data">Section 2.2.2</a>.</p>
+<p>The plot show observed versus simulated plasma concentration and second weighted residuals versus time for itraconazole, hydroxy-itraconazole, keto-itraconazole and N-desalkyl-itraconazole.</p>
+<p><a id="table-3-1"></a></p>
+<p><strong>Table 3-1: GMFE for Itraconazole concentration in plasma</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Group</th>
+<th style="text-align: left;">GMFE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Itraconazole iv</td>
+<td style="text-align: left;">1.29</td>
+</tr>
+<tr>
+<td style="text-align: left;">Itraconazole po capsule fasted</td>
+<td style="text-align: left;">1.74</td>
+</tr>
+<tr>
+<td style="text-align: left;">Itraconazole po capsule fed</td>
+<td style="text-align: left;">1.57</td>
+</tr>
+<tr>
+<td style="text-align: left;">Itraconazole po solution fasted</td>
+<td style="text-align: left;">1.54</td>
+</tr>
+<tr>
+<td style="text-align: left;">Itraconazole po solution fed</td>
+<td style="text-align: left;">1.46</td>
+</tr>
+<tr>
+<td style="text-align: left;">All</td>
+<td style="text-align: left;">1.54</td>
+</tr>
+</tbody>
+</table>
+<p><br>
+<br></p>
+<p><a id="figure-3-1"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/008_section_diagnostics-plots/2_gof_plot_predictedVsObserved.png" /></p>
+<p><strong>Figure 3-1: Itraconazole concentration in plasma</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-2"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/008_section_diagnostics-plots/3_gof_plot_residualsOverTime.png" /></p>
+<p><strong>Figure 3-2: Itraconazole concentration in plasma</strong></p>
+<p><br>
+<br></p>
+<p><a id="table-3-2"></a></p>
+<p><strong>Table 3-2: GMFE for Hydroxy-Itraconazole concentration in plasma</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Group</th>
+<th style="text-align: left;">GMFE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Itraconazole iv</td>
+<td style="text-align: left;">1.21</td>
+</tr>
+<tr>
+<td style="text-align: left;">Itraconazole po capsule fasted</td>
+<td style="text-align: left;">1.68</td>
+</tr>
+<tr>
+<td style="text-align: left;">Itraconazole po capsule fed</td>
+<td style="text-align: left;">1.95</td>
+</tr>
+<tr>
+<td style="text-align: left;">Itraconazole po solution fasted</td>
+<td style="text-align: left;">1.38</td>
+</tr>
+<tr>
+<td style="text-align: left;">Itraconazole po solution fed</td>
+<td style="text-align: left;">1.48</td>
+</tr>
+<tr>
+<td style="text-align: left;">All</td>
+<td style="text-align: left;">1.50</td>
+</tr>
+</tbody>
+</table>
+<p><br>
+<br></p>
+<p><a id="figure-3-3"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/008_section_diagnostics-plots/5_gof_plot_predictedVsObserved.png" /></p>
+<p><strong>Figure 3-3: Hydroxy-Itraconazole concentration in plasma</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-4"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/008_section_diagnostics-plots/6_gof_plot_residualsOverTime.png" /></p>
+<p><strong>Figure 3-4: Hydroxy-Itraconazole concentration in plasma</strong></p>
+<p><br>
+<br></p>
+<p><a id="table-3-3"></a></p>
+<p><strong>Table 3-3: GMFE for Keto-Itraconazole concentration in plasma</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Group</th>
+<th style="text-align: left;">GMFE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Itraconazole po solution fasted</td>
+<td style="text-align: left;">1.66</td>
+</tr>
+</tbody>
+</table>
+<p><br>
+<br></p>
+<p><a id="figure-3-5"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/008_section_diagnostics-plots/8_gof_plot_predictedVsObserved.png" /></p>
+<p><strong>Figure 3-5: Keto-Itraconazole concentration in plasma</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-6"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/008_section_diagnostics-plots/9_gof_plot_residualsOverTime.png" /></p>
+<p><strong>Figure 3-6: Keto-Itraconazole concentration in plasma</strong></p>
+<p><br>
+<br></p>
+<p><a id="table-3-4"></a></p>
+<p><strong>Table 3-4: GMFE for N-desalkyl-Itraconazole concentration in plasma</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Group</th>
+<th style="text-align: left;">GMFE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Itraconazole po solution fasted</td>
+<td style="text-align: left;">1.53</td>
+</tr>
+</tbody>
+</table>
+<p><br>
+<br></p>
+<p><a id="figure-3-7"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/008_section_diagnostics-plots/11_gof_plot_predictedVsObserved.png" /></p>
+<p><strong>Figure 3-7: N-desalkyl-Itraconazole concentration in plasma</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-8"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/008_section_diagnostics-plots/12_gof_plot_residualsOverTime.png" /></p>
+<p><strong>Figure 3-8: N-desalkyl-Itraconazole concentration in plasma</strong></p>
+<p><br>
+<br></p>
+<h2 id="33-concentration-time-profiles">3.3 Concentration-Time Profiles<a id="concentration-time-profiles"></a><a class="headerlink" href="#33-concentration-time-profiles" title="Anchor link to this section for reference">&para;</a></h2>
+<p>Simulated versus observed concentration-time profiles of all data listed in <a href="#222-clinical-data">Section 2.2.2</a> are presented below.</p>
+<p><a id="figure-3-9"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_concentration-time-profiles/1_time_profile_plot_Itraconazole_100_mg_IV_SD.png" /></p>
+<p><strong>Figure 3-9: 100 mg IV SD - Plasma</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-10"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_concentration-time-profiles/2_time_profile_plot_Itraconazole_200_mg_IV_MD.png" /></p>
+<p><strong>Figure 3-10: 200 mg IV MD - Plasma</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-11"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_concentration-time-profiles/3_time_profile_plot_Itraconazole_po_100_mg_SD_caps_fast.png" /></p>
+<p><strong>Figure 3-11: po 100 mg SD caps fast - Plasma</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-12"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_concentration-time-profiles/4_time_profile_plot_Itraconazole_po_200_mg_MD_OD_caps_fast.png" /></p>
+<p><strong>Figure 3-12: po 200 mg MD OD caps fast - Plasma</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-13"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_concentration-time-profiles/5_time_profile_plot_Itraconazole_po_100_mg_MD_BID_caps_fast.png" /></p>
+<p><strong>Figure 3-13: po 100 mg MD BID caps fast - Plasma</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-14"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_concentration-time-profiles/6_time_profile_plot_Itraconazole_po_200_mg_SD_caps_fast.png" /></p>
+<p><strong>Figure 3-14: po 200 mg SD caps fast - Plasma</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-15"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_concentration-time-profiles/7_time_profile_plot_Itraconazole_po_100_mg_MD_OD_caps_fed_1.png" /></p>
+<p><strong>Figure 3-15: po 100 mg MD OD caps fed 1 - Plasma</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-16"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_concentration-time-profiles/8_time_profile_plot_Itraconazole_po_100_mg_MD_OD_caps_fed_2.png" /></p>
+<p><strong>Figure 3-16: po 100 mg MD OD caps fed 2 - Plasma</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-17"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_concentration-time-profiles/9_time_profile_plot_Itraconazole_po_100_mg_SD_caps_fed.png" /></p>
+<p><strong>Figure 3-17: po 100 mg SD caps fed - Plasma</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-18"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_concentration-time-profiles/10_time_profile_plot_Itraconazole_po_200_mg_MD_BID_caps_fed_1.png" /></p>
+<p><strong>Figure 3-18: po 200 mg MD BID caps fed 1 - Plasma</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-19"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_concentration-time-profiles/11_time_profile_plot_Itraconazole_po_200_mg_MD_BID_caps_fed_2.png" /></p>
+<p><strong>Figure 3-19: po 200 mg MD BID caps fed 2 - Plasma</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-20"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_concentration-time-profiles/12_time_profile_plot_Itraconazole_po_200_mg_MD_OD_caps_fed.png" /></p>
+<p><strong>Figure 3-20: po 200 mg MD OD caps fed - Plasma</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-21"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_concentration-time-profiles/13_time_profile_plot_Itraconazole_po_200_mg_SD_caps_fed.png" /></p>
+<p><strong>Figure 3-21: po 200 mg SD caps fed - Plasma</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-22"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_concentration-time-profiles/14_time_profile_plot_Itraconazole_po_200_mg_SD_caps_fed_2.png" /></p>
+<p><strong>Figure 3-22: po 200 mg SD caps fed 2 - Plasma</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-23"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_concentration-time-profiles/15_time_profile_plot_Itraconazole_po_100_mg_MD_OD_sol_fast.png" /></p>
+<p><strong>Figure 3-23: po 100 mg MD OD sol fast - Plasma</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-24"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_concentration-time-profiles/16_time_profile_plot_Itraconazole_po_100_mg_SD_sol_fast.png" /></p>
+<p><strong>Figure 3-24: po 100 mg SD sol fast - Plasma</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-25"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_concentration-time-profiles/17_time_profile_plot_Itraconazole_po_200_mg_MD_OD_sol_fast.png" /></p>
+<p><strong>Figure 3-25: po 200 mg MD OD sol fast - Plasma</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-26"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_concentration-time-profiles/18_time_profile_plot_Itraconazole_po_100_mg_SD__sol_fed.png" /></p>
+<p><strong>Figure 3-26: po 100 mg SD  sol fed - Plasma</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-27"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_concentration-time-profiles/19_time_profile_plot_Itraconazole_po_200_mg_MD_OD_sol_fed.png" /></p>
+<p><strong>Figure 3-27: po 200 mg MD OD sol fed - Plasma</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-28"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_concentration-time-profiles/20_time_profile_plot_Itraconazole_po_200_mg_SD_sol_fed.png" /></p>
+<p><strong>Figure 3-28: po 200 mg SD sol fed - Plasma</strong></p>
+<p><br>
+<br></p>
+<h1 id="4-conclusion">4 Conclusion<a id="conclusion"></a><a class="headerlink" href="#4-conclusion" title="Anchor link to this section for reference">&para;</a></h1>
+<p>The herein presented PBPK model adequately describes the pharmacokinetics of itraconazole in adults.</p>
+<p>In particular, the model includes the sequential metabolites hydroxy-itraconazole, keto-itraconazola and N-desalkyl-itraconazole - all of them formed by CYP3A4. The model applies competitive inhibition of CYP3A4 by itraconzaole and the three metabolites. Thus, the model is fit for purpose to be applied for the investigation of drug-drug interactions with regard to strong CYP3A4 inhibition.</p>
+<h1 id="5-references">5 References<a id="references"></a><a class="headerlink" href="#5-references" title="Anchor link to this section for reference">&para;</a></h1>
+<p><strong>Barone 1993</strong> Barone JA, Koh JG, Bierman RH, Colaizzi JL, Swanson KA, Gaffar MC, Moskovitz BL, Mechlinski W, Van de Velde V. Food interaction and steady-state pharmacokinetics of itraconazole capsules in healthy male volunteers. Antimicrob Agents Chemother. 1993 Apr;37(4):778-84.</p>
+<p><strong>Barone 1998a</strong> Barone JA, Moskovitz BL, Guarnieri J, Hassell AE, Colaizzi JL, Bierman RH, Jessen L. Food interaction and steady-state pharmacokinetics of itraconazole oral solution in healthy volunteers. Pharmacotherapy. 1998 Mar-Apr;18(2):295-301.</p>
+<p><strong>Barone 1998b</strong> Barone JA, Moskovitz BL, Guarnieri J, Hassell AE, Colaizzi JL, Bierman RH, Jessen L. Enhanced bioavailability of itraconazole in hydroxypropyl-beta-cyclodextrin solution versus capsules in healthy volunteers. Antimicrob Agents Chemother. 1998 Jul;42(7):1862-5.</p>
+<p><strong>Chen 2016</strong> Chen Y, Ma F,, Lu T, Budha N, Jin JY, Kenny JR, Wong H,, Hop CE, Mao J. Development of a Physiologically Based Pharmacokinetic Model for Itraconazole Pharmacokinetics and Drug-Drug Interaction Prediction. Clin Pharmacokinet. 2016 Jun;55(6):735-49.</p>
+<p><strong>Cheng 1973</strong> Cheng Y, Prusoff WH. Relationship between the inhibition constant (K1) and the concentration of inhibitor which causes 50 per cent inhibition (I50) of an enzymatic reaction. Biochem Pharmacol. 1973 Dec 1;22(23):3099-108.</p>
+<p><strong>DrugBank DB01167</strong> (https://www.drugbank.ca/drugs/DB01167)</p>
+<p><strong>DrugBank DBMET00374</strong> (https://www.drugbank.ca/metabolites/DBMET00374)</p>
+<p><strong>Hanke 2018</strong> Hanke N, Frechen S, Moj D, Britz H, Eissing T, Wendl T, Lehr T. PBPK Models for CYP3A4 and P-gp DDI Prediction: A Modeling Network of Rifampicin, Itraconazole, Clarithromycin, Midazolam, Alfentanil, and Digoxin. CPT Pharmacometrics Syst Pharmacol. 2018 Oct;7(10):647-659.</p>
+<p><strong>Hardin 1988</strong> Hardin TC, Graybill JR, Fetchick R, Woestenborghs R, Rinaldi MG, Kuhn JG. Pharmacokinetics of itraconazole following oral administration to normal volunteers. Antimicrob Agents Chemother. 1988 Sep;32(9):1310-3.</p>
+<p><strong>Heykants 1989</strong> Heykants J, Van Peer A, Van de Velde V, Van Rooy P, Meuldermans W, Lavrijsen K, Woestenborghs R, Van Cutsem J, Cauwenbergh G. The clinical pharmacokinetics of itraconazole: an overview. Mycoses. 1989;32 Suppl 1:67-87.</p>
+<p><strong>Ishigam 2001</strong> Ishigam M, Uchiyama M, Kondo T, Iwabuchi H, Inoue S, Takasaki W, Ikeda T, Komai T, Ito K, Sugiyama Y. Inhibition of in vitro metabolism of simvastatin by itraconazole in humans and prediction of in vivo drug-drug interactions. Pharm Res. 2001 May;18(5):622-31.</p>
+<p><strong>Isoherranen 2004</strong> Isoherranen N, Kunze KL, Allen KE, Nelson WL, Thummel KE. Role of itraconazole metabolites in CYP3A4 inhibition. Drug Metab Dispos. 2004 Oct;32(10):1121-31.</p>
+<p><strong>Jalava 1997</strong> Jalava KM, Partanen J, Neuvonen PJ. Itraconazole decreases renal clearance of digoxin. Ther Drug Monit. 1997 Dec;19(6):609-13.</p>
+<p><strong>Kivistö 1997</strong> Kivistö KT, Lamberg TS, Kantola T, Neuvonen PJ. Plasma buspirone concentrations are greatly increased by erythromycin and itraconazole. Clin Pharmacol Ther. 1997 Sep;62(3):348-54.</p>
+<p><strong>Kuepfer 2016</strong> Kuepfer L, Niederalt C, Wendl T, Schlender JF, Willmann S, Lippert J, Block M, Eissing T, Teutonico D. Applied Concepts in PBPK Modeling: How to Build a PBPK/PD Model.CPT Pharmacometrics Syst Pharmacol. 2016 Oct;5(10):516-531.</p>
+<p><strong>Mouton 2006</strong> Mouton JW, van Peer A, de Beule K, Van Vliet A, Donnelly JP, Soons PA. Pharmacokinetics of itraconazole and hydroxyitraconazole in healthy subjects after single and multiple doses of a novel formulation. Antimicrob Agents Chemother. 2006 Dec;50(12):4096-102.</p>
+<p><strong>Neuvonen 1996</strong> Neuvonen PJ, Varhe A, Olkkola KT. The effect of ingestion time interval on the interaction between itraconazole and triazolam. Clin Pharmacol Ther. 1996 Sep;60(3):326-31.</p>
+<p><strong>Nishimura 2013</strong> Nishimura M, Yaguti H, Yoshitsugu H, Naito S, Satoh T. Tissue distribution of mRNA expression of human cytochrome P450 isoforms assessed by high-sensitivity real-time reverse transcription PCR. Yakugaku Zasshi. 2003 May;123(5):369-75.</p>
+<p><strong>Olkkola 1994</strong> Olkkola KT, Backman JT, Neuvonen PJ. Midazolam should be avoided in patients receiving the systemic antimycotics ketoconazole or itraconazole. Clin Pharmacol Ther. 1994 May;55(5):481-5.</p>
+<p><strong>PK-Sim Ontogeny Database Version 7.3</strong> (https://github.com/Open-Systems-Pharmacology/OSPSuite.Documentation/blob/38cf71b384cfc25cfa0ce4d2f3addfd32757e13b/PK-Sim%20Ontogeny%20Database%20Version%207.3.pdf)</p>
+<p><strong>PubChem CID 108222</strong> (https://pubchem.ncbi.nlm.nih.gov/compound/Hydroxy-Itraconazole)</p>
+<p><strong>PubChem CID 53865186</strong> (https://pubchem.ncbi.nlm.nih.gov/compound/Keto-Itraconazole)</p>
+<p><strong>PubChem CID 53789808</strong> (https://pubchem.ncbi.nlm.nih.gov/compound/169437521#section=Computed-Properties)</p>
+<p><strong>Riccardi 2015</strong> Riccardi K, Cawley S, Yates PD, Chang C, Funk C, Niosi M, Lin J, Di L. Plasma Protein Binding of Challenging Compounds. J Pharm Sci. 2015 Aug;104(8):2627-36.</p>
+<p><strong>Rodrigues 1999</strong> Rodrigues AD. Integrated cytochrome P450 reaction phenotyping: attempting to bridge the gap between cDNA-expressed cytochromes P450 and native human liver microsomes. Biochem Pharmacol. 1999 Mar 1;57(5):465-80.</p>
+<p><strong>Shityakov 2014</strong> Shityakov S, Förster C. In silico structure-based screening of versatile P-glycoprotein inhibitors using polynomial empirical scoring functions. Adv Appl Bioinform Chem. 2014 Mar 24;7:1-9.</p>
+<p><strong>Taupitz 2013</strong> Taupitz T, Dressman JB, Buchanan CM, Klein S. Cyclodextrin-water soluble polymer ternary complexes enhance the solubility and dissolution behaviour of poorly soluble drugs. Case example: itraconazole. Eur J Pharm Biopharm. 2013 Apr;83(3):378-87.</p>
+<p><strong>Templeton 2008</strong> Templeton IE, Thummel KE, Kharasch ED, Kunze KL, Hoffer C, Nelson WL, Isoherranen N. Contribution of itraconazole metabolites to inhibition of CYP3A4 in vivo. Clin Pharmacol Ther. 2008 Jan;83(1):77-85.</p>
+<p><strong>Van de Velde 1996</strong> Van de Velde VJ, Van Peer AP, Heykants JJ, Woestenborghs RJ, Van Rooy P, De Beule KL, Cauwenbergh GF. Effect of food on the pharmacokinetics of a new hydroxypropyl-beta-cyclodextrin formulation of itraconazole. Pharmacotherapy. 1996 May-Jun;16(3):424-8.</p>
+<p><strong>Van Peer 1989</strong> Van Peer A, Woestenborghs R, Heykants J, Gasparini R, Gauwenbergh G. The effects of food and dose on the oral systemic availability of itraconazole in healthy subjects. Eur J Clin Pharmacol. 1989;36(4):423-6.</p>
+<p><strong>Varhe 1994</strong> Varhe A, Olkkola KT, Neuvonen PJ. Oral triazolam is potentially hazardous to patients receiving systemic antimycotics ketoconazole or itraconazole. Clin Pharmacol Ther. 1994 Dec;56(6 Pt 1):601-7.</p>
+<p><strong>Willmann 2007</strong> Willmann S, Höhn K, Edginton A, Sevestre M, Solodenko J, Weiss W, Lippert J, Schmitt W. Development of a physiology-based whole-body population model for assessing the influence of individual variability on the pharmacokinetics of drugs. J Pharmacokinet Pharmacodyn. 2007, 34(3):401-31.</p>
+<hr />
+<h2 id="related-models">Related Models<a class="headerlink" href="#related-models" title="Anchor link to this section for reference">&para;</a></h2>
+<p>Explore other Cardiovascular Agents models in this library:</p>
+<ul>
+<li><a href="../Cimetidine/">Cimetidine</a> - PBPK model and evaluation report</li>
+<li><a href="../Dapagliflozin/">Dapagliflozin</a> - PBPK model and evaluation report</li>
+<li><a href="../Digoxin/">Digoxin</a> - PBPK model and evaluation report</li>
+<li><a href="../Felodipine/">Felodipine</a> - PBPK model and evaluation report</li>
+<li><a href="../Fluconazole/">Fluconazole</a> - PBPK model and evaluation report</li>
+</ul>
+<p><a href="../#cardiovascular-agents">View all Cardiovascular Agents →</a></p>
+<p><a href="../">← Back to Model Library Home</a></p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; Open Systems Pharmacology Community
+    </div>
+  
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/Open-Systems-Pharmacology" target="_blank" rel="noopener" title="Open Systems Pharmacology on GitHub" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://www.open-systems-pharmacology.org/" target="_blank" rel="noopener" title="Open Systems Pharmacology Website" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M351.9 280H161c2.9 64.5 17.2 123.9 37.5 167.4 11.4 24.5 23.7 41.8 35.1 52.4 11.2 10.5 18.9 12.2 22.9 12.2s11.7-1.7 22.9-12.2c11.4-10.6 23.7-28 35.1-52.4 20.3-43.5 34.6-102.9 37.5-167.4zm-191-48h190.9c-2.8-64.5-17.1-123.9-37.4-167.4-11.4-24.4-23.7-41.8-35.1-52.4C268.1 1.7 260.4 0 256.4 0s-11.7 1.7-22.9 12.2c-11.4 10.6-23.7 28-35.1 52.4-20.3 43.5-34.6 102.9-37.5 167.4m-48 0c3.5-85.6 25.6-165.1 57.9-217.3C78.7 47.3 10.9 131.2 1.5 232zM1.5 280c9.4 100.8 77.2 184.7 169.3 217.3-32.3-52.2-54.4-131.7-57.9-217.3zm398.4 0c-3.5 85.6-25.6 165.1-57.9 217.3 92.1-32.7 159.9-116.5 169.3-217.3zm111.4-48C501.9 131.2 434.1 47.3 342 14.7c32.3 52.2 54.4 131.7 57.9 217.3z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.top", "navigation.tabs.sticky", "navigation.indexes", "navigation.path", "toc.follow", "search.highlight", "search.suggest", "search.share", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

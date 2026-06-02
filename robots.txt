@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/sitemap.xml

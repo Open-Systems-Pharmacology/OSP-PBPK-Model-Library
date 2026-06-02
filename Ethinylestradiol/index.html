@@ -1,0 +1,2696 @@
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="PBPK (Physiologically Based Pharmacokinetic) model evaluation report for Ethinylestradiol. Detailed pharmacokinetic modeling and simulation results using Open Systems Pharmacology platform.">
+      
+      
+        <meta name="author" content="Open Systems Pharmacology Community">
+      
+      
+        <link rel="canonical" href="https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/Ethinylestradiol/">
+      
+      
+        <link rel="prev" href="../Erythromycin/">
+      
+      
+        <link rel="next" href="../Felodipine/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Ethinylestradiol PBPK Model - Physiologically Based Pharmacokinetic Evaluation Report - OSP PBPK Model Library (Version 12.3)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/Ethinylestradiol/">
+  <meta property="og:title" content="Ethinylestradiol">
+  <meta property="og:description" content="PBPK (Physiologically Based Pharmacokinetic) model evaluation report for Ethinylestradiol. Detailed pharmacokinetic modeling and simulation results using Open Systems Pharmacology platform.">
+  <meta property="og:site_name" content="OSP PBPK Model Library (Version 12.3)">
+  <meta property="og:image" content="https://www.open-systems-pharmacology.org/assets/images/logo.png">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/Ethinylestradiol/">
+  <meta name="twitter:title" content="Ethinylestradiol">
+  <meta name="twitter:description" content="PBPK (Physiologically Based Pharmacokinetic) model evaluation report for Ethinylestradiol. Detailed pharmacokinetic modeling and simulation results using Open Systems Pharmacology platform.">
+  <meta name="twitter:image" content="https://www.open-systems-pharmacology.org/assets/images/logo.png">
+
+  <!-- Structured Data (JSON-LD) for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "OSP PBPK Model Library (Version 12.3)",
+    "description": "Comprehensive library of validated PBPK (Physiologically Based Pharmacokinetic) models and qualification reports for drug development. Open-source whole-body PBPK modeling and simulation software for systems biology and multiscale physiological modeling.",
+    "url": "https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Open Systems Pharmacology",
+      "url": "https://www.open-systems-pharmacology.org/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.open-systems-pharmacology.org/assets/images/logo.png"
+      }
+    },
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
+  <!-- Dataset Schema for PBPK Model Library -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    "name": "Open Systems Pharmacology PBPK Model Library",
+    "description": "Comprehensive library of validated PBPK (Physiologically Based Pharmacokinetic) models for drug development and pharmaceutical research",
+    "url": "https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/",
+    "keywords": ["PBPK", "pharmacokinetic modeling", "drug development", "PK-Sim", "MoBi", "systems pharmacology", "ADME"],
+    "license": "https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library#license",
+    "creator": {
+      "@type": "Organization",
+      "name": "Open Systems Pharmacology",
+      "url": "https://www.open-systems-pharmacology.org/"
+    },
+    "distribution": {
+      "@type": "DataDownload",
+      "encodingFormat": "application/zip",
+      "contentUrl": "https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library"
+    }
+  }
+  </script>
+
+  <!-- SoftwareApplication Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "PK-Sim PBPK Models",
+    "applicationCategory": "ScientificApplication",
+    "operatingSystem": "Windows",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "description": "Validated PBPK models for use with PK-Sim and MoBi software for pharmaceutical research and drug development",
+    "url": "https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Open Systems Pharmacology"
+    }
+  }
+  </script>
+
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "Ethinylestradiol PBPK Model - Physiologically Based Pharmacokinetic Evaluation Report",
+    "description": "PBPK (Physiologically Based Pharmacokinetic) model evaluation report for Ethinylestradiol. Detailed pharmacokinetic modeling and simulation results using Open Systems Pharmacology platform.",
+    "author": {
+      "@type": "Organization",
+      "name": "Open Systems Pharmacology"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Open Systems Pharmacology",
+      "url": "https://www.open-systems-pharmacology.org/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.open-systems-pharmacology.org/assets/images/logo.png"
+      }
+    },
+    "url": "https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/Ethinylestradiol/",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/Ethinylestradiol/"
+    },
+    "keywords": "Ethinylestradiol, PBPK model, physiologically based pharmacokinetic model, Ethinylestradiol pharmacokinetics, drug modeling, PK-Sim"
+  }
+  </script>
+  
+
+  
+  <meta name="keywords" content="Ethinylestradiol, PBPK model, physiologically based pharmacokinetic model, Ethinylestradiol pharmacokinetics, drug modeling, PK-Sim">
+  
+
+  
+  <link rel="canonical" href="https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/Ethinylestradiol/">
+  
+
+  <!-- Language -->
+  <meta http-equiv="content-language" content="en">
+  <meta name="language" content="English">
+
+
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#building-and-evaluation-of-a-pbpk-model-for-ethinylestradiol-in-adults" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="OSP PBPK Model Library (Version 12.3)" class="md-header__button md-logo" aria-label="OSP PBPK Model Library (Version 12.3)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OSP PBPK Model Library (Version 12.3)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Ethinylestradiol PBPK Model - Physiologically Based Pharmacokinetic Evaluation Report
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    OSP-PBPK-Model-Library
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="OSP PBPK Model Library (Version 12.3)" class="md-nav__button md-logo" aria-label="OSP PBPK Model Library (Version 12.3)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    OSP PBPK Model Library (Version 12.3)
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    OSP-PBPK-Model-Library
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7E3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7E3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Alfentanil/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Alfentanil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Alprazolam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Alprazolam
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Amikacin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amikacin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Atazanavir/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Atazanavir
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BAY794620/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BAY794620
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CDA1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CDA1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Carbamazepine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Carbamazepine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Cimetidine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cimetidine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Clarithromycin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Clarithromycin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Dapagliflozin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dapagliflozin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Digoxin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Digoxin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Efavirenz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Efavirenz
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Erythromycin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Erythromycin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ethinylestradiol
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Felodipine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Felodipine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Fluconazole/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fluconazole
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Fluvoxamine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fluvoxamine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Inulin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inulin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Itraconazole/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Itraconazole
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MEDI524/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MEDI524
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MEDI524YTE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MEDI524YTE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mefenamic_acid/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mefenamic_acid
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mexiletine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mexiletine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Midazolam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Midazolam
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Moclobemide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Moclobemide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Montelukast/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Montelukast
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Omeprazole/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Omeprazole
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Propofol/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Propofol
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Raltegravir/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Raltegravir
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Rifampicin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rifampicin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S-Mephenytoin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S-Mephenytoin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Sildenafil/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sildenafil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Sufentanil/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sufentanil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tefibazumab/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tefibazumab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tizanidine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tizanidine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Triazolam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Triazolam
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Vancomycin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vancomycin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Verapamil/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Verapamil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dAb2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    dAb2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="building-and-evaluation-of-a-pbpk-model-for-ethinylestradiol-in-adults">Building and evaluation of a PBPK model for Ethinylestradiol in adults<a class="headerlink" href="#building-and-evaluation-of-a-pbpk-model-for-ethinylestradiol-in-adults" title="Anchor link to this section for reference">&para;</a></h1>
+<table>
+<thead>
+<tr>
+<th>Version</th>
+<th>2.0-OSP12.3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>based on <em>Model Snapshot</em> and <em>Evaluation Plan</em></td>
+<td>https://github.com/Open-Systems-Pharmacology/Ethinylestradiol-Model/releases/tag/v2.0</td>
+</tr>
+<tr>
+<td>OSP Version</td>
+<td>12.3</td>
+</tr>
+<tr>
+<td>Qualification Framework Version</td>
+<td>3.6</td>
+</tr>
+</tbody>
+</table>
+<p>This evaluation report and the corresponding PK-Sim project file are filed at:</p>
+<p>https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/</p>
+<h1 id="table-of-contents">Table of Contents<a class="headerlink" href="#table-of-contents" title="Anchor link to this section for reference">&para;</a></h1>
+<ul>
+<li><a href="#introduction">1 Introduction</a></li>
+<li><a href="#methods">2 Methods</a></li>
+<li><a href="#modeling-strategy">2.1 Modeling Strategy</a></li>
+<li><a href="#data">2.2 Data</a></li>
+<li><a href="#model-parameters-and-assumptions">2.3 Model Parameters and Assumptions</a></li>
+<li><a href="#results-and-discussion">3 Results and Discussion</a></li>
+<li><a href="#final-input-parameters">3.1 Final input parameters</a></li>
+<li><a href="#diagnostics-plots">3.2 Diagnostics Plots</a></li>
+<li><a href="#concentration-time-profiles">3.3 Concentration-Time Profiles</a><ul>
+<li><a href="#model-building">3.3.1 Model Building</a></li>
+<li><a href="#model-validation">3.3.2 Model Verification</a></li>
+</ul>
+</li>
+<li><a href="#conclusion">4 Conclusion</a></li>
+<li><a href="#references">5 References</a></li>
+<li><a href="#glossary">6 Glossary</a></li>
+</ul>
+<h1 id="1-introduction">1 Introduction<a id="introduction"></a><a class="headerlink" href="#1-introduction" title="Anchor link to this section for reference">&para;</a></h1>
+<p>The presented PBPK model of ethinylestradiol (EE) has been developed to be used in a PBPK Drug-Drug-Interactions (DDI) network with ethinylestradiol as perpetrator of CYP1A2.</p>
+<p>Ethinylestradiol is an estrogen medication which is used widely as a birth control pills in combination with progestins. The following ADME properties characterize ethinylestradiol (<a href="#5-references">SmPC Namuscla</a>, <a href="#5-references">FDA. QUARTETTE</a>):</p>
+<p><strong>Absorption</strong>: ethinylestradiol is rapidly and completely absorbed from the gut but it undergoes some first pass metabolism in the gut wall (mediated by a.o. CYP3A4 (<a href="#5-references">Wiesinger 2015</a>, <a href="#5-references">Wang 2004</a>)). After oral administration, an initial peak occurs in plasma at 2 to 3 hours, with a secondary peak at about 12 hours after dosing; the second peak is interpreted as evidence for extensive enterohepatic circulation of ethinylestradiol.</p>
+<p><strong>Distribution</strong>: ethinylestradiol is rapidly distributed throughout most body tissues with the largest concentration found in adipose tissue. It distributes into breast milk, with low concentrations. More than 80% of ethinylestradiol in serum is conjugated as sulphate and almost all the conjugated form is bound to albumin.</p>
+<p><strong>Metabolism</strong>: ethinylestradiol is metabolized in the liver. Hydroxylation appears to be the main metabolic pathway. 60% of a dose is excreted in the urine and 40% in the faeces. </p>
+<p><strong>Excretion</strong>: About 30% is excreted in the urine and bile as the glucuronide or sulphate conjugate. The rate of metabolism of ethinylestradiol is affected by several factors, including enzyme-inducing agents, antibiotics, and cigarette smoking. The elimination half-life of ethinylestradiol ranges from 5 to 16 hours.</p>
+<p>After i.v. administration, ethinylestradiol displays approximately linear dose relationship in the dose range 30-100 µg. A wide variability is present in the terminal part of the dose-normalized concentrations.</p>
+<p>After p.o. single dose, ethinylestradiol shows linear dose relationship in the dose range 30-3000 µg. Secondary peaks can be observed in individual data, compatible with enterohepatic re-circulation. However, mean data do not display such feature as a result of such peak being averaged out. Therefore, enterohepatic re-circulation was not taken into account in the model.</p>
+<h1 id="2-methods">2 Methods<a id="methods"></a><a class="headerlink" href="#2-methods" title="Anchor link to this section for reference">&para;</a></h1>
+<h2 id="21-modeling-strategy">2.1 Modeling Strategy<a id="modeling-strategy"></a><a class="headerlink" href="#21-modeling-strategy" title="Anchor link to this section for reference">&para;</a></h2>
+<p>The general workflow for building an adult PBPK model has been described by Kuepfer et al. (<a href="#5-references">Kuepfer 2016</a>). Relevant information on the anthropometry (height, weight) was gathered from the respective clinical study, if reported. Information on physiological parameters (e.g. blood flows, organ volumes, hematocrit) in adults was gathered from the literature and has been incorporated in PK-Sim® as described previously (<a href="#5-references">Willmann 2007</a>). The  applied activity and variability of plasma proteins and active processes that are integrated into PK-Sim® are described in the publicly available 'PK-Sim® Ontogeny Database Version 7.3' (<a href="#5-references">PK-Sim Ontogeny Database Version 7.3</a>).</p>
+<p>The following steps were undertaken in model development:</p>
+<ol>
+<li>
+<p>Define lipophilicity and distribution model on data after i.v. administration with linear total hepatic clearance fitted to data and renal clearance set to literature value (<a href="#5-references">Ezuruike 2018</a>).</p>
+</li>
+<li>
+<p>Predict p.o. data after single dose and at steady state </p>
+</li>
+<li>
+<p>Detail metabolic contribution of different CYPs and UGTs to total hepatic clearance.</p>
+</li>
+</ol>
+<p>Details about input data (physicochemical, <em>in vitro</em> and clinical) can be found in <a href="#22-data">Section 2.2</a>.</p>
+<p>Details about the structural model and its parameters can be found in <a href="#23-model-parameters-and-assumptions">Section 2.3</a>.</p>
+<p>A standard female subject was created based on the European (ICRP,2002) PK-Sim database (age = 30 y, weight = 60 kg, height = 163 cm, BMI = 22,58 kg/m2) and used for simulations, until stated otherwise. Expression of the enzymes CYP3A4, CYP2C9, CYP1A2, CYP2C8, and UGT1A1 from RT PCR database were added.</p>
+<h2 id="22-data">2.2 Data<a id="data"></a><a class="headerlink" href="#22-data" title="Anchor link to this section for reference">&para;</a></h2>
+<h3 id="221-in-vitro-and-physico-chemical-data">2.2.1 In vitro and physico-chemical data<a class="headerlink" href="#221-in-vitro-and-physico-chemical-data" title="Anchor link to this section for reference">&para;</a></h3>
+<p>A literature search was performed to collect available information on physico-chemical properties of ethinylestradiol, see <a href="#table-1">Table 1</a>.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Parameter</strong></th>
+<th><strong>Unit</strong></th>
+<th><strong>Value</strong></th>
+<th>Source</th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">MW<sup>+</sup></td>
+<td>g/mol</td>
+<td>296.4</td>
+<td><a href="#5-references">DrugBank DB00977</a></td>
+<td>Molecular weight</td>
+</tr>
+<tr>
+<td style="text-align: left;">pK<sub>a,acid</sub><sup>+</sup></td>
+<td></td>
+<td>10.33</td>
+<td><a href="#5-references">DrugBank DB00977</a></td>
+<td>Acidic dissociation constant</td>
+</tr>
+<tr>
+<td style="text-align: left;">Solubility (pH)<sup>+</sup></td>
+<td>mg/mL</td>
+<td>6.77e-3<br />(7)</td>
+<td><a href="#5-references">DrugBank DB00977</a></td>
+<td>Aqueous Solubility</td>
+</tr>
+<tr>
+<td style="text-align: left;">logD</td>
+<td></td>
+<td>3.63 - 3.9</td>
+<td><a href="#5-references">DrugBank DB00977</a></td>
+<td>Distribution coefficient</td>
+</tr>
+<tr>
+<td style="text-align: left;">fu<sup>+</sup></td>
+<td>%</td>
+<td>3</td>
+<td><a href="#5-references">DrugBank DB00977</a></td>
+<td>Fraction unbound in plasma</td>
+</tr>
+<tr>
+<td style="text-align: left;">CYP1A2 CL<sup>+</sup></td>
+<td>µl/min/pmol</td>
+<td>0.51</td>
+<td><a href="#5-references">Ezuruike 2018</a></td>
+<td>Clearance by CYP1A2</td>
+</tr>
+<tr>
+<td style="text-align: left;">CYP2C8 CL<sup>+</sup></td>
+<td>µl/min/pmol</td>
+<td>0.13</td>
+<td><a href="#5-references">Ezuruike 2018</a></td>
+<td>Clearance by CYP2C8</td>
+</tr>
+<tr>
+<td style="text-align: left;">CYP2C9 CL<sup>+</sup></td>
+<td>µl/min/pmol</td>
+<td>0.51</td>
+<td><a href="#5-references">Ezuruike 2018</a></td>
+<td>Clearance by CYP2C9</td>
+</tr>
+<tr>
+<td style="text-align: left;">CYP3A4 CL<sup>+</sup></td>
+<td>µl/min/pmol</td>
+<td>0.5</td>
+<td><a href="#5-references">Ezuruike 2018</a></td>
+<td>Clearance by CYP3A4</td>
+</tr>
+<tr>
+<td style="text-align: left;">Km UGT1A1<sup>+</sup></td>
+<td>µmol/l</td>
+<td>19.22</td>
+<td><a href="#5-references">Ezuruike 2018</a></td>
+<td>UGT1A1 saturation constant</td>
+</tr>
+<tr>
+<td style="text-align: left;">Vmax UGT1A1<sup>+</sup></td>
+<td>pmol/min/mg prot.</td>
+<td>408.5</td>
+<td><a href="#5-references">Ezuruike 2018</a></td>
+<td>Maximal metabolization rate by UGT1A1</td>
+</tr>
+<tr>
+<td style="text-align: left;">Renal Elimination<sup>+</sup></td>
+<td>l/h</td>
+<td>2.079</td>
+<td><a href="#5-references">Stanczyk 2013</a></td>
+<td>Renal clearance</td>
+</tr>
+<tr>
+<td style="text-align: left;">Clint HLM<sup>+</sup></td>
+<td>µL/min/mg prot.</td>
+<td>118.83</td>
+<td><a href="#5-references">Ezuruike 2018</a></td>
+<td>Intrinsic clearance in Human Liver Microsomes</td>
+</tr>
+<tr>
+<td style="text-align: left;">Ki CYP1A2</td>
+<td>µmol/l</td>
+<td>10.6</td>
+<td><a href="#5-references">Karjalainen 2008</a></td>
+<td>CYP1A2 inhibition constant</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Table 1:</strong><a name="table-1"></a> Physico-chemical and <em>in-vitro</em> metabolization properties of ethinylestradiol extracted from literature. <em><sup>+</sup>: Value used in final model</em></p>
+<h3 id="222-clinical-data">2.2.2 Clinical data<a class="headerlink" href="#222-clinical-data" title="Anchor link to this section for reference">&para;</a></h3>
+<p>A literature search was performed to collect available clinical data on ethinylestradiol, see <a href="#table-2">Table 2</a>.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Source</strong></th>
+<th>Route</th>
+<th><strong>Dose [mg]/</strong>  <strong>Schedule *</strong></th>
+<th><strong>Pop.</strong></th>
+<th><strong>Sex</strong></th>
+<th><strong>N</strong></th>
+<th><strong>Form.</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#5-references">Back 1981</a><sup>+</sup></td>
+<td>i.v.</td>
+<td>0.03</td>
+<td>HV</td>
+<td>F</td>
+<td>5</td>
+<td>solution</td>
+</tr>
+<tr>
+<td><a href="#5-references">Back 1981</a><sup>+</sup></td>
+<td>p.o.</td>
+<td>0.03</td>
+<td>HV</td>
+<td>F</td>
+<td>5</td>
+<td>tablet</td>
+</tr>
+<tr>
+<td><a href="#5-references">Back 1979</a><sup>+</sup></td>
+<td>i.v.</td>
+<td>0.05</td>
+<td>HV</td>
+<td>F</td>
+<td>6</td>
+<td>solution</td>
+</tr>
+<tr>
+<td><a href="#5-references">Back 1979</a><sup>+</sup></td>
+<td>p.o.</td>
+<td>0.05</td>
+<td>HV</td>
+<td>F</td>
+<td>6</td>
+<td>NA</td>
+</tr>
+<tr>
+<td><a href="#5-references">Back 1987</a></td>
+<td>p.o.</td>
+<td>0.05 q.d.</td>
+<td>HV</td>
+<td>F</td>
+<td>5</td>
+<td>tablet</td>
+</tr>
+<tr>
+<td><a href="#5-references">Orme 1991</a><sup>+</sup></td>
+<td>i.v.</td>
+<td>0.03</td>
+<td>HV</td>
+<td>F</td>
+<td>10</td>
+<td>solution</td>
+</tr>
+<tr>
+<td><a href="#5-references">Orme 1991</a><sup>+</sup></td>
+<td>p.o.</td>
+<td>0.03</td>
+<td>HV</td>
+<td>F</td>
+<td>10</td>
+<td>tablet</td>
+</tr>
+<tr>
+<td><a href="#5-references">Kuhnz 1996</a></td>
+<td>i.v.</td>
+<td>0.06</td>
+<td>HV</td>
+<td>F</td>
+<td>19</td>
+<td>solution</td>
+</tr>
+<tr>
+<td><a href="#5-references">Goebelsmann 1986</a><sup>+</sup></td>
+<td>p.o.</td>
+<td>0.03</td>
+<td>HV</td>
+<td>F</td>
+<td>24</td>
+<td>solution and tablet</td>
+</tr>
+<tr>
+<td><a href="#5-references">Stanczyk 1983</a><sup>+</sup></td>
+<td>p.o.</td>
+<td>0.12</td>
+<td>HV</td>
+<td>F</td>
+<td>24</td>
+<td>solution and tablet</td>
+</tr>
+<tr>
+<td><a href="#5-references">Zhang 2017</a><sup>+</sup></td>
+<td>p.o.</td>
+<td>0.03</td>
+<td>HV</td>
+<td>F</td>
+<td>12</td>
+<td>tablet</td>
+</tr>
+<tr>
+<td><a href="#5-references">Martin 2016</a></td>
+<td>p.o.</td>
+<td>0.03 q.d.</td>
+<td>HV</td>
+<td>F</td>
+<td>27</td>
+<td>tablet</td>
+</tr>
+<tr>
+<td><a href="#5-references">Stockis 2014</a></td>
+<td>p.o.</td>
+<td>0.03 q.d.</td>
+<td>HV</td>
+<td>F</td>
+<td>24</td>
+<td>tablet</td>
+</tr>
+<tr>
+<td><a href="#5-references">Sidhu 2006</a></td>
+<td>p.o.</td>
+<td>0.03 q.d.</td>
+<td>HV</td>
+<td>F</td>
+<td>16</td>
+<td>tablet</td>
+</tr>
+<tr>
+<td><a href="#5-references">Kothare 2012</a><sup>+</sup></td>
+<td>p.o.</td>
+<td>0.03/0.03 q.d.</td>
+<td>HV</td>
+<td>F</td>
+<td>20</td>
+<td>tablet</td>
+</tr>
+<tr>
+<td><a href="#5-references">Timmer 2000</a><sup>+</sup></td>
+<td>p.o.</td>
+<td>0.03</td>
+<td>HV</td>
+<td>F</td>
+<td>-</td>
+<td>tablet</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Table 2:</strong><a name="table-2"></a> Literature sources of clinical concentration data of ethinylestradiol used for model development and validation. <em>*: single dose unless otherwise specified;<sup>+</sup>: Data used for final parameter identification</em></p>
+<h2 id="23-model-parameters-and-assumptions">2.3 Model Parameters and Assumptions<a id="model-parameters-and-assumptions"></a><a class="headerlink" href="#23-model-parameters-and-assumptions" title="Anchor link to this section for reference">&para;</a></h2>
+<h3 id="231-absorption">2.3.1 Absorption<a class="headerlink" href="#231-absorption" title="Anchor link to this section for reference">&para;</a></h3>
+<p>Intestinal permeability was fitted to po data. Formulation of ethinylestradiol tablet was modeled with Weibull-function and parameters <code>Dissolution time (50% dissolved)</code> and <code>Lag time</code> fitted to po data.</p>
+<h3 id="232-distribution">2.3.2 Distribution<a class="headerlink" href="#232-distribution" title="Anchor link to this section for reference">&para;</a></h3>
+<p>Physico-chemical parameters were set to the reported values (see <a href="#221-in-vitro-and-physico-chemical-data">Section 2.2.1</a>). It was assumed that the major binding partner in plasma is albumin. The value of lipophilicity was estimated by fitting the model to iv and po data.</p>
+<p>After testing the available organ-plasma partition coefficient and cell permeability calculation methods available in PK-Sim, observed clinical data were best described by choosing the partition coefficient calculation by <code>Berezhkovskiy</code> and cellular permeability calculation by <code>PK-Sim Standard</code>.</p>
+<h3 id="233-metabolism-and-elimination">2.3.3 Metabolism and Elimination<a class="headerlink" href="#233-metabolism-and-elimination" title="Anchor link to this section for reference">&para;</a></h3>
+<p>Following metabolization processes have been implemented based on <a href="#5-references">Ezuruike 2018</a>:</p>
+<ul>
+<li>Linear CYP1A2 CL</li>
+<li>Linear CYP2C8 CL</li>
+<li>Linear CYP2C9 CL</li>
+<li>Linear CYP3A4 CL</li>
+<li>Saturable UGT1A1</li>
+<li>Unspecific liver metabolization</li>
+</ul>
+<p>Renal plasma clearance is modeled with <code>Plasma clearance</code> set to 2.079 l/h reported in literature (<a href="#5-references">Stanczyk 2013</a>). The value was normalized to body weight by dividing by 70 kg.</p>
+<h3 id="234-enzyme-inhibition">2.3.4 Enzyme Inhibition<a class="headerlink" href="#234-enzyme-inhibition" title="Anchor link to this section for reference">&para;</a></h3>
+<p>Simulations of co-administration of ethinylestradiol with tizanidine (see <a href="https://github.com/Open-Systems-Pharmacology/OSP-Qualification-Reports/releases">CYP1A2 DDI Qualification report</a>) indicate that the reported competitive inhibition of CYP1A2 by ethinylestradiol (<a href="#5-references">Karjalainen 2008</a>) is not sufficient to describe the increased concentrations of tizanidine after multiple days administration. Therefore, it was decided to fit a time-dependent inhibition (TDI) function to the CYP1A2 enzyme system. The parameters <code>Kinact</code> and <code>K_kinact_half</code> were estimated by fitting the model to concentration-time profiles of tizanidine (<a href="#5-references">Granfors 2005</a>).</p>
+<h3 id="235-automated-parameter-identification">2.3.5 Automated Parameter Identification<a class="headerlink" href="#235-automated-parameter-identification" title="Anchor link to this section for reference">&para;</a></h3>
+<p>Following parameter values were estimated for the model:</p>
+<ul>
+<li><code>Lipophilicity</code></li>
+<li><code>Specific intestinal permeability</code></li>
+<li><code>Dissolution time (50% dissolved)</code> (Weibull formulation)</li>
+<li><code>Lag time</code> (Weibull formulation)</li>
+<li><code>Kinact</code> (CYP1A2 TDI)</li>
+<li><code>K_kinact_half</code> (CYP1A2 TDI)</li>
+</ul>
+<h1 id="3-results-and-discussion">3 Results and Discussion<a id="results-and-discussion"></a><a class="headerlink" href="#3-results-and-discussion" title="Anchor link to this section for reference">&para;</a></h1>
+<p>The next sections show:</p>
+<ol>
+<li>Final model input parameters for the building blocks: <a href="#31-final-input-parameters">Section 3.1</a>.</li>
+<li>Overall goodness of fit: <a href="#32-diagnostics-plots">Section 3.2</a>.</li>
+<li>Simulated vs. observed concentration-time profiles for the clinical studies used for model building and for model verification: <a href="#33-concentration-time-profiles">Section 3.3</a>.</li>
+</ol>
+<h2 id="31-final-input-parameters">3.1 Final input parameters<a id="final-input-parameters"></a><a class="headerlink" href="#31-final-input-parameters" title="Anchor link to this section for reference">&para;</a></h2>
+<p>The parameter values of the final PBPK model are illustrated below.</p>
+<h3 id="compound-ethinylestradiol">Compound: Ethinylestradiol<a class="headerlink" href="#compound-ethinylestradiol" title="Anchor link to this section for reference">&para;</a></h3>
+<h4 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Anchor link to this section for reference">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+<th>Alternative</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Solubility at reference pH</td>
+<td>0.00677 mg/ml</td>
+<td>Database-DrugBank DB00977</td>
+<td>S_aq</td>
+<td>True</td>
+</tr>
+<tr>
+<td>Reference pH</td>
+<td>7</td>
+<td>Database-DrugBank DB00977</td>
+<td>S_aq</td>
+<td>True</td>
+</tr>
+<tr>
+<td>Lipophilicity</td>
+<td>3.4805414593 Log Units</td>
+<td>Parameter Identification</td>
+<td>LogP</td>
+<td>True</td>
+</tr>
+<tr>
+<td>Fraction unbound (plasma, reference value)</td>
+<td>0.03</td>
+<td>Database-DrugBank DB00977</td>
+<td>fu_plasma</td>
+<td>True</td>
+</tr>
+<tr>
+<td>Specific intestinal permeability (transcellular)</td>
+<td>0.000168 cm/min</td>
+<td>Parameter Identification</td>
+<td>Fit</td>
+<td>True</td>
+</tr>
+<tr>
+<td>Is small molecule</td>
+<td>Yes</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Molecular weight</td>
+<td>296.4 g/mol</td>
+<td>Database-DrugBank DB00977</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Plasma protein binding partner</td>
+<td>Albumin</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="calculation-methods">Calculation methods<a class="headerlink" href="#calculation-methods" title="Anchor link to this section for reference">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Partition coefficients</td>
+<td>Berezhkovskiy</td>
+</tr>
+<tr>
+<td>Cellular permeabilities</td>
+<td>PK-Sim Standard</td>
+</tr>
+</tbody>
+</table>
+<h4 id="processes">Processes<a class="headerlink" href="#processes" title="Anchor link to this section for reference">&para;</a></h4>
+<h5 id="metabolizing-enzyme-cyp1a2-ezuruike_2018">Metabolizing Enzyme: CYP1A2-Ezuruike_2018<a class="headerlink" href="#metabolizing-enzyme-cyp1a2-ezuruike_2018" title="Anchor link to this section for reference">&para;</a></h5>
+<p>Molecule: CYP1A2</p>
+<h6 id="parameters_1">Parameters<a class="headerlink" href="#parameters_1" title="Anchor link to this section for reference">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>In vitro CL/recombinant enzyme</td>
+<td>0.51 µl/min/pmol rec. enzyme</td>
+<td>Publication-Ezuruike 2018</td>
+</tr>
+</tbody>
+</table>
+<h5 id="metabolizing-enzyme-cyp2c8-ezuruike_2018">Metabolizing Enzyme: CYP2C8-Ezuruike_2018<a class="headerlink" href="#metabolizing-enzyme-cyp2c8-ezuruike_2018" title="Anchor link to this section for reference">&para;</a></h5>
+<p>Molecule: CYP2C8</p>
+<h6 id="parameters_2">Parameters<a class="headerlink" href="#parameters_2" title="Anchor link to this section for reference">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>In vitro CL/recombinant enzyme</td>
+<td>0.13 µl/min/pmol rec. enzyme</td>
+<td>Publication-Ezuruike 2018</td>
+</tr>
+</tbody>
+</table>
+<h5 id="metabolizing-enzyme-cyp2c9-ezuruike_2018">Metabolizing Enzyme: CYP2C9-Ezuruike_2018<a class="headerlink" href="#metabolizing-enzyme-cyp2c9-ezuruike_2018" title="Anchor link to this section for reference">&para;</a></h5>
+<p>Molecule: CYP2C9</p>
+<h6 id="parameters_3">Parameters<a class="headerlink" href="#parameters_3" title="Anchor link to this section for reference">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>In vitro CL/recombinant enzyme</td>
+<td>0.51 µl/min/pmol rec. enzyme</td>
+<td>Publication-Ezuruike 2018</td>
+</tr>
+</tbody>
+</table>
+<h5 id="metabolizing-enzyme-cyp3a4-ezuruike_2018">Metabolizing Enzyme: CYP3A4-Ezuruike_2018<a class="headerlink" href="#metabolizing-enzyme-cyp3a4-ezuruike_2018" title="Anchor link to this section for reference">&para;</a></h5>
+<p>Molecule: CYP3A4</p>
+<h6 id="parameters_4">Parameters<a class="headerlink" href="#parameters_4" title="Anchor link to this section for reference">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>In vitro CL/recombinant enzyme</td>
+<td>0.5 µl/min/pmol rec. enzyme</td>
+<td>Publication-Ezuruike 2018</td>
+</tr>
+</tbody>
+</table>
+<h5 id="metabolizing-enzyme-ugt1a1-ezuruike_2018">Metabolizing Enzyme: UGT1A1-Ezuruike_2018<a class="headerlink" href="#metabolizing-enzyme-ugt1a1-ezuruike_2018" title="Anchor link to this section for reference">&para;</a></h5>
+<p>Molecule: UGT1A1</p>
+<h6 id="parameters_5">Parameters<a class="headerlink" href="#parameters_5" title="Anchor link to this section for reference">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>In vitro Vmax for liver microsomes</td>
+<td>408.5 pmol/min/mg mic. protein</td>
+<td>Publication-Ezuruike 2018</td>
+</tr>
+<tr>
+<td>Content of CYP proteins in liver microsomes</td>
+<td>33.6 pmol/mg mic. protein</td>
+<td>Publication-Ezuruike 2018</td>
+</tr>
+<tr>
+<td>Km</td>
+<td>19.22 µmol/l</td>
+<td>Publication-Ezuruike 2018</td>
+</tr>
+</tbody>
+</table>
+<h5 id="systemic-process-renal-clearances-stanczyk_2013">Systemic Process: Renal Clearances-Stanczyk_2013<a class="headerlink" href="#systemic-process-renal-clearances-stanczyk_2013" title="Anchor link to this section for reference">&para;</a></h5>
+<p>Species: Human</p>
+<h6 id="parameters_6">Parameters<a class="headerlink" href="#parameters_6" title="Anchor link to this section for reference">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fraction unbound (experiment)</td>
+<td>0.03</td>
+<td></td>
+</tr>
+<tr>
+<td>Plasma clearance</td>
+<td>0.0285 l/h/kg</td>
+<td>Publication-Stanczyk_2013; 2.079/73=</td>
+</tr>
+</tbody>
+</table>
+<h5 id="systemic-process-total-hepatic-clearance-ezuruike_2018">Systemic Process: Total Hepatic Clearance-Ezuruike_2018<a class="headerlink" href="#systemic-process-total-hepatic-clearance-ezuruike_2018" title="Anchor link to this section for reference">&para;</a></h5>
+<p>Species: Human</p>
+<h6 id="parameters_7">Parameters<a class="headerlink" href="#parameters_7" title="Anchor link to this section for reference">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fraction unbound (experiment)</td>
+<td>0.03</td>
+<td></td>
+</tr>
+<tr>
+<td>Lipophilicity (experiment)</td>
+<td>3.4805414593 Log Units</td>
+<td></td>
+</tr>
+<tr>
+<td>Plasma clearance</td>
+<td>0 ml/min/kg</td>
+<td></td>
+</tr>
+<tr>
+<td>Specific clearance</td>
+<td>1.1002777778 1/min</td>
+<td>Publication-Ezuruike 2018 - Calculated from 118.83 µl/min/mg mic. protein divided by 108 pmol/mg/ mic. protein</td>
+</tr>
+</tbody>
+</table>
+<h5 id="inhibition-cyp1a2-fit">Inhibition: CYP1A2-Fit<a class="headerlink" href="#inhibition-cyp1a2-fit" title="Anchor link to this section for reference">&para;</a></h5>
+<p>Molecule: CYP1A2</p>
+<h6 id="parameters_8">Parameters<a class="headerlink" href="#parameters_8" title="Anchor link to this section for reference">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>kinact</td>
+<td>200 1/min</td>
+<td>Parameter Identification</td>
+</tr>
+<tr>
+<td>K_kinact_half</td>
+<td>0.4833013314 µmol/l</td>
+<td>Parameter Identification</td>
+</tr>
+</tbody>
+</table>
+<h3 id="formulation-ethinylestradiol-tablet">Formulation: Ethinylestradiol tablet<a class="headerlink" href="#formulation-ethinylestradiol-tablet" title="Anchor link to this section for reference">&para;</a></h3>
+<p>Type: Weibull</p>
+<h4 id="parameters_9">Parameters<a class="headerlink" href="#parameters_9" title="Anchor link to this section for reference">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dissolution time (50% dissolved)</td>
+<td>36.5087007601 min</td>
+<td>Parameter Identification</td>
+</tr>
+<tr>
+<td>Lag time</td>
+<td>6.7747764588 min</td>
+<td>Parameter Identification</td>
+</tr>
+<tr>
+<td>Dissolution shape</td>
+<td>0.92</td>
+<td></td>
+</tr>
+<tr>
+<td>Use as suspension</td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="32-diagnostics-plots">3.2 Diagnostics Plots<a id="diagnostics-plots"></a><a class="headerlink" href="#32-diagnostics-plots" title="Anchor link to this section for reference">&para;</a></h2>
+<p>The following section displays the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data listed in <a href="#222-clinical-data">Section 2.2.2</a>.</p>
+<p>The first plot shows observed versus simulated plasma concentration, the second weighted residuals versus time. </p>
+<p><a id="table-3-1"></a></p>
+<p><strong>Table 3-1: GMFE for Ethinylestradiol concentration in plasma</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Group</th>
+<th style="text-align: left;">GMFE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">iv administration (model building)</td>
+<td style="text-align: left;">1.45</td>
+</tr>
+<tr>
+<td style="text-align: left;">iv administration (model validation)</td>
+<td style="text-align: left;">1.27</td>
+</tr>
+<tr>
+<td style="text-align: left;">Oral administration (model building)</td>
+<td style="text-align: left;">1.46</td>
+</tr>
+<tr>
+<td style="text-align: left;">Oral administration (model validation)</td>
+<td style="text-align: left;">1.26</td>
+</tr>
+<tr>
+<td style="text-align: left;">All</td>
+<td style="text-align: left;">1.41</td>
+</tr>
+</tbody>
+</table>
+<p><br>
+<br></p>
+<p><a id="figure-3-1"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/008_section_diagnostics-plots/2_gof_plot_predictedVsObserved.png" /></p>
+<p><strong>Figure 3-1: Ethinylestradiol concentration in plasma</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-2"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/008_section_diagnostics-plots/3_gof_plot_residualsOverTime.png" /></p>
+<p><strong>Figure 3-2: Ethinylestradiol concentration in plasma</strong></p>
+<p><br>
+<br></p>
+<h2 id="33-concentration-time-profiles">3.3 Concentration-Time Profiles<a id="concentration-time-profiles"></a><a class="headerlink" href="#33-concentration-time-profiles" title="Anchor link to this section for reference">&para;</a></h2>
+<p>Simulated versus observed concentration-time profiles of all data listed in <a href="#222-clinical-data">Section 2.2.2</a> are presented below.</p>
+<h3 id="331-model-building">3.3.1 Model Building<a id="model-building"></a><a class="headerlink" href="#331-model-building" title="Anchor link to this section for reference">&para;</a></h3>
+<p><a id="figure-3-3"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_concentration-time-profiles/010_section_model-building/1_time_profile_plot_Ethinylestradiol_Ethinylestradiol_0_03_mg_iv.png" /></p>
+<p><strong>Figure 3-3: Ethinylestradiol 0.03 mg iv</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-4"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_concentration-time-profiles/010_section_model-building/2_time_profile_plot_Ethinylestradiol_Ethinylestradiol_0_05_mg_iv.png" /></p>
+<p><strong>Figure 3-4: Ethinylestradiol 0.05 mg iv</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-5"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_concentration-time-profiles/010_section_model-building/3_time_profile_plot_Ethinylestradiol_Ethinylestradiol_0_03_mg_po.png" /></p>
+<p><strong>Figure 3-5: Ethinylestradiol 0.03 mg po</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-6"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_concentration-time-profiles/010_section_model-building/4_time_profile_plot_Ethinylestradiol_Ethinylestradiol_0_03_mg_po_28d.png" /></p>
+<p><strong>Figure 3-6: Ethinylestradiol 0.03 mg po 28d</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-7"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_concentration-time-profiles/010_section_model-building/5_time_profile_plot_Ethinylestradiol_Ethinylestradiol_0_05_mg_po.png" /></p>
+<p><strong>Figure 3-7: Ethinylestradiol 0.05 mg po</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-8"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_concentration-time-profiles/010_section_model-building/6_time_profile_plot_Ethinylestradiol_Ethinylestradiol_0_12_mg_po.png" /></p>
+<p><strong>Figure 3-8: Ethinylestradiol 0.12 mg po</strong></p>
+<p><br>
+<br></p>
+<h3 id="332-model-verification">3.3.2 Model Verification<a id="model-validation"></a><a class="headerlink" href="#332-model-verification" title="Anchor link to this section for reference">&para;</a></h3>
+<p><a id="figure-3-9"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_concentration-time-profiles/011_section_model-validation/7_time_profile_plot_Ethinylestradiol_Ethinylestradiol_0_06_mg_iv.png" /></p>
+<p><strong>Figure 3-9: Ethinylestradiol 0.06 mg iv</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-10"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_concentration-time-profiles/011_section_model-validation/8_time_profile_plot_Ethinylestradiol_Ethinylestradiol_0_03_mg_po_28d_pred.png" /></p>
+<p><strong>Figure 3-10: Ethinylestradiol 0.03 mg po 28d pred</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-11"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_concentration-time-profiles/011_section_model-validation/9_time_profile_plot_Ethinylestradiol_Ethinylestradiol_0_05_mg_po_28d.png" /></p>
+<p><strong>Figure 3-11: Ethinylestradiol 0.05 mg po 28d</strong></p>
+<p><br>
+<br></p>
+<h1 id="4-conclusion">4 Conclusion<a id="conclusion"></a><a class="headerlink" href="#4-conclusion" title="Anchor link to this section for reference">&para;</a></h1>
+<p>The developed PBPK model of ethinylestradiol is able to predict the time-profiles following single and multiple dosing of ethinylestradiol accurately.</p>
+<p>The implemented TDI mechanism for ethinylestradiol was not evident in literature (<a href="#5-references">Zanaflex prescribing information</a>, <a href="#5-references">Karjalainen 2008</a>). The substantial and prolonged inhibition may result from CYP1A2 inhibition by EE-metabolites having a different half-life from the parent. <a href="#5-references">Chang 2009</a> for example found that the EE-2hydroxy and EE-2methoxy IC50s toward rCYP1A1 and rCYP1A2 are comparable to that of the parent. However, not having the possibility to model EE-metabolites contribution, a time-dependent inhibition function on CYP1A2 was used instead to account for this effect.</p>
+<h1 id="5-references">5 References<a id="references"></a><a class="headerlink" href="#5-references" title="Anchor link to this section for reference">&para;</a></h1>
+<p><strong>Back 1979</strong> Back DJ, Breckenridge AM, Crawford FE, et al. An investigation of the pharmacokinetics of ethynylestradiol in women using radioimmunoassay. <em>Contraception</em>. 1979;20(3):263-273.</p>
+<p><strong>Back 1981</strong> Back DJ, Bates M, Breckenridge AM, et al. The pharmacokinetics of levonorgestrel and ethynylestradiol in women - studies with Ovran and Ovranette. <em>Contraception</em>. 1981;23(3):229-239.</p>
+<p><strong>Back 1987</strong> Back DJ, Grimmer SF, Rogers S, Stevenson PJ, Orme ML. Comparative pharmacokinetics of levonorgestrel and ethinyloestradiol following intravenous, oral and vaginal administration. <em>Contraception</em>. 1987;36(4):471-479.</p>
+<p><strong>Balogh 1995</strong> Balogh A, Boerner A, Kuhnz W, Klinger G, Vollanth R, Henschel L. Influence of ethinylestradiol-containing combination oral contraceptives with gestodene or levonorgestrel on caffeine elimination. <em>Eur J Clin Pharmacol</em>. 1995;48(2):161-166.</p>
+<p><strong>Chang 2009</strong> Chang, S. Y., Chen, C., Yang, Z., Rodrigues, A. D. (2009). Further assessment of 17α-ethinyl estradiol as an inhibitor of different human cytochrome P450 forms in vitro. <em>Drug Metabolism and Disposition</em>, 37(8), 1667-1675.</p>
+<p><strong>DrugBank DB00977</strong> (https://www.drugbank.ca/drugs/DB00977)</p>
+<p><strong>Ezuruike 2018</strong> Ezuruike U, Humphries H, Dickins M, Neuhoff S, Gardner I, Rowland Yeo K. Risk–Benefit Assessment of Ethinylestradiol Using a Physiologically Based Pharmacokinetic Modeling Approach. <em>Clin Pharmacol Ther</em>. 2018;104(6):1229-1239</p>
+<p><strong>FDA. QUARTETTE</strong> FDA. QUARTETTE (levonorgestrel/ethinyl estradiol and ethinyl estradiol) tablets, for oral use. Website: https://www.accessdata.fda.gov/drugsatfda_docs/label/2013/204061s000lbl.pdf</p>
+<p><strong>Goebelsmann 1986</strong> Goebelsmann U, Hoffman D, Chiang S, Woutersz T. The relative bioavailability of levonorgestrel and ethinyl estradiol administered as a low-dose combination oral contraceptive. <em>Contraception</em>. 1986;34(4):341-351.</p>
+<p><strong>Granfors 2005</strong> Granfors MT, Backman JT, Laitila J, Neuvonen PJ. Oral contraceptives containing ethinyl estradiol and gestodene markedly increase plasma concentrations and effects of tizanidine by inhibiting cytochrome P450 1A2. <em>Clin Pharmacol Ther</em>. 2005;78(4):400-411.</p>
+<p><strong>Karjalainen 2008</strong> Karjalainen, M. (Thesis, 2008). Inhibition of CYP1A2-mediated drug metabolism in vitro and in humans: With special emphasis on rofecoxib and other NSAIDs. Website: https://helda.helsinki.fi/bitstream/handle/10138/23039/inhibiti.pdf?sequence=1&amp;origin=publication_detail</p>
+<p><strong>Kothare 2012</strong> Kothare PA, Seger ME, Northrup J, Mace K, Mitchell MI, Linnebjerg H. Effect of exenatide on the pharmacokinetics of a combination oral contraceptive in healthy women: an open-label, randomised, crossover trial. <em>BMC Clin Pharmacol</em>. 2012;12:8. </p>
+<p><strong>Kuepfer 2016</strong> Kuepfer L, Niederalt C, Wendl T, Schlender JF, Willmann S, Lippert J, Block M, Eissing T, Teutonico D. Applied Concepts in PBPK Modeling: How to Build a PBPK/PD Model.CPT Pharmacometrics Syst Pharmacol. 2016 Oct;5(10):516-531.</p>
+<p><strong>Kuhnz 1996</strong> Kuhnz W, Humpel M, Biere H, Gross D. Influence of repeated oral doses of ethinyloestradiol on the metabolic disposition of [13C2]-ethinyloestradiol in young women. <em>Eur J Clin Pharmacol</em>. 1996;50(3):231-235.</p>
+<p><strong>Martin 2016</strong> Martin P, Gillen M, Ritter J, et al. Effects of Fostamatinib on the Pharmacokinetics of Oral Contraceptive, Warfarin, and the Statins Rosuvastatin and Simvastatin: Results From Phase I Clinical Studies. <em>Drugs R D</em>. 2016;16(1):93-107.</p>
+<p><strong>Orme 1991</strong> Orme M, Back DJ, Ward S, Green S. The pharmacokinetics of ethynylestradiol in the presence and absence of gestodene and desogestrel. <em>Contraception</em>. 1991;43(4):305-316.</p>
+<p><strong>PK-Sim Ontogeny Database Version 7.3</strong> (https://github.com/Open-Systems-Pharmacology/OSPSuite.Documentation/blob/38cf71b384cfc25cfa0ce4d2f3addfd32757e13b/PK-Sim%20Ontogeny%20Database%20Version%207.3.pdf)</p>
+<p><strong>Sidhu 2006</strong> Sidhu J, Job S, Singh S, Philipson R. The pharmacokinetic and pharmacodynamic consequences of the co-administration of lamotrigine and a combined oral contraceptive in healthy female subjects. <em>Br J Clin Pharmacol</em>. 2006;61(2):191-199.</p>
+<p><strong>SmPC Namuscla</strong> SmPC Namuscla 167 mg hard capsules, 2019, website https://www.medicines.org.uk/emc/product/9838/smpc</p>
+<p><strong>Stanczyk 1983</strong> Stanczyk FZ, Mroszczak EJ, Ling T, et al. Plasma levels and pharmacokinetics of norethindrone and ethinylestradiol administered in solution and as tablets to women. <em>Contraception</em>. 1983;28(3):241-251.</p>
+<p><strong>Stanczyk 2013</strong> Stanczyk FZ, Archer DF, Bhavnani BR. Ethinyl estradiol and 17beta-estradiol in combined oral contraceptives: pharmacokinetics, pharmacodynamics and risk assessment. <em>Contraception</em>. 2013;87(6):706-727.</p>
+<p><strong>Stockis 2014</strong> Stockis A, Watanabe S, Fauchoux N. Interaction between brivaracetam (100 mg/day) and a combination oral contraceptive: A randomized, double-blind, placebo-controlled study. <em>Epilepsia</em>. 2014;55(3):27-31.</p>
+<p><strong>Study c13608215-02</strong> Study c13608215. A study to investigate the pharmacokinetic drug-drug interaction following oral administration of ethinylestradiol/levonorgestrel (Microgynon®) and BI 409306 in healthy Korean premenopausal female subjects (an open-label, two-period, fixed-sequence study).” Boehringer Ingelheim Pharma, 06-Aug-2018.</p>
+<p><strong>Timmer 2000</strong> Timmer C, Mulders T. Pharmacokinetics of etonogestrel and ethinylestradiol released from a combined vaginal ring. <em>Clin Pharmacokinet</em>. 2000;39(3):233-242.</p>
+<p><strong>Wang 2004</strong> Wang, B., Sanchez, R.I., Franklin, R.B., Evans, D.C.,Huskey, S.E. The involvement of CYP3A4 and CYP2C9 in the metabolism of 17 alpha-ethinylestradiol. <em>Drug Metab. Dispos</em>. 32, 1209–1212 (2004).</p>
+<p><strong>Wiesinger 2015</strong>  Wiesinger, H. et al. Pharmacokinetic interaction between the CYP3A4 inhibitor ketoconazole and the hormone drospirenone in combination with ethinylestradiol or estradiol. <em>Br. J. Clin. Pharmacol</em>. 80, 1399–1410 (2015).</p>
+<p><strong>Willmann 2007</strong> Willmann S, Höhn K, Edginton A, Sevestre M, Solodenko J, Weiss W, Lippert J, Schmitt W. Development of a physiology-based whole-body population model for assessing the influence of individual variability on the pharmacokinetics of drugs. <em>J Pharmacokinet Pharmacodyn</em> 2007, 34(3): 401-431.</p>
+<p><strong>Zanaflex prescribing information</strong>  Zanaflex prescribing information. Website: https://www.accessdata.fda.gov/drugsatfda_docs/label/2006/020397s021,021447s002lbl.pdf , 2006, Acorda Therapeutics Inc</p>
+<p><strong>Zhang 2017</strong> Zhang C, Li H, Xiong X, et al. An open-label, two-period comparative study on pharmacokinetics and safety of a combined ethinylestradiol/gestodene transdermal contraceptive patch. <em>Drug Des Devel Ther</em>. 2017;11:725-731.</p>
+<h1 id="6-glossary">6 Glossary<a id="glossary"></a><a class="headerlink" href="#6-glossary" title="Anchor link to this section for reference">&para;</a></h1>
+<table>
+<thead>
+<tr>
+<th>ADME</th>
+<th>Absorption, Distribution, Metabolism,  Excretion</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AUC</td>
+<td>Area under the plasma concentration  versus time curve</td>
+</tr>
+<tr>
+<td>AUCinf</td>
+<td>AUC until infinity</td>
+</tr>
+<tr>
+<td>AUClast</td>
+<td>AUC until last measurable sample</td>
+</tr>
+<tr>
+<td>AUCR</td>
+<td>Area under the plasma concentration  versus time curve Ratio</td>
+</tr>
+<tr>
+<td>b.i.d.</td>
+<td>Twice daily (bis in diem)</td>
+</tr>
+<tr>
+<td>CL</td>
+<td>Clearance</td>
+</tr>
+<tr>
+<td>Clint</td>
+<td>Intrinsic liver clearance</td>
+</tr>
+<tr>
+<td>Cmax</td>
+<td>Maximum concentration</td>
+</tr>
+<tr>
+<td>CmaxR</td>
+<td>Maximum concentration Ratio</td>
+</tr>
+<tr>
+<td>CYP</td>
+<td>Cytochrome P450 oxidase</td>
+</tr>
+<tr>
+<td>CYP1A2</td>
+<td>Cytochrome P450 1A2 oxidase</td>
+</tr>
+<tr>
+<td>CYP2C19</td>
+<td>Cytochrome P450 2C19 oxidase</td>
+</tr>
+<tr>
+<td>CYP3A4</td>
+<td>Cytochrome P450 3A4 oxidase</td>
+</tr>
+<tr>
+<td>DDI</td>
+<td>Drug-drug interaction</td>
+</tr>
+<tr>
+<td>e.c.</td>
+<td>Enteric coated</td>
+</tr>
+<tr>
+<td>EE</td>
+<td>Ethinylestradiol</td>
+</tr>
+<tr>
+<td>EM</td>
+<td>Extensive metabolizers</td>
+</tr>
+<tr>
+<td>fm</td>
+<td>Fraction metabolized</td>
+</tr>
+<tr>
+<td>FMO</td>
+<td>Flavin-containing monooxygenase</td>
+</tr>
+<tr>
+<td>fu</td>
+<td>Fraction unbound</td>
+</tr>
+<tr>
+<td>FDA</td>
+<td>Food and Drug administration</td>
+</tr>
+<tr>
+<td>GFR</td>
+<td>Glomerular filtration rate</td>
+</tr>
+<tr>
+<td>HLM</td>
+<td>Human liver microsomes</td>
+</tr>
+<tr>
+<td>hm</td>
+<td>homozygous</td>
+</tr>
+<tr>
+<td>ht</td>
+<td>heterozygous</td>
+</tr>
+<tr>
+<td>IM</td>
+<td>Intermediate metabolizers</td>
+</tr>
+<tr>
+<td>i.v.</td>
+<td>Intravenous</td>
+</tr>
+<tr>
+<td>IVIVE</td>
+<td>In Vitro to In  Vivo Extrapolation</td>
+</tr>
+<tr>
+<td>Ka</td>
+<td>Absorption rate constant</td>
+</tr>
+<tr>
+<td>kcat</td>
+<td>Catalyst rate constant</td>
+</tr>
+<tr>
+<td>Ki</td>
+<td>Inhibitor constant</td>
+</tr>
+<tr>
+<td>Kinact</td>
+<td>Rate of enzyme inactivation</td>
+</tr>
+<tr>
+<td>Km</td>
+<td>Michaelis Menten constant</td>
+</tr>
+<tr>
+<td>m.d.</td>
+<td>Multiple dose</td>
+</tr>
+<tr>
+<td>OSP</td>
+<td>Open Systems Pharmacology</td>
+</tr>
+<tr>
+<td>PBPK</td>
+<td>Physiologically-based pharmacokinetics</td>
+</tr>
+<tr>
+<td>PK</td>
+<td>Pharmacokinetics</td>
+</tr>
+<tr>
+<td>PI</td>
+<td>Parameter identification</td>
+</tr>
+<tr>
+<td>PM</td>
+<td>Poor metabolizers</td>
+</tr>
+<tr>
+<td>RT-PCR</td>
+<td>Reverse transcription polymerase chain  reaction</td>
+</tr>
+<tr>
+<td>p.o.</td>
+<td>Per os</td>
+</tr>
+<tr>
+<td>q.d.</td>
+<td>Once daily (quaque diem)</td>
+</tr>
+<tr>
+<td>SD</td>
+<td>Single Dose</td>
+</tr>
+<tr>
+<td>SE</td>
+<td>Standard error</td>
+</tr>
+<tr>
+<td>s.d.SPC</td>
+<td>Single dose Summary of Product Characteristics</td>
+</tr>
+<tr>
+<td>SD</td>
+<td>Standard deviation</td>
+</tr>
+<tr>
+<td>TDI</td>
+<td>Time dependent inhibition</td>
+</tr>
+<tr>
+<td>t.i.d</td>
+<td>Three times a day (ter in die)</td>
+</tr>
+<tr>
+<td>UGT</td>
+<td>Uridine  5'-diphospho-glucuronosyltransferase</td>
+</tr>
+<tr>
+<td>UM</td>
+<td>Ultra-rapid metabolizers</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="related-models">Related Models<a class="headerlink" href="#related-models" title="Anchor link to this section for reference">&para;</a></h2>
+<p>Explore other Antibiotics models in this library:</p>
+<ul>
+<li><a href="../Amikacin/">Amikacin</a> - PBPK model and evaluation report</li>
+<li><a href="../Clarithromycin/">Clarithromycin</a> - PBPK model and evaluation report</li>
+<li><a href="../Erythromycin/">Erythromycin</a> - PBPK model and evaluation report</li>
+<li><a href="../Rifampicin/">Rifampicin</a> - PBPK model and evaluation report</li>
+<li><a href="../Vancomycin/">Vancomycin</a> - PBPK model and evaluation report</li>
+</ul>
+<p><a href="../#antibiotics">View all Antibiotics →</a></p>
+<p><a href="../">← Back to Model Library Home</a></p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; Open Systems Pharmacology Community
+    </div>
+  
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/Open-Systems-Pharmacology" target="_blank" rel="noopener" title="Open Systems Pharmacology on GitHub" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://www.open-systems-pharmacology.org/" target="_blank" rel="noopener" title="Open Systems Pharmacology Website" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M351.9 280H161c2.9 64.5 17.2 123.9 37.5 167.4 11.4 24.5 23.7 41.8 35.1 52.4 11.2 10.5 18.9 12.2 22.9 12.2s11.7-1.7 22.9-12.2c11.4-10.6 23.7-28 35.1-52.4 20.3-43.5 34.6-102.9 37.5-167.4zm-191-48h190.9c-2.8-64.5-17.1-123.9-37.4-167.4-11.4-24.4-23.7-41.8-35.1-52.4C268.1 1.7 260.4 0 256.4 0s-11.7 1.7-22.9 12.2c-11.4 10.6-23.7 28-35.1 52.4-20.3 43.5-34.6 102.9-37.5 167.4m-48 0c3.5-85.6 25.6-165.1 57.9-217.3C78.7 47.3 10.9 131.2 1.5 232zM1.5 280c9.4 100.8 77.2 184.7 169.3 217.3-32.3-52.2-54.4-131.7-57.9-217.3zm398.4 0c-3.5 85.6-25.6 165.1-57.9 217.3 92.1-32.7 159.9-116.5 169.3-217.3zm111.4-48C501.9 131.2 434.1 47.3 342 14.7c32.3 52.2 54.4 131.7 57.9 217.3z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.top", "navigation.tabs.sticky", "navigation.indexes", "navigation.path", "toc.follow", "search.highlight", "search.suggest", "search.share", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

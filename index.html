@@ -1,0 +1,2462 @@
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Download validated PBPK models free. Comprehensive library of physiologically based pharmacokinetic models for drug development with PK-Sim & MoBi.">
+      
+      
+        <meta name="author" content="Open Systems Pharmacology Community">
+      
+      
+        <link rel="canonical" href="https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/">
+      
+      
+      
+        <link rel="next" href="7E3/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>PBPK Model Library | Validated PK-Sim & MoBi Models - Open Systems Pharmacology - OSP PBPK Model Library (Version 12.3)</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/extra.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/">
+  <meta property="og:title" content="Home">
+  <meta property="og:description" content="Download validated PBPK models free. Comprehensive library of physiologically based pharmacokinetic models for drug development with PK-Sim & MoBi.">
+  <meta property="og:site_name" content="OSP PBPK Model Library (Version 12.3)">
+  <meta property="og:image" content="https://www.open-systems-pharmacology.org/assets/images/logo.png">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/">
+  <meta name="twitter:title" content="Home">
+  <meta name="twitter:description" content="Download validated PBPK models free. Comprehensive library of physiologically based pharmacokinetic models for drug development with PK-Sim & MoBi.">
+  <meta name="twitter:image" content="https://www.open-systems-pharmacology.org/assets/images/logo.png">
+
+  <!-- Structured Data (JSON-LD) for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "OSP PBPK Model Library (Version 12.3)",
+    "description": "Comprehensive library of validated PBPK (Physiologically Based Pharmacokinetic) models and qualification reports for drug development. Open-source whole-body PBPK modeling and simulation software for systems biology and multiscale physiological modeling.",
+    "url": "https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Open Systems Pharmacology",
+      "url": "https://www.open-systems-pharmacology.org/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.open-systems-pharmacology.org/assets/images/logo.png"
+      }
+    },
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
+  <!-- Dataset Schema for PBPK Model Library -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    "name": "Open Systems Pharmacology PBPK Model Library",
+    "description": "Comprehensive library of validated PBPK (Physiologically Based Pharmacokinetic) models for drug development and pharmaceutical research",
+    "url": "https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/",
+    "keywords": ["PBPK", "pharmacokinetic modeling", "drug development", "PK-Sim", "MoBi", "systems pharmacology", "ADME"],
+    "license": "https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library#license",
+    "creator": {
+      "@type": "Organization",
+      "name": "Open Systems Pharmacology",
+      "url": "https://www.open-systems-pharmacology.org/"
+    },
+    "distribution": {
+      "@type": "DataDownload",
+      "encodingFormat": "application/zip",
+      "contentUrl": "https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library"
+    }
+  }
+  </script>
+
+  <!-- SoftwareApplication Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "PK-Sim PBPK Models",
+    "applicationCategory": "ScientificApplication",
+    "operatingSystem": "Windows",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "description": "Validated PBPK models for use with PK-Sim and MoBi software for pharmaceutical research and drug development",
+    "url": "https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Open Systems Pharmacology"
+    }
+  }
+  </script>
+
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "PBPK Model Library | Validated PK-Sim & MoBi Models - Open Systems Pharmacology",
+    "description": "Download validated PBPK models free. Comprehensive library of physiologically based pharmacokinetic models for drug development with PK-Sim & MoBi.",
+    "author": {
+      "@type": "Organization",
+      "name": "Open Systems Pharmacology"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Open Systems Pharmacology",
+      "url": "https://www.open-systems-pharmacology.org/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.open-systems-pharmacology.org/assets/images/logo.png"
+      }
+    },
+    "url": "https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/"
+    },
+    "keywords": "PBPK, Physiologically based pharmacokinetic modelling, PBPK model, Qualification of PBPK Platform, Modeling and simulation software, PBPK Modeling and simulation software, Whole-body physiologically based pharmacokinetic modeling, Systems biology, Multiscale physiological modeling and simulation, PK-Sim, pharmacokinetics, drug development"
+  }
+  </script>
+  
+
+  
+  <meta name="keywords" content="PBPK, Physiologically based pharmacokinetic modelling, PBPK model, Qualification of PBPK Platform, Modeling and simulation software, PBPK Modeling and simulation software, Whole-body physiologically based pharmacokinetic modeling, Systems biology, Multiscale physiological modeling and simulation, PK-Sim, pharmacokinetics, drug development">
+  
+
+  
+  <link rel="canonical" href="https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/">
+  
+
+  <!-- Language -->
+  <meta http-equiv="content-language" content="en">
+  <meta name="language" content="English">
+
+
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#open-systems-pharmacology-pbpk-model-library" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="." title="OSP PBPK Model Library (Version 12.3)" class="md-header__button md-logo" aria-label="OSP PBPK Model Library (Version 12.3)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OSP PBPK Model Library (Version 12.3)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              PBPK Model Library | Validated PK-Sim & MoBi Models - Open Systems Pharmacology
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    OSP-PBPK-Model-Library
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="OSP PBPK Model Library (Version 12.3)" class="md-nav__button md-logo" aria-label="OSP PBPK Model Library (Version 12.3)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    OSP PBPK Model Library (Version 12.3)
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    OSP-PBPK-Model-Library
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="." class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#physiologically-based-pharmacokinetic-pbpk-and-quantitative-systems-pharmacology-qsp-modeling-platform" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Physiologically Based Pharmacokinetic (PBPK) and Quantitative Systems Pharmacology (QSP) Modeling Platform
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Physiologically Based Pharmacokinetic (PBPK) and Quantitative Systems Pharmacology (QSP) Modeling Platform">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-to-use-these-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to Use These Models
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#available-pbpk-models-and-evaluation-reports" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Available PBPK Models and Evaluation Reports
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Available PBPK Models and Evaluation Reports">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#antibiotics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Antibiotics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#antivirals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Antivirals
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#antifungals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Antifungals
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#anesthetics-analgesics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Anesthetics &amp; Analgesics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sedatives-anxiolytics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sedatives &amp; Anxiolytics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#anticonvulsants" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Anticonvulsants
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cardiovascular-agents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cardiovascular Agents
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#antibodies-biologics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Antibodies &amp; Biologics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-compounds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Compounds
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#frequently-asked-questions-faq" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Frequently Asked Questions (FAQ)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Frequently Asked Questions (FAQ)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-a-pbpk-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is a PBPK model?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-do-i-open-a-pksim5-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How do I open a .pksim5 file?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#are-these-models-validated" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Are these models validated?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-can-i-cite-these-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How can I cite these models?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-software-do-i-need" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What software do I need?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="7E3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7E3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Alfentanil/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Alfentanil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Alprazolam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Alprazolam
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Amikacin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amikacin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Atazanavir/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Atazanavir
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="BAY794620/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BAY794620
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="CDA1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CDA1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Carbamazepine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Carbamazepine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Cimetidine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cimetidine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Clarithromycin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Clarithromycin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Dapagliflozin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dapagliflozin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Digoxin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Digoxin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Efavirenz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Efavirenz
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Erythromycin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Erythromycin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Ethinylestradiol/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ethinylestradiol
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Felodipine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Felodipine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Fluconazole/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fluconazole
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Fluvoxamine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fluvoxamine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Inulin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inulin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Itraconazole/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Itraconazole
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="MEDI524/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MEDI524
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="MEDI524YTE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MEDI524YTE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Mefenamic_acid/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mefenamic_acid
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Mexiletine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mexiletine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Midazolam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Midazolam
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Moclobemide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Moclobemide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Montelukast/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Montelukast
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Omeprazole/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Omeprazole
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Propofol/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Propofol
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Raltegravir/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Raltegravir
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Rifampicin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rifampicin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="S-Mephenytoin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S-Mephenytoin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Sildenafil/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sildenafil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Sufentanil/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sufentanil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Tefibazumab/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tefibazumab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Tizanidine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tizanidine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Triazolam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Triazolam
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Vancomycin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vancomycin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Verapamil/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Verapamil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dAb2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    dAb2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#physiologically-based-pharmacokinetic-pbpk-and-quantitative-systems-pharmacology-qsp-modeling-platform" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Physiologically Based Pharmacokinetic (PBPK) and Quantitative Systems Pharmacology (QSP) Modeling Platform
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Physiologically Based Pharmacokinetic (PBPK) and Quantitative Systems Pharmacology (QSP) Modeling Platform">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-to-use-these-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to Use These Models
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#available-pbpk-models-and-evaluation-reports" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Available PBPK Models and Evaluation Reports
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Available PBPK Models and Evaluation Reports">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#antibiotics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Antibiotics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#antivirals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Antivirals
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#antifungals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Antifungals
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#anesthetics-analgesics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Anesthetics &amp; Analgesics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sedatives-anxiolytics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sedatives &amp; Anxiolytics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#anticonvulsants" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Anticonvulsants
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cardiovascular-agents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cardiovascular Agents
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#antibodies-biologics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Antibodies &amp; Biologics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-compounds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Compounds
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#frequently-asked-questions-faq" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Frequently Asked Questions (FAQ)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Frequently Asked Questions (FAQ)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-a-pbpk-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is a PBPK model?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-do-i-open-a-pksim5-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How do I open a .pksim5 file?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#are-these-models-validated" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Are these models validated?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-can-i-cite-these-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How can I cite these models?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-software-do-i-need" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What software do I need?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="open-systems-pharmacology-pbpk-model-library">Open Systems Pharmacology PBPK Model Library<a class="headerlink" href="#open-systems-pharmacology-pbpk-model-library" title="Anchor link to this section for reference">&para;</a></h1>
+<h2 id="physiologically-based-pharmacokinetic-pbpk-and-quantitative-systems-pharmacology-qsp-modeling-platform">Physiologically Based Pharmacokinetic (PBPK) and Quantitative Systems Pharmacology (QSP) Modeling Platform<a class="headerlink" href="#physiologically-based-pharmacokinetic-pbpk-and-quantitative-systems-pharmacology-qsp-modeling-platform" title="Anchor link to this section for reference">&para;</a></h2>
+<p>This comprehensive library provides <strong>PBPK (Physiologically Based Pharmacokinetic) models</strong> and detailed model evaluation reports from the <a href="https://www.open-systems-pharmacology.org/">Open Systems Pharmacology</a> project. Our PBPK and QSP modeling and simulation software (including PK-Sim® and MoBi®) enables <strong>whole-body physiologically based pharmacokinetic modeling</strong> for pharmaceutical research, drug development, and systems biology applications.</p>
+<h3 id="how-to-use-these-models">How to Use These Models<a class="headerlink" href="#how-to-use-these-models" title="Anchor link to this section for reference">&para;</a></h3>
+<p>Each PBPK model in this library includes:</p>
+<ul>
+<li><strong>HTML Report</strong>: Comprehensive evaluation report with pharmacokinetic modeling details, validation data, and simulation results</li>
+<li><strong>PDF Report</strong>: Downloadable model evaluation report for offline reference</li>
+<li><strong>PK-Sim Project Files</strong> (<code>.pksim5</code>): Ready-to-use model files that can be opened directly in <a href="https://www.open-systems-pharmacology.org/">PK-Sim®</a></li>
+</ul>
+<p>These models are built using the Open Systems Pharmacology Suite and can be used for e.g.:</p>
+<ul>
+<li>Drug-drug interaction (DDI) predictions</li>
+<li>Dose optimization and scaling across populations</li>
+<li>Pediatric and special population modeling</li>
+</ul>
+<h2 id="available-pbpk-models-and-evaluation-reports">Available PBPK Models and Evaluation Reports<a class="headerlink" href="#available-pbpk-models-and-evaluation-reports" title="Anchor link to this section for reference">&para;</a></h2>
+<h3 id="antibiotics">Antibiotics<a class="headerlink" href="#antibiotics" title="Anchor link to this section for reference">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Compound (HTML Report)</th>
+<th style="text-align: center;">PDF Report</th>
+<th style="text-align: center;">PK-Sim Project File(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Amikacin/">Amikacin</a></td>
+<td style="text-align: center;"><a download="Amikacin_evaluation_report.pdf" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/Amikacin/Amikacin_evaluation_report.pdf"><span aria-label="Download Amikacin_evaluation_report.pdf PDF report" class="twemoji pdf-icon" title="Download Amikacin_evaluation_report.pdf PDF report"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m-9.5 8.5c0 .8-.7 1.5-1.5 1.5H7v2H5.5V9H8c.8 0 1.5.7 1.5 1.5zm5 2c0 .8-.7 1.5-1.5 1.5h-2.5V9H13c.8 0 1.5.7 1.5 1.5zm4-3H17v1h1.5V13H17v2h-1.5V9h3zm-6.5 0h1v3h-1zm-5 0h1v1H7z"/></svg></span> Amikacin_evaluation_report.pdf</a></td>
+<td style="text-align: center;"><a download="Amikacin-Model.pksim5" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/Amikacin/Amikacin-Model.pksim5"><span aria-label="Download Amikacin-Model.pksim5 PK-Sim project file" class="twemoji pksim-icon" title="Download Amikacin-Model.pksim5 PK-Sim project file"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7z"/></svg></span> Amikacin-Model.pksim5</a> <a download="Amikacin-Pediatrics.pksim5" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/Amikacin/Amikacin-Pediatrics.pksim5"><span aria-label="Download Amikacin-Pediatrics.pksim5 PK-Sim project file" class="twemoji pksim-icon" title="Download Amikacin-Pediatrics.pksim5 PK-Sim project file"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7z"/></svg></span> Amikacin-Pediatrics.pksim5</a></td>
+</tr>
+<tr>
+<td><a href="Clarithromycin/">Clarithromycin</a></td>
+<td style="text-align: center;"><a download="Clarithromycin_evaluation_report.pdf" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/Clarithromycin/Clarithromycin_evaluation_report.pdf"><span aria-label="Download Clarithromycin_evaluation_report.pdf PDF report" class="twemoji pdf-icon" title="Download Clarithromycin_evaluation_report.pdf PDF report"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m-9.5 8.5c0 .8-.7 1.5-1.5 1.5H7v2H5.5V9H8c.8 0 1.5.7 1.5 1.5zm5 2c0 .8-.7 1.5-1.5 1.5h-2.5V9H13c.8 0 1.5.7 1.5 1.5zm4-3H17v1h1.5V13H17v2h-1.5V9h3zm-6.5 0h1v3h-1zm-5 0h1v1H7z"/></svg></span> Clarithromycin_evaluation_report.pdf</a></td>
+<td style="text-align: center;"><a download="Clarithromycin-Model.pksim5" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/Clarithromycin/Clarithromycin-Model.pksim5"><span aria-label="Download Clarithromycin-Model.pksim5 PK-Sim project file" class="twemoji pksim-icon" title="Download Clarithromycin-Model.pksim5 PK-Sim project file"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7z"/></svg></span> Clarithromycin-Model.pksim5</a></td>
+</tr>
+<tr>
+<td><a href="Erythromycin/">Erythromycin</a></td>
+<td style="text-align: center;"><a download="Erythromycin_evaluation_report.pdf" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/Erythromycin/Erythromycin_evaluation_report.pdf"><span aria-label="Download Erythromycin_evaluation_report.pdf PDF report" class="twemoji pdf-icon" title="Download Erythromycin_evaluation_report.pdf PDF report"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m-9.5 8.5c0 .8-.7 1.5-1.5 1.5H7v2H5.5V9H8c.8 0 1.5.7 1.5 1.5zm5 2c0 .8-.7 1.5-1.5 1.5h-2.5V9H13c.8 0 1.5.7 1.5 1.5zm4-3H17v1h1.5V13H17v2h-1.5V9h3zm-6.5 0h1v3h-1zm-5 0h1v1H7z"/></svg></span> Erythromycin_evaluation_report.pdf</a></td>
+<td style="text-align: center;"><a download="Erythromycin-Model.pksim5" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/Erythromycin/Erythromycin-Model.pksim5"><span aria-label="Download Erythromycin-Model.pksim5 PK-Sim project file" class="twemoji pksim-icon" title="Download Erythromycin-Model.pksim5 PK-Sim project file"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7z"/></svg></span> Erythromycin-Model.pksim5</a></td>
+</tr>
+<tr>
+<td><a href="Ethinylestradiol/">Ethinylestradiol</a></td>
+<td style="text-align: center;"><a download="Ethinylestradiol_evaluation_report.pdf" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/Ethinylestradiol/Ethinylestradiol_evaluation_report.pdf"><span aria-label="Download Ethinylestradiol_evaluation_report.pdf PDF report" class="twemoji pdf-icon" title="Download Ethinylestradiol_evaluation_report.pdf PDF report"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m-9.5 8.5c0 .8-.7 1.5-1.5 1.5H7v2H5.5V9H8c.8 0 1.5.7 1.5 1.5zm5 2c0 .8-.7 1.5-1.5 1.5h-2.5V9H13c.8 0 1.5.7 1.5 1.5zm4-3H17v1h1.5V13H17v2h-1.5V9h3zm-6.5 0h1v3h-1zm-5 0h1v1H7z"/></svg></span> Ethinylestradiol_evaluation_report.pdf</a></td>
+<td style="text-align: center;"><a download="Ethinylestradiol-Model.pksim5" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/Ethinylestradiol/Ethinylestradiol-Model.pksim5"><span aria-label="Download Ethinylestradiol-Model.pksim5 PK-Sim project file" class="twemoji pksim-icon" title="Download Ethinylestradiol-Model.pksim5 PK-Sim project file"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7z"/></svg></span> Ethinylestradiol-Model.pksim5</a></td>
+</tr>
+<tr>
+<td><a href="Rifampicin/">Rifampicin</a></td>
+<td style="text-align: center;"><a download="Rifampicin_evaluation_report.pdf" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/Rifampicin/Rifampicin_evaluation_report.pdf"><span aria-label="Download Rifampicin_evaluation_report.pdf PDF report" class="twemoji pdf-icon" title="Download Rifampicin_evaluation_report.pdf PDF report"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m-9.5 8.5c0 .8-.7 1.5-1.5 1.5H7v2H5.5V9H8c.8 0 1.5.7 1.5 1.5zm5 2c0 .8-.7 1.5-1.5 1.5h-2.5V9H13c.8 0 1.5.7 1.5 1.5zm4-3H17v1h1.5V13H17v2h-1.5V9h3zm-6.5 0h1v3h-1zm-5 0h1v1H7z"/></svg></span> Rifampicin_evaluation_report.pdf</a></td>
+<td style="text-align: center;"><a download="Rifampicin-Model.pksim5" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/Rifampicin/Rifampicin-Model.pksim5"><span aria-label="Download Rifampicin-Model.pksim5 PK-Sim project file" class="twemoji pksim-icon" title="Download Rifampicin-Model.pksim5 PK-Sim project file"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7z"/></svg></span> Rifampicin-Model.pksim5</a></td>
+</tr>
+<tr>
+<td><a href="Vancomycin/">Vancomycin</a></td>
+<td style="text-align: center;"><a download="Vancomycin_evaluation_report.pdf" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/Vancomycin/Vancomycin_evaluation_report.pdf"><span aria-label="Download Vancomycin_evaluation_report.pdf PDF report" class="twemoji pdf-icon" title="Download Vancomycin_evaluation_report.pdf PDF report"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m-9.5 8.5c0 .8-.7 1.5-1.5 1.5H7v2H5.5V9H8c.8 0 1.5.7 1.5 1.5zm5 2c0 .8-.7 1.5-1.5 1.5h-2.5V9H13c.8 0 1.5.7 1.5 1.5zm4-3H17v1h1.5V13H17v2h-1.5V9h3zm-6.5 0h1v3h-1zm-5 0h1v1H7z"/></svg></span> Vancomycin_evaluation_report.pdf</a></td>
+<td style="text-align: center;"><a download="Vancomycin-Pediatrics.pksim5" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/Vancomycin/Vancomycin-Pediatrics.pksim5"><span aria-label="Download Vancomycin-Pediatrics.pksim5 PK-Sim project file" class="twemoji pksim-icon" title="Download Vancomycin-Pediatrics.pksim5 PK-Sim project file"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7z"/></svg></span> Vancomycin-Pediatrics.pksim5</a> <a download="Vancomycin.pksim5" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/Vancomycin/Vancomycin.pksim5"><span aria-label="Download Vancomycin.pksim5 PK-Sim project file" class="twemoji pksim-icon" title="Download Vancomycin.pksim5 PK-Sim project file"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7z"/></svg></span> Vancomycin.pksim5</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="antivirals">Antivirals<a class="headerlink" href="#antivirals" title="Anchor link to this section for reference">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Compound (HTML Report)</th>
+<th style="text-align: center;">PDF Report</th>
+<th style="text-align: center;">PK-Sim Project File(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Atazanavir/">Atazanavir</a></td>
+<td style="text-align: center;"><a download="Atazanavir_evaluation_report.pdf" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/Atazanavir/Atazanavir_evaluation_report.pdf"><span aria-label="Download Atazanavir_evaluation_report.pdf PDF report" class="twemoji pdf-icon" title="Download Atazanavir_evaluation_report.pdf PDF report"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m-9.5 8.5c0 .8-.7 1.5-1.5 1.5H7v2H5.5V9H8c.8 0 1.5.7 1.5 1.5zm5 2c0 .8-.7 1.5-1.5 1.5h-2.5V9H13c.8 0 1.5.7 1.5 1.5zm4-3H17v1h1.5V13H17v2h-1.5V9h3zm-6.5 0h1v3h-1zm-5 0h1v1H7z"/></svg></span> Atazanavir_evaluation_report.pdf</a></td>
+<td style="text-align: center;"><a download="Atazanavir-Model.pksim5" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/Atazanavir/Atazanavir-Model.pksim5"><span aria-label="Download Atazanavir-Model.pksim5 PK-Sim project file" class="twemoji pksim-icon" title="Download Atazanavir-Model.pksim5 PK-Sim project file"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7z"/></svg></span> Atazanavir-Model.pksim5</a></td>
+</tr>
+<tr>
+<td><a href="Efavirenz/">Efavirenz</a></td>
+<td style="text-align: center;"><a download="Efavirenz_evaluation_report.pdf" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/Efavirenz/Efavirenz_evaluation_report.pdf"><span aria-label="Download Efavirenz_evaluation_report.pdf PDF report" class="twemoji pdf-icon" title="Download Efavirenz_evaluation_report.pdf PDF report"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m-9.5 8.5c0 .8-.7 1.5-1.5 1.5H7v2H5.5V9H8c.8 0 1.5.7 1.5 1.5zm5 2c0 .8-.7 1.5-1.5 1.5h-2.5V9H13c.8 0 1.5.7 1.5 1.5zm4-3H17v1h1.5V13H17v2h-1.5V9h3zm-6.5 0h1v3h-1zm-5 0h1v1H7z"/></svg></span> Efavirenz_evaluation_report.pdf</a></td>
+<td style="text-align: center;"><a download="Efavirenz-Model.pksim5" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/Efavirenz/Efavirenz-Model.pksim5"><span aria-label="Download Efavirenz-Model.pksim5 PK-Sim project file" class="twemoji pksim-icon" title="Download Efavirenz-Model.pksim5 PK-Sim project file"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7z"/></svg></span> Efavirenz-Model.pksim5</a></td>
+</tr>
+<tr>
+<td><a href="Raltegravir/">Raltegravir</a></td>
+<td style="text-align: center;"><a download="Raltegravir_evaluation_report.pdf" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/Raltegravir/Raltegravir_evaluation_report.pdf"><span aria-label="Download Raltegravir_evaluation_report.pdf PDF report" class="twemoji pdf-icon" title="Download Raltegravir_evaluation_report.pdf PDF report"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m-9.5 8.5c0 .8-.7 1.5-1.5 1.5H7v2H5.5V9H8c.8 0 1.5.7 1.5 1.5zm5 2c0 .8-.7 1.5-1.5 1.5h-2.5V9H13c.8 0 1.5.7 1.5 1.5zm4-3H17v1h1.5V13H17v2h-1.5V9h3zm-6.5 0h1v3h-1zm-5 0h1v1H7z"/></svg></span> Raltegravir_evaluation_report.pdf</a></td>
+<td style="text-align: center;"><a download="Raltegravir-Model.pksim5" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/Raltegravir/Raltegravir-Model.pksim5"><span aria-label="Download Raltegravir-Model.pksim5 PK-Sim project file" class="twemoji pksim-icon" title="Download Raltegravir-Model.pksim5 PK-Sim project file"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7z"/></svg></span> Raltegravir-Model.pksim5</a> <a download="Raltegravir-Pediatrics.pksim5" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/Raltegravir/Raltegravir-Pediatrics.pksim5"><span aria-label="Download Raltegravir-Pediatrics.pksim5 PK-Sim project file" class="twemoji pksim-icon" title="Download Raltegravir-Pediatrics.pksim5 PK-Sim project file"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7z"/></svg></span> Raltegravir-Pediatrics.pksim5</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="antifungals">Antifungals<a class="headerlink" href="#antifungals" title="Anchor link to this section for reference">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Compound (HTML Report)</th>
+<th style="text-align: center;">PDF Report</th>
+<th style="text-align: center;">PK-Sim Project File(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Omeprazole/">Omeprazole</a></td>
+<td style="text-align: center;"><a download="Omeprazole_evaluation_report.pdf" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/Omeprazole/Omeprazole_evaluation_report.pdf"><span aria-label="Download Omeprazole_evaluation_report.pdf PDF report" class="twemoji pdf-icon" title="Download Omeprazole_evaluation_report.pdf PDF report"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m-9.5 8.5c0 .8-.7 1.5-1.5 1.5H7v2H5.5V9H8c.8 0 1.5.7 1.5 1.5zm5 2c0 .8-.7 1.5-1.5 1.5h-2.5V9H13c.8 0 1.5.7 1.5 1.5zm4-3H17v1h1.5V13H17v2h-1.5V9h3zm-6.5 0h1v3h-1zm-5 0h1v1H7z"/></svg></span> Omeprazole_evaluation_report.pdf</a></td>
+<td style="text-align: center;"><a download="Omeprazole-Model.pksim5" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/Omeprazole/Omeprazole-Model.pksim5"><span aria-label="Download Omeprazole-Model.pksim5 PK-Sim project file" class="twemoji pksim-icon" title="Download Omeprazole-Model.pksim5 PK-Sim project file"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7z"/></svg></span> Omeprazole-Model.pksim5</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="anesthetics-analgesics">Anesthetics &amp; Analgesics<a class="headerlink" href="#anesthetics-analgesics" title="Anchor link to this section for reference">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Compound (HTML Report)</th>
+<th style="text-align: center;">PDF Report</th>
+<th style="text-align: center;">PK-Sim Project File(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Alfentanil/">Alfentanil</a></td>
+<td style="text-align: center;"><a download="Alfentanil_evaluation_report.pdf" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/Alfentanil/Alfentanil_evaluation_report.pdf"><span aria-label="Download Alfentanil_evaluation_report.pdf PDF report" class="twemoji pdf-icon" title="Download Alfentanil_evaluation_report.pdf PDF report"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m-9.5 8.5c0 .8-.7 1.5-1.5 1.5H7v2H5.5V9H8c.8 0 1.5.7 1.5 1.5zm5 2c0 .8-.7 1.5-1.5 1.5h-2.5V9H13c.8 0 1.5.7 1.5 1.5zm4-3H17v1h1.5V13H17v2h-1.5V9h3zm-6.5 0h1v3h-1zm-5 0h1v1H7z"/></svg></span> Alfentanil_evaluation_report.pdf</a></td>
+<td style="text-align: center;"><a download="Alfentanil-Model.pksim5" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/Alfentanil/Alfentanil-Model.pksim5"><span aria-label="Download Alfentanil-Model.pksim5 PK-Sim project file" class="twemoji pksim-icon" title="Download Alfentanil-Model.pksim5 PK-Sim project file"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7z"/></svg></span> Alfentanil-Model.pksim5</a> <a download="Alfentanil-Pediatrics.pksim5" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/Alfentanil/Alfentanil-Pediatrics.pksim5"><span aria-label="Download Alfentanil-Pediatrics.pksim5 PK-Sim project file" class="twemoji pksim-icon" title="Download Alfentanil-Pediatrics.pksim5 PK-Sim project file"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7z"/></svg></span> Alfentanil-Pediatrics.pksim5</a></td>
+</tr>
+<tr>
+<td><a href="Sufentanil/">Sufentanil</a></td>
+<td style="text-align: center;"><a download="Sufentanil_evaluation_report.pdf" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/Sufentanil/Sufentanil_evaluation_report.pdf"><span aria-label="Download Sufentanil_evaluation_report.pdf PDF report" class="twemoji pdf-icon" title="Download Sufentanil_evaluation_report.pdf PDF report"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m-9.5 8.5c0 .8-.7 1.5-1.5 1.5H7v2H5.5V9H8c.8 0 1.5.7 1.5 1.5zm5 2c0 .8-.7 1.5-1.5 1.5h-2.5V9H13c.8 0 1.5.7 1.5 1.5zm4-3H17v1h1.5V13H17v2h-1.5V9h3zm-6.5 0h1v3h-1zm-5 0h1v1H7z"/></svg></span> Sufentanil_evaluation_report.pdf</a></td>
+<td style="text-align: center;"><a download="Sufentanil-Pediatrics.pksim5" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/Sufentanil/Sufentanil-Pediatrics.pksim5"><span aria-label="Download Sufentanil-Pediatrics.pksim5 PK-Sim project file" class="twemoji pksim-icon" title="Download Sufentanil-Pediatrics.pksim5 PK-Sim project file"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7z"/></svg></span> Sufentanil-Pediatrics.pksim5</a> <a download="Sufentanil.pksim5" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/Sufentanil/Sufentanil.pksim5"><span aria-label="Download Sufentanil.pksim5 PK-Sim project file" class="twemoji pksim-icon" title="Download Sufentanil.pksim5 PK-Sim project file"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7z"/></svg></span> Sufentanil.pksim5</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="sedatives-anxiolytics">Sedatives &amp; Anxiolytics<a class="headerlink" href="#sedatives-anxiolytics" title="Anchor link to this section for reference">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Compound (HTML Report)</th>
+<th style="text-align: center;">PDF Report</th>
+<th style="text-align: center;">PK-Sim Project File(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Alprazolam/">Alprazolam</a></td>
+<td style="text-align: center;"><a download="Alprazolam_evaluation_report.pdf" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/Alprazolam/Alprazolam_evaluation_report.pdf"><span aria-label="Download Alprazolam_evaluation_report.pdf PDF report" class="twemoji pdf-icon" title="Download Alprazolam_evaluation_report.pdf PDF report"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m-9.5 8.5c0 .8-.7 1.5-1.5 1.5H7v2H5.5V9H8c.8 0 1.5.7 1.5 1.5zm5 2c0 .8-.7 1.5-1.5 1.5h-2.5V9H13c.8 0 1.5.7 1.5 1.5zm4-3H17v1h1.5V13H17v2h-1.5V9h3zm-6.5 0h1v3h-1zm-5 0h1v1H7z"/></svg></span> Alprazolam_evaluation_report.pdf</a></td>
+<td style="text-align: center;"><a download="Alprazolam-Model.pksim5" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/Alprazolam/Alprazolam-Model.pksim5"><span aria-label="Download Alprazolam-Model.pksim5 PK-Sim project file" class="twemoji pksim-icon" title="Download Alprazolam-Model.pksim5 PK-Sim project file"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7z"/></svg></span> Alprazolam-Model.pksim5</a></td>
+</tr>
+<tr>
+<td><a href="Midazolam/">Midazolam</a></td>
+<td style="text-align: center;"><a download="Midazolam_evaluation_report.pdf" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/Midazolam/Midazolam_evaluation_report.pdf"><span aria-label="Download Midazolam_evaluation_report.pdf PDF report" class="twemoji pdf-icon" title="Download Midazolam_evaluation_report.pdf PDF report"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m-9.5 8.5c0 .8-.7 1.5-1.5 1.5H7v2H5.5V9H8c.8 0 1.5.7 1.5 1.5zm5 2c0 .8-.7 1.5-1.5 1.5h-2.5V9H13c.8 0 1.5.7 1.5 1.5zm4-3H17v1h1.5V13H17v2h-1.5V9h3zm-6.5 0h1v3h-1zm-5 0h1v1H7z"/></svg></span> Midazolam_evaluation_report.pdf</a></td>
+<td style="text-align: center;"><a download="Midazolam-Model.pksim5" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/Midazolam/Midazolam-Model.pksim5"><span aria-label="Download Midazolam-Model.pksim5 PK-Sim project file" class="twemoji pksim-icon" title="Download Midazolam-Model.pksim5 PK-Sim project file"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7z"/></svg></span> Midazolam-Model.pksim5</a></td>
+</tr>
+<tr>
+<td><a href="Triazolam/">Triazolam</a></td>
+<td style="text-align: center;"><a download="Triazolam_evaluation_report.pdf" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/Triazolam/Triazolam_evaluation_report.pdf"><span aria-label="Download Triazolam_evaluation_report.pdf PDF report" class="twemoji pdf-icon" title="Download Triazolam_evaluation_report.pdf PDF report"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m-9.5 8.5c0 .8-.7 1.5-1.5 1.5H7v2H5.5V9H8c.8 0 1.5.7 1.5 1.5zm5 2c0 .8-.7 1.5-1.5 1.5h-2.5V9H13c.8 0 1.5.7 1.5 1.5zm4-3H17v1h1.5V13H17v2h-1.5V9h3zm-6.5 0h1v3h-1zm-5 0h1v1H7z"/></svg></span> Triazolam_evaluation_report.pdf</a></td>
+<td style="text-align: center;"><a download="Triazolam-Model.pksim5" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/Triazolam/Triazolam-Model.pksim5"><span aria-label="Download Triazolam-Model.pksim5 PK-Sim project file" class="twemoji pksim-icon" title="Download Triazolam-Model.pksim5 PK-Sim project file"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7z"/></svg></span> Triazolam-Model.pksim5</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="anticonvulsants">Anticonvulsants<a class="headerlink" href="#anticonvulsants" title="Anchor link to this section for reference">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Compound (HTML Report)</th>
+<th style="text-align: center;">PDF Report</th>
+<th style="text-align: center;">PK-Sim Project File(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Carbamazepine/">Carbamazepine</a></td>
+<td style="text-align: center;"><a download="Carbamazepine_evaluation_report.pdf" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/Carbamazepine/Carbamazepine_evaluation_report.pdf"><span aria-label="Download Carbamazepine_evaluation_report.pdf PDF report" class="twemoji pdf-icon" title="Download Carbamazepine_evaluation_report.pdf PDF report"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m-9.5 8.5c0 .8-.7 1.5-1.5 1.5H7v2H5.5V9H8c.8 0 1.5.7 1.5 1.5zm5 2c0 .8-.7 1.5-1.5 1.5h-2.5V9H13c.8 0 1.5.7 1.5 1.5zm4-3H17v1h1.5V13H17v2h-1.5V9h3zm-6.5 0h1v3h-1zm-5 0h1v1H7z"/></svg></span> Carbamazepine_evaluation_report.pdf</a></td>
+<td style="text-align: center;"><a download="Carbamazepine-Model.pksim5" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/Carbamazepine/Carbamazepine-Model.pksim5"><span aria-label="Download Carbamazepine-Model.pksim5 PK-Sim project file" class="twemoji pksim-icon" title="Download Carbamazepine-Model.pksim5 PK-Sim project file"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7z"/></svg></span> Carbamazepine-Model.pksim5</a></td>
+</tr>
+<tr>
+<td><a href="S-Mephenytoin/">S-Mephenytoin</a></td>
+<td style="text-align: center;"><a download="S-Mephenytoin_evaluation_report.pdf" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/S-Mephenytoin/S-Mephenytoin_evaluation_report.pdf"><span aria-label="Download S-Mephenytoin_evaluation_report.pdf PDF report" class="twemoji pdf-icon" title="Download S-Mephenytoin_evaluation_report.pdf PDF report"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m-9.5 8.5c0 .8-.7 1.5-1.5 1.5H7v2H5.5V9H8c.8 0 1.5.7 1.5 1.5zm5 2c0 .8-.7 1.5-1.5 1.5h-2.5V9H13c.8 0 1.5.7 1.5 1.5zm4-3H17v1h1.5V13H17v2h-1.5V9h3zm-6.5 0h1v3h-1zm-5 0h1v1H7z"/></svg></span> S-Mephenytoin_evaluation_report.pdf</a></td>
+<td style="text-align: center;"><a download="S_Mephenytoin-Model.pksim5" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/S-Mephenytoin/S_Mephenytoin-Model.pksim5"><span aria-label="Download S_Mephenytoin-Model.pksim5 PK-Sim project file" class="twemoji pksim-icon" title="Download S_Mephenytoin-Model.pksim5 PK-Sim project file"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7z"/></svg></span> S_Mephenytoin-Model.pksim5</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="cardiovascular-agents">Cardiovascular Agents<a class="headerlink" href="#cardiovascular-agents" title="Anchor link to this section for reference">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Compound (HTML Report)</th>
+<th style="text-align: center;">PDF Report</th>
+<th style="text-align: center;">PK-Sim Project File(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Cimetidine/">Cimetidine</a></td>
+<td style="text-align: center;"><a download="Cimetidine_evaluation_report.pdf" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/Cimetidine/Cimetidine_evaluation_report.pdf"><span aria-label="Download Cimetidine_evaluation_report.pdf PDF report" class="twemoji pdf-icon" title="Download Cimetidine_evaluation_report.pdf PDF report"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m-9.5 8.5c0 .8-.7 1.5-1.5 1.5H7v2H5.5V9H8c.8 0 1.5.7 1.5 1.5zm5 2c0 .8-.7 1.5-1.5 1.5h-2.5V9H13c.8 0 1.5.7 1.5 1.5zm4-3H17v1h1.5V13H17v2h-1.5V9h3zm-6.5 0h1v3h-1zm-5 0h1v1H7z"/></svg></span> Cimetidine_evaluation_report.pdf</a></td>
+<td style="text-align: center;"><a download="Cimetidine-Model.pksim5" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/Cimetidine/Cimetidine-Model.pksim5"><span aria-label="Download Cimetidine-Model.pksim5 PK-Sim project file" class="twemoji pksim-icon" title="Download Cimetidine-Model.pksim5 PK-Sim project file"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7z"/></svg></span> Cimetidine-Model.pksim5</a></td>
+</tr>
+<tr>
+<td><a href="Dapagliflozin/">Dapagliflozin</a></td>
+<td style="text-align: center;"><a download="Dapagliflozin_evaluation_report.pdf" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/Dapagliflozin/Dapagliflozin_evaluation_report.pdf"><span aria-label="Download Dapagliflozin_evaluation_report.pdf PDF report" class="twemoji pdf-icon" title="Download Dapagliflozin_evaluation_report.pdf PDF report"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m-9.5 8.5c0 .8-.7 1.5-1.5 1.5H7v2H5.5V9H8c.8 0 1.5.7 1.5 1.5zm5 2c0 .8-.7 1.5-1.5 1.5h-2.5V9H13c.8 0 1.5.7 1.5 1.5zm4-3H17v1h1.5V13H17v2h-1.5V9h3zm-6.5 0h1v3h-1zm-5 0h1v1H7z"/></svg></span> Dapagliflozin_evaluation_report.pdf</a></td>
+<td style="text-align: center;"><a download="Dapagliflozin-Model.pksim5" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/Dapagliflozin/Dapagliflozin-Model.pksim5"><span aria-label="Download Dapagliflozin-Model.pksim5 PK-Sim project file" class="twemoji pksim-icon" title="Download Dapagliflozin-Model.pksim5 PK-Sim project file"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7z"/></svg></span> Dapagliflozin-Model.pksim5</a></td>
+</tr>
+<tr>
+<td><a href="Digoxin/">Digoxin</a></td>
+<td style="text-align: center;"><a download="Digoxin_evaluation_report.pdf" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/Digoxin/Digoxin_evaluation_report.pdf"><span aria-label="Download Digoxin_evaluation_report.pdf PDF report" class="twemoji pdf-icon" title="Download Digoxin_evaluation_report.pdf PDF report"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m-9.5 8.5c0 .8-.7 1.5-1.5 1.5H7v2H5.5V9H8c.8 0 1.5.7 1.5 1.5zm5 2c0 .8-.7 1.5-1.5 1.5h-2.5V9H13c.8 0 1.5.7 1.5 1.5zm4-3H17v1h1.5V13H17v2h-1.5V9h3zm-6.5 0h1v3h-1zm-5 0h1v1H7z"/></svg></span> Digoxin_evaluation_report.pdf</a></td>
+<td style="text-align: center;"><a download="Digoxin-Model.pksim5" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/Digoxin/Digoxin-Model.pksim5"><span aria-label="Download Digoxin-Model.pksim5 PK-Sim project file" class="twemoji pksim-icon" title="Download Digoxin-Model.pksim5 PK-Sim project file"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7z"/></svg></span> Digoxin-Model.pksim5</a> <a download="Digoxin_Pediatrics.pksim5" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/Digoxin/Digoxin_Pediatrics.pksim5"><span aria-label="Download Digoxin_Pediatrics.pksim5 PK-Sim project file" class="twemoji pksim-icon" title="Download Digoxin_Pediatrics.pksim5 PK-Sim project file"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7z"/></svg></span> Digoxin_Pediatrics.pksim5</a></td>
+</tr>
+<tr>
+<td><a href="Felodipine/">Felodipine</a></td>
+<td style="text-align: center;"><a download="Felodipine_evaluation_report.pdf" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/Felodipine/Felodipine_evaluation_report.pdf"><span aria-label="Download Felodipine_evaluation_report.pdf PDF report" class="twemoji pdf-icon" title="Download Felodipine_evaluation_report.pdf PDF report"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m-9.5 8.5c0 .8-.7 1.5-1.5 1.5H7v2H5.5V9H8c.8 0 1.5.7 1.5 1.5zm5 2c0 .8-.7 1.5-1.5 1.5h-2.5V9H13c.8 0 1.5.7 1.5 1.5zm4-3H17v1h1.5V13H17v2h-1.5V9h3zm-6.5 0h1v3h-1zm-5 0h1v1H7z"/></svg></span> Felodipine_evaluation_report.pdf</a></td>
+<td style="text-align: center;"><a download="Felodipine-Model.pksim5" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/Felodipine/Felodipine-Model.pksim5"><span aria-label="Download Felodipine-Model.pksim5 PK-Sim project file" class="twemoji pksim-icon" title="Download Felodipine-Model.pksim5 PK-Sim project file"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7z"/></svg></span> Felodipine-Model.pksim5</a></td>
+</tr>
+<tr>
+<td><a href="Fluconazole/">Fluconazole</a></td>
+<td style="text-align: center;"><a download="Fluconazole_evaluation_report.pdf" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/Fluconazole/Fluconazole_evaluation_report.pdf"><span aria-label="Download Fluconazole_evaluation_report.pdf PDF report" class="twemoji pdf-icon" title="Download Fluconazole_evaluation_report.pdf PDF report"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m-9.5 8.5c0 .8-.7 1.5-1.5 1.5H7v2H5.5V9H8c.8 0 1.5.7 1.5 1.5zm5 2c0 .8-.7 1.5-1.5 1.5h-2.5V9H13c.8 0 1.5.7 1.5 1.5zm4-3H17v1h1.5V13H17v2h-1.5V9h3zm-6.5 0h1v3h-1zm-5 0h1v1H7z"/></svg></span> Fluconazole_evaluation_report.pdf</a></td>
+<td style="text-align: center;"><a download="Fluconazole-Model.pksim5" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/Fluconazole/Fluconazole-Model.pksim5"><span aria-label="Download Fluconazole-Model.pksim5 PK-Sim project file" class="twemoji pksim-icon" title="Download Fluconazole-Model.pksim5 PK-Sim project file"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7z"/></svg></span> Fluconazole-Model.pksim5</a></td>
+</tr>
+<tr>
+<td><a href="Itraconazole/">Itraconazole</a></td>
+<td style="text-align: center;"><a download="Itraconazole_evaluation_report.pdf" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/Itraconazole/Itraconazole_evaluation_report.pdf"><span aria-label="Download Itraconazole_evaluation_report.pdf PDF report" class="twemoji pdf-icon" title="Download Itraconazole_evaluation_report.pdf PDF report"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m-9.5 8.5c0 .8-.7 1.5-1.5 1.5H7v2H5.5V9H8c.8 0 1.5.7 1.5 1.5zm5 2c0 .8-.7 1.5-1.5 1.5h-2.5V9H13c.8 0 1.5.7 1.5 1.5zm4-3H17v1h1.5V13H17v2h-1.5V9h3zm-6.5 0h1v3h-1zm-5 0h1v1H7z"/></svg></span> Itraconazole_evaluation_report.pdf</a></td>
+<td style="text-align: center;"><a download="Itraconazole-Model.pksim5" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/Itraconazole/Itraconazole-Model.pksim5"><span aria-label="Download Itraconazole-Model.pksim5 PK-Sim project file" class="twemoji pksim-icon" title="Download Itraconazole-Model.pksim5 PK-Sim project file"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7z"/></svg></span> Itraconazole-Model.pksim5</a></td>
+</tr>
+<tr>
+<td><a href="Mefenamic_acid/">Mefenamic_acid</a></td>
+<td style="text-align: center;"><a download="Mefenamic_acid_evaluation_report.pdf" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/Mefenamic_acid/Mefenamic_acid_evaluation_report.pdf"><span aria-label="Download Mefenamic_acid_evaluation_report.pdf PDF report" class="twemoji pdf-icon" title="Download Mefenamic_acid_evaluation_report.pdf PDF report"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m-9.5 8.5c0 .8-.7 1.5-1.5 1.5H7v2H5.5V9H8c.8 0 1.5.7 1.5 1.5zm5 2c0 .8-.7 1.5-1.5 1.5h-2.5V9H13c.8 0 1.5.7 1.5 1.5zm4-3H17v1h1.5V13H17v2h-1.5V9h3zm-6.5 0h1v3h-1zm-5 0h1v1H7z"/></svg></span> Mefenamic_acid_evaluation_report.pdf</a></td>
+<td style="text-align: center;"><a download="Mefenamic_acid-Model.pksim5" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/Mefenamic_acid/Mefenamic_acid-Model.pksim5"><span aria-label="Download Mefenamic_acid-Model.pksim5 PK-Sim project file" class="twemoji pksim-icon" title="Download Mefenamic_acid-Model.pksim5 PK-Sim project file"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7z"/></svg></span> Mefenamic_acid-Model.pksim5</a></td>
+</tr>
+<tr>
+<td><a href="Mexiletine/">Mexiletine</a></td>
+<td style="text-align: center;"><a download="Mexiletine_evaluation_report.pdf" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/Mexiletine/Mexiletine_evaluation_report.pdf"><span aria-label="Download Mexiletine_evaluation_report.pdf PDF report" class="twemoji pdf-icon" title="Download Mexiletine_evaluation_report.pdf PDF report"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m-9.5 8.5c0 .8-.7 1.5-1.5 1.5H7v2H5.5V9H8c.8 0 1.5.7 1.5 1.5zm5 2c0 .8-.7 1.5-1.5 1.5h-2.5V9H13c.8 0 1.5.7 1.5 1.5zm4-3H17v1h1.5V13H17v2h-1.5V9h3zm-6.5 0h1v3h-1zm-5 0h1v1H7z"/></svg></span> Mexiletine_evaluation_report.pdf</a></td>
+<td style="text-align: center;"><a download="Mexiletine-Model.pksim5" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/Mexiletine/Mexiletine-Model.pksim5"><span aria-label="Download Mexiletine-Model.pksim5 PK-Sim project file" class="twemoji pksim-icon" title="Download Mexiletine-Model.pksim5 PK-Sim project file"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7z"/></svg></span> Mexiletine-Model.pksim5</a></td>
+</tr>
+<tr>
+<td><a href="Montelukast/">Montelukast</a></td>
+<td style="text-align: center;"><a download="Montelukast_evaluation_report.pdf" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/Montelukast/Montelukast_evaluation_report.pdf"><span aria-label="Download Montelukast_evaluation_report.pdf PDF report" class="twemoji pdf-icon" title="Download Montelukast_evaluation_report.pdf PDF report"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m-9.5 8.5c0 .8-.7 1.5-1.5 1.5H7v2H5.5V9H8c.8 0 1.5.7 1.5 1.5zm5 2c0 .8-.7 1.5-1.5 1.5h-2.5V9H13c.8 0 1.5.7 1.5 1.5zm4-3H17v1h1.5V13H17v2h-1.5V9h3zm-6.5 0h1v3h-1zm-5 0h1v1H7z"/></svg></span> Montelukast_evaluation_report.pdf</a></td>
+<td style="text-align: center;"><a download="Montelukast-Pediatrics.pksim5" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/Montelukast/Montelukast-Pediatrics.pksim5"><span aria-label="Download Montelukast-Pediatrics.pksim5 PK-Sim project file" class="twemoji pksim-icon" title="Download Montelukast-Pediatrics.pksim5 PK-Sim project file"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7z"/></svg></span> Montelukast-Pediatrics.pksim5</a> <a download="Montelukast.pksim5" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/Montelukast/Montelukast.pksim5"><span aria-label="Download Montelukast.pksim5 PK-Sim project file" class="twemoji pksim-icon" title="Download Montelukast.pksim5 PK-Sim project file"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7z"/></svg></span> Montelukast.pksim5</a></td>
+</tr>
+<tr>
+<td><a href="Propofol/">Propofol</a></td>
+<td style="text-align: center;"><a download="Propofol_evaluation_report.pdf" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/Propofol/Propofol_evaluation_report.pdf"><span aria-label="Download Propofol_evaluation_report.pdf PDF report" class="twemoji pdf-icon" title="Download Propofol_evaluation_report.pdf PDF report"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m-9.5 8.5c0 .8-.7 1.5-1.5 1.5H7v2H5.5V9H8c.8 0 1.5.7 1.5 1.5zm5 2c0 .8-.7 1.5-1.5 1.5h-2.5V9H13c.8 0 1.5.7 1.5 1.5zm4-3H17v1h1.5V13H17v2h-1.5V9h3zm-6.5 0h1v3h-1zm-5 0h1v1H7z"/></svg></span> Propofol_evaluation_report.pdf</a></td>
+<td style="text-align: center;"><a download="Propofol-Pediatrics.pksim5" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/Propofol/Propofol-Pediatrics.pksim5"><span aria-label="Download Propofol-Pediatrics.pksim5 PK-Sim project file" class="twemoji pksim-icon" title="Download Propofol-Pediatrics.pksim5 PK-Sim project file"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7z"/></svg></span> Propofol-Pediatrics.pksim5</a> <a download="Propofol.pksim5" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/Propofol/Propofol.pksim5"><span aria-label="Download Propofol.pksim5 PK-Sim project file" class="twemoji pksim-icon" title="Download Propofol.pksim5 PK-Sim project file"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7z"/></svg></span> Propofol.pksim5</a></td>
+</tr>
+<tr>
+<td><a href="Sildenafil/">Sildenafil</a></td>
+<td style="text-align: center;"><a download="Sildenafil_evaluation_report.pdf" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/Sildenafil/Sildenafil_evaluation_report.pdf"><span aria-label="Download Sildenafil_evaluation_report.pdf PDF report" class="twemoji pdf-icon" title="Download Sildenafil_evaluation_report.pdf PDF report"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m-9.5 8.5c0 .8-.7 1.5-1.5 1.5H7v2H5.5V9H8c.8 0 1.5.7 1.5 1.5zm5 2c0 .8-.7 1.5-1.5 1.5h-2.5V9H13c.8 0 1.5.7 1.5 1.5zm4-3H17v1h1.5V13H17v2h-1.5V9h3zm-6.5 0h1v3h-1zm-5 0h1v1H7z"/></svg></span> Sildenafil_evaluation_report.pdf</a></td>
+<td style="text-align: center;"><a download="Sildenafil-Model.pksim5" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/Sildenafil/Sildenafil-Model.pksim5"><span aria-label="Download Sildenafil-Model.pksim5 PK-Sim project file" class="twemoji pksim-icon" title="Download Sildenafil-Model.pksim5 PK-Sim project file"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7z"/></svg></span> Sildenafil-Model.pksim5</a></td>
+</tr>
+<tr>
+<td><a href="Verapamil/">Verapamil</a></td>
+<td style="text-align: center;"><a download="Verapamil_evaluation_report.pdf" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/Verapamil/Verapamil_evaluation_report.pdf"><span aria-label="Download Verapamil_evaluation_report.pdf PDF report" class="twemoji pdf-icon" title="Download Verapamil_evaluation_report.pdf PDF report"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m-9.5 8.5c0 .8-.7 1.5-1.5 1.5H7v2H5.5V9H8c.8 0 1.5.7 1.5 1.5zm5 2c0 .8-.7 1.5-1.5 1.5h-2.5V9H13c.8 0 1.5.7 1.5 1.5zm4-3H17v1h1.5V13H17v2h-1.5V9h3zm-6.5 0h1v3h-1zm-5 0h1v1H7z"/></svg></span> Verapamil_evaluation_report.pdf</a></td>
+<td style="text-align: center;"><a download="Verapamil-Model.pksim5" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/Verapamil/Verapamil-Model.pksim5"><span aria-label="Download Verapamil-Model.pksim5 PK-Sim project file" class="twemoji pksim-icon" title="Download Verapamil-Model.pksim5 PK-Sim project file"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7z"/></svg></span> Verapamil-Model.pksim5</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="antibodies-biologics">Antibodies &amp; Biologics<a class="headerlink" href="#antibodies-biologics" title="Anchor link to this section for reference">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Compound (HTML Report)</th>
+<th style="text-align: center;">PDF Report</th>
+<th style="text-align: center;">PK-Sim Project File(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="7E3/">7E3</a></td>
+<td style="text-align: center;"><a download="7E3_evaluation_report.pdf" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/7E3/7E3_evaluation_report.pdf"><span aria-label="Download 7E3_evaluation_report.pdf PDF report" class="twemoji pdf-icon" title="Download 7E3_evaluation_report.pdf PDF report"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m-9.5 8.5c0 .8-.7 1.5-1.5 1.5H7v2H5.5V9H8c.8 0 1.5.7 1.5 1.5zm5 2c0 .8-.7 1.5-1.5 1.5h-2.5V9H13c.8 0 1.5.7 1.5 1.5zm4-3H17v1h1.5V13H17v2h-1.5V9h3zm-6.5 0h1v3h-1zm-5 0h1v1H7z"/></svg></span> 7E3_evaluation_report.pdf</a></td>
+<td style="text-align: center;"><a download="7E3.pksim5" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/7E3/7E3.pksim5"><span aria-label="Download 7E3.pksim5 PK-Sim project file" class="twemoji pksim-icon" title="Download 7E3.pksim5 PK-Sim project file"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7z"/></svg></span> 7E3.pksim5</a></td>
+</tr>
+<tr>
+<td><a href="BAY794620/">BAY794620</a></td>
+<td style="text-align: center;"><a download="BAY794620_evaluation_report.pdf" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/BAY794620/BAY794620_evaluation_report.pdf"><span aria-label="Download BAY794620_evaluation_report.pdf PDF report" class="twemoji pdf-icon" title="Download BAY794620_evaluation_report.pdf PDF report"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m-9.5 8.5c0 .8-.7 1.5-1.5 1.5H7v2H5.5V9H8c.8 0 1.5.7 1.5 1.5zm5 2c0 .8-.7 1.5-1.5 1.5h-2.5V9H13c.8 0 1.5.7 1.5 1.5zm4-3H17v1h1.5V13H17v2h-1.5V9h3zm-6.5 0h1v3h-1zm-5 0h1v1H7z"/></svg></span> BAY794620_evaluation_report.pdf</a></td>
+<td style="text-align: center;"><a download="BAY794620.pksim5" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/BAY794620/BAY794620.pksim5"><span aria-label="Download BAY794620.pksim5 PK-Sim project file" class="twemoji pksim-icon" title="Download BAY794620.pksim5 PK-Sim project file"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7z"/></svg></span> BAY794620.pksim5</a></td>
+</tr>
+<tr>
+<td><a href="CDA1/">CDA1</a></td>
+<td style="text-align: center;"><a download="CDA1_evaluation_report.pdf" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/CDA1/CDA1_evaluation_report.pdf"><span aria-label="Download CDA1_evaluation_report.pdf PDF report" class="twemoji pdf-icon" title="Download CDA1_evaluation_report.pdf PDF report"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m-9.5 8.5c0 .8-.7 1.5-1.5 1.5H7v2H5.5V9H8c.8 0 1.5.7 1.5 1.5zm5 2c0 .8-.7 1.5-1.5 1.5h-2.5V9H13c.8 0 1.5.7 1.5 1.5zm4-3H17v1h1.5V13H17v2h-1.5V9h3zm-6.5 0h1v3h-1zm-5 0h1v1H7z"/></svg></span> CDA1_evaluation_report.pdf</a></td>
+<td style="text-align: center;"><a download="CDA1.pksim5" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/CDA1/CDA1.pksim5"><span aria-label="Download CDA1.pksim5 PK-Sim project file" class="twemoji pksim-icon" title="Download CDA1.pksim5 PK-Sim project file"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7z"/></svg></span> CDA1.pksim5</a></td>
+</tr>
+<tr>
+<td><a href="dAb2/">dAb2</a></td>
+<td style="text-align: center;"><a download="dAb2_evaluation_report.pdf" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/dAb2/dAb2_evaluation_report.pdf"><span aria-label="Download dAb2_evaluation_report.pdf PDF report" class="twemoji pdf-icon" title="Download dAb2_evaluation_report.pdf PDF report"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m-9.5 8.5c0 .8-.7 1.5-1.5 1.5H7v2H5.5V9H8c.8 0 1.5.7 1.5 1.5zm5 2c0 .8-.7 1.5-1.5 1.5h-2.5V9H13c.8 0 1.5.7 1.5 1.5zm4-3H17v1h1.5V13H17v2h-1.5V9h3zm-6.5 0h1v3h-1zm-5 0h1v1H7z"/></svg></span> dAb2_evaluation_report.pdf</a></td>
+<td style="text-align: center;"><a download="dAb2.pksim5" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/dAb2/dAb2.pksim5"><span aria-label="Download dAb2.pksim5 PK-Sim project file" class="twemoji pksim-icon" title="Download dAb2.pksim5 PK-Sim project file"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7z"/></svg></span> dAb2.pksim5</a></td>
+</tr>
+<tr>
+<td><a href="Inulin/">Inulin</a></td>
+<td style="text-align: center;"><a download="Inulin_evaluation_report.pdf" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/Inulin/Inulin_evaluation_report.pdf"><span aria-label="Download Inulin_evaluation_report.pdf PDF report" class="twemoji pdf-icon" title="Download Inulin_evaluation_report.pdf PDF report"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m-9.5 8.5c0 .8-.7 1.5-1.5 1.5H7v2H5.5V9H8c.8 0 1.5.7 1.5 1.5zm5 2c0 .8-.7 1.5-1.5 1.5h-2.5V9H13c.8 0 1.5.7 1.5 1.5zm4-3H17v1h1.5V13H17v2h-1.5V9h3zm-6.5 0h1v3h-1zm-5 0h1v1H7z"/></svg></span> Inulin_evaluation_report.pdf</a></td>
+<td style="text-align: center;"><a download="Inulin.pksim5" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/Inulin/Inulin.pksim5"><span aria-label="Download Inulin.pksim5 PK-Sim project file" class="twemoji pksim-icon" title="Download Inulin.pksim5 PK-Sim project file"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7z"/></svg></span> Inulin.pksim5</a></td>
+</tr>
+<tr>
+<td><a href="MEDI524/">MEDI524</a></td>
+<td style="text-align: center;"><a download="MEDI524_evaluation_report.pdf" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/MEDI524/MEDI524_evaluation_report.pdf"><span aria-label="Download MEDI524_evaluation_report.pdf PDF report" class="twemoji pdf-icon" title="Download MEDI524_evaluation_report.pdf PDF report"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m-9.5 8.5c0 .8-.7 1.5-1.5 1.5H7v2H5.5V9H8c.8 0 1.5.7 1.5 1.5zm5 2c0 .8-.7 1.5-1.5 1.5h-2.5V9H13c.8 0 1.5.7 1.5 1.5zm4-3H17v1h1.5V13H17v2h-1.5V9h3zm-6.5 0h1v3h-1zm-5 0h1v1H7z"/></svg></span> MEDI524_evaluation_report.pdf</a></td>
+<td style="text-align: center;"><a download="MEDI524.pksim5" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/MEDI524/MEDI524.pksim5"><span aria-label="Download MEDI524.pksim5 PK-Sim project file" class="twemoji pksim-icon" title="Download MEDI524.pksim5 PK-Sim project file"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7z"/></svg></span> MEDI524.pksim5</a></td>
+</tr>
+<tr>
+<td><a href="MEDI524YTE/">MEDI524YTE</a></td>
+<td style="text-align: center;"><a download="MEDI524YTE_evaluation_report.pdf" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/MEDI524YTE/MEDI524YTE_evaluation_report.pdf"><span aria-label="Download MEDI524YTE_evaluation_report.pdf PDF report" class="twemoji pdf-icon" title="Download MEDI524YTE_evaluation_report.pdf PDF report"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m-9.5 8.5c0 .8-.7 1.5-1.5 1.5H7v2H5.5V9H8c.8 0 1.5.7 1.5 1.5zm5 2c0 .8-.7 1.5-1.5 1.5h-2.5V9H13c.8 0 1.5.7 1.5 1.5zm4-3H17v1h1.5V13H17v2h-1.5V9h3zm-6.5 0h1v3h-1zm-5 0h1v1H7z"/></svg></span> MEDI524YTE_evaluation_report.pdf</a></td>
+<td style="text-align: center;"><a download="MEDI524YTE.pksim5" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/MEDI524YTE/MEDI524YTE.pksim5"><span aria-label="Download MEDI524YTE.pksim5 PK-Sim project file" class="twemoji pksim-icon" title="Download MEDI524YTE.pksim5 PK-Sim project file"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7z"/></svg></span> MEDI524YTE.pksim5</a></td>
+</tr>
+<tr>
+<td><a href="Tefibazumab/">Tefibazumab</a></td>
+<td style="text-align: center;"><a download="Tefibazumab_evaluation_report.pdf" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/Tefibazumab/Tefibazumab_evaluation_report.pdf"><span aria-label="Download Tefibazumab_evaluation_report.pdf PDF report" class="twemoji pdf-icon" title="Download Tefibazumab_evaluation_report.pdf PDF report"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m-9.5 8.5c0 .8-.7 1.5-1.5 1.5H7v2H5.5V9H8c.8 0 1.5.7 1.5 1.5zm5 2c0 .8-.7 1.5-1.5 1.5h-2.5V9H13c.8 0 1.5.7 1.5 1.5zm4-3H17v1h1.5V13H17v2h-1.5V9h3zm-6.5 0h1v3h-1zm-5 0h1v1H7z"/></svg></span> Tefibazumab_evaluation_report.pdf</a></td>
+<td style="text-align: center;"><a download="Tefibazumab.pksim5" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/Tefibazumab/Tefibazumab.pksim5"><span aria-label="Download Tefibazumab.pksim5 PK-Sim project file" class="twemoji pksim-icon" title="Download Tefibazumab.pksim5 PK-Sim project file"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7z"/></svg></span> Tefibazumab.pksim5</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="other-compounds">Other Compounds<a class="headerlink" href="#other-compounds" title="Anchor link to this section for reference">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Compound (HTML Report)</th>
+<th style="text-align: center;">PDF Report</th>
+<th style="text-align: center;">PK-Sim Project File(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Fluvoxamine/">Fluvoxamine</a></td>
+<td style="text-align: center;"><a download="Fluvoxamine_evaluation_report.pdf" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/Fluvoxamine/Fluvoxamine_evaluation_report.pdf"><span aria-label="Download Fluvoxamine_evaluation_report.pdf PDF report" class="twemoji pdf-icon" title="Download Fluvoxamine_evaluation_report.pdf PDF report"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m-9.5 8.5c0 .8-.7 1.5-1.5 1.5H7v2H5.5V9H8c.8 0 1.5.7 1.5 1.5zm5 2c0 .8-.7 1.5-1.5 1.5h-2.5V9H13c.8 0 1.5.7 1.5 1.5zm4-3H17v1h1.5V13H17v2h-1.5V9h3zm-6.5 0h1v3h-1zm-5 0h1v1H7z"/></svg></span> Fluvoxamine_evaluation_report.pdf</a></td>
+<td style="text-align: center;"><a download="Fluvoxamine-Model.pksim5" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/Fluvoxamine/Fluvoxamine-Model.pksim5"><span aria-label="Download Fluvoxamine-Model.pksim5 PK-Sim project file" class="twemoji pksim-icon" title="Download Fluvoxamine-Model.pksim5 PK-Sim project file"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7z"/></svg></span> Fluvoxamine-Model.pksim5</a></td>
+</tr>
+<tr>
+<td><a href="Moclobemide/">Moclobemide</a></td>
+<td style="text-align: center;"><a download="Moclobemide_evaluation_report.pdf" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/Moclobemide/Moclobemide_evaluation_report.pdf"><span aria-label="Download Moclobemide_evaluation_report.pdf PDF report" class="twemoji pdf-icon" title="Download Moclobemide_evaluation_report.pdf PDF report"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m-9.5 8.5c0 .8-.7 1.5-1.5 1.5H7v2H5.5V9H8c.8 0 1.5.7 1.5 1.5zm5 2c0 .8-.7 1.5-1.5 1.5h-2.5V9H13c.8 0 1.5.7 1.5 1.5zm4-3H17v1h1.5V13H17v2h-1.5V9h3zm-6.5 0h1v3h-1zm-5 0h1v1H7z"/></svg></span> Moclobemide_evaluation_report.pdf</a></td>
+<td style="text-align: center;"><a download="Moclobemide-Model.pksim5" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/Moclobemide/Moclobemide-Model.pksim5"><span aria-label="Download Moclobemide-Model.pksim5 PK-Sim project file" class="twemoji pksim-icon" title="Download Moclobemide-Model.pksim5 PK-Sim project file"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7z"/></svg></span> Moclobemide-Model.pksim5</a></td>
+</tr>
+<tr>
+<td><a href="Tizanidine/">Tizanidine</a></td>
+<td style="text-align: center;"><a download="Tizanidine_evaluation_report.pdf" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/Tizanidine/Tizanidine_evaluation_report.pdf"><span aria-label="Download Tizanidine_evaluation_report.pdf PDF report" class="twemoji pdf-icon" title="Download Tizanidine_evaluation_report.pdf PDF report"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m-9.5 8.5c0 .8-.7 1.5-1.5 1.5H7v2H5.5V9H8c.8 0 1.5.7 1.5 1.5zm5 2c0 .8-.7 1.5-1.5 1.5h-2.5V9H13c.8 0 1.5.7 1.5 1.5zm4-3H17v1h1.5V13H17v2h-1.5V9h3zm-6.5 0h1v3h-1zm-5 0h1v1H7z"/></svg></span> Tizanidine_evaluation_report.pdf</a></td>
+<td style="text-align: center;"><a download="Tizanidine-Model.pksim5" href="https://raw.githubusercontent.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/v12.3/Tizanidine/Tizanidine-Model.pksim5"><span aria-label="Download Tizanidine-Model.pksim5 PK-Sim project file" class="twemoji pksim-icon" title="Download Tizanidine-Model.pksim5 PK-Sim project file"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7z"/></svg></span> Tizanidine-Model.pksim5</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="frequently-asked-questions-faq">Frequently Asked Questions (FAQ)<a class="headerlink" href="#frequently-asked-questions-faq" title="Anchor link to this section for reference">&para;</a></h2>
+<h3 id="what-is-a-pbpk-model">What is a PBPK model?<a class="headerlink" href="#what-is-a-pbpk-model" title="Anchor link to this section for reference">&para;</a></h3>
+<p>A <strong>Physiologically Based Pharmacokinetic (PBPK) model</strong> is a mathematical model that predicts the absorption, distribution, metabolism, and excretion (ADME) of drugs in the body. PBPK models incorporate anatomical, physiological, and biochemical information to simulate drug concentration-time profiles in various tissues and organs.</p>
+<h3 id="how-do-i-open-a-pksim5-file">How do I open a .pksim5 file?<a class="headerlink" href="#how-do-i-open-a-pksim5-file" title="Anchor link to this section for reference">&para;</a></h3>
+<p><code>.pksim5</code> files are PK-Sim project files that can be opened with the <strong>PK-Sim®</strong> software, part of the Open Systems Pharmacology Suite. Download PK-Sim for free from <a href="https://www.open-systems-pharmacology.org/">www.open-systems-pharmacology.org</a>. After installation, simply double-click the <code>.pksim5</code> file or open it from within PK-Sim.</p>
+<h3 id="are-these-models-validated">Are these models validated?<a class="headerlink" href="#are-these-models-validated" title="Anchor link to this section for reference">&para;</a></h3>
+<p>Yes, all models in this library have undergone comprehensive evaluation. Each model includes detailed evaluation reports documenting the validation against clinical pharmacokinetic data, including goodness-of-fit assessments and predictive performance metrics.</p>
+<h3 id="how-can-i-cite-these-models">How can I cite these models?<a class="headerlink" href="#how-can-i-cite-these-models" title="Anchor link to this section for reference">&para;</a></h3>
+<p>Each model page includes specific citation information in the evaluation report. In general, please cite the Open Systems Pharmacology project and the specific model evaluation report. Additional details can be found on the <a href="https://www.open-systems-pharmacology.org/">Open Systems Pharmacology website</a>.</p>
+<h3 id="what-software-do-i-need">What software do I need?<a class="headerlink" href="#what-software-do-i-need" title="Anchor link to this section for reference">&para;</a></h3>
+<p>To use these models, you'll need the <strong>Open Systems Pharmacology Suite</strong>, which includes:</p>
+<ul>
+<li><strong>PK-Sim®</strong>: For PBPK modeling and simulation</li>
+<li><strong>MoBi®</strong>: For more advanced mechanistic modeling (optional)</li>
+</ul>
+<p>Both tools are free and open-source, available at <a href="https://www.open-systems-pharmacology.org/">www.open-systems-pharmacology.org</a>.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; Open Systems Pharmacology Community
+    </div>
+  
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/Open-Systems-Pharmacology" target="_blank" rel="noopener" title="Open Systems Pharmacology on GitHub" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://www.open-systems-pharmacology.org/" target="_blank" rel="noopener" title="Open Systems Pharmacology Website" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M351.9 280H161c2.9 64.5 17.2 123.9 37.5 167.4 11.4 24.5 23.7 41.8 35.1 52.4 11.2 10.5 18.9 12.2 22.9 12.2s11.7-1.7 22.9-12.2c11.4-10.6 23.7-28 35.1-52.4 20.3-43.5 34.6-102.9 37.5-167.4zm-191-48h190.9c-2.8-64.5-17.1-123.9-37.4-167.4-11.4-24.4-23.7-41.8-35.1-52.4C268.1 1.7 260.4 0 256.4 0s-11.7 1.7-22.9 12.2c-11.4 10.6-23.7 28-35.1 52.4-20.3 43.5-34.6 102.9-37.5 167.4m-48 0c3.5-85.6 25.6-165.1 57.9-217.3C78.7 47.3 10.9 131.2 1.5 232zM1.5 280c9.4 100.8 77.2 184.7 169.3 217.3-32.3-52.2-54.4-131.7-57.9-217.3zm398.4 0c-3.5 85.6-25.6 165.1-57.9 217.3 92.1-32.7 159.9-116.5 169.3-217.3zm111.4-48C501.9 131.2 434.1 47.3 342 14.7c32.3 52.2 54.4 131.7 57.9 217.3z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.top", "navigation.tabs.sticky", "navigation.indexes", "navigation.path", "toc.follow", "search.highlight", "search.suggest", "search.share", "content.code.copy"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

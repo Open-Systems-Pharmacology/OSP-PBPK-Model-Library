@@ -1,0 +1,2681 @@
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="PBPK (Physiologically Based Pharmacokinetic) model evaluation report for Cimetidine. Detailed pharmacokinetic modeling and simulation results using Open Systems Pharmacology platform.">
+      
+      
+        <meta name="author" content="Open Systems Pharmacology Community">
+      
+      
+        <link rel="canonical" href="https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/Cimetidine/">
+      
+      
+        <link rel="prev" href="../Carbamazepine/">
+      
+      
+        <link rel="next" href="../Clarithromycin/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Cimetidine PBPK Model - Physiologically Based Pharmacokinetic Evaluation Report - OSP PBPK Model Library (Version 12.3)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/Cimetidine/">
+  <meta property="og:title" content="Cimetidine">
+  <meta property="og:description" content="PBPK (Physiologically Based Pharmacokinetic) model evaluation report for Cimetidine. Detailed pharmacokinetic modeling and simulation results using Open Systems Pharmacology platform.">
+  <meta property="og:site_name" content="OSP PBPK Model Library (Version 12.3)">
+  <meta property="og:image" content="https://www.open-systems-pharmacology.org/assets/images/logo.png">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/Cimetidine/">
+  <meta name="twitter:title" content="Cimetidine">
+  <meta name="twitter:description" content="PBPK (Physiologically Based Pharmacokinetic) model evaluation report for Cimetidine. Detailed pharmacokinetic modeling and simulation results using Open Systems Pharmacology platform.">
+  <meta name="twitter:image" content="https://www.open-systems-pharmacology.org/assets/images/logo.png">
+
+  <!-- Structured Data (JSON-LD) for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "OSP PBPK Model Library (Version 12.3)",
+    "description": "Comprehensive library of validated PBPK (Physiologically Based Pharmacokinetic) models and qualification reports for drug development. Open-source whole-body PBPK modeling and simulation software for systems biology and multiscale physiological modeling.",
+    "url": "https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Open Systems Pharmacology",
+      "url": "https://www.open-systems-pharmacology.org/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.open-systems-pharmacology.org/assets/images/logo.png"
+      }
+    },
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
+  <!-- Dataset Schema for PBPK Model Library -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    "name": "Open Systems Pharmacology PBPK Model Library",
+    "description": "Comprehensive library of validated PBPK (Physiologically Based Pharmacokinetic) models for drug development and pharmaceutical research",
+    "url": "https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/",
+    "keywords": ["PBPK", "pharmacokinetic modeling", "drug development", "PK-Sim", "MoBi", "systems pharmacology", "ADME"],
+    "license": "https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library#license",
+    "creator": {
+      "@type": "Organization",
+      "name": "Open Systems Pharmacology",
+      "url": "https://www.open-systems-pharmacology.org/"
+    },
+    "distribution": {
+      "@type": "DataDownload",
+      "encodingFormat": "application/zip",
+      "contentUrl": "https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library"
+    }
+  }
+  </script>
+
+  <!-- SoftwareApplication Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "PK-Sim PBPK Models",
+    "applicationCategory": "ScientificApplication",
+    "operatingSystem": "Windows",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "description": "Validated PBPK models for use with PK-Sim and MoBi software for pharmaceutical research and drug development",
+    "url": "https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Open Systems Pharmacology"
+    }
+  }
+  </script>
+
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "Cimetidine PBPK Model - Physiologically Based Pharmacokinetic Evaluation Report",
+    "description": "PBPK (Physiologically Based Pharmacokinetic) model evaluation report for Cimetidine. Detailed pharmacokinetic modeling and simulation results using Open Systems Pharmacology platform.",
+    "author": {
+      "@type": "Organization",
+      "name": "Open Systems Pharmacology"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Open Systems Pharmacology",
+      "url": "https://www.open-systems-pharmacology.org/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.open-systems-pharmacology.org/assets/images/logo.png"
+      }
+    },
+    "url": "https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/Cimetidine/",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/Cimetidine/"
+    },
+    "keywords": "Cimetidine, PBPK model, physiologically based pharmacokinetic model, Cimetidine pharmacokinetics, drug modeling, PK-Sim"
+  }
+  </script>
+  
+
+  
+  <meta name="keywords" content="Cimetidine, PBPK model, physiologically based pharmacokinetic model, Cimetidine pharmacokinetics, drug modeling, PK-Sim">
+  
+
+  
+  <link rel="canonical" href="https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/Cimetidine/">
+  
+
+  <!-- Language -->
+  <meta http-equiv="content-language" content="en">
+  <meta name="language" content="English">
+
+
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#building-and-evaluation-of-a-pbpk-model-for-cimetidine-in-healthy-adults" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="OSP PBPK Model Library (Version 12.3)" class="md-header__button md-logo" aria-label="OSP PBPK Model Library (Version 12.3)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OSP PBPK Model Library (Version 12.3)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Cimetidine PBPK Model - Physiologically Based Pharmacokinetic Evaluation Report
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    OSP-PBPK-Model-Library
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="OSP PBPK Model Library (Version 12.3)" class="md-nav__button md-logo" aria-label="OSP PBPK Model Library (Version 12.3)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    OSP PBPK Model Library (Version 12.3)
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    OSP-PBPK-Model-Library
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7E3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7E3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Alfentanil/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Alfentanil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Alprazolam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Alprazolam
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Amikacin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amikacin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Atazanavir/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Atazanavir
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BAY794620/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BAY794620
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CDA1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CDA1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Carbamazepine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Carbamazepine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cimetidine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Clarithromycin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Clarithromycin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Dapagliflozin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dapagliflozin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Digoxin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Digoxin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Efavirenz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Efavirenz
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Erythromycin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Erythromycin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ethinylestradiol/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ethinylestradiol
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Felodipine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Felodipine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Fluconazole/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fluconazole
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Fluvoxamine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fluvoxamine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Inulin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inulin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Itraconazole/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Itraconazole
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MEDI524/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MEDI524
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MEDI524YTE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MEDI524YTE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mefenamic_acid/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mefenamic_acid
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mexiletine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mexiletine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Midazolam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Midazolam
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Moclobemide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Moclobemide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Montelukast/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Montelukast
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Omeprazole/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Omeprazole
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Propofol/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Propofol
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Raltegravir/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Raltegravir
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Rifampicin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rifampicin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S-Mephenytoin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S-Mephenytoin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Sildenafil/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sildenafil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Sufentanil/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sufentanil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tefibazumab/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tefibazumab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tizanidine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tizanidine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Triazolam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Triazolam
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Vancomycin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vancomycin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Verapamil/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Verapamil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dAb2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    dAb2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="building-and-evaluation-of-a-pbpk-model-for-cimetidine-in-healthy-adults">Building and evaluation of a PBPK model for cimetidine in healthy adults<a class="headerlink" href="#building-and-evaluation-of-a-pbpk-model-for-cimetidine-in-healthy-adults" title="Anchor link to this section for reference">&para;</a></h1>
+<table>
+<thead>
+<tr>
+<th>Version</th>
+<th>2.0-OSP12.3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>based on <em>Model Snapshot</em> and <em>Evaluation Plan</em></td>
+<td>https://github.com/Open-Systems-Pharmacology/Cimetidine-Model/releases/tag/v2.0</td>
+</tr>
+<tr>
+<td>OSP Version</td>
+<td>12.3</td>
+</tr>
+<tr>
+<td>Qualification Framework Version</td>
+<td>3.6</td>
+</tr>
+</tbody>
+</table>
+<p>This evaluation report and the corresponding PK-Sim project file are stored at:</p>
+<p>https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/</p>
+<h1 id="table-of-contents">Table of Contents<a class="headerlink" href="#table-of-contents" title="Anchor link to this section for reference">&para;</a></h1>
+<ul>
+<li><a href="#introduction">1 Introduction</a></li>
+<li><a href="#methods">2 Methods</a></li>
+<li><a href="#modeling-strategy">2.1 Modeling Strategy</a></li>
+<li><a href="#data">2.2 Data</a></li>
+<li><a href="#model-parameters-and-assumptions">2.3 Model Parameters and Assumptions</a></li>
+<li><a href="#results-and-discussion">3 Results and Discussion</a></li>
+<li><a href="#final-input-parameters">3.1 Final input parameters</a></li>
+<li><a href="#diagnostics-plots">3.2 Diagnostics Plots</a></li>
+<li><a href="#ct-profiles">3.3 Concentration-Time Profiles</a><ul>
+<li><a href="#model-building">3.3.1 Model Building</a></li>
+<li><a href="#model-validation">3.3.2 Model Validation</a></li>
+</ul>
+</li>
+<li><a href="#conclusion">4 Conclusion</a></li>
+<li><a href="#main-references">5 References</a></li>
+</ul>
+<h1 id="1-introduction">1 Introduction<a id="introduction"></a><a class="headerlink" href="#1-introduction" title="Anchor link to this section for reference">&para;</a></h1>
+<p>Cimetidine is a histamine H2 receptor antagonist that inhibits stomach acid production. It is mainly used as an antacid for the treatment of gastric and duodenal ulcers, Zollinger-Ellison syndrome and esophageal reflux.</p>
+<p>The herein presented model was developed and published by Hanke et al. (<a href="#5-references">Hanke 2020</a>) and adjusted later on to PK-Sim V10 by refitting CYP3A4 K<sub>i</sub> and MATE1 K<sub>i</sub>.</p>
+<p>Cimetidine is mainly excreted unchanged via the kidneys (40–80% of the dose) with a high renal clearance of 400 ml/min. Metabolism is reported to account for 25– 40% of of the total elimination of cimetidine, with less than 2% of the dose excreted unchanged with the bile. Cimetidine inhibits several transporters and CYP enzymes and it is recommended by the FDA as strong inhibitor of OCT2/MATE and as weak inhibitor of CYP3A4 and CYP2D6 for the use in clinical DDI studies and drug labeling.</p>
+<p>The cimetidine model was established using 27 clinical studies, covering a dosing range from 100 to 800 mg. The final model applies active uptake of cimetidine into the liver by OCT1,
+uptake into the kidney by OAT3 and secretion from the kidney into the urine by MATE1, as well
+as an unspecific hepatic clearance and passive renal glomerular filtration.</p>
+<p>The herein presented model building and evaluation report evaluates the performance of the PBPK model for cimetidine in (healthy) adults. </p>
+<h1 id="2-methods">2 Methods<a id="methods"></a><a class="headerlink" href="#2-methods" title="Anchor link to this section for reference">&para;</a></h1>
+<h2 id="21-modeling-strategy">2.1 Modeling Strategy<a id="modeling-strategy"></a><a class="headerlink" href="#21-modeling-strategy" title="Anchor link to this section for reference">&para;</a></h2>
+<p>The general concept of building a PBPK model has previously been described by e.g. Kuepfer et al. (<a href="#5-references">Kuepfer 2016</a>). The relevant anthropometric (height, weight) and physiological information (e.g. blood flows, organ volumes, binding protein concentrations, hematocrit, cardiac output) in adults was gathered from the literature and has been previously published (<a href="#5-references">Willmann 2007</a>). This information was incorporated into PK-Sim® and was used as default values for the simulations in adults. Variability of plasma proteins and CYP enzymes are integrated into PK-Sim® and described in the publicly available PK-Sim® Ontogeny Database Version 7.3 (<a href="#5-references">PK-Sim Ontogeny Database Version 7.3</a>) or otherwise referenced for the specific process. </p>
+<p>The final model applies active uptake of cimetidine into the liver by OCT1, uptake into the kidney by OAT3 and secretion from the kidney into the urine by MATE1, as well
+as an unspecific hepatic clearance and passive renal glomerular filtration. The transporters were integrated into the PBPK model using the (<a href="#5-references">PK-Sim Ontogeny Database Version 7.3</a>) and is described in detail in <a href="#5-references">Hanke 2020</a>. For PK-Sim V10, CYP3A4 K<sub>i</sub> and MATE1 K<sub>i</sub> were adjusted to improve the performance in CYP3A4 and MATE1 interaction scenarios. For further details, see <a href="#23-model-parameters-and-assumptions">Section 2.3</a>.</p>
+<p>First, a base PBPK model was built using clinical data including single and multiple dose studies with intravenous and oral applications of cimetidine to find an appropriate structure to describe the pharmacokinetics in plasma. This PBPK model was developed using a typical European individual adjusted to the demography of the respective study population.</p>
+<p>Oral administration of cimetidine in the fasted state frequently produces two plasma concentrations peaks. These double peaks are probably caused by the phasic gastrointestinal motility that controls gastric emptying in the fasted state. To describe the very different shapes of the observed mean cimetidine plasma profiles, split dose administration protocols for all studies of cimetidine administered orally in the fasted state were optimized in a NONMEM analysis (see <a href="#5-references">Hanke 2020</a>). The resulting split dose administration protocols were then implemented and used for the PBPK modeling of the respective cimetidine studies.</p>
+<p>Unknown parameters (see below) were identified using the Parameter Identification module provided in PK-Sim®. Structural model selection was mainly guided by visual inspection of the resulting description of data and biological plausibility.</p>
+<p>Details about input data (physicochemical, <em>in vitro</em> and clinical) can be found in  <a href="#22-data">Section 2.2</a>.</p>
+<p>Details about the structural model and its parameters can be found in <a href="#23-model-parameters-and-assumptions">Section 2.3</a>.</p>
+<h2 id="22-data">2.2 Data<a id="data"></a><a class="headerlink" href="#22-data" title="Anchor link to this section for reference">&para;</a></h2>
+<h3 id="221-in-vitro-physico-chemical-data">2.2.1 In vitro / physico-chemical Data<a class="headerlink" href="#221-in-vitro-physico-chemical-data" title="Anchor link to this section for reference">&para;</a></h3>
+<p>A literature search was performed to collect available information on physiochemical properties of cimetidine. The obtained information from literature is summarized in the table below. </p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Parameter</strong></th>
+<th><strong>Unit</strong></th>
+<th><strong>Value</strong></th>
+<th>Source</th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">MW</td>
+<td>g/mol</td>
+<td>252.34</td>
+<td><a href="#5-references">Wishart 2006</a></td>
+<td>Molecular weight</td>
+</tr>
+<tr>
+<td style="text-align: left;">pK<sub>a</sub>1</td>
+<td>6.93</td>
+<td>(base)</td>
+<td><a href="#5-references">Avdeef 2001</a></td>
+<td>Acid dissociation constant</td>
+</tr>
+<tr>
+<td style="text-align: left;">pK<sub>a</sub>2</td>
+<td>13.38</td>
+<td>(acid)</td>
+<td><a href="#5-references">Wishart 2006</a></td>
+<td>Acid dissociation constant</td>
+</tr>
+<tr>
+<td style="text-align: left;">Solubility (pH)</td>
+<td>mg/L</td>
+<td>24.00 (6.8)</td>
+<td><a href="#5-references">Avdeef 2001</a></td>
+<td>Water solubility</td>
+</tr>
+<tr>
+<td style="text-align: left;">logP</td>
+<td></td>
+<td>0.48</td>
+<td><a href="#5-references">Avdeef 2001</a></td>
+<td>Partition coefficient between octanol and water</td>
+</tr>
+<tr>
+<td style="text-align: left;">f<sub>u</sub></td>
+<td>%</td>
+<td>78.00</td>
+<td><a href="#5-references">Taylor 1978</a></td>
+<td>Fraction unbound in plasma</td>
+</tr>
+<tr>
+<td style="text-align: left;">B/P ratio</td>
+<td></td>
+<td>0.98</td>
+<td><a href="#5-references">Somogyi 1983</a></td>
+<td>Blood to plasma ratio</td>
+</tr>
+<tr>
+<td style="text-align: left;">OCT1 K<sub>m</sub></td>
+<td>μmol/l</td>
+<td>2600</td>
+<td><a href="#5-references">Umehara 2007</a></td>
+<td>Michaelis-Menten constant</td>
+</tr>
+<tr>
+<td style="text-align: left;">OAT3 K<sub>m</sub></td>
+<td>µmol/l</td>
+<td>149</td>
+<td><a href="#5-references">Tahara 2005</a></td>
+<td>Michaelis-Menten constant</td>
+</tr>
+<tr>
+<td style="text-align: left;">MATE1 K<sub>m</sub></td>
+<td>µmol/l</td>
+<td>8.0</td>
+<td><a href="#5-references">Ohta 2005</a></td>
+<td>Michaelis-Menten constant</td>
+</tr>
+<tr>
+<td style="text-align: left;">OCT1 K<sub>i</sub></td>
+<td>µmol/l</td>
+<td>104</td>
+<td><a href="#5-references">Ito 2012</a></td>
+<td>Inhibition constant for competitive inhibition</td>
+</tr>
+<tr>
+<td style="text-align: left;">OCT2 K<sub>i</sub></td>
+<td>µmol/l</td>
+<td>124</td>
+<td><a href="#5-references">Ito 2012</a></td>
+<td>Inhibition constant for competitive inhibition</td>
+</tr>
+<tr>
+<td style="text-align: left;">MATE1 K<sub>i</sub> (refitted in PK-Sim V10)</td>
+<td>µmol/l</td>
+<td>3.8 (0.65)</td>
+<td><a href="#5-references">Ito 2012</a></td>
+<td>Inhibition constant for competitive inhibition</td>
+</tr>
+<tr>
+<td style="text-align: left;">CYP3A4 K<sub>i</sub> (refitted in PK-Sim V10)</td>
+<td>µmol/l</td>
+<td>268 (30.51266)</td>
+<td><a href="#5-references">Wrighton 1994</a></td>
+<td>Inhibition constant for competitive inhibition</td>
+</tr>
+</tbody>
+</table>
+<h3 id="222-clinical-data">2.2.2 Clinical Data<a class="headerlink" href="#222-clinical-data" title="Anchor link to this section for reference">&para;</a></h3>
+<p>A literature search was performed to collect available clinical data on efavirenz in healthy adults.</p>
+<h4 id="2221-model-building">2.2.2.1 Model Building<a class="headerlink" href="#2221-model-building" title="Anchor link to this section for reference">&para;</a></h4>
+<p>The following studies were used for model building:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Publication</th>
+<th style="text-align: left;">Arm / Treatment / Information used for model building</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Bodemar 1981</a></td>
+<td style="text-align: left;">Peptic ulcer patients receiving a single intravenous dose of 200 mg and oral doses of 200, 400 and 800 mg</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Morgan 1983</a></td>
+<td style="text-align: left;">Peptic ulcer patients receiving a single intravenous dose of 200 mg (5 min infusion)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Bodemar 1979</a></td>
+<td style="text-align: left;">Healthy subjects receiving single oral doses of 200 and 400mg (tablet)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Walkenstein 1978</a></td>
+<td style="text-align: left;">Healthy subjects receiving a single oral dose of 300mg (solution)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">D'Angio 1986</a></td>
+<td style="text-align: left;">Healthy subjects receiving a single oral dose of 300mg (tablet)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="2222-model-verification">2.2.2.2 Model verification<a class="headerlink" href="#2222-model-verification" title="Anchor link to this section for reference">&para;</a></h4>
+<p>The following studies were used for model verification:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Publication</th>
+<th style="text-align: left;">Arm / Treatment / Information used for model verification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Grahnen 1979</a></td>
+<td style="text-align: left;">Healthy subjects receiving a single intravenous dose of 100 mg and a single oral dose of 400 mg (tablet)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Larsson 1982</a></td>
+<td style="text-align: left;">Peptic ulcer patients receiving a single intravenous dose of 200 mg</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Mihaly  1984</a></td>
+<td style="text-align: left;">Peptic ulcer patients receiving a single intravenous and a single oral dose of 200 mg</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Morgan 1983</a></td>
+<td style="text-align: left;">Peptic ulcer patients receiving a single intravenous dose of 200 mg (30 min infusion)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Lebert 1981</a></td>
+<td style="text-align: left;">Healthy subjects receiving a single intravenous dose of 300 mg (2 min infusion)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Walkenstein 1978</a></td>
+<td style="text-align: left;">Healthy subjects receiving a single intravenous dose of 300 mg (2 min infusion) and a single oral dose of 300 mg (tablet)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Kanto 1981</a></td>
+<td style="text-align: left;">Healthy subjects receiving a single oral dose of 200 mg</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Burland 1975</a></td>
+<td style="text-align: left;">Healthy subjects receiving single oral doses of 200 mg solution and capsule</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Bodemar 1979</a></td>
+<td style="text-align: left;">Peptic ulcer patients receiving a single oral dose of 200 mg (tablet)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Bodemar 1981</a></td>
+<td style="text-align: left;">Peptic ulcer patients receiving single oral doses of 800 mg and multiple oral doses of 200 and 400 mg</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Barbhaiya 1995</a></td>
+<td style="text-align: left;">Healthy subjects receiving multiple oral doses of 300 mg (tablet)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Somogyi 1981</a></td>
+<td style="text-align: left;">Healthy subjects receiving a single oral dose of 400 mg (tablet)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Tiseo 1998</a></td>
+<td style="text-align: left;">Healthy subjects receiving multiple oral doses of 800 mg (tablet)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="2223-model-update-due-to-pk-sim-v10-conversion">2.2.2.3 Model update due to PK-Sim V10 conversion<a class="headerlink" href="#2223-model-update-due-to-pk-sim-v10-conversion" title="Anchor link to this section for reference">&para;</a></h4>
+<p>As a consequence of updating the cimetidine PBPK model to PK-Sim version 10, the CYP3A4 K<sub>i</sub> value needed to be readjusted. For this purpose, AUC ratios of the following clinical DDI studies were used to inform K<sub>i</sub> in an additional parameter identification:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Publication</th>
+<th style="text-align: left;">Interaction of cimetidine with:</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Kienlen 1993</a></td>
+<td style="text-align: left;">Alfentanil</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Abernethy 1983</a></td>
+<td style="text-align: left;">Alprazolam and triazolam</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Elliott 1984</a></td>
+<td style="text-align: left;">Midazolam</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Fee 1987</a></td>
+<td style="text-align: left;">Midazolam</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Greenblatt 1986</a></td>
+<td style="text-align: left;">Intravenous and oral midazolam</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Martinez 1999</a></td>
+<td style="text-align: left;">Midazolam</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Salonen 1986</a></td>
+<td style="text-align: left;">Midazolam</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Pourbaix 1985</a></td>
+<td style="text-align: left;">Triazolam. NOTE: The interaction of cimetidine with alprazolam of this publication was not used for parameterization due to very long simulation duration!</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Cox 1986</a></td>
+<td style="text-align: left;">Triazolam</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Friedman 1988</a></td>
+<td style="text-align: left;">Triazolam</td>
+</tr>
+</tbody>
+</table>
+<p>Similarly, MATE1 K<sub>i</sub> value was adjusted to reproduce the observed inhibition effect on metformin PK (https://github.com/Open-Systems-Pharmacology/Cimetidine-Metformin-DDI).</p>
+<h2 id="23-model-parameters-and-assumptions">2.3 Model Parameters and Assumptions<a id="model-parameters-and-assumptions"></a><a class="headerlink" href="#23-model-parameters-and-assumptions" title="Anchor link to this section for reference">&para;</a></h2>
+<h3 id="231-absorption">2.3.1 Absorption<a class="headerlink" href="#231-absorption" title="Anchor link to this section for reference">&para;</a></h3>
+<p>Absorption observed in clinical studies can be fully explained by passive absorption.</p>
+<h3 id="232-distribution">2.3.2 Distribution<a class="headerlink" href="#232-distribution" title="Anchor link to this section for reference">&para;</a></h3>
+<p>Cimetidine is reported to be actively taken up into the liver by OCT1 (<a href="#5-references">Umehara 2007</a>), into the kidney by OAT3 (<a href="#5-references">Tahara 2005</a>) and secreted from the kidney into the urine by MATE1 (<a href="#5-references">Ohta 2010</a>).</p>
+<p>After testing the available organ-plasma partition coefficient and cell permeability calculation methods built in PK-Sim, observed clinical data was best described by choosing the partition coefficient calculation method by <code>Rodgers and Rowland</code> and cellular permeability calculation by <code>PK-Sim Standard</code>. </p>
+<p>A <code>Lipophilicity</code> of 1.66 was back-calculated from the blood-to-plasma ratio of 0.98 (<a href="#5-references">Somogyi 1983</a>, <a href="#5-references">Hanke 2020</a>).</p>
+<h3 id="233-metabolism-elimination-and-inhibition">2.3.3 Metabolism, Elimination and Inhibition<a class="headerlink" href="#233-metabolism-elimination-and-inhibition" title="Anchor link to this section for reference">&para;</a></h3>
+<p>Cimetidine is mainly excreted unchanged via the kidneys. Additionally, 25 to 40 % is hepatically metabolized via an unknown pathway. </p>
+<p>Cimetidine inhibits several enzymes such as CYP3A4 and CYP2D6 as well as transporters such as OCT2, OCT2 and MATE.</p>
+<h3 id="234-automated-parameter-identification">2.3.4 Automated Parameter Identification<a class="headerlink" href="#234-automated-parameter-identification" title="Anchor link to this section for reference">&para;</a></h3>
+<p>The parameter identification tool in PK-Sim has been used to estimate selected model parameters by adjusting to PK data of the clinical studies that were used in the model building process (see <a href="#22-data">Section 2.2</a>). </p>
+<p>Specific intestinal permeability, unspecific hepatic clearance (CLhep) and Kcat values for OCT1, OAT3 and MATE1 were reestimated in PK-Sim Version 10, and, therefore, do not correspond to the original values published by <a href="#5-references">Hanke 2020</a>. The result of the final parameter identification is shown in the table below:</p>
+<table>
+<thead>
+<tr>
+<th>Model Parameter</th>
+<th>Optimized Value</th>
+<th>Unit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Specific intestinal permeability</td>
+<td>5.26E-06</td>
+<td>cm/min</td>
+</tr>
+<tr>
+<td>CLhep</td>
+<td>0.12</td>
+<td>1/min</td>
+</tr>
+<tr>
+<td>kcat OCT1</td>
+<td>14098.32</td>
+<td>1/min</td>
+</tr>
+<tr>
+<td>kcat OAT3</td>
+<td>2522831.10</td>
+<td>1/min</td>
+</tr>
+<tr>
+<td>kcat MATE1</td>
+<td>159.47</td>
+<td>1/min</td>
+</tr>
+</tbody>
+</table>
+<p>As a result of updating the cimetidine PBPK model to PK-Sim V10, the interaction parameter CYP3A4 K<sub>i</sub> was fitted in a second step to improve the performance in CYP3A4 interactions. In detail, CYP3A4 K<sub>i</sub> was adjusted such that the error of the simulated AUC ratios of cimetidine with several CYP3A4 substrates vs. corresponding observed AUC ratios of the clinical studies (see <a href="#2223-model-update-due-to-pk-sim-v10-conversion">Section 2.2.2.3</a>) was minimized.</p>
+<table>
+<thead>
+<tr>
+<th>Model Parameter</th>
+<th>Optimized Value</th>
+<th>Unit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CYP3A4 K<sub>i</sub></td>
+<td>30.51266</td>
+<td>µmol/l</td>
+</tr>
+</tbody>
+</table>
+<h1 id="3-results-and-discussion">3 Results and Discussion<a id="results-and-discussion"></a><a class="headerlink" href="#3-results-and-discussion" title="Anchor link to this section for reference">&para;</a></h1>
+<p>The PBPK model for cimetidine was developed and evaluated using publicly available clinical pharmacokinetic data from studies listed in <a href="#222-clinical-data">Section 2.2.2</a>.</p>
+<p>The next sections show:</p>
+<ol>
+<li>the final model parameters for the building blocks: <a href="#31-final-input-parameters">Section 3.1</a>.</li>
+<li>the overall goodness of fit: <a href="#32-diagnostics-plots">Section 3.2</a>.</li>
+<li>simulated vs. observed concentration-time profiles for the clinical studies used for model building and for model verification: <a href="#33-concentration-time-profiles">Section 3.3</a>.</li>
+</ol>
+<h2 id="31-final-input-parameters">3.1 Final input parameters<a id="final-input-parameters"></a><a class="headerlink" href="#31-final-input-parameters" title="Anchor link to this section for reference">&para;</a></h2>
+<p>The compound parameter values of the final PBPK model are illustrated below.</p>
+<h3 id="compound-cimetidine">Compound: Cimetidine<a class="headerlink" href="#compound-cimetidine" title="Anchor link to this section for reference">&para;</a></h3>
+<h4 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Anchor link to this section for reference">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+<th>Alternative</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Solubility at reference pH</td>
+<td>24 mg/ml</td>
+<td>Publication-Avdeef 2001</td>
+<td>Measurement</td>
+<td>True</td>
+</tr>
+<tr>
+<td>Reference pH</td>
+<td>6.8</td>
+<td>Publication-Avdeef 2001</td>
+<td>Measurement</td>
+<td>True</td>
+</tr>
+<tr>
+<td>Lipophilicity</td>
+<td>1.655 Log Units</td>
+<td>Parameter Identification</td>
+<td>Measurement</td>
+<td>True</td>
+</tr>
+<tr>
+<td>Fraction unbound (plasma, reference value)</td>
+<td>0.78</td>
+<td>Publication-Taylor 1978</td>
+<td>Measurement</td>
+<td>True</td>
+</tr>
+<tr>
+<td>Specific intestinal permeability (transcellular)</td>
+<td>5.2554004942E-06 cm/min</td>
+<td>Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification' on 2021-09-13 17:00</td>
+<td>Fit</td>
+<td>True</td>
+</tr>
+<tr>
+<td>Is small molecule</td>
+<td>Yes</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Molecular weight</td>
+<td>252.34 g/mol</td>
+<td>Database-Drugbank</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Plasma protein binding partner</td>
+<td>Unknown</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="calculation-methods">Calculation methods<a class="headerlink" href="#calculation-methods" title="Anchor link to this section for reference">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Partition coefficients</td>
+<td>Rodgers and Rowland</td>
+</tr>
+<tr>
+<td>Cellular permeabilities</td>
+<td>PK-Sim Standard</td>
+</tr>
+</tbody>
+</table>
+<h4 id="processes">Processes<a class="headerlink" href="#processes" title="Anchor link to this section for reference">&para;</a></h4>
+<h5 id="systemic-process-total-hepatic-clearance-somogyi-1983">Systemic Process: Total Hepatic Clearance-Somogyi 1983<a class="headerlink" href="#systemic-process-total-hepatic-clearance-somogyi-1983" title="Anchor link to this section for reference">&para;</a></h5>
+<p>Species: Human</p>
+<h6 id="parameters_1">Parameters<a class="headerlink" href="#parameters_1" title="Anchor link to this section for reference">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fraction unbound (experiment)</td>
+<td>0.78</td>
+<td></td>
+</tr>
+<tr>
+<td>Lipophilicity (experiment)</td>
+<td>1.655 Log Units</td>
+<td></td>
+</tr>
+<tr>
+<td>Plasma clearance</td>
+<td>0 ml/min/kg</td>
+<td></td>
+</tr>
+<tr>
+<td>Specific clearance</td>
+<td>0.1209722937 1/min</td>
+<td>Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification' on 2021-09-13 17:00</td>
+</tr>
+</tbody>
+</table>
+<h5 id="transport-protein-mate1-paper">Transport Protein: MATE1-Paper<a class="headerlink" href="#transport-protein-mate1-paper" title="Anchor link to this section for reference">&para;</a></h5>
+<p>Molecule: MATE1</p>
+<h6 id="parameters_2">Parameters<a class="headerlink" href="#parameters_2" title="Anchor link to this section for reference">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Transporter concentration</td>
+<td>1 µmol/l</td>
+<td></td>
+</tr>
+<tr>
+<td>Vmax</td>
+<td>0 µmol/l/min</td>
+<td></td>
+</tr>
+<tr>
+<td>Km</td>
+<td>8 µmol/l</td>
+<td>Parameter Identification</td>
+</tr>
+<tr>
+<td>kcat</td>
+<td>159.4749627996 1/min</td>
+<td>Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification' on 2021-09-13 17:00</td>
+</tr>
+</tbody>
+</table>
+<h5 id="transport-protein-oat3-paper">Transport Protein: OAT3-Paper<a class="headerlink" href="#transport-protein-oat3-paper" title="Anchor link to this section for reference">&para;</a></h5>
+<p>Molecule: OAT3</p>
+<h6 id="parameters_3">Parameters<a class="headerlink" href="#parameters_3" title="Anchor link to this section for reference">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Transporter concentration</td>
+<td>1 µmol/l</td>
+<td></td>
+</tr>
+<tr>
+<td>Vmax</td>
+<td>0 µmol/l/min</td>
+<td></td>
+</tr>
+<tr>
+<td>Km</td>
+<td>149 µmol/l</td>
+<td>Publication-Tahara 2005</td>
+</tr>
+<tr>
+<td>kcat</td>
+<td>2522831.1016 1/min</td>
+<td>Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification' on 2021-09-13 17:00</td>
+</tr>
+</tbody>
+</table>
+<h5 id="transport-protein-oct1-paper">Transport Protein: OCT1-Paper<a class="headerlink" href="#transport-protein-oct1-paper" title="Anchor link to this section for reference">&para;</a></h5>
+<p>Molecule: OCT1</p>
+<h6 id="parameters_4">Parameters<a class="headerlink" href="#parameters_4" title="Anchor link to this section for reference">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Transporter concentration</td>
+<td>1 µmol/l</td>
+<td></td>
+</tr>
+<tr>
+<td>Vmax</td>
+<td>0 µmol/l/min</td>
+<td></td>
+</tr>
+<tr>
+<td>Km</td>
+<td>2600 µmol/l</td>
+<td>Publication-Umehara 2007</td>
+</tr>
+<tr>
+<td>kcat</td>
+<td>14098.3224931732 1/min</td>
+<td>Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification' on 2021-09-13 17:00</td>
+</tr>
+</tbody>
+</table>
+<h5 id="systemic-process-glomerular-filtration-gfr">Systemic Process: Glomerular Filtration-GFR<a class="headerlink" href="#systemic-process-glomerular-filtration-gfr" title="Anchor link to this section for reference">&para;</a></h5>
+<p>Species: Human</p>
+<h6 id="parameters_5">Parameters<a class="headerlink" href="#parameters_5" title="Anchor link to this section for reference">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align: right;">Value</th>
+<th style="text-align: right;">Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GFR fraction</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;"></td>
+</tr>
+</tbody>
+</table>
+<h5 id="inhibition-oct1-ito-2012">Inhibition: OCT1-Ito 2012<a class="headerlink" href="#inhibition-oct1-ito-2012" title="Anchor link to this section for reference">&para;</a></h5>
+<p>Molecule: OCT1</p>
+<h6 id="parameters_6">Parameters<a class="headerlink" href="#parameters_6" title="Anchor link to this section for reference">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ki</td>
+<td>104 µmol/l</td>
+<td>Publication-Ito 2012</td>
+</tr>
+</tbody>
+</table>
+<h5 id="inhibition-oct2-ito-2012">Inhibition: OCT2-Ito 2012<a class="headerlink" href="#inhibition-oct2-ito-2012" title="Anchor link to this section for reference">&para;</a></h5>
+<p>Molecule: OCT2</p>
+<h6 id="parameters_7">Parameters<a class="headerlink" href="#parameters_7" title="Anchor link to this section for reference">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ki</td>
+<td>124 µmol/l</td>
+<td>Publication-Ito 2012</td>
+</tr>
+</tbody>
+</table>
+<h5 id="inhibition-mate1-ito-2012">Inhibition: MATE1-Ito 2012<a class="headerlink" href="#inhibition-mate1-ito-2012" title="Anchor link to this section for reference">&para;</a></h5>
+<p>Molecule: MATE1</p>
+<h6 id="parameters_8">Parameters<a class="headerlink" href="#parameters_8" title="Anchor link to this section for reference">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ki</td>
+<td>0.65 µmol/l</td>
+<td>Parameter Identification-Parameter Identification-https://github.com/Open-Systems-Pharmacology/Cimetidine-Metformin-DDI</td>
+</tr>
+</tbody>
+</table>
+<h5 id="inhibition-cyp3a4-wrighton-1994">Inhibition: CYP3A4-Wrighton 1994<a class="headerlink" href="#inhibition-cyp3a4-wrighton-1994" title="Anchor link to this section for reference">&para;</a></h5>
+<p>Molecule: CYP3A4</p>
+<h6 id="parameters_9">Parameters<a class="headerlink" href="#parameters_9" title="Anchor link to this section for reference">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ki</td>
+<td>30.51266 µmol/l</td>
+<td>Parameter Identification-Parameter Identification-Value adjusted in parameter identification outside of PK-Sim on 2023-11-14</td>
+</tr>
+</tbody>
+</table>
+<h3 id="formulation-tablet">Formulation: Tablet<a class="headerlink" href="#formulation-tablet" title="Anchor link to this section for reference">&para;</a></h3>
+<p>Type: Weibull</p>
+<h4 id="parameters_10">Parameters<a class="headerlink" href="#parameters_10" title="Anchor link to this section for reference">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th style="text-align: right;">Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dissolution time (50% dissolved)</td>
+<td>1 min</td>
+<td style="text-align: right;"></td>
+</tr>
+<tr>
+<td>Lag time</td>
+<td>0 h</td>
+<td style="text-align: right;"></td>
+</tr>
+<tr>
+<td>Dissolution shape</td>
+<td>10</td>
+<td style="text-align: right;"></td>
+</tr>
+<tr>
+<td>Use as suspension</td>
+<td>Yes</td>
+<td style="text-align: right;"></td>
+</tr>
+</tbody>
+</table>
+<h2 id="32-diagnostics-plots">3.2 Diagnostics Plots<a id="diagnostics-plots"></a><a class="headerlink" href="#32-diagnostics-plots" title="Anchor link to this section for reference">&para;</a></h2>
+<p>Below you find the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data used presented in <a href="#222-clinical-data">Section 2.2.2</a>.</p>
+<p>The first plot shows simulated versus observed plasma concentration, the second weighted residuals versus time. </p>
+<p><a id="table-3-1"></a></p>
+<p><strong>Table 3-1: GMFE for Goodness of fit plot for concentration in plasma</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Group</th>
+<th style="text-align: left;">GMFE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">iv administration</td>
+<td style="text-align: left;">1.36</td>
+</tr>
+<tr>
+<td style="text-align: left;">multiple oral administration</td>
+<td style="text-align: left;">1.50</td>
+</tr>
+<tr>
+<td style="text-align: left;">single oral administration</td>
+<td style="text-align: left;">1.51</td>
+</tr>
+<tr>
+<td style="text-align: left;">All</td>
+<td style="text-align: left;">1.47</td>
+</tr>
+</tbody>
+</table>
+<p><br>
+<br></p>
+<p><a id="figure-3-1"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/008_section_diagnostics-plots/2_gof_plot_predictedVsObserved.png" /></p>
+<p><strong>Figure 3-1: Goodness of fit plot for concentration in plasma</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-2"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/008_section_diagnostics-plots/3_gof_plot_residualsOverTime.png" /></p>
+<p><strong>Figure 3-2: Goodness of fit plot for concentration in plasma</strong></p>
+<p><br>
+<br></p>
+<h2 id="33-concentration-time-profiles">3.3 Concentration-Time Profiles<a id="ct-profiles"></a><a class="headerlink" href="#33-concentration-time-profiles" title="Anchor link to this section for reference">&para;</a></h2>
+<p>Simulated versus observed concentration-time profiles of all data listed in <a href="#222-clinical-data">Section 2.2.2</a> are presented below.</p>
+<h3 id="331-model-building">3.3.1 Model Building<a id="model-building"></a><a class="headerlink" href="#331-model-building" title="Anchor link to this section for reference">&para;</a></h3>
+<p><a id="figure-3-3"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/4_time_profile_plot_Cimetidine_iv_200_mg__5_min__Morgan_1983__n_6.png" /></p>
+<p><strong>Figure 3-3: iv 200 mg (5 min),Morgan 1983, n=6</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-4"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/8_time_profile_plot_Cimetidine_iv_200_mg__Bodemar_1981__n_10.png" /></p>
+<p><strong>Figure 3-4: iv 200 mg, Bodemar 1981, n=10</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-5"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/9_time_profile_plot_Cimetidine_iv_200_mg__Bodemar_1981__n_10.png" /></p>
+<p><strong>Figure 3-5: iv 200 mg, Bodemar 1981, n=10, urine</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-6"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/15_time_profile_plot_Cimetidine_po_200_mg__Bodemar_1981__n_10.png" /></p>
+<p><strong>Figure 3-6: po 200 mg, Bodemar 1981, n=10</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-7"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/16_time_profile_plot_Cimetidine_po_200_mg__Bodemar_1981__n_10.png" /></p>
+<p><strong>Figure 3-7: po 200 mg, Bodemar 1981, n=10, urine</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-8"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/22_time_profile_plot_Cimetidine_po_300_mg__sol___Walkenstein_1978__n_24.png" /></p>
+<p><strong>Figure 3-8: po 300 mg (sol), Walkenstein 1978, n=24</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-9"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/23_time_profile_plot_Cimetidine_po_300_mg__sol___Walkenstein_1978__n_24.png" /></p>
+<p><strong>Figure 3-9: po 300 mg (sol), Walkenstein 1978, n=24, urine</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-10"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/24_time_profile_plot_Cimetidine_po_300_mg__tab___D_Angio_1986__n_6.png" /></p>
+<p><strong>Figure 3-10: po 300 mg (tab), D'Angio 1986, n=6</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-11"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/31_time_profile_plot_Cimetidine_po_400_mg__Bodemar_1981__n_9.png" /></p>
+<p><strong>Figure 3-11: po 400 mg, Bodemar 1981, n=9</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-12"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/32_time_profile_plot_Cimetidine_po_400_mg__Bodemar_1981__n_9.png" /></p>
+<p><strong>Figure 3-12: po 400 mg, Bodemar 1981, n=9, urine</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-13"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/34_time_profile_plot_Cimetidine_po_800_mg__Bodemar_1981__n_9.png" /></p>
+<p><strong>Figure 3-13: po 800 mg, Bodemar 1981, n=9</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-14"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/35_time_profile_plot_Cimetidine_po_800_mg__Bodemar_1981__n_9.png" /></p>
+<p><strong>Figure 3-14: po 800 mg, Bodemar 1981, n=9, urine</strong></p>
+<p><br>
+<br></p>
+<h3 id="332-model-validation">3.3.2 Model Validation<a id="model-validation"></a><a class="headerlink" href="#332-model-validation" title="Anchor link to this section for reference">&para;</a></h3>
+<p><a id="figure-3-15"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-validation/1_time_profile_plot_Cimetidine_iv_100_mg__5_min___Grahnen_1979__n_3.png" /></p>
+<p><strong>Figure 3-15: iv 100 mg (5 min), Grahnen 1979, n=3</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-16"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-validation/2_time_profile_plot_Cimetidine_iv_100_mg__5_min___Grahnen_1979__n_3.png" /></p>
+<p><strong>Figure 3-16: iv 100 mg (5 min), Grahnen 1979, n=3, urine</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-17"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-validation/3_time_profile_plot_Cimetidine_iv_200_mg__30_min__Morgan_1983__n_4.png" /></p>
+<p><strong>Figure 3-17: iv 200 mg (30 min),Morgan 1983, n=4</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-18"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-validation/5_time_profile_plot_Cimetidine_iv_200_mg__Larsson_1982__n_9.png" /></p>
+<p><strong>Figure 3-18: iv 200 mg, Larsson 1982, n=9</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-19"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-validation/6_time_profile_plot_Cimetidine_iv_200_mg__Larsson_1982__n_9.png" /></p>
+<p><strong>Figure 3-19: iv 200 mg, Larsson 1982, n=9, urine</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-20"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-validation/7_time_profile_plot_Cimetidine_iv_200_mg__Mihaly_1984__n_6.png" /></p>
+<p><strong>Figure 3-20: iv 200 mg, Mihaly 1984, n=6</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-21"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-validation/10_time_profile_plot_Cimetidine_iv_300_mg__2_min___Lebert_1981__n_1.png" /></p>
+<p><strong>Figure 3-21: iv 300 mg (2 min), Lebert 1981, n=1</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-22"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-validation/11_time_profile_plot_Cimetidine_iv_300_mg__2_min___Walkenstein_1978__n_12.png" /></p>
+<p><strong>Figure 3-22: iv 300 mg (2 min), Walkenstein 1978, n=12</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-23"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-validation/12_time_profile_plot_Cimetidine_iv_300_mg__2_min___Walkenstein_1978__n_12.png" /></p>
+<p><strong>Figure 3-23: iv 300 mg (2 min), Walkenstein 1978, n=12</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-24"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-validation/13_time_profile_plot_Cimetidine_po_200_mg__tab___Bodemar_1979__fasted_.png" /></p>
+<p><strong>Figure 3-24: po 200 mg (tab), Bodemar 1979 (fasted)</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-25"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-validation/14_time_profile_plot_Cimetidine_po_200_mg__tab___Bodemar_1979__fed_.png" /></p>
+<p><strong>Figure 3-25: po 200 mg (tab), Bodemar 1979 (fed)</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-26"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-validation/17_time_profile_plot_Cimetidine_po_200_mg__Burland_1975__caps.png" /></p>
+<p><strong>Figure 3-26: po 200 mg, Burland 1975, caps</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-27"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-validation/18_time_profile_plot_Cimetidine_po_200_mg__Burland_1975__sol.png" /></p>
+<p><strong>Figure 3-27: po 200 mg, Burland 1975, sol</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-28"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-validation/19_time_profile_plot_Cimetidine_po_200_mg__Kanto_1981__n_8.png" /></p>
+<p><strong>Figure 3-28: po 200 mg, Kanto 1981, n=8</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-29"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-validation/20_time_profile_plot_Cimetidine_po_200_mg__Mihaly_1984__n_8.png" /></p>
+<p><strong>Figure 3-29: po 200 mg, Mihaly 1984, n=8</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-30"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-validation/21_time_profile_plot_Cimetidine_po_200_400_mg_QID__Bodemar_1981__fasted_.png" /></p>
+<p><strong>Figure 3-30: po 200/400 mg QID, Bodemar 1981 (fasted)</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-31"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-validation/25_time_profile_plot_Cimetidine_po_300_mg__tabl___Walkenstein_1978__n_12.png" /></p>
+<p><strong>Figure 3-31: po 300 mg (tabl), Walkenstein 1978, n=12</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-32"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-validation/26_time_profile_plot_Cimetidine_po_300_mg_QID__sol___Barbhaiya_1995__n_18.png" /></p>
+<p><strong>Figure 3-32: po 300 mg QID (sol), Barbhaiya 1995, n=18</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-33"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-validation/27_time_profile_plot_Cimetidine_po_400_mg__tab___Bodemar_1979__n_10.png" /></p>
+<p><strong>Figure 3-33: po 400 mg (tab), Bodemar 1979, n=10</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-34"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-validation/28_time_profile_plot_Cimetidine_po_400_mg__tab___Somogyi_1981__n_8.png" /></p>
+<p><strong>Figure 3-34: po 400 mg (tab), Somogyi 1981, n=8</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-35"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-validation/29_time_profile_plot_Cimetidine_po_400_mg__tab__Grahnen_1979__n_3.png" /></p>
+<p><strong>Figure 3-35: po 400 mg (tab),Grahnen 1979, n=3</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-36"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-validation/30_time_profile_plot_Cimetidine_po_400_mg__tab__Grahnen_1979__n_3.png" /></p>
+<p><strong>Figure 3-36: po 400 mg (tab),Grahnen 1979, n=3, urine</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-37"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-validation/33_time_profile_plot_Cimetidine_po_800_mg__tab__qd__Tiseo_1998__n_18.png" /></p>
+<p><strong>Figure 3-37: po 800 mg (tab) qd, Tiseo 1998, n=18</strong></p>
+<p><br>
+<br></p>
+<h1 id="4-conclusion">4 Conclusion<a id="conclusion"></a><a class="headerlink" href="#4-conclusion" title="Anchor link to this section for reference">&para;</a></h1>
+<p>The herein presented PBPK model adequately describes the pharmacokinetics of cimetidine after intravenous and oral administration of single and multiple doses to healthy adults and peptic ulcer patients covering a broad dosing range from 100 to 800 mg. The established cimetidine PBPK model is verified for the use as a mild inhibitor of CYP3A4 drug in drug-drug interaction simulations.</p>
+<h1 id="5-references">5 References<a id="main-references"></a><a class="headerlink" href="#5-references" title="Anchor link to this section for reference">&para;</a></h1>
+<p><strong>Abernethy 1983</strong>  Abernethy DR,  Greenblatt DJ, Divoll M, Moschitto LJ, Harmatz JS, Shader RI.  Interaction of cimetidine with the triazolobenzodiazepines alprazolam  and triazolam. Psychopharmacology (Berl). 1983;80(3):275-8. doi:  10.1007/BF00436169.</p>
+<p><strong>Avdeef 2001</strong> Avdeef A, Berger CM. pH-metric solubility. 3. Dissolution titration  template method for solubility determination. Eur J Pharm Sci. 2001  Dec;14(4):281-91. doi: 10.1016/s0928-0987(01)00190-7. PMID: 11684402.</p>
+<p><strong>Barbhaiya 1995</strong> Barbhaiya RH, Shukla UA, Greene DS. Lack of interaction between  nefazodone and cimetidine: a steady state pharmacokinetic study in  humans. Br J Clin Pharmacol. 1995 Aug;40(2):161-5. doi:  10.1111/j.1365-2125.1995.tb05771.x. PMID: 8562300; PMCID: PMC1365177.</p>
+<p><strong>Bodemar 1979</strong> Bodemar G,  Norlander B, Fransson L, Walan A. The absorption of cimetidine before  and during maintenance treatment with cimetidine and the influence of a  meal on the absorption of cimetidine--studies in patients with peptic  ulcer disease. Br J Clin Pharmacol. 1979 Jan;7(1):23-31. doi:  10.1111/j.1365-2125.1979.tb00892.x. PMID: 760739; PMCID: PMC1429608.</p>
+<p><strong>Bodemar 1981</strong> Bodemar G, Norlander B, Walan A. Pharmacokinetics of cimetidine after  single doses and during continuous treatment. Clin Pharmacokinet. 1981  Jul-Aug;6(4):306-15. doi: 10.2165/00003088-198106040-00005. PMID:  7249489.</p>
+<p><strong>Burland 1975</strong> Burland WL, Duncan WA, Hesselbo T, Mills JG, Sharpe PC, Haggie SJ,  Wyllie JH. Pharmacological evaluation of cimetidine, a new histamine  H2-receptor antagonist, in healthy man. Br J Clin Pharmacol. 1975  Dec;2(6):481-6. doi: 10.1111/j.1365-2125.1975.tb00564.x. PMID: 9952;  PMCID: PMC1402643.</p>
+<p><strong>Cox 1986</strong> Cox SR, Kroboth PD, Anderson PH, Smith RB. Mechanism for the interaction between triazolam  and cimetidine. Biopharm Drug Dispos. 1986 Nov-Dec;7(6):567-75.</p>
+<p><strong>D'Angio 1986</strong> D'Angio R, Mayersohn M, Conrad KA, Bliss M. Cimetidine absorption in  humans during sucralfate coadministration. Br J Clin Pharmacol. 1986  May;21(5):515-20. doi: 10.1111/j.1365-2125.1986.tb02834.x. PMID:  3755052; PMCID: PMC1401033.</p>
+<p><strong>Elliott 1984</strong> Elliott P, Dundee  JW, Elwood RJ, Collier PS. The influence of H2 receptor antagonists on  the plasma concentrations of midazolam and temazepam. Eur J  Anaesthesiol. 1984 Sep;1(3):245-51.</p>
+<p><strong>Fee 1987</strong> Fee JP, Collier PS, Howard PJ, Dundee JW. Cimetidine and ranitidine increase midazolam  bioavailability. Clin Pharmacol Ther. 1987 Jan;41(1):80-4. doi:  10.1038/clpt.1987.13. PMID: 3802710.</p>
+<p><strong>Friedman 1988</strong> Friedman H,  Greenblatt DJ, Burstein ES, Scavone JM, Harmatz JS, Shader RI. Triazolam kinetics: interaction with cimetidine, propranolol, and the  combination. J Clin Pharmacol. 1988 Mar;28(3):228-33.</p>
+<p><strong>Grahnen 1979</strong> Grahnén A, von Bahr C, Lindström B, Rosén A. Bioavailability and  pharmacokinetics of cimetidine. Eur J Clin Pharmacol. 1979  Nov;16(5):335-40. doi: 10.1007/BF00605632. PMID: 520401.</p>
+<p><strong>Greenblatt 1986</strong> Greenblatt DJ, Locniskar A, Scavone JM, Blyden GT, Ochs HR, Harmatz JS,  Shader RI. Absence of interaction of cimetidine and ranitidine with  intravenous and oral midazolam. Anesth Analg. 1986 Feb;65(2):176-80.  PMID: 2935051.</p>
+<p><strong>Hanke 2020</strong> Hanke N, Türk D, Selzer D, Ishiguro N, Ebner  T, Wiebe S, Müller F, Stopfer P, Nock V, Lehr T. A Comprehensive  Whole-Body Physiologically Based Pharmacokinetic Drug-Drug-Gene  Interaction Model of Metformin and Cimetidine in Healthy Adults and  Renally Impaired Individuals. Clin Pharmacokinet. 2020  Nov;59(11):1419-1431. doi: 10.1007/s40262-020-00896-w. PMID: 32449077;  PMCID: PMC7658088.</p>
+<p><strong>Ito 2012</strong> Ito S, Kusuhara H,  Yokochi M, Toyoshima J, Inoue K, Yuasa H, Sugiyama Y. Competitive  inhibition of the luminal efflux by multidrug and toxin extrusions, but  not basolateral uptake by organic cation transporter 2, is the likely  mechanism underlying the pharmacokinetic drug-drug interactions caused  by cimetidine in the kidney. J Pharmacol Exp Ther. 2012  Feb;340(2):393-403. doi: 10.1124/jpet.111.184986. Epub 2011 Nov 9. PMID: 22072731.</p>
+<p><strong>Kanto 1981</strong> Kanto J, Allonen H, Jalonen H, Mäntylä R. The effect of metoclopramide  and propantheline on the gastrointestinal absorption of cimetidine. Br J Clin Pharmacol. 1981 Jun;11(6):629-31. doi:  10.1111/j.1365-2125.1981.tb01184.x. PMID: 7272182; PMCID: PMC1402204.</p>
+<p><strong>Kuepfer 2016</strong> Kuepfer L, Niederalt C, Wendl T, Schlender JF, Willmann S, Lippert J, Block M, Eissing T, Teutonico D. Applied Concepts in PBPK Modeling: How to Build a PBPK/PD Model.CPT Pharmacometrics Syst Pharmacol. 2016 Oct;5(10):516-531.</p>
+<p><strong>Kienlen 1993</strong> Kienlen, J., Levron, JC., Aubas, S. <em>et al.</em> Pharmacokinetics of Alfentanil in Patients Treated with Either Cimetidine or Ranitidine.  Drug Invest <strong>6,</strong> 257–262 (1993).</p>
+<p><strong>Larsson 1982</strong> Larsson R, Erlanson P, Bodemar G, Walan A, Bertler A, Fransson L,  Norlander B. The pharmacokinetics of cimetidine and its sulphoxide  metabolite in patients with normal and impaired renal function. Br J  Clin Pharmacol. 1982 Feb;13(2):163-70. doi:  10.1111/j.1365-2125.1982.tb01351.x. PMID: 7059413; PMCID: PMC1402003.</p>
+<p><strong>Lebert 1981</strong> Lebert PA, Mahon  WA, MacLeod SM, Soldin SJ, Fenje P, Vandenberghe HM. Ranitidine kinetics and dynamics. II. Intravenous dose studies and comparison with  cimetidine. Clin Pharmacol Ther. 1981 Oct;30(4):545-50. doi:  10.1038/clpt.1981.201. PMID: 6269789.</p>
+<p><strong>Martinez  1999</strong> Martínez C, Albet  C, Agúndez JA, Herrero E, Carrillo JA, Márquez M, Benítez J, Ortiz JA.  Comparative in vitro and in vivo inhibition of cytochrome P450 CYP1A2,  CYP2D6, and CYP3A by H2-receptor antagonists. Clin Pharmacol Ther. 1999  Apr;65(4):369-76. doi: 10.1016/S0009-9236(99)70129-3. PMID: 10223772.</p>
+<p><strong>Meyer 2012</strong> Meyer M, Schneckener S, Ludewig B, Kuepfer L, Lippert J. Using expression data for quantification of active processes in physiologically based pharmacokinetic modeling. Drug Metab Dispos. 2012 May;40(5):892-901.</p>
+<p><strong>Mihaly  1984</strong> Mihaly GW, Jones DB, Anderson JA, Smallwood RA, Louis WJ.  Pharmacokinetic studies of cimetidine and ranitidine before and after  treatment in peptic ulcer patients. Br J Clin Pharmacol. 1984  Jan;17(1):109-11. doi: 10.1111/j.1365-2125.1984.tb05010.x. PMID:  6318788; PMCID: PMC1463299.</p>
+<p><strong>Morgan 1983</strong> Morgan DJ, Uccellini DA, Raymond K, Mihaly GW, Jones DB, Smallwood RA.  The influence of duration of intravenous infusion of an acute dose on  plasma concentrations of cimetidine. Eur J Clin Pharmacol.  1983;25(1):29-34. doi: 10.1007/BF00544010. PMID: 6617722.</p>
+<p><strong>Nishimura 2013</strong> Nishimura M, Yaguti H, Yoshitsugu H, Naito S, Satoh T. Tissue distribution of mRNA expression of human cytochrome P450 isoforms assessed by high-sensitivity real-time reverse transcription PCR. Yakugaku Zasshi. 2003 May;123(5):369-75.</p>
+<p><strong>Ohta 2005</strong> Ohta KY, Inoue K, Yasujima T, Ishimaru M, Yuasa H. Functional  characteristics of two human MATE transporters: kinetics of cimetidine  transport and profiles of inhibition by various compounds. J Pharm Pharm Sci. 2009;12(3):388-96. doi: 10.18433/j3r59x. PMID: 20067714.</p>
+<p><strong>PK-Sim Ontogeny Database Version 7.3</strong> (https://github.com/Open-Systems-Pharmacology/OSPSuite.Documentation/blob/38cf71b384cfc25cfa0ce4d2f3addfd32757e13b/PK-Sim%20Ontogeny%20Database%20Version%207.3.pdf)</p>
+<p><strong>Pourbaix 1985</strong> Pourbaix S, Desager JP, Hulhoven R, Smith RB, Harvengt C. Pharmacokinetic consequences of  long term coadministration of cimetidine and triazolobenzodiazepines,  alprazolam and triazolam, in healthy subjects. Int J Clin Pharmacol Ther Toxicol. 1985 Aug;23(8):447-51.</p>
+<p><strong>Salonen 1986</strong> Salonen M, Aantaa  E, Aaltonen L, Kanto J. Importance of the interaction of midazolam and  cimetidine. Acta Pharmacol Toxicol (Copenh). 1986 Feb;58(2):91-5. doi:  10.1111/j.1600-0773.1986.tb00076.x. PMID: 2939688.</p>
+<p><strong>Smith  1984</strong> Smith MS, Benyunes  MC, Bjornsson TD, Shand DG, Pritchett EL. Influence of cimetidine on  verapamil kinetics and dynamics. Clin Pharmacol Ther. 1984  Oct;36(4):551-4. doi: 10.1038/clpt.1984.218. PMID: 6478741.</p>
+<p><strong>Somogyi 1981</strong> Somogyi A, Thielscher S, Gugler R. Influence of phenobarbital treatment  on cimetidine kinetics. Eur J Clin Pharmacol. 1981;19(5):343-7. doi:  10.1007/BF00544584. PMID: 7238562.</p>
+<p><strong>Somogyi 1983</strong> Somogyi A, Gugler R. Clinical pharmacokinetics of cimetidine. Clin  Pharmacokinet. 1983 Nov-Dec;8(6):463-95. doi:  10.2165/00003088-198308060-00001. PMID: 6418428.</p>
+<p><strong>Tahara 2005</strong> Tahara H, Kusuhara H, Endou H, Koepsell H, Imaoka T, Fuse E, Sugiyama Y. A species difference in the transport activities of H2 receptor  antagonists by rat and human renal organic anion and cation  transporters. J Pharmacol Exp Ther. 2005 Oct;315(1):337-45. doi:  10.1124/jpet.105.088104. Epub 2005 Jul 8. PMID: 16006492.</p>
+<p><strong>Taylor 1978</strong> Taylor DC, Cresswell PR, Bartlett DC. The metabolism and elimination of  cimetidine, a histamine H2-receptor antagonist, in the rat, dog, and  man. Drug Metab Dispos. 1978 Jan-Feb;6(1):21-30. PMID: 23270.</p>
+<p><strong>Tiseo 1998</strong> Tiseo PJ, Perdomo CA, Friedhoff LT. Concurrent administration of  donepezil HCl and cimetidine: assessment of pharmacokinetic changes  following single and multiple doses. Br J Clin Pharmacol. 1998 Nov;46  Suppl 1(Suppl 1):25-9. doi: 10.1046/j.1365-2125.1998.0460s1025.x. PMID:  9839762; PMCID: PMC1873814.</p>
+<p><strong>Umehara 2007</strong> Umehara KI, Iwatsubo T, Noguchi K, Kamimura H. Functional involvement of organic cation transporter1 (OCT1/Oct1) in the hepatic uptake of  organic cations in humans and rats. Xenobiotica. 2007 Aug;37(8):818-31.  doi: 10.1080/00498250701546012. PMID: 17701831.</p>
+<p><strong>Walkenstein 1978</strong> Walkenstein SS, Dubb JW, Randolph WC, Westlake WJ, Stote RM, Intoccia  AP. Bioavailability of cimetidine in man. Gastroenterology. 1978  Feb;74(2 Pt 2):360-5. PMID: 620910.</p>
+<p><strong>Willmann 2007</strong> Willmann S, Höhn K, Edginton A, Sevestre M, Solodenko J, Weiss W, Lippert J, Schmitt W. Development of a physiology-based whole-body population model for assessing the influence of individual variability on the pharmacokinetics of drugs. J Pharmacokinet Pharmacodyn. 2007, 34(3): 401-431.</p>
+<p><strong>Wishart 2006</strong> Wishart DS, Knox C, Guo AC, Shrivastava S, Hassanali M, Stothard P,  Chang Z, Woolsey J. DrugBank: a comprehensive resource for in silico  drug discovery and exploration. Nucleic Acids Res. 2006 Jan  1;34(Database issue):D668-72. doi: 10.1093/nar/gkj067. PMID: 16381955;  PMCID: PMC1347430.</p>
+<p><strong>Wrighton 1994</strong> Wrighton SA, Ring  BJ. Inhibition of human CYP3A catalyzed 1'-hydroxy midazolam formation  by ketoconazole, nifedipine, erythromycin, cimetidine, and nizatidine.  Pharm Res. 1994 Jun;11(6):921-4. doi: 10.1023/a:1018906614320. PMID:  7937537.</p>
+<hr />
+<h2 id="related-models">Related Models<a class="headerlink" href="#related-models" title="Anchor link to this section for reference">&para;</a></h2>
+<p>Explore other Cardiovascular Agents models in this library:</p>
+<ul>
+<li><a href="../Dapagliflozin/">Dapagliflozin</a> - PBPK model and evaluation report</li>
+<li><a href="../Digoxin/">Digoxin</a> - PBPK model and evaluation report</li>
+<li><a href="../Felodipine/">Felodipine</a> - PBPK model and evaluation report</li>
+<li><a href="../Fluconazole/">Fluconazole</a> - PBPK model and evaluation report</li>
+<li><a href="../Itraconazole/">Itraconazole</a> - PBPK model and evaluation report</li>
+</ul>
+<p><a href="../#cardiovascular-agents">View all Cardiovascular Agents →</a></p>
+<p><a href="../">← Back to Model Library Home</a></p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; Open Systems Pharmacology Community
+    </div>
+  
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/Open-Systems-Pharmacology" target="_blank" rel="noopener" title="Open Systems Pharmacology on GitHub" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://www.open-systems-pharmacology.org/" target="_blank" rel="noopener" title="Open Systems Pharmacology Website" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M351.9 280H161c2.9 64.5 17.2 123.9 37.5 167.4 11.4 24.5 23.7 41.8 35.1 52.4 11.2 10.5 18.9 12.2 22.9 12.2s11.7-1.7 22.9-12.2c11.4-10.6 23.7-28 35.1-52.4 20.3-43.5 34.6-102.9 37.5-167.4zm-191-48h190.9c-2.8-64.5-17.1-123.9-37.4-167.4-11.4-24.4-23.7-41.8-35.1-52.4C268.1 1.7 260.4 0 256.4 0s-11.7 1.7-22.9 12.2c-11.4 10.6-23.7 28-35.1 52.4-20.3 43.5-34.6 102.9-37.5 167.4m-48 0c3.5-85.6 25.6-165.1 57.9-217.3C78.7 47.3 10.9 131.2 1.5 232zM1.5 280c9.4 100.8 77.2 184.7 169.3 217.3-32.3-52.2-54.4-131.7-57.9-217.3zm398.4 0c-3.5 85.6-25.6 165.1-57.9 217.3 92.1-32.7 159.9-116.5 169.3-217.3zm111.4-48C501.9 131.2 434.1 47.3 342 14.7c32.3 52.2 54.4 131.7 57.9 217.3z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.top", "navigation.tabs.sticky", "navigation.indexes", "navigation.path", "toc.follow", "search.highlight", "search.suggest", "search.share", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

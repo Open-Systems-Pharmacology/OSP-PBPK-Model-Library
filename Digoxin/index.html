@@ -1,0 +1,2534 @@
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="PBPK (Physiologically Based Pharmacokinetic) model evaluation report for Digoxin. Detailed pharmacokinetic modeling and simulation results using Open Systems Pharmacology platform.">
+      
+      
+        <meta name="author" content="Open Systems Pharmacology Community">
+      
+      
+        <link rel="canonical" href="https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/Digoxin/">
+      
+      
+        <link rel="prev" href="../Dapagliflozin/">
+      
+      
+        <link rel="next" href="../Efavirenz/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Digoxin PBPK Model - Physiologically Based Pharmacokinetic Evaluation Report - OSP PBPK Model Library (Version 12.3)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/Digoxin/">
+  <meta property="og:title" content="Digoxin">
+  <meta property="og:description" content="PBPK (Physiologically Based Pharmacokinetic) model evaluation report for Digoxin. Detailed pharmacokinetic modeling and simulation results using Open Systems Pharmacology platform.">
+  <meta property="og:site_name" content="OSP PBPK Model Library (Version 12.3)">
+  <meta property="og:image" content="https://www.open-systems-pharmacology.org/assets/images/logo.png">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/Digoxin/">
+  <meta name="twitter:title" content="Digoxin">
+  <meta name="twitter:description" content="PBPK (Physiologically Based Pharmacokinetic) model evaluation report for Digoxin. Detailed pharmacokinetic modeling and simulation results using Open Systems Pharmacology platform.">
+  <meta name="twitter:image" content="https://www.open-systems-pharmacology.org/assets/images/logo.png">
+
+  <!-- Structured Data (JSON-LD) for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "OSP PBPK Model Library (Version 12.3)",
+    "description": "Comprehensive library of validated PBPK (Physiologically Based Pharmacokinetic) models and qualification reports for drug development. Open-source whole-body PBPK modeling and simulation software for systems biology and multiscale physiological modeling.",
+    "url": "https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Open Systems Pharmacology",
+      "url": "https://www.open-systems-pharmacology.org/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.open-systems-pharmacology.org/assets/images/logo.png"
+      }
+    },
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
+  <!-- Dataset Schema for PBPK Model Library -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    "name": "Open Systems Pharmacology PBPK Model Library",
+    "description": "Comprehensive library of validated PBPK (Physiologically Based Pharmacokinetic) models for drug development and pharmaceutical research",
+    "url": "https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/",
+    "keywords": ["PBPK", "pharmacokinetic modeling", "drug development", "PK-Sim", "MoBi", "systems pharmacology", "ADME"],
+    "license": "https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library#license",
+    "creator": {
+      "@type": "Organization",
+      "name": "Open Systems Pharmacology",
+      "url": "https://www.open-systems-pharmacology.org/"
+    },
+    "distribution": {
+      "@type": "DataDownload",
+      "encodingFormat": "application/zip",
+      "contentUrl": "https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library"
+    }
+  }
+  </script>
+
+  <!-- SoftwareApplication Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "PK-Sim PBPK Models",
+    "applicationCategory": "ScientificApplication",
+    "operatingSystem": "Windows",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "description": "Validated PBPK models for use with PK-Sim and MoBi software for pharmaceutical research and drug development",
+    "url": "https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Open Systems Pharmacology"
+    }
+  }
+  </script>
+
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "Digoxin PBPK Model - Physiologically Based Pharmacokinetic Evaluation Report",
+    "description": "PBPK (Physiologically Based Pharmacokinetic) model evaluation report for Digoxin. Detailed pharmacokinetic modeling and simulation results using Open Systems Pharmacology platform.",
+    "author": {
+      "@type": "Organization",
+      "name": "Open Systems Pharmacology"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Open Systems Pharmacology",
+      "url": "https://www.open-systems-pharmacology.org/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.open-systems-pharmacology.org/assets/images/logo.png"
+      }
+    },
+    "url": "https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/Digoxin/",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/Digoxin/"
+    },
+    "keywords": "Digoxin, PBPK model, physiologically based pharmacokinetic model, Digoxin pharmacokinetics, drug modeling, PK-Sim"
+  }
+  </script>
+  
+
+  
+  <meta name="keywords" content="Digoxin, PBPK model, physiologically based pharmacokinetic model, Digoxin pharmacokinetics, drug modeling, PK-Sim">
+  
+
+  
+  <link rel="canonical" href="https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/Digoxin/">
+  
+
+  <!-- Language -->
+  <meta http-equiv="content-language" content="en">
+  <meta name="language" content="English">
+
+
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#building-and-evaluation-of-a-pbpk-model-for-digoxin-in-adults" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="OSP PBPK Model Library (Version 12.3)" class="md-header__button md-logo" aria-label="OSP PBPK Model Library (Version 12.3)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OSP PBPK Model Library (Version 12.3)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Digoxin PBPK Model - Physiologically Based Pharmacokinetic Evaluation Report
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    OSP-PBPK-Model-Library
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="OSP PBPK Model Library (Version 12.3)" class="md-nav__button md-logo" aria-label="OSP PBPK Model Library (Version 12.3)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    OSP PBPK Model Library (Version 12.3)
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    OSP-PBPK-Model-Library
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7E3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7E3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Alfentanil/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Alfentanil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Alprazolam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Alprazolam
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Amikacin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amikacin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Atazanavir/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Atazanavir
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BAY794620/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BAY794620
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CDA1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CDA1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Carbamazepine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Carbamazepine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Cimetidine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cimetidine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Clarithromycin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Clarithromycin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Dapagliflozin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dapagliflozin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Digoxin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Efavirenz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Efavirenz
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Erythromycin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Erythromycin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ethinylestradiol/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ethinylestradiol
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Felodipine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Felodipine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Fluconazole/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fluconazole
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Fluvoxamine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fluvoxamine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Inulin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inulin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Itraconazole/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Itraconazole
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MEDI524/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MEDI524
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MEDI524YTE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MEDI524YTE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mefenamic_acid/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mefenamic_acid
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mexiletine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mexiletine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Midazolam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Midazolam
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Moclobemide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Moclobemide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Montelukast/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Montelukast
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Omeprazole/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Omeprazole
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Propofol/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Propofol
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Raltegravir/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Raltegravir
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Rifampicin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rifampicin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S-Mephenytoin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S-Mephenytoin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Sildenafil/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sildenafil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Sufentanil/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sufentanil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tefibazumab/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tefibazumab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tizanidine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tizanidine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Triazolam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Triazolam
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Vancomycin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vancomycin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Verapamil/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Verapamil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dAb2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    dAb2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="building-and-evaluation-of-a-pbpk-model-for-digoxin-in-adults">Building and evaluation of a PBPK model for digoxin in adults<a class="headerlink" href="#building-and-evaluation-of-a-pbpk-model-for-digoxin-in-adults" title="Anchor link to this section for reference">&para;</a></h1>
+<table>
+<thead>
+<tr>
+<th>Version</th>
+<th>2.0-OSP12.3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>based on <em>Model Snapshot</em> and <em>Evaluation Plan</em></td>
+<td>https://github.com/Open-Systems-Pharmacology/Digoxin-Model/releases/tag/v2.0</td>
+</tr>
+<tr>
+<td>OSP Version</td>
+<td>12.3</td>
+</tr>
+<tr>
+<td>Qualification Framework Version</td>
+<td>3.6</td>
+</tr>
+</tbody>
+</table>
+<p>This evaluation report and the corresponding PK-Sim project file are filed at:</p>
+<p>https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/</p>
+<h1 id="table-of-contents">Table of Contents<a class="headerlink" href="#table-of-contents" title="Anchor link to this section for reference">&para;</a></h1>
+<ul>
+<li><a href="#introduction">1 Introduction</a></li>
+<li><a href="#methods">2 Methods</a></li>
+<li><a href="#modeling-strategy">2.1 Modeling strategy</a></li>
+<li><a href="#data">2.2 Data</a></li>
+<li><a href="#model-parameters-and-assumptions">2.3 Model parameters and assumptions</a></li>
+<li><a href="#results-and-discussion">3 Results and Discussion</a></li>
+<li><a href="#final-input-parameters">3.1 Digoxin final input parameters</a></li>
+<li><a href="#diagnostics-plots">3.2 Digoxin Diagnostics Plots</a></li>
+<li><a href="#ct-profiles-model-building">3.3 Digoxin Concentration-Time profiles</a></li>
+<li><a href="#conclusion">4 Conclusion</a></li>
+<li><a href="#references">5 References</a></li>
+</ul>
+<h1 id="1-introduction">1 Introduction<a id="introduction"></a><a class="headerlink" href="#1-introduction" title="Anchor link to this section for reference">&para;</a></h1>
+<p>The presented model building and evaluation report evaluates the performance of a PBPK model for digoxin in adults.</p>
+<p>Digoxin is a cardiac glycoside used to treat atrial fibrillation, atrial flutter and heart failure.
+Digoxin is transported by P-glycoprotein 1 (P-gp), also known as multidrug resistance protein 1 (MDR1) or ATP-binding cassette sub-family B member 1 (ABCB1) or cluster of differentiation 243 (CD243) poly-glycoprotein. P-gp and mainly excreted unchanged via the kidneys with a small fraction eliminated via biliary excretion and only a very low degree of hepatic metabolism  (<a href="#References">Greiner 1999, Ochs 1978 </a>).
+Many other substrates of P-gp are metabolized by CYP3A4, setting digoxin apart as an
+exception and thereby turning it into a model victim drug of P-gp-mediated DDIs.</p>
+<p>Digoxin is reported to have a large volume of distribution due to extensive tissue binding and to be mainly excreted unchanged to urine (50 - 70%) while the remainder of a dose is eliminated by hepatic metabolism and biliary excretion (<a href="#References">Ochs 1978, Bauer 2008</a>)]. The final digoxin model applies target-binding, transport by P-gp in various organs including gut, liver and kidney, an unspecific hepatic metabolic clearance and glomerular filtration, and adequately described the pharmacokinetics of digoxin in adults.</p>
+<p>The digoxin model is a whole-body PBPK model, allowing for dynamic translation between individuals. The digoxin report demonstrates the level of confidence in the digoxin PBPK model with the OSP suite with regard to reliable predictions of digoxin PK in adults during model-informed drug development.</p>
+<h1 id="2-methods">2 Methods<a id="methods"></a><a class="headerlink" href="#2-methods" title="Anchor link to this section for reference">&para;</a></h1>
+<p>The PBPK model for digoxin in this report is based on the developed and published digoxin PBPK model by Hanke <em>et al.</em> 2018. (<a href="#References">Hanke 2018</a>)</p>
+<h2 id="21-modeling-strategy">2.1 Modeling strategy<a id="modeling-strategy"></a><a class="headerlink" href="#21-modeling-strategy" title="Anchor link to this section for reference">&para;</a></h2>
+<p>The general concept of building a PBPK model has previously been described by Kuepfer et al. (<a href="#References">Kuepfer 2016</a>). Relevant information on anthropometric (height, weight) and physiological parameters (e.g. blood flows, organ volumes, binding protein concentrations, hematocrit, cardiac output) in adults was gathered from the literature and has been previously published (<a href="#References">Schlender 2016</a>). The information was incorporated into PK-Sim® and was used as default values for the simulations in adults.</p>
+<p>The  applied activity and variability of plasma proteins and active processes that are integrated into PK-Sim® are described in the publicly available PK-Sim® Ontogeny Database Version 7.3 (<a href="#References">PK-Sim Ontogeny Database Version 7.3</a>) or otherwise referenced for the specific process.</p>
+<p>First, a base mean model was built using data from the single dose escalation study to find an appropriate structure describing the PK of digoxin. The mean PK model was developed using a typical European individual. Unknown parameters were identified using the Parameter Identification module provided in PK-Sim®. Structural model selection was mainly guided by visual inspection of the resulting description of data and biological plausibility.</p>
+<p>Once the appropriate structural model was identified, additional parameters for different formulations were identified, if available. </p>
+<p>A final PBPK model was established and simulations were compared to the reported data to evaluate model appropriateness and to assess model, by means of diagnostics plots and predicted versus observed concentration-time profiles, of which the results support an adequate prediction of the PK in adults.</p>
+<p>During model building, uncertainties in data quality, as well as study differences may cause not being able to adequately describe the PK of all reported clinical studies. </p>
+<h2 id="22-data">2.2 Data<a id="data"></a><a class="headerlink" href="#22-data" title="Anchor link to this section for reference">&para;</a></h2>
+<h3 id="221-in-vitro-physico-chemical-data">2.2.1 In vitro / physico-chemical data<a class="headerlink" href="#221-in-vitro-physico-chemical-data" title="Anchor link to this section for reference">&para;</a></h3>
+<p>A literature search was performed to collect available information on physicochemical properties of digoxin. The obtained information from the literature is summarized in the table below, and is used for model building.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Parameter</strong></th>
+<th><strong>Unit</strong></th>
+<th><strong>Digoxin literature</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">MW</td>
+<td>g/mol</td>
+<td>780.93 (<a href="#References">Drugbank</a>)</td>
+<td>Molecular weight</td>
+</tr>
+<tr>
+<td style="text-align: left;">pKa</td>
+<td></td>
+<td>none</td>
+<td>Acid dissociation constant</td>
+</tr>
+<tr>
+<td style="text-align: left;">Solubility (pH)</td>
+<td>mg/L</td>
+<td>64.8 (7) (<a href="#References">Drugbank</a>)</td>
+<td>Solubility</td>
+</tr>
+<tr>
+<td style="text-align: left;">logP</td>
+<td></td>
+<td>1.22, 1.62, 1.67  (<a href="#References">Alsenz 2007, Hinderling 1984, Atkinson 1988</a>)</td>
+<td>Partition coefficient between octanol and water</td>
+</tr>
+<tr>
+<td style="text-align: left;">fu</td>
+<td></td>
+<td>70.0, 71.0, 77.7 (<a href="#References">Hinderling 1984, Obach 2008, Neuhoff 2013</a>)</td>
+<td>Fraction unbound</td>
+</tr>
+<tr>
+<td style="text-align: left;">ATP1A2 KD</td>
+<td>µmol/L</td>
+<td>0.0256 (<a href="#References">Katz 2010</a>)</td>
+<td>Dissociation constant</td>
+</tr>
+<tr>
+<td style="text-align: left;">ATP1A2 koff</td>
+<td>1/min</td>
+<td>n.a.</td>
+<td>Dissociation rate constant</td>
+</tr>
+<tr>
+<td style="text-align: left;">P-gp KM</td>
+<td>µmol/L</td>
+<td>73.0, 177.0 (<a href="#References">Collett 2004, Troutman 2003</a>)</td>
+<td>Michaelis-Menten constant</td>
+</tr>
+<tr>
+<td style="text-align: left;">P-gp kcat</td>
+<td>1/min</td>
+<td>n.a.</td>
+<td>P-gp catalytic rate constant</td>
+</tr>
+<tr>
+<td style="text-align: left;">CLhep</td>
+<td>mL/min</td>
+<td>n.a.</td>
+<td>Hepatic plasma clearance</td>
+</tr>
+<tr>
+<td style="text-align: left;">GFR fraction</td>
+<td>1/min</td>
+<td>1</td>
+<td>Fraction of filtered drug reaching the urine</td>
+</tr>
+<tr>
+<td style="text-align: left;">Formulation</td>
+<td></td>
+<td>solution</td>
+<td>Formulation used in predictions</td>
+</tr>
+<tr>
+<td style="text-align: left;">Cell permeabilities</td>
+<td></td>
+<td>PK-Sim</td>
+<td>Permeation across cell membranes</td>
+</tr>
+<tr>
+<td style="text-align: left;">Partition coefficients</td>
+<td></td>
+<td>Rodgers &amp; Rowland</td>
+<td>Organ-plasma partition coefficients</td>
+</tr>
+<tr>
+<td style="text-align: left;">Specific intest. perm.</td>
+<td>dm/min</td>
+<td>n.a.</td>
+<td>Normalized to surface area</td>
+</tr>
+<tr>
+<td style="text-align: left;">Specific organ perm.</td>
+<td>dm/min</td>
+<td>n.a.</td>
+<td>Normalized to surface area</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>ATP1A2: ATPase Na+/K+ transporting subunit alpha 2, CL: clearance, GFR: glomerular filtration rate, intest.: intestinal, n.a.: not available, perm.: permeability, P-gp: Pglycoprotein, PK-Sim: PK-Sim Standard calculation method, R + R: Rodgers and Rowland calculation method</li>
+</ul>
+<h3 id="222-clinical-data">2.2.2 Clinical data<a class="headerlink" href="#222-clinical-data" title="Anchor link to this section for reference">&para;</a></h3>
+<p>A literature search was performed to collect available clinical data on digoxin in adults. </p>
+<p>The following publications were found in adults for model building and evaluation:</p>
+<table>
+<thead>
+<tr>
+<th>Publication</th>
+<th>Study  description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#References">Becquemont   2001</a></td>
+<td>Becquemont, L. et al. Effect  of grapefruit juice on digoxin pharmacokinetics in humans. Clin. Pharmacol.  Ther. 70, 311–6 (2001).</td>
+</tr>
+<tr>
+<td><a href="#References">Ding   2004</a></td>
+<td>Ding, R. et al. Substantial  pharmacokinetic interaction between digoxin and ritonavir in healthy  volunteers. Clin. Pharmacol. Ther. 76, 73–84 (2004).</td>
+</tr>
+<tr>
+<td><a href="#References">Eckermann   2012</a></td>
+<td>Eckermann, G., Lahu, G.,  Nassr, N. &amp; Bethke, T.D. Absence of pharmacokinetic interaction between  roflumilast and digoxin in healthy adults. J. Clin. Pharmacol. 52, 251–7  (2012).</td>
+</tr>
+<tr>
+<td><a href="#References">Friedrich   2011</a></td>
+<td>Friedrich, C. et al.  Evaluation of the pharmacokinetic interaction after multiple oral doses of  linagliptin and digoxin in healthy volunteers. Eur. J. Drug Metab.  Pharmacokinet. 36, 17–24 (2011).</td>
+</tr>
+<tr>
+<td><a href="#References">Greiner   1999</a></td>
+<td>Greiner, B. et al. The role of  intestinal P-glycoprotein in the interaction of digoxin and rifampin. J.  Clin. Invest. 104, 147–53 (1999).</td>
+</tr>
+<tr>
+<td><a href="#References">Gurley   2008b</a></td>
+<td>Gurley, B.J., Swain, A.,  Williams, D.K., Barone, G. &amp; Battu, S.K. Gauging the clinical  significance of P-glycoprotein-mediated herb-drug interactions: comparative  effects of St. John’s wort, Echinacea, clarithromycin, and rifampin on  digoxin pharmacokinetics. Mol. Nutr. food Res. 52, 772–9 (2008).</td>
+</tr>
+<tr>
+<td><a href="#References">Hayward   1978</a></td>
+<td>Hayward, R.P., Greenwood, H.  &amp; Hamer, J. Comparison of digoxin and medigoxin in normal subjects. Br.  J. Clin. Pharmacol. 6, 81–6 (1978).</td>
+</tr>
+<tr>
+<td><a href="#References">Jalava   1997 </a></td>
+<td>Jalava, K.M., Partanen, J.  &amp; Neuvonen, P.J. Itraconazole decreases renal clearance of digoxin. Ther.  Drug Monit. 19, 609–13 (1997).</td>
+</tr>
+<tr>
+<td><a href="#References">Johne   1999</a></td>
+<td>Johne, A. et al.  Pharmacokinetic interaction of digoxin with an herbal extract from St John’s  wort (Hypericum perforatum). Clin. Pharmacol. Ther. 66, 338–45 (1999).</td>
+</tr>
+<tr>
+<td><a href="#References">Kirby   2012</a></td>
+<td>Kirby B.J., Collier A.C., Kharasch E.D., Whittington D., Thummel K.E., Unadkat J.D. Complex drug interactions of the HIV protease inhibitors 3: effect of simultaneous or staggered dosing of digoxin and ritonavir, nelfinavir, rifampin, or bupropion. Drug Metab Dispos. 2012 Mar;40(3):610-6.</td>
+</tr>
+<tr>
+<td><a href="#References">Kirch   1986</a></td>
+<td>Kirch, W., Hutt, H.J.,  Dylewicz, P., Gräf, K.J. &amp; Ohnhaus, E.E. Dose-dependence of the  nifedipine-digoxin interaction? Clin. Pharmacol. Ther. 39, 35–9 (1986).</td>
+</tr>
+<tr>
+<td><a href="#References">Koup   1975</a></td>
+<td>Koup, J.R., Greenblatt, D.J.,  Jusko, W.J., Smith, T.W. &amp; Koch-Weser, J. Pharmacokinetics of digoxin in  normal subjects after intravenous bolus and infusion doses. J. Pharmacokinet.  Biopharm. 3, 181–92 (1975).</td>
+</tr>
+<tr>
+<td><a href="#References">Kramer   1979</a></td>
+<td>Kramer, W.G. et al.  Pharmacokinetics of digoxin: relationship between response intensity and  predicted compartmental drug levels in man. J. Pharmacokinet. Biopharm. 7,  47–61 (1979).</td>
+</tr>
+<tr>
+<td><a href="#References">Lalonde   1985</a></td>
+<td>Lalonde, R.L., Deshpande, R.,  Hamilton, P.P., McLean, W.M. &amp; Greenway, D.C. Acceleration of digoxin  clearance by activated charcoal. Clin. Pharmacol. Ther. 37, 367–71 (1985).</td>
+</tr>
+<tr>
+<td><a href="#References">Larsen   2007</a></td>
+<td>Larsen, U.L. et al. Human  intestinal P-glycoprotein activity estimated by the model substrate digoxin.  Scand. J. Clin. Lab. Invest. 67, 123–34 (2007).</td>
+</tr>
+<tr>
+<td><a href="#References">Martin   1997</a></td>
+<td>Martin, D.E. et al. Lack of  effect of eprosartan on the single dose pharmacokinetics of orally  administered digoxin in healthy male volunteers. Br. J. Clin. Pharmacol. 43,  661–4 (1997).</td>
+</tr>
+<tr>
+<td><a href="#References">Ochs   1975</a></td>
+<td>Ochs, H., Bodem, G., Schäfer, P.K., Kodrat, G., Dengler, H.J. Absorption of digoxin from the distal parts of the intestine in man. Eur J Clin Pharmacol. 1975 Dec 19;9(2-3):95-7.</td>
+</tr>
+<tr>
+<td><a href="#References">Ochs   1978</a></td>
+<td>Ochs, H., Greenblatt, D.J.,  Bodem, G. &amp; Harmatz, J.S. Dose-independent pharmacokinetics of digoxin in  humans. Am. Heart J. 96, 507–11 (1978).</td>
+</tr>
+<tr>
+<td><a href="#References">Oosterhuis   1991</a></td>
+<td>Oosterhuis, B., Jonkman, J.H.,  Andersson, T., Zuiderwijk, P.B. &amp; Jedema, J.N. Minor effect of multiple  dose omeprazole on the pharmacokinetics of digoxin after a single oral dose.  Br. J. Clin. Pharmacol. 32, 569–72 (1991).</td>
+</tr>
+<tr>
+<td><a href="#References">Qiu   2010</a></td>
+<td>Qiu, R. et al. Lack of a  pharmacokinetic interaction between dimebon (latrepirdine) and digoxin in  healthy subjects. Am. Soc. Clin. Pharmacol. Ther. Meet. Atlanta, GA, USA  (2010).</td>
+</tr>
+<tr>
+<td><a href="#References">Ragueneau   1999</a></td>
+<td>Ragueneau, I. et al.  Pharmacokinetic and pharmacodynamic drug interactions between digoxin and  macrogol 4000, a laxative polymer, in healthy volunteers. Br. J. Clin.  Pharmacol. 48, 453–6 (1999).</td>
+</tr>
+<tr>
+<td><a href="#References">Rengelshausen   2003</a></td>
+<td>Rengelshausen, J. et al.  Contribution of increased oral bioavailability and reduced nonglomerular  renal clearance of digoxin to the digoxin-clarithromycin interaction. Br. J.  Clin. Pharmacol. 56, 32–8 (2003).</td>
+</tr>
+<tr>
+<td><a href="#References">Rodin   1988</a></td>
+<td>Rodin, S.M., Johnson, B.F.,  Wilson, J., Ritchie, P. &amp; Johnson, J. Comparative effects of verapamil  and isradipine on steady-state digoxin kinetics. Clin. Pharmacol. Ther. 43,  668–72 (1988).</td>
+</tr>
+<tr>
+<td><a href="#References">Steiness   1982</a></td>
+<td>Steiness, E., Waldorff, S.  &amp; Hansen, P.B. Renal digoxin clearance: dependence on plasma digoxin and  diuresis. Eur. J. Clin. Pharmacol. 23, 151–4 (1982).</td>
+</tr>
+<tr>
+<td><a href="#References">Tayrouz   2003</a></td>
+<td>Tayrouz, Y. et al.  Pharmacokinetic and pharmaceutic interaction between digoxin and Cremophor  RH40. Clin. Pharmacol. Ther. 73, 397–405 (2003).</td>
+</tr>
+<tr>
+<td><a href="#References">Tsutsumi   2002</a></td>
+<td>Tsutsumi, K. et al. The effect  of erythromycin and clarithromycin on the pharmacokinetics of intravenous  digoxin in healthy volunteers. J. Clin. Pharmacol. 42, 1159–64 (2002).</td>
+</tr>
+<tr>
+<td><a href="#References">Vaidyanathan   2008</a></td>
+<td>Vaidyanathan, S. et al.  Pharmacokinetics of the oral direct renin inhibitor aliskiren in combination  with digoxin, atorvastatin, and ketoconazole in healthy subjects: the role of  P-glycoprotein in the disposition of aliskiren. J. Clin. Pharmacol. 48, 1323–38  (2008).</td>
+</tr>
+<tr>
+<td><a href="#References">Verstuyft   2003</a></td>
+<td>Verstuyft, C. et al.  Dipyridamole enhances digoxin bioavailability via P-glycoprotein inhibition.  Clin. Pharmacol. Ther. 73, 51–60 (2003).</td>
+</tr>
+<tr>
+<td><a href="#References">Wagner   1981</a></td>
+<td>Wagner, J.G., Popat, K.D.,  Das, S.K., Sakmar, E. &amp; Movahhed, H. Evidence of nonlinearity in digoxin  pharmacokinetics. J. Pharmacokinet. Biopharm. 9, 147–66 (1981).</td>
+</tr>
+<tr>
+<td><a href="#References">Westphal   2000</a></td>
+<td>Westphal, K. et al. Oral  bioavailability of digoxin is enhanced by talinolol: evidence for involvement  of intestinal P-glycoprotein. Clin. Pharmacol. Ther. 68, 6–12 (2000).</td>
+</tr>
+</tbody>
+</table>
+<h2 id="23-model-parameters-and-assumptions">2.3 Model parameters and assumptions<a id="model-parameters-and-assumptions"></a><a class="headerlink" href="#23-model-parameters-and-assumptions" title="Anchor link to this section for reference">&para;</a></h2>
+<h3 id="231-absorption">2.3.1 Absorption<a class="headerlink" href="#231-absorption" title="Anchor link to this section for reference">&para;</a></h3>
+<p>For oral administration of digoxin, the following parameters, amongst others, play a role with regards to the absorption kinetics of a compound, which can be estimated with PBPK: solubility, lipophilicity and intestinal permeability. To accurately predict the digoxin plasma concentrations following intravenous and oral administration, the relative expression of P-gp in the intestinal mucosa was increased (3.57-fold) compared to the PK-Sim database RT-PCR expression profile (see table below). This factor has been identified in an optimization that included digoxin plasma concentrations and fraction excreted to urine data following intravenous and oral administration plus digoxin excreted to duodenum measurements after intravenous administration <a href="#References">Caldwell 1976</a>. The optimized P-gp expression profile shows highest expression in small intestinal mucosa (1.41 µmol/L), followed by kidney (1.00 µmol/L), large intestinal mucosa (0.56 µmol/L), liver (0.27 µmol/L) and tissues of lower expression. Implementation of transport by OATP (4C1) did not improve the model performance and was not used in the final model. </p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Protein</strong></th>
+<th><strong>Mean reference concentration [µmol protein/L in the tissue of highest expression]</strong></th>
+<th><strong>Geometric standard deviation of reference concentration</strong></th>
+<th><strong>Relative expression in the different organs (PK-Sim expression database profile)</strong></th>
+<th>Half-life liver [h]</th>
+<th>Half-life intestine [h]</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">P-gp (efflux)</td>
+<td>1.41 optimized</td>
+<td>1.60 (<a href="#References">Prasad 2014</a>)</td>
+<td>RT-PCR, with the relative expression in intestinal mucosa increased by a factor of 3.57 (optimized)(<a href="#References">Nishimura 2005</a>)</td>
+<td>36</td>
+<td>23</td>
+</tr>
+</tbody>
+</table>
+<h3 id="232-distribution">2.3.2 Distribution<a class="headerlink" href="#232-distribution" title="Anchor link to this section for reference">&para;</a></h3>
+<p>Digoxin is reported to have a large volume of distribution due to extensive tissue binding and to be mainly excreted unchanged to urine (50 - 70%) while the remainder of a dose is eliminated by hepatic metabolism and biliary excretion (<a href="#References">Ochs 1978, Bauer 2008</a>). Implementation of target-binding to the ATPase Na+/K+ transporting subunit alpha 2 (ATP1A2) was crucial, to mechanistically describe the large volume of distribution and the long plasma half-life of digoxin. </p>
+<p>It has reported that the fraction unbound of digoxin ranges from 70 to 77.9% (<a href="#References">Hinderling 1984, Obach 2008, Neuhoff 2013</a>).  </p>
+<p>After testing the available organ-plasma partition coefficient and cell permeability calculation methods built in PK-Sim, observed clinical data was best described by choosing the partition coefficient calculation method by Rodgers and Rowland, and PK-Sim standard cell permeability calculation method. Specific organ permeability normalized to surface area was automatically calculated by PK-Sim.</p>
+<h3 id="233-metabolism-and-elimination">2.3.3 Metabolism and Elimination<a class="headerlink" href="#233-metabolism-and-elimination" title="Anchor link to this section for reference">&para;</a></h3>
+<p>The final digoxin model applies target-binding to the ATP1A2, transport by P-gp in various organs including gut, liver and kidney, an unspecific hepatic metabolic clearance and glomerular filtration.</p>
+<h1 id="3-results-and-discussion">3 Results and Discussion<a id="results-and-discussion"></a><a class="headerlink" href="#3-results-and-discussion" title="Anchor link to this section for reference">&para;</a></h1>
+<p>The PBPK model for digoxin was developed with clinical pharmacokinetic data covering intravenous as well as oral administration with a dose range of 0.125 to 1.5 mg including single dose and multiple dose clinical data, for different types of tablet formulations.</p>
+<p>During the model-fitting, the following parameters were estimated (all other parameters were fixed to reported values):</p>
+<ul>
+<li>Lipophilicity</li>
+<li>ATP1A2 Dissociation constant (Kd)</li>
+<li>P-gp catalytic rate constant (Kcat)</li>
+<li>Hepatic Clearance (CLhep)</li>
+<li>Specific intestinal permeability (transcellular)</li>
+<li>Specific organ permeability </li>
+</ul>
+<p>The fit resulted in an adequate description of the clinical data. Additional implementation of transport by OATP (4C1) did not improve the model performance and was not used in the final model.</p>
+<h2 id="31-digoxin-final-input-parameters">3.1 Digoxin final input parameters<a id="final-input-parameters"></a><a class="headerlink" href="#31-digoxin-final-input-parameters" title="Anchor link to this section for reference">&para;</a></h2>
+<p>The compound parameter values of the final digoxin PBPK model are illustrated below.</p>
+<h3 id="compound-digoxin">Compound: Digoxin<a class="headerlink" href="#compound-digoxin" title="Anchor link to this section for reference">&para;</a></h3>
+<h4 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Anchor link to this section for reference">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+<th>Alternative</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Solubility at reference pH</td>
+<td>64.8 mg/l</td>
+<td>Internet-In Vitro-Drugbank</td>
+<td>Aqueous Solubility</td>
+<td>True</td>
+</tr>
+<tr>
+<td>Reference pH</td>
+<td>7</td>
+<td>Internet-In Vitro-Drugbank</td>
+<td>Aqueous Solubility</td>
+<td>True</td>
+</tr>
+<tr>
+<td>Lipophilicity</td>
+<td>1.40017663 Log Units</td>
+<td>Parameter Identification-Parameter Identification</td>
+<td>fitted</td>
+<td>True</td>
+</tr>
+<tr>
+<td>Fraction unbound (plasma, reference value)</td>
+<td>0.71</td>
+<td>Publication-In Vitro-Neuhoff 2013</td>
+<td>Neuhoff (2013)</td>
+<td>True</td>
+</tr>
+<tr>
+<td>Permeability</td>
+<td>1.0115E-05 dm/min</td>
+<td></td>
+<td>fitted</td>
+<td>True</td>
+</tr>
+<tr>
+<td>Specific intestinal permeability (transcellular)</td>
+<td>2.7627E-07 dm/min</td>
+<td></td>
+<td>fitted</td>
+<td>True</td>
+</tr>
+<tr>
+<td>Is small molecule</td>
+<td>Yes</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Molecular weight</td>
+<td>780.93 g/mol</td>
+<td>Internet-In Vitro-Drugbank</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Plasma protein binding partner</td>
+<td>Albumin</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="calculation-methods">Calculation methods<a class="headerlink" href="#calculation-methods" title="Anchor link to this section for reference">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Partition coefficients</td>
+<td>Rodgers and Rowland</td>
+</tr>
+<tr>
+<td>Cellular permeabilities</td>
+<td>PK-Sim Standard</td>
+</tr>
+</tbody>
+</table>
+<h4 id="processes">Processes<a class="headerlink" href="#processes" title="Anchor link to this section for reference">&para;</a></h4>
+<h5 id="specific-binding-atp1a2-katz-2010">Specific Binding: ATP1A2-Katz (2010)<a class="headerlink" href="#specific-binding-atp1a2-katz-2010" title="Anchor link to this section for reference">&para;</a></h5>
+<p>Molecule: ATP1A2</p>
+<h6 id="parameters_1">Parameters<a class="headerlink" href="#parameters_1" title="Anchor link to this section for reference">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>koff</td>
+<td>0.00098888 1/min</td>
+<td>Publication-In Vitro-Katz 2010</td>
+</tr>
+<tr>
+<td>Kd</td>
+<td>25.6 nmol/l</td>
+<td>Parameter Identification</td>
+</tr>
+</tbody>
+</table>
+<h5 id="systemic-process-total-hepatic-clearance-fitted">Systemic Process: Total Hepatic Clearance-Fitted<a class="headerlink" href="#systemic-process-total-hepatic-clearance-fitted" title="Anchor link to this section for reference">&para;</a></h5>
+<p>Species: Human</p>
+<h6 id="parameters_2">Parameters<a class="headerlink" href="#parameters_2" title="Anchor link to this section for reference">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fraction unbound (experiment)</td>
+<td>0.71</td>
+<td></td>
+</tr>
+<tr>
+<td>Lipophilicity (experiment)</td>
+<td>1.40017663 Log Units</td>
+<td></td>
+</tr>
+<tr>
+<td>Plasma clearance</td>
+<td>0 ml/min/kg</td>
+<td></td>
+</tr>
+<tr>
+<td>Specific clearance</td>
+<td>0.03758077 1/min</td>
+<td>Parameter Identification</td>
+</tr>
+</tbody>
+</table>
+<h5 id="transport-protein-p-gp-stephens-2001">Transport Protein: P-gp-Stephens (2001)<a class="headerlink" href="#transport-protein-p-gp-stephens-2001" title="Anchor link to this section for reference">&para;</a></h5>
+<p>Molecule: P-gp</p>
+<h6 id="parameters_3">Parameters<a class="headerlink" href="#parameters_3" title="Anchor link to this section for reference">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Transporter concentration</td>
+<td>1 µmol/l</td>
+<td></td>
+</tr>
+<tr>
+<td>Vmax</td>
+<td>8.67 µmol/l/min</td>
+<td></td>
+</tr>
+<tr>
+<td>Km</td>
+<td>177 µmol/l</td>
+<td></td>
+</tr>
+<tr>
+<td>kcat</td>
+<td>71.163 1/min</td>
+<td>Parameter Identification</td>
+</tr>
+</tbody>
+</table>
+<h5 id="systemic-process-glomerular-filtration-steiness-1982">Systemic Process: Glomerular Filtration-Steiness (1982)<a class="headerlink" href="#systemic-process-glomerular-filtration-steiness-1982" title="Anchor link to this section for reference">&para;</a></h5>
+<p>Species: Human</p>
+<h6 id="parameters_4">Parameters<a class="headerlink" href="#parameters_4" title="Anchor link to this section for reference">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align: right;">Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GFR fraction</td>
+<td style="text-align: right;">1</td>
+<td>Publication-Steiness (1982)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="32-digoxin-diagnostics-plots">3.2 Digoxin Diagnostics Plots<a id="diagnostics-plots"></a><a class="headerlink" href="#32-digoxin-diagnostics-plots" title="Anchor link to this section for reference">&para;</a></h2>
+<p>Below you find the goodness-of-fit visual diagnostic plots for digoxin PBPK model performance (observed versus individually simulated plasma concentration and weighted residuals versus time, including the geometric mean fold error (GMFE)) of all data used for model building.</p>
+<p><a id="table-3-1"></a></p>
+<p><strong>Table 3-1: GMFE for Goodness of fit plot for concentration in plasma.</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Group</th>
+<th style="text-align: left;">GMFE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Digoxin colonic admin.</td>
+<td style="text-align: left;">2.13</td>
+</tr>
+<tr>
+<td style="text-align: left;">Digoxin iv</td>
+<td style="text-align: left;">1.45</td>
+</tr>
+<tr>
+<td style="text-align: left;">Digoxin po SD</td>
+<td style="text-align: left;">1.30</td>
+</tr>
+<tr>
+<td style="text-align: left;">Digoxin po, MD</td>
+<td style="text-align: left;">1.64</td>
+</tr>
+<tr>
+<td style="text-align: left;">All</td>
+<td style="text-align: left;">1.46</td>
+</tr>
+</tbody>
+</table>
+<p><br>
+<br></p>
+<p><a id="figure-3-1"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/008_section_diagnostics-plots/2_gof_plot_predictedVsObserved.png" /></p>
+<p><strong>Figure 3-1: Goodness of fit plot for concentration in plasma.</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-2"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/008_section_diagnostics-plots/3_gof_plot_residualsOverTime.png" /></p>
+<p><strong>Figure 3-2: Goodness of fit plot for concentration in plasma.</strong></p>
+<p><br>
+<br></p>
+<h2 id="33-digoxin-concentration-time-profiles">3.3 Digoxin Concentration-Time profiles<a id="ct-profiles-model-building"></a><a class="headerlink" href="#33-digoxin-concentration-time-profiles" title="Anchor link to this section for reference">&para;</a></h2>
+<p>Simulated versus observed plasma concentration-time profiles of all data are listed below.</p>
+<p><a id="figure-3-3"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles-model-building/1_time_profile_plot_Digoxin_Digoxin_colon__0_5_mg.png" /></p>
+<p><strong>Figure 3-3: Time Profile Analysis 1</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-4"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles-model-building/2_time_profile_plot_Digoxin_Digoxin_colon__0_5_mg.png" /></p>
+<p><strong>Figure 3-4: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-5"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles-model-building/3_time_profile_plot_Digoxin_Digoxin_iv__0_01_mg_kg.png" /></p>
+<p><strong>Figure 3-5: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-6"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles-model-building/4_time_profile_plot_Digoxin_Digoxin_iv__0_01_mg_kg.png" /></p>
+<p><strong>Figure 3-6: Time Profile Analysis 1</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-7"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles-model-building/5_time_profile_plot_Digoxin_Digoxin_iv__0_01_mg_kg__Charcoal.png" /></p>
+<p><strong>Figure 3-7: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-8"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles-model-building/6_time_profile_plot_Digoxin_Digoxin_iv__0_01_mg_kg__Charcoal.png" /></p>
+<p><strong>Figure 3-8: Time Profile Analysis 1</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-9"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles-model-building/7_time_profile_plot_Digoxin_Digoxin_iv__0_5_mg__1_h.png" /></p>
+<p><strong>Figure 3-9: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-10"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles-model-building/8_time_profile_plot_Digoxin_Digoxin_iv__0_5_mg__1_h.png" /></p>
+<p><strong>Figure 3-10: Time Profile Analysis 1</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-11"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles-model-building/9_time_profile_plot_Digoxin_Digoxin_iv__0_5_mg__3_h.png" /></p>
+<p><strong>Figure 3-11: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-12"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles-model-building/10_time_profile_plot_Digoxin_Digoxin_iv__0_5_mg__3_h.png" /></p>
+<p><strong>Figure 3-12: Time Profile Analysis 1</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-13"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles-model-building/11_time_profile_plot_Digoxin_Digoxin_iv__0_5_mg__Bolus.png" /></p>
+<p><strong>Figure 3-13: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-14"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles-model-building/12_time_profile_plot_Digoxin_Digoxin_iv__0_5_mg__Bolus.png" /></p>
+<p><strong>Figure 3-14: Time Profile Analysis 1</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-15"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles-model-building/13_time_profile_plot_Digoxin_Digoxin_iv__0_75_mg__1h.png" /></p>
+<p><strong>Figure 3-15: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-16"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles-model-building/14_time_profile_plot_Digoxin_Digoxin_iv__0_75_mg__1h.png" /></p>
+<p><strong>Figure 3-16: Time Profile Analysis 1</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-17"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles-model-building/15_time_profile_plot_Digoxin_Digoxin_iv__1_0_mg__0_5_h.png" /></p>
+<p><strong>Figure 3-17: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-18"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles-model-building/16_time_profile_plot_Digoxin_Digoxin_iv__1_0_mg__0_5_h.png" /></p>
+<p><strong>Figure 3-18: Time Profile Analysis 1</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-19"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles-model-building/17_time_profile_plot_Digoxin_Digoxin_iv__1_0_mg__1_h.png" /></p>
+<p><strong>Figure 3-19: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-20"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles-model-building/18_time_profile_plot_Digoxin_Digoxin_iv__1_0_mg__1_h.png" /></p>
+<p><strong>Figure 3-20: Time Profile Analysis 1</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-21"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles-model-building/19_time_profile_plot_Digoxin_Digoxin_iv__1_0_mg__Bolus.png" /></p>
+<p><strong>Figure 3-21: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-22"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles-model-building/20_time_profile_plot_Digoxin_Digoxin_iv__1_0_mg__Bolus.png" /></p>
+<p><strong>Figure 3-22: Time Profile Analysis 1</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-23"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles-model-building/21_time_profile_plot_Digoxin_Digoxin_iv__1_5_mg__1_h.png" /></p>
+<p><strong>Figure 3-23: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-24"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles-model-building/22_time_profile_plot_Digoxin_Digoxin_iv__1_5_mg__1_h.png" /></p>
+<p><strong>Figure 3-24: Time Profile Analysis 1</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-25"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles-model-building/23_time_profile_plot_Digoxin_Digoxin_po__0_25_mg.png" /></p>
+<p><strong>Figure 3-25: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-26"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles-model-building/24_time_profile_plot_Digoxin_Digoxin_po__0_25_mg.png" /></p>
+<p><strong>Figure 3-26: Time Profile Analysis 1</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-27"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles-model-building/25_time_profile_plot_Digoxin_Digoxin_po__0_4_mg.png" /></p>
+<p><strong>Figure 3-27: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-28"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles-model-building/26_time_profile_plot_Digoxin_Digoxin_po__0_4_mg.png" /></p>
+<p><strong>Figure 3-28: Time Profile Analysis 1</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-29"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles-model-building/27_time_profile_plot_Digoxin_Digoxin_po__0_5_mg.png" /></p>
+<p><strong>Figure 3-29: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-30"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles-model-building/28_time_profile_plot_Digoxin_Digoxin_po__0_5_mg.png" /></p>
+<p><strong>Figure 3-30: Time Profile Analysis 1</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-31"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles-model-building/29_time_profile_plot_Digoxin_Digoxin_po__0_6_mg.png" /></p>
+<p><strong>Figure 3-31: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-32"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles-model-building/30_time_profile_plot_Digoxin_Digoxin_po__0_6_mg.png" /></p>
+<p><strong>Figure 3-32: Time Profile Analysis 1</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-33"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles-model-building/31_time_profile_plot_Digoxin_Digoxin_po__0_75_mg.png" /></p>
+<p><strong>Figure 3-33: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-34"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles-model-building/32_time_profile_plot_Digoxin_Digoxin_po__0_75_mg.png" /></p>
+<p><strong>Figure 3-34: Time Profile Analysis 1</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-35"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles-model-building/33_time_profile_plot_Digoxin_Digoxin_po__1_0_mg.png" /></p>
+<p><strong>Figure 3-35: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-36"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles-model-building/34_time_profile_plot_Digoxin_Digoxin_po__1_0_mg.png" /></p>
+<p><strong>Figure 3-36: Time Profile Analysis 1</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-37"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles-model-building/35_time_profile_plot_Digoxin_Digoxin_po_MD__0_125_mg.png" /></p>
+<p><strong>Figure 3-37: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-38"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles-model-building/36_time_profile_plot_Digoxin_Digoxin_po_MD__0_125_mg.png" /></p>
+<p><strong>Figure 3-38: Time Profile Analysis 1</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-39"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles-model-building/37_time_profile_plot_Digoxin_Digoxin_po_MD__0_25_mg.png" /></p>
+<p><strong>Figure 3-39: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-40"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles-model-building/38_time_profile_plot_Digoxin_Digoxin_po_MD__0_25_mg.png" /></p>
+<p><strong>Figure 3-40: Time Profile Analysis 1</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-41"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles-model-building/39_time_profile_plot_Digoxin_Digoxin_po_MD__0_25_mg__LD.png" /></p>
+<p><strong>Figure 3-41: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-42"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles-model-building/40_time_profile_plot_Digoxin_Digoxin_po_MD__0_25_mg__LD.png" /></p>
+<p><strong>Figure 3-42: Time Profile Analysis 1</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-43"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles-model-building/41_time_profile_plot_Digoxin_Digoxin_po_MD__2x_0_25_mg.png" /></p>
+<p><strong>Figure 3-43: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-44"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles-model-building/42_time_profile_plot_Digoxin_Digoxin_po_MD__2x_0_25_mg.png" /></p>
+<p><strong>Figure 3-44: Time Profile Analysis 1</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-45"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles-model-building/43_time_profile_plot_Digoxin_Digoxin_po_MD__2x_0_25_mg___2.png" /></p>
+<p><strong>Figure 3-45: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-46"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles-model-building/44_time_profile_plot_Digoxin_Digoxin_po_MD__2x_0_25_mg___2.png" /></p>
+<p><strong>Figure 3-46: Time Profile Analysis 1</strong></p>
+<p><br>
+<br></p>
+<h1 id="4-conclusion">4 Conclusion<a id="conclusion"></a><a class="headerlink" href="#4-conclusion" title="Anchor link to this section for reference">&para;</a></h1>
+<p>The final digoxin PBPK model applies elimination mainly via GFR and P-gp and adequately describes the pharmacokinetics of digoxin in adults receiving intravenous, and oral SD and MD of digoxin ranging from 0.125 to 1.5 mg, for different types of tablet formulations that were described using a single formulation. </p>
+<p>This model could be applied for the investigation of drug-drug interactions (DDI), and translation to special populations such as pediatrics with regard to P-gp based elimination.</p>
+<h1 id="5-references">5 References<a id="references"></a><a class="headerlink" href="#5-references" title="Anchor link to this section for reference">&para;</a></h1>
+<p><strong>Alsenz 2007</strong> Alsenz, J., Meister, E. &amp; Haenel, E. Development of a partially automated solubility screening (PASS) assay for early drug development. J. Pharm. Sci. 96, 1748–62 (2007).</p>
+<p><strong>Atkinson 1988</strong> Atkinson, H.C. &amp; Begg, E.J. Relationship between human milk lipid-ultrafiltrate and octanolwater partition coefficients. J. Pharm. Sci. 77, 796–8 (1988).</p>
+<p><strong>Bauer 2008</strong> Bauer, L.A. Applied Clinical Pharmacokinetics. (2008).</p>
+<p><strong>Becquemont 2001</strong> Becquemont, L. et al. Effect of grapefruit juice on digoxin pharmacokinetics in humans. Clin. Pharmacol. Ther. 70, 311–6 (2001). </p>
+<p><strong>Caldwell 1976</strong> Caldwell, J.H. &amp; Cline, C.T. Biliary excretion of digoxin in man. Clin. Pharmacol. Ther. 19, 410–5 (1976).</p>
+<p><strong>Collett 2004</strong> Collett, A., Tanianis-Hughes, J., Hallifax, D. &amp; Warhurst, G. Predicting P-glycoprotein effects on oral absorption: correlation of transport in Caco-2 with drug pharmacokinetics in wildtype and mdr1a(-/-) mice in vivo. Pharm. Res. 21, 819–26 (2004).</p>
+<p><strong>Ding 2004</strong> Ding, R. et al. Substantial pharmacokinetic interaction between digoxin and ritonavir in healthy volunteers. Clin. Pharmacol. Ther. 76, 73–84 (2004). </p>
+<p><strong>Drugbank.ca</strong> (https://go.drugbank.com/drugs/DB00390)</p>
+<p><strong>Eckermann 2012</strong> Eckermann, G., Lahu, G., Nassr, N. &amp; Bethke, T.D. Absence of pharmacokinetic interaction between roflumilast and digoxin in healthy adults. J. Clin. Pharmacol. 52, 251–7 (2012).</p>
+<p><strong>Friedrich 2011</strong> Friedrich, C. et al. Evaluation of the pharmacokinetic interaction after multiple oral doses of linagliptin and digoxin in healthy volunteers. Eur. J. Drug Metab. Pharmacokinet. 36, 17–24 (2011). </p>
+<p><strong>Greiner 1999</strong> Greiner, B. et al. The role of intestinal P-glycoprotein in the interaction of digoxin and rifampin. J. Clin. Invest. 104, 147–53 (1999).</p>
+<p><strong>Gurley 2008b</strong> Gurley, B.J., Swain, A., Williams, D.K., Barone, G. &amp; Battu, S.K. Gauging the clinical significance of P-glycoprotein-mediated herb-drug interactions: comparative effects of St. John’s wort, Echinacea, clarithromycin, and rifampin on digoxin pharmacokinetics. Mol. Nutr. food Res. 52, 772–9 (2008). </p>
+<p><strong>Hanke 2018</strong> Hanke N, Frechen S, Moj D, Britz H, Eissing T, Wendl T, Lehr T. PBPK Models for CYP3A4 and P-gp DDI Prediction: A Modeling Network of Rifampicin, Itraconazole, Clarithromycin, Midazolam, Alfentanil, and Digoxin. CPT Pharmacometrics Syst Pharmacol.. 2018 Oct;7(10):647-659.</p>
+<p><strong>Hayward 1978</strong> Hayward, R.P., Greenwood, H. &amp; Hamer, J. Comparison of digoxin and medigoxin in normal subjects. Br. J. Clin. Pharmacol. 6, 81–6 (1978). </p>
+<p><strong>Hinderling 1984</strong> Hinderling, P.H. Kinetics of partitioning and binding of digoxin and its analogues in the subcompartments of blood. J. Pharm. Sci. 73, 1042–53 (1984).</p>
+<p><strong>Jalava 1997</strong> Jalava, K.M., Partanen, J. &amp; Neuvonen, P.J. Itraconazole decreases renal clearance of digoxin. Ther. Drug Monit. 19, 609–13 (1997). </p>
+<p><strong>Johne 1999</strong> Johne, A. et al. Pharmacokinetic interaction of digoxin with an herbal extract from St John’s wort (Hypericum perforatum). Clin. Pharmacol. Ther. 66, 338–45 (1999). </p>
+<p><strong>Katz 2010</strong> Katz, A. et al. Selectivity of digitalis glycosides for isoforms of human Na,K-ATPase. J. Biol. Chem. 285, 19582–92 (2010).</p>
+<p><strong>Kirch 1986</strong> Kirch, W., Hutt, H.J., Dylewicz, P., Gräf, K.J. &amp; Ohnhaus, E.E. Dose-dependence of the nifedipine-digoxin interaction? Clin. Pharmacol. Ther. 39, 35–9 (1986). </p>
+<p><strong>Koup 1975</strong> Koup, J.R., Greenblatt, D.J., Jusko, W.J., Smith, T.W. &amp; Koch-Weser, J. Pharmacokinetics of digoxin in normal subjects after intravenous bolus and infusion doses. J. Pharmacokinet. Biopharm. 3, 181–92 (1975). </p>
+<p><strong>Kramer 1979</strong> Kramer, W.G. et al. Pharmacokinetics of digoxin: relationship between response intensity and predicted compartmental drug levels in man. J. Pharmacokinet. Biopharm. 7, 47–61 (1979). </p>
+<p><strong>Kuepfer 2016</strong> Kuepfer L, Niederalt C, Wendl T, Schlender JF, Willmann S, Lippert J, Block M, Eissing T, Teutonico D. Applied Concepts in PBPK Modeling: How to Build a PBPK/PD Model.CPT Pharmacometrics Syst Pharmacol. 2016 Oct;5(10):516-531. doi: 10.1002/psp4.12134. Epub 2016 Oct 19.</p>
+<p><strong>Lalonde 1985</strong> Lalonde, R.L., Deshpande, R., Hamilton, P.P., McLean, W.M. &amp; Greenway, D.C. Acceleration of digoxin clearance by activated charcoal. Clin. Pharmacol. Ther. 37, 367–71 (1985). </p>
+<p><strong>Larsen 2007</strong> Larsen, U.L. et al. Human intestinal P-glycoprotein activity estimated by the model substrate digoxin. Scand. J. Clin. Lab. Invest. 67, 123–34 (2007).</p>
+<p><strong>Martin 1997</strong> Martin, D.E. et al. Lack of effect of eprosartan on the single dose pharmacokinetics of orally administered digoxin in healthy male volunteers. Br. J. Clin. Pharmacol. 43, 661–4 (1997). </p>
+<p><strong>Neuhoff 2013</strong> Neuhoff, S. et al. Application of permeability-limited physiologically-based pharmacokinetic models: part I-digoxin pharmacokinetics incorporating P-glycoprotein-mediated efflux. J. Pharm. Sci. 102, 3145–60 (2013).</p>
+<p><strong>Nishimura 2005</strong> Nishimura, M. &amp; Naito, S. Tissue-specific mRNA expression profiles of human ATP-binding cassette and solute carrier transporter superfamilies. Drug Metab. Pharmacokinet. 20, 452–77 (2005).</p>
+<p><strong>Obach 2008</strong> Obach, R.S., Lombardo, F. &amp; Waters, N.J. Trend analysis of a database of intravenous pharmacokinetic parameters in humans for 670 drug compounds. Drug Metab. Dispos. 36, 1385–405 (2008).</p>
+<p><strong>Ochs 1975</strong> Ochs, H., Bodem, G., Schäfer, P.K., Kodrat, G., Dengler, H.J. Absorption of digoxin from the distal parts of the intestine in man. Eur J Clin Pharmacol. 1975 Dec 19;9(2-3):95-7.</p>
+<p><strong>Ochs 1978</strong> Ochs, H.R., Greenblatt, D.J., Bodem, G. &amp; Harmatz, J.S. Dose-independent pharmacokinetics of digoxin in humans. Am. Heart J. 96, 507–11 (1978). </p>
+<p><strong>Oosterhuis 1991</strong> Oosterhuis, B., Jonkman, J.H., Andersson, T., Zuiderwijk, P.B. &amp; Jedema, J.N. Minor effect of multiple dose omeprazole on the pharmacokinetics of digoxin after a single oral dose. Br. J. Clin. Pharmacol. 32, 569–72 (1991). </p>
+<p><strong>PK-Sim Ontogeny Database Version 7.3</strong> (https://github.com/Open-Systems-Pharmacology/OSPSuite.Documentation/blob/38cf71b384cfc25cfa0ce4d2f3addfd32757e13b/PK-Sim%20Ontogeny%20Database%20Version%207.3.pdf)</p>
+<p><strong>Prasad 2014</strong> Prasad, B. et al. Interindividual variability in hepatic organic anion-transporting polypeptides and P-glycoprotein (ABCB1) protein expression: quantification by liquid chromatography tandem mass spectroscopy and influence of genotype, age, and sex. Drug Metab. Dispos. 42, 78–88 (2014).</p>
+<p><strong>Qiu 2010</strong> Qiu, R. et al. Lack of a pharmacokinetic interaction between dimebon (latrepirdine) and digoxin in healthy subjects. Am. Soc. Clin. Pharmacol. Ther. Meet. Atlanta, GA, USA (2010). </p>
+<p><strong>Ragueneau 1999</strong> Ragueneau, I. et al. Pharmacokinetic and pharmacodynamic drug interactions between digoxin and macrogol 4000, a laxative polymer, in healthy volunteers. Br. J. Clin. Pharmacol. 48, 453–6 (1999). </p>
+<p><strong>Rengelshausen 2003</strong> Rengelshausen, J. et al. Contribution of increased oral bioavailability and reduced nonglomerular renal clearance of digoxin to the digoxin-clarithromycin interaction. Br. J. Clin. Pharmacol. 56, 32–8 (2003).</p>
+<p><strong>Rodin 1988</strong> Rodin, S.M., Johnson, B.F., Wilson, J., Ritchie, P. &amp; Johnson, J. Comparative effects of verapamil and isradipine on steady-state digoxin kinetics. Clin. Pharmacol. Ther. 43, 668–72 (1988). </p>
+<p><strong>Schlender 2016</strong> Schlender JF, Meyer M, Thelen K, Krauss M, Willmann S, Eissing T, Jaehde U. Development of a Whole-Body Physiologically Based Pharmacokinetic Approach to Assess the Pharmacokinetics of Drugs in Elderly Individuals. Clin Pharmacokinet. 2016 Dec;55(12):1573-1589.</p>
+<p><strong>Steiness 1982</strong> Steiness, E., Waldorff, S. &amp; Hansen, P.B. Renal digoxin clearance: dependence on plasma digoxin and diuresis. Eur. J. Clin. Pharmacol. 23, 151–4 (1982). </p>
+<p><strong>Stephens 2001</strong> Stephens R.H., O'Neill C.A., Warhurst A., Carlson G.L., Rowland M-, Warhurst G. Kinetic profiling of P-glycoprotein-mediated drug efflux in rat and human intestinal epithelia. J. Pharmacol Exp Ther. 2001 Feb;296(2):584-91.</p>
+<p><strong>Tayrouz 2003</strong> Tayrouz, Y. et al. Pharmacokinetic and pharmaceutic interaction between digoxin and Cremophor RH40. Clin. Pharmacol. Ther. 73, 397–405 (2003). </p>
+<p><strong>Troutman 2003</strong> Troutman, M.D. &amp; Thakker, D.R. Efflux ratio cannot assess P-glycoprotein-mediated attenuation of absorptive transport: asymmetric effect of P-glycoprotein on absorptive and secretory transport across Caco-2 cell monolayers. Pharm. Res. 20, 1200–9 (2003).</p>
+<p><strong>Tsutsumi 2002</strong> Tsutsumi, K. et al. The effect of erythromycin and clarithromycin on the pharmacokinetics of intravenous digoxin in healthy volunteers. J. Clin. Pharmacol. 42, 1159–64 (2002). </p>
+<p><strong>Vaidyanathan 2008</strong> Vaidyanathan, S. et al. Pharmacokinetics of the oral direct renin inhibitor aliskiren in combination with digoxin, atorvastatin, and ketoconazole in healthy subjects: the role of P-glycoprotein in the disposition of aliskiren. J. Clin. Pharmacol. 48, 1323–38 (2008). </p>
+<p><strong>Verstuyft 2003</strong> Verstuyft, C. et al. Dipyridamole enhances digoxin bioavailability via P-glycoprotein inhibition. Clin. Pharmacol. Ther. 73, 51–60 (2003). </p>
+<p><strong>Wagner 1981</strong> Wagner, J.G., Popat, K.D., Das, S.K., Sakmar, E. &amp; Movahhed, H. Evidence of nonlinearity in digoxin pharmacokinetics. J. Pharmacokinet. Biopharm. 9, 147–66 (1981). </p>
+<p><strong>Westphal 2000</strong> Westphal, K. et al. Oral bioavailability of digoxin is enhanced by talinolol: evidence for involvement of intestinal P-glycoprotein. Clin. Pharmacol. Ther. 68, 6–12 (2000).</p>
+<hr />
+<h2 id="related-models">Related Models<a class="headerlink" href="#related-models" title="Anchor link to this section for reference">&para;</a></h2>
+<p>Explore other Cardiovascular Agents models in this library:</p>
+<ul>
+<li><a href="../Cimetidine/">Cimetidine</a> - PBPK model and evaluation report</li>
+<li><a href="../Dapagliflozin/">Dapagliflozin</a> - PBPK model and evaluation report</li>
+<li><a href="../Felodipine/">Felodipine</a> - PBPK model and evaluation report</li>
+<li><a href="../Fluconazole/">Fluconazole</a> - PBPK model and evaluation report</li>
+<li><a href="../Itraconazole/">Itraconazole</a> - PBPK model and evaluation report</li>
+</ul>
+<p><a href="../#cardiovascular-agents">View all Cardiovascular Agents →</a></p>
+<p><a href="../">← Back to Model Library Home</a></p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; Open Systems Pharmacology Community
+    </div>
+  
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/Open-Systems-Pharmacology" target="_blank" rel="noopener" title="Open Systems Pharmacology on GitHub" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://www.open-systems-pharmacology.org/" target="_blank" rel="noopener" title="Open Systems Pharmacology Website" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M351.9 280H161c2.9 64.5 17.2 123.9 37.5 167.4 11.4 24.5 23.7 41.8 35.1 52.4 11.2 10.5 18.9 12.2 22.9 12.2s11.7-1.7 22.9-12.2c11.4-10.6 23.7-28 35.1-52.4 20.3-43.5 34.6-102.9 37.5-167.4zm-191-48h190.9c-2.8-64.5-17.1-123.9-37.4-167.4-11.4-24.4-23.7-41.8-35.1-52.4C268.1 1.7 260.4 0 256.4 0s-11.7 1.7-22.9 12.2c-11.4 10.6-23.7 28-35.1 52.4-20.3 43.5-34.6 102.9-37.5 167.4m-48 0c3.5-85.6 25.6-165.1 57.9-217.3C78.7 47.3 10.9 131.2 1.5 232zM1.5 280c9.4 100.8 77.2 184.7 169.3 217.3-32.3-52.2-54.4-131.7-57.9-217.3zm398.4 0c-3.5 85.6-25.6 165.1-57.9 217.3 92.1-32.7 159.9-116.5 169.3-217.3zm111.4-48C501.9 131.2 434.1 47.3 342 14.7c32.3 52.2 54.4 131.7 57.9 217.3z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.top", "navigation.tabs.sticky", "navigation.indexes", "navigation.path", "toc.follow", "search.highlight", "search.suggest", "search.share", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

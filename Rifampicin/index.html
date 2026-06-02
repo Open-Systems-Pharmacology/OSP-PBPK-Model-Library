@@ -1,0 +1,3104 @@
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="PBPK (Physiologically Based Pharmacokinetic) model evaluation report for Rifampicin. Detailed pharmacokinetic modeling and simulation results using Open Systems Pharmacology platform.">
+      
+      
+        <meta name="author" content="Open Systems Pharmacology Community">
+      
+      
+        <link rel="canonical" href="https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/Rifampicin/">
+      
+      
+        <link rel="prev" href="../Raltegravir/">
+      
+      
+        <link rel="next" href="../S-Mephenytoin/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Rifampicin PBPK Model - Physiologically Based Pharmacokinetic Evaluation Report - OSP PBPK Model Library (Version 12.3)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/Rifampicin/">
+  <meta property="og:title" content="Rifampicin">
+  <meta property="og:description" content="PBPK (Physiologically Based Pharmacokinetic) model evaluation report for Rifampicin. Detailed pharmacokinetic modeling and simulation results using Open Systems Pharmacology platform.">
+  <meta property="og:site_name" content="OSP PBPK Model Library (Version 12.3)">
+  <meta property="og:image" content="https://www.open-systems-pharmacology.org/assets/images/logo.png">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/Rifampicin/">
+  <meta name="twitter:title" content="Rifampicin">
+  <meta name="twitter:description" content="PBPK (Physiologically Based Pharmacokinetic) model evaluation report for Rifampicin. Detailed pharmacokinetic modeling and simulation results using Open Systems Pharmacology platform.">
+  <meta name="twitter:image" content="https://www.open-systems-pharmacology.org/assets/images/logo.png">
+
+  <!-- Structured Data (JSON-LD) for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "OSP PBPK Model Library (Version 12.3)",
+    "description": "Comprehensive library of validated PBPK (Physiologically Based Pharmacokinetic) models and qualification reports for drug development. Open-source whole-body PBPK modeling and simulation software for systems biology and multiscale physiological modeling.",
+    "url": "https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Open Systems Pharmacology",
+      "url": "https://www.open-systems-pharmacology.org/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.open-systems-pharmacology.org/assets/images/logo.png"
+      }
+    },
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
+  <!-- Dataset Schema for PBPK Model Library -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    "name": "Open Systems Pharmacology PBPK Model Library",
+    "description": "Comprehensive library of validated PBPK (Physiologically Based Pharmacokinetic) models for drug development and pharmaceutical research",
+    "url": "https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/",
+    "keywords": ["PBPK", "pharmacokinetic modeling", "drug development", "PK-Sim", "MoBi", "systems pharmacology", "ADME"],
+    "license": "https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library#license",
+    "creator": {
+      "@type": "Organization",
+      "name": "Open Systems Pharmacology",
+      "url": "https://www.open-systems-pharmacology.org/"
+    },
+    "distribution": {
+      "@type": "DataDownload",
+      "encodingFormat": "application/zip",
+      "contentUrl": "https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library"
+    }
+  }
+  </script>
+
+  <!-- SoftwareApplication Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "PK-Sim PBPK Models",
+    "applicationCategory": "ScientificApplication",
+    "operatingSystem": "Windows",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "description": "Validated PBPK models for use with PK-Sim and MoBi software for pharmaceutical research and drug development",
+    "url": "https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Open Systems Pharmacology"
+    }
+  }
+  </script>
+
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "Rifampicin PBPK Model - Physiologically Based Pharmacokinetic Evaluation Report",
+    "description": "PBPK (Physiologically Based Pharmacokinetic) model evaluation report for Rifampicin. Detailed pharmacokinetic modeling and simulation results using Open Systems Pharmacology platform.",
+    "author": {
+      "@type": "Organization",
+      "name": "Open Systems Pharmacology"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Open Systems Pharmacology",
+      "url": "https://www.open-systems-pharmacology.org/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.open-systems-pharmacology.org/assets/images/logo.png"
+      }
+    },
+    "url": "https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/Rifampicin/",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/Rifampicin/"
+    },
+    "keywords": "Rifampicin, PBPK model, physiologically based pharmacokinetic model, Rifampicin pharmacokinetics, drug modeling, PK-Sim"
+  }
+  </script>
+  
+
+  
+  <meta name="keywords" content="Rifampicin, PBPK model, physiologically based pharmacokinetic model, Rifampicin pharmacokinetics, drug modeling, PK-Sim">
+  
+
+  
+  <link rel="canonical" href="https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/Rifampicin/">
+  
+
+  <!-- Language -->
+  <meta http-equiv="content-language" content="en">
+  <meta name="language" content="English">
+
+
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#building-and-evaluation-of-a-pbpk-model-for-rifampicin-in-healthy-adults" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="OSP PBPK Model Library (Version 12.3)" class="md-header__button md-logo" aria-label="OSP PBPK Model Library (Version 12.3)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OSP PBPK Model Library (Version 12.3)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Rifampicin PBPK Model - Physiologically Based Pharmacokinetic Evaluation Report
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    OSP-PBPK-Model-Library
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="OSP PBPK Model Library (Version 12.3)" class="md-nav__button md-logo" aria-label="OSP PBPK Model Library (Version 12.3)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    OSP PBPK Model Library (Version 12.3)
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    OSP-PBPK-Model-Library
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7E3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7E3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Alfentanil/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Alfentanil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Alprazolam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Alprazolam
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Amikacin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amikacin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Atazanavir/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Atazanavir
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BAY794620/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BAY794620
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CDA1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CDA1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Carbamazepine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Carbamazepine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Cimetidine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cimetidine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Clarithromycin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Clarithromycin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Dapagliflozin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dapagliflozin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Digoxin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Digoxin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Efavirenz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Efavirenz
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Erythromycin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Erythromycin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ethinylestradiol/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ethinylestradiol
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Felodipine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Felodipine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Fluconazole/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fluconazole
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Fluvoxamine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fluvoxamine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Inulin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inulin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Itraconazole/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Itraconazole
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MEDI524/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MEDI524
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MEDI524YTE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MEDI524YTE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mefenamic_acid/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mefenamic_acid
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mexiletine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mexiletine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Midazolam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Midazolam
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Moclobemide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Moclobemide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Montelukast/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Montelukast
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Omeprazole/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Omeprazole
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Propofol/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Propofol
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Raltegravir/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Raltegravir
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rifampicin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S-Mephenytoin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S-Mephenytoin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Sildenafil/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sildenafil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Sufentanil/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sufentanil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tefibazumab/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tefibazumab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tizanidine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tizanidine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Triazolam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Triazolam
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Vancomycin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vancomycin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Verapamil/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Verapamil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dAb2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    dAb2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="building-and-evaluation-of-a-pbpk-model-for-rifampicin-in-healthy-adults">Building and evaluation of a PBPK model for Rifampicin in healthy adults<a class="headerlink" href="#building-and-evaluation-of-a-pbpk-model-for-rifampicin-in-healthy-adults" title="Anchor link to this section for reference">&para;</a></h1>
+<table>
+<thead>
+<tr>
+<th>Version</th>
+<th>2.0-OSP12.3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>based on <em>Model Snapshot</em> and <em>Evaluation Plan</em></td>
+<td>https://github.com/Open-Systems-Pharmacology/Rifampicin-Model/releases/tag/v2.0</td>
+</tr>
+<tr>
+<td>OSP Version</td>
+<td>12.3</td>
+</tr>
+<tr>
+<td>Qualification Framework Version</td>
+<td>3.6</td>
+</tr>
+</tbody>
+</table>
+<p>This evaluation report and the corresponding PK-Sim project file are filed at:</p>
+<p>https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/</p>
+<h1 id="table-of-contents">Table of Contents<a class="headerlink" href="#table-of-contents" title="Anchor link to this section for reference">&para;</a></h1>
+<ul>
+<li><a href="#introduction">1 Introduction</a></li>
+<li><a href="#methods">2 Methods</a></li>
+<li><a href="#modeling-strategy">2.1 Modeling Strategy</a></li>
+<li><a href="#data">2.2 Data</a></li>
+<li><a href="#model-parameters-and-assumptions">2.3 Model Parameters and Assumptions</a></li>
+<li><a href="#results-and-discussion">3 Results and Discussion</a></li>
+<li><a href="#final-input-parameters">3.1 Final input parameters</a></li>
+<li><a href="#diagnostics-plots">3.2 Diagnostics Plots</a></li>
+<li><a href="#ct-profiles">3.3 Concentration-Time Profiles</a></li>
+<li><a href="#conclusion">4 Conclusion</a></li>
+<li><a href="#main-references">5 References</a></li>
+</ul>
+<h1 id="1-introduction">1 Introduction<a id="introduction"></a><a class="headerlink" href="#1-introduction" title="Anchor link to this section for reference">&para;</a></h1>
+<p>Rifampicin is an antibiotic used for the treatment of mycobacterium infections, including tuberculosis and leprosy. For the investigation of drug-drug interactions (DDIs), rifampicin is an established potent inducer of multiple drug metabolizing enzymes (CYP3A4, CYP2B6, CYP2C8, CYP2C9, CYP2C19) and transporters (P-gp, MRP2, MRP3, MRP4, OATP1A2). In addition to its inducing capabilities, rifampicin also competitively inhibits enzymes and transporters like CYP3A4, P-gp, OATP1B1 and OATP1B3.</p>
+<p>The herein presented model represents the rifampicin model originally published by Hanke <em>et al.</em> (<a href="#5-references">Hanke 2018</a>), and extended in later publications (<a href="#5-references">Britz 2019</a>, <a href="#5-references">Türk 2019</a>, <a href="#5-references">Hanke 2021</a>). The model was originally established using various clinical studies, covering a dosing range of 300 to 600 mg after intravenous and oral administration of rifampicin. The original model focused specifically on the integration of effects on <strong>CYP3A4</strong> and <strong>P-gp</strong> by rifampicin. Britz <em>et al.</em> (<a href="#5-references">Britz 2019</a>) integrated rifampicin-mediated induction of <strong>CYP1A2</strong> (and CYP2E1), Türk <em>et al.</em> (<a href="#5-references">Türk 2019</a>) extended the model with regard to effects on <strong>CYP2C8</strong> and <strong>OATP1B1</strong>. Later, <a href="#5-references">Hanke 2021</a> updated <strong>P-gp</strong>, <strong>OATP1B1</strong> and <strong>OATP1B3</strong> interaction and added <strong>CYP2C9</strong>, <strong>BCRP</strong> and <strong>OATP2B1</strong> interaction.</p>
+<p>It is known that for both CYP3A4 and P-gp, rifampicin shows inductive and inhibitory effects. While induction by rifampicin involves gene expression and therefore takes several days to fully develop, competitive inhibition has an instantaneous effect and is strongest at the time of highest exposure to the inhibitor. As a consequence, the effects of rifampicin caused via competitive inhibition are most prominent 1-2 h after its oral administration and of relatively short duration. These opposing effects of rifampicin can be reasonably considered in PBPK models. </p>
+<p>Integrating and testing processes that were described as vital to the pharmacokinetics of rifampicin itself resulted in a final model that applies transport by OATP1B1, metabolism by arylacetamide deacetylase (AADAC), transport by P-gp and glomerular filtration. Furthermore, auto-induction of OATP1B1, AADAC and P-gp expression has been incorporated.</p>
+<h1 id="2-methods">2 Methods<a id="methods"></a><a class="headerlink" href="#2-methods" title="Anchor link to this section for reference">&para;</a></h1>
+<h2 id="21-modeling-strategy">2.1 Modeling Strategy<a id="modeling-strategy"></a><a class="headerlink" href="#21-modeling-strategy" title="Anchor link to this section for reference">&para;</a></h2>
+<p>The general concept of building a PBPK model has previously been described by Kuepfer et al. (<a href="#5-references">Kuepfer 2016</a>). Relevant information on anthropometric (height, weight) and physiological parameters (e.g. blood flows, organ volumes, binding protein concentrations, hematocrit, cardiac output) in adults was gathered from the literature and has been previously published (<a href="#5-references">Willmann 2007</a>). The information was incorporated into PK-Sim® and was used as default values for the simulations in adults.</p>
+<p>The applied activity and variability of plasma proteins and active processes that are integrated into PK-Sim® are described in the publicly available PK-Sim® Ontogeny Database Version 7.3 (<a href="#5-references">PK-Sim Ontogeny Database Version 7.3</a>) or otherwise referenced for the specific process.</p>
+<p>The model was built combining bottom-up and top-down techniques. An extensive literature search yielded (1) physicochemical parameter values (2) information on active ADME and DDI-related (i.e. induction and inhibition) processes and (3) clinical studies of intravenous and oral administration in single and multiple dosing regimens, covering a broad dosing range with observed concentrations. </p>
+<p>A mean PBPK model was developed using a typical European individual. Enterohepatic recycling for transport processes into the bile was enabled in a continuous fashion (continuous flow from the liver to the lumen of duodenum). One study was performed in female patients after cholecystectomy (<a href="#5-references">Acocella 1972a</a>). The bile of these patients was collected via a T tube. In the simulations of these patients, enterohepatic recycling was switched off and a virtual gallbladder collected the excreted rifampicin over time. Relevant ADME processes reported to influence the PK of rifampicin were implemented into the model and tested. For parameters that could not be (reliably) informed from literature, parameter identification was performed using a representative set of available clinical studies (see below). Model evaluation was based on the ability of the model to describe observed plasma concentration-time profiles and fraction excreted of unchanged drug to urine and bile.</p>
+<p>Details about input data (physicochemical, <em>in vitro</em> and clinical) can be found in <a href="#22-data">Section 2.2</a>.</p>
+<p>Details about the structural model and its parameters can be found in <a href="#23-model-parameters-and-assumptions">Section 2.3</a>.</p>
+<h2 id="22-data">2.2 Data<a id="data"></a><a class="headerlink" href="#22-data" title="Anchor link to this section for reference">&para;</a></h2>
+<h3 id="221-in-vitro-and-physicochemical-data">2.2.1 In vitro and physicochemical data<a class="headerlink" href="#221-in-vitro-and-physicochemical-data" title="Anchor link to this section for reference">&para;</a></h3>
+<p>A literature search was performed to collect available information on physicochemical properties of rifampicin. The obtained information from literature is summarized in the table below, and is used for model building.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Parameter</strong></th>
+<th><strong>Unit</strong></th>
+<th><strong>Value</strong></th>
+<th>Source</th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">MW</td>
+<td>g/mol</td>
+<td>822.940</td>
+<td><a href="#5-references">DrugBank DB01045</a></td>
+<td>Molecular weight</td>
+</tr>
+<tr>
+<td style="text-align: left;">pK<sub>a,base</sub></td>
+<td></td>
+<td>7.9</td>
+<td><a href="#5-references">Maggi 1966</a></td>
+<td>Basic dissociation constant</td>
+</tr>
+<tr>
+<td style="text-align: left;">pK<sub>a,acid</sub></td>
+<td></td>
+<td>1.7</td>
+<td><a href="#5-references">Maggi 1966</a></td>
+<td>Acid dissociation constant</td>
+</tr>
+<tr>
+<td style="text-align: left;">Solubility (pH)</td>
+<td>mg/L</td>
+<td>1100<br />(6.5)</td>
+<td><a href="#5-references">Baneyx 2014</a></td>
+<td>Solubility</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td></td>
+<td>1400<br />(6.8)</td>
+<td><a href="#5-references">Panchagnula 2006</a></td>
+<td>Solubility</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td></td>
+<td>990<br />(4)</td>
+<td><a href="#5-references">Agrawal 2005</a></td>
+<td>Solubility</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td></td>
+<td>1650<br />(6)</td>
+<td><a href="#5-references">Agrawal 2005</a></td>
+<td>Solubility</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td></td>
+<td>2540<br />(6.8)</td>
+<td><a href="#5-references">Agrawal 2005</a></td>
+<td>Solubility</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td></td>
+<td>3350<br />(7.4)</td>
+<td><a href="#5-references">Agrawal 2005</a></td>
+<td>Solubility</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td></td>
+<td>2800<br />(7.5)</td>
+<td><a href="#5-references">Boman 1974</a></td>
+<td>Aqueous solubility</td>
+</tr>
+<tr>
+<td style="text-align: left;">logP</td>
+<td></td>
+<td>1.3</td>
+<td><a href="#5-references">Baneyx 2014</a></td>
+<td>Partition coefficient between octanol and water @ pH 7.4</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td></td>
+<td>2.7</td>
+<td><a href="#5-references">DrugBank DB01045</a></td>
+<td>Partition coefficient between octanol and water</td>
+</tr>
+<tr>
+<td style="text-align: left;">fu</td>
+<td>%</td>
+<td>11.1</td>
+<td><a href="#5-references">Boman 1974</a></td>
+<td>Fraction unbound in plasma</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td>%</td>
+<td>16.0</td>
+<td><a href="#5-references">Baneyx 2014</a></td>
+<td>Fraction unbound in plasma in tuberculosis patients</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td>%</td>
+<td>17</td>
+<td><a href="#5-references">Templeton 2011</a></td>
+<td>Fraction unbound in plasma</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td>%</td>
+<td>17.5</td>
+<td><a href="#5-references">Shou 2008</a></td>
+<td>Fraction unbound in plasma</td>
+</tr>
+<tr>
+<td style="text-align: left;">B/P ratio</td>
+<td></td>
+<td>0.9</td>
+<td><a href="#5-references">Loos 1985</a></td>
+<td>Blood to plasma concentration ratio</td>
+</tr>
+<tr>
+<td style="text-align: left;">V<sub>max</sub>, K<sub>m</sub> OATP1B1</td>
+<td>pmol/min/mg,<br />µmol/L</td>
+<td>9.3<br />1.5</td>
+<td><a href="#5-references">Tirona 2003</a></td>
+<td>OATP1B1 uptake in transfected HeLa cells</td>
+</tr>
+<tr>
+<td style="text-align: left;">V<sub>max</sub>, K<sub>m</sub> <br /> P-gp</td>
+<td>nmol/h/cm<sup>2</sup>,<br />µmol/L</td>
+<td>4.3<br />55</td>
+<td><a href="#5-references">Collett 2004</a></td>
+<td>P-gp net secretion across Caco-2 monolayers</td>
+</tr>
+<tr>
+<td style="text-align: left;">V<sub>max</sub>, K<sub>m</sub> AADAC</td>
+<td>pmol/min/mg,<br />µmol/L</td>
+<td>162.6<br />195.1</td>
+<td><a href="#5-references">Nakajima 2011</a></td>
+<td>Kinetic parameters of the deacetylase activity in HLM</td>
+</tr>
+<tr>
+<td style="text-align: left;">E<sub>max</sub>, EC<sub>50</sub> CYP3A4</td>
+<td><em>dimensionless</em><br />µmol/L</td>
+<td>9<br />0.34</td>
+<td><a href="#5-references">Templeton 2011</a></td>
+<td>CYP3A4 induction parameters in primary human hepatocytes,<br />EC<sub>50</sub> corrected for fraction unbound in human hepatocytes of 0.419 as reported by <a href="#5-references">Shou 2008</a></td>
+</tr>
+<tr>
+<td style="text-align: left;">K<sub>i</sub> CYP3A4</td>
+<td>µmol/L</td>
+<td>18.5</td>
+<td><a href="#5-references">Kajosaari 2005</a></td>
+<td>CYP3A4 inhibition constant</td>
+</tr>
+<tr>
+<td style="text-align: left;">E<sub>max</sub> P-gp</td>
+<td><em>dimensionless</em></td>
+<td>2.5</td>
+<td><a href="#5-references">Greiner 1999</a></td>
+<td>P-gp induction parameter based on an increased intestinal P-gp content in duodenal biopsies of 3.5 after rifampicin treatment</td>
+</tr>
+<tr>
+<td style="text-align: left;">K<sub>i</sub> P-gp</td>
+<td>µmol/L</td>
+<td>9.1 (169.0)</td>
+<td><a href="#5-references">Hanke 2021</a> (<a href="#5-references">Reitman 2011</a>)</td>
+<td>P-gp inhibition constant</td>
+</tr>
+<tr>
+<td style="text-align: left;">K<sub>i</sub> BCRP</td>
+<td>µmol/L</td>
+<td>14</td>
+<td><a href="#5-references">Hanke 2021</a>, <a href="#5-references">Prueksaritanont 2014</a></td>
+<td>BCRP inhibition constant</td>
+</tr>
+<tr>
+<td style="text-align: left;">K<sub>i</sub> OATP1B1</td>
+<td>µmol/L</td>
+<td>0.29 (0.477)</td>
+<td><a href="#5-references">Hanke 2021</a> (<a href="#5-references">Hirano 2006</a>)</td>
+<td>OATP1B1 inhibition constant (based on OATP1B1-mediated pitavastatin uptake)</td>
+</tr>
+<tr>
+<td style="text-align: left;">K<sub>i</sub> OATP1B3</td>
+<td>µmol/L</td>
+<td>0.5 (0.9)</td>
+<td><a href="#5-references">Hanke 2021</a> (<a href="#5-references">Annaert 2010</a>)</td>
+<td>OATP1B3 inhibition constant</td>
+</tr>
+<tr>
+<td style="text-align: left;">K<sub>i</sub> OATP2B1</td>
+<td>µmol/L</td>
+<td>78.2</td>
+<td><a href="#5-references">Hanke 2021</a>, <a href="#5-references">Zhang 2019</a></td>
+<td>OATP2B1 inhibition constant</td>
+</tr>
+<tr>
+<td style="text-align: left;">E<sub>max</sub> CYP2C8</td>
+<td><em>dimensionless</em></td>
+<td>3.2</td>
+<td><a href="#5-references">Buckley 2014</a></td>
+<td>CYP2C8 E<sub>max</sub> in primary human hepatocytes (based on activity)</td>
+</tr>
+<tr>
+<td style="text-align: left;">K<sub>i</sub> CYP2C8</td>
+<td>µmol/L</td>
+<td>30.2</td>
+<td><a href="#5-references">Kajosaari 2005</a></td>
+<td>CYP2C8 inhibition constant</td>
+</tr>
+<tr>
+<td style="text-align: left;">K<sub>i</sub> CYP2C9</td>
+<td>µmol/L</td>
+<td>150</td>
+<td><a href="#5-references">Hanke 2021</a>, <a href="#5-references">Yoshida 2012</a></td>
+<td>CYP2C9 inhibition constant</td>
+</tr>
+<tr>
+<td style="text-align: left;">E<sub>max</sub> CYP1A2</td>
+<td><em>dimensionless</em></td>
+<td>0.65</td>
+<td><a href="#5-references">Chen 2010</a></td>
+<td>CYP1A2 E<sub>max</sub> in cultured human hepatocytes (based on activity)</td>
+</tr>
+<tr>
+<td style="text-align: left;">E<sub>max</sub> CYP2E1</td>
+<td><em>dimensionless</em></td>
+<td>0.8</td>
+<td><a href="#5-references">Rae 2001</a></td>
+<td>CYP2E1 fold induction of 1.8 calculated as the normalized ratio of expression in rifampin-treated versus vehicle control-treated cells</td>
+</tr>
+</tbody>
+</table>
+<p><em>AADAC</em> arylacetamide deacetylase</p>
+<h3 id="222-clinical-data">2.2.2 Clinical data<a class="headerlink" href="#222-clinical-data" title="Anchor link to this section for reference">&para;</a></h3>
+<p>A literature search was performed to collect available clinical data (plasma concentrations, fraction excreted into urine, fraction excreted into bile) on rifampicin in adults. The rifampicin model was built and verified using various clinical studies, covering a dosing range of 300 to 600 mg, administered intravenously or orally.</p>
+<p>The following dosing scenarios were simulated and compared to respective data:</p>
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Dose<br />[mg]</th>
+<th>Dosing</th>
+<th>PK Data</th>
+<th>Used for <a href="#235-automated-parameter-identification">Optimization</a></th>
+<th>Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>iv</td>
+<td>300</td>
+<td>SD, 30 min infusion</td>
+<td>Plasma</td>
+<td>x</td>
+<td><a href="#5-references">Sanofi-Aventis U.S. LLC. 2013</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>SD, 3 h infusion</td>
+<td>Plasma, excretion into urine</td>
+<td>x</td>
+<td><a href="#5-references">Nitti 1977</a></td>
+</tr>
+<tr>
+<td></td>
+<td>450</td>
+<td>SD, 3 h infusion</td>
+<td>Plasma, excretion into urine</td>
+<td>x</td>
+<td><a href="#5-references">Nitti 1977</a></td>
+</tr>
+<tr>
+<td></td>
+<td>600</td>
+<td>SD, 30 min infusion</td>
+<td>Plasma</td>
+<td>x</td>
+<td><a href="#5-references">Sanofi-Aventis U.S. LLC. 2013</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>SD, 3 h infusion</td>
+<td>Plasma, excretion into urine</td>
+<td>x</td>
+<td><a href="#5-references">Nitti 1977</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>SD, 3 h infusion</td>
+<td>Plasma, excretion into urine</td>
+<td>x</td>
+<td><a href="#5-references">Acocella 1977</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>OD (7 days), 3 h infusion</td>
+<td>Plasma</td>
+<td>x</td>
+<td><a href="#5-references">Acocella 1977</a></td>
+</tr>
+<tr>
+<td>po</td>
+<td>300</td>
+<td>SD</td>
+<td>Plasma</td>
+<td>x</td>
+<td><a href="#5-references">Chouchane 1995</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>SD</td>
+<td>Plasma</td>
+<td></td>
+<td><a href="#5-references">Furesz 1970</a></td>
+</tr>
+<tr>
+<td></td>
+<td>450</td>
+<td>SD</td>
+<td>Plasma</td>
+<td>x</td>
+<td><a href="#5-references">Blume 1989</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>Plasma</td>
+<td></td>
+<td><a href="#5-references">Furesz 1970</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>MD</td>
+<td>Plasma, excretion into urine and bile</td>
+<td>x</td>
+<td><a href="#5-references">Acocella 1972a</a></td>
+</tr>
+<tr>
+<td></td>
+<td>600</td>
+<td>SD</td>
+<td>Plasma</td>
+<td>x</td>
+<td><a href="#5-references">Peloquin 1997</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>Plasma</td>
+<td></td>
+<td><a href="#5-references">Blume 1989</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>Plasma</td>
+<td></td>
+<td><a href="#5-references">Acocella 1972b</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>Plasma</td>
+<td></td>
+<td><a href="#5-references">Furesz 1970</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>Plasma, excretion into urine</td>
+<td>x</td>
+<td><a href="#5-references">Eon Labs Manufacturing, Inc. 1997</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>OD (7 days)</td>
+<td>Plasma</td>
+<td>x</td>
+<td><a href="#5-references">Baneyx 2014</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="23-model-parameters-and-assumptions">2.3 Model Parameters and Assumptions<a id="model-parameters-and-assumptions"></a><a class="headerlink" href="#23-model-parameters-and-assumptions" title="Anchor link to this section for reference">&para;</a></h2>
+<h3 id="231-absorption">2.3.1 Absorption<a class="headerlink" href="#231-absorption" title="Anchor link to this section for reference">&para;</a></h3>
+<p>Herein, the model parameter <code>Specific intestinal permeability</code> was optimized to best match clinical data (see  <a href="#235-automated-parameter-identification">Section 2.3.5</a>). The results of the optimization can be found in <a href="#235-automated-parameter-identification">Section 2.3.5</a>.</p>
+<p>Measured aqueous solubility (<a href="#5-references">Boman 1974</a>, see <a href="#221-in-vitro-and-physicochemical-data">Section 2.2.1</a>) was set as default solubility.</p>
+<p>As observed data do not show substantial differences between different formulations for oral rifampicin administration, all oral administrations were modelled as an oral solution.</p>
+<h3 id="232-distribution">2.3.2 Distribution<a class="headerlink" href="#232-distribution" title="Anchor link to this section for reference">&para;</a></h3>
+<p>Recent measurements of fraction unbound in plasma yielded values of approximately 17% (<a href="#5-references">Templeton 2011</a>, <a href="#5-references">Shou 2008</a>, see <a href="#221-in-vitro-and-physicochemical-data">Section 2.2.1</a>). This value was implemented in this model.</p>
+<p><code>Lipophilicity</code> was optimized within the range of measured values to find a best match of simulated to observed rifampicin PK profile data.</p>
+<p>After testing the available organ-plasma partition coefficient and cell permeability calculation methods built in PK-Sim®, observed clinical data was best described by choosing the partition coefficient calculation by <code>Rodgers and Rowland</code> and cellular permeability calculation by <code>PK-Sim Standard</code> for rifampicin. The PK-Sim® calculated <code>Blood/plasma concentration ratio</code> is well in line with the observed value of 0.9 (<a href="#5-references">Loos 1985</a>).</p>
+<h3 id="233-metabolism-and-elimination">2.3.3 Metabolism and Elimination<a class="headerlink" href="#233-metabolism-and-elimination" title="Anchor link to this section for reference">&para;</a></h3>
+<p>Integrating and testing active processes that were considered vital to the PK of rifampicin after literature review resulted in a final model that applies transport by OATP1B1 (<a href="#5-references">Tirona 2003</a>), metabolism by arylacetamide deacetylase (AADAC) (<a href="#5-references">Nakajima 2011</a>), transport by P-gp (<a href="#5-references">Collett 2004</a>) and glomerular filtration. No study clearly demonstrated that rifampicin is substrate of CYP3A4; hence, in this PBPK model rifampicin only acts as a perpetrator on CYP3A4 without being metabolized by it.</p>
+<p>The implemented expression profile of AADAC, P-gp and OATP1B1 were based on high-sensitive real-time RT-PCR (<a href="#5-references">Nishimura 2003</a>) of the PK-Sim® expression database. The relative expression in the mucosa of the gut wall was modified based on an optimized value as reported by Hanke <em>et al.</em> (<a href="#5-references">Hanke 2018</a>). Herein, this value was increased by a factor of 3.57 based on digoxin PK data in combination with PBPK modeling.</p>
+<p>It was assumed that the mRNA concentration is proportional to the respective protein concentration. Thus, the expression of a protein in a specific organ relates to the expression in the organ with the highest expression which is termed reference concentration of the protein (<a href="#5-references">Meyer 2012</a>). OATP1B1 was configured as influx transporter and P-gp as efflux transporter. Reference concentrations of the implemented active processes (enzymes and transporters) are summarized below:</p>
+<table>
+<thead>
+<tr>
+<th>Protein</th>
+<th>Reference concentration<br />[µmol/L]</th>
+<th>Reference Organ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AADAC</td>
+<td>1.0 (assumed)</td>
+<td>Liver</td>
+</tr>
+<tr>
+<td>P-gp</td>
+<td>1.41 (<a href="#5-references">Hanke 2018</a>)</td>
+<td>Mucosa Small Intestine</td>
+</tr>
+<tr>
+<td>OATP1B1</td>
+<td>1.0 (assumed)</td>
+<td>Liver</td>
+</tr>
+</tbody>
+</table>
+<p>The kinetic parameters describing the rifampicin metabolism by AADAC and transport by P-gp and OATP1B1 were imputed in the model as follows: while Michaelis-Menten constants (K<sub>m</sub> values) of AADAC-catalyzed metabolism and the two transport processes were taken from reported in vitro experiments, enzymatic and transport turnover values (k<sub>cat</sub>) were optimized based on <em>in vivo</em> PK data (see <a href="#235-automated-parameter-identification">Section 2.3.5</a>).</p>
+<p>Multiple dose studies that measured PK profiles of rifampicin at different days of a 600 mg po once daily regimen indicate that rifampicin exposure decreases over time due to auto-induction processes (<a href="#5-references">Baneyx 2014</a>, <a href="#5-references">Smythe 2012</a>). <em>In-vitro</em> studies in human hepatocytes suggest that rifampicin induces P-gp (<a href="#5-references">Collett 2004</a>, <a href="#5-references">Dixit 2007</a>, <a href="#5-references">Williamson 2013</a>) and OATP1B1 (<a href="#5-references">Dixit 2007</a>, <a href="#5-references">Williamson 2013</a>). It has further been shown in DDI studies with prototypical substrates of these transporters (pravastatin and digoxin, respectively) that the induction of these transporters can also be observed <em>in vivo</em> (<a href="#5-references">Kyrklund 2000</a>, <a href="#5-references">Greiner 1999</a>). As in the case of CYP3A4 induction, both induction processes are mediated via pregnane X receptor (PXR) (<a href="#5-references">Geick 2001</a>). Furthermore, it has been demonstrated that B-esterases are inducible by rifampicin via PXR (<a href="#5-references">Smythe 2012</a>, <a href="#5-references">Staudinger 2010</a>) and that AADAC, the enzyme catalyzing the main metabolic pathway of rifampicin, is regulated by PXR (<a href="#5-references">Zhang 2012</a>). Therefore, (auto-)induction of P-gp, OATP1B1 and AADAC expression was assumed and implemented in the rifampicin model. Modelling induction of an endogenously expressed protein requires three parameters, in particular <strong>EC<sub>50</sub></strong> (concentration at which induction is half maximum), <strong>E<sub>max</sub></strong> (maximum induction effect on endogenous synthesis rate) and the endogenous <strong>protein turnover (half-life)</strong>. Little is known about these values <em>in vivo</em> for AADAC, P-gp and OATP1B1 induction. </p>
+<h4 id="auto-induction-processes-aadac-p-gp-and-oatp1b1">(Auto-) Induction Processes: AADAC, P-gp and OATP1B1<a class="headerlink" href="#auto-induction-processes-aadac-p-gp-and-oatp1b1" title="Anchor link to this section for reference">&para;</a></h4>
+<h5 id="ec50">EC<sub>50</sub><a class="headerlink" href="#ec50" title="Anchor link to this section for reference">&para;</a></h5>
+<p>As all induction processes are mediated by PXR, the same unbound EC<sub>50</sub> of 0.34 µmol/L (originally measured in primary human hepatocytes for CYP3A4 induction after correcting for the fraction unbound (<a href="#5-references">Baneyx 2014</a>, <a href="#5-references">Shou 2008</a>, <a href="#5-references">Templeton 2011</a>)) was applied for all induction processes. This assumption is supported by the fact that Moore <em>et al.</em> <a href="#5-references">Moore 2000</a> found a general EC<sub>50</sub> value for PXR-mediated rifampicin induction of 0.71 µmol/L (resulting in an unbound EC<sub>50</sub> of 0.30 µmol/L after correcting for the fraction unbound reported by <a href="#5-references">Shou 2008</a>). </p>
+<h5 id="emax">E<sub>max</sub><a class="headerlink" href="#emax" title="Anchor link to this section for reference">&para;</a></h5>
+<p>E<sub>max</sub> values for AADAC and OATP1B1 are unknown and fitted based on observed clinical PK data of rifampicin (see <a href="#235-automated-parameter-identification">Section 2.3.5</a>).</p>
+<p>A study by Greiner et al. (<a href="#5-references">Greiner 1999</a>) found 3.5-fold elevated P-gp levels in human duodenal biopsies after multiple doses of rifampicin. This value was assumed to represent an <em>in vivo</em> maximum effect corresponding to an E<sub>max</sub> value of 2.5. This E<sub>max</sub> was included in the model for P-gp induction (see also <a href="#221-in-vitro-and-physicochemical-data">Section 2.2.1</a>).</p>
+<h5 id="protein-turnover-half-lives">Protein turnover (half-lives)<a class="headerlink" href="#protein-turnover-half-lives" title="Anchor link to this section for reference">&para;</a></h5>
+<p>Endogenous half-lives of these proteins are not known. Therefore, the same values applicable for CYP3A4 turnover (as implemented in PK-Sim (<a href="#5-references">PK-Sim Ontogeny Database Version 7.3</a>) were assumed, i.e. 36 hours in the liver (<a href="#5-references">Obach 2007</a>) and 23 hours in the intestine (<a href="#5-references">Greenblatt 2003</a>).</p>
+<h3 id="234-ddi-parameters">2.3.4 DDI Parameters<a class="headerlink" href="#234-ddi-parameters" title="Anchor link to this section for reference">&para;</a></h3>
+<p>The following sub-section describe the model input for DDI-related parameters, i.e. induction and inhibition of certain enzymes and transporters, for which rifampicin may act as a perpetrator. Verification of these model parameters and linked processes is not evaluated in this report. Applications are assessed in specific use cases and reported elsewhere. </p>
+<h4 id="cyp3a4-induction-and-inhibition">CYP3A4 induction and inhibition<a class="headerlink" href="#cyp3a4-induction-and-inhibition" title="Anchor link to this section for reference">&para;</a></h4>
+<p>Induction of CYP3A4 was incorporated using the weighted mean <strong>EC<sub>50</sub></strong> of 0.8 µmol/L and <strong>E<sub>max </sub></strong> estimate of 9 based on CYP3A4 activity induction in primary human hepatocytes (<a href="#5-references">Templeton 2011</a>, see also <a href="#221-in-vitro-and-physicochemical-data">Section 2.2.1</a>). Similar values for EC<sub>50</sub> (0.77, 0.80 µmol/L) and E<sub>max </sub> (7, 9, 10) have been reported by other groups (<a href="#5-references">Kolars 1992</a>, <a href="#5-references">Mills 2004</a>, <a href="#5-references">Sahi 2000</a>). The <em>in vitro</em> value of EC<sub>50</sub> of 0.8 µmol/L was corrected by the unbound fraction of rifampicin in hepatocytes of 0.419 to obtain an <strong>unbound EC<sub>50</sub></strong> value of 0.34 µmol/L (<a href="#5-references">Baneyx 2014</a>, <a href="#5-references">Shou 2008</a>, <a href="#5-references">Templeton 2011</a>) which was used in the PBPK model. </p>
+<p>Competitive inhibition of CYP3A4 by rifampicin was included using a dissociation (inhibition) constant (<strong>K<sub>i</sub></strong>) of 18.5 µmol/L determined in human liver microsomes via inhibition of midazolam 1-hydroxylation (<a href="#5-references">Kajosaari 2005</a>). No correction of this <em>in vitro</em> value was applied to account for potential binding in the assay, as only 0.1 mg/mL human liver microsomal protein was used and a negligible unbound fraction of 0.90 – 0.98 was predicted (<a href="#5-references">Austin 2002</a>).</p>
+<p>Time to reach newly induced CYP3A4 levels and time for de-induction depends on the half-lives of the perpetrator drug but also of the endogenous natural turnover of the induced protein. CYP3A4 turnover featured zero-order synthesis rate and first-order degradation rate. A distinct degradation rate constant (k<sub>deg</sub>) was considered for the intestinal mucosa which rather reflects enterocytic turnover than protein turnover, while in all other CYP3A4 expressing organs CYP3A4 turnover was assumed to follow that of the liver. <strong>CYP3A4 half-life</strong> (= ln(2)/k<sub>deg</sub>) of 23 and 36 h in intestine and liver, respectively, were incorporated (<a href="#5-references">Obach 2007</a>, <a href="#5-references">Greenblatt 2003</a>, <a href="#5-references">PK-Sim Ontogeny Database Version 7.3</a>).</p>
+<h4 id="cyp2c8-induction-and-inhibition">CYP2C8 induction and inhibition<a class="headerlink" href="#cyp2c8-induction-and-inhibition" title="Anchor link to this section for reference">&para;</a></h4>
+<p>For PXR-mediated induction, the same unbound EC<sub>50</sub> of 0.34 µmol/L (originally measured in primary human hepatocytes for CYP3A4 induction after correcting for the fraction unbound (<a href="#5-references">Baneyx 2014</a>, <a href="#5-references">Shou 2008</a>, <a href="#5-references">Templeton 2011</a>)) was applied (see above).</p>
+<p>An E<sub>max</sub> value reported by Buckley <em>et al.</em> (<a href="#5-references">Buckley 2014</a>) served as model input (see <a href="#221-in-vitro-and-physicochemical-data">Section 2.2.1</a>).</p>
+<p>CYP2C8 half-life of 23 h in the liver (<a href="#5-references">Renwick 2000</a>, <a href="#5-references">PK-Sim Ontogeny Database Version 7.3</a>) and of 23 h in the intestine (assuming that the turnover here rather reflects enterocytic turnover than protein turnover) (<a href="#5-references">Greenblatt 2003</a>, <a href="#5-references">PK-Sim Ontogeny Database Version 7.3</a>) were incorporated.</p>
+<p>An <em>in vitro</em> determined K<sub>i</sub> value for rifampicin (<a href="#5-references">Kajosaari 2005</a>) served directly as model input.</p>
+<h4 id="cyp2c9-inhibition">CYP2C9 inhibition<a class="headerlink" href="#cyp2c9-inhibition" title="Anchor link to this section for reference">&para;</a></h4>
+<p>Competitive inhibition of CYP2C9 by rifampicin was included using a dissociation (inhibition) constant (<strong>K<sub>i</sub></strong>) of 150 µmol/L (<a href="#5-references">Yoshida 2012</a>, <a href="#5-references">Hanke 2021</a>).</p>
+<h4 id="cyp1a2-induction">CYP1A2 induction<a class="headerlink" href="#cyp1a2-induction" title="Anchor link to this section for reference">&para;</a></h4>
+<p>For PXR-mediated induction, the same unbound EC<sub>50</sub> of 0.34 µmol/L (originally measured in primary human hepatocytes for CYP3A4 induction after correcting for the fraction unbound (<a href="#5-references">Baneyx 2014</a>, <a href="#5-references">Shou 2008</a>, <a href="#5-references">Templeton 2011</a>)) was applied (see above).</p>
+<p>An E<sub>max</sub> value reported by Chen <em>et al.</em> (<a href="#5-references">Chen 2010</a>) served as model input (see <a href="#221-in-vitro-and-physicochemical-data">Section 2.2.1</a>).</p>
+<p>CYP1A2 half-life of 39 h in the liver (<a href="#5-references">Obach 2007</a>, <a href="#5-references">PK-Sim Ontogeny Database Version 7.3</a>) and of 23 h in the intestine (assuming that the turnover here rather reflects enterocytic turnover than protein turnover) (<a href="#5-references">Greenblatt 2003</a>, <a href="#5-references">PK-Sim Ontogeny Database Version 7.3</a>) were incorporated.</p>
+<h4 id="cyp2e1-induction">CYP2E1 induction<a class="headerlink" href="#cyp2e1-induction" title="Anchor link to this section for reference">&para;</a></h4>
+<p>For PXR-mediated induction, the same unbound EC<sub>50</sub> of 0.34 µmol/L (originally measured in primary human hepatocytes for CYP3A4 induction after correcting for the fraction unbound (<a href="#5-references">Baneyx 2014</a>, <a href="#5-references">Shou 2008</a>, <a href="#5-references">Templeton 2011</a>)) was applied (see above).</p>
+<p>An E<sub>max</sub> value reported by Rae <em>et al.</em> (<a href="#5-references">Rae 2001</a>) served as model input (see <a href="#221-in-vitro-and-physicochemical-data">Section 2.2.1</a>).</p>
+<p>CYP2E1 half-life of 50 h in the liver (<a href="#5-references">Emery 1999</a>, <a href="#5-references">PK-Sim Ontogeny Database Version 7.3</a>) and of 23 h in the intestine (assuming that the turnover here rather reflects enterocytic turnover than protein turnover) (<a href="#5-references">Greenblatt 2003</a>, <a href="#5-references">PK-Sim Ontogeny Database Version 7.3</a>) were incorporated.</p>
+<h4 id="p-gp-induction-and-inhibition">P-gp induction and inhibition<a class="headerlink" href="#p-gp-induction-and-inhibition" title="Anchor link to this section for reference">&para;</a></h4>
+<p>P-gp induction is described above.</p>
+<p>An <em>in vitro</em> determined K<sub>i</sub> value for rifampicin (<a href="#5-references">Reitman 2011</a>) was updated by <a href="#5-references">Hanke 2021</a> and served as model input (see <a href="#221-in-vitro-and-physicochemical-data">Section 2.2.1</a>).</p>
+<h4 id="bcrp-inhibition">BCRP inhibition<a class="headerlink" href="#bcrp-inhibition" title="Anchor link to this section for reference">&para;</a></h4>
+<p>Competitive inhibition of CYP2C9 by rifampicin was included using a dissociation (inhibition) constant (<strong>K<sub>i</sub></strong>) of 14 µmol/L (<a href="#5-references">Prueksaritanont 2014</a>, <a href="#5-references">Hanke 2021</a>).</p>
+<h4 id="oatp1b1-induction-and-inhibition">OATP1B1 induction and inhibition<a class="headerlink" href="#oatp1b1-induction-and-inhibition" title="Anchor link to this section for reference">&para;</a></h4>
+<p>OATP1B1 induction is described above. </p>
+<p>An <em>in vitro</em> determined K<sub>i</sub> value for rifampicin (<a href="#5-references">Hirano 2006</a>) was updated by <a href="#5-references">Hanke 2021</a> and served as model input (see <a href="#221-in-vitro-and-physicochemical-data">Section 2.2.1</a>).</p>
+<h4 id="oatp1b3-induction-and-inhibition">OATP1B3 induction and inhibition<a class="headerlink" href="#oatp1b3-induction-and-inhibition" title="Anchor link to this section for reference">&para;</a></h4>
+<p>The same parameters as for OATP1B1 induction were assumed.</p>
+<p>An <em>in vitro</em> determined K<sub>i</sub> value for rifampicin (<a href="#5-references">Annaert 2010</a>) was updated by <a href="#5-references">Hanke 2021</a> and served as model input (see <a href="#221-in-vitro-and-physicochemical-data">Section 2.2.1</a>).</p>
+<h4 id="oatp2b1-inhibition">OATP2B1 inhibition<a class="headerlink" href="#oatp2b1-inhibition" title="Anchor link to this section for reference">&para;</a></h4>
+<p>Competitive inhibition of CYP2C9 by rifampicin was included using a dissociation (inhibition) constant (<strong>K<sub>i</sub></strong>) of 78.2 µmol/L (<a href="#5-references">Zhang 2019</a>, <a href="#5-references">Hanke 2021</a>).</p>
+<h4 id="summary-ddi-parameters">Summary DDI Parameters<a class="headerlink" href="#summary-ddi-parameters" title="Anchor link to this section for reference">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Protein</th>
+<th>K<sub>i</sub><br />[µmol/L]</th>
+<th>E<sub>max</sub><br /></th>
+<th>EC<sub>50,u</sub><br />[µmol/L]</th>
+<th>Half-life<br />liver [h]</th>
+<th>Half-life<br />intestine [h]</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CYP1A2</td>
+<td>-</td>
+<td>0.65</td>
+<td>0.34</td>
+<td>39</td>
+<td>23 (assumed)</td>
+</tr>
+<tr>
+<td>CYP2C8</td>
+<td>30.2</td>
+<td>3.2</td>
+<td>0.34</td>
+<td>23</td>
+<td>23 (assumed)</td>
+</tr>
+<tr>
+<td>CYP2C9</td>
+<td>150</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>CYP2E1</td>
+<td>-</td>
+<td>0.8</td>
+<td>0.34</td>
+<td>50</td>
+<td>23 (assumed)</td>
+</tr>
+<tr>
+<td>CYP3A4</td>
+<td>18.5</td>
+<td>9</td>
+<td>0.34</td>
+<td>36</td>
+<td>23</td>
+</tr>
+<tr>
+<td>AADAC</td>
+<td>-</td>
+<td><a href="#235-automated-parameter-identification">optimized</a></td>
+<td>0.34</td>
+<td>36 (assumed)</td>
+<td>23 (assumed)</td>
+</tr>
+<tr>
+<td>P-gp</td>
+<td>9.1</td>
+<td><a href="#235-automated-parameter-identification">optimized</a></td>
+<td>0.34</td>
+<td>36 (assumed)</td>
+<td>23 (assumed)</td>
+</tr>
+<tr>
+<td>BCRP</td>
+<td>14</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>OATP1B1</td>
+<td>0.477</td>
+<td><a href="#235-automated-parameter-identification">optimized</a></td>
+<td>0.34</td>
+<td>36 (assumed)</td>
+<td>23 (assumed)</td>
+</tr>
+<tr>
+<td>OATP1B3</td>
+<td>0.9</td>
+<td>assumed to be equal to OATP1B1</td>
+<td>0.34</td>
+<td>36 (assumed)</td>
+<td>23 (assumed)</td>
+</tr>
+<tr>
+<td>OATP2B1</td>
+<td>78.2</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h3 id="235-automated-parameter-identification">2.3.5 Automated Parameter Identification<a class="headerlink" href="#235-automated-parameter-identification" title="Anchor link to this section for reference">&para;</a></h3>
+<p>This is the result of the final parameter identification:</p>
+<table>
+<thead>
+<tr>
+<th>Model Parameter</th>
+<th>Optimized Value</th>
+<th>Unit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Lipophilicity</code></td>
+<td>2.5</td>
+<td>Log Units</td>
+</tr>
+<tr>
+<td><code>Specific intestinal permeability</code></td>
+<td>1.24E-05</td>
+<td>cm/min</td>
+</tr>
+<tr>
+<td><code>Fraction unbound (plasma, reference value)</code></td>
+<td>17 FIXED (see <a href="#221-in-vitro-and-physicochemical-data">Section 2.2.1</a>)</td>
+<td>%</td>
+</tr>
+<tr>
+<td><code>Solubility at reference pH</code></td>
+<td>2800 FIXED (see <a href="#221-in-vitro-and-physicochemical-data">Section 2.2.1</a>)</td>
+<td>mg/L</td>
+</tr>
+<tr>
+<td><code>kcat</code> AADAC (with a reference concentration of 1 µmol/L)</td>
+<td>9.865</td>
+<td>1/min</td>
+</tr>
+<tr>
+<td><code>kcat</code> P-gp (with a reference concentration of 1.41 µmol/L)</td>
+<td>0.6088</td>
+<td>1/min</td>
+</tr>
+<tr>
+<td><code>kcat</code> OATP1B1 (with a reference concentration of 1 µmol/L)</td>
+<td>7.796<sup>*</sup></td>
+<td>1/min</td>
+</tr>
+<tr>
+<td><code>Emax</code> AADAC</td>
+<td>0.985</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Emax</code> P-gp</td>
+<td>2.5 FIXED (see <a href="#221-in-vitro-and-physicochemical-data">Section 2.2.1</a>)</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Emax</code> OATP1B1</td>
+<td>0.383</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><sup>*</sup> The value in the model was updated to 5.210 with the release of PK-Sim 10 to account for the updated calculation method of interstitial concentrations (please refer to the respective <a href="https://github.com/Open-Systems-Pharmacology/Suite/releases/tag/v10.0">release notes of version 10</a>).</p>
+<h1 id="3-results-and-discussion">3 Results and Discussion<a id="results-and-discussion"></a><a class="headerlink" href="#3-results-and-discussion" title="Anchor link to this section for reference">&para;</a></h1>
+<p>The rifampicin model was built and verified using various clinical studies. Overall, the model shows good performance to describe plasma concentration-time profiles over a dose range of 300 to 600 mg after intravenous and oral administration. </p>
+<p>The next sections show:</p>
+<ol>
+<li>the final model input parameters for the building blocks: <a href="#31-final-input-parameters">Section 3.1</a>.</li>
+<li>the overall goodness of fit: <a href="#32-diagnostics-plots">Section 3.2</a>.</li>
+<li>simulated vs. observed concentration-time profiles for the clinical studies used for model building and for model verification: <a href="#33-concentration-time-profiles">Section 3.3</a>.</li>
+</ol>
+<h2 id="31-final-input-parameters">3.1 Final input parameters<a id="final-input-parameters"></a><a class="headerlink" href="#31-final-input-parameters" title="Anchor link to this section for reference">&para;</a></h2>
+<p>The parameter values of the final PBPK model are illustrated below.</p>
+<h3 id="compound-rifampicin">Compound: Rifampicin<a class="headerlink" href="#compound-rifampicin" title="Anchor link to this section for reference">&para;</a></h3>
+<h4 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Anchor link to this section for reference">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+<th>Alternative</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Solubility at reference pH</td>
+<td>2800 mg/l</td>
+<td>Publication-Boman 1974</td>
+<td>Aqueous solubility</td>
+<td>True</td>
+</tr>
+<tr>
+<td>Reference pH</td>
+<td>7.5</td>
+<td>Publication-Boman 1974</td>
+<td>Aqueous solubility</td>
+<td>True</td>
+</tr>
+<tr>
+<td>Lipophilicity</td>
+<td>2.5 Log Units</td>
+<td>Publication-Parameter Identification-Hanke et al. 2018</td>
+<td>Optimized</td>
+<td>True</td>
+</tr>
+<tr>
+<td>Fraction unbound (plasma, reference value)</td>
+<td>17 %</td>
+<td>Publication-In Vitro-Templeton 2011 (equilibrium dialysis)</td>
+<td>Templeton 2011</td>
+<td>True</td>
+</tr>
+<tr>
+<td>Specific intestinal permeability (transcellular)</td>
+<td>1.24E-05 cm/min</td>
+<td>Publication-Parameter Identification-Hanke et al. 2018</td>
+<td>Optimized</td>
+<td>True</td>
+</tr>
+<tr>
+<td>Is small molecule</td>
+<td>Yes</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Molecular weight</td>
+<td>822.94 g/mol</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Plasma protein binding partner</td>
+<td>Albumin</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="calculation-methods">Calculation methods<a class="headerlink" href="#calculation-methods" title="Anchor link to this section for reference">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Partition coefficients</td>
+<td>Rodgers and Rowland</td>
+</tr>
+<tr>
+<td>Cellular permeabilities</td>
+<td>PK-Sim Standard</td>
+</tr>
+</tbody>
+</table>
+<h4 id="processes">Processes<a class="headerlink" href="#processes" title="Anchor link to this section for reference">&para;</a></h4>
+<h5 id="metabolizing-enzyme-aadac-nakajima-2011">Metabolizing Enzyme: AADAC-Nakajima 2011<a class="headerlink" href="#metabolizing-enzyme-aadac-nakajima-2011" title="Anchor link to this section for reference">&para;</a></h5>
+<p>Molecule: AADAC</p>
+<h6 id="parameters_1">Parameters<a class="headerlink" href="#parameters_1" title="Anchor link to this section for reference">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Enzyme concentration</td>
+<td>1 µmol/l</td>
+<td></td>
+</tr>
+<tr>
+<td>Vmax</td>
+<td>6.5 µmol/l/min</td>
+<td></td>
+</tr>
+<tr>
+<td>Km</td>
+<td>195.1 µmol/l</td>
+<td></td>
+</tr>
+<tr>
+<td>kcat</td>
+<td>9.865 1/min</td>
+<td>Publication-Parameter Identification-Hanke et al. 2018</td>
+</tr>
+</tbody>
+</table>
+<h5 id="transport-protein-p-gp-collett-2004">Transport Protein: P-gp-Collett 2004<a class="headerlink" href="#transport-protein-p-gp-collett-2004" title="Anchor link to this section for reference">&para;</a></h5>
+<p>Molecule: P-gp</p>
+<h6 id="parameters_2">Parameters<a class="headerlink" href="#parameters_2" title="Anchor link to this section for reference">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Transporter concentration</td>
+<td>60 nmol/l</td>
+<td></td>
+</tr>
+<tr>
+<td>Vmax</td>
+<td>2.87 µmol/l/min</td>
+<td></td>
+</tr>
+<tr>
+<td>Km</td>
+<td>55 µmol/l</td>
+<td></td>
+</tr>
+<tr>
+<td>kcat</td>
+<td>0.6088 1/min</td>
+<td>Publication-Parameter Identification-Hanke et al. 2018</td>
+</tr>
+</tbody>
+</table>
+<h5 id="transport-protein-oatp1b1-tirona-2003">Transport Protein: OATP1B1-Tirona 2003<a class="headerlink" href="#transport-protein-oatp1b1-tirona-2003" title="Anchor link to this section for reference">&para;</a></h5>
+<p>Molecule: OATP1B1</p>
+<h6 id="parameters_3">Parameters<a class="headerlink" href="#parameters_3" title="Anchor link to this section for reference">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Transporter concentration</td>
+<td>109.6 µmol/l</td>
+<td></td>
+</tr>
+<tr>
+<td>Vmax</td>
+<td>0.372 µmol/l/min</td>
+<td></td>
+</tr>
+<tr>
+<td>Km</td>
+<td>1.5 µmol/l</td>
+<td></td>
+</tr>
+<tr>
+<td>kcat</td>
+<td>5.21004653 1/min</td>
+<td>Publication-Parameter Identification-Hanke et al. 2018</td>
+</tr>
+</tbody>
+</table>
+<h5 id="systemic-process-glomerular-filtration-gfr">Systemic Process: Glomerular Filtration-GFR<a class="headerlink" href="#systemic-process-glomerular-filtration-gfr" title="Anchor link to this section for reference">&para;</a></h5>
+<p>Species: Human</p>
+<h6 id="parameters_4">Parameters<a class="headerlink" href="#parameters_4" title="Anchor link to this section for reference">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align: right;">Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GFR fraction</td>
+<td style="text-align: right;">1</td>
+<td>Publication-Assumption-Hanke et al. 2018</td>
+</tr>
+</tbody>
+</table>
+<h5 id="inhibition-cyp2c8-kajosaari-2005">Inhibition: CYP2C8-Kajosaari 2005<a class="headerlink" href="#inhibition-cyp2c8-kajosaari-2005" title="Anchor link to this section for reference">&para;</a></h5>
+<p>Molecule: CYP2C8</p>
+<h6 id="parameters_5">Parameters<a class="headerlink" href="#parameters_5" title="Anchor link to this section for reference">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ki</td>
+<td>30.2 µmol/l</td>
+<td>Publication-Kajosaari et al. 2005</td>
+</tr>
+</tbody>
+</table>
+<h5 id="inhibition-cyp2c9-hanke-2021">Inhibition: CYP2C9-Hanke 2021<a class="headerlink" href="#inhibition-cyp2c9-hanke-2021" title="Anchor link to this section for reference">&para;</a></h5>
+<p>Molecule: CYP2C9</p>
+<h6 id="parameters_6">Parameters<a class="headerlink" href="#parameters_6" title="Anchor link to this section for reference">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ki</td>
+<td>150 µmol/l</td>
+<td>Publication-Yoshida 2012</td>
+</tr>
+</tbody>
+</table>
+<h5 id="inhibition-cyp3a4-kajosaari-2005">Inhibition: CYP3A4-Kajosaari 2005<a class="headerlink" href="#inhibition-cyp3a4-kajosaari-2005" title="Anchor link to this section for reference">&para;</a></h5>
+<p>Molecule: CYP3A4</p>
+<h6 id="parameters_7">Parameters<a class="headerlink" href="#parameters_7" title="Anchor link to this section for reference">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ki</td>
+<td>18.5 µmol/l</td>
+<td>Publication-Kajosaari et al. 2005</td>
+</tr>
+</tbody>
+</table>
+<h5 id="inhibition-bcrp-hanke-2021">Inhibition: BCRP-Hanke 2021<a class="headerlink" href="#inhibition-bcrp-hanke-2021" title="Anchor link to this section for reference">&para;</a></h5>
+<p>Molecule: BCRP</p>
+<h6 id="parameters_8">Parameters<a class="headerlink" href="#parameters_8" title="Anchor link to this section for reference">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ki</td>
+<td>14 µmol/l</td>
+<td>Publication-Prueksaritanont 2014</td>
+</tr>
+</tbody>
+</table>
+<h5 id="inhibition-oatp1b1-hanke-2021">Inhibition: OATP1B1-Hanke 2021<a class="headerlink" href="#inhibition-oatp1b1-hanke-2021" title="Anchor link to this section for reference">&para;</a></h5>
+<p>Molecule: OATP1B1</p>
+<h6 id="parameters_9">Parameters<a class="headerlink" href="#parameters_9" title="Anchor link to this section for reference">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ki</td>
+<td>0.29 µmol/l</td>
+<td>Publication-In Vitro-Bi 2019</td>
+</tr>
+</tbody>
+</table>
+<h5 id="inhibition-oatp1b3-hanke-2021">Inhibition: OATP1B3-Hanke 2021<a class="headerlink" href="#inhibition-oatp1b3-hanke-2021" title="Anchor link to this section for reference">&para;</a></h5>
+<p>Molecule: OATP1B3</p>
+<h6 id="parameters_10">Parameters<a class="headerlink" href="#parameters_10" title="Anchor link to this section for reference">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ki</td>
+<td>0.5 µmol/l</td>
+<td>Publication-In Vitro-Bi 2019</td>
+</tr>
+</tbody>
+</table>
+<h5 id="inhibition-oatp2b1-hanke-2021">Inhibition: OATP2B1-Hanke 2021<a class="headerlink" href="#inhibition-oatp2b1-hanke-2021" title="Anchor link to this section for reference">&para;</a></h5>
+<p>Molecule: OATP2B1</p>
+<h6 id="parameters_11">Parameters<a class="headerlink" href="#parameters_11" title="Anchor link to this section for reference">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ki</td>
+<td>78.2 µmol/l</td>
+<td>Publication-In Vitro-Zhang 2019</td>
+</tr>
+</tbody>
+</table>
+<h5 id="inhibition-p-gp-hanke-2021">Inhibition: P-gp-Hanke 2021<a class="headerlink" href="#inhibition-p-gp-hanke-2021" title="Anchor link to this section for reference">&para;</a></h5>
+<p>Molecule: P-gp</p>
+<h6 id="parameters_12">Parameters<a class="headerlink" href="#parameters_12" title="Anchor link to this section for reference">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ki</td>
+<td>9.1 µmol/l</td>
+<td>Other-In Vitro-NBI</td>
+</tr>
+</tbody>
+</table>
+<h5 id="induction-cyp1a2-chen-2010">Induction: CYP1A2-Chen 2010<a class="headerlink" href="#induction-cyp1a2-chen-2010" title="Anchor link to this section for reference">&para;</a></h5>
+<p>Molecule: CYP1A2</p>
+<h6 id="parameters_13">Parameters<a class="headerlink" href="#parameters_13" title="Anchor link to this section for reference">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th style="text-align: right;">Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>EC50</td>
+<td>0.34 µmol/l</td>
+<td style="text-align: right;"></td>
+</tr>
+<tr>
+<td>Emax</td>
+<td>0.65</td>
+<td style="text-align: right;"></td>
+</tr>
+</tbody>
+</table>
+<h5 id="induction-cyp2c8-buckley-2014">Induction: CYP2C8-Buckley 2014<a class="headerlink" href="#induction-cyp2c8-buckley-2014" title="Anchor link to this section for reference">&para;</a></h5>
+<p>Molecule: CYP2C8</p>
+<h6 id="parameters_14">Parameters<a class="headerlink" href="#parameters_14" title="Anchor link to this section for reference">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>EC50</td>
+<td>0.34 µmol/l</td>
+<td>Publication-Templeton IE, Houston JB, Galetin A. Predictive utility of in vitro rifampin induction data generated in fresh and cryopreserved human hepatocytes, Fa2N-4, and HepaRG cells. Drug Metab Dispos. 2011;39:1921–9; Shou M, Hayashi M, Pan Y, Xu Y, Morrissey K, Xu L, et al. Modeling, prediction, and in vitro in vivo correlation of CYP3A4 induction. Drug Metab Dispos. 2008;36:2355–70.</td>
+</tr>
+<tr>
+<td>Emax</td>
+<td>3.2</td>
+<td>Publication-Buckley DB, Wiegand CM, Prentiss PL, Fahmi OA. Time-course of cytochrome P450 (CYP450) induction in cultured human hepatocytes: Evaluation of activity and mRNA expression profiles for six inducible CYP450 enzymes. ISSX. 2013</td>
+</tr>
+</tbody>
+</table>
+<h5 id="induction-cyp2e1-rae-2001">Induction: CYP2E1-Rae 2001<a class="headerlink" href="#induction-cyp2e1-rae-2001" title="Anchor link to this section for reference">&para;</a></h5>
+<p>Molecule: CYP2E1</p>
+<h6 id="parameters_15">Parameters<a class="headerlink" href="#parameters_15" title="Anchor link to this section for reference">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th style="text-align: right;">Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>EC50</td>
+<td>0.34 µmol/l</td>
+<td style="text-align: right;"></td>
+</tr>
+<tr>
+<td>Emax</td>
+<td>0.8</td>
+<td style="text-align: right;"></td>
+</tr>
+</tbody>
+</table>
+<h5 id="induction-cyp3a4-templeton-2011">Induction: CYP3A4-Templeton 2011<a class="headerlink" href="#induction-cyp3a4-templeton-2011" title="Anchor link to this section for reference">&para;</a></h5>
+<p>Molecule: CYP3A4</p>
+<h6 id="parameters_16">Parameters<a class="headerlink" href="#parameters_16" title="Anchor link to this section for reference">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>EC50</td>
+<td>0.34 µmol/l</td>
+<td>Publication-Templeton 2011 (weighted mean for FHH)</td>
+</tr>
+<tr>
+<td>Emax</td>
+<td>9</td>
+<td>Publication-Templeton 2011 (weighted mean for FHH)</td>
+</tr>
+</tbody>
+</table>
+<h5 id="induction-aadac-assumed">Induction: AADAC-Assumed<a class="headerlink" href="#induction-aadac-assumed" title="Anchor link to this section for reference">&para;</a></h5>
+<p>Molecule: AADAC</p>
+<h6 id="parameters_17">Parameters<a class="headerlink" href="#parameters_17" title="Anchor link to this section for reference">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>EC50</td>
+<td>0.34 µmol/l</td>
+<td>Publication-Assumption-Hanke et al. 2018</td>
+</tr>
+<tr>
+<td>Emax</td>
+<td>0.985</td>
+<td>Publication-Parameter Identification-Hanke et al. 2018</td>
+</tr>
+</tbody>
+</table>
+<h5 id="induction-oatp1b1-dixit-2007">Induction: OATP1B1-Dixit 2007<a class="headerlink" href="#induction-oatp1b1-dixit-2007" title="Anchor link to this section for reference">&para;</a></h5>
+<p>Molecule: OATP1B1</p>
+<h6 id="parameters_18">Parameters<a class="headerlink" href="#parameters_18" title="Anchor link to this section for reference">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>EC50</td>
+<td>0.34 µmol/l</td>
+<td>Publication-Assumption-Hanke et al. 2018</td>
+</tr>
+<tr>
+<td>Emax</td>
+<td>0.383</td>
+<td>Publication-Parameter Identification-Hanke et al. 2018</td>
+</tr>
+</tbody>
+</table>
+<h5 id="induction-p-gp-greiner-1999">Induction: P-gp-Greiner 1999<a class="headerlink" href="#induction-p-gp-greiner-1999" title="Anchor link to this section for reference">&para;</a></h5>
+<p>Molecule: P-gp</p>
+<h6 id="parameters_19">Parameters<a class="headerlink" href="#parameters_19" title="Anchor link to this section for reference">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>EC50</td>
+<td>0.34 µmol/l</td>
+<td>Publication-Assumption-Hanke et al. 2018</td>
+</tr>
+<tr>
+<td>Emax</td>
+<td>2.5</td>
+<td>Publication-Assumption-Greiner et al. 1999</td>
+</tr>
+</tbody>
+</table>
+<h2 id="32-diagnostics-plots">3.2 Diagnostics Plots<a id="diagnostics-plots"></a><a class="headerlink" href="#32-diagnostics-plots" title="Anchor link to this section for reference">&para;</a></h2>
+<p>Below you find the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data used presented in <a href="#222-clinical-data">Section 2.2.2</a>.</p>
+<p>The first plot shows observed versus simulated plasma concentration and the second weighted residuals versus time for itraconazole, hydroxy-itraconazole, keto-itraconazole and N-desalkyl-itraconazole.</p>
+<p><a id="table-3-1"></a></p>
+<p><strong>Table 3-1: GMFE for Rifampicin concentration in plasma/serum</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Group</th>
+<th style="text-align: left;">GMFE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Rifampicin iv</td>
+<td style="text-align: left;">1.47</td>
+</tr>
+<tr>
+<td style="text-align: left;">Rifampicin po</td>
+<td style="text-align: left;">1.32</td>
+</tr>
+<tr>
+<td style="text-align: left;">All</td>
+<td style="text-align: left;">1.37</td>
+</tr>
+</tbody>
+</table>
+<p><br>
+<br></p>
+<p><a id="figure-3-1"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/008_section_diagnostics-plots/2_gof_plot_predictedVsObserved.png" /></p>
+<p><strong>Figure 3-1: Rifampicin concentration in plasma/serum</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-2"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/008_section_diagnostics-plots/3_gof_plot_residualsOverTime.png" /></p>
+<p><strong>Figure 3-2: Rifampicin concentration in plasma/serum</strong></p>
+<p><br>
+<br></p>
+<h2 id="33-concentration-time-profiles">3.3 Concentration-Time Profiles<a id="ct-profiles"></a><a class="headerlink" href="#33-concentration-time-profiles" title="Anchor link to this section for reference">&para;</a></h2>
+<p>Simulated versus observed concentration-time profiles of all data listed in <a href="#222-clinical-data">Section 2.2.2</a> are presented below.</p>
+<p><a id="figure-3-3"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/1_time_profile_plot_Rifampicin_Rifampicin_iv_300_mg__0_5_h_.png" /></p>
+<p><strong>Figure 3-3: Rifampicin iv 300 mg (0.5 h)</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-4"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/2_time_profile_plot_Rifampicin_Rifampicin_iv_300_mg__3_h_.png" /></p>
+<p><strong>Figure 3-4: Rifampicin iv 300 mg (3 h)</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-5"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/3_time_profile_plot_Rifampicin_Rifampicin_iv_300_mg__3_h_.png" /></p>
+<p><strong>Figure 3-5: Rifampicin iv 300 mg (3 h) - Urine</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-6"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/4_time_profile_plot_Rifampicin_Rifampicin_iv_450_mg__3_h_.png" /></p>
+<p><strong>Figure 3-6: Rifampicin iv 450 mg (3 h)</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-7"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/5_time_profile_plot_Rifampicin_Rifampicin_iv_450_mg__3_h_.png" /></p>
+<p><strong>Figure 3-7: Rifampicin iv 450 mg (3 h) - Urine</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-8"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/6_time_profile_plot_Rifampicin_Rifampicin_iv_600_mg__0_5_h_.png" /></p>
+<p><strong>Figure 3-8: Rifampicin iv 600 mg (0.5 h)</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-9"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/7_time_profile_plot_Rifampicin_Rifampicin_iv_600_mg__3_h_.png" /></p>
+<p><strong>Figure 3-9: Rifampicin iv 600 mg (3 h)</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-10"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/8_time_profile_plot_Rifampicin_Rifampicin_iv_600_mg__3_h_.png" /></p>
+<p><strong>Figure 3-10: Rifampicin iv 600 mg (3 h) - Urine</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-11"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/9_time_profile_plot_Rifampicin_Rifampicin_iv_600_mg__3_h__MD_OD__7_days_.png" /></p>
+<p><strong>Figure 3-11: Rifampicin iv 600 mg (3 h) MD OD (7 days)</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-12"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/10_time_profile_plot_Rifampicin_Rifampicin_po_300_mg.png" /></p>
+<p><strong>Figure 3-12: Rifampicin po 300 mg</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-13"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/11_time_profile_plot_Rifampicin_Rifampicin_po_450_mg.png" /></p>
+<p><strong>Figure 3-13: Rifampicin po 450 mg</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-14"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/12_time_profile_plot_Rifampicin_Rifampicin_po_450_mg_MD_OD__7_days_.png" /></p>
+<p><strong>Figure 3-14: Rifampicin po 450 mg MD OD (7 days)</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-15"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/13_time_profile_plot_Rifampicin_Rifampicin_po_450_mg_MD_OD__7_days_.png" /></p>
+<p><strong>Figure 3-15: Rifampicin po 450 mg MD OD (7 days) - Urine</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-16"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/14_time_profile_plot_Rifampicin_Rifampicin_po_450_mg_MD_OD__7_days_.png" /></p>
+<p><strong>Figure 3-16: Rifampicin po 450 mg MD OD (7 days) - Bile</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-17"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/15_time_profile_plot_Rifampicin_Rifampicin_po_600_mg.png" /></p>
+<p><strong>Figure 3-17: Rifampicin po 600 mg</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-18"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/16_time_profile_plot_Rifampicin_Rifampicin_po_600_mg.png" /></p>
+<p><strong>Figure 3-18: Rifampicin po 600 mg</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-19"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/17_time_profile_plot_Rifampicin_Rifampicin_po_600_mg_MD_OD__7_days_.png" /></p>
+<p><strong>Figure 3-19: Rifampicin po 600 mg MD OD (7 days)</strong></p>
+<p><br>
+<br></p>
+<h1 id="4-conclusion">4 Conclusion<a id="conclusion"></a><a class="headerlink" href="#4-conclusion" title="Anchor link to this section for reference">&para;</a></h1>
+<p>The herein presented PBPK model adequately describes the pharmacokinetics of rifampicin in adults. Little is known on the exact mass balance and the full metabolic profile of rifampicin. In this PBPK model, the implemented processes are those that were considered most vital to describe the pharmacokinetics of rifampicin and that could be informed either via <em>in vitro</em> data or via parameter optimization based on clinical PK data.</p>
+<p>The herein presented quantification of induction processes of OATP1B1 and AADAC are purely based on parameter optimization to describe auto-induction phenomena of rifampicin. The herein presented induction process of P-gp is based on <em>in vivo</em> observed P-gp induction measured in duodenal biopsies (<a href="#5-references">Greiner 1999</a>). The derived E<sub>max</sub> value was assumed to be applicable for P-gp induction in all tissues expressing P-gp. This needs to be considered when coupling the herein presented rifampicin model to PBPK models of potential victim drugs that are also subject to P-gp-mediated transport.</p>
+<p>Endogenous protein half-lives of OATP1B1, AADAC, and P-gp are not known. Thus, values reported for CYP3A4 were assumed in this PBPK model. These values were needed to implement induction of the three proteins. However, sensitivity of these parameters on simulated rifampicin plasma concentration is very low.</p>
+<p>The model features in particular induction of CYP3A4 based on aggregated <em>in vitro</em> CYP3A4 activity data in primary human hepatocytes (<a href="#5-references">Templeton 2011</a>). The model also accounts for competitive inhibition of CYP3A4.</p>
+<h1 id="5-references">5 References<a id="main-references"></a><a class="headerlink" href="#5-references" title="Anchor link to this section for reference">&para;</a></h1>
+<p><strong>Acocella 1972a</strong> Acocella G., Lamarina A., Nicolis F. B., Pagani V., Segre G. Kinetic studies on rifampicin II. Multicompartmental analysis of the serum, urine and bile concentrations in subjects treated for one week Eur J Clin Pharmacol. 1972;5(2):111-115.</p>
+<p><strong>Acocella 1972b</strong> Acocella G, Bonollo L, Garimoldi M, Mainardi M, Tenconi LT, Nicolis FB. Kinetics of rifampicin and isoniazid administered alone and in combination to normal subjects and patients with liver disease. Gut. Gut. 1972 Jan;13(1):47-53.</p>
+<p><strong>Acocella 1977</strong> Acocella G, Bonollo L, Mainardi M, Margaroli P, Tenconi LT. Serum and urine concentrations of rifampicin administered by intravenous infusion in man. Arzneimittelforschung. 1977;27(6):1221-6.</p>
+<p><strong>Acocella 1984</strong> Acocella G, Segre G, Conti R, Pagani V, Pallanza R, Perna G, Simone P. Pharmacokinetic study on intravenous rifampicin in man. Pharmacol Res Commun. 1984 Jul;16(7):723-36.</p>
+<p><strong>Acocella 1985</strong> Acocella G, Conti R, Luisetti M, Pozzi E, Grassi C. Pharmacokinetic studies on antituberculosis regimens in humans. I. Absorption and metabolism of the compounds used in the initial intensive phase of the short-course regimens: single administration study. </p>
+<p><strong>Agrawal 2005</strong> Agrawal S, Panchagnula R. Implication of biopharmaceutics and pharmacokinetics of rifampicin in variable bioavailability from solid oral dosage forms. Biopharm Drug Dispos. 2005 Nov;26(8):321-34.</p>
+<p><strong>Annaert 2010</strong> Annaert P, Ye ZW, Stieger B, Augustijns P. Interaction of HIV protease inhibitors with OATP1B1, 1B3, and 2B1. Xenobiotica. 2010 Mar;40(3):163-76.</p>
+<p><strong>Austin 2002</strong> Austin RP, Barton P, Cockroft SL, Wenlock MC, Riley RJ. The influence of nonspecific microsomal binding on apparent intrinsic clearance, and its prediction from physicochemical properties. Drug Metab Dispos. 2002 Dec;30(12):1497-503.</p>
+<p><strong>Baneyx 2014</strong> Baneyx G, Parrott N, Meille C, Iliadis A, Lavé T. Physiologically based pharmacokinetic modeling of CYP3A4 induction by rifampicin in human: influence of time between substrate and inducer administration. Eur J Pharm Sci. 2014 Jun 2;56:1-15.</p>
+<p><strong>Blume 1989</strong> Blume H., Mutschler E., Graf E. Bioäquivalenz; Qualitätsbewertung wirkstoffgleicher Fertigarzneimittel Pharmazie in unserer Zeit 19.5 (1990): 223-223.</p>
+<p><strong>Boman 1974</strong> Boman G, Ringberger VA. Binding of rifampicin by human plasma proteins. Eur J Clin Pharmacol. 1974 Aug 23;7(5):369-73.</p>
+<p><strong>Britz 2019</strong> Britz H, Hanke N, Volz AK, Spigset O, Schwab M, Eissing T, Wendl T, Frechen S, Lehr T. Physiologically-Based Pharmacokinetic Models for CYP1A2 Drug-Drug Interaction Prediction: A Modeling Network of Fluvoxamine, Theophylline, Caffeine, Rifampicin, and Midazolam. CPT Pharmacometrics Syst Pharmacol. 2019 May;8(5):296-307.</p>
+<p><strong>Buckley 2014</strong> Buckley D. B., Wiegand C. M., Prentiss P. L., Fahmi O. A. Time-course of cytochrome P450 (CYP450) induction in cultured human hepatocytes: evaluation of activity and mRNA expression profiles for six inducible CYP450 enzymes. Poster no. P186. In 10th International ISSX Meeting (Vol. 29). 2014, January.</p>
+<p><strong>Burger 2006</strong> Burger DM, Agarwala S, Child M, Been-Tiktak A, Wang Y, Bertz R. Effect of rifampin on steady-state pharmacokinetics of atazanavir with ritonavir in healthy volunteers. Antimicrob Agents Chemother. 2006 Oct;50(10):3336-42.</p>
+<p><strong>Chen 2010</strong> Chen Y, Liu L, Laille E, Kumar G, Surapaneni S. In vitro assessment of cytochrome P450 inhibition and induction potential of azacitidine. Cancer Chemother Pharmacol. 2010 Apr;65(5):995-1000.</p>
+<p><strong>Chouchane 1995</strong> Chouchane N, Barre J, Toumi A, Tillement JP, Benakis A. Bioequivalence study of two pharmaceutical forms of rifampicin capsules in man. Eur J Drug Metab Pharmacokinet. 1995 Oct-Dec;20(4):315-20.</p>
+<p><strong>Collett 2004</strong> Collett A, Tanianis-Hughes J, Hallifax D, Warhurst G. Predicting P-glycoprotein effects on oral absorption: correlation of transport in Caco-2 with drug pharmacokinetics in wild-type and mdr1a(-/-) mice in vivo. Pharm Res. 2004 May;21(5):819-26.</p>
+<p><strong>Dixit 2007</strong> Dixit V, Hariparsad N, Li F, Desai P, Thummel KE, Unadkat JD. Cytochrome P450 enzymes and transporters induced by anti-human immunodeficiency virus protease inhibitors in human hepatocytes: implications for predicting clinical drug interactions. Drug Metab Dispos. 2007 Oct;35(10):1853-9.</p>
+<p><strong>DrugBank DB01045</strong> (https://www.drugbank.ca/drugs/DB01045)</p>
+<p><strong>Emery 1999</strong> Emery MG, Jubert C, Thummel KE, Kharasch ED. Duration of cytochrome P-450 2E1 (CYP2E1) inhibition and estimation of functional CYP2E1 enzyme half-life after single-dose disulfiram administration in humans. J Pharmacol Exp Ther. 1999 Oct;291(1):213-9.</p>
+<p><strong>Eon Labs Manufacturing, Inc. 1997</strong> Access Data FDA: https://www.accessdata.fda.gov/drugsatfda_docs/anda/97/064150review.pdf </p>
+<p><strong>Furesz 1970</strong> Furesz S. Chemical and biological properties of rifampicin. Antibiot Chemother. 1970;16:316-51.</p>
+<p><strong>Geick 2001</strong> Geick A, Eichelbaum M, Burk O. Nuclear receptor response elements mediate induction of intestinal MDR1 by rifampin. J Biol Chem. 2001 May 4;276(18):14581-7.</p>
+<p><strong>Greenblatt 2003</strong> Greenblatt DJ, von Moltke LL, Harmatz JS, Chen G, Weemhoff JL, Jen C, Kelley CJ, LeDuc BW, Zinny MA. Time course of recovery of cytochrome p450 3A function after single doses of grapefruit juice. Clin Pharmacol Ther. 2003 Aug;74(2):121-9.</p>
+<p><strong>Greiner 1999</strong> Greiner B, Eichelbaum M, Fritz P, Kreichgauer HP, von Richter O, Zundler J, Kroemer HK. The role of intestinal P-glycoprotein in the interaction of digoxin and rifampin. J Clin Invest. 1999 Jul;104(2):147-53.</p>
+<p><strong>Hanke 2018</strong> Hanke N, Frechen S, Moj D, Britz H, Eissing T, Wendl T, Lehr T. PBPK Models for CYP3A4 and P-gp DDI Prediction: A Modeling Network of Rifampicin, Itraconazole, Clarithromycin, Midazolam, Alfentanil, and Digoxin. CPT Pharmacometrics Syst Pharmacol. 2018 Oct;7(10):647-659.</p>
+<p><strong>Hirano 2006</strong> Hirano M, Maeda K, Shitara Y, Sugiyama Y. Drug-drug interaction between pitavastatin and various drugs via OATP1B1. Drug Metab Dispos. 2006 Jul;34(7):1229-36.</p>
+<p><strong>Kajosaari 2005</strong> Kajosaari LI, Laitila J, Neuvonen PJ, Backman JT. Metabolism of repaglinide by CYP2C8 and CYP3A4 in vitro: effect of fibrates and rifampicin. Basic Clin Pharmacol Toxicol. 2005 Oct;97(4):249-56.</p>
+<p><strong>Kolars 1992</strong> Kolars JC, Schmiedlin-Ren P, Schuetz JD, Fang C, Watkins PB. Identification of rifampin-inducible P450IIIA4 (CYP3A4) in human small bowel enterocytes. J Clin Invest. 1992 Nov;90(5):1871-8.</p>
+<p><strong>Kuepfer 2016</strong> Kuepfer L, Niederalt C, Wendl T, Schlender JF, Willmann S, Lippert J, Block M, Eissing T, Teutonico D. Applied Concepts in PBPK Modeling: How to Build a PBPK/PD Model.CPT Pharmacometrics Syst Pharmacol. 2016 Oct;5(10):516-531.</p>
+<p><strong>Kyrklund 2000</strong> Kyrklund C, Backman JT, Kivistö KT, Neuvonen M, Laitila J, Neuvonen PJ. Rifampin greatly reduces plasma simvastatin and simvastatin acid concentrations. Clin Pharmacol Ther. 2000 Dec;68(6):592-7.</p>
+<p><strong>Loos 1985</strong> Loos U, Musch E, Jensen JC, Mikus G, Schwabe HK, Eichelbaum M. Pharmacokinetics of oral and intravenous rifampicin during chronic administration. Klin Wochenschr. 1985 Dec 2;63(23):1205-11.</p>
+<p><strong>Maggi 1966</strong> Maggi N, Pasqualucci CR, Ballotta R, Sensi P. Rifampicin: a new orally active rifamycin. Chemotherapy. 1966;11(5):285-92. doi: 10.1159/000220462.</p>
+<p><strong>Meyer 2012</strong> Meyer M, Schneckener S, Ludewig B, Kuepfer L, Lippert J. Using expression data for quantification of active processes in physiologically based pharmacokinetic modeling. Drug Metab Dispos. 2012 May;40(5):892-901.</p>
+<p><strong>Mills 2004</strong> Mills JB, Rose KA, Sadagopan N, Sahi J, de Morais SM. Induction of drug metabolism enzymes and MDR1 using a novel human hepatocyte cell line. J Pharmacol Exp Ther. 2004 Apr;309(1):303-9.</p>
+<p><strong>Moore 2000</strong> Moore LB, Parks DJ, Jones SA, Bledsoe RK, Consler TG, Stimmel JB, Goodwin B, Liddle C, Blanchard SG, Willson TM, Collins JL, Kliewer SA.J Biol Chem. Orphan Nuclear Receptors Constitutive Androstane Receptor and Pregnane X Receptor Share Xenobiotic and Steroid Ligands. 2000 May 19;275(20):15122-7.</p>
+<p><strong>Nakajima 2011</strong> Nakajima A, Fukami T, Kobayashi Y, Watanabe A, Nakajima M, Yokoi T. Human arylacetamide deacetylase is responsible for deacetylation of rifamycins: rifampicin, rifabutin, and rifapentine. Biochem Pharmacol. 2011 Dec 1;82(11):1747-56.</p>
+<p><strong>Nishimura 2013</strong> Nishimura M, Yaguti H, Yoshitsugu H, Naito S, Satoh T. Tissue distribution of mRNA expression of human cytochrome P450 isoforms assessed by high-sensitivity real-time reverse transcription PCR. Yakugaku Zasshi. 2003 May;123(5):369-75.</p>
+<p><strong>Nitti 1977</strong> Nitti V, Virgilio R, Patricolo MR, Iuliano A. Pharmacokinetic study of intravenous rifampicin. Chemotherapy. 1977;23(1):1-6.</p>
+<p><strong>Obach 2007</strong> Obach RS, Walsky RL, Venkatakrishnan K. Mechanism-based inactivation of human cytochrome p450 enzymes and the prediction of drug-drug interactions. Drug Metab Dispos. 2007 Feb;35(2):246-55.</p>
+<p><strong>OSP Database</strong> <a href="https://github.com/Open-Systems-Pharmacology/Database-for-observed-data">https://github.com/Open-Systems-Pharmacology/Database-for-observed-data</a></p>
+<p><strong>Panchagnula 2007</strong> Panchagnula R., Gulati I., Varma M., Raj Y.A. Dissolution methodology for evaluation of rifampicin-containing fixed-dose combinations using biopharmaceutic classification system based approach. Clin. Res. Regul. Aff. 24, 61–76 (2007)</p>
+<p><strong>Peloquin 1997</strong> Peloquin CA, Jaresko GS, Yong CL, Keung AC, Bulpitt AE, Jelliffe RW. Population pharmacokinetic modeling of isoniazid, rifampin, and pyrazinamide. Antimicrob Agents Chemother. 1997 Dec;41(12):2670-9.</p>
+<p><strong>Peloquin 1999</strong> Peloquin CA, Namdar R, Singleton MD, Nix DE. Pharmacokinetics of rifampin under fasting conditions, with food, and with antacids. Chest. 1999 Jan;115(1):12-8.</p>
+<p><strong>PK-Sim Ontogeny Database Version 7.3</strong> (https://github.com/Open-Systems-Pharmacology/OSPSuite.Documentation/blob/38cf71b384cfc25cfa0ce4d2f3addfd32757e13b/PK-Sim%20Ontogeny%20Database%20Version%207.3.pdf)</p>
+<p><strong>Rae 2001</strong> Rae JM, Johnson MD, Lippman ME, Flockhart DA. Rifampin is a selective, pleiotropic inducer of drug metabolism genes in human hepatocytes: studies with cDNA and oligonucleotide expression arrays. J Pharmacol Exp Ther. 2001 Dec;299(3):849-57.</p>
+<p><strong>Reitman 2011</strong> Reitman ML, Chu X, Cai X, Yabut J, Venkatasubramanian R, Zajic S, Stone JA, Ding Y, Witter R, Gibson C, Roupe K, Evers R, Wagner JA, Stoch A. Rifampin's acute inhibitory and chronic inductive drug interactions: experimental and model-based approaches to drug-drug interaction trial design. Clin Pharmacol Ther. 2011 Feb;89(2):234-42. doi: 10.1038/clpt.2010.271.</p>
+<p><strong>Renwick 2000</strong> Renwick AB, Watts PS, Edwards RJ, Barton PT, Guyonnet I, Price RJ, Tredger JM, Pelkonen O, Boobis AR, Lake BG. Differential maintenance of cytochrome P450 enzymes in cultured precision-cut human liver slices. Drug Metab Dispos. 2000 Oct;28(10):1202-9.</p>
+<p><strong>Rodrigues 1999</strong> Rodrigues AD. Integrated cytochrome P450 reaction phenotyping: attempting to bridge the gap between cDNA-expressed cytochromes P450 and native human liver microsomes. Biochem Pharmacol. 1999 Mar 1;57(5):465-80.</p>
+<p><strong>Sahi 2000</strong> Sahi J, Hamilton G, Sinz M, Barros S, Huang SM, Lesko LJ, LeCluyse EL. Effect of troglitazone on cytochrome P450 enzymes in primary cultures of human and rat hepatocytes. Xenobiotica. 2000 Mar;30(3):273-84.</p>
+<p><strong>sanofi-aventis U.S. LLC. 2013</strong> Access Data FDA: https://www.accessdata.fda.gov/drugsatfda_docs/label/2013/050420s075,050627s014lbl.pdf</p>
+<p><strong>Shou 2008</strong> Shou M, Hayashi M, Pan Y, Xu Y, Morrissey K, Xu L, Skiles GL. Modeling, prediction, and in vitro in vivo correlation of CYP3A4 induction. Drug Metab Dispos. 2008 Nov;36(11):2355-70.</p>
+<p><strong>Smythe 2012</strong> Smythe W, Khandelwal A, Merle C, Rustomjee R, Gninafon M, Bocar Lo M, Sow OB, Olliaro PL, Lienhardt C, Horton J, Smith P, McIlleron H, Simonsson US. A semimechanistic pharmacokinetic-enzyme turnover model for rifampin autoinduction in adult tuberculosis patients. Antimicrob Agents Chemother. 2012 Apr;56(4):2091-8.</p>
+<p><strong>Staudinger 2010</strong> Staudinger JL, Xu C, Cui YJ, Klaassen CD. Nuclear receptor-mediated regulation of carboxylesterase expression and activity. Expert Opin Drug Metab Toxicol. 2010 Mar;6(3):261-71.</p>
+<p><strong>Stone 2004</strong> Stone JA, Migoya EM, Hickey L, Winchell GA, Deutsch PJ, Ghosh K, Freeman A, Bi S, Desai R, Dilzer SC, Lasseter KC, Kraft WK, Greenberg H, Waldman SA. Potential for interactions between caspofungin and nelfinavir or rifampin. Antimicrob Agents Chemother. 2004 Nov;48(11):4306-14.</p>
+<p><strong>Templeton 2011</strong> Templeton IE, Houston JB, Galetin A. Predictive utility of in vitro rifampin induction data generated in fresh and cryopreserved human hepatocytes, Fa2N-4, and HepaRG cells. Drug Metab Dispos. 2011 Oct;39(10):1921-9.</p>
+<p><strong>Tirona 2003</strong> Tirona RG, Leake BF, Wolkoff AW, Kim RB. Human organic anion transporting polypeptide-C (SLC21A6) is a major determinant of rifampin-mediated pregnane X receptor activation. J Pharmacol Exp Ther. 2003 Jan;304(1):223-8.</p>
+<p><strong>Türk 2019</strong> Türk D, Hanke N, Wolf S, Frechen S, Eissing T, Wendl T, Schwab M, Lehr T. Physiologically Based Pharmacokinetic Models for Prediction of Complex CYP2C8 and OATP1B1 (SLCO1B1) Drug-Drug-Gene Interactions: A Modeling Network of Gemfibrozil, Repaglinide, Pioglitazone, Rifampicin, Clarithromycin and Itraconazole. Clin Pharmacokinet. 2019 Dec;58(12):1595-1607.</p>
+<p><strong>Westphal 2000</strong> Westphal K, Weinbrenner A, Zschiesche M, Franke G, Knoke M, Oertel R, Fritz P, von Richter O, Warzok R, Hachenberg T, Kauffmann HM, Schrenk D, Terhaag B, Kroemer HK, Siegmund W. Induction of P-glycoprotein by rifampin increases intestinal secretion of talinolol in human beings: a new type of drug/drug interaction. Clin Pharmacol Ther. 2000 Oct;68(4):345-55.</p>
+<p><strong>Williamson 2013</strong> Williamson B, Dooley KE, Zhang Y, Back DJ, Owen A. Induction of influx and efflux transporters and cytochrome P450 3A4 in primary human hepatocytes by rifampin, rifabutin, and rifapentine. Antimicrob Agents Chemother. 2013 Dec;57(12):6366-9.</p>
+<p><strong>Zhang 2012</strong> Zhang Y, Cheng X, Aleksunes L, Klaassen CD. Transcription factor-mediated regulation of carboxylesterase enzymes in livers of mice. Drug Metab Dispos. 2012 Jun;40(6):1191-7.</p>
+<hr />
+<h2 id="related-models">Related Models<a class="headerlink" href="#related-models" title="Anchor link to this section for reference">&para;</a></h2>
+<p>Explore other Antibiotics models in this library:</p>
+<ul>
+<li><a href="../Amikacin/">Amikacin</a> - PBPK model and evaluation report</li>
+<li><a href="../Clarithromycin/">Clarithromycin</a> - PBPK model and evaluation report</li>
+<li><a href="../Erythromycin/">Erythromycin</a> - PBPK model and evaluation report</li>
+<li><a href="../Ethinylestradiol/">Ethinylestradiol</a> - PBPK model and evaluation report</li>
+<li><a href="../Vancomycin/">Vancomycin</a> - PBPK model and evaluation report</li>
+</ul>
+<p><a href="../#antibiotics">View all Antibiotics →</a></p>
+<p><a href="../">← Back to Model Library Home</a></p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; Open Systems Pharmacology Community
+    </div>
+  
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/Open-Systems-Pharmacology" target="_blank" rel="noopener" title="Open Systems Pharmacology on GitHub" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://www.open-systems-pharmacology.org/" target="_blank" rel="noopener" title="Open Systems Pharmacology Website" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M351.9 280H161c2.9 64.5 17.2 123.9 37.5 167.4 11.4 24.5 23.7 41.8 35.1 52.4 11.2 10.5 18.9 12.2 22.9 12.2s11.7-1.7 22.9-12.2c11.4-10.6 23.7-28 35.1-52.4 20.3-43.5 34.6-102.9 37.5-167.4zm-191-48h190.9c-2.8-64.5-17.1-123.9-37.4-167.4-11.4-24.4-23.7-41.8-35.1-52.4C268.1 1.7 260.4 0 256.4 0s-11.7 1.7-22.9 12.2c-11.4 10.6-23.7 28-35.1 52.4-20.3 43.5-34.6 102.9-37.5 167.4m-48 0c3.5-85.6 25.6-165.1 57.9-217.3C78.7 47.3 10.9 131.2 1.5 232zM1.5 280c9.4 100.8 77.2 184.7 169.3 217.3-32.3-52.2-54.4-131.7-57.9-217.3zm398.4 0c-3.5 85.6-25.6 165.1-57.9 217.3 92.1-32.7 159.9-116.5 169.3-217.3zm111.4-48C501.9 131.2 434.1 47.3 342 14.7c32.3 52.2 54.4 131.7 57.9 217.3z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.top", "navigation.tabs.sticky", "navigation.indexes", "navigation.path", "toc.follow", "search.highlight", "search.suggest", "search.share", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

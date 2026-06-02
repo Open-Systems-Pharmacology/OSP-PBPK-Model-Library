@@ -1,0 +1,2523 @@
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="PBPK (Physiologically Based Pharmacokinetic) model evaluation report for Felodipine. Detailed pharmacokinetic modeling and simulation results using Open Systems Pharmacology platform.">
+      
+      
+        <meta name="author" content="Open Systems Pharmacology Community">
+      
+      
+        <link rel="canonical" href="https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/Felodipine/">
+      
+      
+        <link rel="prev" href="../Ethinylestradiol/">
+      
+      
+        <link rel="next" href="../Fluconazole/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Felodipine PBPK Model - Physiologically Based Pharmacokinetic Evaluation Report - OSP PBPK Model Library (Version 12.3)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/Felodipine/">
+  <meta property="og:title" content="Felodipine">
+  <meta property="og:description" content="PBPK (Physiologically Based Pharmacokinetic) model evaluation report for Felodipine. Detailed pharmacokinetic modeling and simulation results using Open Systems Pharmacology platform.">
+  <meta property="og:site_name" content="OSP PBPK Model Library (Version 12.3)">
+  <meta property="og:image" content="https://www.open-systems-pharmacology.org/assets/images/logo.png">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/Felodipine/">
+  <meta name="twitter:title" content="Felodipine">
+  <meta name="twitter:description" content="PBPK (Physiologically Based Pharmacokinetic) model evaluation report for Felodipine. Detailed pharmacokinetic modeling and simulation results using Open Systems Pharmacology platform.">
+  <meta name="twitter:image" content="https://www.open-systems-pharmacology.org/assets/images/logo.png">
+
+  <!-- Structured Data (JSON-LD) for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "OSP PBPK Model Library (Version 12.3)",
+    "description": "Comprehensive library of validated PBPK (Physiologically Based Pharmacokinetic) models and qualification reports for drug development. Open-source whole-body PBPK modeling and simulation software for systems biology and multiscale physiological modeling.",
+    "url": "https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Open Systems Pharmacology",
+      "url": "https://www.open-systems-pharmacology.org/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.open-systems-pharmacology.org/assets/images/logo.png"
+      }
+    },
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
+  <!-- Dataset Schema for PBPK Model Library -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    "name": "Open Systems Pharmacology PBPK Model Library",
+    "description": "Comprehensive library of validated PBPK (Physiologically Based Pharmacokinetic) models for drug development and pharmaceutical research",
+    "url": "https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/",
+    "keywords": ["PBPK", "pharmacokinetic modeling", "drug development", "PK-Sim", "MoBi", "systems pharmacology", "ADME"],
+    "license": "https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library#license",
+    "creator": {
+      "@type": "Organization",
+      "name": "Open Systems Pharmacology",
+      "url": "https://www.open-systems-pharmacology.org/"
+    },
+    "distribution": {
+      "@type": "DataDownload",
+      "encodingFormat": "application/zip",
+      "contentUrl": "https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library"
+    }
+  }
+  </script>
+
+  <!-- SoftwareApplication Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "PK-Sim PBPK Models",
+    "applicationCategory": "ScientificApplication",
+    "operatingSystem": "Windows",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "description": "Validated PBPK models for use with PK-Sim and MoBi software for pharmaceutical research and drug development",
+    "url": "https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Open Systems Pharmacology"
+    }
+  }
+  </script>
+
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "Felodipine PBPK Model - Physiologically Based Pharmacokinetic Evaluation Report",
+    "description": "PBPK (Physiologically Based Pharmacokinetic) model evaluation report for Felodipine. Detailed pharmacokinetic modeling and simulation results using Open Systems Pharmacology platform.",
+    "author": {
+      "@type": "Organization",
+      "name": "Open Systems Pharmacology"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Open Systems Pharmacology",
+      "url": "https://www.open-systems-pharmacology.org/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.open-systems-pharmacology.org/assets/images/logo.png"
+      }
+    },
+    "url": "https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/Felodipine/",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/Felodipine/"
+    },
+    "keywords": "Felodipine, PBPK model, physiologically based pharmacokinetic model, Felodipine pharmacokinetics, drug modeling, PK-Sim"
+  }
+  </script>
+  
+
+  
+  <meta name="keywords" content="Felodipine, PBPK model, physiologically based pharmacokinetic model, Felodipine pharmacokinetics, drug modeling, PK-Sim">
+  
+
+  
+  <link rel="canonical" href="https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/Felodipine/">
+  
+
+  <!-- Language -->
+  <meta http-equiv="content-language" content="en">
+  <meta name="language" content="English">
+
+
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#building-and-evaluation-of-a-pbpk-model-for-felodipine-in-healthy-adults" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="OSP PBPK Model Library (Version 12.3)" class="md-header__button md-logo" aria-label="OSP PBPK Model Library (Version 12.3)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OSP PBPK Model Library (Version 12.3)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Felodipine PBPK Model - Physiologically Based Pharmacokinetic Evaluation Report
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    OSP-PBPK-Model-Library
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="OSP PBPK Model Library (Version 12.3)" class="md-nav__button md-logo" aria-label="OSP PBPK Model Library (Version 12.3)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    OSP PBPK Model Library (Version 12.3)
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    OSP-PBPK-Model-Library
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7E3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7E3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Alfentanil/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Alfentanil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Alprazolam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Alprazolam
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Amikacin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amikacin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Atazanavir/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Atazanavir
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BAY794620/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BAY794620
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CDA1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CDA1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Carbamazepine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Carbamazepine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Cimetidine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cimetidine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Clarithromycin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Clarithromycin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Dapagliflozin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dapagliflozin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Digoxin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Digoxin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Efavirenz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Efavirenz
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Erythromycin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Erythromycin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ethinylestradiol/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ethinylestradiol
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Felodipine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Fluconazole/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fluconazole
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Fluvoxamine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fluvoxamine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Inulin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inulin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Itraconazole/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Itraconazole
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MEDI524/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MEDI524
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MEDI524YTE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MEDI524YTE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mefenamic_acid/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mefenamic_acid
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mexiletine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mexiletine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Midazolam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Midazolam
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Moclobemide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Moclobemide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Montelukast/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Montelukast
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Omeprazole/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Omeprazole
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Propofol/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Propofol
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Raltegravir/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Raltegravir
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Rifampicin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rifampicin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S-Mephenytoin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S-Mephenytoin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Sildenafil/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sildenafil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Sufentanil/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sufentanil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tefibazumab/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tefibazumab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tizanidine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tizanidine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Triazolam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Triazolam
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Vancomycin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vancomycin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Verapamil/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Verapamil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dAb2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    dAb2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="building-and-evaluation-of-a-pbpk-model-for-felodipine-in-healthy-adults">Building and evaluation of a PBPK model for Felodipine in healthy adults<a class="headerlink" href="#building-and-evaluation-of-a-pbpk-model-for-felodipine-in-healthy-adults" title="Anchor link to this section for reference">&para;</a></h1>
+<table>
+<thead>
+<tr>
+<th>Version</th>
+<th>2.0-OSP12.3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>based on <em>Model Snapshot</em> and <em>Evaluation Plan</em></td>
+<td>https://github.com/Open-Systems-Pharmacology/Felodipine-Model/releases/tag/v2.0</td>
+</tr>
+<tr>
+<td>OSP Version</td>
+<td>12.3</td>
+</tr>
+<tr>
+<td>Qualification Framework Version</td>
+<td>3.6</td>
+</tr>
+</tbody>
+</table>
+<p>This evaluation report and the corresponding PK-Sim project file are filed at:</p>
+<p>https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library/</p>
+<h1 id="table-of-contents">Table of Contents<a class="headerlink" href="#table-of-contents" title="Anchor link to this section for reference">&para;</a></h1>
+<ul>
+<li><a href="#introduction">1 Introduction</a></li>
+<li><a href="#methods">2 Methods</a></li>
+<li><a href="#modeling-strategy">2.1 Modeling Strategy</a></li>
+<li><a href="#data">2.2 Data</a></li>
+<li><a href="#model-parameters-and-assumptions">2.3 Model Parameters and Assumptions</a></li>
+<li><a href="#results-and-discussion">3 Results and Discussion</a></li>
+<li><a href="#final-input-parameters">3.1 Final input parameters</a></li>
+<li><a href="#diagnostics-plots">3.2 Diagnostics Plots</a></li>
+<li><a href="#ct-profiles">3.3 Concentration-Time Profiles</a><ul>
+<li><a href="#model-building">3.3.1 Model Building</a></li>
+<li><a href="#model-verification">3.3.2 Model Verification</a></li>
+</ul>
+</li>
+<li><a href="#conclusion">4 Conclusion</a></li>
+<li><a href="#main-references">5 References</a></li>
+</ul>
+<h1 id="1-introduction">1 Introduction<a id="introduction"></a><a class="headerlink" href="#1-introduction" title="Anchor link to this section for reference">&para;</a></h1>
+<p>Felodipine is a calcium-channel blocker, indicated for angina pectoris and arterial hypertension. It is mostly metabolized by CYP3A4 making it a sensitive probe and victim drug for the investigation of CYP3A4 activity <em>in vivo</em>. It is a BCS class II compound. Felodipine shows substantial first pass metabolism resulting in a bioavailability of 15%. </p>
+<p>The model has been developed and evaluated by comparing observed data to simulations of a large number of clinical studies covering a dose range of 1.5 mg to 10 mg after intravenous and oral administrations. Furthermore, it has been evaluated within a CYP3A4 DDI modeling network as a victim drug. </p>
+<p>Model features include:</p>
+<ul>
+<li>metabolism by CYP3A4</li>
+<li>metabolism by an unknown enzyme <em>via</em> unspecific hepatic clearance</li>
+<li>a decrease in the permeability between the intracellular and interstitial space (model parameters <code>P (intracellular-&gt;interstitial)</code> and <code>P (interstitial-&gt;intracellular)</code>) in intestinal mucosa to optimize quantitatively the extent of gut wall metabolism</li>
+</ul>
+<h1 id="2-methods">2 Methods<a id="methods"></a><a class="headerlink" href="#2-methods" title="Anchor link to this section for reference">&para;</a></h1>
+<h2 id="21-modeling-strategy">2.1 Modeling Strategy<a id="modeling-strategy"></a><a class="headerlink" href="#21-modeling-strategy" title="Anchor link to this section for reference">&para;</a></h2>
+<p>The general concept of building a PBPK model has previously been described by Kuepfer et al. (<a href="#5-references">Kuepfer 2016</a>). Relevant information on anthropometric (height, weight) and physiological parameters (e.g. blood flows, organ volumes, binding protein concentrations, hematocrit, cardiac output) in adults was gathered from the literature and has been previously published (<a href="#5-references">Willmann 2007</a>). The information was incorporated into PK-Sim® and was used as default values for the simulations in adults.</p>
+<p>The applied activity and variability of plasma proteins and active processes that are integrated into PK-Sim® are described in the publicly available PK-Sim® Ontogeny Database Version 7.3 (<a href="#5-references">PK-Sim Ontogeny Database Version 7.3</a>) or otherwise referenced for the specific process.</p>
+<p>First, a mean model was built using clinical data from single dose and multiple doses studies with intravenous and oral administration of felodipine (<a href="#5-references">Edgar 1987</a>, <a href="#5-references">Bailey 1996</a>, <a href="#5-references">Gelal 2005</a>, <a href="#5-references">Bailey 2003</a>, <a href="#5-references">Goosen 2004</a>, <a href="#5-references">Jalava 1997</a>, <a href="#5-references">Blychert 1990</a>, <a href="#5-references">Lundahl 1998</a>, <a href="#5-references">Bailey 1995</a>, <a href="#5-references">Aberg 1997</a>, <a href="#5-references">Bailey 1993</a>, <a href="#5-references">Edgar 1992</a>, <a href="#5-references">Lundahl 1997</a>). One DDI study (<a href="#5-references">Jalava 1997</a>) was also used in the optimization to help the model describe DDI better. The mean PBPK model was developed using a typical male European individual. The relative tissue-specific expressions of enzymes predominantly being involved in the metabolism of felodipine (CYP3A4) were considered (<a href="#5-references">Meyer 2012</a>).</p>
+<p>A specific selected set of parameters (see below) was optimized using the Parameter Identification module provided in PK-Sim®. Structural model selection was mainly guided by visual inspection of the resulting description of data and biological plausibility.</p>
+<p>Once the appropriate structural model was identified, dissolution kinetic parameters were optimized for immediate-release tablets. </p>
+<p>The model was then evaluated by simulating further clinical studies reporting pharmacokinetic concentration-time profiles of felodipine.</p>
+<p>Details about input data (physicochemical, <em>in vitro</em> and clinical) can be found in <a href="#22-data">Section 2.2</a>.</p>
+<p>Details about the structural model and its parameters can be found in <a href="#23-model-parameters-and-assumptions">Section 2.3</a>.</p>
+<h2 id="22-data">2.2 Data<a id="data"></a><a class="headerlink" href="#22-data" title="Anchor link to this section for reference">&para;</a></h2>
+<h3 id="221-in-vitro-and-physicochemical-data">2.2.1 In vitro and physicochemical data<a class="headerlink" href="#221-in-vitro-and-physicochemical-data" title="Anchor link to this section for reference">&para;</a></h3>
+<p>A literature search was performed to collect available information on physicochemical properties of felodipine. The obtained information from literature is summarized in the table below, and is used for model building.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Parameter</strong></th>
+<th><strong>Unit</strong></th>
+<th><strong>Value</strong></th>
+<th>Source</th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">MW</td>
+<td>g/mol</td>
+<td>384.254</td>
+<td><a href="#5-references">DrugBank DB01023</a></td>
+<td>Molecular weight</td>
+</tr>
+<tr>
+<td style="text-align: left;">pK<sub>a1</sub></td>
+<td></td>
+<td>n.a.</td>
+<td><a href="#5-references">Alskar 2018</a></td>
+<td>Acid dissociation constant of conjugate acid</td>
+</tr>
+<tr>
+<td style="text-align: left;">pK<sub>a1</sub></td>
+<td></td>
+<td>5.07</td>
+<td><a href="#5-references">Pandey 2013</a></td>
+<td>Acid dissociation constant of conjugate acid; compound type: acid</td>
+</tr>
+<tr>
+<td style="text-align: left;">Solubility (pH)</td>
+<td>mg/L</td>
+<td>14.3<br />(7.1)</td>
+<td><a href="#5-references">Takano 2016</a></td>
+<td>Aqueous Solubility</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td></td>
+<td>1</td>
+<td><a href="#5-references">Scholz 2002</a></td>
+<td>Aqueous Solubility</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td></td>
+<td>53</td>
+<td><a href="#5-references">Söderlind 2010</a></td>
+<td>Solubility in fasted state simulated intestinal fluid I</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td></td>
+<td>12</td>
+<td><a href="#5-references">Söderlind 2010</a></td>
+<td>Solubility in fasted state simulated intestinal fluid II</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td></td>
+<td>14</td>
+<td><a href="#5-references">Söderlind 2010</a></td>
+<td>Solubility in fasted human intestinal fluid</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td></td>
+<td>15<br />(7.5)</td>
+<td><a href="#5-references">Persson 2005</a></td>
+<td>Solubility in fasted human intestinal fluid</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td></td>
+<td>413<br />(6.1)</td>
+<td><a href="#5-references">Persson 2005</a></td>
+<td>Solubility in fed human intestinal fluid</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td></td>
+<td>191</td>
+<td><a href="#5-references">Persson 2005</a></td>
+<td>Solubility in fed state simulated intestinal fluid</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td></td>
+<td>77<br />(6.35)</td>
+<td><a href="#5-references">Scholz 2002</a></td>
+<td>Solubility in fasted state chyme</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td></td>
+<td>56<br />(4.93)</td>
+<td><a href="#5-references">Scholz 2002</a></td>
+<td>Solubility in fed state chyme</td>
+</tr>
+<tr>
+<td style="text-align: left;">logP</td>
+<td></td>
+<td>4.36</td>
+<td><a href="#5-references">DrugBank DB01023</a></td>
+<td>Partition coefficient between octanol and water</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td></td>
+<td>3.44</td>
+<td><a href="#5-references">DrugBank DB01023</a></td>
+<td>Partition coefficient between octanol and water</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td></td>
+<td>3.86</td>
+<td><a href="#5-references">McPherson 2020</a></td>
+<td>Partition coefficient between octanol and water</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td></td>
+<td>4.5</td>
+<td><a href="#5-references">Scholz 2002</a></td>
+<td>Partition coefficient between octanol and water</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td></td>
+<td>4.8</td>
+<td><a href="#5-references">Bu 2006</a></td>
+<td>Partition coefficient between octanol and water</td>
+</tr>
+<tr>
+<td style="text-align: left;">fu</td>
+<td>%</td>
+<td>0.36</td>
+<td><a href="#5-references">Soons 1993</a></td>
+<td>Fraction unbound in plasma</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td>%</td>
+<td>0.36</td>
+<td><a href="#5-references">Ushimura 2010</a></td>
+<td>Fraction unbound in plasma</td>
+</tr>
+<tr>
+<td style="text-align: left;">V<sub>max</sub>, K<sub>m</sub> CYP3A</td>
+<td>pmol/mg/min,<br />µmol/L</td>
+<td>1630<br />2.81</td>
+<td><a href="#5-references">Walsky 2004</a></td>
+<td>CYP3A liver microsomes Michaelis-Menten kinetics</td>
+</tr>
+<tr>
+<td style="text-align: left;">V<sub>max</sub>, K<sub>m</sub> CYP3A</td>
+<td>pmol/mg/min,<br />µmol/L</td>
+<td>240<br />6.9</td>
+<td><a href="#5-references">Bu 2006</a></td>
+<td>CYP3A liver microsomes Michaelis-Menten kinetics</td>
+</tr>
+<tr>
+<td style="text-align: left;">V<sub>max</sub>, K<sub>m</sub> CYP3A4</td>
+<td>pmol/mg/min,<br />µmol/L</td>
+<td>36.8<br />0.938</td>
+<td><a href="#5-references">Walsky 2004</a></td>
+<td>Recombinant CYP3A4 Michaelis-Menten kinetics</td>
+</tr>
+<tr>
+<td style="text-align: left;">V<sub>max</sub>, K<sub>m</sub> CYP3A5</td>
+<td>pmol/mg/min,<br />µmol/L</td>
+<td>24.2<br />1.41</td>
+<td><a href="#5-references">Walsky 2004</a></td>
+<td>Recombinant CYP3A5 Michaelis-Menten kinetics</td>
+</tr>
+</tbody>
+</table>
+<h3 id="222-clinical-data">2.2.2 Clinical data<a class="headerlink" href="#222-clinical-data" title="Anchor link to this section for reference">&para;</a></h3>
+<p>A literature search was performed to collect available clinical data on felodipine in adults. </p>
+<p>The following publications were found in adults for model building:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Publication</th>
+<th style="text-align: left;">Arm / Treatment / Information used for model building</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Lundahl 1997</a></td>
+<td style="text-align: left;">Plasma PK profiles in healthy subjects with single dose administrations of a felodipine 1.5 mg intravenous infusion</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Edgar 1987</a></td>
+<td style="text-align: left;">Plasma PK profiles in healthy subjects with single dose administrations of a felodipine:<br />- 10 mg oral solution <br />- 10 mg extended release tablet <br />- 10 mg immediate release tablet</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Blychert 1990</a></td>
+<td style="text-align: left;">Plasma PK profiles in healthy subjects with multiple dose administrations of a felodipine:<br />- 10 mg oral solution <br />- 10 mg extended release tablet</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Goosen 2004</a></td>
+<td style="text-align: left;">Plasma PK profiles in healthy subjects with single dose administrations of a felodipine 5 mg extended release tablet</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Jalava 1997</a></td>
+<td style="text-align: left;">Plasma PK profiles in healthy subjects with single dose administrations of a felodipine 5 mg extended release tablet <br />- alone (control) <br />- with itraconazole (treatment)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Bailey 1996</a></td>
+<td style="text-align: left;">Plasma PK profiles in healthy subjects with single dose administrations of a felodipine 10 mg extended release tablet</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Gelal 2005</a></td>
+<td style="text-align: left;">Plasma PK profiles in healthy subjects with single dose administrations of a felodipine 10 mg extended release tablet</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Bailey 2003</a></td>
+<td style="text-align: left;">Plasma PK profiles in healthy subjects with single dose administrations of a felodipine 10 mg extended release tablet</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Bailey 1993</a></td>
+<td style="text-align: left;">Plasma PK profiles in healthy subjects with single dose administrations of a felodipine 5 mg immediate release tablet</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Edgar 1992</a></td>
+<td style="text-align: left;">Plasma PK profiles in healthy subjects with single dose administrations of a felodipine 5 mg immediate release tablet</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Blychert 1990</a></td>
+<td style="text-align: left;">Plasma PK profiles in healthy subjects with multiple dose administrations of a felodipine:<br />- 10 mg oral solution <br />- 10 mg extended release tablet</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Lundahl 1998</a></td>
+<td style="text-align: left;">Plasma PK profiles in healthy subjects with multiple dose administrations of a felodipine 10 mg extended release tablet</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Bailey 1995</a></td>
+<td style="text-align: left;">Plasma PK profiles in healthy subjects with multiple dose administrations of a felodipine 10 mg extended release tablet</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Aberg 1997</a></td>
+<td style="text-align: left;">Plasma PK profiles in healthy subjects with multiple dose administrations of a felodipine 10 mg extended release tablet</td>
+</tr>
+</tbody>
+</table>
+<p>The following dosing scenarios were simulated and compared to respective data for model verification:</p>
+<table>
+<thead>
+<tr>
+<th>Scenario</th>
+<th>Data reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>po 5 mg single dose (extended release tablet)</td>
+<td><a href="#5-references">Dresser 2000</a></td>
+</tr>
+<tr>
+<td>po 10 mg single dose (extended release tablet)</td>
+<td><a href="#5-references">Dresser 2017</a></td>
+</tr>
+<tr>
+<td></td>
+<td><a href="#5-references">Dresser 2002</a></td>
+</tr>
+<tr>
+<td></td>
+<td><a href="#5-references">Bailey 2000</a></td>
+</tr>
+<tr>
+<td></td>
+<td><a href="#5-references">Bailey 1998</a></td>
+</tr>
+<tr>
+<td></td>
+<td><a href="#5-references">Lundahl 1997</a></td>
+</tr>
+<tr>
+<td></td>
+<td><a href="#5-references">Madsen 1996</a></td>
+</tr>
+<tr>
+<td>po 2.5 / 5 mg once daily (extended release tablet)</td>
+<td><a href="#5-references">Dresser 2000</a></td>
+</tr>
+<tr>
+<td>po 10 mg once daily (immediate release tablet)</td>
+<td><a href="#5-references">Blychert 1990</a></td>
+</tr>
+<tr>
+<td>po 10 mg twice daily (immediate release tablet)</td>
+<td><a href="#5-references">Blychert 1990</a></td>
+</tr>
+<tr>
+<td></td>
+<td><a href="#5-references">Smith 1987</a></td>
+</tr>
+<tr>
+<td>po 10 mg three times daily (immediate release tablet)</td>
+<td><a href="#5-references">Bratel 1989</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="23-model-parameters-and-assumptions">2.3 Model Parameters and Assumptions<a id="model-parameters-and-assumptions"></a><a class="headerlink" href="#23-model-parameters-and-assumptions" title="Anchor link to this section for reference">&para;</a></h2>
+<h3 id="231-absorption">2.3.1 Absorption<a class="headerlink" href="#231-absorption" title="Anchor link to this section for reference">&para;</a></h3>
+<p>The model parameter <code>Specific intestinal permeability</code> was was calculated by PK-Sim® and kept to that value since it was insensitive. The default solubility was assumed to be measured value in fasted state simulated intestinal fluid (see <a href="#221-in-vitro-and-physicochemical-data">Section 2.2.1</a>)</p>
+<p>The dissolution of both immediate and extended-release tables was implemented via two Weibull dissolution tablets, and the dissolution kinetic parameters were optimized (see <a href="#234-automated-parameter-identification">Section 2.3.4</a>).</p>
+<h3 id="232-distribution">2.3.2 Distribution<a class="headerlink" href="#232-distribution" title="Anchor link to this section for reference">&para;</a></h3>
+<p>Felodipine is highly bound to proteins in plasma (see <a href="#221-in-vitro-and-physicochemical-data">Section 2.2.1</a>). A value of 0.36% was used in this PBPK model for <code>Fraction unbound (plasma, reference value)</code>. </p>
+<p>An important parameter influencing the resulting volume of distribution is lipophilicity. The reported experimental logP values are in the range of 4 (see <a href="#221-in-vitro-and-physicochemical-data">Section 2.2.1</a>) which served as a starting value. Finally, the model parameter <code>Lipophilicity</code> was optimized to match best clinical data (see also <a href="#234-automated-parameter-identification">Section 2.3.4</a>).</p>
+<p>After testing the available organ-plasma partition coefficient and cell permeability calculation methods built in PK-Sim, observed clinical data was best described by choosing the partition coefficient calculation by <code>Rodgers and Rowland</code> and cellular permeability calculation by <code>PK-Sim Standard</code>.</p>
+<h3 id="233-metabolism-and-elimination">2.3.3 Metabolism and Elimination<a class="headerlink" href="#233-metabolism-and-elimination" title="Anchor link to this section for reference">&para;</a></h3>
+<p>Two metabolic pathways were implement into the model via Michaelis-Menten kinetics </p>
+<ul>
+<li>CYP3A4</li>
+<li>unknown hepatic enzyme <em>via</em> unspecific hepatic clearance</li>
+</ul>
+<p>The latter was preferred over renal clearance, since there is evidence that felodipine is fully metabolized and not found in urine (<a href="#5-references">Edgar 1987</a>).
+CYP3A5 was not implemented since the fraction metabolized appeared to be minor compared to CYP3A4.</p>
+<p>The CYP3A4 expression profiles is based on high-sensitive real-time RT-PCR (<a href="#5-references">Nishimura 2003</a>). Absolute tissue-specific expressions were obtained by considering the respective absolute concentration in the liver. The PK-Sim database provides a default value for CYP3A4 (compare <a href="#5-references">Rodrigues 1999</a> and assume 40 mg protein per gram liver). </p>
+<p>The first model simulations showed that gut wall metabolism was underrepresented in the PBPK model. In order to increase gut wall metabolism, the “mucosa permeability on basolateral side” (jointly the model parameters in the mucosa: <code>P (interstitial-&gt;intracellular)</code> and <code>P (intracellular-&gt;interstitial)</code>) was estimated. A decrease in this permeability may lead to higher gut wall concentrations and, in turn, to a higher gut wall elimination. This parameter was preferred over other parameters such as relative CYP3A4 expression or fraction unbound (fu) in the gut wall as it is technically not limited to a maximum value of 100%.</p>
+<h3 id="234-automated-parameter-identification">2.3.4 Automated Parameter Identification<a class="headerlink" href="#234-automated-parameter-identification" title="Anchor link to this section for reference">&para;</a></h3>
+<p>This is the result of the final parameter identification for the base model:</p>
+<table>
+<thead>
+<tr>
+<th>Model Parameter</th>
+<th>Optimized Value</th>
+<th>Unit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Lipophilicity</code></td>
+<td>4.51</td>
+<td>Log Units</td>
+</tr>
+<tr>
+<td>Basolateral mucosa permeability<br />(<code>P (interstitial-&gt;intracellular)</code>, <code>P (intracellular-&gt;interstitial)</code>)</td>
+<td>0.09</td>
+<td>cm/min</td>
+</tr>
+<tr>
+<td><code>kcat</code> (CYP3A4)</td>
+<td>204.70</td>
+<td>1/min</td>
+</tr>
+<tr>
+<td><code>Dissolution time</code> (extended release tablet)</td>
+<td>286.95</td>
+<td>min</td>
+</tr>
+<tr>
+<td><code>Dissolution shape</code> (extended release tablet)</td>
+<td>0.76</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Lag time</code> (extended release tablet)</td>
+<td>18.68</td>
+<td>min</td>
+</tr>
+<tr>
+<td><code>Tablet time delay factor</code> (extended release tablet)</td>
+<td>0.07</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Dissolution time</code> (immediate release tablet)</td>
+<td>46.50</td>
+<td>min</td>
+</tr>
+<tr>
+<td><code>Dissolution shape</code> (immediate release tablet)</td>
+<td>0.89</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="3-results-and-discussion">3 Results and Discussion<a id="results-and-discussion"></a><a class="headerlink" href="#3-results-and-discussion" title="Anchor link to this section for reference">&para;</a></h1>
+<p>The PBPK model for felodipine was developed and verified with clinical pharmacokinetic data.</p>
+<p>The model was built and evaluated covering data from studies including in particular</p>
+<ul>
+<li>intravenous (infusions) and oral administrations (solutions, immediate release and extended release tablets).</li>
+<li>a dose range of 1.5 to 10 mg.</li>
+</ul>
+<p>The model quantifies metabolism via CYP3A4, and a second unknown hepatic enzyme.</p>
+<p>The next sections show:</p>
+<ol>
+<li>the final model input parameters for the building blocks: <a href="#31-final-input-parameters">Section 3.1</a>.</li>
+<li>the overall goodness of fit: <a href="#32-diagnostics-plots">Section 3.2</a>.</li>
+<li>simulated vs. observed concentration-time profiles for the clinical studies used for model building and for model verification: <a href="#33-concentration-time-profiles">Section 3.3</a>.</li>
+</ol>
+<h2 id="31-final-input-parameters">3.1 Final input parameters<a id="final-input-parameters"></a><a class="headerlink" href="#31-final-input-parameters" title="Anchor link to this section for reference">&para;</a></h2>
+<p>The compound parameter values of the final PBPK model are illustrated below.</p>
+<h3 id="compound-felodipine">Compound: Felodipine<a class="headerlink" href="#compound-felodipine" title="Anchor link to this section for reference">&para;</a></h3>
+<h4 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Anchor link to this section for reference">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+<th>Alternative</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Solubility at reference pH</td>
+<td>12 µg/ml</td>
+<td>Publication-Soderlind, 2010</td>
+<td>FaSSIF II</td>
+<td>True</td>
+</tr>
+<tr>
+<td>Reference pH</td>
+<td>6.5</td>
+<td>Publication-Soderlind, 2010</td>
+<td>FaSSIF II</td>
+<td>True</td>
+</tr>
+<tr>
+<td>Lipophilicity</td>
+<td>4.5085714616 Log Units</td>
+<td>Parameter Identification-Parameter Identification-Value updated from 'PI_IV+Solution+ER+DDI_additionalCL_3' on 2022-08-10 10:40</td>
+<td>Measurement</td>
+<td>True</td>
+</tr>
+<tr>
+<td>Fraction unbound (plasma, reference value)</td>
+<td>0.0036</td>
+<td>Publication-Ushimura, 2010</td>
+<td>Measurement</td>
+<td>True</td>
+</tr>
+<tr>
+<td>Cl</td>
+<td>2</td>
+<td>Internet-DrugBank DB01023</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Is small molecule</td>
+<td>Yes</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Molecular weight</td>
+<td>384.254 g/mol</td>
+<td>Internet-DrugBank DB01023</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Plasma protein binding partner</td>
+<td>Unknown</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="calculation-methods">Calculation methods<a class="headerlink" href="#calculation-methods" title="Anchor link to this section for reference">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Partition coefficients</td>
+<td>Rodgers and Rowland</td>
+</tr>
+<tr>
+<td>Cellular permeabilities</td>
+<td>PK-Sim Standard</td>
+</tr>
+</tbody>
+</table>
+<h4 id="processes">Processes<a class="headerlink" href="#processes" title="Anchor link to this section for reference">&para;</a></h4>
+<h5 id="metabolizing-enzyme-cyp3a4-walsky-2004">Metabolizing Enzyme: CYP3A4-Walsky 2004<a class="headerlink" href="#metabolizing-enzyme-cyp3a4-walsky-2004" title="Anchor link to this section for reference">&para;</a></h5>
+<p>Molecule: CYP3A4</p>
+<h6 id="parameters_1">Parameters<a class="headerlink" href="#parameters_1" title="Anchor link to this section for reference">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>In vitro Vmax for liver microsomes</td>
+<td>1630 pmol/min/mg mic. protein</td>
+<td>Publication-Walsky 2004</td>
+</tr>
+<tr>
+<td>Km</td>
+<td>2.81 µmol/l</td>
+<td>Publication-Walsky 2004</td>
+</tr>
+<tr>
+<td>kcat</td>
+<td>204.6995652687 1/min</td>
+<td>Parameter Identification-Parameter Identification-Value updated from 'PI_IV+Solution+ER+DDI_additionalCL_3' on 2022-08-10 10:40</td>
+</tr>
+</tbody>
+</table>
+<h5 id="systemic-process-total-hepatic-clearance-unspecific-hepatic-clearance">Systemic Process: Total Hepatic Clearance-Unspecific hepatic clearance<a class="headerlink" href="#systemic-process-total-hepatic-clearance-unspecific-hepatic-clearance" title="Anchor link to this section for reference">&para;</a></h5>
+<p>Species: Human</p>
+<h6 id="parameters_2">Parameters<a class="headerlink" href="#parameters_2" title="Anchor link to this section for reference">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fraction unbound (experiment)</td>
+<td>0.0036</td>
+<td></td>
+</tr>
+<tr>
+<td>Lipophilicity (experiment)</td>
+<td>4.3407865958 Log Units</td>
+<td></td>
+</tr>
+<tr>
+<td>Plasma clearance</td>
+<td>0 ml/min/kg</td>
+<td></td>
+</tr>
+<tr>
+<td>Specific clearance</td>
+<td>12.8042083376 1/min</td>
+<td>Parameter Identification-Parameter Identification-Value updated from 'PI_IV+Solution+ER+DDI_additionalCL_3' on 2022-08-10 10:41</td>
+</tr>
+</tbody>
+</table>
+<h3 id="formulation-felodipine_ir-tablet">Formulation: Felodipine_IR tablet<a class="headerlink" href="#formulation-felodipine_ir-tablet" title="Anchor link to this section for reference">&para;</a></h3>
+<p>Type: Weibull</p>
+<h4 id="parameters_3">Parameters<a class="headerlink" href="#parameters_3" title="Anchor link to this section for reference">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dissolution time (50% dissolved)</td>
+<td>46.5005948338 min</td>
+<td>Parameter Identification-Parameter Identification-Value updated from 'PI IR Tablet alone' on 2022-08-10 11:29</td>
+</tr>
+<tr>
+<td>Lag time</td>
+<td>0 min</td>
+<td></td>
+</tr>
+<tr>
+<td>Dissolution shape</td>
+<td>0.8876005929</td>
+<td>Parameter Identification-Parameter Identification-Value updated from 'PI IR Tablet alone' on 2022-08-10 11:29</td>
+</tr>
+<tr>
+<td>Use as suspension</td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="formulation-felodipine_er-tablet">Formulation: Felodipine_ER tablet<a class="headerlink" href="#formulation-felodipine_er-tablet" title="Anchor link to this section for reference">&para;</a></h3>
+<p>Type: Weibull</p>
+<h4 id="parameters_4">Parameters<a class="headerlink" href="#parameters_4" title="Anchor link to this section for reference">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dissolution time (50% dissolved)</td>
+<td>286.9463213309 min</td>
+<td>Parameter Identification-Parameter Identification-Value updated from 'PI_IV+Solution+ER+DDI_additionalCL_3' on 2022-08-10 10:41</td>
+</tr>
+<tr>
+<td>Lag time</td>
+<td>18.6758448616 min</td>
+<td>Parameter Identification-Parameter Identification-Value updated from 'PI_IV+Solution+ER+DDI_additionalCL_3' on 2022-08-10 10:41</td>
+</tr>
+<tr>
+<td>Dissolution shape</td>
+<td>0.7639975313</td>
+<td>Parameter Identification-Parameter Identification-Value updated from 'PI_IV+Solution+ER+DDI_additionalCL_3' on 2022-08-10 10:41</td>
+</tr>
+<tr>
+<td>Use as suspension</td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="32-diagnostics-plots">3.2 Diagnostics Plots<a id="diagnostics-plots"></a><a class="headerlink" href="#32-diagnostics-plots" title="Anchor link to this section for reference">&para;</a></h2>
+<p>Below you find the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data used presented in <a href="#222-clinical-data">Section 2.2.2</a>.</p>
+<p>The first plot shows observed versus simulated plasma concentration, the second weighted residuals versus time. </p>
+<p><a id="table-3-1"></a></p>
+<p><strong>Table 3-1: GMFE for Felodipine concentration in plasma</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Group</th>
+<th style="text-align: left;">GMFE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Intravenous administration (model building)</td>
+<td style="text-align: left;">1.33</td>
+</tr>
+<tr>
+<td style="text-align: left;">Oral administration, ER tablet (model building)</td>
+<td style="text-align: left;">1.30</td>
+</tr>
+<tr>
+<td style="text-align: left;">Oral administration, ER tablet (model verification)</td>
+<td style="text-align: left;">1.35</td>
+</tr>
+<tr>
+<td style="text-align: left;">Oral administration, IR tablet (model building)</td>
+<td style="text-align: left;">1.51</td>
+</tr>
+<tr>
+<td style="text-align: left;">Oral administration, IR tablet (model verification)</td>
+<td style="text-align: left;">1.35</td>
+</tr>
+<tr>
+<td style="text-align: left;">Oral administration, solution (model building)</td>
+<td style="text-align: left;">1.17</td>
+</tr>
+<tr>
+<td style="text-align: left;">All</td>
+<td style="text-align: left;">1.33</td>
+</tr>
+</tbody>
+</table>
+<p><br>
+<br></p>
+<p><a id="figure-3-1"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/008_section_diagnostics-plots/2_gof_plot_predictedVsObserved.png" /></p>
+<p><strong>Figure 3-1: Felodipine concentration in plasma</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-2"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/008_section_diagnostics-plots/3_gof_plot_residualsOverTime.png" /></p>
+<p><strong>Figure 3-2: Felodipine concentration in plasma</strong></p>
+<p><br>
+<br></p>
+<h2 id="33-concentration-time-profiles">3.3 Concentration-Time Profiles<a id="ct-profiles"></a><a class="headerlink" href="#33-concentration-time-profiles" title="Anchor link to this section for reference">&para;</a></h2>
+<p>Simulated versus observed concentration-time profiles of all data listed in <a href="#222-clinical-data">Section 2.2.2</a> are presented below.</p>
+<h3 id="331-model-building">3.3.1 Model Building<a id="model-building"></a><a class="headerlink" href="#331-model-building" title="Anchor link to this section for reference">&para;</a></h3>
+<p><a id="figure-3-3"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/1_time_profile_plot_Felodipine_IV_1_5mg__60min_.png" /></p>
+<p><strong>Figure 3-3: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-4"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/2_time_profile_plot_Felodipine_Oral_solution.png" /></p>
+<p><strong>Figure 3-4: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-5"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/3_time_profile_plot_Felodipine_Oral_solution_MD.png" /></p>
+<p><strong>Figure 3-5: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-6"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/4_time_profile_plot_Felodipine_IR_tablet_5mg.png" /></p>
+<p><strong>Figure 3-6: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-7"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/5_time_profile_plot_Felodipine_IR_tablet_10mg.png" /></p>
+<p><strong>Figure 3-7: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-8"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/6_time_profile_plot_Felodipine_ER_tablet_5mg.png" /></p>
+<p><strong>Figure 3-8: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-9"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/7_time_profile_plot_Felodipine_ER_tablet_10mg.png" /></p>
+<p><strong>Figure 3-9: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-10"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/010_section_model-building/8_time_profile_plot_Felodipine_ER_tablet_OD_10mg.png" /></p>
+<p><strong>Figure 3-10: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<h3 id="332-model-verification">3.3.2 Model Verification<a id="model-verification"></a><a class="headerlink" href="#332-model-verification" title="Anchor link to this section for reference">&para;</a></h3>
+<p><a id="figure-3-11"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/9_time_profile_plot_Felodipine_ER_tablet_10mg_test.png" /></p>
+<p><strong>Figure 3-11: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-12"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/10_time_profile_plot_Felodipine_ER_tablet_5mg_test.png" /></p>
+<p><strong>Figure 3-12: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-13"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/11_time_profile_plot_Felodipine_ER_tablet_OD_10mg_test.png" /></p>
+<p><strong>Figure 3-13: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-14"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/12_time_profile_plot_Felodipine_ER_tablet_OD_2_5_5mg_test.png" /></p>
+<p><strong>Figure 3-14: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-15"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/13_time_profile_plot_Felodipine_IR_tablet_BID_10mg_test.png" /></p>
+<p><strong>Figure 3-15: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-16"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/14_time_profile_plot_Felodipine_IR_tablet_OD_10mg_test.png" /></p>
+<p><strong>Figure 3-16: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-17"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/011_section_model-verification/15_time_profile_plot_Felodipine_IR_tablet_TID_5mg_test.png" /></p>
+<p><strong>Figure 3-17: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<h1 id="4-conclusion">4 Conclusion<a id="conclusion"></a><a class="headerlink" href="#4-conclusion" title="Anchor link to this section for reference">&para;</a></h1>
+<p>The herein presented PBPK model adequately describes the pharmacokinetics of felodipine in adults.</p>
+<p>In particular, it applies quantitative metabolism by CYP3A4, and a second unknown hepatic enzyme. Thus, the model is fit for purpose to be applied for the investigation of drug-drug interactions with regard to its CYP3A4 metabolism.</p>
+<h1 id="5-references">5 References<a id="main-references"></a><a class="headerlink" href="#5-references" title="Anchor link to this section for reference">&para;</a></h1>
+<p><strong>Aberg 1997</strong> Aberg J, Abrahamsson B, Grind M, Nyberg G, Olofsson B. Bioequivalence, pharmacokinetic and pharmacodynamic response to combined extended release formulations of felodipine and metoprolol in healthy volunteers. Eur J Clin Pharmacol. 1997;52(6):471-7.</p>
+<p><strong>Alskar 2018</strong> Alskar LC, Keemink J, Johannesson J, Porter CJH, Bergstrom CAS. Impact of Drug Physicochemical Properties on Lipolysis-Triggered Drug Supersaturation and Precipitation from Lipid-Based Formulations. Mol Pharm. 2018;15(10):4733-44.</p>
+<p><strong>Bailey 1993</strong> Bailey DG, Arnold JM, Munoz C, Spence JD. Grapefruit juice--felodipine interaction: mechanism, predictability, and effect of naringin. Clin Pharmacol Ther. 1993;53(6):637-42.</p>
+<p><strong>Bailey 1995</strong> Bailey DG, Arnold JM, Bend JR, Tran LT, Spence JD. Grapefruit juice-felodipine interaction: reproducibility and characterization with the extended release drug formulation. Br J Clin Pharmacol. 1995;40(2):135-40.</p>
+<p><strong>Bailey 1996</strong> Bailey DG, Bend JR, Arnold JM, Tran LT, Spence JD. Erythromycin-felodipine interaction: magnitude, mechanism, and comparison with grapefruit juice. Clin Pharmacol Ther. 1996;60(1):25-33.</p>
+<p><strong>Bailey 1998</strong> Bailey DG, Kreeft JH, Munoz C, Freeman DJ, Bend JR. Grapefruit juice-felodipine interaction: effect of naringin and 6',7'-dihydroxybergamottin in humans. Clin Pharmacol Ther. 1998;64(3):248-56.</p>
+<p><strong>Bailey 2000</strong> Bailey DG, Dresser GK, Kreeft JH, Munoz C, Freeman DJ, Bend JR. Grapefruit-felodipine interaction: effect of unprocessed fruit and probable active ingredients. Clin Pharmacol Ther. 2000;68(5):468-77.</p>
+<p><strong>Bailey 2003</strong> Bailey D. Bergamottin, lime juice, and red wine as inhibitors of cytochrome P450 3a4 activity: comparison with grapefruit juice. Clinical Pharmacology &amp; Therapeutics. 2003;73(6):529-37.</p>
+<p><strong>Blychert 1990</strong> Blychert E, Wingstrand K, Edgar B, Lidman K. Plasma concentration profiles and antihypertensive effect of conventional and extended-release felodipine tablets. Br J Clin Pharmacol. 1990;29(1):39-45.</p>
+<p><strong>Bratel 1989</strong> Bratel T, Billing B, Dahlqvist R. Felodipine reduces the absorption of theophylline in man. Eur J Clin Pharmacol. 1989;36(5):481-5.</p>
+<p><strong>Bu 2006</strong> Bu HZ. A literature review of enzyme kinetic parameters for CYP3A4-mediated metabolic reactions of 113 drugs in human liver microsomes: structure-kinetics relationship assessment. Curr Drug Metab. 2006;7(3):231-49.</p>
+<p><strong>Dresser 2000</strong> Dresser GK, Bailey DG, Carruthers SG. Grapefruit juice--felodipine interaction in the elderly. Clin Pharmacol Ther. 2000;68(1):28-34.</p>
+<p><strong>Dresser 2002</strong> Dresser GK, Wacher V, Wong S, Wong HT, Bailey DG. Evaluation of peppermint oil and ascorbyl palmitate as inhibitors of cytochrome P4503A4 activity in vitro and in vivo. Clin Pharmacol Ther. 2002;72(3):247-55.</p>
+<p><strong>Dresser 2017</strong> Dresser GK, Urquhart BL, Proniuk J, Tieu A, Freeman DJ, Arnold JM, et al. Coffee inhibition of CYP3A4 in vitro was not translated to a grapefruit-like pharmacokinetic interaction clinically. Pharmacol Res Perspect. 2017;5(5).</p>
+<p><strong>DrugBank DB01023</strong> https://go.drugbank.com/drugs/DB01023</p>
+<p><strong>Edgar 1987</strong> Edgar B, Lundborg P, Regårdh CG. Clinical pharmacokinetics of felodipine. A summary. Drugs. 1987;34 Suppl 3:16-27.</p>
+<p><strong>Edgar 1992</strong> Edgar B, Bailey D, Bergstrand R, Johnsson G, Regårdh CG. Acute effects of drinking grapefruit juice on the pharmacokinetics and dynamics of felodipine--and its potential clinical relevance. Eur J Clin Pharmacol. 1992;42(3):313-7.</p>
+<p><strong>Gelal 2005</strong> Gelal A, Balkan D, Ozzeybek D, Kaplan YC, Gurler S, Guven H, et al. Effect of menthol on the pharmacokinetics and pharmacodynamics of felodipine in healthy subjects. Eur J Clin Pharmacol. 2005;60(11):785-90.</p>
+<p><strong>Goosen 2004</strong> Goosen TC, Cillie D, Bailey DG, Yu C, He K, Hollenberg PF, et al. Bergamottin contribution to the grapefruit juice-felodipine interaction and disposition in humans. Clin Pharmacol Ther. 2004;76(6):607-17.</p>
+<p><strong>Jalava 1997</strong> Jalava KM, Olkkola KT, Neuvonen PJ. Itraconazole greatly increases plasma concentrations and effects of felodipine. Clin Pharmacol Ther. 1997;61(4):410-5.</p>
+<p><strong>Kuepfer 2016</strong> Kuepfer L, Niederalt C, Wendl T, Schlender JF, Willmann S, Lippert J, et al. Applied Concepts in PBPK Modeling: How to Build a PBPK/PD Model. CPT Pharmacometrics Syst Pharmacol. 2016;5(10):516-31.</p>
+<p><strong>Lundahl 1997</strong> Lundahl J, Regårdh CG, Edgar B, Johnsson G. Effects of grapefruit juice ingestion--pharmacokinetics and haemodynamics of intravenously and orally administered felodipine in healthy men. Eur J Clin Pharmacol. 1997;52(2):139-45.</p>
+<p><strong>Lundahl 1998</strong> Lundahl JU, Regårdh CG, Edgar B, Johnsson G. The interaction effect of grapefruit juice is maximal after the first glass. Eur J Clin Pharmacol. 1998;54(1):75-81.</p>
+<p><strong>Madsen 1996</strong> Madsen JK, Jensen JD, Jensen LW, Pedersen EB. Pharmacokinetic interaction between cyclosporine and the dihydropyridine calcium antagonist felodipine. Eur J Clin Pharmacol. 1996;50(3):203-8.</p>
+<p><strong>McPherson 2020</strong> McPherson S, Perrier J, Dunn C, Khadra I, Davidson S, Ainousah B, et al. Small scale design of experiment investigation of equilibrium solubility in simulated fasted and fed intestinal fluid. Eur J Pharm Biopharm. 2020;150:14-23.</p>
+<p><strong>Meyer 2012</strong> Meyer M, Schneckener S, Ludewig B, Kuepfer L, Lippert J. Using expression data for quantification of active processes in physiologically based pharmacokinetic modeling. Drug Metab Dispos. 2012;40(5):892-901.</p>
+<p><strong>Nishimura 2003</strong> Nishimura M, Yaguti H, Yoshitsugu H, Naito S, Satoh T. Tissue distribution of mRNA expression of human cytochrome P450 isoforms assessed by high-sensitivity real-time reverse transcription PCR. Yakugaku Zasshi. 2003;123(5):369-75.</p>
+<p><strong>Pandey 2013</strong> Pandey MM, Jaipal A, Kumar A, Malik R, Charde SY. Determination of pK(a) of felodipine using UV-Visible spectroscopy. Spectrochim Acta A Mol Biomol Spectrosc. 2013;115:887-90.</p>
+<p><strong>Persson 2005</strong> Persson EM, Gustafsson AS, Carlsson AS, Nilsson RG, Knutson L, Forsell P, et al. The effects of food on the dissolution of poorly soluble drugs in human and in model small intestinal fluids. Pharm Res. 2005;22(12):2141-51.</p>
+<p><strong>PK-Sim Ontogeny Database Version 7.3</strong>  https://github.com/Open-Systems-Pharmacology/OSPSuite.Documentation/blob/38cf71b384cfc25cfa0ce4d2f3addfd32757e13b/PK-Sim%20Ontogeny%20Database%20Version%207.3.pdf</p>
+<p><strong>Rodrigues 2003</strong> Rodrigues E, Vilarem MJ, Ribeiro V, Maurel P, Lechner MC. Two CCAAT/enhancer binding protein sites in the cytochrome P4503A1 locus. Potential role in the glucocorticoid response. Eur J Biochem. 2003;270(3):556-64.</p>
+<p><strong>Scholz 2002</strong> Scholz A, Abrahamsson B, Diebold SM, Kostewicz E, Polentarutti BI, Ungell AL, et al. Influence of hydrodynamics and particle size on the absorption of felodipine in labradors. Pharm Res. 2002;19(1):42-6.</p>
+<p><strong>Smith 1987</strong> Smith SR, Wilkins MR, Jack DB, Kendall MJ, Laugher S. Pharmacokinetic interactions between felodipine and metoprolol. Eur J Clin Pharmacol. 1987;31(5):575-8.</p>
+<p><strong>Söderlind 2010</strong> Söderlind E, Karlsson E, Carlsson A, Kong R, Lenz A, Lindborg S, et al. Simulating fasted human intestinal fluids: understanding the roles of lecithin and bile acids. Mol Pharm. 2010;7(5):1498-507.</p>
+<p><strong>Soons 1993</strong> Soons PA, Cohen AF, Breimer DD. Comparative effects of felodipine, nitrendipine and nifedipine in healthy subjects: concentration-effect relationships of racemic drugs and enantiomers. Eur J Clin Pharmacol. 1993;44(2):113-20.</p>
+<p><strong>Takano 2016</strong>Takano J, Maeda K, Bolger MB, Sugiyama Y. The Prediction of the Relative Importance of CYP3A/P-glycoprotein to the Nonlinear Intestinal Absorption of Drugs by Advanced Compartmental Absorption and Transit Model. Drug Metab Dispos. 2016;44(11):1808-18.</p>
+<p><strong>Ushimura 2010</strong> Uchimura T, Kato M, Saito T, Kinoshita H. Prediction of human blood-to-plasma drug concentration ratio. Biopharm Drug Dispos. 2010;31(5-6):286-97.</p>
+<p><strong>Walsky 2004</strong> Walsky RL, Obach RS. Validated assays for human cytochrome P450 activities. Drug Metab Dispos. 2004;32(6):647-60.</p>
+<p><strong>Willmann 2007</strong> Willmann S, Höhn K, Edginton A, Sevestre M, Solodenko J, Weiss W, et al. Development of a physiology-based whole-body population model for assessing the influence of individual variability on the pharmacokinetics of drugs. J Pharmacokinet Pharmacodyn. 2007;34(3):401-31.</p>
+<hr />
+<h2 id="related-models">Related Models<a class="headerlink" href="#related-models" title="Anchor link to this section for reference">&para;</a></h2>
+<p>Explore other Cardiovascular Agents models in this library:</p>
+<ul>
+<li><a href="../Cimetidine/">Cimetidine</a> - PBPK model and evaluation report</li>
+<li><a href="../Dapagliflozin/">Dapagliflozin</a> - PBPK model and evaluation report</li>
+<li><a href="../Digoxin/">Digoxin</a> - PBPK model and evaluation report</li>
+<li><a href="../Fluconazole/">Fluconazole</a> - PBPK model and evaluation report</li>
+<li><a href="../Itraconazole/">Itraconazole</a> - PBPK model and evaluation report</li>
+</ul>
+<p><a href="../#cardiovascular-agents">View all Cardiovascular Agents →</a></p>
+<p><a href="../">← Back to Model Library Home</a></p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; Open Systems Pharmacology Community
+    </div>
+  
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/Open-Systems-Pharmacology" target="_blank" rel="noopener" title="Open Systems Pharmacology on GitHub" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://www.open-systems-pharmacology.org/" target="_blank" rel="noopener" title="Open Systems Pharmacology Website" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M351.9 280H161c2.9 64.5 17.2 123.9 37.5 167.4 11.4 24.5 23.7 41.8 35.1 52.4 11.2 10.5 18.9 12.2 22.9 12.2s11.7-1.7 22.9-12.2c11.4-10.6 23.7-28 35.1-52.4 20.3-43.5 34.6-102.9 37.5-167.4zm-191-48h190.9c-2.8-64.5-17.1-123.9-37.4-167.4-11.4-24.4-23.7-41.8-35.1-52.4C268.1 1.7 260.4 0 256.4 0s-11.7 1.7-22.9 12.2c-11.4 10.6-23.7 28-35.1 52.4-20.3 43.5-34.6 102.9-37.5 167.4m-48 0c3.5-85.6 25.6-165.1 57.9-217.3C78.7 47.3 10.9 131.2 1.5 232zM1.5 280c9.4 100.8 77.2 184.7 169.3 217.3-32.3-52.2-54.4-131.7-57.9-217.3zm398.4 0c-3.5 85.6-25.6 165.1-57.9 217.3 92.1-32.7 159.9-116.5 169.3-217.3zm111.4-48C501.9 131.2 434.1 47.3 342 14.7c32.3 52.2 54.4 131.7 57.9 217.3z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.top", "navigation.tabs.sticky", "navigation.indexes", "navigation.path", "toc.follow", "search.highlight", "search.suggest", "search.share", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

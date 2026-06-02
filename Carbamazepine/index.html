@@ -1,0 +1,3256 @@
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="PBPK (Physiologically Based Pharmacokinetic) model evaluation report for Carbamazepine. Detailed pharmacokinetic modeling and simulation results using Open Systems Pharmacology platform.">
+      
+      
+        <meta name="author" content="Open Systems Pharmacology Community">
+      
+      
+        <link rel="canonical" href="https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/Carbamazepine/">
+      
+      
+        <link rel="prev" href="../CDA1/">
+      
+      
+        <link rel="next" href="../Cimetidine/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Carbamazepine PBPK Model - Physiologically Based Pharmacokinetic Evaluation Report - OSP PBPK Model Library (Version 12.3)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/Carbamazepine/">
+  <meta property="og:title" content="Carbamazepine">
+  <meta property="og:description" content="PBPK (Physiologically Based Pharmacokinetic) model evaluation report for Carbamazepine. Detailed pharmacokinetic modeling and simulation results using Open Systems Pharmacology platform.">
+  <meta property="og:site_name" content="OSP PBPK Model Library (Version 12.3)">
+  <meta property="og:image" content="https://www.open-systems-pharmacology.org/assets/images/logo.png">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/Carbamazepine/">
+  <meta name="twitter:title" content="Carbamazepine">
+  <meta name="twitter:description" content="PBPK (Physiologically Based Pharmacokinetic) model evaluation report for Carbamazepine. Detailed pharmacokinetic modeling and simulation results using Open Systems Pharmacology platform.">
+  <meta name="twitter:image" content="https://www.open-systems-pharmacology.org/assets/images/logo.png">
+
+  <!-- Structured Data (JSON-LD) for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "OSP PBPK Model Library (Version 12.3)",
+    "description": "Comprehensive library of validated PBPK (Physiologically Based Pharmacokinetic) models and qualification reports for drug development. Open-source whole-body PBPK modeling and simulation software for systems biology and multiscale physiological modeling.",
+    "url": "https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Open Systems Pharmacology",
+      "url": "https://www.open-systems-pharmacology.org/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.open-systems-pharmacology.org/assets/images/logo.png"
+      }
+    },
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
+  <!-- Dataset Schema for PBPK Model Library -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    "name": "Open Systems Pharmacology PBPK Model Library",
+    "description": "Comprehensive library of validated PBPK (Physiologically Based Pharmacokinetic) models for drug development and pharmaceutical research",
+    "url": "https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/",
+    "keywords": ["PBPK", "pharmacokinetic modeling", "drug development", "PK-Sim", "MoBi", "systems pharmacology", "ADME"],
+    "license": "https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library#license",
+    "creator": {
+      "@type": "Organization",
+      "name": "Open Systems Pharmacology",
+      "url": "https://www.open-systems-pharmacology.org/"
+    },
+    "distribution": {
+      "@type": "DataDownload",
+      "encodingFormat": "application/zip",
+      "contentUrl": "https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library"
+    }
+  }
+  </script>
+
+  <!-- SoftwareApplication Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "PK-Sim PBPK Models",
+    "applicationCategory": "ScientificApplication",
+    "operatingSystem": "Windows",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "description": "Validated PBPK models for use with PK-Sim and MoBi software for pharmaceutical research and drug development",
+    "url": "https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Open Systems Pharmacology"
+    }
+  }
+  </script>
+
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "Carbamazepine PBPK Model - Physiologically Based Pharmacokinetic Evaluation Report",
+    "description": "PBPK (Physiologically Based Pharmacokinetic) model evaluation report for Carbamazepine. Detailed pharmacokinetic modeling and simulation results using Open Systems Pharmacology platform.",
+    "author": {
+      "@type": "Organization",
+      "name": "Open Systems Pharmacology"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Open Systems Pharmacology",
+      "url": "https://www.open-systems-pharmacology.org/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.open-systems-pharmacology.org/assets/images/logo.png"
+      }
+    },
+    "url": "https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/Carbamazepine/",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/Carbamazepine/"
+    },
+    "keywords": "Carbamazepine, PBPK model, physiologically based pharmacokinetic model, Carbamazepine pharmacokinetics, drug modeling, PK-Sim"
+  }
+  </script>
+  
+
+  
+  <meta name="keywords" content="Carbamazepine, PBPK model, physiologically based pharmacokinetic model, Carbamazepine pharmacokinetics, drug modeling, PK-Sim">
+  
+
+  
+  <link rel="canonical" href="https://open-systems-pharmacology.github.io/OSP-PBPK-Model-Library/Carbamazepine/">
+  
+
+  <!-- Language -->
+  <meta http-equiv="content-language" content="en">
+  <meta name="language" content="English">
+
+
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#building-and-evaluation-of-a-pbpk-model-for-carbamazepine-in-healthy-adults" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="OSP PBPK Model Library (Version 12.3)" class="md-header__button md-logo" aria-label="OSP PBPK Model Library (Version 12.3)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OSP PBPK Model Library (Version 12.3)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Carbamazepine PBPK Model - Physiologically Based Pharmacokinetic Evaluation Report
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    OSP-PBPK-Model-Library
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="OSP PBPK Model Library (Version 12.3)" class="md-nav__button md-logo" aria-label="OSP PBPK Model Library (Version 12.3)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    OSP PBPK Model Library (Version 12.3)
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    OSP-PBPK-Model-Library
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7E3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7E3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Alfentanil/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Alfentanil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Alprazolam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Alprazolam
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Amikacin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amikacin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Atazanavir/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Atazanavir
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BAY794620/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BAY794620
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CDA1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CDA1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Carbamazepine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Cimetidine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cimetidine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Clarithromycin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Clarithromycin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Dapagliflozin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dapagliflozin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Digoxin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Digoxin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Efavirenz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Efavirenz
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Erythromycin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Erythromycin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ethinylestradiol/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ethinylestradiol
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Felodipine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Felodipine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Fluconazole/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fluconazole
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Fluvoxamine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fluvoxamine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Inulin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inulin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Itraconazole/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Itraconazole
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MEDI524/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MEDI524
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MEDI524YTE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MEDI524YTE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mefenamic_acid/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mefenamic_acid
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mexiletine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mexiletine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Midazolam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Midazolam
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Moclobemide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Moclobemide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Montelukast/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Montelukast
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Omeprazole/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Omeprazole
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Propofol/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Propofol
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Raltegravir/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Raltegravir
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Rifampicin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rifampicin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../S-Mephenytoin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S-Mephenytoin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Sildenafil/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sildenafil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Sufentanil/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sufentanil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tefibazumab/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tefibazumab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tizanidine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tizanidine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Triazolam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Triazolam
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Vancomycin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vancomycin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Verapamil/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Verapamil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dAb2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    dAb2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="building-and-evaluation-of-a-pbpk-model-for-carbamazepine-in-healthy-adults">Building and evaluation of a PBPK Model for carbamazepine in healthy adults<a class="headerlink" href="#building-and-evaluation-of-a-pbpk-model-for-carbamazepine-in-healthy-adults" title="Anchor link to this section for reference">&para;</a></h1>
+<table>
+<thead>
+<tr>
+<th>Version</th>
+<th>2.0-OSP12.3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>based on <em>Model Snapshot</em> and <em>Evaluation Plan</em></td>
+<td>https://github.com/Open-Systems-Pharmacology/Carbamazepine-Model/releases/tag/v2.0</td>
+</tr>
+<tr>
+<td>OSP Version</td>
+<td>12.3</td>
+</tr>
+<tr>
+<td>Qualification Framework Version</td>
+<td>3.6</td>
+</tr>
+</tbody>
+</table>
+<p>This evaluation report and the corresponding PK-Sim project file are stored at:</p>
+<p><a href="https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library">https://github.com/Open-Systems-Pharmacology/OSP-PBPK-Model-Library</a></p>
+<h1 id="table-of-contents">Table of Contents<a class="headerlink" href="#table-of-contents" title="Anchor link to this section for reference">&para;</a></h1>
+<ul>
+<li><a href="#introduction">1 Introduction</a></li>
+<li><a href="#methods">2 Methods</a></li>
+<li><a href="#modeling-strategy">2.1 Modeling Strategy</a></li>
+<li><a href="#data">2.2 Data</a></li>
+<li><a href="#model-parameters-and-assumptions">2.3 Model Parameters and Assumptions</a></li>
+<li><a href="#results-and-discussion">3 Results and Discussion</a></li>
+<li><a href="#final-input-parameters">3.1 Final input parameters</a></li>
+<li><a href="#diagnostics-plots">3.2 Diagnostics Plots</a></li>
+<li><a href="#ct-profiles">3.3 Concentration-Time Profiles</a></li>
+<li><a href="#conclusion">4 Conclusion</a></li>
+<li><a href="#main-references">5 References</a></li>
+</ul>
+<h1 id="1-introduction">1 Introduction<a id="introduction"></a><a class="headerlink" href="#1-introduction" title="Anchor link to this section for reference">&para;</a></h1>
+<p>Carbamazepine, sold under the trade name Tegretol<sup>®</sup> among others, is an anticonvulsant medication used primarily to treat epilepsy and neuropathic pain. Other indications include schizophrenia where it is used as an adjunctive treatment along with other medications, and bipolar disorder where it is used as a second-line agent. Carbamazepine is typically taken by mouth on empty stomach or together with meals, depending on the administered formulation. </p>
+<p>Carbamazepine is extensively metabolized by various enzymes including CYP2B6, 2C8, 3A4, and UGT2B7 (<a href="#5-references">Kerr 1994</a>, <a href="#5-references">Pelkonen 2001</a>, <a href="#5-references">Staines 2004</a>). Following oral administration the major dose fraction is metabolized to carbamazepine-10,11-epoxide (<a href="#5-references">Eichelbaum 1985</a>, <a href="#5-references">Tomson 1983</a>). This reaction is mainly catalyzed by CYP3A4, with some contribution from CYP2C8 (<a href="#5-references">Kerr 1994</a>). After oral administration, a minor fraction of the dose (approximately 1 - 3%) is excreted unchanged in urine (<a href="#5-references">Bernus 1994</a>, <a href="#5-references">Morselli 1975</a>), while approximately 1% of the dose can be recovered as unchanged drug in the bile (<a href="#5-references">Terhaag 1978</a>).</p>
+<p>Carbamazepine is classified by the U.S. Food and Drug Administration (FDA) as a strong CYP3A4 and CYP2B6 inducer and hence induces its own metabolism.</p>
+<p>The herein presented model was developed independently of the model reported by Fuhr et al. (<a href="#5-references">Fuhr 2021</a>). The main difference between the two models pertains to the metabolite carbamazepine-10,11-epoxide, which is included as separate compound in the model by Fuhr et al. (<a href="#5-references">Fuhr 2021</a>), but not modeled in the herein presented model. Another structural model differences concerns the enzymatic elimination pathways of carbamazepine; the model by Fuhr et al. (<a href="#5-references">Fuhr 2021</a>) includes five different metabolism pathways, whereas the herein presented model includes three different metabolism pathways. Additionally, the parameterization of CYP2B6 and 3A4 induction differs between the two models.</p>
+<h1 id="2-methods">2 Methods<a id="methods"></a><a class="headerlink" href="#2-methods" title="Anchor link to this section for reference">&para;</a></h1>
+<h2 id="21-modeling-strategy">2.1 Modeling Strategy<a id="modeling-strategy"></a><a class="headerlink" href="#21-modeling-strategy" title="Anchor link to this section for reference">&para;</a></h2>
+<p>The general workflow for building an adult PBPK model has been described by Kuepfer et al. (<a href="#5-references">Kuepfer 2016</a>). Relevant information on the anthropometry (height, weight) was gathered from the respective clinical study, if reported. Information on physiological parameters (e.g. blood flows, organ volumes, hematocrit) in adults was gathered from the literature and has been incorporated in PK-Sim<sup>®</sup>) as described previously (<a href="#5-references">Willmann 2007</a>). The  applied activity and variability of plasma proteins and active processes that are integrated into PK-Sim<sup>®</sup> are described in the publicly available 'PK-Sim<sup>®</sup> Ontogeny Database Version 7.3' (<a href="#5-references">PK-Sim Ontogeny Database Version 7.3</a>).</p>
+<p>The PBPK model was developed based on publicly available pharmacokinetic data of adult healthy subjects covering a carbamazepine dose range from 10 to 800 mg following intravenous administration or oral administration as liquid oral dosage form, immediate release (IR) tablet or extended release (XR) formulations in the fasted state. The carbamazepine PBPK model includes metabolism by CYP2B6, CYP3A4, and UGT2B7, unchanged renal excretion, and induction of CYP2B6 and 3A4 by carbamazepine. Pharmacokinetics of carbamazepine following administration in the fed state was not considered in the herein presented model. Furthermore, the metabolite carbamazepine-10,11-epoxide was not modeled as separate compound. </p>
+<p>Unknown parameters (see below) were identified using the Parameter Identification module provided in PK-Sim<sup>®</sup>. Structural model selection was mainly guided by visual inspection of the resulting description of data and biological plausibility. Several parameter identifications were conducted to optimize unknown parameters. In a first step, lipophilicity and enzymatic clearances (catalyzed by CYP3A4, CYP2B6 and UGT2B7) were optimized using observed plasma concentration-time profile data following administration of carbamazepine intravenously or orally as syrup. In a second parameter identification, enzymatic clearances were refined and optimized together with the glomerular filtration rate fraction of carbamazepine and the dissolution kinetics of the IR tablet using observed plasma concentration-time profiles and the dose fraction excreted unchanged in urine after single dose administration of various doses as IR tablet. Subsequently, the EC<sub>50</sub> value of CYP3A4 induction was optimized using observed plasma concentration-time profile data after multiple dose administration of carbamazepine. In a final parameter identification, the dissolution kinetics and carbamazepine solubility of XR formulations were optimized.</p>
+<p>Details about input data (physicochemical, <em>in vitro</em> and clinical) can be found in <a href="#22-data">Section 2.2</a>.</p>
+<p>Details about the structural model and its parameters can be found in <a href="#23-model-parameters-and-assumptions">Section 2.3</a>.</p>
+<h2 id="22-data">2.2 Data<a id="data"></a><a class="headerlink" href="#22-data" title="Anchor link to this section for reference">&para;</a></h2>
+<h3 id="221-in-vitro-physicochemical-data">2.2.1 In vitro / physicochemical Data<a class="headerlink" href="#221-in-vitro-physicochemical-data" title="Anchor link to this section for reference">&para;</a></h3>
+<p>A literature search was performed to collect available information on physicochemical properties of carbamazepine. The information is summarized in the table below. </p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Parameter</strong></th>
+<th><strong>Unit</strong></th>
+<th><strong>Value</strong></th>
+<th>Source</th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">MW</td>
+<td>g/mol</td>
+<td>236.27</td>
+<td><a href="#5-references">DrugBank DB00564</a></td>
+<td>Molecular weight</td>
+</tr>
+<tr>
+<td style="text-align: left;">logP (calculated)</td>
+<td></td>
+<td>1.54</td>
+<td><a href="#5-references">Austin 2002</a></td>
+<td>Partition coefficient between octanol and water</td>
+</tr>
+<tr>
+<td style="text-align: left;">logP (calculated)</td>
+<td></td>
+<td>2.1</td>
+<td><a href="#5-references">DrugBank DB00564</a></td>
+<td>Partition coefficient between octanol and water</td>
+</tr>
+<tr>
+<td style="text-align: left;">logP (calculated)</td>
+<td></td>
+<td>2.45</td>
+<td><a href="#5-references">Fenet 2012</a></td>
+<td>Partition coefficient between octanol and water</td>
+</tr>
+<tr>
+<td style="text-align: left;">logP (calculated)</td>
+<td></td>
+<td>2.77</td>
+<td><a href="#5-references">DrugBank DB00564</a></td>
+<td>Partition coefficient between octanol and water</td>
+</tr>
+<tr>
+<td style="text-align: left;">Solubility (pH)</td>
+<td>µg/mL</td>
+<td>336 (6.2)</td>
+<td><a href="#5-references">Annaert 2010</a></td>
+<td>Solubility in human intestinal fluid</td>
+</tr>
+<tr>
+<td style="text-align: left;">Solubility (pH)</td>
+<td>µg/mL</td>
+<td>283 (7.0)</td>
+<td><a href="#5-references">Söderlind 2010</a></td>
+<td>Solubility in human intestinal fluid</td>
+</tr>
+<tr>
+<td style="text-align: left;">Solubility (pH)</td>
+<td>µg/mL</td>
+<td>306 (6.9)</td>
+<td><a href="#5-references">Clarysse 2011</a></td>
+<td>Solubility in fasted human intestinal fluid</td>
+</tr>
+<tr>
+<td style="text-align: left;">f<sub>u</sub></td>
+<td></td>
+<td>0.25</td>
+<td><a href="#5-references">Pynnönen 1977</a></td>
+<td>Fraction unbound in plasma of healthy subjects</td>
+</tr>
+<tr>
+<td style="text-align: left;">f<sub>u</sub></td>
+<td></td>
+<td>0.243 ± 0.013 [0.225 - 0.258]<sup>a</sup></td>
+<td><a href="#5-references">Morselli 1975</a></td>
+<td>Fraction unbound in plasma of healthy male subjects</td>
+</tr>
+<tr>
+<td style="text-align: left;">f<sub>u</sub></td>
+<td></td>
+<td>0.239</td>
+<td><a href="#5-references">Di Salle 1974</a></td>
+<td>Fraction unbound in plasma of normal subjects</td>
+</tr>
+<tr>
+<td style="text-align: left;">f<sub>u</sub></td>
+<td></td>
+<td>0.237 ± 0.031<sup>b</sup></td>
+<td><a href="#5-references">Vinçon 1987</a></td>
+<td>Fraction unbound in plasma of epileptic patients</td>
+</tr>
+<tr>
+<td style="text-align: left;">f<sub>u</sub></td>
+<td></td>
+<td>0.182 ± 0.05 [0.103 - 0.297]<sup>a</sup></td>
+<td><a href="#5-references">Hooper 1975</a></td>
+<td>Fraction unbound in plasma of normal subjects</td>
+</tr>
+<tr>
+<td style="text-align: left;">K<sub>m</sub> CYP2B6</td>
+<td>µM</td>
+<td>420</td>
+<td><a href="#5-references">Pearce 2002</a></td>
+<td>CYP2B6 Michaelis-Menten constant</td>
+</tr>
+<tr>
+<td style="text-align: left;">V<sub>max</sub> CYP2B6</td>
+<td>pmol/min/pmol rec enzyme</td>
+<td>0.429</td>
+<td><a href="#5-references">Pearce 2002</a></td>
+<td>in vitro metabolic rate constant for recombinant CYP2B6</td>
+</tr>
+<tr>
+<td style="text-align: left;">K<sub>m</sub> CYP2C8</td>
+<td>µM</td>
+<td>757</td>
+<td><a href="#5-references">Cazali 2003</a></td>
+<td>CYP2C8 Michaelis-Menten constant</td>
+</tr>
+<tr>
+<td style="text-align: left;">V<sub>max</sub> CYP2C8</td>
+<td>pmol/min/pmol rec enzyme</td>
+<td>0.673</td>
+<td><a href="#5-references">Cazali 2003</a></td>
+<td>in vitro metabolic rate constant for recombinant CYP2C8</td>
+</tr>
+<tr>
+<td style="text-align: left;">K<sub>m</sub> CYP3A4<sup>c</sup></td>
+<td>µM</td>
+<td>282</td>
+<td><a href="#5-references">Pearce 2002</a></td>
+<td>CYP3A4 Michaelis-Menten constant</td>
+</tr>
+<tr>
+<td style="text-align: left;">K<sub>m</sub> CYP3A4 (→CBZE)<sup>d</sup></td>
+<td>µM</td>
+<td>248</td>
+<td><a href="#5-references">Huang 2004</a></td>
+<td>CYP3A4 Michaelis-Menten constant</td>
+</tr>
+<tr>
+<td style="text-align: left;">K<sub>m</sub> UGT2B7</td>
+<td>µM</td>
+<td>214</td>
+<td><a href="#5-references">Staines 2004</a></td>
+<td>UGT2B7 Michaelis-Menten constant</td>
+</tr>
+<tr>
+<td style="text-align: left;">V<sub>max</sub> UGT2B7</td>
+<td>pmol/min/mg mic enzyme</td>
+<td>0.79</td>
+<td><a href="#5-references">Staines 2004</a></td>
+<td>in vitro metabolic rate constant for microsomal enzymes</td>
+</tr>
+<tr>
+<td style="text-align: left;">Microsomal UGT2B7</td>
+<td>pmol/mg mic protein</td>
+<td>82.9</td>
+<td><a href="#5-references">Achour 2014</a></td>
+<td>Content of UGT2B7 proteins in liver microsomes</td>
+</tr>
+<tr>
+<td style="text-align: left;">Intestinal permeability</td>
+<td>cm/min</td>
+<td>0.0258</td>
+<td><a href="#5-references">Lennernäs 2007</a></td>
+<td>Transcellular intestinal permeability</td>
+</tr>
+</tbody>
+</table>
+<p><sup>a</sup> denotes mean ± standard deviation [range]</p>
+<p><sup>b</sup> denotes mean ± standard deviation</p>
+<p><sup>c</sup> refers to CYP3A4-mediated reaction forming other metabolites than carbamazepine-10,11-epoxide</p>
+<p><sup>d</sup> refers to CYP3A4-mediated reaction forming carbamazepine-10,11-epoxide</p>
+<h3 id="222-clinical-data">2.2.2 Clinical Data<a class="headerlink" href="#222-clinical-data" title="Anchor link to this section for reference">&para;</a></h3>
+<p>A literature search was conducted to collect available data on carbamazepine pharmacokinetics in healthy adult subjects after intravenous or oral administration in the fasted state.</p>
+<p>The following studies were used for model building:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Publication</th>
+<th style="text-align: left;">Arm / Treatment / Information used for model building</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Bernus 1994</a></td>
+<td style="text-align: left;">Healthy subjects receiving two oral doses of 600 mg carbamazepine as IR tablet (only pharmacokinetic data following the first dose were used for model building)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Gérardin 1976</a></td>
+<td style="text-align: left;">Healthy subjects receiving a single oral dose of 100 mg carbamazepine as IR tablet</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Gérardin 1990</a></td>
+<td style="text-align: left;">Healthy subjects receiving a single oral dose of 100 mg [<sup>15</sup>N]-carbamazepine as suspension concomitantly with a single intravenous dose of 10 mg carbamazepine</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">McLean 2001</a></td>
+<td style="text-align: left;">Healthy subjects receiving a single oral dose of 400 mg carbamazepine as XR formulation in fasted state</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Møller 2001</a></td>
+<td style="text-align: left;">Healthy subjects receiving a multiple oral doses of carbamazepine, starting at 100 mg and escalating to 400 mg</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Wada 1978</a></td>
+<td style="text-align: left;">Healthy subjects receiving a single oral dose of 200 mg carbamazepine as syrup and IR tablet</td>
+</tr>
+</tbody>
+</table>
+<p>The following studies were used for model evaluation:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Publication</th>
+<th style="text-align: left;">Arm / Treatment / Information used for model building</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Barzaghi 1987</a></td>
+<td style="text-align: left;">Healthy subjects receiving a single oral dose of 400 mg carbamazepine</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Bedada 2015</a></td>
+<td style="text-align: left;">Healthy subjects receiving a single oral dose of 200 mg carbamazepine</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Bedada 2016</a></td>
+<td style="text-align: left;">Healthy subjects receiving a single oral dose of 200 mg carbamazepine</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Bernus 1994</a></td>
+<td style="text-align: left;">Healthy subjects receiving two oral doses of 600 mg carbamazepine (only pharmacokinetic data following the second dose were used for model evaluation)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Bianchetti 1987</a></td>
+<td style="text-align: left;">Healthy subjects receiving a single oral dose of 400 mg carbamazepine</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Burstein 2000</a></td>
+<td style="text-align: left;">Healthy subjects receiving a multiple oral doses of carbamazepine, starting at 100 mg and escalating to 400 mg</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Caraco 1995</a></td>
+<td style="text-align: left;">Healthy lean subjects receiving a single oral dose of 200 mg carbamazepine</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Cawello 2000</a></td>
+<td style="text-align: left;">Healthy subjects receiving a multiple oral doses of carbamazepine, starting at 100 mg and escalating to 200 mg</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Cotter 1977</a></td>
+<td style="text-align: left;">Healthy subject receiving a single oral dose of 800 mg carbamazepine</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Dalton 1985a</a></td>
+<td style="text-align: left;">Healthy subjects receiving a single oral dose of 600 mg carbamazepine</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Dalton 1985b</a></td>
+<td style="text-align: left;">Healthy subjects receiving a single oral dose of 600 mg carbamazepine</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Eichelbaum 1985</a></td>
+<td style="text-align: left;">Healthy subjects receiving a single oral dose of 200 mg carbamazepine</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Elqidra 2004</a></td>
+<td style="text-align: left;">Healthy subjects receiving a single oral dose of 200 mg carbamazepine</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">European Patent Application EP 1044681 A2</a></td>
+<td style="text-align: left;">Healthy subjects receiving a single oral dose of 400 and 600 mg carbamazepine</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Gérardin 1976</a></td>
+<td style="text-align: left;">Healthy subjects receiving a single oral dose of 200, and 600 mg carbamazepine</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Ji 2008</a></td>
+<td style="text-align: left;">Healthy subjects receiving a multiple oral doses of carbamazepine, starting at 200 mg and escalating to 400 mg</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Kayali 1994</a></td>
+<td style="text-align: left;">Healthy subjects receiving a single oral dose of 200 mg carbamazepine</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Kim 2005</a></td>
+<td style="text-align: left;">Healthy subjects receiving a single oral dose of 200 mg carbamazepine</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Kovacević 2009</a></td>
+<td style="text-align: left;">Healthy subjects receiving a single oral dose of 400 mg carbamazepine</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Levy 1975</a></td>
+<td style="text-align: left;">Healthy subjects receiving a single oral carbamazepine dose of 6 mg/kg body weight</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Meyer 1996</a></td>
+<td style="text-align: left;">Healthy subjects receiving a single oral dose of 200 mg carbamazepine</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Meyer 1998</a></td>
+<td style="text-align: left;">Healthy subjects receiving a single oral dose of 200 mg carbamazepine</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Miles 1989</a></td>
+<td style="text-align: left;">Healthy subjects receiving a multiple oral doses of 300 and 400 mg carbamazepine</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Morselli 1975</a></td>
+<td style="text-align: left;">Healthy subjects receiving a single oral dose of 400 mg carbamazepine</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Pynnönen 1977</a></td>
+<td style="text-align: left;">Healthy subjects receiving a single oral dose of 400 mg carbamazepine</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Rawlins 1975</a></td>
+<td style="text-align: left;">Healthy subject receiving a single oral dose of 50, 100, and 200 mg carbamazepine</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Saint-Salvi 1987</a></td>
+<td style="text-align: left;">Healthy subjects receiving a single oral dose of 200 mg carbamazepine</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Stevens 1998</a></td>
+<td style="text-align: left;">Healthy subjects receiving multiple oral doses of 400 mg carbamazepine</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Strandjord 1975</a></td>
+<td style="text-align: left;">Healthy subjects receiving a single oral dose of 400 mg carbamazepine</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Sumi 1987</a></td>
+<td style="text-align: left;">Healthy subjects receiving a single oral dose of 200 mg carbamazepine</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Tomson 1983</a></td>
+<td style="text-align: left;">Healthy subject receiving a single oral doses of 200 mg carbamazepine</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">US Patent Application - US 2009/0169619 A1</a></td>
+<td style="text-align: left;">Healthy subjects receiving a single oral dose of 300 mg carbamazepine</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#5-references">Wong 1983</a></td>
+<td style="text-align: left;">Healthy subjects receiving a single oral dose of 400 mg carbamazepine</td>
+</tr>
+</tbody>
+</table>
+<h2 id="23-model-parameters-and-assumptions">2.3 Model Parameters and Assumptions<a id="model-parameters-and-assumptions"></a><a class="headerlink" href="#23-model-parameters-and-assumptions" title="Anchor link to this section for reference">&para;</a></h2>
+<h3 id="231-absorption">2.3.1   Absorption<a class="headerlink" href="#231-absorption" title="Anchor link to this section for reference">&para;</a></h3>
+<p>Absorption of carbamazepine from the gastrointestinal tract can be fully explained by passive diffusion; active uptake by drug transporters does not seem to play a role. Intestinal permeability was observed to be not a rate-limiting step in drug absorption. The solubility of carbamazepine following administration of the IR tablet was fixed to the mean value (308 mg/L at a pH of 6.7) reported by several studies in fasted human intestinal fluid (<a href="#5-references">Annaert 2010</a>, <a href="#5-references">Söderlind 2010</a>, <a href="#5-references">Clarysse 2011</a>).</p>
+<h3 id="232-distribution">2.3.2   Distribution<a class="headerlink" href="#232-distribution" title="Anchor link to this section for reference">&para;</a></h3>
+<p>Plasma protein binding of carbamazepine was fixed to 75.7% as reported by Morselli et al. for healthy subjects (<a href="#5-references">Morselli 1975</a>). The distribution of carbamazepine throughout the body was found to be best described by the partition coefficient calculation by <code>Rodgers and Rowlands</code> and cellular permeability calculation by <code>PK-Sim Standard</code>. </p>
+<h3 id="233-metabolism-excretion-and-induction">2.3.3   Metabolism, Excretion and Induction<a class="headerlink" href="#233-metabolism-excretion-and-induction" title="Anchor link to this section for reference">&para;</a></h3>
+<h4 id="metabolism">Metabolism<a class="headerlink" href="#metabolism" title="Anchor link to this section for reference">&para;</a></h4>
+<p>Carbamazepine metabolism is complex involving multiple enzymes with more than 30 metabolites identified (<a href="#5-references">Lertratanangkoon 1982</a>). Several <em>in vitro</em> studies suggest involvement of CYP1A2, 2A6, 2B6, 2C8, 2E1, 3A4, and UGT2B7 in carbamazepine metabolism (<a href="#5-references">Cazali 2003</a>, <a href="#5-references">Kerr 1994</a>, <a href="#5-references">Pearce 2002</a>, <a href="#5-references">Pelkonen 2001</a>, <a href="#5-references">Staines 2004</a>). </p>
+<p>In various <em>in vitro</em> assays, the biotransformation to the main metabolite, carbamazepine-10,11-epoxide, appears to be mainly catalyzed by CYP3A4 with minimal contribution by CYP2C8 (<a href="#5-references">Cazali 2003</a>, <a href="#5-references">Egnell 2003</a>, <a href="#5-references">Kerr 1994</a>). For example, Egnell et al. report that, at equimolar amounts of recombinantly expressed CYP enzymes, the activity of CYP3A4 towards carbamazepine was more than 20-fold higher than that of CYP2C8 (<a href="#5-references">Egnell 2003</a>). Therefore, carbamazepine epoxidation was modeled via CYP3A4 only.</p>
+<p>Further oxidative metabolism pathways include 2- and 3-hydroxylation. The formation of 2-hydroxycarbamazepine is mediated by several CYP enzymes <em>in vitro</em> (including CYP1A2, 2A6, 2B6, 2E1, and 3A4); though, the contribution of any of these isoforms does not exceed 50% of the total formation (<a href="#5-references">Pearce 2002</a>). In experiments with liver slices, 2-hydroxylation appears to be a minor elimination pathway (1-2 % of total clearance) as reported by Pelkonen et al. (<a href="#5-references">Pelkonen 2001</a>). Hence, 2-hydroxylation was not accounted for in the PBPK model. </p>
+<p>The formation of 3-hydroxycarbamazepine also appears to constitute a minor metabolism pathway (<a href="#5-references">Pelkonen 2001</a>); still, in human liver microsomes, 3-hydroxycarbamazepine was formed at rates ~25 times greater than those of 2-hydroxycarbamazepine (<a href="#5-references">Pearce 2002</a>). The responsible enzyme for 3-hydroxylation <em>in vitro</em> seems to be CYP2B6, although a minor contribution by CYP1A2, 2A6, and 3A4 cannot be ruled out (<a href="#5-references">Pearce 2002</a>). In the PBPK model, 3-hydroxylation was implemented as CYP2B6-mediated reaction.</p>
+<p>N-glucuronidation of carbamazepine in human liver microsomes and baculovirus-infected insect cells expressing human UGTs was also observed with UGT2B7 appearing to be the responsible enzyme for this reaction (<a href="#5-references">Staines 2004</a>). Thus, the PBPK model also includes UGT2B7-mediated N-glucuronidation of carbamazepine.</p>
+<p>In summary, the following three metabolic pathways, each mediated by a specific enzyme, were implemented in the PBPK model:</p>
+<ul>
+<li>10,11-epoxidation via CYP3A4</li>
+<li>3-hydroxylation via CYP2B6</li>
+<li>N-glucuronidation via UGT2B7</li>
+</ul>
+<p>Since no clinical mass balance data were found for these three pathways, the following clearance kinetics in human liver microsomes reported for each pathway were initially implemented in the PBPK model:</p>
+<table>
+<thead>
+<tr>
+<th>Biotransformation pathway</th>
+<th>K<sub>m</sub> [µM]</th>
+<th>V<sub>max</sub> [pmol/min/mg microsomal protein]</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10,11-epoxidation</td>
+<td>808</td>
+<td>726</td>
+<td><a href="#5-references">Sakamoto 2013</a></td>
+</tr>
+<tr>
+<td>3-hydroxylation</td>
+<td>235</td>
+<td>49.0</td>
+<td><a href="#5-references">Pearce 2002</a></td>
+</tr>
+<tr>
+<td>N-glucuronidation</td>
+<td>234</td>
+<td>3.5</td>
+<td><a href="#5-references">Staines 2004</a></td>
+</tr>
+</tbody>
+</table>
+<p>The following enzymatic content in human liver microsomes was assumed:</p>
+<table>
+<thead>
+<tr>
+<th>Enzyme</th>
+<th>Enzyme content [pmol/mg microsomal protein]</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CYP3A4</td>
+<td>108</td>
+<td><a href="#5-references">Rodrigues 1999</a></td>
+</tr>
+<tr>
+<td>CYP2B6</td>
+<td>39</td>
+<td><a href="#5-references">Rodrigues 1999</a></td>
+</tr>
+<tr>
+<td>UGT2B7</td>
+<td>82.9</td>
+<td><a href="#5-references">Achour 2014</a></td>
+</tr>
+</tbody>
+</table>
+<p>The expression profiles for these enzymes were loaded from the 'PK-Sim<sup>®</sup> Ontogeny Database Version 7.3' (<a href="#5-references">PK-Sim Ontogeny Database Version 7.3</a>) using RT-PCR as data source for each enzyme.</p>
+<p>Upon implementation of these enzyme clearance pathways, it was seen that total clearance was slightly overestimated in the PBPK model. Therefore, the k<sub>cat</sub> values of each enzyme were optimized during parameter identification; to respect the initial mass balance of these biotransformation reactions as reported in human liver microsomes, the k<sub>cat</sub> values were not fitted independently but were varied together by the same factor. </p>
+<h4 id="excretion">Excretion<a class="headerlink" href="#excretion" title="Anchor link to this section for reference">&para;</a></h4>
+<p>A minor fraction of the carbamazepine dose (approximately 1%) is excreted unchanged in urine (<a href="#5-references">Bernus 1994</a>, <a href="#5-references">Morselli 1975</a>). In the model, unchanged renal excretion was implemented as glomerular filtration with the parameter <code>GFR fraction</code> being fitted to the clinical excretion data reported by Bernus et al. (<a href="#5-references">Bernus 1994</a>).</p>
+<h4 id="induction">Induction<a class="headerlink" href="#induction" title="Anchor link to this section for reference">&para;</a></h4>
+<p>Carbamazepine induces CYP2B6 and 3A4 via the CAR- and PXR-pathway (<a href="#5-references">Faucette 2007</a>, <a href="#5-references">Williamson 2016</a>). CYP2B6 induction was informed based on <em>in vitro</em> experiments conducted by Faucette et al. (<a href="#5-references">Faucette 2004</a>). These authors reported the induction of CYP2B6 activity at various carbamazepine concentrations in three preparations of primary human hepatocytes. The reported data suggest linear induction in the tested carbamazepine concentration range. A linear-mixed effects model was fitted to the reported data; the fitted slope was 0.149. To implement a linear induction in the PBPK model, the EC<sub>50</sub> value of the E<sub>max</sub> model was set to an arbitrarily high value (1000 µM) and E<sub>max</sub> was then calculated as product of the fitted slope value and EC<sub>50</sub> resulting in a value of 149.</p>
+<p>CYP3A4 induction was initially parameterized based on internal <em>in vitro</em> experiments and calibrated with rifampicin induction data as described by Almond et al. (<a href="#5-references">Almond 2016</a>). This resulted in an EC<sub>50</sub> of 63.0 µM and an E<sub>max</sub> of 5.39. Simulated carbamazepine plasma concentrations in steady-state indicated that the induction was underestimated; therefore, the calibrated EC<sub>50</sub> value was optimized during parameter identification, while the calibrated E<sub>max</sub> value was kept fixed. </p>
+<h3 id="234-automated-parameter-identification">2.3.4   Automated Parameter Identification<a class="headerlink" href="#234-automated-parameter-identification" title="Anchor link to this section for reference">&para;</a></h3>
+<p>The parameter identification tool in PK-Sim<sup>®</sup> has been used to estimate the model parameters described above. The result of the parameter identifications is shown in the table below:</p>
+<table>
+<thead>
+<tr>
+<th>Model Parameter</th>
+<th>Optimized Value</th>
+<th>Unit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Lipophilicity</code></td>
+<td>2.01</td>
+<td></td>
+</tr>
+<tr>
+<td><code>kcat</code> (CYP3A4)</td>
+<td>5.01</td>
+<td>1/min</td>
+</tr>
+<tr>
+<td><code>kcat</code> (CYP2B6)</td>
+<td>0.936</td>
+<td>1/min</td>
+</tr>
+<tr>
+<td><code>kcat</code> (UGT2B7)</td>
+<td>0.0669</td>
+<td>1/min</td>
+</tr>
+<tr>
+<td><code>GFR fraction</code></td>
+<td>0.0240</td>
+<td></td>
+</tr>
+<tr>
+<td><code>EC50</code> (CYP3A4)</td>
+<td>27.2</td>
+<td>µM</td>
+</tr>
+<tr>
+<td><code>Dissolution time (50% dissolved)</code> (IR tablet, fasted)</td>
+<td>109</td>
+<td>min</td>
+</tr>
+<tr>
+<td><code>Dissolution shape</code> (IR tablet, fasted)</td>
+<td>0.689</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Dissolution time (50% dissolved)</code> (XR formulation, fasted)</td>
+<td>315</td>
+<td>min</td>
+</tr>
+<tr>
+<td><code>Dissolution shape</code> (XR formulation, fasted)</td>
+<td>1.23</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Solubility at ref pH</code> -- for XR formulations only</td>
+<td>546</td>
+<td>mg/L</td>
+</tr>
+</tbody>
+</table>
+<h1 id="3-results-and-discussion">3 Results and Discussion<a id="results-and-discussion"></a><a class="headerlink" href="#3-results-and-discussion" title="Anchor link to this section for reference">&para;</a></h1>
+<p>The PBPK model for carbamazepine was developed and evaluated using publicly available clinical pharmacokinetic data from studies listed in <a href="#222-clinical-data">Section 2.2.2</a>.</p>
+<p>The next sections show:</p>
+<ol>
+<li>the final model parameters for the building blocks: <a href="#31-final-input-parameters">Section 3.1</a>.</li>
+<li>the overall goodness of fit: <a href="#32-diagnostics-plots">Section 3.2</a>.</li>
+<li>simulated vs. observed concentration-time profiles for the clinical studies used for model building and for model verification: <a href="#33-concentration-time-profiles">Section 3.3</a>.</li>
+</ol>
+<h2 id="31-final-input-parameters">3.1 Final input parameters<a id="final-input-parameters"></a><a class="headerlink" href="#31-final-input-parameters" title="Anchor link to this section for reference">&para;</a></h2>
+<p>The compound parameter values of the final PBPK model are illustrated below.</p>
+<h3 id="compound-carbamazepine">Compound: Carbamazepine<a class="headerlink" href="#compound-carbamazepine" title="Anchor link to this section for reference">&para;</a></h3>
+<h4 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Anchor link to this section for reference">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+<th>Alternative</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Solubility at reference pH</td>
+<td>308.3333 mg/l</td>
+<td>Publication-Mean value of the following FaHIF solubility data reported in the literature: 336 µg/mL, pH 6.2 (Annaert 2010; DOI: 10.1016/j.ejps.2009.10.005); 283 µg/mL, pH 7.0 (Söderlind 2010; DOI: 10.1021/mp100144v); 306 mg/mL, pH 6.9 (Clarysse 2011; DOI: 10.1016/j.ejps.2011.04.016)</td>
+<td>IR tablet (FaHIF)</td>
+<td>True</td>
+</tr>
+<tr>
+<td>Reference pH</td>
+<td>6.7</td>
+<td>Publication-Mean value of the following FaHIF solubility data reported in the literature: 336 µg/mL, pH 6.2 (Annaert 2010; DOI: 10.1016/j.ejps.2009.10.005); 283 µg/mL, pH 7.0 (Söderlind 2010; DOI: 10.1021/mp100144v); 306 mg/mL, pH 6.9 (Clarysse 2011; DOI: 10.1016/j.ejps.2011.04.016)</td>
+<td>IR tablet (FaHIF)</td>
+<td>True</td>
+</tr>
+<tr>
+<td>Solubility at reference pH</td>
+<td>546.0199756643 mg/l</td>
+<td>Parameter Identification-Parameter Identification-Value updated from '004-2_from-003-1_XRtablet_fasted_solubility_FINAL' on 2022-03-24 12:41</td>
+<td>XR tablet (fitted)</td>
+<td>False</td>
+</tr>
+<tr>
+<td>Reference pH</td>
+<td>6.7</td>
+<td>Parameter Identification-Parameter Identification-Value updated from '004-2_from-003-1_XRtablet_fasted_solubility_FINAL' on 2022-03-16 18:25</td>
+<td>XR tablet (fitted)</td>
+<td>False</td>
+</tr>
+<tr>
+<td>Lipophilicity</td>
+<td>2.0067753065 Log Units</td>
+<td>Parameter Identification-Parameter Identification-Value updated from '001-5-3_CYP3A4_MM-kinetics_WithoutTablet' on 2022-02-21 16:49</td>
+<td>Optimized</td>
+<td>True</td>
+</tr>
+<tr>
+<td>Fraction unbound (plasma, reference value)</td>
+<td>0.243</td>
+<td>Publication-Morselli 1975 (DOI: 10.1007/978-3-642-85921-2_16)</td>
+<td>Morselli 1975</td>
+<td>True</td>
+</tr>
+<tr>
+<td>Is small molecule</td>
+<td>Yes</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Molecular weight</td>
+<td>236.2686 g/mol</td>
+<td>Internet-DrugBank (https://go.drugbank.com/drugs/DB00564)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Plasma protein binding partner</td>
+<td>Albumin</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="calculation-methods">Calculation methods<a class="headerlink" href="#calculation-methods" title="Anchor link to this section for reference">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Partition coefficients</td>
+<td>Rodgers and Rowland</td>
+</tr>
+<tr>
+<td>Cellular permeabilities</td>
+<td>PK-Sim Standard</td>
+</tr>
+</tbody>
+</table>
+<h4 id="processes">Processes<a class="headerlink" href="#processes" title="Anchor link to this section for reference">&para;</a></h4>
+<h5 id="induction-cyp3a4-dmpk">Induction: CYP3A4-DMPK<a class="headerlink" href="#induction-cyp3a4-dmpk" title="Anchor link to this section for reference">&para;</a></h5>
+<p>Molecule: CYP3A4</p>
+<h6 id="parameters_1">Parameters<a class="headerlink" href="#parameters_1" title="Anchor link to this section for reference">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>EC50</td>
+<td>27.193363407 µmol/l</td>
+<td>Parameter Identification-Parameter Identification-Value updated from '003-1_from002-3-6_EC50' on 2022-02-24 10:23</td>
+</tr>
+<tr>
+<td>Emax</td>
+<td>5.3929777775</td>
+<td>Publication-In Vitro-DMPK measurement (internal data); the measured Emax was calibrated with rifampicin by using the Emax implemented in the rifampicin OSP model v1.2 according the the method described by Almond 2016 (DOI: 10.1124/dmd.115.066845)</td>
+</tr>
+</tbody>
+</table>
+<h5 id="systemic-process-glomerular-filtration-glomerular-filtration">Systemic Process: Glomerular Filtration-Glomerular Filtration<a class="headerlink" href="#systemic-process-glomerular-filtration-glomerular-filtration" title="Anchor link to this section for reference">&para;</a></h5>
+<p>Species: Human</p>
+<h6 id="parameters_2">Parameters<a class="headerlink" href="#parameters_2" title="Anchor link to this section for reference">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align: right;">Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GFR fraction</td>
+<td style="text-align: right;">0.0240108793</td>
+<td>Parameter Identification-Parameter Identification-Value updated from '002-3-6_from001-5-3_IRtablet-sd_Pint-FIX_FINAL' on 2022-02-23 17:18</td>
+</tr>
+</tbody>
+</table>
+<h5 id="metabolizing-enzyme-ugt2b7-n-glucuronidation_staines2004">Metabolizing Enzyme: UGT2B7-N-Glucuronidation_Staines2004<a class="headerlink" href="#metabolizing-enzyme-ugt2b7-n-glucuronidation_staines2004" title="Anchor link to this section for reference">&para;</a></h5>
+<p>Molecule: UGT2B7</p>
+<h6 id="parameters_3">Parameters<a class="headerlink" href="#parameters_3" title="Anchor link to this section for reference">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>In vitro Vmax for liver microsomes</td>
+<td>3.5 pmol/min/mg mic. protein</td>
+<td>Publication-In Vitro-Staines 2004 (DOI: 10.1124/jpet.104.073114)</td>
+</tr>
+<tr>
+<td>Content of CYP proteins in liver microsomes</td>
+<td>82.9 pmol/mg mic. protein</td>
+<td>Publication-In Vitro-Achour 2014 (DOI: 10.1124/dmd.113.055632)</td>
+</tr>
+<tr>
+<td>Km</td>
+<td>234 µmol/l</td>
+<td>Publication-In Vitro-Staines 2004 (DOI: 10.1124/jpet.104.073114)</td>
+</tr>
+<tr>
+<td>kcat</td>
+<td>0.0668699322 1/min</td>
+<td>Parameter Identification-Parameter Identification-Value updated from '002-3-6_from001-5-3_IRtablet-sd_Pint-FIX_FINAL' on 2022-02-23 17:18</td>
+</tr>
+</tbody>
+</table>
+<h5 id="metabolizing-enzyme-cyp2b6-3-hydroxylation_pearce2002">Metabolizing Enzyme: CYP2B6-3-Hydroxylation_Pearce2002<a class="headerlink" href="#metabolizing-enzyme-cyp2b6-3-hydroxylation_pearce2002" title="Anchor link to this section for reference">&para;</a></h5>
+<p>Molecule: CYP2B6</p>
+<h6 id="parameters_4">Parameters<a class="headerlink" href="#parameters_4" title="Anchor link to this section for reference">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>In vitro Vmax for liver microsomes</td>
+<td>49 pmol/min/mg mic. protein</td>
+<td>Publication-In Vitro-Pearce 2002 (DOI: 10.1124/dmd.30.11.1170)</td>
+</tr>
+<tr>
+<td>Content of CYP proteins in liver microsomes</td>
+<td>39 pmol/mg mic. protein</td>
+<td>Publication-In Vitro-Rodrigues 1999 (DOI: 10.1016/s0006-2952(98)00268-8)</td>
+</tr>
+<tr>
+<td>Km</td>
+<td>235 µmol/l</td>
+<td>Publication-Pearce 2002 (DOI: 10.1124/dmd.30.11.1170)</td>
+</tr>
+<tr>
+<td>kcat</td>
+<td>0.9361790504 1/min</td>
+<td>Parameter Identification-Parameter Identification-Value updated from '002-3-6_from001-5-3_IRtablet-sd_Pint-FIX_FINAL' on 2022-02-23 17:18</td>
+</tr>
+</tbody>
+</table>
+<h5 id="metabolizing-enzyme-cyp3a4-epoxidation_sakamoto2013">Metabolizing Enzyme: CYP3A4-Epoxidation_Sakamoto2013<a class="headerlink" href="#metabolizing-enzyme-cyp3a4-epoxidation_sakamoto2013" title="Anchor link to this section for reference">&para;</a></h5>
+<p>Molecule: CYP3A4</p>
+<h6 id="parameters_5">Parameters<a class="headerlink" href="#parameters_5" title="Anchor link to this section for reference">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>In vitro Vmax for liver microsomes</td>
+<td>726 pmol/min/mg mic. protein</td>
+<td>Publication-In Vitro-Sakamoto 2013 (DOI: 10.1248/bpb.b13-00569)</td>
+</tr>
+<tr>
+<td>Km</td>
+<td>808 µmol/l</td>
+<td>Publication-In Vitro-Sakamoto 2013 (DOI: 10.1248/bpb.b13-00569)</td>
+</tr>
+<tr>
+<td>kcat</td>
+<td>5.0088763476 1/min</td>
+<td>Parameter Identification-Parameter Identification-Value updated from '002-3-6_from001-5-3_IRtablet-sd_Pint-FIX_FINAL' on 2022-02-23 17:18</td>
+</tr>
+</tbody>
+</table>
+<h5 id="induction-cyp2b6-faucette2004">Induction: CYP2B6-Faucette2004<a class="headerlink" href="#induction-cyp2b6-faucette2004" title="Anchor link to this section for reference">&para;</a></h5>
+<p>Molecule: CYP2B6</p>
+<h6 id="parameters_6">Parameters<a class="headerlink" href="#parameters_6" title="Anchor link to this section for reference">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>EC50</td>
+<td>1000 µmol/l</td>
+<td>Publication-Set to an arbitrarily high value to enable linear induction as suggested by Faucette 2004 (DOI: 10.1124/dmd.32.3.348); see evaluation report for details</td>
+</tr>
+<tr>
+<td>Emax</td>
+<td>148.7284</td>
+<td>Publication-Linear-mixed effects model fitted to reported data by Faucette 2004 (DOI: 10.1124/dmd.32.3.348); see evaluation report for details</td>
+</tr>
+</tbody>
+</table>
+<h3 id="compound-15n-carbamazepine">Compound: [15N]-Carbamazepine<a class="headerlink" href="#compound-15n-carbamazepine" title="Anchor link to this section for reference">&para;</a></h3>
+<h4 id="parameters_7">Parameters<a class="headerlink" href="#parameters_7" title="Anchor link to this section for reference">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+<th>Alternative</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Solubility at reference pH</td>
+<td>308.3333 mg/l</td>
+<td>Publication-Mean value of the following FaHIF solubility data reported in the literature: 336 µg/mL, pH 6.2 (Annaert 2010; DOI: 10.1016/j.ejps.2009.10.005); 283 µg/mL, pH 7.0 (Söderlind 2010; DOI: 10.1021/mp100144v); 306 mg/mL, pH 6.9 (Clarysse 2011; DOI: 10.1016/j.ejps.2011.04.016)</td>
+<td>IR tablet (FaHIF)</td>
+<td>True</td>
+</tr>
+<tr>
+<td>Reference pH</td>
+<td>6.7</td>
+<td>Publication-Mean value of the following FaHIF solubility data reported in the literature: 336 µg/mL, pH 6.2 (Annaert 2010; DOI: 10.1016/j.ejps.2009.10.005); 283 µg/mL, pH 7.0 (Söderlind 2010; DOI: 10.1021/mp100144v); 306 mg/mL, pH 6.9 (Clarysse 2011; DOI: 10.1016/j.ejps.2011.04.016)</td>
+<td>IR tablet (FaHIF)</td>
+<td>True</td>
+</tr>
+<tr>
+<td>Solubility at reference pH</td>
+<td>546.0199756643 mg/l</td>
+<td>Parameter Identification-Parameter Identification-Value updated from '004-2_from-003-1_XRtablet_fasted_solubility_FINAL' on 2022-03-24 12:41</td>
+<td>XR tablet (fitted)</td>
+<td>False</td>
+</tr>
+<tr>
+<td>Reference pH</td>
+<td>6.7</td>
+<td>Parameter Identification-Parameter Identification-Value updated from '004-2_from-003-1_XRtablet_fasted_solubility_FINAL' on 2022-03-16 18:25</td>
+<td>XR tablet (fitted)</td>
+<td>False</td>
+</tr>
+<tr>
+<td>Lipophilicity</td>
+<td>2.0067753065 Log Units</td>
+<td>Parameter Identification-Parameter Identification-Value updated from '001-5-3_CYP3A4_MM-kinetics_WithoutTablet' on 2022-02-21 16:49</td>
+<td>Optimized</td>
+<td>True</td>
+</tr>
+<tr>
+<td>Fraction unbound (plasma, reference value)</td>
+<td>0.243</td>
+<td>Publication-Morselli 1975 (DOI: 10.1007/978-3-642-85921-2_16)</td>
+<td>Morselli 1975</td>
+<td>True</td>
+</tr>
+<tr>
+<td>Is small molecule</td>
+<td>Yes</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Molecular weight</td>
+<td>236.2686 g/mol</td>
+<td>Internet-DrugBank (https://go.drugbank.com/drugs/DB00564)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Plasma protein binding partner</td>
+<td>Albumin</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="calculation-methods_1">Calculation methods<a class="headerlink" href="#calculation-methods_1" title="Anchor link to this section for reference">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Partition coefficients</td>
+<td>Rodgers and Rowland</td>
+</tr>
+<tr>
+<td>Cellular permeabilities</td>
+<td>PK-Sim Standard</td>
+</tr>
+</tbody>
+</table>
+<h4 id="processes_1">Processes<a class="headerlink" href="#processes_1" title="Anchor link to this section for reference">&para;</a></h4>
+<h5 id="induction-cyp3a4-dmpk_1">Induction: CYP3A4-DMPK<a class="headerlink" href="#induction-cyp3a4-dmpk_1" title="Anchor link to this section for reference">&para;</a></h5>
+<p>Molecule: CYP3A4</p>
+<h6 id="parameters_8">Parameters<a class="headerlink" href="#parameters_8" title="Anchor link to this section for reference">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>EC50</td>
+<td>27.193363407 µmol/l</td>
+<td>Parameter Identification-Parameter Identification-Value updated from '003-1_from002-3-6_EC50' on 2022-02-24 10:23</td>
+</tr>
+<tr>
+<td>Emax</td>
+<td>5.3929777775</td>
+<td>Publication-In Vitro-DMPK measurement (internal data); the measured Emax was calibrated with rifampicin by using the Emax implemented in the rifampicin OSP model v1.2 according the the method described by Almond 2016 (DOI: 10.1124/dmd.115.066845)</td>
+</tr>
+</tbody>
+</table>
+<h5 id="systemic-process-glomerular-filtration-glomerular-filtration_1">Systemic Process: Glomerular Filtration-Glomerular Filtration<a class="headerlink" href="#systemic-process-glomerular-filtration-glomerular-filtration_1" title="Anchor link to this section for reference">&para;</a></h5>
+<p>Species: Human</p>
+<h6 id="parameters_9">Parameters<a class="headerlink" href="#parameters_9" title="Anchor link to this section for reference">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align: right;">Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GFR fraction</td>
+<td style="text-align: right;">0.0240108793</td>
+<td>Parameter Identification-Parameter Identification-Value updated from '002-3-6_from001-5-3_IRtablet-sd_Pint-FIX_FINAL' on 2022-02-23 17:18</td>
+</tr>
+</tbody>
+</table>
+<h5 id="metabolizing-enzyme-ugt2b7-n-glucuronidation_staines2004_1">Metabolizing Enzyme: UGT2B7-N-Glucuronidation_Staines2004<a class="headerlink" href="#metabolizing-enzyme-ugt2b7-n-glucuronidation_staines2004_1" title="Anchor link to this section for reference">&para;</a></h5>
+<p>Molecule: UGT2B7</p>
+<h6 id="parameters_10">Parameters<a class="headerlink" href="#parameters_10" title="Anchor link to this section for reference">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>In vitro Vmax for liver microsomes</td>
+<td>3.5 pmol/min/mg mic. protein</td>
+<td>Publication-In Vitro-Staines 2004 (DOI: 10.1124/jpet.104.073114)</td>
+</tr>
+<tr>
+<td>Content of CYP proteins in liver microsomes</td>
+<td>82.9 pmol/mg mic. protein</td>
+<td>Publication-In Vitro-Achour 2014 (DOI: 10.1124/dmd.113.055632)</td>
+</tr>
+<tr>
+<td>Km</td>
+<td>234 µmol/l</td>
+<td>Publication-In Vitro-Staines 2004 (DOI: 10.1124/jpet.104.073114)</td>
+</tr>
+<tr>
+<td>kcat</td>
+<td>0.0668699322 1/min</td>
+<td>Parameter Identification-Parameter Identification-Value updated from '002-3-6_from001-5-3_IRtablet-sd_Pint-FIX_FINAL' on 2022-02-23 17:18</td>
+</tr>
+</tbody>
+</table>
+<h5 id="metabolizing-enzyme-cyp2b6-3-hydroxylation_pearce2002_1">Metabolizing Enzyme: CYP2B6-3-Hydroxylation_Pearce2002<a class="headerlink" href="#metabolizing-enzyme-cyp2b6-3-hydroxylation_pearce2002_1" title="Anchor link to this section for reference">&para;</a></h5>
+<p>Molecule: CYP2B6</p>
+<h6 id="parameters_11">Parameters<a class="headerlink" href="#parameters_11" title="Anchor link to this section for reference">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>In vitro Vmax for liver microsomes</td>
+<td>49 pmol/min/mg mic. protein</td>
+<td>Publication-In Vitro-Pearce 2002 (DOI: 10.1124/dmd.30.11.1170)</td>
+</tr>
+<tr>
+<td>Content of CYP proteins in liver microsomes</td>
+<td>39 pmol/mg mic. protein</td>
+<td>Publication-In Vitro-Rodrigues 1999 (DOI: 10.1016/s0006-2952(98)00268-8)</td>
+</tr>
+<tr>
+<td>Km</td>
+<td>235 µmol/l</td>
+<td>Publication-Pearce 2002 (DOI: 10.1124/dmd.30.11.1170)</td>
+</tr>
+<tr>
+<td>kcat</td>
+<td>0.9361790504 1/min</td>
+<td>Parameter Identification-Parameter Identification-Value updated from '002-3-6_from001-5-3_IRtablet-sd_Pint-FIX_FINAL' on 2022-02-23 17:18</td>
+</tr>
+</tbody>
+</table>
+<h5 id="metabolizing-enzyme-cyp3a4-epoxidation_sakamoto2013_1">Metabolizing Enzyme: CYP3A4-Epoxidation_Sakamoto2013<a class="headerlink" href="#metabolizing-enzyme-cyp3a4-epoxidation_sakamoto2013_1" title="Anchor link to this section for reference">&para;</a></h5>
+<p>Molecule: CYP3A4</p>
+<h6 id="parameters_12">Parameters<a class="headerlink" href="#parameters_12" title="Anchor link to this section for reference">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>In vitro Vmax for liver microsomes</td>
+<td>726 pmol/min/mg mic. protein</td>
+<td>Publication-In Vitro-Sakamoto 2013 (DOI: 10.1248/bpb.b13-00569)</td>
+</tr>
+<tr>
+<td>Km</td>
+<td>808 µmol/l</td>
+<td>Publication-In Vitro-Sakamoto 2013 (DOI: 10.1248/bpb.b13-00569)</td>
+</tr>
+<tr>
+<td>kcat</td>
+<td>5.0088763476 1/min</td>
+<td>Parameter Identification-Parameter Identification-Value updated from '002-3-6_from001-5-3_IRtablet-sd_Pint-FIX_FINAL' on 2022-02-23 17:18</td>
+</tr>
+</tbody>
+</table>
+<h5 id="induction-cyp2b6-faucette2004_1">Induction: CYP2B6-Faucette2004<a class="headerlink" href="#induction-cyp2b6-faucette2004_1" title="Anchor link to this section for reference">&para;</a></h5>
+<p>Molecule: CYP2B6</p>
+<h6 id="parameters_13">Parameters<a class="headerlink" href="#parameters_13" title="Anchor link to this section for reference">&para;</a></h6>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>EC50</td>
+<td>1000 µmol/l</td>
+<td>Publication-Set to an arbitrarily high value to enable linear induction as suggested by Faucette 2004 (DOI: 10.1124/dmd.32.3.348); see evaluation report for details</td>
+</tr>
+<tr>
+<td>Emax</td>
+<td>148.7284</td>
+<td>Publication-Linear-mixed effects model fitted to reported data by Faucette 2004 (DOI: 10.1124/dmd.32.3.348); see evaluation report for details</td>
+</tr>
+</tbody>
+</table>
+<h3 id="formulation-cbz_tabletir_fasted-tegretol">Formulation: CBZ_tabletIR_fasted (Tegretol)<a class="headerlink" href="#formulation-cbz_tabletir_fasted-tegretol" title="Anchor link to this section for reference">&para;</a></h3>
+<p>Type: Weibull</p>
+<h4 id="parameters_14">Parameters<a class="headerlink" href="#parameters_14" title="Anchor link to this section for reference">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dissolution time (50% dissolved)</td>
+<td>109.3089775422 min</td>
+<td>Parameter Identification-Parameter Identification-Value updated from '002-3-6_from001-5-3_IRtablet-sd_Pint-FIX_FINAL' on 2022-02-23 17:18</td>
+</tr>
+<tr>
+<td>Lag time</td>
+<td>0 min</td>
+<td></td>
+</tr>
+<tr>
+<td>Dissolution shape</td>
+<td>0.6890123758</td>
+<td>Parameter Identification-Parameter Identification-Value updated from '002-3-6_from001-5-3_IRtablet-sd_Pint-FIX_FINAL' on 2022-02-23 17:18</td>
+</tr>
+<tr>
+<td>Use as suspension</td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="formulation-cbz_capsulexr_fasted-carbatrol">Formulation: CBZ_capsuleXR_fasted (Carbatrol)<a class="headerlink" href="#formulation-cbz_capsulexr_fasted-carbatrol" title="Anchor link to this section for reference">&para;</a></h3>
+<p>Type: Weibull</p>
+<h4 id="parameters_15">Parameters<a class="headerlink" href="#parameters_15" title="Anchor link to this section for reference">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Value Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dissolution time (50% dissolved)</td>
+<td>315.2431776804 min</td>
+<td>Parameter Identification-Parameter Identification-Value updated from '004-2_from-003-1_XRtablet_fasted_solubility_FINAL' on 2022-03-24 12:41</td>
+</tr>
+<tr>
+<td>Lag time</td>
+<td>0 min</td>
+<td></td>
+</tr>
+<tr>
+<td>Dissolution shape</td>
+<td>1.2290186648</td>
+<td>Parameter Identification-Parameter Identification-Value updated from '004-2_from-003-1_XRtablet_fasted_solubility_FINAL' on 2022-03-24 12:41</td>
+</tr>
+<tr>
+<td>Use as suspension</td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="formulation-solution">Formulation: Solution<a class="headerlink" href="#formulation-solution" title="Anchor link to this section for reference">&para;</a></h3>
+<p>Type: Dissolved</p>
+<h2 id="32-diagnostics-plots">3.2 Diagnostics Plots<a id="diagnostics-plots"></a><a class="headerlink" href="#32-diagnostics-plots" title="Anchor link to this section for reference">&para;</a></h2>
+<p>Below you find the goodness-of-fit visual diagnostic plots for the PBPK model performance of all data used presented in <a href="#222-clinical-data">Section 2.2.2</a>.</p>
+<p>The first plot shows simulated versus observed plasma concentration, the second weighted residuals versus time. </p>
+<p><a id="table-3-1"></a></p>
+<p><strong>Table 3-1: GMFE for Goodness of fit plot for concentration in plasma</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Group</th>
+<th style="text-align: left;">GMFE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Carbamazepine, IV administration</td>
+<td style="text-align: left;">1.28</td>
+</tr>
+<tr>
+<td style="text-align: left;">Carbamazepine, PO administration as extended release formulation</td>
+<td style="text-align: left;">1.41</td>
+</tr>
+<tr>
+<td style="text-align: left;">Carbamazepine, PO administration as immediate release tablet</td>
+<td style="text-align: left;">1.40</td>
+</tr>
+<tr>
+<td style="text-align: left;">Carbamazepine, PO administration as liquid oral dosage form</td>
+<td style="text-align: left;">2.35</td>
+</tr>
+<tr>
+<td style="text-align: left;">All</td>
+<td style="text-align: left;">1.49</td>
+</tr>
+</tbody>
+</table>
+<p><br>
+<br></p>
+<p><a id="figure-3-1"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/008_section_diagnostics-plots/2_gof_plot_predictedVsObserved.png" /></p>
+<p><strong>Figure 3-1: Goodness of fit plot for concentration in plasma</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-2"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/008_section_diagnostics-plots/3_gof_plot_residualsOverTime.png" /></p>
+<p><strong>Figure 3-2: Goodness of fit plot for concentration in plasma</strong></p>
+<p><br>
+<br></p>
+<h2 id="33-concentration-time-profiles">3.3 Concentration-Time Profiles<a id="ct-profiles"></a><a class="headerlink" href="#33-concentration-time-profiles" title="Anchor link to this section for reference">&para;</a></h2>
+<p>Simulated versus observed concentration-time profiles of all data listed in <a href="#222-clinical-data">Section 2.2.2</a> are presented below.</p>
+<p><a id="figure-3-3"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/1_time_profile_plot_Carbamazepine_Barzaghi1987_400mg_sd_tabIR.png" /></p>
+<p><strong>Figure 3-3: Barzaghi1987_400mg_sd_tabIR</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-4"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/2_time_profile_plot_Carbamazepine_Bedada2015_200mg_sd_tabIR.png" /></p>
+<p><strong>Figure 3-4: Bedada2015_200mg_sd_tabIR</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-5"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/3_time_profile_plot_Carbamazepine_Bedada2016_200mg_sd_tabIR.png" /></p>
+<p><strong>Figure 3-5: Bedada2016_200mg_sd_tabIR</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-6"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/4_time_profile_plot_Carbamazepine_Bernus1994_600mg_D1_D5_tabIR.png" /></p>
+<p><strong>Figure 3-6: Bernus1994_600mg_D1+D5_tabIR - plasma</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-7"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/5_time_profile_plot_Carbamazepine_Bernus1994_600mg_D1_D5_tabIR.png" /></p>
+<p><strong>Figure 3-7: Bernus1994_600mg_D1+D5_tabIR - urine</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-8"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/6_time_profile_plot_Carbamazepine_Bianchetti1987_400mg_sd_tabIR.png" /></p>
+<p><strong>Figure 3-8: Bianchetti1987_400mg_sd_tabIR_fed</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-9"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/7_time_profile_plot_Carbamazepine_Burstein2000_100_200_400mg_md_tabIR.png" /></p>
+<p><strong>Figure 3-9: Burstein2000_100-200-400mg_md_tabIR</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-10"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/8_time_profile_plot_Carbamazepine_Caraco1995_200mg_sd_LeanGroup.png" /></p>
+<p><strong>Figure 3-10: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-11"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/9_time_profile_plot_Carbamazepine_Cawello2010_TrialB_200mg_BID.png" /></p>
+<p><strong>Figure 3-11: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-12"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/10_time_profile_plot_Carbamazepine_Cotter1977_individual_800mg_sd_tabIR.png" /></p>
+<p><strong>Figure 3-12: Cotter1977_individual_800mg_sd_tabIR</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-13"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/11_time_profile_plot_Carbamazepine_Dalton1985a_control_600mg_sd_tabIR.png" /></p>
+<p><strong>Figure 3-13: Dalton1985_control_600mg_sd_tabIR</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-14"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/12_time_profile_plot_Carbamazepine_Dalton1985b_600mg_sd_tabIR.png" /></p>
+<p><strong>Figure 3-14: Dalton1985a_600mg_sd_tabIR</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-15"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/13_time_profile_plot_Carbamazepine_Eichelbaum1985_VolunteerEH_200mg_sd_susp.png" /></p>
+<p><strong>Figure 3-15: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-16"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/14_time_profile_plot_Carbamazepine_Elqidra2004_200mg_sd.png" /></p>
+<p><strong>Figure 3-16: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-17"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/15_time_profile_plot_Carbamazepine_EUPatent2000_400mg_sd_TegretolXR.png" /></p>
+<p><strong>Figure 3-17: EUPatent2005_400mg_sd_TegretolXR</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-18"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/16_time_profile_plot_Carbamazepine_EUPatent2000_600mg_sd_TegretolXR.png" /></p>
+<p><strong>Figure 3-18: EUPatent2005_600mg_sd_TegretolXR</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-19"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/17_time_profile_plot_Carbamazepine_Gerardin1976_100mg_sd_tabIR.png" /></p>
+<p><strong>Figure 3-19: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-20"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/18_time_profile_plot_Carbamazepine_Gerardin1976_200mg_sd_tabIR.png" /></p>
+<p><strong>Figure 3-20: Geradin1976_200mg_sd_tabIR</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-21"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/19_time_profile_plot_Carbamazepine_Gerardin1976_600mg_sd_tabIR.png" /></p>
+<p><strong>Figure 3-21: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-22"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/20_time_profile_plot_Carbamazepine_Gerardin1976_mean_200mg_md_tabIR.png" /></p>
+<p><strong>Figure 3-22: Geradin1976_mean_200mg_md_tabIR</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-23"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/21_time_profile_plot_Carbamazepine_Gerardin1976_mean_200mg_md_tabIR.png" /></p>
+<p><strong>Figure 3-23: Geradin1976_mean_200mg_md_tabIR - first dose</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-24"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/22_time_profile_plot_Carbamazepine_Gerardin1976_mean_200mg_md_tabIR.png" /></p>
+<p><strong>Figure 3-24: Geradin1976_mean_200mg_md_tabIR - last dose</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-25"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/23_time_profile_plot_Carbamazepine_Gerardin1990_Subject1_10mg_iv_100mg_po_sol.png" /></p>
+<p><strong>Figure 3-25: Geradin1990_Subject1_100mg-iv_100mg-po-sol</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-26"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/24_time_profile_plot_Carbamazepine_Gerardin1990_Subject2_10mg_iv_100mg_po_sol.png" /></p>
+<p><strong>Figure 3-26: Geradin1990_Subject2_100mg-iv_100mg-po-sol</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-27"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/25_time_profile_plot_Carbamazepine_Ji2008_Arm2_Control_100_200_400mg_md_tabIR.png" /></p>
+<p><strong>Figure 3-27: Ji2008_100-200-400mg_md_tabIR</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-28"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/26_time_profile_plot_Carbamazepine_Kayali1994_200mg_sd.png" /></p>
+<p><strong>Figure 3-28: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-29"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/27_time_profile_plot_Carbamazepine_Kim2005_200mg_sd_tabIR.png" /></p>
+<p><strong>Figure 3-29: Kim2005_200mg_sd_tabIR</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-30"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/28_time_profile_plot_Carbamazepine_Kovacevic2009_400mg_sd_TegretolIR.png" /></p>
+<p><strong>Figure 3-30: Kovacevic2009_400mg_sd_TegretolIR</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-31"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/29_time_profile_plot_Carbamazepine_Kovacevic2009_400mg_sd_TegretolXR.png" /></p>
+<p><strong>Figure 3-31: Kovacevic2009_400mg_sd_TegretolXR</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-32"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/30_time_profile_plot_Carbamazepine_Levy1975_6mg_kg_sd_solution_fasted.png" /></p>
+<p><strong>Figure 3-32: Levy1975_6mg-kg_sd_solution_fasted</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-33"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/31_time_profile_plot_Carbamazepine_Levy1975_6mg_kg_sd_tabIR_fasted.png" /></p>
+<p><strong>Figure 3-33: Levy1975_6mg-kg_sd_tabIR_fasted</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-34"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/32_time_profile_plot_Carbamazepine_McLean2001_400mg_sd_capXR_fasted.png" /></p>
+<p><strong>Figure 3-34: McLean2001_400mg_sd_capXR_fasted</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-35"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/33_time_profile_plot_Carbamazepine_Meyer1992_200mg_sd_TegretolIR.png" /></p>
+<p><strong>Figure 3-35: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-36"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/34_time_profile_plot_Carbamazepine_Meyer1998_200mg_sd_TegretolIR.png" /></p>
+<p><strong>Figure 3-36: Time Profile Analysis</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-37"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/35_time_profile_plot_Carbamazepine_Miles1989_control_357mg_md_tabIR.png" /></p>
+<p><strong>Figure 3-37: Miles1989_control_357_md_tabIR</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-38"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/36_time_profile_plot_Carbamazepine_Moller2001_100_200_400mg_md_tabIR.png" /></p>
+<p><strong>Figure 3-38: Moller2001_100-200-400mg_md_tabIR</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-39"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/37_time_profile_plot_Carbamazepine_Morselli1975_healthy_400mg_sd_tabIR.png" /></p>
+<p><strong>Figure 3-39: Morselli1975_healthy_400mg_sd_tabIR_plasma</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-40"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/38_time_profile_plot_Carbamazepine_Morselli1975_healthy_400mg_sd_tabIR.png" /></p>
+<p><strong>Figure 3-40: Morselli1975_healthy_400mg_sd_tabIR_urine</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-41"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/39_time_profile_plot_Carbamazepine_Pynnoenen1977_400mg_sd_tabIR.png" /></p>
+<p><strong>Figure 3-41: Pynnoenen1977_400mg_sd_tabIR_plasma</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-42"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/40_time_profile_plot_Carbamazepine_Pynnoenen1977_400mg_sd_tabIR.png" /></p>
+<p><strong>Figure 3-42: Pynnoenen1977_400mg_sd_tabIR_saliva</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-43"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/41_time_profile_plot_Carbamazepine_Rawlins1975_100mg_sd_solution_volunteerG.png" /></p>
+<p><strong>Figure 3-43: Rawlins1975_100mg_sd_sol</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-44"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/42_time_profile_plot_Carbamazepine_Rawlins1975_200mg_sd_solution_volunteerG.png" /></p>
+<p><strong>Figure 3-44: Rawlins1975_200mg_sd_sol</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-45"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/43_time_profile_plot_Carbamazepine_Rawlins1975_200mg_sd_tablet_volunteerG.png" /></p>
+<p><strong>Figure 3-45: Rawlins1975_200mg_sd_sol</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-46"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/44_time_profile_plot_Carbamazepine_Rawlins1975_50mg_sd_solution_volunteerG.png" /></p>
+<p><strong>Figure 3-46: Rawlins1975_50mg_sd_sol</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-47"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/45_time_profile_plot_Carbamazepine_Saint_Salvi1987_200mg_sd_tabIR.png" /></p>
+<p><strong>Figure 3-47: SaintSalvi1987_200mg_sd_tabIR</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-48"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/46_time_profile_plot_Carbamazepine_Stevens1998_400mg_bid_CarbatrolXR.png" /></p>
+<p><strong>Figure 3-48: Stevens1998_400mg_bid_CarbatrolXR</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-49"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/47_time_profile_plot_Carbamazepine_Stevens1998_400mg_bid_CarbatrolXR.png" /></p>
+<p><strong>Figure 3-49: Stevens1998_400mg_bid_CarbatrolXR - last dose</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-50"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/48_time_profile_plot_Carbamazepine_Stevens1998_400mg_bid_TegretolXR.png" /></p>
+<p><strong>Figure 3-50: Stevens1998_400mg_bid_TegretolXR</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-51"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/49_time_profile_plot_Carbamazepine_Stevens1998_400mg_bid_TegretolXR.png" /></p>
+<p><strong>Figure 3-51: Stevens1998_400mg_bid_TegretolXR - last dose</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-52"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/50_time_profile_plot_Carbamazepine_Strandjord1975_mean_400mg_sd_tabIR.png" /></p>
+<p><strong>Figure 3-52: Strandjord1975_mean_400mg_sd_tabIR - observed mean data</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-53"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/51_time_profile_plot_Carbamazepine_Strandjord1975_mean_400mg_sd_tabIR.png" /></p>
+<p><strong>Figure 3-53: Strandjord1975_mean_400mg_sd_tabIR - observed individual data</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-54"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/52_time_profile_plot_Carbamazepine_Sumi1987_200mg_sd_sol.png" /></p>
+<p><strong>Figure 3-54: Sumi1987_200mg_sd_solution</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-55"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/53_time_profile_plot_Carbamazepine_Sumi1987_200mg_sd_tabletA.png" /></p>
+<p><strong>Figure 3-55: Sumi1987_200mg_sd_tabletA</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-56"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/54_time_profile_plot_Carbamazepine_Sumi1987_200mg_sd_tabletB.png" /></p>
+<p><strong>Figure 3-56: Sumi1987_200mg_sd_tabletB</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-57"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/55_time_profile_plot_Carbamazepine_Sumi1987_200mg_sd_tabletC.png" /></p>
+<p><strong>Figure 3-57: Sumi1987_200mg_sd_tabletC</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-58"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/56_time_profile_plot_Carbamazepine_Tomson1983_GB_200mg_sd_susp.png" /></p>
+<p><strong>Figure 3-58: Tomson1983_GB_200mg_sd_susp</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-59"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/57_time_profile_plot_Carbamazepine_USPatent2009_300mg_sd_capXR.png" /></p>
+<p><strong>Figure 3-59: USPatent2009_300mg_sd_capXR</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-60"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/58_time_profile_plot_Carbamazepine_Wada1978_200mg_sd_syrup.png" /></p>
+<p><strong>Figure 3-60: Wada1987_200mg_sd_syrup_plasma</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-61"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/59_time_profile_plot_Carbamazepine_Wada1978_200mg_sd_syrup.png" /></p>
+<p><strong>Figure 3-61: Wada1987_200mg_sd_syrup_saliva</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-62"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/60_time_profile_plot_Carbamazepine_Wada1978_200mg_sd_tabIR.png" /></p>
+<p><strong>Figure 3-62: Wada1978_200mg_sd_tabIR_plasma</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-63"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/61_time_profile_plot_Carbamazepine_Wada1978_200mg_sd_tabIR.png" /></p>
+<p><strong>Figure 3-63: Wada1978_200mg_sd_tabIR_plasma 1</strong></p>
+<p><br>
+<br></p>
+<p><a id="figure-3-64"></a></p>
+<p><img alt="" src="images/006_section_results-and-discussion/009_section_ct-profiles/62_time_profile_plot_Carbamazepine_Wong1983_control_400mg_sd_tabIR.png" /></p>
+<p><strong>Figure 3-64: Wong1983_control_400mg_sd_tabIR</strong></p>
+<p><br>
+<br></p>
+<h1 id="4-conclusion">4 Conclusion<a id="conclusion"></a><a class="headerlink" href="#4-conclusion" title="Anchor link to this section for reference">&para;</a></h1>
+<p>The herein presented PBPK model adequately describes the pharmacokinetics of carbamazepine after single and multiple oral administration of various doses to healthy adults. </p>
+<p>In conclusion, the presented carbamazepine PBPK model is well-suited to be applied in drug-drug-interaction scenarios.</p>
+<h1 id="5-references">5 References<a id="main-references"></a><a class="headerlink" href="#5-references" title="Anchor link to this section for reference">&para;</a></h1>
+<p><strong>Achour 2014</strong> Achour, B., Russell, M. R., Barber, J., &amp; Rostami-Hodjegan, A. (2014). Simultaneous quantification of the abundance of several cytochrome P450 and uridine 5′-diphospho-glucuronosyltransferase enzymes in human liver microsomes using multiplexed targeted proteomics. <em>Drug metabolism and disposition</em>, <em>42</em>(4), 500-510.</p>
+<p><strong>Almond 2016</strong> Almond, L. M., Mukadam, S., Gardner, I., Okialda, K., Wong, S., Hatley, O., ... &amp; Kenny, J. R. (2016). Prediction of drug-drug interactions arising from CYP3A induction using a physiologically based dynamic model. <em>Drug Metabolism and Disposition</em>, <em>44</em>(6), 821-832.</p>
+<p><strong>Annaert 2010</strong> Annaert, P., Brouwers, J., Bijnens, A., Lammert, F., Tack, J., &amp; Augustijns, P. (2010). Ex vivo permeability experiments in excised rat intestinal tissue and in vitro solubility measurements in aspirated human intestinal fluids support age-dependent oral drug absorption. <em>European journal of pharmaceutical sciences</em>, <em>39</em>(1-3), 15-22.</p>
+<p><strong>Austin 2002</strong> Austin, R. P., Barton, P., Cockroft, S. L., Wenlock, M. C., &amp; Riley, R. J. (2002). The influence of nonspecific microsomal binding on apparent intrinsic clearance, and its prediction from physicochemical properties. <em>Drug Metabolism and Disposition</em>, <em>30</em>(12), 1497-1503.</p>
+<p><strong>Barzaghi 1987</strong> Barzaghi, N., Gatti, G., Crema, F., Monteleone, M., Amione, C., Leone, L., &amp; Perucca, E. (1987). Inhibition by erythromycin of the conversion of carbamazepine to its active 10, 11‐epoxide metabolite. <em>British journal of clinical pharmacology</em>, <em>24</em>(6), 836-838.</p>
+<p><strong>Bedada 2015</strong> Bedada, S. K., &amp; Nearati, P. (2015). Effect of resveratrol on the pharmacokinetics of carbamazepine in healthy human volunteers. <em>Phytotherapy Research</em>, <em>29</em>(5), 701-706.</p>
+<p><strong>Bedada 2016</strong> Bedada, S. K., Appani, R., &amp; Boga, P. K. (2017). Effect of piperine on the metabolism and pharmacokinetics of carbamazepine in healthy volunteers. <em>Drug research</em>, <em>67</em>(01), 46-51.</p>
+<p><strong>Bernus 1994</strong> Bernus, I., Dickinson, R. G., Hooper, W. D., &amp; Eadie, M. J. (1994). Early stage autoinduction of carbamazepine metabolism in humans. <em>European journal of clinical pharmacology</em>, <em>47</em>(4), 355-360.</p>
+<p><strong>Bianchetti 1987</strong> Bianchetti, G., Padovani, P., Thenot, J. P., Thiercelin, J. F., &amp; Morselli, P. L. (1987). Pharmacokinetic interactions of progabide with other antiepileptic drugs. <em>Epilepsia</em>, <em>28</em>(1), 68-73.</p>
+<p><strong>Burstein 2000</strong> Burstein, A. H., Horton, R. L., Dunn, T., Alfaro, R. M., Piscitelli, S. C., &amp; Theodore, W. (2000). Lack of effect of St John's Wort on carbamazepine pharmacokinetics in healthy volunteers. <em>Clinical Pharmacology &amp; Therapeutics</em>, <em>68</em>(6), 605-612.</p>
+<p><strong>Caraco 1995</strong> Caraco, Y., Zylber-Katz, E., Berry, E. M., &amp; Levy, M. (1995). Carbamazepine pharmacokinetics in obese and lean subjects. <em>Annals of Pharmacotherapy</em>, <em>29</em>(9), 843-847.</p>
+<p><strong>Cawello 2010</strong> Cawello, W., Nickel, B., &amp; Eggert‐Formella, A. (2010). No pharmacokinetic interaction between lacosamide and carbamazepine in healthy volunteers. <em>The Journal of Clinical Pharmacology</em>, <em>50</em>(4), 459-471.</p>
+<p><strong>Cazali 2003</strong> Cazali, N., Tran, A., Treluyer, J. M., Rey, E., d’Athis, P., Vincent, J., &amp; Pons, G. (2003). Inhibitory effect of stiripentol on carbamazepine and saquinavir metabolism in human. <em>British journal of clinical pharmacology</em>, <em>56</em>(5), 526-536.</p>
+<p><strong>Clarysse 2011</strong> Clarysse, S., Brouwers, J., Tack, J., Annaert, P., &amp; Augustijns, P. (2011). Intestinal drug solubility estimation based on simulated intestinal fluids: comparison with solubility in human intestinal fluids. <em>European journal of pharmaceutical sciences</em>, <em>43</em>(4), 260-269.</p>
+<p><strong>Cotter 1977</strong> Cotter, L. M., Eadie, M. J., Hooper, W. D., Lander, C. M., Smith, G. A., &amp; Tyrer, J. H. (1977). The pharmacokinetics of carbamazepine. <em>European journal of clinical pharmacology</em>, <em>12</em>(6), 451-456.</p>
+<p><strong>Dalton 1985a</strong> Dalton, M. J., Powell, J. R., &amp; Messenheimer Jr, J. A. (1985). The Influence of Cimetidine on Single‐Dose Carbamazepine Pharmacokinetics. <em>Epilepsia</em>, <em>26</em>(2), 127-130.</p>
+<p><strong>Dalton 1985b</strong> Dalton, M. J., Powell, J. R., Messenheimer Jr, J. A., Nazario, M., &amp; Mallet, L. (1985). Ranitidine Does Not Alter Single-Dose Carbamazepin Pharmacokinetics in Healthy Adults. <em>Drug intelligence &amp; clinical pharmacy</em>, <em>19</em>(12), 941-944.</p>
+<p><strong>Di Salle 1974</strong> Di Salle, E., Pacifici, G. M., &amp; Morselli, P. L. (1974). Studies on plasma protein binding of carbamazepine. <em>Pharmacological research communications</em>, <em>6</em>(2), 193-202.</p>
+<p><strong>Drugbank DB00564</strong>. URL: https://www.drugbank.ca/drugs/DB00564, accessed on 12-14-2020.</p>
+<p><strong>Drugbank DBMET00291</strong>. URL: https://www.drugbank.ca/metabolites/DBMET00291, accessed on 12-16-2020.</p>
+<p><strong>Egnell 2003</strong> Egnell, A. C., Houston, B., &amp; Boyer, S. (2003). In vivo CYP3A4 heteroactivation is a possible mechanism for the drug interaction between felbamate and carbamazepine. <em>Journal of Pharmacology and Experimental Therapeutics</em>, <em>305</em>(3), 1251-1262.</p>
+<p><strong>Eichelbaum 1985</strong> Eichelbaum, M., Tomson, T., Tybring, G., &amp; Bertilsson, L. (1985). Carbamazepine metabolism in man. <em>Clinical pharmacokinetics</em>, <em>10</em>(1), 80-90.</p>
+<p><strong>Elqidra 2004</strong> Elqidra, R., Ünlü, N., Capan, Y., Sahin, G., Dalkara, T., &amp; Hincal, A. A. (2004). Effect of polymorphism on in vitro-in vivo properties of carbamazepine conventional tablets. <em>Journal of Drug Delivery Science and Technology</em>, <em>14</em>(2), 147-153.</p>
+<p><strong>European Patent Application EP 1044681 A2</strong> European Patent Application 2000, EP 1044681 A2, Application no. 00650026.8. URL: https://patentimages.storage.googleapis.com/0c/45/b7/d2be4fa9d24371/EP1044681A2.pdf, accessed on 12-01-2022.</p>
+<p><strong>Faucette 2004</strong> Faucette, S. R., Wang, H., Hamilton, G. A., Jolley, S. L., Gilbert, D., Lindley, C., ... &amp; LeCluyse, E. L. (2004). Regulation of CYP2B6 in primary human hepatocytes by prototypical inducers. <em>Drug Metabolism and Disposition</em>, <em>32</em>(3), 348-358.</p>
+<p><strong>Faucette 2007</strong> Faucette, S. R., Zhang, T. C., Moore, R., Sueyoshi, T., Omiecinski, C. J., LeCluyse, E. L., ... &amp; Wang, H. (2007). Relative activation of human pregnane X receptor versus constitutive androstane receptor defines distinct classes of CYP2B6 and CYP3A4 inducers. <em>Journal of Pharmacology and Experimental Therapeutics</em>, <em>320</em>(1), 72-80.</p>
+<p><strong>Fenet 2012</strong> Fenet, H., Mathieu, O., Mahjoub, O., Li, Z., Hillaire-Buys, D., Casellas, C., &amp; Gomez, E. (2012). Carbamazepine, carbamazepine epoxide and dihydroxycarbamazepine sorption to soil and occurrence in a wastewater reuse site in Tunisia. <em>Chemosphere</em>, <em>88</em>(1), 49-54.</p>
+<p><strong>Fuhr 2021</strong> Fuhr, L. M., Marok, F. Z., Hanke, N., Selzer, D., &amp; Lehr, T. (2021). Pharmacokinetics of the CYP3A4 and CYP2B6 Inducer Carbamazepine and Its Drug–Drug Interaction Potential: A Physiologically Based Pharmacokinetic Modeling Approach. <em>Pharmaceutics</em>, <em>13</em>(2), 270.</p>
+<p><strong>Gérardin 1976</strong> Gérardin, A. P., Abadie, F. V., Campestrini, J. A., &amp; Theobald, W. (1976). Pharmacokinetics of carbamazepine in normal humans after single and repeated oral doses. <em>Journal of pharmacokinetics and biopharmaceutics</em>, <em>4</em>(6), 521-535.</p>
+<p><strong>Gérardin 1990</strong> Gérardin, A., Dubois, J. P., Moppert, J., &amp; Geller, L. (1990). Absolute bioavailability of carbamazepine after oral administration of a 2% syrup. <em>Epilepsia</em>, <em>31</em>(3), 334-338.</p>
+<p><strong>Hooper 1975</strong> Hooper, W. D., Dubetz, D. K., Bochner, F., Cotter, L. M., Smith, G. A., Eadie, M. J., &amp; Tyrer, J. H. (1975). Plasma protein binding of carbamazepine. <em>Clinical Pharmacology &amp; Therapeutics</em>, <em>17</em>(4), 433-440.</p>
+<p><strong>Huang 2004</strong> Huang, W., Lin, Y. S., McConn, D. J., Calamia, J. C., Totah, R. A., Isoherranen, N., ... &amp; Thummel, K. E. (2004). Evidence of significant contribution from CYP3A5 to hepatic drug metabolism. <em>Drug metabolism and disposition</em>, <em>32</em>(12), 1434-1445.</p>
+<p><strong>Ji 2008</strong> Ji, P., Damle, B., Xie, J., Unger, S. E., Grasela, D. M., &amp; Kaul, S. (2008). Pharmacokinetic interaction between efavirenz and carbamazepine after multiple‐dose administration in healthy subjects. <em>The Journal of Clinical Pharmacology</em>, <em>48</em>(8), 948-956.</p>
+<p><strong>Kayali 1994</strong> Kayali, A., Tuglular, I., &amp; Ertas, M. (1994). Pharmacokinetics of carbamazepine Part I: a new bioequivalency parameter based on a relative bioavailability trial. <em>European journal of drug metabolism and pharmacokinetics</em>, <em>19</em>(4), 319-325.</p>
+<p><strong>Kerr 1994</strong> Kerr, B. M., Thummel, K. E., Wurden, C. J., Klein, S. M., Kroetz, D. L., Gonzalez, F. J., &amp; Levy, R. (1994). Human liver carbamazepine metabolism: role of CYP3A4 and CYP2C8 in 10, 11-epoxide formation. <em>Biochemical pharmacology</em>, <em>47</em>(11), 1969-1979.</p>
+<p><strong>Kim 2005</strong> Kim, K. A., Oh, S. O., Park, P. W., &amp; Park, J. Y. (2005). Effect of probenecid on the pharmacokinetics of carbamazepine in healthy subjects. <em>European journal of clinical pharmacology</em>, <em>61</em>(4), 275-280.</p>
+<p><strong>Kovacević 2009</strong> Kovacević, I., Parojcic, J., Homsek, I., Tubic-Grozdanis, M., &amp; Langguth, P. (2009). Justification of biowaiver for carbamazepine, a low soluble high permeable compound, in solid dosage forms based on IVIVC and gastrointestinal simulation. <em>Molecular pharmaceutics</em>, <em>6</em>(1), 40-47.</p>
+<p><strong>Kuepfer 2016</strong> Kuepfer, L., Niederalt, C., Wendl, T., Schlender, J. F., Willmann, S., Lippert, J., ... &amp; Teutonico, D. (2016). Applied concepts in PBPK modeling: how to build a PBPK/PD model. <em>CPT: pharmacometrics &amp; systems pharmacology</em>, <em>5</em>(10), 516-531.</p>
+<p><strong>Lertratanangkoon 1982</strong> Lertratanangkoon, K., &amp; Horning, M. G. (1982). Metabolism of carbamazepine. <em>Drug Metabolism and Disposition</em>, <em>10</em>(1), 1-10.</p>
+<p><strong>Lennernäs 2007</strong> Lennernäs, H. (2007). Intestinal permeability and its relevance for absorption and elimination. <em>Xenobiotica</em>, <em>37</em>(10-11), 1015-1051.</p>
+<p><strong>Levy 1975</strong> Levy, R. H., Pitlick, W. H., Troupin, A. S., Green, J. R., &amp; Neal, J. M. (1975). Pharmacokinetics of carbamazepine in normal man. <em>Clinical Pharmacology &amp; Therapeutics</em>, <em>17</em>(6), 657-668.</p>
+<p><strong>McLean 2001</strong> McLean, A., Browne, S., Zhang, Y., Slaughter, E., Halstenson, C., &amp; Couch, R. (2001). The influence of food on the bioavailability of a twice‐daily controlled release carbamazepine formulation. <em>The Journal of Clinical Pharmacology</em>, <em>41</em>(2), 183-186.</p>
+<p><strong>Meyer 1992</strong> Meyer, M. C., Straughn, A. B., Jarvi, E. J., Wood, G. C., Pelsor, F. R., &amp; Shah, V. P. (1992). The bioinequivalence of carbamazepine tablets with a history of clinical failures. <em>Pharmaceutical Research</em>, <em>9</em>(12), 1612-1616.</p>
+<p><strong>Meyer 1998</strong> Meyer, M. C., Straughn, A. B., Mhatre, R. M., Shah, V. P., Williams, R. L., &amp; Lesko, L. J. (1998). The relative bioavailability and in vivo-in vitro correlations for four marketed carbamazepine tablets. <em>Pharmaceutical research</em>, <em>15</em>(11), 1787-1791.</p>
+<p><strong>Meyer 2012</strong> Meyer, M., Schneckener, S., Ludewig, B., Kuepfer, L., &amp; Lippert, J. (2012). Using expression data for quantification of active processes in physiologically based pharmacokinetic modeling. <em>Drug Metabolism and Disposition</em>, <em>40</em>(5), 892-901.</p>
+<p><strong>Miles 1989</strong> Miles, M. V., &amp; Tennison, M. B. (1989). Erythromycin effects on multiple-dose carbamazepine kinetics. <em>Therapeutic drug monitoring</em>, <em>11</em>(1), 47-52.</p>
+<p><strong>Møller 2001</strong> Møller, S. E., Larsen, F., Khan, A. Z., &amp; Rolan, P. E. (2001). Lack of effect of citalopram on the steady-state pharmacokinetics of carbamazepine in healthy male subjects. <em>Journal of clinical psychopharmacology</em>, <em>21</em>(5), 493-499.</p>
+<p><strong>Morselli 1975</strong> Morselli, P. L., Gerna, M., De Maio, D., Zanda, G., Viani, F., &amp; Garattini, S. (1975). Pharmacokinetic studies on carbamazepine in volunteers and in epileptic patients. In: <em>Clinical pharmacology of anti-epileptic drugs</em> (pp. 166-180). Springer, Berlin, Heidelberg.</p>
+<p><strong>Nishimura 2003</strong> Nishimura, M., Yaguti, H., Yoshitsugu, H., Naito, S., &amp; Satoh, T. (2003). Tissue Distribution of mRNA Expression of Human Cytochrome P450 Isoforms Assessed by High-Sensitivity Real-Time Reverse Transcription PCR. <em>Yakugaku zasshi</em>, <em>123</em>(5), 369-375.</p>
+<p><strong>Pearce 2002</strong> Pearce, R. E., Vakkalagadda, G. R., &amp; Leeder, J. S. (2002). Pathways of carbamazepine bioactivation in vitro I. Characterization of human cytochromes P450 responsible for the formation of 2- and 3-hydroxylated metabolites. <em>Drug metabolism and disposition</em>, <em>30</em>(11), 1170-1179.</p>
+<p><strong>Pelkonen 2001</strong> Pelkonen, O., Myllynen, P., Taavitsainen, P., Boobis, A. R., Watts, P., Lake, B. G., ... &amp; Lewis, D. F. V. (2001). Carbamazepine: a 'blind' assessment of CYP-associated metabolism and interactions in human liver-derived in vitro systems. <em>Xenobiotica</em>, <em>31</em>(6), 321-343.</p>
+<p><strong>PK-Sim Ontogeny Database Version 7.3</strong> URL: https://github.com/Open-Systems-Pharmacology/OSPSuite.Documentation/blob/38cf71b384cfc25cfa0ce4d2f3addfd32757e13b/PK-Sim%20Ontogeny%20Database%20Version%207.3.pdf, accessed on 12-01-2022.</p>
+<p><strong>Pynnönen 1977</strong> Pynnönen, S. (1977). The pharmacokinetics of carbamazepine in plasma and saliva of man. <em>Acta pharmacologica et toxicologica</em>, <em>41</em>(5), 465-471.</p>
+<p><strong>Rawlins 1975</strong> Rawlins, M. D., Collste, P., Bertilsson, L., &amp; Palmer, L. (1975). Distribution and elimination kinetics of carbamazepine in man. <em>European journal of clinical pharmacology</em>, <em>8</em>(2), 91-96.</p>
+<p><strong>Rodrigues 1999</strong> Rodrigues, A. D. (1999). Integrated cytochrome P450 reaction phenotyping: attempting to bridge the gap between cDNA-expressed cytochromes P450 and native human liver microsomes. <em>Biochemical pharmacology</em>, <em>57</em>(5), 465-480.</p>
+<p><strong>Saint-Salvi 1987</strong> Saint-Salvi, B., Tremblay, D., Surjus, A., &amp; Lefebvre, M. A. (1987). A Study of the Interaction of Roxithromycin with Theophylline and Carbarmazepine. <em>Journal of Antimicrobial Chemotherapy</em>, <em>20</em>(suppl_B), 121-129.</p>
+<p><strong>Sakamoto 2013</strong> Sakamoto, M., Itoh, T., &amp; Fujiwara, R. (2013). Prediction of in vivo carbamazepine 10, 11-epoxidation from in vitro metabolic studies with human liver microsomes: importance of its sigmoidal kinetics. <em>Biological and Pharmaceutical Bulletin</em>, <em>36</em>(12), 1959-1963.</p>
+<p><strong>Söderlind 2010</strong> Söderlind, E., Karlsson, E., Carlsson, A., Kong, R., Lenz, A., Lindborg, S., &amp; Sheng, J. J. (2010). Simulating fasted human intestinal fluids: understanding the roles of lecithin and bile acids. <em>Molecular pharmaceutics</em>, <em>7</em>(5), 1498-1507.</p>
+<p><strong>Staines 2004</strong> Staines, A. G., Coughtrie, M. W., &amp; Burchell, B. (2004). N-glucuronidation of carbamazepine in human tissues is mediated by UGT2B7. <em>Journal of Pharmacology and Experimental Therapeutics</em>, <em>311</em>(3), 1131-1137.</p>
+<p><strong>Stevens 1998</strong> Stevens, R. E., Limsakun, T., Evans, G., &amp; Mason, J. D. H. (1998). Controlled, multidose, pharmacokinetic evaluation of two extended‐release carbamazepine formulations (Carbatrol and Tegretol‐XR). <em>Journal of pharmaceutical sciences</em>, <em>87</em>(12), 1531-1534.</p>
+<p><strong>Strandjord 1975</strong> Strandjord, R. E., &amp; Johannessen, S. I. (1975). A preliminary study of serum carbamazepine levels in healthy subjects and in patients with epilepsy. In: <em>Clinical pharmacology of anti-epileptic drugs</em> (pp. 181-188). Springer, Berlin, Heidelberg.</p>
+<p><strong>Sumi 1987</strong> Sumi, M., Watari, N., Umezawa, O., &amp; Kaneniwa, N. (1987). Pharmacokinetic study of carbamazepine and its epoxide metabolite in humans. <em>Journal of pharmacobio-dynamics</em>, <em>10</em>(11), 652-661.</p>
+<p><strong>Terhaag 1978</strong> Terhaag, B., Richter, K., &amp; Diettrich, H. (1978). Concentration behavior of carbamazepine in bile and plasma of man. <em>International journal of clinical pharmacology and biopharmacy</em>, <em>16</em>(12), 607-609.</p>
+<p><strong>Tomaszewska 2013</strong> Tomaszewska, I. (2013). In vitro and Physiologically Based Pharmacokinetic models for pharmaceutical cocrystals. Doctoral dissertation, University of Bath. https://purehost.bath.ac.uk/ws/portalfiles/portal/187934939/UnivBath_PhD_2013_I_Tomaszewska.pdf, accessed on 12-01-2022.</p>
+<p><strong>Tomson 1983</strong> Tomson, T., Tybring, G., &amp; Bertilsson, L. (1983). Single‐dose kinetics and metabolism of carbamazepine‐10, 11‐epoxide. <em>Clinical Pharmacology &amp; Therapeutics</em>, <em>33</em>(1), 58-65.</p>
+<p><strong>US Patent Application - US 2009/0169619 A1</strong>. United States Patent Application 2009, Publication no.: US 2009/0169619 A1. https://patentimages.storage.googleapis.com/66/d4/30/f3588f44ab2b6f/US20090169619A1.pdf, accessed on 12-01-2022.</p>
+<p><strong>US Patent Application - US 2014/0302138 A1</strong>. United States Patent Application 2014, Publication no.: US 2014/0302138 A1. https://patentimages.storage.googleapis.com/57/d9/18/0d8cbfa046681d/US20140302138A1.pdf, accessed on 12-01-2022.</p>
+<p><strong>Vinçon 1987</strong> Vinçon, G., Albin, H., Demotes-Mainard, F., Guyot, M., Bistue, C., &amp; Loiseau, P. (1987). Effects of josamycin on carbamazepine kinetics. <em>European journal of clinical pharmacology</em>, <em>32</em>(3), 321-323.</p>
+<p><strong>Wada 1978</strong> Wada, J. A., Troupin, A. S., Friel, P., Remick, R., Leal, K., &amp; Pearmain, J. (1978). Pharmacokinetic comparison of tablet and suspension dosage forms of carbamazepine. <em>Epilepsia</em>, <em>19</em>(3), 251-255.</p>
+<p><strong>Williamson 2016</strong> Williamson, B., Lorbeer, M., Mitchell, M. D., Brayman, T. G., &amp; Riley, R. J. (2016). Evaluation of a novel PXR‐knockout in HepaRG™ cells. <em>Pharmacology research &amp; perspectives</em>, <em>4</em>(5), e00264.</p>
+<p><strong>Willmann 2007</strong> Willmann, S., Höhn, K., Edginton, A., Sevestre, M., Solodenko, J., Weiss, W., ... &amp; Schmitt, W. (2007). Development of a physiology-based whole-body population model for assessing the influence of individual variability on the pharmacokinetics of drugs. <em>Journal of pharmacokinetics and pharmacodynamics</em>, <em>34</em>(3), 401-431.</p>
+<p><strong>Wong 1983</strong> Wong, Y. Y., Ludden, T. M., &amp; Bell, R. D. (1983). Effect of erythromycin on carbamazepine kinetics. <em>Clinical Pharmacology &amp; Therapeutics</em>, <em>33</em>(4), 460-464.</p>
+<hr />
+<h2 id="related-models">Related Models<a class="headerlink" href="#related-models" title="Anchor link to this section for reference">&para;</a></h2>
+<p>Explore other Anticonvulsants models in this library:</p>
+<ul>
+<li><a href="../S-Mephenytoin/">S-Mephenytoin</a> - PBPK model and evaluation report</li>
+</ul>
+<p><a href="../#anticonvulsants">View all Anticonvulsants →</a></p>
+<p><a href="../">← Back to Model Library Home</a></p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; Open Systems Pharmacology Community
+    </div>
+  
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/Open-Systems-Pharmacology" target="_blank" rel="noopener" title="Open Systems Pharmacology on GitHub" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://www.open-systems-pharmacology.org/" target="_blank" rel="noopener" title="Open Systems Pharmacology Website" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M351.9 280H161c2.9 64.5 17.2 123.9 37.5 167.4 11.4 24.5 23.7 41.8 35.1 52.4 11.2 10.5 18.9 12.2 22.9 12.2s11.7-1.7 22.9-12.2c11.4-10.6 23.7-28 35.1-52.4 20.3-43.5 34.6-102.9 37.5-167.4zm-191-48h190.9c-2.8-64.5-17.1-123.9-37.4-167.4-11.4-24.4-23.7-41.8-35.1-52.4C268.1 1.7 260.4 0 256.4 0s-11.7 1.7-22.9 12.2c-11.4 10.6-23.7 28-35.1 52.4-20.3 43.5-34.6 102.9-37.5 167.4m-48 0c3.5-85.6 25.6-165.1 57.9-217.3C78.7 47.3 10.9 131.2 1.5 232zM1.5 280c9.4 100.8 77.2 184.7 169.3 217.3-32.3-52.2-54.4-131.7-57.9-217.3zm398.4 0c-3.5 85.6-25.6 165.1-57.9 217.3 92.1-32.7 159.9-116.5 169.3-217.3zm111.4-48C501.9 131.2 434.1 47.3 342 14.7c32.3 52.2 54.4 131.7 57.9 217.3z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.top", "navigation.tabs.sticky", "navigation.indexes", "navigation.path", "toc.follow", "search.highlight", "search.suggest", "search.share", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
