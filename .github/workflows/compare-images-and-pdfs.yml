@@ -1,0 +1,38 @@
+name: Compare Images and PDFs
+# Compares images visually using SSIM and PDFs text content in pull requests
+
+on:
+  pull_request: 
+    branches:
+      - develop
+
+jobs:
+  compare-files:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+      issues: write
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v7
+      with:
+        fetch-depth: 2
+
+    - name: Set up Python
+      uses: actions/setup-python@v6
+      with:
+        python-version: '3.x'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install Pillow numpy scikit-image pdfplumber requests
+
+    - name: Run image and PDF comparison
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_REPOSITORY: ${{ github.repository }}
+        PR_NUMBER: ${{ github.event.pull_request.number }}
+      run: python .github/scripts/compare-images-and-pdfs.py
