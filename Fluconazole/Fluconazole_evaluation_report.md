@@ -4,7 +4,7 @@
 | ----------------------------------------------- | ------------------------------------------------------------ |
 | based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Fluconazole-Model/releases/tag/v2.0 |
 | OSP Version                                     | 12.3                                                          |
-| Qualification Framework Version                 | 3.6                                                          |
+| Qualification Framework Version                 | 3.7                                                          |
 
 This evaluation report and the corresponding PK-Sim project file are filed at:
 
