@@ -1,0 +1,89 @@
+/* ============================================================
+   OSP PBPK Model Library – Custom Styles
+   Colour palette inspired by docs.open-systems-pharmacology.org
+   ============================================================ */
+
+/* --- Primary colour: OSP blue -------------------------------- */
+:root,
+[data-md-color-scheme="default"] {
+  --md-primary-fg-color:              #1565c0;
+  --md-primary-fg-color--light:       #1976d2;
+  --md-primary-fg-color--dark:        #0d47a1;
+  --md-accent-fg-color:               #2196f3;
+  --md-accent-fg-color--transparent:  rgba(33, 150, 243, .1);
+}
+
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color:              #1976d2;
+  --md-primary-fg-color--light:       #42a5f5;
+  --md-primary-fg-color--dark:        #0d47a1;
+  --md-accent-fg-color:               #42a5f5;
+  --md-accent-fg-color--transparent:  rgba(66, 165, 245, .1);
+}
+
+/* --- Hamburger menu: visible on ALL screen sizes ------------- */
+@media screen and (min-width: 76.25em) {
+  /* Reveal the hamburger / drawer toggle button on desktop */
+  .md-header__button[for="__drawer"] {
+    display: inline-flex !important;
+  }
+
+  /* Slide the primary navigation sidebar out of view by default */
+  .md-sidebar--primary {
+    position:  fixed     !important;
+    top:       0         !important;
+    left:      0         !important;
+    width:     12.1rem   !important;
+    height:    100vh     !important;
+    z-index:   4         !important;
+    transform: translateX(-100%) !important;
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.25s ease !important;
+    box-shadow: none !important;
+    background: var(--md-default-bg-color) !important;
+    overflow-y: auto !important;
+  }
+
+  /* Slide in when the drawer checkbox is checked */
+  [data-md-toggle="drawer"]:checked ~ .md-container .md-sidebar--primary {
+    transform:  translateX(0) !important;
+    box-shadow: 0.2rem 0 0.8rem rgba(0, 0, 0, 0.25) !important;
+  }
+
+  /* Activate the dark overlay behind the open drawer */
+  [data-md-toggle="drawer"]:checked ~ .md-overlay {
+    opacity:        1    !important;
+    pointer-events: auto !important;
+  }
+
+  /* Content fills the full width when the sidebar is hidden */
+  .md-main__inner {
+    margin-left: 0 !important;
+  }
+
+  .md-content {
+    max-width: 56rem;
+    margin:    0 auto;
+  }
+}
+
+/* --- Floating / sticky table of contents --------------------- */
+@media screen and (min-width: 60em) {
+  .md-sidebar--secondary .md-sidebar__scrollwrap {
+    position:   sticky   !important;
+    top:        4rem     !important;
+    max-height: calc(100vh - 4.5rem) !important;
+    overflow-y: auto     !important;
+  }
+}
+
+/* Highlight the currently active TOC link */
+.md-nav--secondary .md-nav__link--active {
+  color:       var(--md-accent-fg-color) !important;
+  font-weight: 600;
+}
+
+/* --- Download section button spacing ------------------------- */
+.download-section .md-button {
+  margin: 0.2rem 0.4rem 0.2rem 0;
+}
