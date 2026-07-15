@@ -1,9 +1,9 @@
 # Building and evaluation of a PBPK model for inulin in rats
 
-| Version                                         | 1.0-OSP12.3                                                   |
+| Version                                         | 1.0-OSP13.0                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
 | based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Inulin-Model/releases/tag/v1.0 |
-| OSP Version                                     | 12.3                                                          |
+| OSP Version                                     | 13.0                                                          |
 | Qualification Framework Version                 | 3.7                                                          |
 
 This evaluation report and the corresponding PK-Sim project file are filed at:
