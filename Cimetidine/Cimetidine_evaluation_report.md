@@ -1,9 +1,9 @@
 # Building and evaluation of a PBPK model for cimetidine in healthy adults
 
-| Version                                         | 2.0-OSP12.3                                                   |
+| Version                                         | 2.0-OSP13.0                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
 | based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Cimetidine-Model/releases/tag/v2.0 |
-| OSP Version                                     | 12.3                                                          |
+| OSP Version                                     | 13.0                                                          |
 | Qualification Framework Version                 | 3.7                                                          |
 
 This evaluation report and the corresponding PK-Sim project file are stored at:
@@ -195,16 +195,16 @@ The compound parameter values of the final PBPK model are illustrated below.
 
 #### Parameters
 
-Name                                             | Value                   | Value Origin                                                                                                        | Alternative | Default
------------------------------------------------- | ----------------------- | ------------------------------------------------------------------------------------------------------------------- | ----------- | -------
-Solubility at reference pH                       | 24 mg/ml                | Publication-Avdeef 2001                                                                                             | Measurement | True   
-Reference pH                                     | 6.8                     | Publication-Avdeef 2001                                                                                             | Measurement | True   
-Lipophilicity                                    | 1.655 Log Units         | Parameter Identification                                                                                            | Measurement | True   
-Fraction unbound (plasma, reference value)       | 0.78                    | Publication-Taylor 1978                                                                                             | Measurement | True   
-Specific intestinal permeability (transcellular) | 5.2554004942E-06 cm/min | Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification' on 2021-09-13 17:00 | Fit         | True   
-Is small molecule                                | Yes                     |                                                                                                                     |             |        
-Molecular weight                                 | 252.34 g/mol            | Database-Drugbank                                                                                                   |             |        
-Plasma protein binding partner                   | Unknown                 |                                                                                                                     |             |        
+Name                                             | Value                    | Value Origin                                                                                                        | Alternative | Default
+------------------------------------------------ | ------------------------ | ------------------------------------------------------------------------------------------------------------------- | ----------- | -------
+Solubility at reference pH                       | 24 mg/ml                 | Publication-Avdeef 2001                                                                                             | Measurement | True   
+Reference pH                                     | 6.8                      | Publication-Avdeef 2001                                                                                             | Measurement | True   
+Lipophilicity                                    | 1.655 Log Units          | Parameter Identification                                                                                            | Measurement | True   
+Fraction unbound (plasma, reference value)       | 0.78                     | Publication-Taylor 1978                                                                                             | Measurement | True   
+Specific intestinal permeability (transcellular) | 5.2554004942E-06 cm/min  | Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification' on 2021-09-13 17:00 | Fit         | True   
+Is small molecule                                | Yes                      |                                                                                                                     |             |        
+Molecular weight                                 | 252.33999999999997 g/mol | Database-Drugbank                                                                                                   |             |        
+Plasma protein binding partner                   | Unknown                  |                                                                                                                     |             |        
 
 #### Calculation methods
 
@@ -344,7 +344,7 @@ The first plot shows simulated versus observed plasma concentration, the second 
 |:----------------------------|:----|
 |iv administration            |1.36 |
 |multiple oral administration |1.50 |
-|single oral administration   |1.51 |
+|single oral administration   |1.52 |
 |All                          |1.47 |
 
 <br>
