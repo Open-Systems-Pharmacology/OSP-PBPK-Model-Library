@@ -1,9 +1,9 @@
 # Building and Evaluation of a PBPK Model for alfentanil in Adults
 
-| Version                                         | 3.0-OSP12.3                                                   |
+| Version                                         | 3.0-OSP13.0                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
 | based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Alfentanil-Model/releases/tag/v3.0 |
-| OSP Version                                     | 12.3                                                          |
+| OSP Version                                     | 13.0                                                          |
 | Qualification Framework Version                 | 3.7                                                          |
 
 This evaluation report and the corresponding PK-Sim project file are filed at:
@@ -132,7 +132,7 @@ The compound parameter values of the final PBPK model are illustrated below.
 
 Name                                             | Value                   | Value Origin                                                                                                          | Alternative | Default
 ------------------------------------------------ | ----------------------- | --------------------------------------------------------------------------------------------------------------------- | ----------- | -------
-Solubility at reference pH                       | 992 mg/l                | Publication-Hanke 2018                                                                                                | Baneyx 2014 | True   
+Solubility at reference pH                       | 992.0000000000001 mg/l  | Publication-Hanke 2018                                                                                                | Baneyx 2014 | True   
 Reference pH                                     | 6.5                     | Publication-Hanke 2018                                                                                                | Baneyx 2014 | True   
 Lipophilicity                                    | 1.8463211883 Log Units  | Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 4' on 2019-09-06 11:28 | Fit         | True   
 Fraction unbound (plasma, reference value)       | 0.1                     | Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 4' on 2019-09-06 11:28 | Healthy     | True   
