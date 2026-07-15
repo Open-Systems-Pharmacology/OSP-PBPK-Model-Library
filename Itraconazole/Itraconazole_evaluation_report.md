@@ -1,9 +1,9 @@
 # Building and evaluation of a PBPK model for Itraconazole in healthy adults
 
-| Version                                         | 2.0-OSP12.3                                                   |
+| Version                                         | 2.0-OSP13.0                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
 | based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Itraconazole-Model/releases/tag/v2.0 |
-| OSP Version                                     | 12.3                                                          |
+| OSP Version                                     | 13.0                                                          |
 | Qualification Framework Version                 | 3.7                                                          |
 
 This evaluation report and the corresponding PK-Sim project file are filed at:
@@ -255,7 +255,7 @@ Solubility at reference pH                       | 8 mg/l                  | Pub
 Reference pH                                     | 6.5                     | Publication-Taupitz et al. 2013                                                                           | Solution fasted (Taupitz et al. 2013) | True   
 Solubility at reference pH                       | 1.58 mg/l               |                                                                                                           | Solution fed                          | False  
 Reference pH                                     | 6.5                     |                                                                                                           | Solution fed                          | False  
-Solubility at reference pH                       | 0.9728307177 mg/l       | Parameter Identification-Parameter Identification-Value updated from 'Capsule fasted' on 2019-05-15 12:25 | Capsule fasted                        | False  
+Solubility at reference pH                       | 0.9728307176999998 mg/l | Parameter Identification-Parameter Identification-Value updated from 'Capsule fasted' on 2019-05-15 12:25 | Capsule fasted                        | False  
 Reference pH                                     | 6.5                     |                                                                                                           | Capsule fasted                        | False  
 Solubility at reference pH                       | 0.7 mg/l                |                                                                                                           | Capsule fed                           | False  
 Reference pH                                     | 6.5                     |                                                                                                           | Capsule fed                           | False  
@@ -324,16 +324,16 @@ Ki   | 0.008 µmol/l | Publication-Shityakov 2014
 
 #### Parameters
 
-Name                                       | Value           | Value Origin                | Alternative        | Default
------------------------------------------- | --------------- | --------------------------- | ------------------ | -------
-Solubility at reference pH                 | 1 mg/l          |                             | No value available | True   
-Reference pH                               | 7               |                             | No value available | True   
-Lipophilicity                              | 3.718 Log Units |                             | Fit                | True   
-Fraction unbound (plasma, reference value) | 1.7 %           | Publication-Templeton, 2008 | Templeton, 2008    | True   
-Cl                                         | 2               |                             |                    |        
-Is small molecule                          | Yes             |                             |                    |        
-Molecular weight                           | 721.633 g/mol   |                             |                    |        
-Plasma protein binding partner             | Albumin         |                             |                    |        
+Name                                       | Value                | Value Origin                | Alternative        | Default
+------------------------------------------ | -------------------- | --------------------------- | ------------------ | -------
+Solubility at reference pH                 | 1 mg/l               |                             | No value available | True   
+Reference pH                               | 7                    |                             | No value available | True   
+Lipophilicity                              | 3.718 Log Units      |                             | Fit                | True   
+Fraction unbound (plasma, reference value) | 1.7000000000000002 % | Publication-Templeton, 2008 | Templeton, 2008    | True   
+Cl                                         | 2                    |                             |                    |        
+Is small molecule                          | Yes                  |                             |                    |        
+Molecular weight                           | 721.633 g/mol        |                             |                    |        
+Plasma protein binding partner             | Albumin              |                             |                    |        
 
 #### Calculation methods
 
@@ -552,10 +552,10 @@ The plot show observed versus simulated plasma concentration and second weighted
 |:-------------------------------|:----|
 |Itraconazole iv                 |1.29 |
 |Itraconazole po capsule fasted  |1.74 |
-|Itraconazole po capsule fed     |1.57 |
-|Itraconazole po solution fasted |1.54 |
-|Itraconazole po solution fed    |1.46 |
-|All                             |1.54 |
+|Itraconazole po capsule fed     |1.99 |
+|Itraconazole po solution fasted |1.60 |
+|Itraconazole po solution fed    |1.75 |
+|All                             |1.77 |
 
 <br>
 <br>
@@ -585,11 +585,11 @@ The plot show observed versus simulated plasma concentration and second weighted
 |Group                           |GMFE |
 |:-------------------------------|:----|
 |Itraconazole iv                 |1.21 |
-|Itraconazole po capsule fasted  |1.68 |
-|Itraconazole po capsule fed     |1.95 |
-|Itraconazole po solution fasted |1.38 |
-|Itraconazole po solution fed    |1.48 |
-|All                             |1.50 |
+|Itraconazole po capsule fasted  |1.67 |
+|Itraconazole po capsule fed     |2.11 |
+|Itraconazole po solution fasted |1.34 |
+|Itraconazole po solution fed    |1.47 |
+|All                             |1.51 |
 
 <br>
 <br>
@@ -618,7 +618,7 @@ The plot show observed versus simulated plasma concentration and second weighted
 
 |Group                           |GMFE |
 |:-------------------------------|:----|
-|Itraconazole po solution fasted |1.66 |
+|Itraconazole po solution fasted |1.59 |
 
 <br>
 <br>
@@ -647,7 +647,7 @@ The plot show observed versus simulated plasma concentration and second weighted
 
 |Group                           |GMFE |
 |:-------------------------------|:----|
-|Itraconazole po solution fasted |1.53 |
+|Itraconazole po solution fasted |1.54 |
 
 <br>
 <br>
