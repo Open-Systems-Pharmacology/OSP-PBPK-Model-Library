@@ -1,9 +1,9 @@
 # Building and evaluation of a PBPK model for antibody CDA1 in healthy adults
 
-| Version                                         | 1.0-OSP12.3                                                   |
+| Version                                         | 1.0-OSP13.0                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
 | based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/CDA1-Model/releases/tag/v1.0 |
-| OSP Version                                     | 12.3                                                          |
+| OSP Version                                     | 13.0                                                          |
 | Qualification Framework Version                 | 3.7                                                          |
 
 This evaluation report and the corresponding PK-Sim project file are filed at:
@@ -110,17 +110,17 @@ The compound parameter values of the final PBPK model are illustrated below.
 
 #### Parameters
 
-Name                                       | Value        | Value Origin                                  | Alternative | Default
------------------------------------------- | ------------ | --------------------------------------------- | ----------- | -------
-Solubility at reference pH                 | 999 mg/l     | Other-/Dummy value not used in the simulation | Measurement | True   
-Reference pH                               | 7            | Other-/Dummy value not used in the simulation | Measurement | True   
-Lipophilicity                              | -5 Log Units | Other-/Dummy value not used in the simulation | Measurement | True   
-Fraction unbound (plasma, reference value) | 1            | Other-Assumption                              | Measurement | True   
-Is small molecule                          | No           |                                               |             |        
-Molecular weight                           | 150000 g/mol | Publication-Lobo2004                          |             |        
-Plasma protein binding partner             | Unknown      |                                               |             |        
-Radius (solute)                            | 5.34 nm      | Publication-Taylor1984                        |             |        
-Kd (FcRn) in endosomal space               | 0.63 µmol/l  | Publication-Zhou2003                          |             |        
+Name                                       | Value                  | Value Origin                                  | Alternative | Default
+------------------------------------------ | ---------------------- | --------------------------------------------- | ----------- | -------
+Solubility at reference pH                 | 998.9999999999999 mg/l | Other-/Dummy value not used in the simulation | Measurement | True   
+Reference pH                               | 7                      | Other-/Dummy value not used in the simulation | Measurement | True   
+Lipophilicity                              | -5 Log Units           | Other-/Dummy value not used in the simulation | Measurement | True   
+Fraction unbound (plasma, reference value) | 1                      | Other-Assumption                              | Measurement | True   
+Is small molecule                          | No                     |                                               |             |        
+Molecular weight                           | 150000 g/mol           | Publication-Lobo2004                          |             |        
+Plasma protein binding partner             | Unknown                |                                               |             |        
+Radius (solute)                            | 5.34 nm                | Publication-Taylor1984                        |             |        
+Kd (FcRn) in endosomal space               | 0.63 µmol/l            | Publication-Zhou2003                          |             |        
 
 #### Calculation methods
 
