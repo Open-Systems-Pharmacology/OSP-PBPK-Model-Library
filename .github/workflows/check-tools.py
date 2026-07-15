@@ -19,10 +19,13 @@ GITHUB_API = "https://api.github.com"
 
 def check_url(url):
     github_token = os.environ.get('GITHUB_TOKEN')
-    headers = {
-            'Authorization': f'token {github_token}',
-            'Accept': 'application/vnd.github.v3+json'
-        } if github_token else {}
+    # Only send auth to the GitHub API, not to github.com asset/download URLs
+    headers = {}
+    if github_token and url.startswith("https://api.github.com/"):
+        headers = {
+            "Authorization": f"Bearer {github_token}",
+            "Accept": "application/vnd.github.v3+json",
+        }
     try:
         resp = requests.head(url, allow_redirects=True, timeout=10, headers=headers)
         if resp.status_code >= 400:
