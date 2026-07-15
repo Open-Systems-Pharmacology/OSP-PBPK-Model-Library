@@ -1,9 +1,9 @@
 # Building and Evaluation of a PBPK Model for Verapamil in Adults
 
-| Version                                         | 2.2-OSP12.3                                                   |
+| Version                                         | 2.2-OSP13.0                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
 | based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Verapamil-Model/releases/tag/v2.2 |
-| OSP Version                                     | 12.3                                                          |
+| OSP Version                                     | 13.0                                                          |
 | Qualification Framework Version                 | 3.7                                                          |
 
 This evaluation report and the corresponding PK-Sim project file are filed at:
@@ -653,7 +653,7 @@ The first plot shows observed versus simulated plasma concentration, the second 
 |Oral administration - R-norverapamil      |1.14 |
 |Oral administration - R-verapamil         |1.33 |
 |Oral administration - S-norverapamil      |1.16 |
-|Oral administration - S-verapamil         |1.31 |
+|Oral administration - S-verapamil         |1.30 |
 |Oral administration - verapamil           |1.42 |
 |All                                       |1.35 |
 
