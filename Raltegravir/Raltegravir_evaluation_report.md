@@ -1,9 +1,9 @@
 # Building and evaluation of a PBPK model for raltegravir in adults
 
-| Version                                         | 2.0-OSP12.3                                                   |
+| Version                                         | 2.0-OSP13.0                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
 | based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Raltegravir-Model/releases/tag/v2.0 |
-| OSP Version                                     | 12.3                                                          |
+| OSP Version                                     | 13.0                                                          |
 | Qualification Framework Version                 | 3.7                                                          |
 
 This evaluation report and the corresponding PK-Sim project file are filed at:
@@ -145,16 +145,16 @@ The compound parameter values of the final raltegravir PBPK model are illustrate
 
 #### Parameters
 
-Name                                             | Value                 | Value Origin                           | Alternative | Default
------------------------------------------------- | --------------------- | -------------------------------------- | ----------- | -------
-Solubility table                                 | 40 mg/l               | Publication-In Vitro-Moss 2013 Table 2 | Moss 2013   | True   
-Lipophilicity                                    | 0.58 Log Units        | Publication-Moss 2012                  | Moss 2012   | True   
-Fraction unbound (plasma, reference value)       | 0.17                  | Publication-In Vitro-Laufer 2009       | Measurement | True   
-Specific intestinal permeability (transcellular) | 2.8481843854E-07 cm/s | Parameter Identification               | Fit         | True   
-F                                                | 1                     | Publication-Other-Drugbank.ca          |             |        
-Is small molecule                                | Yes                   |                                        |             |        
-Molecular weight                                 | 444.4163 g/mol        | Publication-Other-Drugbank.ca          |             |        
-Plasma protein binding partner                   | Albumin               |                                        |             |        
+Name                                             | Value                  | Value Origin                           | Alternative | Default
+------------------------------------------------ | ---------------------- | -------------------------------------- | ----------- | -------
+Solubility table                                 | 40.00000000000001 mg/l | Publication-In Vitro-Moss 2013 Table 2 | Moss 2013   | True   
+Lipophilicity                                    | 0.58 Log Units         | Publication-Moss 2012                  | Moss 2012   | True   
+Fraction unbound (plasma, reference value)       | 0.17                   | Publication-In Vitro-Laufer 2009       | Measurement | True   
+Specific intestinal permeability (transcellular) | 2.8481843854E-07 cm/s  | Parameter Identification               | Fit         | True   
+F                                                | 1                      | Publication-Other-Drugbank.ca          |             |        
+Is small molecule                                | Yes                    |                                        |             |        
+Molecular weight                                 | 444.4163 g/mol         | Publication-Other-Drugbank.ca          |             |        
+Plasma protein binding partner                   | Albumin                |                                        |             |        
 
 #### Calculation methods
 
@@ -261,9 +261,9 @@ Below you find the goodness-of-fit visual diagnostic plots for raltegravir PBPK 
 |:----------------------------------|:----|
 |Raltegravir chewable tablet        |1.37 |
 |Raltegravir filmcoated tablet      |1.56 |
-|Raltegravir granules in suspension |1.42 |
-|Raltegravir lactose formulation    |1.48 |
-|All                                |1.49 |
+|Raltegravir granules in suspension |1.40 |
+|Raltegravir lactose formulation    |1.47 |
+|All                                |1.48 |
 
 <br>
 <br>
