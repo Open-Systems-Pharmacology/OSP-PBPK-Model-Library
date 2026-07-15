@@ -1,9 +1,9 @@
 # Building and evaluation of a PBPK model for erythromycin in healthy adults
 
-| Version                                         | 2.0-OSP12.3                                                   |
+| Version                                         | 2.0-OSP13.0                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
 | based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Erythromycin-Model/releases/tag/v2.0 |
-| OSP Version                                     | 12.3                                                          |
+| OSP Version                                     | 13.0                                                          |
 | Qualification Framework Version                 | 3.7                                                          |
 
 This evaluation report and the corresponding PK-Sim project file are filed at:
@@ -298,7 +298,7 @@ Name                                             | Value                   | Val
 ------------------------------------------------ | ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------- | -------
 Solubility at reference pH                       | 28.0708790976 mg/l      | Parameter Identification-Parameter Identification-Value updated from '003 - BP conc ratio FIX' on 2019-11-14 14:43                     | Erythromycin stearate film-coated tablet | True   
 Reference pH                                     | 7                       | Parameter Identification-Parameter Identification-Value updated from '001' on 2019-10-01 13:46                                         | Erythromycin stearate film-coated tablet | True   
-Solubility at reference pH                       | 500 mg/l                | Parameter Identification-Parameter Identification-Value updated from '001' on 2019-10-01 13:46                                         | Erythromycin base enteric coated pellets | False  
+Solubility at reference pH                       | 500.00000000000006 mg/l | Parameter Identification-Parameter Identification-Value updated from '001' on 2019-10-01 13:46                                         | Erythromycin base enteric coated pellets | False  
 Reference pH                                     | 7                       | Parameter Identification-Parameter Identification-Value updated from '001' on 2019-10-01 13:46                                         | Erythromycin base enteric coated pellets | False  
 Solubility at reference pH                       | 200 mg/ml               | Publication-In Vitro-Hoffhine, Jr Charles E. "Aqueous soluble salts of erythromycin." U.S. Patent 2,761,859, issued September 4, 1956. | Erythromycin lactobionate                | False  
 Reference pH                                     | 7                       | Publication-In Vitro-Hoffhine, Jr Charles E. "Aqueous soluble salts of erythromycin." U.S. Patent 2,761,859, issued September 4, 1956. | Erythromycin lactobionate                | False  
@@ -443,11 +443,11 @@ The first plot shows simulated versus observed plasma concentration, the second 
 |IV (model building)                                      |1.46 |
 |PO enteric coated capsule, base pellets                  |1.82 |
 |PO enteric coated capsule, base pellets (model building) |1.24 |
-|PO enteric coated tablet, base (model building)          |1.35 |
-|PO film-coated tablet, base                              |1.90 |
+|PO enteric coated tablet, base (model building)          |1.44 |
+|PO film-coated tablet, base                              |2.27 |
 |PO film-coated tablet, stearate                          |1.78 |
 |PO film-coated tablet, stearate (model building)         |1.38 |
-|All                                                      |1.58 |
+|All                                                      |1.59 |
 
 <br>
 <br>
