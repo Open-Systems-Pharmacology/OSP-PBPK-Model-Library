@@ -1,9 +1,9 @@
 # Building and evaluation of a PBPK model for efavirenz in healthy adults
 
-| Version     | 2.0-OSP12.3            |
+| Version     | 2.0-OSP13.0            |
 | ----------- | --------------------- |
 | Based on Model Snapshot and Evaluation Plan | https://github.com/Open-Systems-Pharmacology/Efavirenz-Model/releases/tag/v2.0 |
-| OSP Version | 12.3                   |
+| OSP Version | 13.0                   |
 | Qualification Framework Version | 3.7                   |
 
 This evaluation report and the corresponding PK-Sim project file are stored at:
@@ -159,18 +159,18 @@ The compound parameter values of the final PBPK model are illustrated below.
 
 #### Parameters
 
-Name                                             | Value                   | Value Origin                                                                                                                 | Alternative | Default
------------------------------------------------- | ----------------------- | ---------------------------------------------------------------------------------------------------------------------------- | ----------- | -------
-Solubility at reference pH                       | 39.9217804729 mg/l      | Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 7 (Mida)' on 2019-10-11 09:02 | Measurement | True   
-Reference pH                                     | 0                       |                                                                                                                              | Measurement | True   
-Lipophilicity                                    | 3.4369753585 Log Units  | Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 7 (Mida)' on 2019-10-11 09:02 | Optimized   | True   
-Fraction unbound (plasma, reference value)       | 0.0059553692487         | Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 7 (Mida)' on 2019-10-11 09:02 | Measurement | True   
-Specific intestinal permeability (transcellular) | 2.9720579005E-05 cm/min | Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 7 (Mida)' on 2019-10-11 09:02 | Optimized   | True   
-Cl                                               | 1                       |                                                                                                                              |             |        
-F                                                | 3                       |                                                                                                                              |             |        
-Is small molecule                                | Yes                     |                                                                                                                              |             |        
-Molecular weight                                 | 315.675 g/mol           |                                                                                                                              |             |        
-Plasma protein binding partner                   | Albumin                 |                                                                                                                              |             |        
+Name                                             | Value                         | Value Origin                                                                                                                 | Alternative | Default
+------------------------------------------------ | ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | ----------- | -------
+Solubility at reference pH                       | 39.9217804729 mg/l            | Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 7 (Mida)' on 2019-10-11 09:02 | Measurement | True   
+Reference pH                                     | 0                             |                                                                                                                              | Measurement | True   
+Lipophilicity                                    | 3.4369753585 Log Units        | Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 7 (Mida)' on 2019-10-11 09:02 | Optimized   | True   
+Fraction unbound (plasma, reference value)       | 0.0059553692487               | Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 7 (Mida)' on 2019-10-11 09:02 | Measurement | True   
+Specific intestinal permeability (transcellular) | 2.9720579005000002E-05 cm/min | Parameter Identification-Parameter Identification-Value updated from 'Parameter Identification 7 (Mida)' on 2019-10-11 09:02 | Optimized   | True   
+Cl                                               | 1                             |                                                                                                                              |             |        
+F                                                | 3                             |                                                                                                                              |             |        
+Is small molecule                                | Yes                           |                                                                                                                              |             |        
+Molecular weight                                 | 315.675 g/mol                 |                                                                                                                              |             |        
+Plasma protein binding partner                   | Albumin                       |                                                                                                                              |             |        
 
 #### Calculation methods
 
@@ -334,9 +334,9 @@ The first plot shows simulated versus observed plasma concentration, the second 
 
 |Group                        |GMFE |
 |:----------------------------|:----|
-|First dose administration    |1.47 |
-|Multiple dose administration |1.40 |
-|All                          |1.45 |
+|First dose administration    |1.83 |
+|Multiple dose administration |1.67 |
+|All                          |1.78 |
 
 <br>
 <br>
