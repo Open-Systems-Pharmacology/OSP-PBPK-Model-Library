@@ -1,9 +1,9 @@
 # Building and evaluation of a PBPK model for Sildenafil in healthy adults
 
-| Version                                         | 2.0-OSP12.3                                                   |
+| Version                                         | 2.0-OSP13.0                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
 | based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Sildenafil-Model/releases/tag/v2.0 |
-| OSP Version                                     | 12.3                                                          |
+| OSP Version                                     | 13.0                                                          |
 | Qualification Framework Version                 | 3.7                                                          |
 
 This evaluation report and the corresponding PK-Sim project file are filed at:
@@ -305,9 +305,9 @@ The first plot shows observed versus simulated plasma concentration, the second 
 |:------------------------------------------------|:----|
 |Intravenous administration (model building)      |1.64 |
 |Oral administration, solution (model building)   |1.37 |
-|Oral administration, tablet (model building)     |1.44 |
-|Oral administration, tablet (model verification) |1.82 |
-|All                                              |1.62 |
+|Oral administration, tablet (model building)     |1.45 |
+|Oral administration, tablet (model verification) |1.73 |
+|All                                              |1.60 |
 
 <br>
 <br>
