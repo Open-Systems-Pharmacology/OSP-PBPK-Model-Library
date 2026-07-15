@@ -1,9 +1,9 @@
 # Building and evaluation of a PBPK model for Moclobemide in adults
 
-| Version                                         | 2.0-OSP12.3                                                   |
+| Version                                         | 2.0-OSP13.0                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
 | based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Moclobemide-Model/releases/tag/v2.0 |
-| OSP Version                                     | 12.3                                                         |
+| OSP Version                                     | 13.0                                                         |
 | Qualification Framework Version                 | 3.7  		                                                 |
 
 This evaluation report and the corresponding PK-Sim project file are filed at:
@@ -240,11 +240,15 @@ Type: Particle Dissolution
 
 #### Parameters
 
-Name                               | Value        | Value Origin                                                                                                                                                                                                                                                   
----------------------------------- | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Thickness (unstirred water layer)  | 20 µm        | Publication-Willmann S, Thelen K, Becker C, et al. Mechanism-based prediction of particle size-dependent dissolution and absorption: cilostazol pharmacokinetics in dogs. Eur J Pharm Biopharm. 2010 Sep;76(1):83-94 https://doi.org/10.1016/j.ejpb.2010.06.003
-Type of particle size distribution | Monodisperse |                                                                                                                                                                                                                                                                
-Particle radius (mean)             | 10 µm        |                                                                                                                                                                                                                                                                
+Name                                    | Value                    | Value Origin                                                                                                                                                                                                                                                   
+--------------------------------------- | ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Thickness (unstirred water layer)       | 20 µm                    | Publication-Willmann S, Thelen K, Becker C, et al. Mechanism-based prediction of particle size-dependent dissolution and absorption: cilostazol pharmacokinetics in dogs. Eur J Pharm Biopharm. 2010 Sep;76(1):83-94 https://doi.org/10.1016/j.ejpb.2010.06.003
+Type of particle size distribution      | Monodisperse             |                                                                                                                                                                                                                                                                
+Particle radius (mean)                  | 10 µm                    |                                                                                                                                                                                                                                                                
+Thickness limit (unstirred water layer) | 0.0029999999999999996 cm |                                                                                                                                                                                                                                                                
+Use Hydrodynamic Model                  | Yes                      |                                                                                                                                                                                                                                                                
+Use Effective Diffusion                 | No                       |                                                                                                                                                                                                                                                                
+Use Hintz-Johnson                       | Yes                      |                                                                                                                                                                                                                                                                
 
 ## 3.2 Diagnostics Plots<a id="diagnostics-plots"></a>
 
