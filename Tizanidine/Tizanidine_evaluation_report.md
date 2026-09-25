@@ -1,9 +1,9 @@
 # Building and evaluation of a PBPK model for tizanidine in adults
 
-| Version                                         | 2.0-OSP12.3                                                   |
+| Version                                         | 2.0-OSP13.0                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
 | based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Tizanidine-Model/releases/tag/v2.0 |
-| OSP Version                                     | 12.3                                                          |
+| OSP Version                                     | 13.0                                                          |
 | Qualification Framework Version                 | 3.7                                                          |
 
 This evaluation report and the corresponding PK-Sim project file are filed at:
@@ -229,7 +229,7 @@ The first plot shows observed versus simulated plasma concentration, the second 
 |:--------------------------------------|:----|
 |Oral administration (model building)   |1.52 |
 |Oral administration (model validation) |1.77 |
-|All                                    |1.65 |
+|All                                    |1.64 |
 
 <br>
 <br>
