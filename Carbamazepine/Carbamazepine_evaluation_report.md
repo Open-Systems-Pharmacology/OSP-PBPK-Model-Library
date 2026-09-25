@@ -1,9 +1,9 @@
 # Building and evaluation of a PBPK Model for carbamazepine in healthy adults
 
-| Version                                         | 2.0-OSP12.3                                                         |
+| Version                                         | 2.0-OSP13.0                                                         |
 | ----------------------------------------------- | ------------------------------------------------------------ |
 | based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Carbamazepine-Model/releases/tag/v2.0 |
-| OSP Version                                     | 12.3                                                         |
+| OSP Version                                     | 13.0                                                         |
 | Qualification Framework Version                 | 3.7                                                         |
 
 This evaluation report and the corresponding PK-Sim project file are stored at:
@@ -468,7 +468,7 @@ The first plot shows simulated versus observed plasma concentration, the second 
 |Carbamazepine, IV administration                                 |1.28 |
 |Carbamazepine, PO administration as extended release formulation |1.41 |
 |Carbamazepine, PO administration as immediate release tablet     |1.40 |
-|Carbamazepine, PO administration as liquid oral dosage form      |2.35 |
+|Carbamazepine, PO administration as liquid oral dosage form      |2.34 |
 |All                                                              |1.49 |
 
 <br>
