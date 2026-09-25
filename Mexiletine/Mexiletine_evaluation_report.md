@@ -1,9 +1,9 @@
 # Building and evaluation of a PBPK model for Mexiletine in adults
 
-| Version                                         | 2.0-OSP12.3                                                   |
+| Version                                         | 2.0-OSP13.0                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
 | based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Mexiletine-Model/releases/tag/v2.0 |
-| OSP Version                                     | 12.3                                                          |
+| OSP Version                                     | 13.0                                                          |
 | Qualification Framework Version                 | 3.7                                                          |
 
 This evaluation report and the corresponding PK-Sim project file are filed at:
@@ -157,17 +157,17 @@ The parameter values of the final PBPK model are illustrated below.
 
 #### Parameters
 
-Name                                             | Value                   | Value Origin              | Alternative | Default
------------------------------------------------- | ----------------------- | ------------------------- | ----------- | -------
-Solubility at reference pH                       | 0.54 mg/ml              | Database-DrugBank DB00379 | S_aq        | True   
-Reference pH                                     | 7                       | Database-DrugBank DB00379 | S_aq        | True   
-Lipophilicity                                    | 2.3770265519 Log Units  | Parameter Identification  | LogP        | True   
-Fraction unbound (plasma, reference value)       | 0.5                     | Database-DrugBank DB00379 | fu_plasma   | True   
-Permeability                                     | 0.001637391584 cm/min   | Parameter Identification  | Fit         | True   
-Specific intestinal permeability (transcellular) | 0.00047373454608 cm/min | Parameter Identification  | Fit         | True   
-Is small molecule                                | Yes                     |                           |             |        
-Molecular weight                                 | 179.26 g/mol            | Database-DrugBank DB00379 |             |        
-Plasma protein binding partner                   | Albumin                 |                           |             |        
+Name                                             | Value                         | Value Origin              | Alternative | Default
+------------------------------------------------ | ----------------------------- | ------------------------- | ----------- | -------
+Solubility at reference pH                       | 0.54 mg/ml                    | Database-DrugBank DB00379 | S_aq        | True   
+Reference pH                                     | 7                             | Database-DrugBank DB00379 | S_aq        | True   
+Lipophilicity                                    | 2.3770265519 Log Units        | Parameter Identification  | LogP        | True   
+Fraction unbound (plasma, reference value)       | 0.5                           | Database-DrugBank DB00379 | fu_plasma   | True   
+Permeability                                     | 0.0016373915840000002 cm/min  | Parameter Identification  | Fit         | True   
+Specific intestinal permeability (transcellular) | 0.00047373454608000003 cm/min | Parameter Identification  | Fit         | True   
+Is small molecule                                | Yes                           |                           |             |        
+Molecular weight                                 | 179.26 g/mol                  | Database-DrugBank DB00379 |             |        
+Plasma protein binding partner                   | Albumin                       |                           |             |        
 
 #### Calculation methods
 
