@@ -1,15 +1,16 @@
 #!/usr/bin/env python3
 """
 Script to compare images and PDFs in a pull request.
-Performs visual comparison of images using SSIM and text comparison of PDFs.
+Performs visual comparison of images and text comparison of PDFs.
 """
 
+import argparse
 import os
 import sys
 import json
 import requests
 from io import BytesIO
-from typing import List, Dict, Tuple, Any
+from typing import List, Dict, Optional, Tuple, Any
 import difflib
 
 # Image processing imports
@@ -34,14 +35,147 @@ except ImportError:
 # fast instead of hanging indefinitely on network issues.
 REQUEST_TIMEOUT = 30
 
+# Default tolerance, in pixels, for matching plotted content between two
+# revisions of an image. Re-rendering a plot with a different tool version
+# frequently displaces the whole panel content by about a pixel without
+# changing anything scientifically meaningful, so content that merely moved by
+# up to this many pixels is still counted as a match.
+DEFAULT_CURVE_SHIFT_TOLERANCE_PX = 2
+
+# A pixel counts as "content" (as opposed to background) when at least one of
+# its channels deviates from the estimated background colour by more than this.
+# Large enough to ignore anti-aliasing halos and compression artefacts, small
+# enough to keep faint gridlines and light-coloured ranges.
+BACKGROUND_TOLERANCE = 30
+
+# Colours are quantized into buckets of this width per channel before the
+# dominant (background) colour is determined, so that a background that is not
+# perfectly uniform still yields a single peak.
+BACKGROUND_QUANTIZATION = 16
+
+# Minimum share of pixels the dominant colour must cover for an image to be
+# treated as a plot on a uniform background. Below this the content mask is not
+# meaningful (for example for filled or shaded plots) and the comparison falls
+# back to whole-image SSIM.
+MIN_BACKGROUND_FRACTION = 0.5
+
+# Thresholds used to turn a similarity score into a human-readable assessment.
+# They are informational only and never fail the workflow.
+IDENTICAL_THRESHOLD = 0.99
+MINOR_CHANGE_THRESHOLD = 0.95
+
+
+def estimate_background_color(rgb: np.ndarray) -> Tuple[np.ndarray, float]:
+    """Estimate the background colour of an image as its dominant colour.
+
+    Returns the colour and the fraction of pixels covered by it. Colours are
+    quantized first so that slight variations of the same background (JPEG
+    noise, subtle gradients) collapse into one bucket.
+    """
+    quantized = (rgb.reshape(-1, 3) // BACKGROUND_QUANTIZATION).astype(np.int32)
+    levels = 256 // BACKGROUND_QUANTIZATION
+    keys = (quantized[:, 0] * levels + quantized[:, 1]) * levels + quantized[:, 2]
+
+    unique_keys, counts = np.unique(keys, return_counts=True)
+    dominant = unique_keys[np.argmax(counts)]
+    fraction = counts.max() / len(keys)
+
+    half = BACKGROUND_QUANTIZATION // 2
+    color = np.array([
+        (dominant // (levels * levels)) * BACKGROUND_QUANTIZATION + half,
+        ((dominant // levels) % levels) * BACKGROUND_QUANTIZATION + half,
+        (dominant % levels) * BACKGROUND_QUANTIZATION + half,
+    ])
+
+    return color, float(fraction)
+
+
+def content_mask(rgb: np.ndarray, background: np.ndarray) -> np.ndarray:
+    """Mark every pixel that differs noticeably from the background colour.
+
+    These are the pixels that actually carry information: curves, dots, ranges,
+    error intervals, axes and labels.
+    """
+    deviation = np.abs(rgb.astype(np.int16) - background.astype(np.int16))
+    return deviation.max(axis=2) > BACKGROUND_TOLERANCE
+
+
+def dilate(mask: np.ndarray, radius: int) -> np.ndarray:
+    """Grow a boolean mask by `radius` pixels in every direction.
+
+    Uses a square structuring element, applied separably (once along each axis)
+    so the cost grows linearly rather than quadratically with the radius.
+    """
+    if radius <= 0:
+        return mask
+
+    grown = mask
+    for axis in (0, 1):
+        padding = [(0, 0), (0, 0)]
+        padding[axis] = (radius, radius)
+        padded = np.pad(grown, padding, constant_values=False)
+
+        shifted = np.zeros_like(grown)
+        length = grown.shape[axis]
+        for offset in range(2 * radius + 1):
+            window = [slice(None), slice(None)]
+            window[axis] = slice(offset, offset + length)
+            shifted |= padded[tuple(window)]
+        grown = shifted
+
+    return grown
+
+
+def tolerant_content_similarity(rgb1: np.ndarray, rgb2: np.ndarray, tolerance: int) -> Optional[float]:
+    """Compare two images by how well their non-background content overlaps.
+
+    Unlike whole-image SSIM this ignores the background, which typically covers
+    well over 90% of a scientific plot and otherwise dominates the score. Every
+    content pixel of one image is considered matched when the other image has
+    content within `tolerance` pixels, so a plot that was merely re-rendered
+    with a slightly shifted layout still scores 1.0 while a plot whose curves
+    actually moved does not.
+
+    Returns None when either image has no dominant background, in which case
+    the content mask would not be meaningful.
+    """
+    background1, fraction1 = estimate_background_color(rgb1)
+    background2, fraction2 = estimate_background_color(rgb2)
+
+    if min(fraction1, fraction2) < MIN_BACKGROUND_FRACTION:
+        return None
+
+    mask1 = content_mask(rgb1, background1)
+    mask2 = content_mask(rgb2, background2)
+
+    total = int(mask1.sum()) + int(mask2.sum())
+    if total == 0:
+        # Both images are entirely background, so they are trivially identical.
+        return 1.0
+
+    unmatched1 = int((mask1 & ~dilate(mask2, tolerance)).sum())
+    unmatched2 = int((mask2 & ~dilate(mask1, tolerance)).sum())
+
+    return 1.0 - (unmatched1 + unmatched2) / total
+
+
+def describe_similarity(score: float) -> str:
+    """Turn a similarity score into a short, informational assessment."""
+    if score >= IDENTICAL_THRESHOLD:
+        return "identical or rendering noise"
+    if score >= MINOR_CHANGE_THRESHOLD:
+        return "minor change"
+    return "review required"
+
 
 class ImagePDFComparator:
     """Compares images and PDFs from a pull request"""
 
-    def __init__(self):
+    def __init__(self, curve_shift_tolerance_px: int = DEFAULT_CURVE_SHIFT_TOLERANCE_PX):
         self.github_token = os.environ.get('GITHUB_TOKEN')
         self.repo = os.environ.get('GITHUB_REPOSITORY')
         self.pr_number = os.environ.get('PR_NUMBER')
+        self.curve_shift_tolerance_px = curve_shift_tolerance_px
 
         if not all([self.github_token, self.repo, self.pr_number]):
             raise ValueError("Missing required environment variables: GITHUB_TOKEN, GITHUB_REPOSITORY, PR_NUMBER")
@@ -103,7 +237,7 @@ class ImagePDFComparator:
         return self._base_sha
 
     def normalize_image_size(self, img1: Image.Image, img2: Image.Image) -> Tuple[np.ndarray, np.ndarray]:
-        """Normalize two images to the same size and convert to grayscale"""
+        """Normalize two images to the same size and return them as RGB arrays"""
         # Convert to RGB if needed (to handle different modes)
         if img1.mode != 'RGB':
             img1 = img1.convert('RGB')
@@ -116,8 +250,8 @@ class ImagePDFComparator:
 
         # Use a common canvas sized to the larger dimensions. Each image is
         # scaled proportionally to fit within that canvas and then padded
-        # (letterboxed) so aspect ratios are preserved and SSIM is not skewed
-        # by non-uniform stretching.
+        # (letterboxed) so aspect ratios are preserved and the comparison is
+        # not skewed by non-uniform stretching.
         target_width = max(w1, w2)
         target_height = max(h1, h2)
 
@@ -132,14 +266,7 @@ class ImagePDFComparator:
             canvas.paste(resized, offset)
             return canvas
 
-        img1_resized = fit_to_canvas(img1)
-        img2_resized = fit_to_canvas(img2)
-
-        # Convert to grayscale numpy arrays
-        img1_gray = np.array(img1_resized.convert('L'))
-        img2_gray = np.array(img2_resized.convert('L'))
-
-        return img1_gray, img2_gray
+        return np.array(fit_to_canvas(img1)), np.array(fit_to_canvas(img2))
 
     def compare_images(self, file_info: Dict[str, Any]) -> Dict[str, Any]:
         """Compare two versions of an image using SSIM"""
@@ -197,15 +324,26 @@ class ImagePDFComparator:
                 }
 
             # Normalize and compare
-            img1_gray, img2_gray = self.normalize_image_size(old_img, new_img)
+            rgb1, rgb2 = self.normalize_image_size(old_img, new_img)
 
-            # Calculate SSIM
-            similarity_score = ssim(img1_gray, img2_gray)
+            # Compare the plotted content only. Whole-image SSIM is used as a
+            # fallback for images without a dominant background colour, where
+            # the content mask would not be meaningful.
+            similarity_score = tolerant_content_similarity(rgb1, rgb2, self.curve_shift_tolerance_px)
+            method = 'content'
+
+            if similarity_score is None:
+                similarity_score = ssim(
+                    np.array(Image.fromarray(rgb1).convert('L')),
+                    np.array(Image.fromarray(rgb2).convert('L')),
+                )
+                method = 'ssim'
 
             return {
                 'filename': filename,
                 'status': file_info['status'],
                 'similarity': similarity_score,
+                'method': method,
                 'error': None
             }
 
@@ -335,6 +473,13 @@ class ImagePDFComparator:
         # Image similarity section
         if image_results:
             report += "## Image Similarity\n\n"
+            report += (
+                "Scores compare the plotted content only (curves, dots, ranges, error "
+                "intervals, axes and labels), ignoring the background. Content that moved "
+                f"by at most {self.curve_shift_tolerance_px} pixel(s) still counts as "
+                "unchanged, so pure re-rendering differences score 1.0000. "
+                "Scores are informational and never fail this check.\n\n"
+            )
 
             # Calculate min/max similarity
             similarities = [r['similarity'] for r in image_results if r['similarity'] is not None]
@@ -347,8 +492,8 @@ class ImagePDFComparator:
                 report += "**No valid similarity scores calculated**\n\n"
 
             # Table of results
-            report += "| Image | Similarity Score |\n"
-            report += "|-------|------------------|\n"
+            report += "| Image | Similarity Score | Assessment |\n"
+            report += "|-------|------------------|------------|\n"
 
             # Sort by similarity (low to high), with None values first
             sorted_image_results = sorted(
@@ -362,12 +507,19 @@ class ImagePDFComparator:
 
                 if result['similarity'] is not None:
                     sim_display = f"{result['similarity']:.4f}"
+                    assessment = describe_similarity(result['similarity'])
+                    if result.get('method') == 'ssim':
+                        # No dominant background, so the content-based score is
+                        # not applicable and whole-image SSIM was used instead.
+                        assessment += " (whole-image SSIM)"
                 elif result['status'] in ['added', 'removed']:
                     sim_display = f"N/A ({result['status']})"
+                    assessment = "-"
                 else:
                     sim_display = f"Error: {result.get('error', 'Unknown')}"
+                    assessment = "-"
 
-                report += f"| [{filename}]({pr_file_url}) | {sim_display} |\n"
+                report += f"| [{filename}]({pr_file_url}) | {sim_display} | {assessment} |\n"
 
             report += "\n"
         else:
@@ -512,6 +664,7 @@ class ImagePDFComparator:
     def run(self):
         """Main execution function"""
         print(f"Analyzing PR #{self.pr_number} in {self.repo}")
+        print(f"Curve shift tolerance: {self.curve_shift_tolerance_px} pixel(s)")
 
         # Get changed files
         files = self.get_pr_files()
@@ -560,10 +713,34 @@ class ImagePDFComparator:
         print("="*50)
 
 
+def parse_args() -> argparse.Namespace:
+    """Parse command line arguments"""
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        '--curve-shift-tolerance-px',
+        type=int,
+        default=DEFAULT_CURVE_SHIFT_TOLERANCE_PX,
+        help=(
+            "How far (in pixels) plotted content may move between two revisions "
+            "while still counting as unchanged. Raise it to ignore larger "
+            "re-rendering shifts, lower it to also report the smallest ones. "
+            f"Default: {DEFAULT_CURVE_SHIFT_TOLERANCE_PX}."
+        ),
+    )
+
+    args = parser.parse_args()
+
+    if args.curve_shift_tolerance_px < 0:
+        parser.error("--curve-shift-tolerance-px must not be negative")
+
+    return args
+
+
 def main():
     """Main entry point"""
     try:
-        comparator = ImagePDFComparator()
+        args = parse_args()
+        comparator = ImagePDFComparator(curve_shift_tolerance_px=args.curve_shift_tolerance_px)
         comparator.run()
     except Exception as e:
         print(f"Error: {str(e)}", file=sys.stderr)
