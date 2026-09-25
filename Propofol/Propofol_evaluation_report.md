@@ -1,9 +1,9 @@
 # Building and evaluation of a PBPK model for propofol in adults
 
-| Version                                         | 1.0-OSP12.3                                                   |
+| Version                                         | 1.0-OSP13.0                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
 | based on *Model Snapshot* and *Evaluation Plan* | [https://github.com/Open-Systems-Pharmacology/Propofol-Model/releases/tag/v1.0](https://github.com/Open-Systems-Pharmacology/Propofol-Model/releases/tag/v1.0) |
-| OSP Version                                     | 12.3                                                          |
+| OSP Version                                     | 13.0                                                          |
 | Qualification Framework Version                 | 3.7                                                          |
 
 This evaluation report and the corresponding PK-Sim project file are filed at:
@@ -132,15 +132,15 @@ The compound parameter values of the final propofol PBPK model are illustrated b
 
 #### Parameters
 
-Name                                       | Value                  | Value Origin                                                    | Alternative | Default
------------------------------------------- | ---------------------- | --------------------------------------------------------------- | ----------- | -------
-Solubility at reference pH                 | 124 mg/l               | Internet-https://www.drugbank.ca/drugs/DB00818, in water @ 25°C | Measurement | True   
-Reference pH                               | 7                      | Internet-https://www.drugbank.ca/drugs/DB00818, in water @ 25°C | Measurement | True   
-Lipophilicity                              | 3.5486243812 Log Units | Parameter Identification-Parameter Identification               | Fit         | True   
-Fraction unbound (plasma, reference value) | 0.024                  | Publication-Drugbank.ca                                         | Measurement | True   
-Is small molecule                          | Yes                    |                                                                 |             |        
-Molecular weight                           | 178.2707 g/mol         | Internet-Drugbank.ca                                            |             |        
-Plasma protein binding partner             | Albumin                |                                                                 |             |        
+Name                                       | Value                   | Value Origin                                                    | Alternative | Default
+------------------------------------------ | ----------------------- | --------------------------------------------------------------- | ----------- | -------
+Solubility at reference pH                 | 124.00000000000001 mg/l | Internet-https://www.drugbank.ca/drugs/DB00818, in water @ 25°C | Measurement | True   
+Reference pH                               | 7                       | Internet-https://www.drugbank.ca/drugs/DB00818, in water @ 25°C | Measurement | True   
+Lipophilicity                              | 3.5486243812 Log Units  | Parameter Identification-Parameter Identification               | Fit         | True   
+Fraction unbound (plasma, reference value) | 0.024                   | Publication-Drugbank.ca                                         | Measurement | True   
+Is small molecule                          | Yes                     |                                                                 |             |        
+Molecular weight                           | 178.2707 g/mol          | Internet-Drugbank.ca                                            |             |        
+Plasma protein binding partner             | Albumin                 |                                                                 |             |        
 
 #### Calculation methods
 
@@ -200,9 +200,9 @@ Below you find the goodness-of-fit visual diagnostic plots for propofol PBPK mod
 |Group                                   |GMFE |
 |:---------------------------------------|:----|
 |Propofol bolus + continuous IV infusion |1.68 |
-|Propofol bolus IV infusion              |2.33 |
+|Propofol bolus IV infusion              |2.08 |
 |Propofol continuous IV infusion         |1.29 |
-|All                                     |1.57 |
+|All                                     |1.56 |
 
 <br>
 <br>
