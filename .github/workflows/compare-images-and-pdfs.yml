@@ -1,10 +1,19 @@
 name: Compare Images and PDFs
-# Compares images visually using SSIM and PDFs text content in pull requests
+# Compares the plotted content of images and the text content of PDFs in pull requests
 
 on:
-  pull_request: 
+  pull_request:
     branches:
       - develop
+  workflow_dispatch:
+    inputs:
+      curve_shift_tolerance_px:
+        description: >-
+          Maximum displacement in pixels by which plotted content may move between
+          two revisions and still be considered unchanged. Compensates for purely
+          cosmetic layout shifts introduced by the plotting engine.
+        required: false
+        default: '2'
 
 jobs:
   compare-files:
@@ -35,4 +44,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         GITHUB_REPOSITORY: ${{ github.repository }}
         PR_NUMBER: ${{ github.event.pull_request.number }}
-      run: python .github/scripts/compare-images-and-pdfs.py
+        CURVE_SHIFT_TOLERANCE_PX: ${{ inputs.curve_shift_tolerance_px || '2' }}
+      run: >-
+        python .github/scripts/compare-images-and-pdfs.py
+        --curve-shift-tolerance-px "$CURVE_SHIFT_TOLERANCE_PX"
