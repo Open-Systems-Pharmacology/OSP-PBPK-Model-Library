@@ -1,9 +1,9 @@
 # Building and Evaluation of a PBPK Model for Mefenamic Acid in Adults
 
-| Version                                         | 2.0-OSP12.3                                                   |
+| Version                                         | 2.0-OSP13.0                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
 | based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Mefenamic-acid-Model/releases/tag/v2.0 |
-| OSP Version                                     | 12.3                                                          |
+| OSP Version                                     | 13.0                                                          |
 | Qualification Framework Version                 | 3.7                                                          |
 
 This evaluation report and the corresponding PK-Sim project file are filed at:
@@ -236,7 +236,7 @@ The first plot shows simulated versus observed plasma concentrations, the second
 
 |Group                                         |GMFE |
 |:---------------------------------------------|:----|
-|PO fasted - Ponstan capsule SD administration |1.61 |
+|PO fasted - Ponstan capsule SD administration |1.62 |
 
 <br>
 <br>
