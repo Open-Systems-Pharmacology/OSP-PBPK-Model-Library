@@ -1,9 +1,9 @@
 # Building and evaluation of a PBPK model for Rifampicin in healthy adults
 
-| Version                                         | 2.0-OSP12.3                                                   |
+| Version                                         | 2.0-OSP13.0                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
 | based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Rifampicin-Model/releases/tag/v2.0 |
-| OSP Version                                     | 12.3                                                          |
+| OSP Version                                     | 13.0                                                          |
 | Qualification Framework Version                 | 3.7                                                          |
 
 This evaluation report and the corresponding PK-Sim project file are filed at:
@@ -531,8 +531,8 @@ The first plot shows observed versus simulated plasma concentration and the seco
 |Group         |GMFE |
 |:-------------|:----|
 |Rifampicin iv |1.47 |
-|Rifampicin po |1.32 |
-|All           |1.37 |
+|Rifampicin po |1.33 |
+|All           |1.38 |
 
 <br>
 <br>
