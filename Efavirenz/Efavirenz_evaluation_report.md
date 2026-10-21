@@ -1,9 +1,9 @@
 # Building and evaluation of a PBPK model for efavirenz in healthy adults
 
-| Version     | 2.0-OSP12.3            |
+| Version     | migration/osp-suite-v13-snapshot-OSP13.0            |
 | ----------- | --------------------- |
-| Based on Model Snapshot and Evaluation Plan | https://github.com/Open-Systems-Pharmacology/Efavirenz-Model/releases/tag/v2.0 |
-| OSP Version | 12.3                   |
+| Based on Model Snapshot and Evaluation Plan | https://github.com/Open-Systems-Pharmacology/Efavirenz-Model/releases/tag/vmigration/osp-suite-v13-snapshot |
+| OSP Version | 13.0                   |
 | Qualification Framework Version | 3.7                   |
 
 This evaluation report and the corresponding PK-Sim project file are stored at:
@@ -171,6 +171,7 @@ F                                                | 3                       |    
 Is small molecule                                | Yes                     |                                                                                                                              |             |        
 Molecular weight                                 | 315.675 g/mol           |                                                                                                                              |             |        
 Plasma protein binding partner                   | Albumin                 |                                                                                                                              |             |        
+Use bile salt micellization                      | No                      | Unknown                                                                                                                      |             |        
 
 #### Calculation methods
 
