@@ -1,9 +1,9 @@
 # Building and evaluation of a PBPK model for Itraconazole in healthy adults
 
-| Version                                         | 2.0-OSP12.3                                                   |
+| Version                                         | migration/osp-suite-v13-snapshot-OSP13.0                                                   |
 | ----------------------------------------------- | ------------------------------------------------------------ |
-| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Itraconazole-Model/releases/tag/v2.0 |
-| OSP Version                                     | 12.3                                                          |
+| based on *Model Snapshot* and *Evaluation Plan* | https://github.com/Open-Systems-Pharmacology/Itraconazole-Model/releases/tag/vmigration/osp-suite-v13-snapshot |
+| OSP Version                                     | 13.0                                                          |
 | Qualification Framework Version                 | 3.7                                                          |
 
 This evaluation report and the corresponding PK-Sim project file are filed at:
@@ -266,6 +266,7 @@ Cl                                               | 2                       |    
 Is small molecule                                | Yes                     |                                                                                                           |                                       |        
 Molecular weight                                 | 705.633 g/mol           |                                                                                                           |                                       |        
 Plasma protein binding partner                   | Albumin                 |                                                                                                           |                                       |        
+Use bile salt micellization                      | No                      | Unknown                                                                                                   |                                       |        
 
 #### Calculation methods
 
@@ -588,7 +589,7 @@ The plot show observed versus simulated plasma concentration and second weighted
 |Itraconazole po capsule fasted  |1.68 |
 |Itraconazole po capsule fed     |1.95 |
 |Itraconazole po solution fasted |1.38 |
-|Itraconazole po solution fed    |1.48 |
+|Itraconazole po solution fed    |1.49 |
 |All                             |1.50 |
 
 <br>
