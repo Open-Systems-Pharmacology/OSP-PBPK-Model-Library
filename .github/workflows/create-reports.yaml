@@ -110,13 +110,24 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v6
     
+    - id: branch
+      name: Define branch name
+      # Repository name can be a relative path (e.g. ../Owner/Repo-Model) which is not a valid branch name
+      run: |
+        repoName="${REPOSITORY_NAME##*/}"
+        echo "name=${REF_NAME}-${repoName}" >> $GITHUB_OUTPUT
+      env:
+        REPOSITORY_NAME: ${{ matrix['Repository name'] }}
+        REF_NAME: ${{ github.ref_name }}
+      shell: bash
+
     - name: Rebase from develop
       run: |
         git config --global core.longpaths true
         git config --global user.name 'github-actions'
         git config --global user.email 'github-actions@github.com'
-        git checkout -b ${{ github.ref_name }}-${{ matrix['Repository name'] }}
-        git push -u origin ${{ github.ref_name }}-${{ matrix['Repository name'] }}
+        git checkout -b ${{ steps.branch.outputs.name }}
+        git push -u origin ${{ steps.branch.outputs.name }}
         git fetch origin develop
         git rebase -Xours origin/develop
         git reset HEAD^
@@ -171,7 +182,7 @@ jobs:
         # Use a custom PAT because GITHUB_TOKEN cannot trigger subsequent workflows (here: required checks on pull_request).
         # S. https://github.com/peter-evans/create-pull-request/blob/main/docs/concepts-guidelines.md#triggering-further-workflow-runs
         token: ${{ secrets.PAT_PR_TRIGGERED_BY_ACTIONS }}
-        branch: ${{ github.ref_name }}-${{ matrix['Repository name'] }}
+        branch: ${{ steps.branch.outputs.name }}
         base: develop
         commit-message: ${{ inputs.commit-message }}
         add-paths: |
